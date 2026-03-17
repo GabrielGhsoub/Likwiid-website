@@ -1,0 +1,54 @@
+---
+- name: Likwiid Website - Build & Deploy Verification
+  hosts: localhost
+  connection: local
+  vars:
+    project_dir: "{{ playbook_dir }}/../../"
+    node_version: "20"
+
+  tasks:
+    - name: Verify Node.js is installed
+      command: node --version
+      register: node_check
+      changed_when: false
+
+    - name: Install dependencies
+      command: npm ci
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Run linter
+      command: npm run lint
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Run type check
+      command: npx tsc --noEmit
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Build production bundle
+      command: npm run build
+      args:
+        chdir: "{{ project_dir }}"
+
+    - name: Verify build output exists
+      stat:
+        path: "{{ project_dir }}/dist/index.html"
+      register: build_output
+
+    - name: Fail if build output missing
+      fail:
+        msg: "Build failed - dist/index.html not found"
+      when: not build_output.stat.exists
+
+    - name: Report build size
+      command: du -sh dist/
+      args:
+        chdir: "{{ project_dir }}"
+      register: build_size
+      changed_when: false
+
+    - name: Display build size
+      debug:
+        msg: "Build size: {{ build_size.stdout }}"
