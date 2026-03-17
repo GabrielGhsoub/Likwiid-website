@@ -17,7 +17,7 @@ const SCALE_INITIAL = { scale: 0 }
 const SCALE_ANIMATE = { scale: 1 }
 const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1 }
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2 }
-const TRANSITION_SPRING = { type: 'spring', stiffness: 200, damping: 15 }
+const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 15 }
 
 export default function Contact() {
   const { status, submit, reset } = useFormSubmit()
