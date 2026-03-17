@@ -13,7 +13,7 @@ export function Footer() {
             to="/"
             className="font-[family-name:var(--font-display)] text-lg font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
           >
-            <span className="text-accent-gold">L</span>ik<span className="text-accent-gold tracking-wider">wii</span>d
+            Likwiid
           </Link>
           <span className="text-text-tertiary text-sm">
             &copy; {CURRENT_YEAR} Likwiid. Founded by Gabriel Ghoussoub.

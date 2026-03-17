@@ -62,7 +62,7 @@ export function Navbar() {
             to="/"
             className="font-[family-name:var(--font-display)] text-xl font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
           >
-            <span className="text-accent-gold">L</span>ik<span className="text-accent-gold tracking-wider">wii</span>d
+            Likwiid
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
