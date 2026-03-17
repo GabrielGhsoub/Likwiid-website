@@ -63,7 +63,7 @@ export default function Portfolio() {
                         style={{ background: project.gradient }}
                       >
                         {project.images.length > 0 && project.platform === 'mobile' ? (
-                          <div className="bg-[#1a1a1d] rounded-[1rem] p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                          <div className="bg-bg-tertiary rounded-[1rem] p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                             <div className="rounded-[0.9rem] overflow-hidden">
                               <img
                                 src={project.images[0]}
@@ -76,14 +76,14 @@ export default function Portfolio() {
                         ) : project.images.length > 0 && project.platform === 'web' ? (
                           <div className="w-[90%]">
                             <div className="rounded-md overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-                              <div className="bg-[#1e1e22] px-2 py-1 flex items-center gap-1.5">
+                              <div className="bg-bg-tertiary px-2 py-1 flex items-center gap-1.5">
                                 <div className="flex items-center gap-1">
                                   <div className="w-[6px] h-[6px] rounded-full bg-[#ff5f57]" />
                                   <div className="w-[6px] h-[6px] rounded-full bg-[#febc2e]" />
                                   <div className="w-[6px] h-[6px] rounded-full bg-[#28c840]" />
                                 </div>
-                                <div className="flex-1 bg-[#111113] rounded px-2 py-0.5">
-                                  <div className="w-[40%] h-[4px] rounded bg-[#2a2a2e]" />
+                                <div className="flex-1 bg-bg-secondary rounded px-2 py-0.5">
+                                  <div className="w-[40%] h-[4px] rounded bg-border" />
                                 </div>
                               </div>
                               <img

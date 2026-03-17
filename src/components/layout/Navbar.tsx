@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
+import { useTheme } from '../../hooks/useTheme'
 
 const MOBILE_OVERLAY_INITIAL = { opacity: 0 }
 const MOBILE_OVERLAY_ANIMATE = { opacity: 1 }
@@ -21,6 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     let ticking = false
@@ -81,6 +83,13 @@ export function Navbar() {
                 )}
               </Link>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </div>
 
           <button
@@ -122,6 +131,13 @@ export function Navbar() {
                 </Link>
               </m.div>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="text-text-secondary hover:text-text-primary transition-colors mt-4 cursor-pointer"
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+            </button>
           </m.div>
         )}
       </AnimatePresence>

@@ -43,6 +43,20 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+.light {
+  --color-bg-primary: #FAFBFC;
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #F0F2F5;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #8B949E;
+  --color-accent-gold: #0891B2;
+  --color-accent-blue: #0284C7;
+  --color-accent-gold-dim: #0891B21A;
+  --color-border: #E2E8F0;
+  --color-border-hover: #CBD5E1;
+}
+
 *,
 *::before,
 *::after {
