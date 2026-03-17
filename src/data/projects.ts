@@ -2,62 +2,6 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
-    id: 'ai-fitness-coach',
-    slug: 'ai-fitness-coach',
-    title: 'AI Fitness Coach',
-    subtitle: 'AI-powered personal training with adaptive workout programming',
-    client: 'Likwiid',
-    category: 'AI',
-    year: '2025',
-    description:
-      'A mobile fitness app with an AI coach that generates personalized 12-week programs, provides real-time form cues, tracks RPE, and adapts training based on performance history.',
-    challenge:
-      "Most fitness apps offer static programs that don't adapt to the user. Personal trainers are expensive. There was no affordable middle ground that combined structured programming with intelligent, context-aware coaching.",
-    approach:
-      "Built a React Native Expo app with an AI Coach powered by LLM integration. The coach knows the user's full program, training history, and preferences. It provides exercise-specific form cues, RPE-based load recommendations, nutrition guidance, and weekly progress summaries.",
-    results:
-      'Working prototype with AI Coach chat, workout tracking with RPE logging, program generation, and workout summary analytics.',
-    techStack: ['React Native', 'Expo', 'TypeScript', 'Claude API', 'Zustand', 'SQLite'],
-    images: [
-      '/images/projects/fitness/program.webp',
-      '/images/projects/fitness/exercises.webp',
-      '/images/projects/fitness/coach.webp',
-      '/images/projects/fitness/workout.webp',
-      '/images/projects/fitness/assessment.webp',
-      '/images/projects/fitness/week.webp',
-    ],
-    featured: true,
-    gradient: 'linear-gradient(135deg, #0C1445 0%, #164E63 100%)',
-    platform: 'mobile',
-  },
-  {
-    id: 'bully-ai',
-    slug: 'bully-ai',
-    title: 'Bully.ai',
-    subtitle: 'The app that guilt-trips you into getting things done',
-    client: 'Likwiid',
-    category: 'Mobile',
-    year: '2025',
-    description:
-      'A React Native productivity app that uses escalating aggressive notifications to combat procrastination. Built on behavioral psychology principles with 5 bully personalities, an ADHD toolbox with courses and exercises, stats tracking, and community features.',
-    challenge:
-      "Traditional productivity apps rely on positive reinforcement, which doesn't work for chronic procrastinators and people with ADHD. Users need something that actually cuts through the noise: humor, guilt, and escalating pressure.",
-    approach:
-      "Built with Expo SDK 54 and React Native New Architecture. Features escalating notification system (gentle to nuclear) with 5 personalities (Disappointed Friend, Drill Sergeant, Passive-Aggressive, Existential, Hype Beast). Includes ADHD Toolbox with courses and quick exercises, commitment contracts based on Cialdini's influence framework, stats with streaks and community comparison, and daily psychology tips.",
-    results:
-      'Fully functional app with task management, escalating notifications, ADHD learning system, productivity stats, and community features. Targeting chronic procrastinators and Gen Z users.',
-    techStack: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'NativeWind', 'Expo Notifications'],
-    images: [
-      '/images/projects/bully/home.webp',
-      '/images/projects/bully/learn.webp',
-      '/images/projects/bully/stats.webp',
-      '/images/projects/bully/add-task.webp',
-    ],
-    featured: true,
-    gradient: 'linear-gradient(135deg, #0A1628 0%, #1E3A5F 100%)',
-    platform: 'mobile',
-  },
-  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
@@ -114,6 +58,62 @@ export const projects: Project[] = [
     platform: 'web',
   },
   {
+    id: 'ai-fitness-coach',
+    slug: 'ai-fitness-coach',
+    title: 'AI Fitness Coach',
+    subtitle: 'AI-powered personal training with adaptive workout programming',
+    client: 'Likwiid',
+    category: 'AI',
+    year: '2025',
+    description:
+      'A mobile fitness app with an AI coach that generates personalized 12-week programs, provides real-time form cues, tracks RPE, and adapts training based on performance history.',
+    challenge:
+      "Most fitness apps offer static programs that don't adapt to the user. Personal trainers are expensive. There was no affordable middle ground that combined structured programming with intelligent, context-aware coaching.",
+    approach:
+      "Built a React Native Expo app with an AI Coach powered by LLM integration. The coach knows the user's full program, training history, and preferences. It provides exercise-specific form cues, RPE-based load recommendations, nutrition guidance, and weekly progress summaries.",
+    results:
+      'Working prototype with AI Coach chat, workout tracking with RPE logging, program generation, and workout summary analytics.',
+    techStack: ['React Native', 'Expo', 'TypeScript', 'Claude API', 'Zustand', 'SQLite'],
+    images: [
+      '/images/projects/fitness/program.webp',
+      '/images/projects/fitness/exercises.webp',
+      '/images/projects/fitness/coach.webp',
+      '/images/projects/fitness/workout.webp',
+      '/images/projects/fitness/assessment.webp',
+      '/images/projects/fitness/week.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0C1445 0%, #164E63 100%)',
+    platform: 'mobile',
+  },
+  {
+    id: 'bully-ai',
+    slug: 'bully-ai',
+    title: 'Bully.ai',
+    subtitle: 'The app that guilt-trips you into getting things done',
+    client: 'Likwiid',
+    category: 'Mobile',
+    year: '2025',
+    description:
+      'A React Native productivity app that uses escalating aggressive notifications to combat procrastination. Built on behavioral psychology principles with 5 bully personalities, an ADHD toolbox with courses and exercises, stats tracking, and community features.',
+    challenge:
+      "Traditional productivity apps rely on positive reinforcement, which doesn't work for chronic procrastinators and people with ADHD. Users need something that actually cuts through the noise: humor, guilt, and escalating pressure.",
+    approach:
+      "Built with Expo SDK 54 and React Native New Architecture. Features escalating notification system (gentle to nuclear) with 5 personalities (Disappointed Friend, Drill Sergeant, Passive-Aggressive, Existential, Hype Beast). Includes ADHD Toolbox with courses and quick exercises, commitment contracts based on Cialdini's influence framework, stats with streaks and community comparison, and daily psychology tips.",
+    results:
+      'Fully functional app with task management, escalating notifications, ADHD learning system, productivity stats, and community features. Targeting chronic procrastinators and Gen Z users.',
+    techStack: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'NativeWind', 'Expo Notifications'],
+    images: [
+      '/images/projects/bully/home.webp',
+      '/images/projects/bully/learn.webp',
+      '/images/projects/bully/stats.webp',
+      '/images/projects/bully/add-task.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0A1628 0%, #1E3A5F 100%)',
+    platform: 'mobile',
+  },
+  {
     id: 'sems',
     slug: 'sems-energy-management',
     title: 'SEMS: Smart Energy Management',
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     results:
       'In development. Targeting 20-30% energy cost reduction through intelligent source switching and consumption optimization.',
     techStack: ['React Native', 'Expo', 'NestJS', 'PostgreSQL', 'TimescaleDB', 'MQTT', 'Raspberry Pi', 'Zigbee'],
-    images: [],
+    images: ['/images/projects/sems/placeholder.svg'],
     featured: false,
     gradient: 'linear-gradient(135deg, #134E4A 0%, #1E40AF 100%)',
     platform: 'mobile',

@@ -85,7 +85,7 @@ export const aboutSections = {
     },
   ],
   philosophy:
-    'Software should flow. Like water adapting to any container, great engineering adapts to any problem. The name Likwiid embodies this belief — fluidity and adaptability in everything we build.',
+    'Software should flow. Like water adapting to any container, great engineering adapts to any problem. The name Likwiid embodies this belief -fluidity and adaptability in everything we build.',
   interests: [
     'Salsa dancing',
     'Formula 1',

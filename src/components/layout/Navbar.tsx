@@ -54,7 +54,7 @@ export function Navbar() {
       <nav
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-          scrolled ? 'bg-bg-primary/95 border-b border-border' : 'bg-transparent',
+          scrolled ? 'bg-bg-primary/95 backdrop-blur-sm border-b border-border/50' : 'bg-transparent border-b border-transparent',
         )}
       >
         <div className="mx-auto max-w-[1200px] px-6 py-4 flex items-center justify-between">

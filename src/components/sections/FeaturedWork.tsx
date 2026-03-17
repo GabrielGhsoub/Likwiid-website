@@ -19,7 +19,7 @@ export function FeaturedWork() {
 
   return (
     <section className="py-24 px-6">
-      <div className="mx-auto max-w-[1000px]">
+      <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="Featured work" subtitle="Selected projects we've built and shipped." />
 
         <div ref={ref} className="grid md:grid-cols-2 gap-4">

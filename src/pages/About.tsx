@@ -69,23 +69,23 @@ export default function About() {
                 <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-8">
                   Journey
                 </h3>
-                <div className="space-y-8 relative">
+                <div className="space-y-8 relative pl-8">
                   <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
                   {aboutSections.journey.map((item, i) => {
                     const isHighlight = 'highlight' in item && item.highlight
                     return (
                       <m.div
                         key={i}
-                        className={`relative pl-8${isHighlight ? ' mt-8 border-t border-border pt-8' : ''}`}
+                        className={`relative${isHighlight ? ' mt-8 border-t border-border pt-8' : ''}`}
                         initial={SLIDE_LEFT_INITIAL}
                         animate={journeyVisible ? SLIDE_LEFT_ANIMATE : EMPTY}
                         transition={journeyTransitions[i]}
                       >
                         <div
-                          className={`absolute left-0 top-2 rounded-full border-2 border-accent-gold ${
+                          className={`absolute top-2 rounded-full border-2 border-accent-gold ${
                             isHighlight
-                              ? 'w-[19px] h-[19px] bg-accent-gold -translate-x-[2px]'
-                              : 'w-[15px] h-[15px] bg-bg-primary'
+                              ? 'w-[19px] h-[19px] bg-accent-gold left-[-33px]'
+                              : 'w-[15px] h-[15px] bg-bg-primary left-[-31px]'
                           }${isHighlight ? ' !top-10' : ''}`}
                         />
                         <div className="text-xs text-accent-gold font-[family-name:var(--font-mono)] mb-1">
