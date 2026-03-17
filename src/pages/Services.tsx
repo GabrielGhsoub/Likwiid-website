@@ -35,8 +35,9 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   Wrench,
 }
 
-function getIcon(name: string) {
-  return iconMap[name] || Code
+function renderIcon(name: string, size: number, className: string) {
+  const Icon = iconMap[name] || Code
+  return <Icon size={size} className={className} />
 }
 
 export default function Services() {
@@ -44,7 +45,6 @@ export default function Services() {
   const { ref, isVisible } = useScrollAnimation()
 
   const selectedService = services.find((s) => s.id === expanded)
-  const SelectedIcon = selectedService ? getIcon(selectedService.icon) : null
 
   return (
     <PageTransition>
@@ -56,10 +56,7 @@ export default function Services() {
           />
 
           <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => {
-              const Icon = getIcon(service.icon)
-
-              return (
+            {services.map((service, i) => (
                 <m.div
                   key={service.id}
                   initial={FADE_UP_INITIAL}
@@ -71,7 +68,7 @@ export default function Services() {
                     onClick={() => setExpanded(service.id)}
                   >
                     <div className="flex items-start gap-4">
-                      <Icon size={28} className="text-accent-gold shrink-0 mt-1" />
+                      {renderIcon(service.icon, 28, 'text-accent-gold shrink-0 mt-1')}
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
                           {service.title}
@@ -87,14 +84,13 @@ export default function Services() {
                     </div>
                   </Card>
                 </m.div>
-              )
-            })}
+            ))}
           </div>
         </div>
       </main>
 
       <AnimatePresence>
-        {selectedService && SelectedIcon && (
+        {selectedService && (
           <m.div
             key="backdrop"
             initial={BACKDROP_INITIAL}
@@ -122,7 +118,7 @@ export default function Services() {
               </button>
 
               <div className="flex items-start gap-4">
-                <SelectedIcon size={32} className="text-accent-gold shrink-0 mt-1" />
+                {renderIcon(selectedService.icon, 32, 'text-accent-gold shrink-0 mt-1')}
                 <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
                   {selectedService.title}
                 </h3>

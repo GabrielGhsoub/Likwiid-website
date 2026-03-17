@@ -25,6 +25,11 @@ const iconMap: Record<string, ComponentType<{ size?: number; className?: string 
   Wrench,
 }
 
+function renderIcon(name: string, size: number, className: string) {
+  const Icon = iconMap[name] || Code
+  return <Icon size={size} className={className} />
+}
+
 export function ServiceCards() {
   const navigate = useNavigate()
   const { ref, isVisible } = useScrollAnimation()
@@ -36,9 +41,7 @@ export function ServiceCards() {
         <SectionHeading title="What we do" subtitle="End-to-end software engineering across the full stack." />
 
         <div ref={ref} className="grid md:grid-cols-3 gap-6">
-          {preview.map((service, i) => {
-            const Icon = iconMap[service.icon] || Code
-            return (
+          {preview.map((service, i) => (
               <m.div
                 key={service.id}
                 initial={FADE_UP_INITIAL}
@@ -46,7 +49,7 @@ export function ServiceCards() {
                 transition={SERVICE_TRANSITIONS[i]}
               >
                 <Card className="h-full flex flex-col" onClick={() => navigate('/services')}>
-                  <Icon size={28} className="text-accent-gold mb-4" />
+                  {renderIcon(service.icon, 28, 'text-accent-gold mb-4')}
                   <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary mb-2">
                     {service.title}
                   </h3>
@@ -58,8 +61,7 @@ export function ServiceCards() {
                   </div>
                 </Card>
               </m.div>
-            )
-          })}
+          ))}
         </div>
 
         <div className="mt-10 text-center">
