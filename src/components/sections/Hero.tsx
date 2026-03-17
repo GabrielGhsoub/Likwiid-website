@@ -15,16 +15,24 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px]" style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-1/4 -right-1/4 w-[400px] h-[400px]" style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.06) 0%, transparent 70%)' }} />
+        {/* Ambient glow orbs */}
+        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px]" style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%)', animation: 'drift 20s ease-in-out infinite' }} />
+        <div className="absolute bottom-1/4 -right-1/4 w-[400px] h-[400px]" style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%)', animation: 'drift 25s ease-in-out infinite 5s' }} />
+
+        {/* Central ripple pulse */}
         <div className="absolute inset-0 flex items-center justify-center" style={{ animation: 'ripple 8s ease-in-out infinite' }}>
-          <div className="w-[800px] h-[500px]" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.02) 0%, transparent 50%)' }} />
+          <div className="w-[800px] h-[500px]" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.03) 0%, transparent 50%)' }} />
         </div>
-        <div className="absolute top-[20%] right-[15%] w-3 h-3 rounded-full bg-accent-gold/[0.04]" style={{ animation: 'float-bubble 8s ease-in-out infinite' }} />
-        <div className="absolute top-[60%] left-[10%] w-2 h-2 rounded-full bg-accent-gold/[0.04]" style={{ animation: 'float-bubble 10s ease-in-out infinite 2s' }} />
-        <div className="absolute top-[35%] left-[40%] w-4 h-4 rounded-full bg-accent-gold/[0.04]" style={{ animation: 'float-bubble 12s ease-in-out infinite 4s' }} />
-        <div className="absolute bottom-[25%] right-[30%] w-2 h-2 rounded-full bg-accent-gold/[0.04]" style={{ animation: 'float-bubble 7s ease-in-out infinite 1s' }} />
-        <div className="absolute top-[75%] right-[60%] w-3 h-3 rounded-full bg-accent-gold/[0.04]" style={{ animation: 'float-bubble 9s ease-in-out infinite 3s' }} />
+
+        {/* Floating bubbles - varied sizes and opacity */}
+        <div className="absolute top-[15%] right-[12%] w-5 h-5 rounded-full bg-accent-gold/[0.06] blur-[1px]" style={{ animation: 'float-bubble 9s ease-in-out infinite' }} />
+        <div className="absolute top-[55%] left-[8%] w-3 h-3 rounded-full bg-accent-blue/[0.08]" style={{ animation: 'float-bubble 11s ease-in-out infinite 2s' }} />
+        <div className="absolute top-[30%] left-[35%] w-6 h-6 rounded-full bg-accent-gold/[0.04] blur-[2px]" style={{ animation: 'float-bubble 14s ease-in-out infinite 4s' }} />
+        <div className="absolute bottom-[20%] right-[25%] w-2 h-2 rounded-full bg-accent-gold/[0.10]" style={{ animation: 'float-bubble 8s ease-in-out infinite 1s' }} />
+        <div className="absolute top-[70%] right-[55%] w-4 h-4 rounded-full bg-accent-blue/[0.06] blur-[1px]" style={{ animation: 'float-bubble 10s ease-in-out infinite 3s' }} />
+        <div className="absolute top-[45%] right-[8%] w-2 h-2 rounded-full bg-accent-gold/[0.12]" style={{ animation: 'float-bubble 7s ease-in-out infinite 0.5s' }} />
+        <div className="absolute top-[80%] left-[25%] w-3 h-3 rounded-full bg-accent-blue/[0.07]" style={{ animation: 'float-bubble 12s ease-in-out infinite 6s' }} />
+        <div className="absolute top-[10%] left-[55%] w-2 h-2 rounded-full bg-accent-gold/[0.09]" style={{ animation: 'float-bubble 9s ease-in-out infinite 2.5s' }} />
       </div>
 
       <div className="relative max-w-[1200px] w-full">
