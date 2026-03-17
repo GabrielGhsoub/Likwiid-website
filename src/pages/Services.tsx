@@ -111,7 +111,7 @@ export default function Services() {
             >
               <button
                 onClick={() => setExpanded(null)}
-                className="absolute top-4 right-4 text-text-secondary hover:text-text-primary transition-colors"
+                className="absolute top-4 right-4 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <X size={20} />
