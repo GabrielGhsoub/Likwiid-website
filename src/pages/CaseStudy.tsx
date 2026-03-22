@@ -47,9 +47,9 @@ export default function CaseStudy() {
 
   return (
     <PageTransition>
-      <main className="pt-16 pb-16">
+      <main className="pt-14 pb-16">
         <div
-          className="h-64 md:h-80 w-full relative"
+          className="h-40 md:h-52 w-full relative"
           style={{ background: project.gradient }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-primary" />
