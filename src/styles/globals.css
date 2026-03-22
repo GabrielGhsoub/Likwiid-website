@@ -69,6 +69,29 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeSpeed;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-gold) transparent;
+}
+
+/* Water-themed scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent-gold), var(--color-accent-blue), var(--color-accent-gold));
+  background-size: 100% 200%;
+  animation: liquid-gradient 4s ease infinite;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-accent-blue), var(--color-accent-gold), var(--color-accent-blue));
+  background-size: 100% 200%;
 }
 
 img {

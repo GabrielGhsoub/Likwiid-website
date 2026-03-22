@@ -23,15 +23,18 @@ const makeImageTransition = (i: number) => ({
 
 const LIQUID_REVEAL = {
   hidden: {
-    clipPath: 'inset(100% 0% 0% 0%)',
+    clipPath: 'polygon(0% 100%, 15% 100%, 30% 100%, 50% 100%, 70% 100%, 85% 100%, 100% 100%, 100% 100%, 0% 100%)',
     opacity: 0,
+    y: 20,
   },
   visible: {
-    clipPath: 'inset(0% 0% 0% 0%)',
+    clipPath: 'polygon(0% 0%, 15% 2%, 30% 0%, 50% 3%, 70% 0%, 85% 2%, 100% 0%, 100% 100%, 0% 100%)',
     opacity: 1,
+    y: 0,
     transition: {
-      clipPath: { duration: 0.8, ease: [0.4, 0, 0.2, 1] as const },
-      opacity: { duration: 0.4 },
+      clipPath: { duration: 1, ease: [0.22, 1, 0.36, 1] as const },
+      opacity: { duration: 0.5 },
+      y: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
   },
 }
@@ -73,7 +76,7 @@ export default function CaseStudy() {
   if (!project) return <Navigate to="/work" replace />
 
   return (
-    <PageTransition>
+    <PageTransition key={slug}>
       <main className="pt-14 pb-16">
         <div
           className="h-40 md:h-52 w-full relative"
