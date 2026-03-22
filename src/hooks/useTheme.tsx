@@ -4,16 +4,16 @@ import { createContext, useContext, useState, useEffect, useCallback, type React
 type Theme = 'dark' | 'light'
 
 const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('likwiid-theme') as Theme) || 'dark'
+      return (localStorage.getItem('likwiid-theme') as Theme) || 'light'
     }
-    return 'dark'
+    return 'light'
   })
 
   useEffect(() => {
