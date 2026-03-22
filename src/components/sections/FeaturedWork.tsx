@@ -6,13 +6,42 @@ import { featuredProjects } from '../../data/projects'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Badge } from '../ui/Badge'
 
-const HIDDEN = {}
-const FADE_UP_INITIAL = { opacity: 0, y: 16 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const PROJECT_TRANSITIONS = featuredProjects.map((_, i) => ({
-  duration: 0.4,
-  delay: i * 0.08,
-}))
+const STAGGER_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const PROJECT_ITEM = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    scale: 0.97,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
+const PROJECT_HOVER = {
+  scale: 1.02,
+  y: -3,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 300,
+    damping: 22,
+  },
+}
 
 export function FeaturedWork() {
   const { ref, isVisible } = useScrollAnimation()
@@ -22,16 +51,21 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="Featured work" subtitle="Selected projects we've built and shipped." />
 
-        <div ref={ref} className="grid md:grid-cols-2 gap-4">
-          {featuredProjects.map((project, i) => (
+        <m.div
+          ref={ref}
+          className="grid md:grid-cols-2 gap-4"
+          variants={STAGGER_CONTAINER}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        >
+          {featuredProjects.map((project) => (
             <m.div
               key={project.id}
-              initial={FADE_UP_INITIAL}
-              animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-              transition={PROJECT_TRANSITIONS[i]}
+              variants={PROJECT_ITEM}
+              whileHover={PROJECT_HOVER}
             >
               <Link to={`/work/${project.slug}`} className="group block no-underline h-full">
-                <div className="relative rounded-lg border border-border overflow-hidden bg-bg-secondary hover:border-border-hover transition-colors h-full">
+                <div className="relative rounded-lg border border-border overflow-hidden bg-bg-secondary hover:border-border-hover transition-colors h-full liquid-shimmer liquid-shimmer-hover">
                   <div
                     className="h-44 w-full relative overflow-hidden flex items-center justify-center"
                     style={{ background: project.gradient }}
@@ -92,7 +126,7 @@ export function FeaturedWork() {
               </Link>
             </m.div>
           ))}
-        </div>
+        </m.div>
 
         <div className="mt-8 text-center">
           <Link

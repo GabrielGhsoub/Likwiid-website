@@ -3,13 +3,68 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { skills, skillCategories } from '../../data/skills'
 import { SectionHeading } from '../ui/SectionHeading'
 
-const HIDDEN = {}
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const CATEGORY_TRANSITIONS = skillCategories.map((_, i) => ({
-  duration: 0.5,
-  delay: i * 0.1,
-}))
+const CATEGORY_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
+    },
+  },
+}
+
+const CATEGORY_ITEM = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
+const BADGE_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const BADGE_ITEM = {
+  hidden: {
+    opacity: 0,
+    y: -12,
+    scale: 0.85,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring' as const,
+      damping: 15,
+      stiffness: 200,
+    },
+  },
+}
+
+const BADGE_HOVER = {
+  y: -2,
+  scale: 1.05,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 400,
+    damping: 20,
+  },
+}
 
 export function TechStack() {
   const { ref, isVisible } = useScrollAnimation()
@@ -19,33 +74,44 @@ export function TechStack() {
       <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="Tech stack" subtitle="Tools and technologies we work with daily." />
 
-        <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, catIndex) => {
+        <m.div
+          ref={ref}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={CATEGORY_CONTAINER}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        >
+          {skillCategories.map((category) => {
             const categorySkills = skills.filter((s) => s.category === category)
             return (
               <m.div
                 key={category}
-                initial={FADE_UP_INITIAL}
-                animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-                transition={CATEGORY_TRANSITIONS[catIndex]}
+                variants={CATEGORY_ITEM}
               >
                 <h3 className="text-sm font-medium text-accent-gold font-[family-name:var(--font-mono)] mb-3 uppercase tracking-wider">
                   {category}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <m.div
+                  className="flex flex-wrap gap-2"
+                  variants={BADGE_CONTAINER}
+                  initial="hidden"
+                  animate={isVisible ? 'visible' : 'hidden'}
+                >
                   {categorySkills.map((skill) => (
-                    <span
+                    <m.span
                       key={skill.name}
                       className="px-3 py-1.5 text-sm border border-border rounded bg-bg-tertiary/50 text-text-secondary hover:text-text-primary hover:border-border-hover transition-colors"
+                      variants={BADGE_ITEM}
+                      whileHover={BADGE_HOVER}
                     >
                       {skill.name}
-                    </span>
+                    </m.span>
                   ))}
-                </div>
+                </m.div>
               </m.div>
             )
           })}
-        </div>
+        </m.div>
       </div>
     </section>
   )

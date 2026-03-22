@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -12,12 +13,36 @@ const DESCRIPTION_TRANSITION = { duration: 0.5, delay: 0.3 }
 const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.5 }
 
 export function Hero() {
+  const bgRef = useRef<HTMLDivElement>(null)
+  const [bgVisible, setBgVisible] = useState(true)
+
+  useEffect(() => {
+    const el = bgRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setBgVisible(entry.isIntersecting),
+      { threshold: 0 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Ambient glow orbs */}
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px]" style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%)', animation: 'drift 20s ease-in-out infinite' }} />
-        <div className="absolute bottom-1/4 -right-1/4 w-[400px] h-[400px]" style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%)', animation: 'drift 25s ease-in-out infinite 5s' }} />
+      <div ref={bgRef} className={`absolute inset-0 overflow-hidden${bgVisible ? '' : ' liquid-paused'}`}>
+        {/* Morphing blob backgrounds */}
+        <div
+          className="absolute top-[15%] -left-[10%] w-[500px] h-[500px] opacity-[0.07] blur-[40px] md:blur-[80px] liquid-blob-slow"
+          style={{ background: 'var(--color-accent-gold)' }}
+        />
+        <div
+          className="absolute bottom-[10%] -right-[5%] w-[400px] h-[400px] opacity-[0.05] blur-[30px] md:blur-[60px] liquid-blob liquid-delay-300"
+          style={{ background: 'var(--color-accent-blue)' }}
+        />
+        <div
+          className="absolute top-[50%] left-[30%] w-[350px] h-[350px] opacity-[0.04] blur-[35px] md:blur-[70px] liquid-blob-slow liquid-delay-700"
+          style={{ background: 'var(--color-accent-gold)' }}
+        />
 
         {/* Central ripple pulse */}
         <div className="absolute inset-0 flex items-center justify-center" style={{ animation: 'ripple 8s ease-in-out infinite' }}>

@@ -16,14 +16,24 @@ const EMPTY = {}
 const BACKDROP_INITIAL = { opacity: 0 }
 const BACKDROP_ANIMATE = { opacity: 1 }
 const BACKDROP_EXIT = { opacity: 0 }
-const MODAL_INITIAL = { opacity: 0, scale: 0.95 }
-const MODAL_ANIMATE = { opacity: 1, scale: 1 }
-const MODAL_EXIT = { opacity: 0, scale: 0.95 }
-const TRANSITION_MODAL = { duration: 0.2 }
+const MODAL_INITIAL = { opacity: 0, scale: 0.95, filter: 'blur(4px)' }
+const MODAL_ANIMATE = { opacity: 1, scale: 1, filter: 'blur(0px)' }
+const MODAL_EXIT = { opacity: 0, scale: 0.95, filter: 'blur(4px)' }
+const TRANSITION_MODAL = { duration: 0.25, ease: [0.4, 0, 0.2, 1] as const }
+
+const SERVICE_CARD_HOVER = {
+  y: -6,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 300,
+    damping: 20,
+  },
+}
 
 const serviceTransitions = services.map((_, i) => ({
   duration: 0.5,
   delay: i * 0.08,
+  ease: [0.22, 1, 0.36, 1] as const,
 }))
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
@@ -62,6 +72,7 @@ export default function Services() {
                   initial={FADE_UP_INITIAL}
                   animate={isVisible ? FADE_UP_ANIMATE : EMPTY}
                   transition={serviceTransitions[i]}
+                  whileHover={SERVICE_CARD_HOVER}
                 >
                   <Card
                     className="h-full flex flex-col cursor-pointer"

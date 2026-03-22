@@ -13,9 +13,19 @@ const FADE_UP_INITIAL = { opacity: 0, y: 12 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const EMPTY = {}
 
+const CARD_HOVER = {
+  y: -4,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 300,
+    damping: 20,
+  },
+}
+
 const makeProjectTransition = (i: number) => ({
-  duration: 0.3,
-  delay: i * 0.05,
+  duration: 0.4,
+  delay: i * 0.06,
+  ease: [0.22, 1, 0.36, 1] as const,
 })
 
 export default function Portfolio() {
@@ -53,9 +63,10 @@ export default function Portfolio() {
                 initial={FADE_UP_INITIAL}
                 animate={isVisible ? FADE_UP_ANIMATE : EMPTY}
                 transition={makeProjectTransition(i)}
+                whileHover={CARD_HOVER}
               >
                 <Link to={`/work/${project.slug}`} className="group block no-underline">
-                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-colors overflow-hidden">
+                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-all duration-300 overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                     <div className="flex flex-col md:flex-row">
                       {/* Preview */}
                       <div
@@ -106,15 +117,25 @@ export default function Portfolio() {
                           <span className="text-[11px] text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
                           <span className="text-[11px] px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
                           {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[11px] text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
-                              onClick={(e) => e.stopPropagation()}
+                            <span
+                              role="link"
+                              tabIndex={0}
+                              className="text-[11px] text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors cursor-pointer"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault()
+                                  e.stopPropagation()
+                                  window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                                }
+                              }}
                             >
                               <ExternalLink size={10} /> App Store
-                            </a>
+                            </span>
                           )}
                         </div>
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-tight">

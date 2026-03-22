@@ -2,7 +2,15 @@ import { type ReactNode } from 'react'
 import { m } from 'framer-motion'
 import { cn } from '../../utils/cn'
 
-const HOVER_SCALE = { scale: 1.02, borderColor: '#2D3748' }
+const HOVER_SCALE = {
+  scale: 1.03,
+  y: -4,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 300,
+    damping: 20,
+  },
+}
 const CARD_TRANSITION = { duration: 0.2 }
 
 interface CardProps {

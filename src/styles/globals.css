@@ -104,6 +104,10 @@ a:hover {
   color: var(--color-accent-gold);
 }
 
+/* ==========================================================================
+   Existing Keyframes
+   ========================================================================== */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -127,6 +131,358 @@ a:hover {
   66% { transform: translateX(-20px) translateY(-8px); }
 }
 
+/* ==========================================================================
+   Liquid / Fluid Animation Keyframes
+   ========================================================================== */
+
+/* Blob Morphing — organic shape-shifting for decorative background elements */
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    border-radius: 40% 30% 60% 50% / 60% 70% 40% 30%;
+    transform: rotate(270deg) scale(1.03);
+  }
+}
+
+/* Blob Morph — subtle variant (no rotation, just shape change) */
+@keyframes blob-morph-subtle {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  33% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  66% {
+    border-radius: 50% 30% 60% 40% / 40% 70% 30% 60%;
+  }
+}
+
+/* Wave — sinusoidal motion for section dividers and backgrounds */
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0);
+  }
+}
+
+/* Wave vertical shift — for layered wave backgrounds */
+@keyframes wave-shift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Liquid Gradient Flow — slowly shifting gradient background position */
+@keyframes liquid-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ripple Click — expanding ring effect for interactive elements */
+@keyframes ripple-click {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Ripple Pulse — continuous subtle pulse for hover states */
+@keyframes ripple-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-accent-gold-dim);
+  }
+  70% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Fluid Text Reveal — clip-path wipe for text entrance */
+@keyframes fluid-text-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+/* Fluid Text Reveal from bottom */
+@keyframes fluid-text-reveal-up {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced Float — multi-axis organic float with rotation */
+@keyframes float-organic {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-15px) translateX(5px) rotate(1deg);
+  }
+  40% {
+    transform: translateY(-25px) translateX(-3px) rotate(-0.5deg);
+  }
+  60% {
+    transform: translateY(-10px) translateX(8px) rotate(0.5deg);
+  }
+  80% {
+    transform: translateY(-20px) translateX(-5px) rotate(-1deg);
+  }
+}
+
+/* Enhanced Drift — larger, slower multi-point drift path */
+@keyframes drift-wide {
+  0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+  20% { transform: translateX(40px) translateY(-20px) scale(1.02); }
+  40% { transform: translateX(-15px) translateY(-35px) scale(0.98); }
+  60% { transform: translateX(25px) translateY(-10px) scale(1.03); }
+  80% { transform: translateX(-30px) translateY(-25px) scale(1); }
+}
+
+/* Liquid Shimmer — sweeping highlight effect */
+@keyframes liquid-shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+/* Shimmer pulse — subtle background shimmer */
+@keyframes shimmer-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ==========================================================================
+   Liquid Utility Classes
+   ========================================================================== */
+
+/* --- Blob Morphing --- */
+.liquid-blob {
+  animation: blob-morph 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.liquid-blob-subtle {
+  animation: blob-morph-subtle 10s ease-in-out infinite;
+}
+
+.liquid-blob-slow {
+  animation: blob-morph 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* --- Wave --- */
+.liquid-wave {
+  animation: wave 8s linear infinite;
+}
+
+.liquid-wave-slow {
+  animation: wave 15s linear infinite;
+}
+
+.liquid-wave-shift {
+  animation: wave-shift 4s ease-in-out infinite;
+}
+
+/* --- Liquid Gradient --- */
+.liquid-gradient {
+  background-size: 200% 200%;
+  animation: liquid-gradient 8s ease infinite;
+}
+
+.liquid-gradient-slow {
+  background-size: 300% 300%;
+  animation: liquid-gradient 15s ease infinite;
+}
+
+/* --- Ripple Effects --- */
+.liquid-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--color-accent-gold) 10%, transparent 10.01%);
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+}
+
+.liquid-ripple:active::after {
+  transform: scale(0);
+  opacity: 0.15;
+  transition: 0s;
+}
+
+.liquid-ripple-pulse:hover {
+  animation: ripple-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --- Fluid Text Reveal --- */
+.liquid-text-reveal {
+  animation: fluid-text-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.liquid-text-reveal-up {
+  animation: fluid-text-reveal-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* --- Enhanced Floating / Drifting --- */
+.liquid-float {
+  animation: float-organic 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.liquid-float-slow {
+  animation: float-organic 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.liquid-drift {
+  animation: drift-wide 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.liquid-drift-slow {
+  animation: drift-wide 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* --- Glassmorphism --- */
+.glass {
+  background: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+}
+
+.glass-strong {
+  background: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+}
+
+.glass-subtle {
+  background: color-mix(in srgb, var(--color-bg-secondary) 30%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
+}
+
+.glass-accent {
+  background: color-mix(in srgb, var(--color-accent-gold-dim) 40%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-accent-gold) 20%, transparent);
+}
+
+/* --- Liquid Shimmer --- */
+.liquid-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-accent-gold) 10%, transparent),
+    transparent
+  );
+  animation: liquid-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.liquid-shimmer-slow::before {
+  animation-duration: 5s;
+}
+
+.liquid-shimmer-once::before {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.liquid-shimmer-hover::before {
+  animation: none;
+}
+
+.liquid-shimmer-hover:hover::before {
+  animation: liquid-shimmer 0.8s ease-out forwards;
+}
+
+/* --- Animation Delay Utilities --- */
+.liquid-delay-100 { animation-delay: 100ms; }
+.liquid-delay-200 { animation-delay: 200ms; }
+.liquid-delay-300 { animation-delay: 300ms; }
+.liquid-delay-500 { animation-delay: 500ms; }
+.liquid-delay-700 { animation-delay: 700ms; }
+.liquid-delay-1000 { animation-delay: 1000ms; }
+
+/* --- Animation Play State Utilities --- */
+.liquid-paused,
+.liquid-paused *,
+.liquid-paused *::before,
+.liquid-paused *::after { animation-play-state: paused; }
+.liquid-running { animation-play-state: running; }
+
+/* ==========================================================================
+   Accessibility: Reduced Motion
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -135,5 +491,38 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .liquid-blob,
+  .liquid-blob-subtle,
+  .liquid-blob-slow,
+  .liquid-wave,
+  .liquid-wave-slow,
+  .liquid-wave-shift,
+  .liquid-gradient,
+  .liquid-gradient-slow,
+  .liquid-float,
+  .liquid-float-slow,
+  .liquid-drift,
+  .liquid-drift-slow,
+  .liquid-shimmer::before,
+  .liquid-shimmer-slow::before,
+  .liquid-shimmer-hover:hover::before,
+  .liquid-text-reveal,
+  .liquid-text-reveal-up,
+  .liquid-ripple-pulse {
+    animation: none !important;
+  }
+
+  .liquid-ripple::after {
+    display: none;
+  }
+
+  .glass,
+  .glass-strong,
+  .glass-subtle,
+  .glass-accent {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }

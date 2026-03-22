@@ -8,13 +8,42 @@ import { Card } from '../ui/Card'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Badge } from '../ui/Badge'
 
-const HIDDEN = {}
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const SERVICE_TRANSITIONS = [0, 1, 2].map((i) => ({
-  duration: 0.5,
-  delay: i * 0.1,
-}))
+const STAGGER_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const SERVICE_ITEM = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+    scale: 0.96,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
+const SERVICE_HOVER = {
+  scale: 1.03,
+  y: -4,
+  transition: {
+    type: 'spring' as const,
+    stiffness: 300,
+    damping: 20,
+  },
+}
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   Code,
@@ -40,15 +69,20 @@ export function ServiceCards() {
       <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="What we do" subtitle="End-to-end software engineering across the full stack." />
 
-        <div ref={ref} className="grid md:grid-cols-3 gap-6">
-          {preview.map((service, i) => (
+        <m.div
+          ref={ref}
+          className="grid md:grid-cols-3 gap-6"
+          variants={STAGGER_CONTAINER}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        >
+          {preview.map((service) => (
               <m.div
                 key={service.id}
-                initial={FADE_UP_INITIAL}
-                animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-                transition={SERVICE_TRANSITIONS[i]}
+                variants={SERVICE_ITEM}
+                whileHover={SERVICE_HOVER}
               >
-                <Card className="h-full flex flex-col" onClick={() => navigate('/services')}>
+                <Card className="h-full flex flex-col liquid-shimmer liquid-shimmer-hover" hover={false} onClick={() => navigate('/services')}>
                   {renderIcon(service.icon, 28, 'text-accent-gold mb-4')}
                   <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary mb-2">
                     {service.title}
@@ -62,7 +96,7 @@ export function ServiceCards() {
                 </Card>
               </m.div>
           ))}
-        </div>
+        </m.div>
 
         <div className="mt-10 text-center">
           <Link

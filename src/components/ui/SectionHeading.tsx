@@ -6,8 +6,8 @@ const HIDDEN = {}
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
 const FADE_UP_SUBTLE_INITIAL = { opacity: 0, y: 10 }
-const LINE_INITIAL = { width: 0 }
-const LINE_VISIBLE = { width: 60 }
+const LINE_INITIAL = { scaleX: 0 }
+const LINE_VISIBLE = { scaleX: 1 }
 const HEADING_TRANSITION = { duration: 0.5 }
 const LINE_TRANSITION = { duration: 0.5, delay: 0.2 }
 const SUBTITLE_TRANSITION = { duration: 0.5, delay: 0.3 }
@@ -33,7 +33,7 @@ export function SectionHeading({ title, subtitle, className, align = 'left' }: S
         {title}
       </m.h2>
       <m.div
-        className={cn('h-px bg-accent-gold mt-4', align === 'center' ? 'mx-auto' : '')}
+        className={cn('h-px bg-accent-gold mt-4 w-[60px] origin-left', align === 'center' ? 'mx-auto origin-center' : '')}
         initial={LINE_INITIAL}
         animate={isVisible ? LINE_VISIBLE : HIDDEN}
         transition={LINE_TRANSITION}

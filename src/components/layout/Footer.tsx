@@ -4,9 +4,42 @@ import { SOCIAL } from '../../utils/constants'
 
 const CURRENT_YEAR = new Date().getFullYear()
 
+function WaveDivider() {
+  return (
+    <div className="relative h-16 overflow-hidden">
+      <svg
+        className="absolute bottom-0 w-[200%] h-full liquid-wave-slow"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+          fill="var(--color-bg-secondary)"
+          fillOpacity="0.3"
+        />
+      </svg>
+      <svg
+        className="absolute bottom-0 w-[200%] h-full liquid-wave"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,80 C360,20 720,100 1080,40 C1260,10 1380,80 1440,60 L1440,120 L0,120 Z"
+          fill="var(--color-bg-secondary)"
+          fillOpacity="0.15"
+        />
+      </svg>
+    </div>
+  )
+}
+
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-24">
+    <footer className="mt-24">
+      <WaveDivider />
+      <div className="border-t border-border">
       <div className="mx-auto max-w-[1200px] px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Link
@@ -47,6 +80,7 @@ export function Footer() {
             <Mail size={20} />
           </a>
         </div>
+      </div>
       </div>
     </footer>
   )

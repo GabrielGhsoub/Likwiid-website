@@ -6,8 +6,8 @@ import { aboutSections } from '../data/personal'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
-const SLIDE_LEFT_INITIAL = { opacity: 0, x: -20 }
-const SLIDE_LEFT_ANIMATE = { opacity: 1, x: 0 }
+const SLIDE_LEFT_INITIAL = { opacity: 0, x: -20, scale: 0.96 }
+const SLIDE_LEFT_ANIMATE = { opacity: 1, x: 0, scale: 1 }
 const SCALE_IN_INITIAL = { opacity: 0, scale: 0.95 }
 const SCALE_IN_ANIMATE = { opacity: 1, scale: 1 }
 const EMPTY = {}
@@ -17,8 +17,33 @@ const TRANSITION_DELAY_03 = { duration: 0.5, delay: 0.3 }
 
 const journeyTransitions = aboutSections.journey.map((_, i) => ({
   duration: 0.5,
-  delay: i * 0.1,
+  delay: i * 0.12,
+  ease: [0.22, 1, 0.36, 1] as const,
 }))
+
+const STAGGER_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const STAGGER_ITEM = {
+  hidden: { opacity: 0, y: 16, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring' as const,
+      damping: 20,
+      stiffness: 200,
+    },
+  },
+}
 
 export default function About() {
   const { ref: journeyRef, isVisible: journeyVisible } = useScrollAnimation()
@@ -126,16 +151,22 @@ export default function About() {
                   <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-4">
                     Beyond code
                   </h3>
-                  <div className="flex flex-wrap gap-3">
+                  <m.div
+                    className="flex flex-wrap gap-3"
+                    variants={STAGGER_CONTAINER}
+                    initial="hidden"
+                    animate={interestsVisible ? 'visible' : 'hidden'}
+                  >
                     {aboutSections.interests.map((interest) => (
-                      <span
+                      <m.span
                         key={interest}
-                        className="px-4 py-2 border border-border rounded-full text-text-secondary text-sm hover:border-border-hover hover:text-text-primary transition-colors"
+                        variants={STAGGER_ITEM}
+                        className="px-4 py-2 border border-border rounded-full text-text-secondary text-sm hover:border-accent-gold hover:text-text-primary transition-colors"
                       >
                         {interest}
-                      </span>
+                      </m.span>
                     ))}
-                  </div>
+                  </m.div>
                 </m.div>
               </div>
             </div>

@@ -136,7 +136,7 @@ export default function Contact() {
                       name="name"
                       type="text"
                       required
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
                       placeholder="Your name"
                     />
                     {errors.name && <p className="mt-1 text-red-400 text-xs">{errors.name}</p>}
@@ -151,7 +151,7 @@ export default function Contact() {
                       name="email"
                       type="email"
                       required
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
                       placeholder="you@company.com"
                     />
                     {errors.email && <p className="mt-1 text-red-400 text-xs">{errors.email}</p>}
@@ -165,7 +165,7 @@ export default function Contact() {
                       id="company"
                       name="company"
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300"
                       placeholder="Your company (optional)"
                     />
                   </div>
@@ -178,7 +178,7 @@ export default function Contact() {
                       <select
                         id="projectType"
                         name="projectType"
-                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold transition-colors appearance-none"
+                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
                       >
                         <option value="">Select...</option>
                         {PROJECT_TYPES.map((t) => (
@@ -196,7 +196,7 @@ export default function Contact() {
                       <select
                         id="budget"
                         name="budget"
-                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold transition-colors appearance-none"
+                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
                       >
                         <option value="">Select...</option>
                         {BUDGETS.map((b) => (
@@ -217,7 +217,7 @@ export default function Contact() {
                       name="message"
                       required
                       rows={5}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold transition-colors resize-none`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 resize-none`}
                       placeholder="Tell me about your project..."
                     />
                     {errors.message && <p className="mt-1 text-red-400 text-xs">{errors.message}</p>}

@@ -3,40 +3,65 @@ import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { Button } from '../ui/Button'
 
-const HIDDEN = {}
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const HEADING_TRANSITION = { duration: 0.5 }
-const BODY_TRANSITION = { duration: 0.5, delay: 0.1 }
-const BUTTON_TRANSITION = { duration: 0.5, delay: 0.2 }
+const STAGGER_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const CTA_ITEM = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      damping: 20,
+      stiffness: 180,
+    },
+  },
+}
 
 export function CTA() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="py-24 px-6">
-      <div className="mx-auto max-w-[1200px] text-center">
+    <section ref={ref} className="relative py-24 px-6 overflow-hidden">
+      {/* Animated gradient background */}
+      <div
+        className="absolute inset-0 opacity-[0.04] liquid-gradient-slow"
+        style={{
+          background: 'linear-gradient(-45deg, var(--color-accent-gold), var(--color-accent-blue), var(--color-accent-gold), var(--color-accent-blue))',
+        }}
+      />
+      <m.div
+        className="relative mx-auto max-w-[1200px] text-center"
+        variants={STAGGER_CONTAINER}
+        initial="hidden"
+        animate={isVisible ? 'visible' : 'hidden'}
+      >
         <m.h2
           className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-          initial={FADE_UP_INITIAL}
-          animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-          transition={HEADING_TRANSITION}
+          variants={CTA_ITEM}
         >
           Have a project in mind?
         </m.h2>
         <m.p
           className="mt-4 text-text-secondary text-lg max-w-xl mx-auto"
-          initial={FADE_UP_INITIAL}
-          animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-          transition={BODY_TRANSITION}
+          variants={CTA_ITEM}
         >
           We&apos;re always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
         </m.p>
         <m.div
           className="mt-8"
-          initial={FADE_UP_INITIAL}
-          animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-          transition={BUTTON_TRANSITION}
+          variants={CTA_ITEM}
         >
           <Link to="/contact">
             <Button variant="primary" size="lg">
@@ -44,7 +69,7 @@ export function CTA() {
             </Button>
           </Link>
         </m.div>
-      </div>
+      </m.div>
     </section>
   )
 }

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { PhoneFrame, BrowserFrame } from '../components/ui/DeviceFrame'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { projects } from '../data/projects'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -20,12 +21,38 @@ const makeImageTransition = (i: number) => ({
   delay: 0.2 + i * 0.08,
 })
 
-const SECTION_TRANSITIONS = [
-  { duration: 0.5, delay: 0.2 },
-  { duration: 0.5, delay: 0.3 },
-  { duration: 0.5, delay: 0.4 },
-  { duration: 0.5, delay: 0.5 },
-]
+const LIQUID_REVEAL = {
+  hidden: {
+    clipPath: 'inset(100% 0% 0% 0%)',
+    opacity: 0,
+  },
+  visible: {
+    clipPath: 'inset(0% 0% 0% 0%)',
+    opacity: 1,
+    transition: {
+      clipPath: { duration: 0.8, ease: [0.4, 0, 0.2, 1] as const },
+      opacity: { duration: 0.4 },
+    },
+  },
+}
+
+function CaseStudySection({ title, content }: { title: string; content: string }) {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 })
+  return (
+    <div ref={ref}>
+      <m.section
+        variants={LIQUID_REVEAL}
+        initial="hidden"
+        animate={isVisible ? 'visible' : 'hidden'}
+      >
+        <h2 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
+          {title}
+        </h2>
+        <p className="text-text-secondary leading-relaxed text-lg">{content}</p>
+      </m.section>
+    </div>
+  )
+}
 
 export default function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
@@ -150,18 +177,8 @@ export default function CaseStudy() {
           )}
 
           <div className="mt-16 space-y-12">
-            {sections.map((section, i) => (
-              <m.section
-                key={section.title}
-                initial={FADE_UP_INITIAL}
-                animate={FADE_UP_ANIMATE}
-                transition={SECTION_TRANSITIONS[i]}
-              >
-                <h2 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
-                  {section.title}
-                </h2>
-                <p className="text-text-secondary leading-relaxed text-lg">{section.content}</p>
-              </m.section>
+            {sections.map((section) => (
+              <CaseStudySection key={section.title} title={section.title} content={section.content} />
             ))}
           </div>
 
