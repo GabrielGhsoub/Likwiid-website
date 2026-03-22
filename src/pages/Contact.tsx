@@ -78,6 +78,13 @@ export default function Contact() {
                   {SOCIAL.email}
                 </a>
                 <a
+                  href={`mailto:${SOCIAL.personalEmail}`}
+                  className="flex items-center gap-3 text-text-secondary hover:text-text-primary transition-colors"
+                >
+                  <Mail size={20} className="text-accent-gold" />
+                  {SOCIAL.personalEmail}
+                </a>
+                <a
                   href={SOCIAL.github}
                   target="_blank"
                   rel="noopener noreferrer"
