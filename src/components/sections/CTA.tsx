@@ -33,14 +33,7 @@ export function CTA() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="relative pt-24 pb-0 px-6 overflow-hidden">
-      {/* Animated gradient background */}
-      <div
-        className="absolute inset-0 opacity-[0.04] liquid-gradient-slow"
-        style={{
-          background: 'linear-gradient(-45deg, var(--color-accent-gold), var(--color-accent-blue), var(--color-accent-gold), var(--color-accent-blue))',
-        }}
-      />
+    <section ref={ref} className="relative pt-24 pb-16 px-6">
       <m.div
         className="relative mx-auto max-w-[1200px] text-center"
         variants={STAGGER_CONTAINER}
