@@ -55,7 +55,7 @@ export default function Contact() {
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading title="Contact" />
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-16">
             <m.div
               initial={FADE_UP_INITIAL}
               animate={FADE_UP_ANIMATE}
@@ -72,7 +72,7 @@ export default function Contact() {
               <div className="mt-10 space-y-4">
                 <a
                   href={`mailto:${SOCIAL.email}`}
-                  className="flex items-center gap-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
                 >
                   <Mail size={20} className="text-accent-gold" />
                   {SOCIAL.email}
@@ -81,7 +81,7 @@ export default function Contact() {
                   href={SOCIAL.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
                 >
                   <Github size={20} className="text-accent-gold" />
                   GitHub
@@ -90,7 +90,7 @@ export default function Contact() {
                   href={SOCIAL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
                 >
                   <Linkedin size={20} className="text-accent-gold" />
                   LinkedIn

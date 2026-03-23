@@ -57,7 +57,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
         {images.length > 1 && (
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-0 z-10 p-2 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
+            className="absolute left-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
             aria-label="Previous screenshot"
           >
             <ChevronLeft size={20} />
@@ -91,7 +91,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
         {images.length > 1 && (
           <button
             onClick={() => paginate(1)}
-            className="absolute right-0 z-10 p-2 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
+            className="absolute right-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
             aria-label="Next screenshot"
           >
             <ChevronRight size={20} />
@@ -100,14 +100,16 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
       </div>
 
       {images.length > 1 && (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-0">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary'}`}
+              className="p-[18px] cursor-pointer"
               aria-label={`Go to screenshot ${i + 1}`}
-            />
+            >
+              <div className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
+            </button>
           ))}
         </div>
       )}
@@ -124,7 +126,7 @@ function CaseStudySection({ title, content }: { title: string; content: string }
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
       >
-        <h2 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
+        <h2 className="text-base md:text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
           {title}
         </h2>
         <p className="text-text-secondary leading-relaxed text-lg">{content}</p>

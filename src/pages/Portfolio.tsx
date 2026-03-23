@@ -45,7 +45,7 @@ export default function Portfolio() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat as ProjectCategory)}
-                className={`px-3 py-1.5 text-sm rounded-full border transition-colors cursor-pointer ${
+                className={`px-4 py-2.5 text-sm rounded-full border transition-colors cursor-pointer ${
                   activeFilter === cat
                     ? 'border-accent-gold text-accent-gold bg-accent-gold-dim'
                     : 'border-border text-text-secondary hover:border-border-hover hover:text-text-primary'

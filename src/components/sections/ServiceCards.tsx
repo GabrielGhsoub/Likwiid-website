@@ -71,7 +71,7 @@ export function ServiceCards() {
 
         <m.div
           ref={ref}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid md:grid-cols-3 gap-6 items-stretch"
           variants={STAGGER_CONTAINER}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
@@ -87,7 +87,7 @@ export function ServiceCards() {
                   <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-text-secondary text-sm flex-1">{service.shortDescription}</p>
+                  <p className="text-text-secondary text-base md:text-sm flex-1">{service.shortDescription}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {service.techStack.slice(0, 3).map((tech) => (
                       <Badge key={tech}>{tech}</Badge>
@@ -101,7 +101,7 @@ export function ServiceCards() {
         <div className="mt-10 text-center">
           <Link
             to="/services"
-            className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors"
+            className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors py-3"
           >
             View all services
             <ArrowRight size={16} />

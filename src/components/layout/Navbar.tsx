@@ -73,8 +73,8 @@ export function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'text-sm font-medium transition-colors duration-200 no-underline relative',
-                  location.pathname === link.path ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary',
+                  'text-[15px] font-medium transition-colors duration-200 no-underline relative',
+                  location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
                 )}
               >
                 {link.label}
@@ -93,7 +93,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden text-text-primary p-2"
+            className="md:hidden text-text-primary p-3"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -123,7 +123,7 @@ export function Navbar() {
                   to={link.path}
                   onClick={closeMobile}
                   className={cn(
-                    'text-2xl font-[family-name:var(--font-display)] font-medium no-underline',
+                    'text-2xl font-[family-name:var(--font-display)] font-medium no-underline py-2',
                     location.pathname === link.path ? 'text-accent-gold' : 'text-text-primary',
                   )}
                 >

@@ -120,7 +120,7 @@ export default function About() {
                           {item.role}
                         </div>
                         <div className="text-text-tertiary text-sm mb-1">{item.company}</div>
-                        <p className="text-text-secondary text-sm">{item.description}</p>
+                        <p className="text-text-secondary text-base md:text-sm">{item.description}</p>
                       </m.div>
                     )
                   })}

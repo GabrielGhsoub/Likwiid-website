@@ -53,12 +53,12 @@ export function Footer() {
           </span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <a
             href={SOCIAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="GitHub"
           >
             <Github size={20} />
@@ -67,14 +67,14 @@ export function Footer() {
             href={SOCIAL.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
           </a>
           <a
             href={`mailto:${SOCIAL.email}`}
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="Email"
           >
             <Mail size={20} />

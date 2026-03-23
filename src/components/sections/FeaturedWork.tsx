@@ -131,7 +131,7 @@ export function FeaturedWork() {
         <div className="mt-8 text-center">
           <Link
             to="/work"
-            className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors"
+            className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors py-3"
           >
             View all projects
             <ArrowRight size={16} />

@@ -65,7 +65,7 @@ export default function Services() {
             subtitle="End-to-end software engineering. From architecture to deployment, we handle it all."
           />
 
-          <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map((service, i) => (
                 <m.div
                   key={service.id}
@@ -84,7 +84,7 @@ export default function Services() {
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
                           {service.title}
                         </h3>
-                        <p className="mt-2 text-text-secondary text-sm">{service.shortDescription}</p>
+                        <p className="mt-2 text-text-secondary text-base md:text-sm">{service.shortDescription}</p>
                       </div>
                     </div>
 
