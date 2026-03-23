@@ -6,13 +6,16 @@ import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
 
-const MOBILE_OVERLAY_INITIAL = { opacity: 0 }
-const MOBILE_OVERLAY_ANIMATE = { opacity: 1 }
-const MOBILE_OVERLAY_EXIT = { opacity: 0 }
-const MOBILE_OVERLAY_TRANSITION = { duration: 0.2 }
-const MOBILE_LINK_INITIAL = { opacity: 0, y: 20 }
-const MOBILE_LINK_ANIMATE = { opacity: 1, y: 0 }
-const MOBILE_LINK_EXIT = { opacity: 0, y: 20 }
+const MOBILE_DRAWER_INITIAL = { x: '100%' }
+const MOBILE_DRAWER_ANIMATE = { x: 0 }
+const MOBILE_DRAWER_EXIT = { x: '100%' }
+const MOBILE_DRAWER_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
+const MOBILE_BACKDROP_INITIAL = { opacity: 0 }
+const MOBILE_BACKDROP_ANIMATE = { opacity: 1 }
+const MOBILE_BACKDROP_EXIT = { opacity: 0 }
+const MOBILE_LINK_INITIAL = { opacity: 0, x: 20 }
+const MOBILE_LINK_ANIMATE = { opacity: 1, x: 0 }
+const MOBILE_LINK_EXIT = { opacity: 0, x: 20 }
 const MOBILE_LINK_TRANSITIONS = NAV_LINKS.map((_, i) => ({
   delay: i * 0.05,
   duration: 0.3,
@@ -79,7 +82,15 @@ export function Navbar() {
               >
                 {link.label}
                 {location.pathname === link.path && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-px bg-accent-gold" />
+                  <m.div
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-accent-gold to-accent-blue"
+                    layoutId="navbar-indicator"
+                    transition={{
+                      type: 'spring',
+                      stiffness: 350,
+                      damping: 30,
+                    }}
+                  />
                 )}
               </Link>
             ))}
@@ -104,41 +115,93 @@ export function Navbar() {
 
       <AnimatePresence>
         {mobileOpen && (
-          <m.div
-            className="fixed inset-0 z-30 bg-bg-primary flex flex-col items-center justify-center gap-8 md:hidden"
-            initial={MOBILE_OVERLAY_INITIAL}
-            animate={MOBILE_OVERLAY_ANIMATE}
-            exit={MOBILE_OVERLAY_EXIT}
-            transition={MOBILE_OVERLAY_TRANSITION}
-          >
-            {NAV_LINKS.map((link, i) => (
-              <m.div
-                key={link.path}
-                initial={MOBILE_LINK_INITIAL}
-                animate={MOBILE_LINK_ANIMATE}
-                exit={MOBILE_LINK_EXIT}
-                transition={MOBILE_LINK_TRANSITIONS[i]}
-              >
-                <Link
-                  to={link.path}
-                  onClick={closeMobile}
-                  className={cn(
-                    'text-2xl font-[family-name:var(--font-display)] font-medium no-underline py-2',
-                    location.pathname === link.path ? 'text-accent-gold' : 'text-text-primary',
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </m.div>
-            ))}
-            <button
-              onClick={toggleTheme}
-              className="text-text-secondary hover:text-text-primary transition-colors mt-4 cursor-pointer"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          <>
+            {/* Backdrop */}
+            <m.div
+              className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm md:hidden"
+              initial={MOBILE_BACKDROP_INITIAL}
+              animate={MOBILE_BACKDROP_ANIMATE}
+              exit={MOBILE_BACKDROP_EXIT}
+              transition={{ duration: 0.2 }}
+              onClick={closeMobile}
+            />
+
+            {/* Slide-in Drawer */}
+            <m.div
+              className="fixed top-0 right-0 bottom-0 z-40 w-[280px] bg-bg-secondary border-l border-border shadow-2xl md:hidden"
+              initial={MOBILE_DRAWER_INITIAL}
+              animate={MOBILE_DRAWER_ANIMATE}
+              exit={MOBILE_DRAWER_EXIT}
+              transition={MOBILE_DRAWER_TRANSITION}
             >
-              {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
-            </button>
-          </m.div>
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+                  <Link
+                    to="/"
+                    onClick={closeMobile}
+                    className="font-[family-name:var(--font-display)] text-lg font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
+                  >
+                    Likwiid
+                  </Link>
+                  <button
+                    onClick={closeMobile}
+                    className="text-text-secondary hover:text-text-primary transition-colors p-2 -mr-2"
+                    aria-label="Close menu"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Navigation Links */}
+                <nav className="flex-1 px-6 py-6 overflow-y-auto">
+                  <div className="flex flex-col gap-1">
+                    {NAV_LINKS.map((link, i) => (
+                      <m.div
+                        key={link.path}
+                        initial={MOBILE_LINK_INITIAL}
+                        animate={MOBILE_LINK_ANIMATE}
+                        exit={MOBILE_LINK_EXIT}
+                        transition={MOBILE_LINK_TRANSITIONS[i]}
+                      >
+                        <Link
+                          to={link.path}
+                          onClick={closeMobile}
+                          className={cn(
+                            'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-all duration-200 text-base',
+                            location.pathname === link.path
+                              ? 'bg-accent-gold/10 text-accent-gold'
+                              : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',
+                          )}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span>{link.label}</span>
+                            {location.pathname === link.path && (
+                              <span className="text-accent-gold text-xs">●</span>
+                            )}
+                          </div>
+                        </Link>
+                      </m.div>
+                    ))}
+                  </div>
+                </nav>
+
+                {/* Footer with Theme Toggle */}
+                <div className="px-6 py-4 border-t border-border">
+                  <button
+                    onClick={toggleTheme}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-bg-tertiary hover:bg-bg-primary text-text-primary transition-colors"
+                    aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                  >
+                    <span className="text-sm font-medium">
+                      {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                    </span>
+                    {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                  </button>
+                </div>
+              </div>
+            </m.div>
+          </>
         )}
       </AnimatePresence>
     </>

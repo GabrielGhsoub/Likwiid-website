@@ -33,7 +33,7 @@ export function SectionHeading({ title, subtitle, className, align = 'left' }: S
         {title}
       </m.h2>
       <m.div
-        className={cn('h-px bg-accent-gold mt-4 w-[60px] origin-left', align === 'center' ? 'mx-auto origin-center' : '')}
+        className={cn('h-[2px] bg-gradient-to-r from-accent-gold to-accent-blue mt-4 w-[60px] origin-left rounded-full', align === 'center' ? 'mx-auto origin-center' : '')}
         initial={LINE_INITIAL}
         animate={isVisible ? LINE_VISIBLE : HIDDEN}
         transition={LINE_TRANSITION}

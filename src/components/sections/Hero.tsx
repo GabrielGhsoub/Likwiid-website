@@ -28,7 +28,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6">
+    <section className="relative min-h-[100dvh] flex items-center justify-center px-6 pb-20">
       <div ref={bgRef} className={`absolute inset-0 overflow-hidden${bgVisible ? '' : ' liquid-paused'}`}>
         {/* Morphing blob backgrounds */}
         <div
@@ -91,19 +91,19 @@ export function Hero() {
         </m.p>
 
         <m.div
-          className="mt-10 flex flex-wrap gap-4"
+          className="mt-8 flex flex-wrap gap-4"
           initial={FADE_UP_INITIAL}
           animate={FADE_UP_VISIBLE}
           transition={BUTTONS_TRANSITION}
         >
-          <Link to="/work">
+          <Link to="/contact">
             <Button variant="primary" size="lg">
-              See our work
+              Get in touch
             </Button>
           </Link>
-          <Link to="/contact">
+          <Link to="/work">
             <Button variant="secondary" size="lg">
-              Get in touch
+              See our work
             </Button>
           </Link>
         </m.div>

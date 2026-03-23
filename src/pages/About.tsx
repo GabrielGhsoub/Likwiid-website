@@ -1,6 +1,7 @@
 import { m } from 'framer-motion'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
+import { TechStack } from '../components/sections/TechStack'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { aboutSections } from '../data/personal'
 
@@ -189,6 +190,8 @@ export default function About() {
           </div>
         </div>
       </main>
+
+      <TechStack />
     </PageTransition>
   )
 }

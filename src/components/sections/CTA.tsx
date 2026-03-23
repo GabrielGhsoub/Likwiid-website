@@ -51,13 +51,13 @@ export function CTA() {
           className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
           variants={CTA_ITEM}
         >
-          Have a project in mind?
+          Let&apos;s build software that flows
         </m.h2>
         <m.p
           className="mt-4 text-text-secondary text-lg max-w-xl mx-auto"
           variants={CTA_ITEM}
         >
-          We&apos;re always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          From idea to production in weeks, not months. We&apos;re ready to discuss your next project.
         </m.p>
         <m.div
           className="mt-8"
