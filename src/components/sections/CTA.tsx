@@ -33,7 +33,7 @@ export function CTA() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="relative pt-24 pb-12 px-6 overflow-hidden">
+    <section ref={ref} className="relative pt-24 pb-0 px-6 overflow-hidden">
       {/* Animated gradient background */}
       <div
         className="absolute inset-0 opacity-[0.04] liquid-gradient-slow"
