@@ -1,4 +1,4 @@
-import type { Variants, Transition } from 'framer-motion'
+import type { Variants, Transition, TargetAndTransition } from 'framer-motion'
 
 /**
  * Liquid Animation System
@@ -199,7 +199,7 @@ export const staggerSlow = staggerContainer(0.15, 0.2)
 /**
  * Simple scale hover
  */
-export const hoverScale = (scale = 1.02): Transition => ({
+export const hoverScale = (scale = 1.02): TargetAndTransition => ({
   scale,
   transition: springs.snappy,
 })
@@ -207,7 +207,7 @@ export const hoverScale = (scale = 1.02): Transition => ({
 /**
  * Lift hover - combines scale and vertical movement
  */
-export const hoverLift = (y = -4, scale = 1.02): Transition => ({
+export const hoverLift = (y = -4, scale = 1.02): TargetAndTransition => ({
   y,
   scale,
   transition: springs.snappy,
@@ -216,7 +216,7 @@ export const hoverLift = (y = -4, scale = 1.02): Transition => ({
 /**
  * Subtle hover - minimal movement for professional feel
  */
-export const hoverSubtle: Transition = {
+export const hoverSubtle: TargetAndTransition = {
   scale: 1.01,
   y: -2,
   transition: springs.smooth,
@@ -225,7 +225,7 @@ export const hoverSubtle: Transition = {
 /**
  * Card hover - standard for all card components
  */
-export const hoverCard: Transition = {
+export const hoverCard: TargetAndTransition = {
   scale: 1.03,
   y: -4,
   transition: springs.snappy,
@@ -235,11 +235,11 @@ export const hoverCard: Transition = {
 // TAP/PRESS ANIMATIONS
 // ============================================================================
 
-export const tapScale: Transition = {
+export const tapScale: TargetAndTransition = {
   scale: 0.98,
 }
 
-export const tapScaleSubtle: Transition = {
+export const tapScaleSubtle: TargetAndTransition = {
   scale: 0.99,
 }
 
@@ -325,7 +325,7 @@ export const badgeVariant: Variants = {
   },
 }
 
-export const badgeHover: Transition = {
+export const badgeHover: TargetAndTransition = {
   y: -2,
   scale: 1.05,
   transition: springs.bouncy,
