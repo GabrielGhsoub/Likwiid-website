@@ -1,7 +1,7 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useCallback } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { m } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
+import { m, AnimatePresence } from 'framer-motion'
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { PhoneFrame, BrowserFrame } from '../components/ui/DeviceFrame'
@@ -15,11 +15,6 @@ const FADE_IN_ANIMATE = { opacity: 1 }
 const TRANSITION_BASE = { duration: 0.5 }
 const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15 }
 const TRANSITION_DELAY_06 = { duration: 0.5, delay: 0.6 }
-
-const makeImageTransition = (i: number) => ({
-  duration: 0.4,
-  delay: 0.2 + i * 0.08,
-})
 
 const LIQUID_REVEAL = {
   hidden: {
@@ -37,6 +32,87 @@ const LIQUID_REVEAL = {
       y: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
   },
+}
+
+const SLIDE_VARIANTS = {
+  enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+}
+const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
+
+function ScreenshotCarousel({ images, title, platform }: { images: string[]; title: string; platform: 'mobile' | 'web' }) {
+  const [current, setCurrent] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const Frame = platform === 'mobile' ? PhoneFrame : BrowserFrame
+
+  const paginate = useCallback((dir: number) => {
+    setDirection(dir)
+    setCurrent(prev => (prev + dir + images.length) % images.length)
+  }, [images.length])
+
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div className="relative w-full flex items-center justify-center">
+        {images.length > 1 && (
+          <button
+            onClick={() => paginate(-1)}
+            className="absolute left-0 z-10 p-2 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
+            aria-label="Previous screenshot"
+          >
+            <ChevronLeft size={20} />
+          </button>
+        )}
+
+        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[200px]' : 'w-full max-w-[600px]'}`}>
+          <AnimatePresence mode="wait" custom={direction}>
+            <m.div
+              key={current}
+              custom={direction}
+              variants={SLIDE_VARIANTS}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={SLIDE_TRANSITION}
+            >
+              <Frame>
+                <img
+                  src={images[current]}
+                  alt={`${title} screenshot ${current + 1}`}
+                  className={platform === 'mobile' ? 'w-[200px] h-auto block' : 'w-full h-auto block'}
+                  loading="lazy"
+                  draggable={false}
+                />
+              </Frame>
+            </m.div>
+          </AnimatePresence>
+        </div>
+
+        {images.length > 1 && (
+          <button
+            onClick={() => paginate(1)}
+            className="absolute right-0 z-10 p-2 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
+            aria-label="Next screenshot"
+          >
+            <ChevronRight size={20} />
+          </button>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="flex items-center gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary'}`}
+              aria-label={`Go to screenshot ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }
 
 function CaseStudySection({ title, content }: { title: string; content: string }) {
@@ -77,12 +153,13 @@ export default function CaseStudy() {
 
   return (
     <PageTransition key={slug}>
-      <main className="pt-14 pb-16">
+      <main className="pt-14 pb-6 md:pb-16">
         <div
           className="h-40 md:h-52 w-full relative"
           style={{ background: project.gradient }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-primary" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary" />
+          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-b from-transparent to-bg-primary" />
         </div>
 
         <div className="mx-auto max-w-[800px] px-6 -mt-20 relative">
@@ -135,47 +212,7 @@ export default function CaseStudy() {
               <h2 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-6">
                 Screenshots
               </h2>
-              {project.platform === 'mobile' ? (
-                <div className="flex flex-wrap justify-center gap-6">
-                  {project.images.map((img, i) => (
-                    <m.div
-                      key={img}
-                      initial={FADE_UP_INITIAL}
-                      animate={FADE_UP_ANIMATE}
-                      transition={makeImageTransition(i)}
-                    >
-                      <PhoneFrame>
-                        <img
-                          src={img}
-                          alt={`${project.title} screenshot ${i + 1}`}
-                          className="w-[180px] h-auto block"
-                          loading="lazy"
-                        />
-                      </PhoneFrame>
-                    </m.div>
-                  ))}
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  {project.images.map((img, i) => (
-                    <m.div
-                      key={img}
-                      initial={FADE_UP_INITIAL}
-                      animate={FADE_UP_ANIMATE}
-                      transition={makeImageTransition(i)}
-                    >
-                      <BrowserFrame>
-                        <img
-                          src={img}
-                          alt={`${project.title} screenshot ${i + 1}`}
-                          className="w-full h-auto block"
-                          loading="lazy"
-                        />
-                      </BrowserFrame>
-                    </m.div>
-                  ))}
-                </div>
-              )}
+              <ScreenshotCarousel images={project.images} title={project.title} platform={project.platform} />
             </m.div>
           )}
 

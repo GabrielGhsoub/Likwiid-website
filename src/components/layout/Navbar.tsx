@@ -59,7 +59,7 @@ export function Navbar() {
           scrolled ? 'glass-strong border-b border-white/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : 'bg-transparent border-b border-transparent',
         )}
       >
-        <div className="mx-auto max-w-[1200px] px-6 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-[1200px] px-6 py-3 md:py-4 flex items-center justify-between">
           <Link
             to="/"
             className="font-[family-name:var(--font-display)] text-xl font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"

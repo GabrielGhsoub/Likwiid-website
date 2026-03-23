@@ -44,8 +44,8 @@ export default function App() {
   usePrefetchRoutes()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [location.pathname, location.key])
 
   return (
     <LazyMotion features={domAnimation} strict>
