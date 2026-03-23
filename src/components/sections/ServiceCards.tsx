@@ -65,7 +65,7 @@ export function ServiceCards() {
   const preview = services.slice(0, 3)
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="What we do" subtitle="End-to-end software engineering across the full stack." />
 

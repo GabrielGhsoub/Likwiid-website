@@ -74,6 +74,13 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               animate="center"
               exit="exit"
               transition={SLIDE_TRANSITION}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => {
+                if (info.offset.x > 50) paginate(-1)
+                else if (info.offset.x < -50) paginate(1)
+              }}
             >
               <Frame>
                 <img

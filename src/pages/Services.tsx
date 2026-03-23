@@ -108,7 +108,7 @@ export default function Services() {
             animate={BACKDROP_ANIMATE}
             exit={BACKDROP_EXIT}
             transition={TRANSITION_MODAL}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-0 md:p-4"
             onClick={() => setExpanded(null)}
           >
             <m.div
@@ -117,44 +117,49 @@ export default function Services() {
               animate={MODAL_ANIMATE}
               exit={MODAL_EXIT}
               transition={TRANSITION_MODAL}
-              className="max-w-2xl w-full mx-4 bg-bg-secondary border border-border rounded-2xl p-8 max-h-[80vh] overflow-y-auto relative"
+              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[85vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                onClick={() => setExpanded(null)}
-                className="absolute top-4 right-4 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-                aria-label="Close"
-              >
-                <X size={20} />
-              </button>
+              <div className="sticky top-0 bg-bg-secondary z-10 p-6 md:p-8 pb-4 border-b border-border md:border-0">
+                <button
+                  onClick={() => setExpanded(null)}
+                  className="absolute top-6 right-6 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
+                  aria-label="Close"
+                >
+                  <X size={24} />
+                </button>
 
-              <div className="flex items-start gap-4">
-                {renderIcon(selectedService.icon, 32, 'text-accent-gold shrink-0 mt-1')}
-                <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
-                  {selectedService.title}
-                </h3>
+                <div className="flex items-start gap-4 pr-10">
+                  {renderIcon(selectedService.icon, 32, 'text-accent-gold shrink-0 mt-1')}
+                  <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                    {selectedService.title}
+                  </h3>
+                </div>
               </div>
 
-              <p className="mt-6 text-text-secondary leading-relaxed">
-                {selectedService.longDescription}
-              </p>
+              <div className="p-6 md:px-8 md:pb-8 md:pt-4">
 
-              <h4 className="mt-6 text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
-                Deliverables
-              </h4>
-              <ul className="mt-3 space-y-2">
-                {selectedService.deliverables.map((d) => (
-                  <li key={d} className="text-text-secondary text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-gold shrink-0" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
+                <p className="text-text-secondary leading-relaxed">
+                  {selectedService.longDescription}
+                </p>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {selectedService.techStack.map((tech) => (
-                  <Badge key={tech}>{tech}</Badge>
-                ))}
+                <h4 className="mt-6 text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
+                  Deliverables
+                </h4>
+                <ul className="mt-3 space-y-2">
+                  {selectedService.deliverables.map((d) => (
+                    <li key={d} className="text-text-secondary text-sm flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-gold shrink-0" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {selectedService.techStack.map((tech) => (
+                    <Badge key={tech}>{tech}</Badge>
+                  ))}
+                </div>
               </div>
             </m.div>
           </m.div>

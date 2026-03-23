@@ -70,8 +70,7 @@ export default function Portfolio() {
                     <div className="flex flex-col md:flex-row">
                       {/* Preview */}
                       <div
-                        className="w-full md:w-[280px] h-[180px] md:h-auto md:min-h-[160px] shrink-0 relative overflow-hidden flex items-center justify-center"
-                        style={{ background: project.gradient }}
+                        className="w-full md:w-[280px] h-[180px] md:h-auto md:min-h-[160px] shrink-0 relative overflow-hidden flex items-center justify-center bg-bg-tertiary"
                       >
                         {project.images.length > 0 && project.platform === 'mobile' ? (
                           <div className="bg-bg-tertiary rounded-[1rem] p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">

@@ -33,7 +33,7 @@ export function CTA() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="relative pt-24 pb-16 px-6">
+    <section ref={ref} className="relative pt-16 pb-16 px-6">
       <m.div
         className="relative mx-auto max-w-[1200px] text-center"
         variants={STAGGER_CONTAINER}
