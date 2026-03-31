@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
@@ -20,6 +20,8 @@ const MOBILE_LINK_TRANSITIONS = NAV_LINKS.map((_, i) => ({
   delay: i * 0.05,
   duration: 0.3,
 }))
+const INDICATOR_TRANSITION = { type: 'spring' as const, stiffness: 350, damping: 30 }
+const BACKDROP_TRANSITION = { duration: 0.2 }
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -50,6 +52,77 @@ export function Navbar() {
   }, [])
 
   const closeMobile = useCallback(() => setMobileOpen(false), [])
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+
+  // Escape key closes mobile drawer
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMobile()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [mobileOpen, closeMobile])
+
+  // Focus trap + restore focus on close
+  useEffect(() => {
+    if (!mobileOpen) return
+    previousFocusRef.current = document.activeElement as HTMLElement | null
+
+    // Focus first focusable element in drawer
+    const timer = requestAnimationFrame(() => {
+      const drawer = drawerRef.current
+      if (!drawer) return
+      const focusable = drawer.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length > 0) focusable[0].focus()
+    })
+
+    // Trap focus within drawer
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const drawer = drawerRef.current
+      if (!drawer) return
+      const focusable = drawer.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      cancelAnimationFrame(timer)
+      document.removeEventListener('keydown', onKeyDown)
+      previousFocusRef.current?.focus()
+    }
+  }, [mobileOpen])
+
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
 
   return (
     <>
@@ -57,6 +130,7 @@ export function Navbar() {
         Skip to content
       </a>
       <nav
+        aria-label="Main navigation"
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
           scrolled ? 'glass-strong border-b border-white/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : 'bg-transparent border-b border-transparent',
@@ -75,6 +149,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={cn(
                   'text-[15px] font-medium transition-colors duration-200 no-underline relative',
                   location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
@@ -85,18 +160,14 @@ export function Navbar() {
                   <m.div
                     className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-accent-gold to-accent-blue"
                     layoutId="navbar-indicator"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 350,
-                      damping: 30,
-                    }}
+                    transition={INDICATOR_TRANSITION}
                   />
                 )}
               </Link>
             ))}
             <button
               onClick={toggleTheme}
-              className="text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
+              className="text-text-secondary hover:text-text-primary p-2 -m-2 rounded-full hover:bg-bg-tertiary transition-colors cursor-pointer"
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -104,7 +175,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden text-text-primary p-3"
+            className="md:hidden text-text-primary p-3 hover:bg-bg-tertiary active:bg-bg-tertiary rounded-lg transition-colors cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -122,12 +193,16 @@ export function Navbar() {
               initial={MOBILE_BACKDROP_INITIAL}
               animate={MOBILE_BACKDROP_ANIMATE}
               exit={MOBILE_BACKDROP_EXIT}
-              transition={{ duration: 0.2 }}
+              transition={BACKDROP_TRANSITION}
               onClick={closeMobile}
             />
 
             {/* Slide-in Drawer */}
             <m.div
+              ref={drawerRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
               className="fixed top-0 right-0 bottom-0 z-40 w-[280px] bg-bg-secondary border-l border-border shadow-2xl md:hidden"
               initial={MOBILE_DRAWER_INITIAL}
               animate={MOBILE_DRAWER_ANIMATE}
@@ -167,6 +242,7 @@ export function Navbar() {
                         <Link
                           to={link.path}
                           onClick={closeMobile}
+                          aria-current={location.pathname === link.path ? 'page' : undefined}
                           className={cn(
                             'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-all duration-200 text-base',
                             location.pathname === link.path

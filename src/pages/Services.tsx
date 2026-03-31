@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import { Code, Cloud, Brain, Glasses, LayoutDashboard, Wrench, X } from 'lucide-react'
 import type { ComponentType } from 'react'
@@ -50,17 +50,83 @@ function renderIcon(name: string, size: number, className: string) {
   return <Icon size={size} className={className} />
 }
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 export default function Services() {
   const [expanded, setExpanded] = useState<string | null>(null)
   const { ref, isVisible } = useScrollAnimation()
+  const modalRef = useRef<HTMLDivElement>(null)
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null)
 
   const selectedService = services.find((s) => s.id === expanded)
 
+  // Page title
+  useEffect(() => { document.title = 'Services | Likwiid' }, [])
+
+  // Scroll lock
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [expanded])
+
+  // Escape key
+  useEffect(() => {
+    if (!expanded) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setExpanded(null)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [expanded])
+
+  // Focus management: save previous focus, focus modal, restore on close
+  useEffect(() => {
+    if (expanded) {
+      previouslyFocusedRef.current = document.activeElement as HTMLElement | null
+      // Small delay to let the modal render before focusing
+      requestAnimationFrame(() => {
+        modalRef.current?.focus()
+      })
+    } else if (previouslyFocusedRef.current) {
+      previouslyFocusedRef.current.focus()
+      previouslyFocusedRef.current = null
+    }
+  }, [expanded])
+
+  // Focus trap
+  const handleModalKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key !== 'Tab' || !modalRef.current) return
+
+    const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+    if (focusableElements.length === 0) return
+
+    const first = focusableElements[0]
+    const last = focusableElements[focusableElements.length - 1]
+
+    if (e.shiftKey) {
+      if (document.activeElement === first || document.activeElement === modalRef.current) {
+        e.preventDefault()
+        last.focus()
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+  }, [])
+
   return (
     <PageTransition>
-      <main className="pt-20 pb-16 px-6">
+      <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading
+            as="h1"
             title="Services"
             subtitle="End-to-end software engineering. From architecture to deployment, we handle it all."
           />
@@ -75,6 +141,7 @@ export default function Services() {
                   whileHover={SERVICE_CARD_HOVER}
                 >
                   <Card
+                    hover={false}
                     className="h-full flex flex-col cursor-pointer"
                     onClick={() => setExpanded(service.id)}
                   >
@@ -98,7 +165,7 @@ export default function Services() {
             ))}
           </div>
         </div>
-      </main>
+      </div>
 
       <AnimatePresence>
         {selectedService && (
@@ -112,12 +179,18 @@ export default function Services() {
             onClick={() => setExpanded(null)}
           >
             <m.div
+              ref={modalRef}
               key="modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-title"
+              tabIndex={-1}
+              onKeyDown={handleModalKeyDown}
               initial={MODAL_INITIAL}
               animate={MODAL_ANIMATE}
               exit={MODAL_EXIT}
               transition={TRANSITION_MODAL}
-              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[96vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative"
+              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[96vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative outline-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-0 bg-bg-secondary z-10 p-5 md:p-6 pb-3 border-b border-border md:border-0">
@@ -131,7 +204,7 @@ export default function Services() {
 
                 <div className="flex items-start gap-4 pr-10">
                   {renderIcon(selectedService.icon, 32, 'text-accent-gold shrink-0 mt-1')}
-                  <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                  <h3 id="modal-title" className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
                     {selectedService.title}
                   </h3>
                 </div>

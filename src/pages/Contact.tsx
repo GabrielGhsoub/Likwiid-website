@@ -1,6 +1,6 @@
-import { useState, type FormEvent } from 'react'
+import { useState, useEffect, type FormEvent } from 'react'
 import { m } from 'framer-motion'
-import { Mail, Github, Linkedin, Check, AlertCircle } from 'lucide-react'
+import { Mail, Github, Linkedin, Check, AlertCircle, ChevronDown } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { Button } from '../components/ui/Button'
@@ -22,6 +22,8 @@ const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 15
 export default function Contact() {
   const { status, submit, reset } = useFormSubmit()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
+
+  useEffect(() => { document.title = 'Contact | Likwiid' }, [])
 
   const validate = (data: ContactFormData): boolean => {
     const newErrors: Partial<Record<keyof ContactFormData, string>> = {}
@@ -51,9 +53,9 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <main className="pt-20 pb-16 px-6">
+      <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <SectionHeading title="Contact" />
+          <SectionHeading as="h1" title="Contact" subtitle="Start a conversation about your next project." />
 
           <div className="grid md:grid-cols-2 gap-16">
             <m.div
@@ -129,32 +131,40 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div>
                     <label htmlFor="name" className="block text-sm text-text-secondary mb-1.5">
-                      Name <span className="text-accent-gold">*</span>
+                      Name <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="name"
                       name="name"
                       type="text"
                       required
+                      aria-required="true"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
+                      onChange={() => errors.name && setErrors(prev => { const next = { ...prev }; delete next.name; return next })}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
                       placeholder="Your name"
                     />
-                    {errors.name && <p className="mt-1 text-red-400 text-xs">{errors.name}</p>}
+                    {errors.name && <p id="name-error" className="mt-1 text-red-400 text-xs">{errors.name}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm text-text-secondary mb-1.5">
-                      Email <span className="text-accent-gold">*</span>
+                      Email <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="email"
                       name="email"
                       type="email"
                       required
+                      aria-required="true"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
+                      onChange={() => errors.email && setErrors(prev => { const next = { ...prev }; delete next.email; return next })}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
                       placeholder="you@company.com"
                     />
-                    {errors.email && <p className="mt-1 text-red-400 text-xs">{errors.email}</p>}
+                    {errors.email && <p id="email-error" className="mt-1 text-red-400 text-xs">{errors.email}</p>}
                   </div>
 
                   <div>
@@ -175,62 +185,72 @@ export default function Contact() {
                       <label htmlFor="projectType" className="block text-sm text-text-secondary mb-1.5">
                         Project type
                       </label>
-                      <select
-                        id="projectType"
-                        name="projectType"
-                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
-                      >
-                        <option value="">Select...</option>
-                        {PROJECT_TYPES.map((t) => (
-                          <option key={t} value={t}>
-                            {t}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="projectType"
+                          name="projectType"
+                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
+                        >
+                          <option value="">Select...</option>
+                          {PROJECT_TYPES.map((t) => (
+                            <option key={t} value={t}>
+                              {t}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
+                      </div>
                     </div>
 
                     <div>
                       <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
                         Budget range
                       </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
-                      >
-                        <option value="">Select...</option>
-                        {BUDGETS.map((b) => (
-                          <option key={b} value={b}>
-                            {b}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="budget"
+                          name="budget"
+                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
+                        >
+                          <option value="">Select...</option>
+                          {BUDGETS.map((b) => (
+                            <option key={b} value={b}>
+                              {b}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
+                      </div>
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm text-text-secondary mb-1.5">
-                      Message <span className="text-accent-gold">*</span>
+                      Message <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       required
+                      aria-required="true"
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
+                      onChange={() => errors.message && setErrors(prev => { const next = { ...prev }; delete next.message; return next })}
                       rows={5}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 resize-none`}
-                      placeholder="Tell me about your project..."
+                      placeholder="Tell us about your project..."
                     />
-                    {errors.message && <p className="mt-1 text-red-400 text-xs">{errors.message}</p>}
+                    {errors.message && <p id="message-error" className="mt-1 text-red-400 text-xs">{errors.message}</p>}
                   </div>
 
                   {status === 'error' && (
-                    <div className="flex items-center gap-2 text-red-400 text-sm">
+                    <div role="alert" className="flex items-center gap-2 text-red-400 text-sm">
                       <AlertCircle size={16} />
                       Something went wrong. Please try again.
                     </div>
                   )}
 
-                  <Button type="submit" variant="primary" size="lg" disabled={status === 'submitting'}>
+                  <Button type="submit" variant="primary" size="lg" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
                     {status === 'submitting' ? 'Sending...' : 'Send message'}
                   </Button>
                 </form>
@@ -238,7 +258,7 @@ export default function Contact() {
             </m.div>
           </div>
         </div>
-      </main>
+      </div>
     </PageTransition>
   )
 }
