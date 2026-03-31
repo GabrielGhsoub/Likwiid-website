@@ -6,7 +6,7 @@ export const services: Service[] = [
     slug: 'full-stack-development',
     title: 'Full-Stack Web & Mobile Development',
     shortDescription:
-      'Building production applications from database to UI. Web apps, mobile apps, APIs -solutions that flow seamlessly across every layer.',
+      'Building production applications from database to UI. Web apps, mobile apps, APIs — solutions that work seamlessly across every layer.',
     longDescription:
       'From enterprise insurance portals serving thousands of users to personal training apps, we build the full vertical. Our stack is fluid: React and React Native for the frontend, Java/Spring Boot or Node.js/NestJS on the backend, with PostgreSQL or MongoDB for data. We adapt to what the project needs.',
     icon: 'Code',
@@ -25,7 +25,7 @@ export const services: Service[] = [
     shortDescription:
       'Infrastructure as Code, CI/CD pipelines, containerization, and cloud architecture for teams that need to scale fluidly.',
     longDescription:
-      'We design and implement cloud infrastructure that scales like water filling a vessel -expanding and contracting with demand. From setting up your first CI/CD pipeline to migrating monoliths to microservices on Kubernetes, we help teams move faster with confidence.',
+      'We design and implement cloud infrastructure that scales with demand. From setting up your first CI/CD pipeline to migrating monoliths to microservices on Kubernetes, we help teams ship faster with confidence.',
     icon: 'Cloud',
     techStack: ['AWS', 'Terraform', 'Kubernetes', 'Docker', 'Ansible', 'GitHub Actions', 'GitLab CI'],
     deliverables: [
@@ -43,7 +43,7 @@ export const services: Service[] = [
     shortDescription:
       'Integrating AI capabilities into existing products. LLM-powered features, intelligent automation, and agent workflows that adapt to your domain.',
     longDescription:
-      'AI is only valuable when it solves real problems. We integrate LLMs, build intelligent automation pipelines, and design multi-agent systems that actually ship to production, not just demos. Like any good solution, AI should flow naturally into your existing workflow.',
+      'AI is only valuable when it solves real problems. We integrate LLMs, build intelligent automation pipelines, and design multi-agent systems that actually ship to production — not just demos.',
     icon: 'Brain',
     techStack: ['Anthropic Claude API', 'OpenAI', 'LangChain', 'Python', 'Multi-agent Systems'],
     deliverables: [
@@ -61,7 +61,7 @@ export const services: Service[] = [
     shortDescription:
       'Building immersive experiences for Meta Quest and beyond. From concept to deployed VR application.',
     longDescription:
-      'Immersive technology is the next interface. We build VR applications and interactive 3D experiences for Meta Quest, focusing on practical use cases from training simulations to creative tools. Environments that users can move through as naturally as water.',
+      'Immersive technology is the next interface. We build VR applications and interactive 3D experiences for Meta Quest, focusing on practical use cases — from training simulations to creative tools.',
     icon: 'Glasses',
     techStack: ['Unity', 'Godot', 'Meta Quest SDK', 'C#'],
     deliverables: [
@@ -77,7 +77,7 @@ export const services: Service[] = [
     shortDescription:
       'Technical strategy, architecture reviews, and system design for teams that need senior-level guidance to navigate complexity.',
     longDescription:
-      'Sometimes you need a second pair of experienced eyes. We provide architecture reviews, system design consultations, and technical strategy for teams navigating complex decisions. Good architecture is fluid -it channels complexity into clean, manageable streams.',
+      'Sometimes you need a second pair of experienced eyes. We provide architecture reviews, system design consultations, and technical strategy for teams navigating complex decisions — channeling complexity into clean, manageable systems.',
     icon: 'LayoutDashboard',
     techStack: ['System Design', 'Microservices', 'Event-Driven Architecture', 'Domain-Driven Design'],
     deliverables: [
@@ -95,7 +95,7 @@ export const services: Service[] = [
     shortDescription:
       'Shipped fast with AI-generated code? We clean it up. Refactoring, testing, and dissolving technical debt.',
     longDescription:
-      'AI-generated code gets you to market fast, but it accumulates debt faster. We audit, refactor, add test coverage, optimize performance, and document codebases that were built with AI assistance. We dissolve the friction so your codebase flows again.',
+      'AI-generated code gets you to market fast, but it accumulates debt faster. We audit, refactor, add test coverage, optimize performance, and document codebases that were built with AI assistance — so your team can move fast again.',
     icon: 'Wrench',
     techStack: ['Code Quality', 'Testing', 'Performance Profiling', 'Refactoring', 'Documentation'],
     deliverables: [
