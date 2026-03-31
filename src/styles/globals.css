@@ -171,7 +171,7 @@
   /* Text Colors */
   --color-text-primary: #1A1A2E;
   --color-text-secondary: #374151;
-  --color-text-tertiary: #8B949E;
+  --color-text-tertiary: #6B7280;
   --color-text-inverse: #FFFFFF;
 
   /* Brand Colors */
@@ -244,11 +244,6 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-blue);
-}
-
-img {
-  content-visibility: auto;
-  will-change: auto;
 }
 
 body {

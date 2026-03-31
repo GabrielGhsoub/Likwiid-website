@@ -70,7 +70,7 @@ export function TechStack() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="py-24 px-6 bg-bg-secondary/30">
+    <section className="py-16 px-6 bg-bg-secondary/30">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeading title="Tech stack" subtitle="Tools and technologies we work with daily." />
 
@@ -94,8 +94,6 @@ export function TechStack() {
                 <m.div
                   className="flex flex-wrap gap-2"
                   variants={BADGE_CONTAINER}
-                  initial="hidden"
-                  animate={isVisible ? 'visible' : 'hidden'}
                 >
                   {categorySkills.map((skill) => (
                     <m.span

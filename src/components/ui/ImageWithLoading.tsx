@@ -10,6 +10,14 @@ interface ImageWithLoadingProps {
   loading?: 'lazy' | 'eager'
 }
 
+const IMG_INITIAL = { opacity: 0, filter: 'blur(10px)' }
+const IMG_LOADED = { opacity: 1, filter: 'blur(0px)' }
+const IMG_EMPTY = {}
+const IMG_TRANSITION = {
+  duration: 0.5,
+  ease: [0.22, 1, 0.36, 1] as const,
+}
+
 /**
  * ImageWithLoading Component
  *
@@ -50,19 +58,9 @@ export function ImageWithLoading({
         alt={alt}
         className={className}
         onLoad={() => setLoaded(true)}
-        initial={{ opacity: 0, filter: 'blur(10px)' }}
-        animate={
-          loaded
-            ? {
-                opacity: 1,
-                filter: 'blur(0px)',
-              }
-            : {}
-        }
-        transition={{
-          duration: 0.5,
-          ease: [0.22, 1, 0.36, 1], // Liquid easing
-        }}
+        initial={IMG_INITIAL}
+        animate={loaded ? IMG_LOADED : IMG_EMPTY}
+        transition={IMG_TRANSITION}
         loading={loading}
       />
     </div>

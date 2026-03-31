@@ -8,12 +8,10 @@ interface PageTransitionProps {
 const PAGE_INITIAL = {
   opacity: 0,
   y: 20,
-  filter: 'blur(4px)',
 }
 const PAGE_ANIMATE = {
   opacity: 1,
   y: 0,
-  filter: 'blur(0px)',
 }
 const PAGE_TRANSITION = {
   duration: 0.4,
