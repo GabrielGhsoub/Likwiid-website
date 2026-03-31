@@ -117,7 +117,7 @@ export default function Services() {
               animate={MODAL_ANIMATE}
               exit={MODAL_EXIT}
               transition={TRANSITION_MODAL}
-              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[90vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative"
+              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[96vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-0 bg-bg-secondary z-10 p-5 md:p-6 pb-3 border-b border-border md:border-0">
@@ -143,10 +143,10 @@ export default function Services() {
                   {selectedService.longDescription}
                 </p>
 
-                <h4 className="mt-6 text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
+                <h4 className="mt-4 text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
                   Deliverables
                 </h4>
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-2 space-y-1.5">
                   {selectedService.deliverables.map((d) => (
                     <li key={d} className="text-text-secondary text-sm flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent-gold shrink-0" />
@@ -155,7 +155,7 @@ export default function Services() {
                   ))}
                 </ul>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {selectedService.techStack.map((tech) => (
                     <Badge key={tech}>{tech}</Badge>
                   ))}
