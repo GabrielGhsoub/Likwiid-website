@@ -66,9 +66,6 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
     setLoadedImages(prev => new Set(prev).add(index))
   }, [])
 
-  // Aspect ratio placeholder: mobile ~9:16, web ~16:10
-  const aspectRatio = platform === 'mobile' ? '9 / 16' : '16 / 10'
-
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="relative w-full flex items-center justify-center">
@@ -99,21 +96,21 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               style={{ touchAction: 'pan-y' }}
             >
               <Frame>
-                <div style={{ aspectRatio, position: 'relative', width: '100%', background: 'var(--color-bg-tertiary)' }}>
+                <div
+                  className="relative bg-bg-tertiary"
+                  style={platform === 'mobile'
+                    ? { width: 200, aspectRatio: '9 / 16' }
+                    : { width: '100%', aspectRatio: '16 / 10' }
+                  }
+                >
                   <img
                     src={images[current]}
                     alt={`${title} screenshot ${current + 1}`}
-                    className={platform === 'mobile' ? 'w-[200px] h-auto block' : 'w-full h-auto block'}
+                    className="absolute inset-0 w-full h-full object-cover block"
                     style={{
-                      position: 'absolute',
-                      inset: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
                       opacity: loadedImages.has(current) ? 1 : 0,
                       transition: 'opacity 0.3s ease',
                     }}
-                    loading="lazy"
                     draggable={false}
                     onLoad={() => handleImageLoad(current)}
                   />
@@ -202,7 +199,7 @@ export default function CaseStudy() {
         >
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, transparent 40%, var(--color-bg-primary) 100%)' }}
+            style={{ background: 'linear-gradient(to bottom, var(--color-bg-primary) 0%, transparent 30%, transparent 40%, var(--color-bg-primary) 100%)' }}
           />
         </div>
 
