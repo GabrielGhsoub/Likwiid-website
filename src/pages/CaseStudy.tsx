@@ -193,15 +193,7 @@ export default function CaseStudy() {
   return (
     <PageTransition key={slug}>
       <main className="pt-14 pb-6 md:pb-16">
-        <div
-          className="h-40 md:h-52 w-full relative"
-          style={{ background: project.gradient }}
-        >
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, var(--color-bg-primary) 0%, transparent 30%, transparent 40%, var(--color-bg-primary) 100%)' }}
-          />
-        </div>
+        <div className="h-40 md:h-52 w-full bg-bg-primary" />
 
         <div className="mx-auto max-w-[800px] px-6 -mt-20 relative">
           <m.div
