@@ -36,8 +36,8 @@ export default function Portfolio() {
 
   return (
     <PageTransition>
-      <main className="pt-32 pb-16 px-6">
-        <div className="mx-auto max-w-[1000px]">
+      <main className="pt-20 pb-16 px-6">
+        <div className="mx-auto max-w-[1200px]">
           <SectionHeading title="Work" subtitle="Projects we've designed, built, and shipped." />
 
           <div className="flex flex-wrap gap-2 mb-8">

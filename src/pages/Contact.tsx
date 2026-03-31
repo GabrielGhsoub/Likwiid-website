@@ -51,7 +51,7 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <main className="pt-32 pb-16 px-6">
+      <main className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading title="Contact" />
 
