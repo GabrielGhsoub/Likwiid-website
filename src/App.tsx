@@ -31,9 +31,11 @@ function usePrefetchRoutes() {
   }, [])
 }
 
+const NotFound = lazy(() => import('./pages/NotFound'))
+
 function LoadingFallback() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Loading">
       <div className="w-8 h-8 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
     </div>
   )
@@ -59,6 +61,7 @@ export default function App() {
             <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

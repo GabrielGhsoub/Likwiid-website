@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { m } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, ExternalLink } from 'lucide-react'
@@ -22,23 +22,25 @@ const CARD_HOVER = {
   },
 }
 
-const makeProjectTransition = (i: number) => ({
+const projectTransitions = projects.map((_, i) => ({
   duration: 0.4,
   delay: i * 0.06,
   ease: [0.22, 1, 0.36, 1] as const,
-})
+}))
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All')
   const { ref, isVisible } = useScrollAnimation()
 
+  useEffect(() => { document.title = 'Work | Likwiid' }, [])
+
   const filtered = activeFilter === 'All' ? projects : projects.filter((p) => p.category === activeFilter)
 
   return (
     <PageTransition>
-      <main className="pt-20 pb-16 px-6">
+      <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <SectionHeading title="Work" subtitle="Projects we've designed, built, and shipped." />
+          <SectionHeading as="h1" title="Work" subtitle="Projects we've designed, built, and shipped." />
 
           <div className="flex flex-wrap gap-2 mb-8">
             {projectCategories.map((cat) => (
@@ -62,7 +64,7 @@ export default function Portfolio() {
                 key={project.id}
                 initial={FADE_UP_INITIAL}
                 animate={isVisible ? FADE_UP_ANIMATE : EMPTY}
-                transition={makeProjectTransition(i)}
+                transition={projectTransitions[i]}
                 whileHover={CARD_HOVER}
               >
                 <Link to={`/work/${project.slug}`} className="group block no-underline">
@@ -116,25 +118,15 @@ export default function Portfolio() {
                           <span className="text-[11px] text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
                           <span className="text-[11px] px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
                           {project.liveUrl && (
-                            <span
-                              role="link"
-                              tabIndex={0}
-                              className="text-[11px] text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors cursor-pointer"
-                              onClick={(e) => {
-                                e.preventDefault()
-                                e.stopPropagation()
-                                window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                              }}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter' || e.key === ' ') {
-                                  e.preventDefault()
-                                  e.stopPropagation()
-                                  window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                                }
-                              }}
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               <ExternalLink size={10} /> App Store
-                            </span>
+                            </a>
                           )}
                         </div>
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-tight">
@@ -154,7 +146,7 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </main>
+      </div>
     </PageTransition>
   )
 }

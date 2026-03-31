@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { m } from 'framer-motion'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -51,11 +52,13 @@ export default function About() {
   const { ref: philosophyRef, isVisible: philosophyVisible } = useScrollAnimation()
   const { ref: interestsRef, isVisible: interestsVisible } = useScrollAnimation()
 
+  useEffect(() => { document.title = 'About | Likwiid' }, [])
+
   return (
     <PageTransition>
-      <main className="pt-20 pb-16 px-6">
+      <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <SectionHeading title="About" subtitle="A digital studio built on real engineering experience." />
+          <SectionHeading as="h1" title="About" subtitle="A digital studio built on real engineering experience." />
 
           <div className="grid lg:grid-cols-[1fr_320px] gap-16">
             <div>
@@ -180,7 +183,7 @@ export default function About() {
                 transition={TRANSITION_DELAY_03}
               >
                 <img
-                  src="/gabriel.jpeg"
+                  src="/gabriel.webp"
                   alt="Gabriel Ghoussoub"
                   className="aspect-[3/4] w-full object-cover object-top"
                   loading="lazy"
@@ -189,7 +192,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       <TechStack />
     </PageTransition>
