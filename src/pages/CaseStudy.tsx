@@ -44,12 +44,30 @@ const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 
 function ScreenshotCarousel({ images, title, platform }: { images: string[]; title: string; platform: 'mobile' | 'web' }) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
   const Frame = platform === 'mobile' ? PhoneFrame : BrowserFrame
 
   const paginate = useCallback((dir: number) => {
     setDirection(dir)
     setCurrent(prev => (prev + dir + images.length) % images.length)
   }, [images.length])
+
+  const handleDragEnd = useCallback((_: unknown, info: { offset: { x: number }; velocity: { x: number } }) => {
+    const swipeThreshold = 50
+    const velocityThreshold = 500
+    if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
+      paginate(1)
+    } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
+      paginate(-1)
+    }
+  }, [paginate])
+
+  const handleImageLoad = useCallback((index: number) => {
+    setLoadedImages(prev => new Set(prev).add(index))
+  }, [])
+
+  // Aspect ratio placeholder: mobile ~9:16, web ~16:10
+  const aspectRatio = platform === 'mobile' ? '9 / 16' : '16 / 10'
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -74,22 +92,37 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               animate="center"
               exit="exit"
               transition={SLIDE_TRANSITION}
-              drag="x"
+              drag={images.length > 1 ? 'x' : false}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
-              onDragEnd={(_, info) => {
-                if (info.offset.x > 50) paginate(-1)
-                else if (info.offset.x < -50) paginate(1)
-              }}
+              onDragEnd={handleDragEnd}
+              style={{ touchAction: 'pan-y' }}
             >
               <Frame>
-                <img
-                  src={images[current]}
-                  alt={`${title} screenshot ${current + 1}`}
-                  className={platform === 'mobile' ? 'w-[200px] h-auto block' : 'w-full h-auto block'}
-                  loading="lazy"
-                  draggable={false}
-                />
+                <div style={{ aspectRatio, position: 'relative', width: '100%', background: 'var(--color-bg-tertiary)' }}>
+                  <img
+                    src={images[current]}
+                    alt={`${title} screenshot ${current + 1}`}
+                    className={platform === 'mobile' ? 'w-[200px] h-auto block' : 'w-full h-auto block'}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      opacity: loadedImages.has(current) ? 1 : 0,
+                      transition: 'opacity 0.3s ease',
+                    }}
+                    loading="lazy"
+                    draggable={false}
+                    onLoad={() => handleImageLoad(current)}
+                  />
+                  {!loadedImages.has(current) && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
+                    </div>
+                  )}
+                </div>
               </Frame>
             </m.div>
           </AnimatePresence>
@@ -167,8 +200,10 @@ export default function CaseStudy() {
           className="h-40 md:h-52 w-full relative"
           style={{ background: project.gradient }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary" />
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-b from-transparent to-bg-primary" />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to bottom, transparent 40%, var(--color-bg-primary) 100%)' }}
+          />
         </div>
 
         <div className="mx-auto max-w-[800px] px-6 -mt-20 relative">
