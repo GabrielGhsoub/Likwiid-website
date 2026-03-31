@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react'
+import { useMemo, useState, useCallback, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -17,17 +17,11 @@ const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15 }
 const TRANSITION_DELAY_06 = { duration: 0.5, delay: 0.6 }
 
 const LIQUID_REVEAL = {
-  hidden: {
-    clipPath: 'polygon(0% 100%, 15% 100%, 30% 100%, 50% 100%, 70% 100%, 85% 100%, 100% 100%, 100% 100%, 0% 100%)',
-    opacity: 0,
-    y: 20,
-  },
+  hidden: { opacity: 0, y: 20 },
   visible: {
-    clipPath: 'polygon(0% 0%, 15% 2%, 30% 0%, 50% 3%, 70% 0%, 85% 2%, 100% 0%, 100% 100%, 0% 100%)',
     opacity: 1,
     y: 0,
     transition: {
-      clipPath: { duration: 1, ease: [0.22, 1, 0.36, 1] as const },
       opacity: { duration: 0.5 },
       y: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
     },
@@ -66,9 +60,15 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
     setLoadedImages(prev => new Set(prev).add(index))
   }, [])
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (images.length <= 1) return
+    if (e.key === 'ArrowLeft') paginate(-1)
+    else if (e.key === 'ArrowRight') paginate(1)
+  }, [images.length, paginate])
+
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="relative w-full flex items-center justify-center">
+    <div className="flex flex-col items-center gap-4" role="region" aria-roledescription="carousel" aria-label={`${title} screenshots`} onKeyDown={handleKeyDown} tabIndex={0}>
+      <div className="relative w-full flex items-center justify-center" aria-live="polite">
         {images.length > 1 && (
           <button
             onClick={() => paginate(-1)}
@@ -115,7 +115,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
                     onLoad={() => handleImageLoad(current)}
                   />
                   {!loadedImages.has(current) && (
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label="Loading screenshot">
                       <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
                     </div>
                   )}
@@ -144,6 +144,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
               className="p-[18px] cursor-pointer"
               aria-label={`Go to screenshot ${i + 1}`}
+              aria-current={i === current ? true : undefined}
             >
               <div className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
             </button>
@@ -186,6 +187,10 @@ export default function CaseStudy() {
       { title: 'Approach', content: project.approach },
       { title: 'Results', content: project.results },
     ]
+  }, [project])
+
+  useEffect(() => {
+    document.title = project ? `${project.title} | Likwiid` : 'Likwiid'
   }, [project])
 
   if (!project) return <Navigate to="/work" replace />

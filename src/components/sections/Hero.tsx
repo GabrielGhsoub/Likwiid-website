@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
-import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -46,7 +45,7 @@ export function Hero() {
 
         {/* Central ripple pulse */}
         <div className="absolute inset-0 flex items-center justify-center" style={{ animation: 'ripple 8s ease-in-out infinite' }}>
-          <div className="w-[800px] h-[500px]" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.03) 0%, transparent 50%)' }} />
+          <div className="w-[800px] h-[500px]" style={{ background: 'radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-accent-gold) 3%, transparent) 0%, transparent 50%)' }} />
         </div>
 
         {/* Floating bubbles */}
@@ -96,20 +95,16 @@ export function Hero() {
           animate={FADE_UP_VISIBLE}
           transition={BUTTONS_TRANSITION}
         >
-          <Link to="/contact">
-            <Button variant="primary" size="lg">
-              Get in touch
-            </Button>
-          </Link>
-          <Link to="/work">
-            <Button variant="secondary" size="lg">
-              See our work
-            </Button>
-          </Link>
+          <Button variant="primary" size="lg" href="/contact">
+            Get in touch
+          </Button>
+          <Button variant="secondary" size="lg" href="/work">
+            See our work
+          </Button>
         </m.div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce [animation-iteration-count:3]">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce [animation-iteration-count:3]" aria-hidden="true">
         <ArrowDown className="text-text-tertiary" size={24} />
       </div>
     </section>

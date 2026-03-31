@@ -1,5 +1,4 @@
 import { m } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { Button } from '../ui/Button'
 
@@ -44,23 +43,21 @@ export function CTA() {
           className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
           variants={CTA_ITEM}
         >
-          Let&apos;s build software that flows
+          Ready to ship your next product?
         </m.h2>
         <m.p
           className="mt-4 text-text-secondary text-lg max-w-xl mx-auto"
           variants={CTA_ITEM}
         >
-          From idea to production in weeks, not months. We&apos;re ready to discuss your next project.
+          From idea to production in weeks, not months. Let&apos;s turn your vision into software that delivers.
         </m.p>
         <m.div
           className="mt-8"
           variants={CTA_ITEM}
         >
-          <Link to="/contact">
-            <Button variant="primary" size="lg">
-              Let&apos;s talk
-            </Button>
-          </Link>
+          <Button variant="primary" size="lg" href="/contact">
+            Let&apos;s talk
+          </Button>
         </m.div>
       </m.div>
     </section>
