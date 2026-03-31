@@ -17,21 +17,23 @@ interface SectionHeadingProps {
   subtitle?: string
   className?: string
   align?: 'left' | 'center'
+  as?: 'h1' | 'h2'
 }
 
-export function SectionHeading({ title, subtitle, className, align = 'left' }: SectionHeadingProps) {
+export function SectionHeading({ title, subtitle, className, align = 'left', as: Tag = 'h2' }: SectionHeadingProps) {
   const { ref, isVisible } = useScrollAnimation()
+  const MotionTag = Tag === 'h1' ? m.h1 : m.h2
 
   return (
     <div ref={ref} className={cn('mb-12', align === 'center' && 'text-center', className)}>
-      <m.h2
+      <MotionTag
         className="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
         initial={FADE_UP_INITIAL}
         animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
         transition={HEADING_TRANSITION}
       >
         {title}
-      </m.h2>
+      </MotionTag>
       <m.div
         className={cn('h-[2px] bg-gradient-to-r from-accent-gold to-accent-blue mt-4 w-[60px] origin-left rounded-full', align === 'center' ? 'mx-auto origin-center' : '')}
         initial={LINE_INITIAL}

@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, type KeyboardEvent } from 'react'
 import { m } from 'framer-motion'
 import { cn } from '../../utils/cn'
 
@@ -21,20 +21,29 @@ interface CardProps {
 }
 
 export function Card({ children, className, hover = true, onClick }: CardProps) {
+  const isInteractive = hover && onClick
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault()
+      onClick()
+    }
+  }
+
   return (
     <m.div
       className={cn(
-        'relative rounded-2xl border border-border bg-bg-secondary/50 hover:backdrop-blur-sm p-6 overflow-hidden',
-        hover && 'cursor-pointer',
+        'group relative rounded-2xl border border-border bg-bg-secondary/50 p-6 overflow-hidden',
+        isInteractive && 'cursor-pointer',
         className,
       )}
       whileHover={hover ? HOVER_SCALE : undefined}
       transition={CARD_TRANSITION}
       onClick={onClick}
+      role={isInteractive ? 'button' : undefined}
+      tabIndex={isInteractive ? 0 : undefined}
+      onKeyDown={isInteractive ? handleKeyDown : undefined}
     >
-      {hover && (
-        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:opacity-100 bg-gradient-to-br from-accent-gold-dim to-transparent" />
-      )}
       {children}
     </m.div>
   )
