@@ -20,4 +20,4 @@ export const NAV_LINKS = [
   { label: 'Contact', path: '/contact' },
 ] as const
 
-export const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || 'https://formspree.io/f/your-form-id'
+export const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || 'https://api.likwiid.com/submit'

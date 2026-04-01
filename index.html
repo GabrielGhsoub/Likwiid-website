@@ -37,7 +37,7 @@
     </style>
 
     <script>
-      (function(){var t=localStorage.getItem('likwiid-theme')||'light';document.documentElement.className=t})()
+      (function(){var t=localStorage.getItem('likwiid-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.className=t})()
     </script>
     <title>Likwiid | Software Studio</title>
 
@@ -74,7 +74,7 @@
       }
     </script>
 
-    <!-- Add analytics: Plausible, Umami, or GA4 -->
+    <script defer src="https://analytics.likwiid.com/script.js" data-website-id="85306839-3302-4404-a06d-88a0d6ef5599"></script>
   </head>
   <body>
     <div id="root"></div>
