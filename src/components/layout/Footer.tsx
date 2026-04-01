@@ -39,6 +39,13 @@ export function Footer() {
           <span className="text-text-tertiary text-sm">
             &copy; {CURRENT_YEAR} Likwiid. Founded by Gabriel Ghoussoub.
           </span>
+          <span className="text-text-tertiary text-sm" aria-hidden="true">&middot;</span>
+          <Link
+            to="/privacy"
+            className="text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
+          >
+            Privacy Policy
+          </Link>
         </div>
 
         <div className="flex items-center gap-6">

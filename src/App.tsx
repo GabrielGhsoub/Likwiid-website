@@ -10,6 +10,7 @@ const Portfolio = lazy(() => import('./pages/Portfolio'))
 const CaseStudy = lazy(() => import('./pages/CaseStudy'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
+const Privacy = lazy(() => import('./pages/Privacy'))
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function usePrefetchRoutes() {
       import('./pages/CaseStudy')
       import('./pages/About')
       import('./pages/Contact')
+      import('./pages/Privacy')
     }
 
     if ('requestIdleCallback' in window) {
@@ -61,6 +63,7 @@ export default function App() {
             <Route path="/work/:slug" element={<CaseStudy />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
