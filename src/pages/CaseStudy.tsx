@@ -12,9 +12,9 @@ const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const FADE_IN_INITIAL = { opacity: 0 }
 const FADE_IN_ANIMATE = { opacity: 1 }
-const TRANSITION_BASE = { duration: 0.5 }
-const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15 }
-const TRANSITION_DELAY_06 = { duration: 0.5, delay: 0.6 }
+const TRANSITION_BASE = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_DELAY_06 = { duration: 0.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] as const }
 
 const LIQUID_REVEAL = {
   hidden: { opacity: 0, y: 20 },
@@ -146,7 +146,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               aria-label={`Go to screenshot ${i + 1}`}
               aria-current={i === current ? true : undefined}
             >
-              <div className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
+              <div className={`h-2 rounded-full transition-[background-color,width] duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
             </button>
           ))}
         </div>
@@ -197,7 +197,7 @@ export default function CaseStudy() {
 
   return (
     <PageTransition key={slug}>
-      <main className="pt-14 pb-6 md:pb-16">
+      <div className="pt-14 pb-6 md:pb-16">
         <div className="h-40 md:h-52 w-full bg-bg-primary" />
 
         <div className="mx-auto max-w-[800px] px-6 -mt-20 relative">
@@ -280,7 +280,7 @@ export default function CaseStudy() {
             </Link>
           </m.div>
         </div>
-      </main>
+      </div>
     </PageTransition>
   )
 }

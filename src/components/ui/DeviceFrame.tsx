@@ -1,11 +1,13 @@
+import { cn } from '../../utils/cn'
+
 interface PhoneFrameProps {
   children: React.ReactNode
   className?: string
 }
 
-export function PhoneFrame({ children, className = '' }: PhoneFrameProps) {
+export function PhoneFrame({ children, className }: PhoneFrameProps) {
   return (
-    <div className={`inline-flex flex-col items-center ${className}`}>
+    <div className={cn('inline-flex flex-col items-center', className)}>
       <div className="relative bg-[#1a1a1a] rounded-[2.5rem] p-[6px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-[22px] bg-[#1a1a1a] rounded-b-2xl z-10" />
@@ -27,9 +29,9 @@ interface BrowserFrameProps {
   className?: string
 }
 
-export function BrowserFrame({ children, className = '' }: BrowserFrameProps) {
+export function BrowserFrame({ children, className }: BrowserFrameProps) {
   return (
-    <div className={`flex flex-col ${className}`}>
+    <div className={cn('flex flex-col', className)}>
       <div className="rounded-lg overflow-hidden shadow-[0_0_0_1px_rgba(0,0,0,0.1),0_8px_40px_rgba(0,0,0,0.2)]">
         {/* Browser chrome */}
         <div className="bg-[#2d2d2d] px-4 py-2.5 flex items-center gap-3">

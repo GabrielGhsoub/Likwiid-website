@@ -40,7 +40,7 @@ const PROJECT_HOVER = {
   transition: {
     type: 'spring' as const,
     stiffness: 300,
-    damping: 22,
+    damping: 20,
   },
 }
 
@@ -54,7 +54,7 @@ export function FeaturedWork() {
 
         <m.div
           ref={ref}
-          className="grid md:grid-cols-2 gap-4"
+          className="grid md:grid-cols-2 gap-6"
           variants={STAGGER_CONTAINER}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
@@ -127,7 +127,7 @@ export function FeaturedWork() {
           ))}
         </m.div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <Link
             to="/work"
             className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors py-3"

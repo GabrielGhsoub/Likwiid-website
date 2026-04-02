@@ -12,7 +12,7 @@ const STAGGER_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
       delayChildren: 0.1,
     },
   },
@@ -21,7 +21,7 @@ const STAGGER_CONTAINER = {
 const SERVICE_ITEM = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
     scale: 0.96,
   },
   visible: {

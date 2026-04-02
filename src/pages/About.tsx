@@ -13,9 +13,9 @@ const SLIDE_LEFT_ANIMATE = { opacity: 1, x: 0, scale: 1 }
 const SCALE_IN_INITIAL = { opacity: 0, scale: 0.95 }
 const SCALE_IN_ANIMATE = { opacity: 1, scale: 1 }
 const EMPTY = {}
-const TRANSITION_BASE = { duration: 0.5 }
-const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2 }
-const TRANSITION_DELAY_03 = { duration: 0.5, delay: 0.3 }
+const TRANSITION_BASE = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_DELAY_03 = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 const journeyTransitions = aboutSections.journey.map((_, i) => ({
   duration: 0.5,
@@ -34,15 +34,15 @@ const STAGGER_CONTAINER = {
 }
 
 const STAGGER_ITEM = {
-  hidden: { opacity: 0, y: 16, scale: 0.95 },
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
       type: 'spring' as const,
-      damping: 20,
-      stiffness: 200,
+      damping: 14,
+      stiffness: 120,
     },
   },
 }

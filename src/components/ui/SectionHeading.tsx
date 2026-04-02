@@ -8,9 +8,9 @@ const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
 const FADE_UP_SUBTLE_INITIAL = { opacity: 0, y: 10 }
 const LINE_INITIAL = { scaleX: 0 }
 const LINE_VISIBLE = { scaleX: 1 }
-const HEADING_TRANSITION = { duration: 0.5 }
-const LINE_TRANSITION = { duration: 0.5, delay: 0.2 }
-const SUBTITLE_TRANSITION = { duration: 0.5, delay: 0.3 }
+const HEADING_TRANSITION = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+const LINE_TRANSITION = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
+const SUBTITLE_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 interface SectionHeadingProps {
   title: string

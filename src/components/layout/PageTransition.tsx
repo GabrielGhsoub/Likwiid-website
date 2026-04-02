@@ -14,8 +14,8 @@ const PAGE_ANIMATE = {
   y: 0,
 }
 const PAGE_TRANSITION = {
-  duration: 0.4,
-  ease: [0.4, 0, 0.2, 1] as const,
+  duration: 0.5,
+  ease: [0.22, 1, 0.36, 1] as const,
 }
 
 export function PageTransition({ children }: PageTransitionProps) {

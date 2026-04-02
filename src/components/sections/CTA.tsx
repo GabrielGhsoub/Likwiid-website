@@ -6,7 +6,7 @@ const STAGGER_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.08,
       delayChildren: 0.1,
     },
   },
@@ -15,15 +15,14 @@ const STAGGER_CONTAINER = {
 const CTA_ITEM = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring' as const,
-      damping: 20,
-      stiffness: 180,
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 }
@@ -32,34 +31,39 @@ export function CTA() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="relative pt-16 pb-16 px-6">
-      <m.div
-        className="relative mx-auto max-w-[1200px] text-center"
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
-      >
-        <m.h2
-          className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-          variants={CTA_ITEM}
-        >
-          Ready to ship your next product?
-        </m.h2>
-        <m.p
-          className="mt-4 text-text-secondary text-lg max-w-xl mx-auto"
-          variants={CTA_ITEM}
-        >
-          From idea to production in weeks, not months. Let&apos;s turn your vision into software that delivers.
-        </m.p>
+    <section ref={ref} className="py-16 px-6">
+      <div className="mx-auto max-w-[1200px]">
         <m.div
-          className="mt-8"
-          variants={CTA_ITEM}
+          className="relative rounded-2xl border border-border bg-bg-secondary/50 p-12 text-center overflow-hidden"
+          variants={STAGGER_CONTAINER}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
-          <Button variant="primary" size="lg" href="/contact">
-            Let&apos;s talk
-          </Button>
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/[0.03] via-transparent to-accent-blue/[0.03] pointer-events-none" />
+
+          <m.h2
+            className="relative text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
+            variants={CTA_ITEM}
+          >
+            Ready to ship your next product?
+          </m.h2>
+          <m.p
+            className="relative mt-4 text-text-secondary text-lg max-w-xl mx-auto"
+            variants={CTA_ITEM}
+          >
+            From idea to production in weeks, not months. Let&apos;s turn your vision into software that delivers.
+          </m.p>
+          <m.div
+            className="relative mt-8"
+            variants={CTA_ITEM}
+          >
+            <Button variant="primary" size="lg" href="/contact">
+              Let&apos;s talk
+            </Button>
+          </m.div>
         </m.div>
-      </m.div>
+      </div>
     </section>
   )
 }

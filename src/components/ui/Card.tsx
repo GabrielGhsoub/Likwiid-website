@@ -33,7 +33,7 @@ export function Card({ children, className, hover = true, onClick }: CardProps) 
   return (
     <m.div
       className={cn(
-        'group relative rounded-2xl border border-border bg-bg-secondary/50 p-6 overflow-hidden',
+        'group relative rounded-lg border border-border bg-bg-secondary/50 p-6 overflow-hidden',
         isInteractive && 'cursor-pointer',
         className,
       )}

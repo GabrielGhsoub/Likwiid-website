@@ -14,6 +14,7 @@ const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const EMPTY = {}
 
 const CARD_HOVER = {
+  scale: 1.01,
   y: -4,
   transition: {
     type: 'spring' as const,
@@ -68,7 +69,7 @@ export default function Portfolio() {
                 whileHover={CARD_HOVER}
               >
                 <Link to={`/work/${project.slug}`} className="group block no-underline">
-                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-all duration-300 overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
                     <div className="flex flex-col md:flex-row">
                       {/* Preview */}
                       <div

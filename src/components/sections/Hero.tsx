@@ -6,10 +6,10 @@ import { Button } from '../ui/Button'
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
 const TITLE_INITIAL = { opacity: 0, y: 30 }
-const SUBTITLE_TRANSITION = { duration: 0.5 }
-const TITLE_TRANSITION = { duration: 0.6, delay: 0.1 }
-const DESCRIPTION_TRANSITION = { duration: 0.5, delay: 0.3 }
-const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.5 }
+const SUBTITLE_TRANSITION = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+const TITLE_TRANSITION = { duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
+const DESCRIPTION_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
+const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] as const }
 
 export function Hero() {
   const bgRef = useRef<HTMLDivElement>(null)
@@ -61,7 +61,7 @@ export function Hero() {
 
       <div className="relative max-w-[1200px] w-full">
         <m.p
-          className="text-accent-gold text-sm font-[family-name:var(--font-mono)] mb-4 tracking-wider uppercase"
+          className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-4"
           initial={FADE_UP_INITIAL}
           animate={FADE_UP_VISIBLE}
           transition={SUBTITLE_TRANSITION}

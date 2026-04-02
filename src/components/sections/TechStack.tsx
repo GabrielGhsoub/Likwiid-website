@@ -7,7 +7,7 @@ const CATEGORY_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
       delayChildren: 0.05,
     },
   },
@@ -50,8 +50,8 @@ const BADGE_ITEM = {
     scale: 1,
     transition: {
       type: 'spring' as const,
-      damping: 15,
-      stiffness: 200,
+      damping: 14,
+      stiffness: 120,
     },
   },
 }
@@ -62,7 +62,7 @@ const BADGE_HOVER = {
   transition: {
     type: 'spring' as const,
     stiffness: 400,
-    damping: 20,
+    damping: 10,
   },
 }
 

@@ -132,7 +132,7 @@ export function Navbar() {
       <nav
         aria-label="Main navigation"
         className={cn(
-          'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow] duration-300',
           scrolled ? 'glass-strong border-b border-white/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : 'bg-transparent border-b border-transparent',
         )}
       >
@@ -244,7 +244,7 @@ export function Navbar() {
                           onClick={closeMobile}
                           aria-current={location.pathname === link.path ? 'page' : undefined}
                           className={cn(
-                            'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-all duration-200 text-base',
+                            'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-[background-color,color] duration-200 text-base',
                             location.pathname === link.path
                               ? 'bg-accent-gold/10 text-accent-gold'
                               : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',

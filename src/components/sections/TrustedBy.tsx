@@ -35,11 +35,11 @@ const FADE_IN = {
 }
 
 const LABEL_FADE = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4 },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
@@ -47,10 +47,10 @@ export function TrustedBy() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section ref={ref} className="py-12 px-6">
+    <section ref={ref} className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
         <m.p
-          className="text-xs uppercase tracking-[0.2em] text-accent-gold font-medium font-[family-name:var(--font-mono)] text-center mb-6"
+          className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] text-center mb-6"
           variants={LABEL_FADE}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}

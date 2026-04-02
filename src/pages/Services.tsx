@@ -19,7 +19,7 @@ const BACKDROP_EXIT = { opacity: 0 }
 const MODAL_INITIAL = { opacity: 0, scale: 0.95, filter: 'blur(4px)' }
 const MODAL_ANIMATE = { opacity: 1, scale: 1, filter: 'blur(0px)' }
 const MODAL_EXIT = { opacity: 0, scale: 0.95, filter: 'blur(4px)' }
-const TRANSITION_MODAL = { duration: 0.25, ease: [0.4, 0, 0.2, 1] as const }
+const TRANSITION_MODAL = { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }
 
 const SERVICE_CARD_HOVER = {
   y: -6,

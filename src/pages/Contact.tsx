@@ -15,9 +15,9 @@ const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const SCALE_INITIAL = { scale: 0 }
 const SCALE_ANIMATE = { scale: 1 }
-const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1 }
-const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2 }
-const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 15 }
+const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
+const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 14 }
 
 export default function Contact() {
   const { status, submit, reset } = useFormSubmit()
@@ -142,7 +142,7 @@ export default function Contact() {
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
                       onChange={() => errors.name && setErrors(prev => { const next = { ...prev }; delete next.name; return next })}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
                       placeholder="Your name"
                     />
                     {errors.name && <p id="name-error" className="mt-1 text-red-400 text-xs">{errors.name}</p>}
@@ -161,7 +161,7 @@ export default function Contact() {
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'email-error' : undefined}
                       onChange={() => errors.email && setErrors(prev => { const next = { ...prev }; delete next.email; return next })}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
                       placeholder="you@company.com"
                     />
                     {errors.email && <p id="email-error" className="mt-1 text-red-400 text-xs">{errors.email}</p>}
@@ -175,7 +175,7 @@ export default function Contact() {
                       id="company"
                       name="company"
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300"
                       placeholder="Your company (optional)"
                     />
                   </div>
@@ -189,7 +189,7 @@ export default function Contact() {
                         <select
                           id="projectType"
                           name="projectType"
-                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
+                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
                           <option value="">Select...</option>
                           {PROJECT_TYPES.map((t) => (
@@ -210,7 +210,7 @@ export default function Contact() {
                         <select
                           id="budget"
                           name="budget"
-                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 appearance-none"
+                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
                           <option value="">Select...</option>
                           {BUDGETS.map((b) => (
@@ -237,7 +237,7 @@ export default function Contact() {
                       aria-describedby={errors.message ? 'message-error' : undefined}
                       onChange={() => errors.message && setErrors(prev => { const next = { ...prev }; delete next.message; return next })}
                       rows={5}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-all duration-300 resize-none`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 resize-none`}
                       placeholder="Tell us about your project..."
                     />
                     {errors.message && <p id="message-error" className="mt-1 text-red-400 text-xs">{errors.message}</p>}

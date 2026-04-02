@@ -34,7 +34,7 @@ const STAGGER_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.08,
       delayChildren: 0.1,
     },
   },
@@ -43,7 +43,7 @@ const STAGGER_CONTAINER = {
 const STEP_ITEM = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
   },
   visible: {
     opacity: 1,

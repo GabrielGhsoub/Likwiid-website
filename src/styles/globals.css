@@ -44,18 +44,13 @@
   --color-text-tertiary: #8B949E;
   --color-text-inverse: #1A1A2E;
 
-  /* Brand Colors - Liquid Theme (Cyan + Blue) */
-  --color-brand-cyan: #22D3EE;
-  --color-brand-cyan-hover: #06B6D4;
-  --color-brand-cyan-dim: #22D3EE1A;
-  --color-brand-blue: #0EA5E9;
-  --color-brand-blue-hover: #0284C7;
-  --color-brand-blue-dim: #0EA5E91A;
-
-  /* Legacy Aliases (backward compatibility - WILL BE DEPRECATED) */
+  /* Accent Colors — Primary brand palette (Liquid Cyan + Blue) */
   --color-accent-gold: #22D3EE;
-  --color-accent-blue: #0EA5E9;
+  --color-accent-gold-hover: #06B6D4;
   --color-accent-gold-dim: #22D3EE1A;
+  --color-accent-blue: #0EA5E9;
+  --color-accent-blue-hover: #0284C7;
+  --color-accent-blue-dim: #0EA5E91A;
 
   /* Border Colors */
   --color-border: #1B2332;
@@ -131,10 +126,10 @@
      GRADIENTS
      ========================================================================== */
 
-  --gradient-liquid: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-blue));
-  --gradient-liquid-subtle: linear-gradient(135deg, var(--color-brand-cyan-dim), var(--color-brand-blue-dim));
-  --gradient-liquid-vertical: linear-gradient(180deg, var(--color-brand-cyan), var(--color-brand-blue));
-  --gradient-liquid-radial: radial-gradient(circle at 50% 50%, var(--color-brand-cyan), var(--color-brand-blue));
+  --gradient-liquid: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-blue));
+  --gradient-liquid-subtle: linear-gradient(135deg, var(--color-accent-gold-dim), var(--color-accent-blue-dim));
+  --gradient-liquid-vertical: linear-gradient(180deg, var(--color-accent-gold), var(--color-accent-blue));
+  --gradient-liquid-radial: radial-gradient(circle at 50% 50%, var(--color-accent-gold), var(--color-accent-blue));
 
   /* ==========================================================================
      SHADOWS
@@ -174,18 +169,13 @@
   --color-text-tertiary: #6B7280;
   --color-text-inverse: #FFFFFF;
 
-  /* Brand Colors */
-  --color-brand-cyan: #0E7490;
-  --color-brand-cyan-hover: #155E75;
-  --color-brand-cyan-dim: #0E74901A;
-  --color-brand-blue: #0369A1;
-  --color-brand-blue-hover: #075985;
-  --color-brand-blue-dim: #0369A11A;
-
-  /* Legacy Aliases */
+  /* Accent Colors — Darker variants for light backgrounds */
   --color-accent-gold: #0E7490;
-  --color-accent-blue: #0369A1;
+  --color-accent-gold-hover: #155E75;
   --color-accent-gold-dim: #0E74901A;
+  --color-accent-blue: #0369A1;
+  --color-accent-blue-hover: #075985;
+  --color-accent-blue-dim: #0369A11A;
 
   /* Border Colors */
   --color-border: #E2E8F0;

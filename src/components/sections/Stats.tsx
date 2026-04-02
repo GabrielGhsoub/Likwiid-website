@@ -6,7 +6,7 @@ const STAGGER_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
       delayChildren: 0.05,
     },
   },
@@ -15,7 +15,7 @@ const STAGGER_CONTAINER = {
 const STAT_ITEM = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
     scale: 0.95,
   },
   visible: {
@@ -24,7 +24,7 @@ const STAT_ITEM = {
     scale: 1,
     transition: {
       type: 'spring' as const,
-      damping: 18,
+      damping: 20,
       stiffness: 200,
     },
   },
