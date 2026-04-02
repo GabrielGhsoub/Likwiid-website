@@ -1,6 +1,5 @@
 import { Hero } from '../components/sections/Hero'
 import { Stats } from '../components/sections/Stats'
-import { TrustedBy } from '../components/sections/TrustedBy'
 import { ServiceCards } from '../components/sections/ServiceCards'
 import { FeaturedWork } from '../components/sections/FeaturedWork'
 import { Process } from '../components/sections/Process'
@@ -12,7 +11,6 @@ export default function Home() {
     <PageTransition>
       <Hero />
       <Stats />
-      <TrustedBy />
       <ServiceCards />
       <FeaturedWork />
       <Process />

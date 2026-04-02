@@ -15,18 +15,18 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Build',
-    description: 'Iterative development with weekly demos and continuous feedback.',
+    title: 'AI-Powered Build',
+    description: 'State-of-the-art AI orchestration and agent workflows accelerate development with continuous feedback.',
   },
   {
     number: '04',
     title: 'Ship',
-    description: 'Deployment, monitoring, and handoff with full documentation.',
+    description: 'Automated CI/CD, monitoring, and handoff with full documentation.',
   },
   {
     number: '05',
-    title: 'Support',
-    description: 'Ongoing maintenance, optimization, and feature development.',
+    title: 'Iterate',
+    description: 'Ongoing optimization, AI-driven improvements, and feature development.',
   },
 ]
 

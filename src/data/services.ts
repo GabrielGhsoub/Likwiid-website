@@ -6,7 +6,7 @@ export const services: Service[] = [
     slug: 'full-stack-development',
     title: 'Full-Stack Web & Mobile Development',
     shortDescription:
-      'Building production applications from database to UI. Web apps, mobile apps, APIs — solutions that work seamlessly across every layer.',
+      'Building production applications from database to UI. Web apps, mobile apps, APIs, and solutions that work seamlessly across every layer.',
     longDescription:
       'From enterprise insurance portals serving thousands of users to personal training apps, we build the full vertical. Our stack is fluid: React and React Native for the frontend, Java/Spring Boot or Node.js/NestJS on the backend, with PostgreSQL or MongoDB for data. We adapt to what the project needs.',
     icon: 'Code',
@@ -43,7 +43,7 @@ export const services: Service[] = [
     shortDescription:
       'Integrating AI capabilities into existing products. LLM-powered features, intelligent automation, and agent workflows that adapt to your domain.',
     longDescription:
-      'AI is only valuable when it solves real problems. We integrate LLMs, build intelligent automation pipelines, and design multi-agent systems that actually ship to production — not just demos.',
+      'AI is only valuable when it solves real problems. We integrate LLMs, build intelligent automation pipelines, and design multi-agent systems that actually ship to production, not just demos.',
     icon: 'Brain',
     techStack: ['Anthropic Claude API', 'OpenAI', 'LangChain', 'Python', 'Multi-agent Systems'],
     deliverables: [
@@ -61,7 +61,7 @@ export const services: Service[] = [
     shortDescription:
       'Building immersive experiences for Meta Quest and beyond. From concept to deployed VR application.',
     longDescription:
-      'Immersive technology is the next interface. We build VR applications and interactive 3D experiences for Meta Quest, focusing on practical use cases — from training simulations to creative tools.',
+      'Immersive technology is the next interface. We build VR applications and interactive 3D experiences for Meta Quest, focusing on practical use cases, from training simulations to creative tools.',
     icon: 'Glasses',
     techStack: ['Unity', 'Godot', 'Meta Quest SDK', 'C#'],
     deliverables: [
@@ -77,7 +77,7 @@ export const services: Service[] = [
     shortDescription:
       'Technical strategy, architecture reviews, and system design for teams that need senior-level guidance to navigate complexity.',
     longDescription:
-      'Sometimes you need a second pair of experienced eyes. We provide architecture reviews, system design consultations, and technical strategy for teams navigating complex decisions — channeling complexity into clean, manageable systems.',
+      'Sometimes you need a second pair of experienced eyes. We provide architecture reviews, system design consultations, and technical strategy for teams navigating complex decisions, channeling complexity into clean, manageable systems.',
     icon: 'LayoutDashboard',
     techStack: ['System Design', 'Microservices', 'Event-Driven Architecture', 'Domain-Driven Design'],
     deliverables: [
@@ -95,7 +95,7 @@ export const services: Service[] = [
     shortDescription:
       'Shipped fast with AI-generated code? We clean it up. Refactoring, testing, and dissolving technical debt.',
     longDescription:
-      'AI-generated code gets you to market fast, but it accumulates debt faster. We audit, refactor, add test coverage, optimize performance, and document codebases that were built with AI assistance — so your team can move fast again.',
+      'AI-generated code gets you to market fast, but it accumulates debt faster. We audit, refactor, add test coverage, optimize performance, and document codebases that were built with AI assistance, so your team can move fast again.',
     icon: 'Wrench',
     techStack: ['Code Quality', 'Testing', 'Performance Profiling', 'Refactoring', 'Documentation'],
     deliverables: [

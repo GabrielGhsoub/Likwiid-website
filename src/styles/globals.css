@@ -44,13 +44,13 @@
   --color-text-tertiary: #8B949E;
   --color-text-inverse: #1A1A2E;
 
-  /* Accent Colors — Primary brand palette (Liquid Cyan + Blue) */
-  --color-accent-gold: #22D3EE;
-  --color-accent-gold-hover: #06B6D4;
-  --color-accent-gold-dim: #22D3EE1A;
-  --color-accent-blue: #0EA5E9;
-  --color-accent-blue-hover: #0284C7;
-  --color-accent-blue-dim: #0EA5E91A;
+  /* Accent Colors — Primary brand palette (Cyan + Blue) */
+  --color-accent-gold: #06B6D4;
+  --color-accent-gold-hover: #0891B2;
+  --color-accent-gold-dim: #06B6D41A;
+  --color-accent-blue: #0284C7;
+  --color-accent-blue-hover: #0369A1;
+  --color-accent-blue-dim: #0284C71A;
 
   /* Border Colors */
   --color-border: #1B2332;

@@ -18,7 +18,7 @@ const BUTTON_TAP = { scale: 0.98 }
 
 const variants = {
   primary:
-    'liquid-ripple bg-accent-gold text-bg-primary border border-accent-gold hover:opacity-90 transition-colors duration-200',
+    'liquid-ripple bg-accent-gold text-white border border-accent-gold hover:opacity-90 transition-colors duration-200',
   secondary:
     'border border-border text-text-primary hover:border-border-hover hover:text-accent-gold transition-[border-color,color] duration-200',
   ghost: 'text-text-secondary hover:text-text-primary transition-colors duration-200',

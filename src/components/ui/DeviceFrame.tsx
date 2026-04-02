@@ -8,17 +8,15 @@ interface PhoneFrameProps {
 export function PhoneFrame({ children, className }: PhoneFrameProps) {
   return (
     <div className={cn('inline-flex flex-col items-center', className)}>
-      <div className="relative bg-[#1a1a1a] rounded-[2.5rem] p-[6px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-[22px] bg-[#1a1a1a] rounded-b-2xl z-10" />
-        {/* Dynamic Island dot */}
-        <div className="absolute top-[8px] left-1/2 -translate-x-1/2 w-[20%] h-[8px] bg-[#000] rounded-full z-20" />
+      <div className="relative bg-[#1a1a1a] rounded-[2rem] p-[4px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]" style={{ width: 170 }}>
+        {/* Dynamic Island */}
+        <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[22%] h-[6px] bg-[#000] rounded-full z-20" />
         {/* Screen */}
-        <div className="relative rounded-[2.2rem] overflow-hidden bg-black">
+        <div className="relative rounded-[1.8rem] overflow-hidden bg-black">
           {children}
         </div>
         {/* Home indicator */}
-        <div className="absolute bottom-[4px] left-1/2 -translate-x-1/2 w-[30%] h-[4px] bg-[#444] rounded-full" />
+        <div className="absolute bottom-[3px] left-1/2 -translate-x-1/2 w-[28%] h-[3px] bg-[#444] rounded-full" />
       </div>
     </div>
   )

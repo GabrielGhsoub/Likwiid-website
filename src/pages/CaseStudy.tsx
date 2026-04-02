@@ -79,7 +79,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
           </button>
         )}
 
-        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[200px]' : 'w-full max-w-[600px]'}`}>
+        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[170px]' : 'w-full max-w-[600px]'}`}>
           <AnimatePresence mode="wait" custom={direction}>
             <m.div
               key={current}
@@ -93,20 +93,21 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
               onDragEnd={handleDragEnd}
-              style={{ touchAction: 'pan-y' }}
+              style={{ touchAction: 'pan-y', cursor: images.length > 1 ? 'grab' : undefined }}
+              whileDrag={{ cursor: 'grabbing' }}
             >
               <Frame>
                 <div
                   className="relative bg-bg-tertiary"
                   style={platform === 'mobile'
-                    ? { width: 200, aspectRatio: '9 / 16' }
+                    ? { width: '100%', aspectRatio: '9 / 19.5' }
                     : { width: '100%', aspectRatio: '16 / 10' }
                   }
                 >
                   <img
                     src={images[current]}
                     alt={`${title} screenshot ${current + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover block"
+                    className="absolute inset-0 w-full h-full object-contain block"
                     style={{
                       opacity: loadedImages.has(current) ? 1 : 0,
                       transition: 'opacity 0.3s ease',
