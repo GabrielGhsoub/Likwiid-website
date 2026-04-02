@@ -1,6 +1,9 @@
 import { type ReactNode } from 'react'
-import { m } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { m, type HTMLMotionProps } from 'framer-motion'
 import { cn } from '../../utils/cn'
+
+const MotionLink = m.create(Link) as React.FC<HTMLMotionProps<'a'> & { to: string; children: ReactNode }>
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -49,17 +52,30 @@ export function Button({
   )
 
   if (href) {
+    const isExternal = href.startsWith('http')
+    if (isExternal) {
+      return (
+        <m.a
+          href={href}
+          className={classes}
+          whileHover={BUTTON_HOVER}
+          whileTap={BUTTON_TAP}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </m.a>
+      )
+    }
     return (
-      <m.a
-        href={href}
+      <MotionLink
+        to={href}
         className={classes}
         whileHover={BUTTON_HOVER}
         whileTap={BUTTON_TAP}
-        target={href.startsWith('http') ? '_blank' : undefined}
-        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
       >
         {children}
-      </m.a>
+      </MotionLink>
     )
   }
 

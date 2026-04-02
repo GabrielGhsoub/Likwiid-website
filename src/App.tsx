@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { LazyMotion, domAnimation } from 'framer-motion'
+import { LazyMotion, domMax } from 'framer-motion'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import Home from './pages/Home'
@@ -52,7 +52,7 @@ export default function App() {
   }, [location.pathname, location.key])
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domMax} strict>
       <Navbar />
       <main id="main-content">
         <Suspense fallback={<LoadingFallback />}>
