@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -48,6 +48,7 @@ const STAGGER_ITEM = {
 }
 
 export default function About() {
+  const [photoLoaded, setPhotoLoaded] = useState(false)
   const { ref: journeyRef, isVisible: journeyVisible } = useScrollAnimation()
   const { ref: philosophyRef, isVisible: philosophyVisible } = useScrollAnimation()
   const { ref: interestsRef, isVisible: interestsVisible } = useScrollAnimation()
@@ -182,12 +183,20 @@ export default function About() {
                 animate={SCALE_IN_ANIMATE}
                 transition={TRANSITION_DELAY_03}
               >
-                <img
-                  src="/gabriel.webp"
-                  alt="Gabriel Ghoussoub"
-                  className="aspect-[3/4] w-full object-cover object-top"
-                  loading="lazy"
-                />
+                <div className="relative aspect-[3/4] w-full bg-bg-tertiary">
+                  <img
+                    src="/gabriel.webp"
+                    alt="Gabriel Ghoussoub"
+                    className="w-full h-full object-cover object-top"
+                    style={{ opacity: photoLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                    onLoad={() => setPhotoLoaded(true)}
+                  />
+                  {!photoLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label="Loading photo">
+                      <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
+                    </div>
+                  )}
+                </div>
               </m.div>
             </div>
           </div>
