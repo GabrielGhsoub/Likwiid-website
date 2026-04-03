@@ -133,7 +133,7 @@ export function Navbar() {
         aria-label="Main navigation"
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow] duration-300',
-          scrolled ? 'glass-strong border-b border-white/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : 'bg-transparent border-b border-transparent',
+          scrolled ? 'glass-strong border-b border-border/50 shadow-sm' : 'bg-transparent border-b border-transparent',
         )}
       >
         <div className="mx-auto max-w-[1200px] px-6 py-3 md:py-4 flex items-center justify-between">
@@ -151,7 +151,7 @@ export function Navbar() {
                 to={link.path}
                 aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={cn(
-                  'text-[15px] font-medium transition-colors duration-200 no-underline relative',
+                  'text-sm font-medium transition-colors duration-200 no-underline relative',
                   location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
                 )}
               >

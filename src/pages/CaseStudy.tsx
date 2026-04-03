@@ -34,6 +34,7 @@ const SLIDE_VARIANTS = {
   exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
 }
 const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
+const WHILE_DRAG = { cursor: 'grabbing' as const }
 
 function ScreenshotCarousel({ images, title, platform }: { images: string[]; title: string; platform: 'mobile' | 'web' }) {
   const [current, setCurrent] = useState(0)
@@ -94,7 +95,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
               dragElastic={0.2}
               onDragEnd={handleDragEnd}
               style={{ touchAction: 'pan-y', cursor: images.length > 1 ? 'grab' : undefined }}
-              whileDrag={{ cursor: 'grabbing' }}
+              whileDrag={WHILE_DRAG}
             >
               <Frame>
                 <div
@@ -143,7 +144,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
             <button
               key={i}
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-              className="p-[18px] cursor-pointer"
+              className="p-5 cursor-pointer"
               aria-label={`Go to screenshot ${i + 1}`}
               aria-current={i === current ? true : undefined}
             >
@@ -209,7 +210,7 @@ export default function CaseStudy() {
           >
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary text-sm mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary text-sm mb-6 transition-colors py-2"
             >
               <ArrowLeft size={14} /> Back to work
             </Link>

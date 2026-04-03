@@ -5,7 +5,7 @@ import { cn } from '../../utils/cn'
 const HIDDEN = {}
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const FADE_UP_SUBTLE_INITIAL = { opacity: 0, y: 10 }
+const FADE_UP_SUBTLE_INITIAL = { opacity: 0, y: 20 }
 const LINE_INITIAL = { scaleX: 0 }
 const LINE_VISIBLE = { scaleX: 1 }
 const HEADING_TRANSITION = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }

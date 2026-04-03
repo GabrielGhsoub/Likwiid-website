@@ -141,7 +141,7 @@ export const liquidSlide: Variants = {
 export const liquid3D: Variants = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
     scale: 0.96,
     rotateX: -8,
   },
@@ -165,7 +165,7 @@ export const liquid3D: Variants = {
  * Creates a stagger container with configurable timing
  */
 export const staggerContainer = (
-  staggerChildren = 0.1,
+  staggerChildren = 0.08,
   delayChildren = 0
 ): Variants => ({
   hidden: {},
@@ -180,17 +180,17 @@ export const staggerContainer = (
 /**
  * Fast stagger for small items (badges, tags)
  */
-export const staggerFast = staggerContainer(0.04, 0.1)
+export const staggerFast = staggerContainer(0.06, 0.1)
 
 /**
  * Medium stagger for cards and sections
  */
-export const staggerMedium = staggerContainer(0.1, 0.1)
+export const staggerMedium = staggerContainer(0.08, 0.1)
 
 /**
  * Slow stagger for large content blocks
  */
-export const staggerSlow = staggerContainer(0.15, 0.2)
+export const staggerSlow = staggerContainer(0.08, 0.2)
 
 // ============================================================================
 // HOVER ANIMATIONS
@@ -338,7 +338,7 @@ export const badgeHover: TargetAndTransition = {
 export const statReveal: Variants = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
     scale: 0.95,
   },
   visible: {

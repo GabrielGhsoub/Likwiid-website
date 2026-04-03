@@ -190,7 +190,7 @@ export default function Services() {
               animate={MODAL_ANIMATE}
               exit={MODAL_EXIT}
               transition={TRANSITION_MODAL}
-              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[96vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-2xl overflow-y-auto relative outline-none"
+              className="w-full h-full md:max-w-2xl md:h-auto md:max-h-[96vh] bg-bg-secondary border-0 md:border md:border-border md:rounded-lg overflow-y-auto relative outline-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-0 bg-bg-secondary z-10 p-5 md:p-6 pb-3 border-b border-border md:border-0">

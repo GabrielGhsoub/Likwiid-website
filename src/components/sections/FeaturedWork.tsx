@@ -72,8 +72,8 @@ export function FeaturedWork() {
                     style={{ background: project.gradient }}
                   >
                     {project.images.length > 0 && project.platform === 'mobile' ? (
-                      <div className="bg-bg-tertiary rounded-[1rem] p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-                        <div className="rounded-[0.9rem] overflow-hidden">
+                      <div className="bg-bg-tertiary rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                        <div className="rounded-lg overflow-hidden">
                           <ImageWithLoading
                             src={project.images[0]}
                             alt={project.title}
@@ -108,8 +108,8 @@ export function FeaturedWork() {
                   </div>
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[11px] text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-                      <span className="text-[11px] px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
+                      <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
                     </div>
                     <h3 className="text-base font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-tight">
                       {project.title}

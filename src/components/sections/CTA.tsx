@@ -34,7 +34,7 @@ export function CTA() {
     <section ref={ref} className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
         <m.div
-          className="relative rounded-2xl border border-border bg-bg-secondary/50 p-12 text-center overflow-hidden"
+          className="relative rounded-lg border border-border bg-bg-secondary/50 p-12 text-center overflow-hidden"
           variants={STAGGER_CONTAINER}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}

@@ -71,7 +71,7 @@ export function Hero() {
 
         <m.h1
           className="font-[family-name:var(--font-display)] font-bold text-text-primary leading-[1.1]"
-          style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+          style={{ fontSize: 'var(--font-size-hero)' }}
           initial={TITLE_INITIAL}
           animate={FADE_UP_VISIBLE}
           transition={TITLE_TRANSITION}

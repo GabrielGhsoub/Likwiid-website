@@ -32,7 +32,7 @@ const BADGE_CONTAINER = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.04,
+      staggerChildren: 0.06,
       delayChildren: 0.1,
     },
   },
@@ -61,8 +61,8 @@ const BADGE_HOVER = {
   scale: 1.05,
   transition: {
     type: 'spring' as const,
-    stiffness: 400,
-    damping: 10,
+    stiffness: 300,
+    damping: 20,
   },
 }
 

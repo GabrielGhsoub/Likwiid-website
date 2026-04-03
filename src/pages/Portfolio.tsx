@@ -9,7 +9,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { projects, projectCategories } from '../data/projects'
 import type { ProjectCategory } from '../types'
 
-const FADE_UP_INITIAL = { opacity: 0, y: 12 }
+const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const EMPTY = {}
 
@@ -48,7 +48,7 @@ export default function Portfolio() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat as ProjectCategory)}
-                className={`px-4 py-2.5 text-sm rounded-full border transition-colors cursor-pointer ${
+                className={`px-4 py-3 text-sm rounded-full border transition-colors cursor-pointer ${
                   activeFilter === cat
                     ? 'border-accent-gold text-accent-gold bg-accent-gold-dim'
                     : 'border-border text-text-secondary hover:border-border-hover hover:text-text-primary'
@@ -69,15 +69,15 @@ export default function Portfolio() {
                 whileHover={CARD_HOVER}
               >
                 <Link to={`/work/${project.slug}`} className="group block no-underline">
-                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-lg">
                     <div className="flex flex-col md:flex-row">
                       {/* Preview */}
                       <div
                         className="w-full md:w-[280px] h-[180px] md:h-auto md:min-h-[160px] shrink-0 relative overflow-hidden flex items-center justify-center bg-bg-tertiary"
                       >
                         {project.images.length > 0 && project.platform === 'mobile' ? (
-                          <div className="bg-bg-tertiary rounded-[1rem] p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-                            <div className="rounded-[0.9rem] overflow-hidden">
+                          <div className="bg-bg-tertiary rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                            <div className="rounded-lg overflow-hidden">
                               <img
                                 src={project.images[0]}
                                 alt={project.title}
@@ -116,14 +116,14 @@ export default function Portfolio() {
                       {/* Info */}
                       <div className="flex-1 p-5 flex flex-col justify-center min-w-0">
                         <div className="flex items-center gap-2 mb-1.5">
-                          <span className="text-[11px] text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-                          <span className="text-[11px] px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
+                          <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
+                          <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
                           {project.liveUrl && (
                             <a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[11px] text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
                               onClick={(e) => e.stopPropagation()}
                             >
                               <ExternalLink size={10} /> App Store

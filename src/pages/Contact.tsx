@@ -112,7 +112,7 @@ export default function Contact() {
                     animate={SCALE_ANIMATE}
                     transition={TRANSITION_SPRING}
                   >
-                    <div className="w-16 h-16 rounded-full bg-accent-gold/20 flex items-center justify-center mb-6">
+                    <div className="w-16 h-16 rounded-full bg-accent-gold-dim flex items-center justify-center mb-6">
                       <Check size={32} className="text-accent-gold" />
                     </div>
                   </m.div>
@@ -122,7 +122,7 @@ export default function Contact() {
                   <p className="mt-2 text-text-secondary">We&apos;ll get back to you within 24 hours.</p>
                   <button
                     onClick={reset}
-                    className="mt-6 text-accent-gold text-sm hover:underline cursor-pointer"
+                    className="mt-6 py-2 px-4 text-accent-gold text-sm hover:underline cursor-pointer"
                   >
                     Send another message
                   </button>
@@ -142,10 +142,10 @@ export default function Contact() {
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
                       onChange={() => errors.name && setErrors(prev => { const next = { ...prev }; delete next.name; return next })}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
                       placeholder="Your name"
                     />
-                    {errors.name && <p id="name-error" className="mt-1 text-red-400 text-xs">{errors.name}</p>}
+                    {errors.name && <p id="name-error" className="mt-1 text-error-base text-xs">{errors.name}</p>}
                   </div>
 
                   <div>
@@ -161,10 +161,10 @@ export default function Contact() {
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'email-error' : undefined}
                       onChange={() => errors.email && setErrors(prev => { const next = { ...prev }; delete next.email; return next })}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
                       placeholder="you@company.com"
                     />
-                    {errors.email && <p id="email-error" className="mt-1 text-red-400 text-xs">{errors.email}</p>}
+                    {errors.email && <p id="email-error" className="mt-1 text-error-base text-xs">{errors.email}</p>}
                   </div>
 
                   <div>
@@ -237,14 +237,14 @@ export default function Contact() {
                       aria-describedby={errors.message ? 'message-error' : undefined}
                       onChange={() => errors.message && setErrors(prev => { const next = { ...prev }; delete next.message; return next })}
                       rows={5}
-                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-red-500' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 resize-none`}
+                      className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 resize-none`}
                       placeholder="Tell us about your project..."
                     />
-                    {errors.message && <p id="message-error" className="mt-1 text-red-400 text-xs">{errors.message}</p>}
+                    {errors.message && <p id="message-error" className="mt-1 text-error-base text-xs">{errors.message}</p>}
                   </div>
 
                   {status === 'error' && (
-                    <div role="alert" className="flex items-center gap-2 text-red-400 text-sm">
+                    <div role="alert" className="flex items-center gap-2 text-error-base text-sm">
                       <AlertCircle size={16} />
                       Something went wrong. Please try again.
                     </div>
