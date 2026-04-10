@@ -27,6 +27,7 @@ export interface Project {
   gradient: string
   platform: 'mobile' | 'web'
   liveUrl?: string
+  androidUrl?: string
 }
 
 export type ProjectCategory = 'Enterprise' | 'Mobile' | 'IoT' | 'AI' | 'All'

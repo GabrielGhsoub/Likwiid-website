@@ -239,6 +239,16 @@ export default function CaseStudy() {
                   <ExternalLink size={12} /> App Store
                 </a>
               )}
+              {project.androidUrl && (
+                <a
+                  href={project.androidUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
+                >
+                  <ExternalLink size={12} /> Play Store
+                </a>
+              )}
             </div>
           </m.div>
 

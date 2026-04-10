@@ -28,6 +28,7 @@ export const projects: Project[] = [
     gradient: 'linear-gradient(135deg, #0C1445 0%, #0E7490 100%)',
     platform: 'mobile',
     liveUrl: 'https://apps.apple.com/lb/app/padel-lebanon/id6759597948',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.padellebanon.app',
   },
   {
     id: 'padel-admin',

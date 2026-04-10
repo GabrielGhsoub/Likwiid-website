@@ -129,6 +129,17 @@ export default function Portfolio() {
                               <ExternalLink size={10} /> App Store
                             </a>
                           )}
+                          {project.androidUrl && (
+                            <a
+                              href={project.androidUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink size={10} /> Play Store
+                            </a>
+                          )}
                         </div>
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-tight">
                           {project.title}
