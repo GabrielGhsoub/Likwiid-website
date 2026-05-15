@@ -887,15 +887,18 @@ export default function BeitToureefPoc() {
               </p>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid items-stretch gap-3 md:grid-cols-2 xl:grid-cols-4">
               {currentSiteFindings.map((item) => (
-                <div key={item.area} className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                <div
+                  key={item.area}
+                  className="grid h-full grid-rows-[auto_minmax(0,1fr)_minmax(0,1fr)] gap-2 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4"
+                >
                   <div className="text-sm font-semibold text-[#FFF8EA]">{item.area}</div>
-                  <div className="mt-3 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <div className="flex min-h-[9.75rem] flex-col rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                     <div className="text-xs font-semibold uppercase tracking-wider text-[#B8AFA2]">Already there</div>
                     <p className="mt-1 text-sm leading-relaxed text-[#D9D0C4]">{item.current}</p>
                   </div>
-                  <div className="mt-2 rounded-md border border-[#D7B56D]/20 bg-[#D7B56D]/10 p-3">
+                  <div className="flex min-h-[9.75rem] flex-col rounded-md border border-[#D7B56D]/20 bg-[#D7B56D]/10 p-3">
                     <div className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Improve next</div>
                     <p className="mt-1 text-sm leading-relaxed text-[#F0E4D2]">{item.opportunity}</p>
                   </div>

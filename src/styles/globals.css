@@ -392,6 +392,7 @@ body {
 .light .beit-poc [class*="text-[#CFC5B8]"],
 .light .beit-poc [class*="text-[#B8AFA2]"],
 .light .beit-poc [class*="text-[#AFA698]"],
+.light .beit-poc [class*="text-[#F0E4D2]"],
 .light .beit-poc [class*="text-[#D9D0C4]"] {
   color: #6B6258 !important;
 }
