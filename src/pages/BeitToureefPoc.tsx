@@ -224,7 +224,7 @@ const currentSiteFindings = [
   {
     area: 'Rooms',
     current: 'Book Your Stay already sends guests to HotelRunner, and the stay page lists 3 houses, 20 rooms, meals, taxi, airport shuttle, tours, and local SIM help.',
-    opportunity: 'Keep HotelRunner, then add a pre-arrival page for add-ons, guest notes, arrival instructions, transfers, tours, and concierge requests.',
+    opportunity: 'Start by improving the HotelRunner handoff, then consider an owned booking engine if pricing, customization, or package control become limiting.',
   },
   {
     area: 'Tours',
@@ -344,13 +344,13 @@ const nextCapabilities: CapabilityDemo[] = [
   {
     title: 'Integration layer',
     icon: Plug,
-    detail: 'Connects your existing tools instead of replacing them: HotelRunner stays, website forms, WhatsApp templates, shop preorders, and analytics.',
+    detail: 'Connects your existing tools first, then gives you a path to an owned booking engine if you want more control than HotelRunner allows.',
     proofLabel: 'Connected tools',
-    proofTitle: 'One operations layer over existing systems',
-    proofBody: 'The POC can grow around your current tools instead of forcing a new all-in-one platform.',
-    sampleItems: ['HotelRunner stay imports arrival dates', 'Website forms create structured requests', 'Shop preorders attach to stays and events'],
-    operatorView: ['Keep current booking links', 'Route each inquiry to the right owner', 'Track source and conversion by channel'],
-    outcome: 'Better operations without asking your team to abandon tools that already work.',
+    proofTitle: 'Integrate now, own more later',
+    proofBody: 'The first step can keep HotelRunner in place. If commission, pricing rules, package logic, or brand control become painful, the same layer can evolve into a custom booking system you own.',
+    sampleItems: ['HotelRunner imports stays today', 'Custom quotes combine room, tour, dinner, and products', 'Owned checkout can replace external handoffs when ready'],
+    operatorView: ['Keep current booking links during phase one', 'Test custom packages before replacing anything', 'Control pricing, deposits, add-ons, and guest data'],
+    outcome: 'A lower-risk path from today’s tools to a flexible booking engine built around your actual operation.',
   },
   {
     title: 'Guest memory',
@@ -1330,7 +1330,8 @@ export default function BeitToureefPoc() {
                 <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[#CFC5B8]">
                   The best first implementation would be private events or rural tours: structured form, deposit link,
                   WhatsApp confirmation, and a small dashboard. Once that works, the same system can support restaurant
-                  reservations, Namlieh preorders, AI-assisted replies, and a mobile staff view.
+                  reservations, Namlieh preorders, AI-assisted replies, and a mobile staff view. If HotelRunner pricing
+                  or customization becomes limiting, this can also become a fully owned Beit Toureef booking engine.
                 </p>
               </div>
               <Button
