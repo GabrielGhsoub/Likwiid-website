@@ -1180,7 +1180,7 @@ export default function BeitToureefPoc() {
               </div>
             </div>
 
-            <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
+            <div className="grid min-w-0 gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
             <aside
               id="tour-guest-intent"
               tabIndex={-1}
@@ -1209,11 +1209,11 @@ export default function BeitToureefPoc() {
                         : 'border-[#EEE1C6]/10 bg-[#1A1D17] hover:border-[#EEE1C6]/25'
                     }`}
                   >
-                    <span className="flex items-start gap-3">
+                    <span className="flex min-w-0 items-start gap-3">
                       <span className={`rounded-md p-2 ${isActive ? 'bg-[#D7B56D] text-[#1E1A12]' : 'bg-[#2A2F25] text-[#E9C56F]'}`}>
                         <ItemIcon size={18} />
                       </span>
-                      <span>
+                      <span className="min-w-0">
                         <span className="block font-medium text-[#FFF8EA]">{item.label}</span>
                         <span className="mt-1 block text-sm leading-relaxed text-[#B8AFA2]">{item.description}</span>
                         <span className="mt-3 inline-block rounded-full border border-[#EEE1C6]/10 px-2.5 py-1 text-xs text-[#E9C56F]">
@@ -1237,23 +1237,23 @@ export default function BeitToureefPoc() {
               </div>
             </aside>
 
-            <main className="space-y-5">
+            <main className="min-w-0 space-y-5">
               <section
                 id="tour-guest-flow"
                 tabIndex={-1}
                 className={cn(
-                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] outline-none md:p-5',
+                  'poc-paper-shell poc-tour-target min-w-0 scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] outline-none md:p-5',
                   isTourTargetActive('tour-guest-flow') && 'poc-tour-active',
                 )}
               >
-                <div className="rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
+                <div className="poc-paper-panel min-w-0 rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Guest-facing flow</p>
                       <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold">{flow.title}</h2>
                       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6B6258]">{flow.insight}</p>
                     </div>
-                    <div className="rounded-md border border-[#DFD2BB] bg-[#FAF7F1] px-3 py-2 text-sm font-medium">
+                    <div className="poc-paper-chip rounded-md border border-[#DFD2BB] bg-[#FAF7F1] px-3 py-2 text-sm font-medium">
                       {getStatusCopy(status)}
                     </div>
                   </div>
@@ -1261,14 +1261,14 @@ export default function BeitToureefPoc() {
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
                     <label className="block">
                       <span className="text-sm font-medium text-[#4D4438]">Preferred date</span>
-                      <div className="mt-2 flex items-center gap-2 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-3 text-sm">
+                      <div className="poc-paper-chip mt-2 flex items-center gap-2 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-3 text-sm">
                         <CalendarDays size={18} className="text-[#7A5B22]" />
                         {flow.date}
                       </div>
                     </label>
                     <label className="block">
                       <span className="text-sm font-medium text-[#4D4438]">Guests</span>
-                      <div className="mt-2 flex min-h-11 items-center gap-3 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1">
+                      <div className="poc-paper-chip mt-2 flex min-h-11 items-center gap-3 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1">
                         <Users size={18} className="text-[#7A5B22]" />
                         <input
                           aria-label="Guest count"
@@ -1288,7 +1288,7 @@ export default function BeitToureefPoc() {
                     <p className="text-sm font-medium text-[#4D4438]">Captured before your team replies</p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {flow.fields.map((field) => (
-                        <span key={field} className="rounded-full border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1 text-xs text-[#5A5044]">
+                        <span key={field} className="poc-paper-chip rounded-full border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1 text-xs text-[#5A5044]">
                           {field}
                         </span>
                       ))}
@@ -1305,22 +1305,23 @@ export default function BeitToureefPoc() {
                             key={item.name}
                             type="button"
                             onClick={() => toggleAddOn(item.name)}
-                            className={`flex min-h-[72px] items-center justify-between gap-3 rounded-md border px-3 py-2 text-left text-sm transition ${
+                            data-selected={checked}
+                            className={`poc-paper-choice flex min-h-[72px] min-w-0 items-center justify-between gap-3 rounded-md border px-3 py-2 text-left text-sm transition ${
                               checked
                                 ? 'border-[#7A5B22] bg-[#F3E7D0]'
                                 : 'border-[#D8CAB5] bg-[#FAF7F1] hover:border-[#AA8A4A]'
                             }`}
                           >
-                            <span className="flex items-start gap-2">
+                            <span className="flex min-w-0 items-start gap-2">
                               <span className={`mt-0.5 flex h-5 w-5 items-center justify-center rounded-sm border ${checked ? 'border-[#7A5B22] bg-[#7A5B22] text-white' : 'border-[#BCAA91]'}`}>
                                 {checked && <Check size={14} />}
                               </span>
-                              <span>
-                                <span className="block font-medium">{item.name}</span>
+                              <span className="min-w-0">
+                                <span className="block break-words font-medium">{item.name}</span>
                                 <span className="mt-1 block text-xs text-[#6B6258]">{item.note}</span>
                               </span>
                             </span>
-                            <span className="font-semibold">{formatCurrency(item.price)}</span>
+                            <span className="shrink-0 font-semibold">{formatCurrency(item.price)}</span>
                           </button>
                         )
                       })}
@@ -1335,7 +1336,7 @@ export default function BeitToureefPoc() {
                       isTourTargetActive('tour-confirmation') && 'poc-tour-active',
                     )}
                   >
-                    <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-4">
+                    <div className="poc-paper-panel rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-4">
                       <div className="flex items-center gap-2 text-sm font-semibold text-[#4D4438]">
                         <MessageCircle size={18} className="text-[#228B66]" />
                         WhatsApp-ready confirmation
@@ -1375,7 +1376,7 @@ export default function BeitToureefPoc() {
 
             </main>
 
-            <aside className="space-y-5">
+            <aside className="min-w-0 space-y-5">
               <section
                 id="tour-ops-queue"
                 tabIndex={-1}
@@ -1394,7 +1395,7 @@ export default function BeitToureefPoc() {
                   <PackageCheck className="text-[#8BE3AD]" size={26} />
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
                   <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                     <div className="text-xl font-semibold text-[#FFF8EA]">12</div>
                     <div className="text-xs text-[#AFA698]">Open requests</div>
@@ -1417,12 +1418,12 @@ export default function BeitToureefPoc() {
                           : 'border-[#EEE1C6]/10 bg-[#10120F] hover:border-[#EEE1C6]/25'
                       }`}
                     >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
+                      <div className="flex min-w-0 items-start justify-between gap-3">
+                        <div className="min-w-0">
                           <div className="text-sm font-semibold text-[#FFF8EA]">{lead.name}</div>
                           <div className="text-xs text-[#AFA698]">{lead.type} · {lead.date}</div>
                         </div>
-                        <div className="text-sm font-semibold text-[#E9C56F]">{lead.value}</div>
+                        <div className="shrink-0 text-sm font-semibold text-[#E9C56F]">{lead.value}</div>
                       </div>
                       <div className="mt-3 flex flex-wrap items-center gap-2">
                         <span className={`inline-flex rounded-full border px-2 py-1 text-xs ${statusClasses[lead.status]}`}>
@@ -1522,28 +1523,28 @@ export default function BeitToureefPoc() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
+                <div className="poc-paper-shell min-w-0 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
                   <div className="flex items-center gap-2 text-sm font-semibold text-[#4D4438]">
                     <ShieldCheck size={18} className="text-[#5D7D45]" />
                     Guest confirmation page
                   </div>
-                  <div className="mt-4 rounded-md border border-[#D8CAB5] bg-white p-4">
+                  <div className="poc-paper-panel mt-4 min-w-0 rounded-md border border-[#D8CAB5] bg-white p-4">
                     <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Beit Toureef request</div>
-                    <div className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold">{flow.title}</div>
-                    <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
-                      <div className="rounded-md bg-[#FAF7F1] p-3">
+                    <div className="mt-1 break-words font-[family-name:var(--font-display)] text-2xl font-semibold">{flow.title}</div>
+                    <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+                      <div className="poc-paper-chip rounded-md bg-[#FAF7F1] p-3">
                         <div className="text-xs text-[#6B6258]">Guest</div>
                         <div className="font-medium">{flow.guest}</div>
                       </div>
-                      <div className="rounded-md bg-[#FAF7F1] p-3">
+                      <div className="poc-paper-chip rounded-md bg-[#FAF7F1] p-3">
                         <div className="text-xs text-[#6B6258]">Date</div>
                         <div className="font-medium">{flow.date}</div>
                       </div>
-                      <div className="rounded-md bg-[#FAF7F1] p-3">
+                      <div className="poc-paper-chip rounded-md bg-[#FAF7F1] p-3">
                         <div className="text-xs text-[#6B6258]">Deposit due</div>
                         <div className="font-medium">{depositAmount > 0 ? formatCurrency(depositAmount) : 'Not required'}</div>
                       </div>
-                      <div className="rounded-md bg-[#FAF7F1] p-3">
+                      <div className="poc-paper-chip rounded-md bg-[#FAF7F1] p-3">
                         <div className="text-xs text-[#6B6258]">Readiness</div>
                         <div className="font-medium">{readinessScore}%</div>
                       </div>
@@ -1562,11 +1563,11 @@ export default function BeitToureefPoc() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
+                <div className="poc-paper-shell min-w-0 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
+                  <div className="flex min-w-0 items-center justify-between gap-3">
+                    <div className="min-w-0">
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Smart quote builder</p>
-                      <h2 className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold">
+                      <h2 className="mt-1 break-words font-[family-name:var(--font-display)] text-xl font-semibold">
                         Quote, deposit, and validity window
                       </h2>
                     </div>
@@ -1574,9 +1575,9 @@ export default function BeitToureefPoc() {
                   </div>
                   <div className="mt-4 space-y-2">
                     {quoteItems.map((item) => (
-                      <div key={item.label} className="flex items-center justify-between rounded-md border border-[#D8CAB5] bg-white px-3 py-2 text-sm">
-                        <span>{item.label}</span>
-                        <span className="font-semibold">{formatCurrency(item.value)}</span>
+                      <div key={item.label} className="poc-paper-panel flex min-w-0 items-center justify-between gap-3 rounded-md border border-[#D8CAB5] bg-white px-3 py-2 text-sm">
+                        <span className="min-w-0 break-words">{item.label}</span>
+                        <span className="shrink-0 font-semibold">{formatCurrency(item.value)}</span>
                       </div>
                     ))}
                   </div>
@@ -1637,11 +1638,11 @@ export default function BeitToureefPoc() {
                     <div className="mt-4 space-y-2">
                       {staffToday.map((item) => (
                         <div key={`${item.time}-${item.title}`} className="poc-ink-surface rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
-                          <div className="flex items-start gap-3">
+                          <div className="flex min-w-0 items-start gap-3">
                             <span className="rounded-md bg-[#D7B56D] px-2 py-1 text-xs font-semibold text-[#1E1A12]">
                               {item.time}
                             </span>
-                            <div>
+                            <div className="min-w-0">
                               <div className="text-sm font-semibold text-[#FFF8EA]">{item.title}</div>
                               <div className="mt-1 text-xs text-[#B8AFA2]">{item.note}</div>
                             </div>
@@ -1785,14 +1786,14 @@ export default function BeitToureefPoc() {
                 })}
               </div>
 
-              <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5">
-                <div className="rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div>
+              <div className="poc-paper-shell min-w-0 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5">
+                <div className="poc-paper-panel min-w-0 rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
+                  <div className="flex min-w-0 flex-wrap items-start justify-between gap-4">
+                    <div className="min-w-0">
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
                         {selectedCapability.proofLabel}
                       </p>
-                      <h3 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold">
+                      <h3 className="mt-1 break-words font-[family-name:var(--font-display)] text-2xl font-semibold">
                         {selectedCapability.proofTitle}
                       </h3>
                       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6B6258]">
@@ -1809,39 +1810,39 @@ export default function BeitToureefPoc() {
                   </div>
 
                   <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_0.85fr]">
-                    <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
+                    <div className="poc-paper-panel min-w-0 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
                       <div className="mb-3 flex items-center justify-between gap-3">
                         <div className="text-sm font-semibold text-[#4D4438]">Sample workflow</div>
-                        <span className="rounded-full bg-[#E8DDC9] px-2 py-1 text-xs text-[#6B6258]">
+                        <span className="poc-paper-chip rounded-full bg-[#E8DDC9] px-2 py-1 text-xs text-[#6B6258]">
                           Dummy data
                         </span>
                       </div>
                       <div className="space-y-2">
                         {selectedCapability.sampleItems.map((item, index) => (
-                          <div key={item} className="flex gap-3 rounded-md border border-[#D8CAB5] bg-white p-3">
+                          <div key={item} className="poc-paper-chip flex min-w-0 gap-3 rounded-md border border-[#D8CAB5] bg-white p-3">
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#7A5B22] text-xs font-semibold text-white">
                               {index + 1}
                             </span>
-                            <span className="text-sm leading-relaxed text-[#4D4438]">{item}</span>
+                            <span className="min-w-0 break-words text-sm leading-relaxed text-[#4D4438]">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="poc-ink-panel rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
+                    <div className="poc-ink-panel min-w-0 rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
                       <div className="text-sm font-semibold">Your team can</div>
                       <div className="mt-3 space-y-2">
                         {selectedCapability.operatorView.map((item) => (
-                          <div key={item} className="poc-ink-surface flex gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                          <div key={item} className="poc-ink-surface flex min-w-0 gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                             <Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" />
-                            <span className="text-sm leading-relaxed text-[#EADDCB]">{item}</span>
+                            <span className="min-w-0 break-words text-sm leading-relaxed text-[#EADDCB]">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-4 rounded-md border border-[#5D7D45]/25 bg-[#EEF5E8] p-4">
+                  <div className="poc-paper-success mt-4 rounded-md border border-[#5D7D45]/25 bg-[#EEF5E8] p-4">
                     <div>
                       <div className="text-sm font-semibold text-[#3D562F]">Business outcome</div>
                       <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{selectedCapability.outcome}</p>
@@ -1850,7 +1851,7 @@ export default function BeitToureefPoc() {
 
                   <div className="mt-4 grid gap-2 sm:grid-cols-3">
                     {['Request captured', 'Staff reviewed', 'Guest confirmed'].map((step) => (
-                      <div key={step} className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-2 text-sm">
+                        <div key={step} className="poc-paper-chip rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-2 text-sm">
                         <div className="font-semibold text-[#4D4438]">{step}</div>
                         <div className="mt-1 h-1.5 rounded-full bg-[#E8DDC9]">
                           <div className="h-full rounded-full bg-[#7A5B22]" />
