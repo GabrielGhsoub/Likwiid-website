@@ -91,7 +91,7 @@ const flowOptions: FlowOption[] = [
     icon: Users,
     deposit: '$250 date hold',
     basePrice: 1250,
-    insight: 'Turns a loose event message into a qualified lead Dana can price and confirm.',
+    insight: 'Turns a loose event message into a qualified lead your team can price and confirm.',
     fields: ['Event type', 'Guest count', 'Preferred space', 'Food needs', 'Budget range', 'Date flexibility'],
   },
   {
@@ -100,7 +100,7 @@ const flowOptions: FlowOption[] = [
     title: 'Aartez cultural walk',
     guest: 'Maya Khoury',
     date: 'Saturday, June 13',
-    description: 'Collect group size, transport, language, food notes, and add-ons before the team replies.',
+    description: 'Collect group size, transport, language, food notes, and add-ons before your team replies.',
     icon: CalendarDays,
     deposit: '30% deposit',
     basePrice: 210,
@@ -117,7 +117,7 @@ const flowOptions: FlowOption[] = [
     icon: ClipboardList,
     deposit: 'Deposit for 8+ guests',
     basePrice: 180,
-    insight: 'Captures dinner details without forcing staff to ask the same questions every time.',
+    insight: 'Captures dinner details without forcing your team to ask the same questions every time.',
     fields: ['Date', 'Time', 'Party size', 'Occasion', 'Indoor/outdoor', 'Menu notes'],
   },
   {
@@ -267,7 +267,7 @@ const improvementRoadmap = [
   {
     phase: 'Expand',
     title: 'AI-assisted operations inbox',
-    detail: 'Classify inquiries, spot missing details, draft replies, and flag overdue deposits for staff review.',
+    detail: 'Classify inquiries, spot missing details, draft replies, and flag overdue deposits for your team to review.',
   },
   {
     phase: 'Expand',
@@ -300,10 +300,10 @@ const nextCapabilities: CapabilityDemo[] = [
   {
     title: 'Mobile staff app',
     icon: Smartphone,
-    detail: 'A simple phone view for arrivals, prep lists, guest notes, WhatsApp actions, and payment status while the team is away from the desk.',
+    detail: 'A simple phone view for arrivals, prep lists, guest notes, WhatsApp actions, and payment status while your team is away from the desk.',
     proofLabel: 'Phone preview',
     proofTitle: 'Today’s arrivals and tasks',
-    proofBody: 'A lightweight staff screen for the front desk, kitchen, guide, and shop. It shows only what each person needs today.',
+    proofBody: 'A lightweight staff screen for your front desk, kitchen, guide, and shop. It shows only what each person needs today.',
     sampleItems: ['16:00 Jnayneh setup: 18 guests', 'Kitchen note: 4 vegetarian portions', 'Payment: $250 date-hold received'],
     operatorView: ['Tap to call or WhatsApp the guest', 'Mark prep tasks done from the phone', 'See balance and notes before arrival'],
     outcome: 'Less running back to the desk, fewer missed details during busy service.',
@@ -314,7 +314,7 @@ const nextCapabilities: CapabilityDemo[] = [
     detail: 'Answers and drafts replies from Beit Toureef-specific knowledge: rooms, tour packages, policies, menus, pickup rules, and FAQs.',
     proofLabel: 'AI draft',
     proofTitle: 'Answer from saved Beit Toureef knowledge',
-    proofBody: 'The assistant searches the approved knowledge base, drafts a reply, and cites what it used before Dana sends it.',
+    proofBody: 'The assistant searches your approved knowledge base, drafts a reply, and cites what it used before your team sends it.',
     sampleItems: ['Guest asks: Can 14 people do a custom tour with lunch?', 'Retrieved: tour add-ons, group pricing, lunch options', 'Draft: quote, deposit note, and two available time windows'],
     operatorView: ['Edit tone before sending', 'See missing details the guest should confirm', 'Update FAQs when policies change'],
     outcome: 'Faster replies without inventing answers or losing the Beit Toureef voice.',
@@ -325,7 +325,7 @@ const nextCapabilities: CapabilityDemo[] = [
     detail: 'Schedules deposit nudges, day-before confirmations, arrival instructions, product pickup reminders, and post-visit follow-ups.',
     proofLabel: 'Automation queue',
     proofTitle: 'The right message at the right moment',
-    proofBody: 'Each booking gets timed reminders based on status, date, and payment. Staff can approve sensitive messages.',
+    proofBody: 'Each booking gets timed reminders based on status, date, and payment. Your team can approve sensitive messages.',
     sampleItems: ['T-48h: confirm guest count and dietary notes', 'T-24h: send map pin and arrival instructions', 'T+1d: thank-you note and product reorder link'],
     operatorView: ['Pause reminders for VIP guests', 'Review overdue deposits every morning', 'Reuse message templates by flow'],
     outcome: 'Deposits and confirmations happen earlier, with less manual chasing.',
@@ -344,13 +344,13 @@ const nextCapabilities: CapabilityDemo[] = [
   {
     title: 'Integration layer',
     icon: Plug,
-    detail: 'Connects existing tools instead of replacing them: HotelRunner stays, website forms, WhatsApp templates, shop preorders, and analytics.',
+    detail: 'Connects your existing tools instead of replacing them: HotelRunner stays, website forms, WhatsApp templates, shop preorders, and analytics.',
     proofLabel: 'Connected tools',
     proofTitle: 'One operations layer over existing systems',
-    proofBody: 'The POC can grow around Beit Toureef’s current tools instead of forcing a new all-in-one platform.',
+    proofBody: 'The POC can grow around your current tools instead of forcing a new all-in-one platform.',
     sampleItems: ['HotelRunner stay imports arrival dates', 'Website forms create structured requests', 'Shop preorders attach to stays and events'],
     operatorView: ['Keep current booking links', 'Route each inquiry to the right owner', 'Track source and conversion by channel'],
-    outcome: 'Better operations without asking the team to abandon tools that already work.',
+    outcome: 'Better operations without asking your team to abandon tools that already work.',
   },
   {
     title: 'Guest memory',
@@ -358,7 +358,7 @@ const nextCapabilities: CapabilityDemo[] = [
     detail: 'Remembers returning guests, dietary notes, preferred language, favorite add-ons, past visits, and product preferences.',
     proofLabel: 'Guest profile',
     proofTitle: 'Remember the small hospitality details',
-    proofBody: 'Returning guests can be recognized with context: what they booked, what they liked, and what the team should prepare.',
+    proofBody: 'Returning guests can be recognized with context: what they booked, what they liked, and what your team should prepare.',
     sampleItems: ['Maya Khoury: Arabic preferred, vegetarian lunch', 'Last visit: Aartez cultural walk, transport added', 'Suggested: Namlieh breakfast basket for next stay'],
     operatorView: ['Confirm preferences before arrival', 'Suggest relevant add-ons', 'Avoid asking repeat guests the same questions'],
     outcome: 'More personal service and better repeat-guest revenue.',
@@ -617,7 +617,7 @@ export default function BeitToureefPoc() {
                 transition={{ delay: 0.16 }}
               >
                 A practical guest-to-admin layer for Beit Toureef: structured inquiries, deposit links,
-                WhatsApp-ready confirmations, product preorders, and a calm dashboard for the requests Dana’s team
+                WhatsApp-ready confirmations, product preorders, and a calm dashboard for the requests your team
                 handles every day.
               </m.p>
               <m.div
@@ -677,13 +677,13 @@ export default function BeitToureefPoc() {
         <section className="border-b border-[#EEE1C6]/10 px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1240px]">
             <div className="mb-5 max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Grounded in their current website</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Grounded in your current website</p>
               <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
-                This does not replace what Beit Toureef already has. It connects it.
+                This does not replace what you already have. It connects it.
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">
-                Their public site already presents rooms, venues, tours, restaurant reservations, and Namlieh products.
-                The opportunity is making those paths easier for guests to complete and easier for Dana’s team to track.
+                Your public site already presents rooms, venues, tours, restaurant reservations, and Namlieh products.
+                The opportunity is making those paths easier for guests to complete and easier for your team to track.
               </p>
             </div>
 
@@ -715,8 +715,8 @@ export default function BeitToureefPoc() {
                 </h2>
               </div>
               <p className="text-sm leading-relaxed text-[#CFC5B8]">
-                The POC is intentionally not a full rebuild. The first version should improve the existing website’s
-                highest-friction paths, then expand only once the team sees fewer missed details and more confirmed bookings.
+                The POC is intentionally not a full rebuild. The first version should improve your existing website’s
+                highest-friction paths, then expand only once your team sees fewer missed details and more confirmed bookings.
               </p>
             </div>
 
@@ -781,7 +781,7 @@ export default function BeitToureefPoc() {
                   AI-assisted triage
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
-                  The assistant does not replace hospitality. It drafts replies, spots missing details, and keeps staff
+                  The assistant does not replace hospitality. It drafts replies, spots missing details, and keeps your team
                   from typing the same questions repeatedly.
                 </p>
               </div>
@@ -828,7 +828,7 @@ export default function BeitToureefPoc() {
                   </div>
 
                   <div className="mt-5">
-                    <p className="text-sm font-medium text-[#4D4438]">Captured before staff replies</p>
+                    <p className="text-sm font-medium text-[#4D4438]">Captured before your team replies</p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {flow.fields.map((field) => (
                         <span key={field} className="rounded-full border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1 text-xs text-[#5A5044]">
@@ -1078,7 +1078,7 @@ export default function BeitToureefPoc() {
                     Lightweight decision analytics
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
-                    No vanity charts. Just the few signals that help Dana decide what to follow up, sell, or prepare.
+                    No vanity charts. Just the few signals that help you decide what to follow up, sell, or prepare.
                   </p>
                   <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                     {analyticsCards.map((item) => (
@@ -1099,7 +1099,7 @@ export default function BeitToureefPoc() {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Operations view</p>
                     <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
-                      Dana’s action queue
+                      Your action queue
                     </h2>
                   </div>
                   <PackageCheck className="text-[#8BE3AD]" size={26} />
@@ -1149,10 +1149,10 @@ export default function BeitToureefPoc() {
               <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
                 <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
                   <Bot size={18} className="text-[#E9C56F]" />
-                  Staff reply draft
+                  Your reply draft
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
-                  AI can draft a careful answer from saved packages, policies, and availability. The team still reviews
+                  AI can draft a careful answer from saved packages, policies, and availability. Your team still reviews
                   before sending.
                 </p>
                 <pre className="mt-3 whitespace-pre-wrap rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3 text-xs leading-relaxed text-[#EADDCB]">
@@ -1176,7 +1176,7 @@ export default function BeitToureefPoc() {
                   <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Fewer repeated questions on WhatsApp.</li>
                   <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Deposits secure high-value dates earlier.</li>
                   <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Add-ons make tours, stays, and products work together.</li>
-                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Dana sees what needs attention before it becomes a problem.</li>
+                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> You see what needs attention before it becomes a problem.</li>
                 </ul>
               </section>
             </aside>
@@ -1194,7 +1194,7 @@ export default function BeitToureefPoc() {
               </div>
               <p className="text-sm leading-relaxed text-[#CFC5B8]">
                 These are not all first-phase features. They show the path from a booking/deposit POC into a practical
-                operating system with mobile workflows, AI support, and integrations around the tools Beit Toureef already uses.
+                operating system with mobile workflows, AI support, and integrations around the tools you already use.
               </p>
             </div>
 
@@ -1281,7 +1281,7 @@ export default function BeitToureefPoc() {
                     </div>
 
                     <div className="rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
-                      <div className="text-sm font-semibold">Dana’s team can</div>
+                      <div className="text-sm font-semibold">Your team can</div>
                       <div className="mt-3 space-y-2">
                         {selectedCapability.operatorView.map((item) => (
                           <div key={item} className="flex gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
