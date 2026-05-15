@@ -37,7 +37,7 @@
     </style>
 
     <script>
-      (function(){var t=localStorage.getItem('likwiid-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.className=t})()
+      (function(){var t=localStorage.getItem('likwiid-theme');document.documentElement.className=t==='dark'||t==='light'?t:'light'})()
     </script>
     <title>Likwiid | Software Studio</title>
 
