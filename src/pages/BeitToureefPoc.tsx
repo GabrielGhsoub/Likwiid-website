@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { m } from 'framer-motion'
 import {
   ArrowRight,
+  BarChart3,
   Bot,
   CalendarDays,
   Check,
@@ -9,9 +10,11 @@ import {
   ClipboardList,
   CreditCard,
   Gift,
+  ListChecks,
   Lock,
   MessageCircle,
   PackageCheck,
+  Smartphone,
   Send,
   ShieldCheck,
   Sparkles,
@@ -258,6 +261,26 @@ const improvementRoadmap = [
   },
 ]
 
+const prepChecklist = [
+  { task: 'Confirm final guest count', owner: 'Dana', status: 'Done' },
+  { task: 'Send deposit reminder', owner: 'Front desk', status: 'Due today' },
+  { task: 'Kitchen: vegetarian portions', owner: 'Sofra', status: 'Saved' },
+  { task: 'Pack Namlieh gift boxes', owner: 'Shop', status: 'Tomorrow' },
+  { task: 'Share map pin and arrival notes', owner: 'Front desk', status: 'Ready' },
+]
+
+const staffToday = [
+  { time: '10:00', title: 'Thomas Keller checkout', note: 'Balance settled, taxi requested' },
+  { time: '12:30', title: 'Namlieh pickup', note: 'Rana Saad, 2 fig jam, 1 makdous' },
+  { time: '16:00', title: 'Jnayneh setup', note: '18 guests, rooftop dinner, menu pending' },
+]
+
+const analyticsCards = [
+  { label: 'Deposit risk', value: '$1.1k', detail: 'Value waiting on payment links' },
+  { label: 'Top add-on', value: 'Transport', detail: 'Requested on 42% of tours' },
+  { label: 'Best channel', value: 'Website', detail: 'Highest confirmed-request rate' },
+]
+
 const statusClasses: Record<LeadStatus, string> = {
   'Awaiting deposit': 'border-[#B7791F]/35 bg-[#B7791F]/12 text-[#FFD166]',
   Confirmed: 'border-[#2F855A]/35 bg-[#2F855A]/12 text-[#8BE3AD]',
@@ -419,6 +442,10 @@ export default function BeitToureefPoc() {
   const estimatedTotal = flow.basePrice + addOnTotal
   const depositAmount = selectedFlow === 'table' && guestCount < 8 ? 0 : Math.round(estimatedTotal * (selectedFlow === 'event' ? 0.35 : 0.3))
   const readinessScore = Math.min(96, 58 + selectedAddOns.length * 8 + (status === 'confirmed' ? 22 : status === 'depositSubmitted' ? 16 : 6))
+  const quoteItems = [
+    { label: flow.title, value: flow.basePrice },
+    ...addOns.filter((item) => selectedAddOns.includes(item.name)).map((item) => ({ label: item.name, value: item.price })),
+  ]
 
   const whatsappMessage = [
     'Hello Beit Toureef, I would like to confirm this request.',
@@ -863,6 +890,119 @@ export default function BeitToureefPoc() {
                       This avoids card details over chat and gives the guest one clean place to review the request,
                       balance, cancellation note, and official WhatsApp number.
                     </p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="grid gap-5 lg:grid-cols-[0.95fr_1fr]">
+                <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Smart quote builder</p>
+                      <h2 className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold">
+                        Quote, deposit, and validity window
+                      </h2>
+                    </div>
+                    <CreditCard className="text-[#5D7D45]" size={22} />
+                  </div>
+                  <div className="mt-4 space-y-2">
+                    {quoteItems.map((item) => (
+                      <div key={item.label} className="flex items-center justify-between rounded-md border border-[#D8CAB5] bg-white px-3 py-2 text-sm">
+                        <span>{item.label}</span>
+                        <span className="font-semibold">{formatCurrency(item.value)}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 rounded-md bg-[#252017] p-3 text-[#FFF8EA]">
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Total quote</span>
+                      <span className="font-semibold">{formatCurrency(estimatedTotal)}</span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between text-sm">
+                      <span>Deposit to secure date</span>
+                      <span className="font-semibold text-[#E9C56F]">{depositAmount > 0 ? formatCurrency(depositAmount) : 'Not required'}</span>
+                    </div>
+                    <div className="mt-2 text-xs text-[#CFC5B8]">Valid until Friday at 6:00 PM.</div>
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
+                    <ListChecks size={18} className="text-[#E9C56F]" />
+                    Operational prep checklist
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
+                    Once a request is confirmed, it becomes a simple work plan across front desk, kitchen, shop, and setup.
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {prepChecklist.map((item) => (
+                      <div key={item.task} className="flex items-start justify-between gap-3 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                        <div>
+                          <div className="text-sm font-medium text-[#FFF8EA]">{item.task}</div>
+                          <div className="text-xs text-[#AFA698]">{item.owner}</div>
+                        </div>
+                        <span className="shrink-0 rounded-full border border-[#D7B56D]/20 bg-[#D7B56D]/10 px-2 py-1 text-xs text-[#E9C56F]">
+                          {item.status}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+                <div className="rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30">
+                  <div className="rounded-[22px] border border-[#EEE1C6]/10 bg-[#1A1D17] p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Mobile staff view</p>
+                        <h2 className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold text-[#FFF8EA]">
+                          Today at a glance
+                        </h2>
+                      </div>
+                      <Smartphone className="text-[#BBD7A1]" size={22} />
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      {staffToday.map((item) => (
+                        <div key={`${item.time}-${item.title}`} className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                          <div className="flex items-start gap-3">
+                            <span className="rounded-md bg-[#D7B56D] px-2 py-1 text-xs font-semibold text-[#1E1A12]">
+                              {item.time}
+                            </span>
+                            <div>
+                              <div className="text-sm font-semibold text-[#FFF8EA]">{item.title}</div>
+                              <div className="mt-1 text-xs text-[#B8AFA2]">{item.note}</div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-[#228B66] px-3 py-2 text-sm font-semibold text-white"
+                    >
+                      <MessageCircle size={16} />
+                      Open guest WhatsApp
+                    </button>
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
+                    <BarChart3 size={18} className="text-[#E9C56F]" />
+                    Lightweight decision analytics
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
+                    No vanity charts. Just the few signals that help Dana decide what to follow up, sell, or prepare.
+                  </p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                    {analyticsCards.map((item) => (
+                      <div key={item.label} className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                        <div className="text-xs uppercase tracking-wider text-[#AFA698]">{item.label}</div>
+                        <div className="mt-1 text-2xl font-semibold text-[#FFF8EA]">{item.value}</div>
+                        <div className="mt-1 text-xs leading-relaxed text-[#CFC5B8]">{item.detail}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </section>
