@@ -92,6 +92,8 @@ interface WalkthroughStep {
   targetId: TourTarget
   title: string
   body: string
+  happening: string
+  improvement: string
   cue: string
   action: () => void
 }
@@ -578,8 +580,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-guest-intent',
         title: 'Start with the guest intent',
-        body: 'Each path asks for different details, so your team gets a clean request instead of a loose WhatsApp message.',
-        cue: 'Switching to a tour request with transport and guide add-ons.',
+        body: 'The first improvement is routing every website CTA into the right type of request, instead of treating all inquiries the same.',
+        happening: 'A guest chooses the offer they care about: room, tour, dinner, private event, or Namlieh preorder. The fields change based on that choice.',
+        improvement: 'Your team no longer has to ask the same first questions in WhatsApp. A tour starts with group size, date, language, transport, and add-ons. A venue request starts with occasion, setup, budget, and date-hold rules.',
+        cue: 'switching to a tour request with transport and guide add-ons.',
         action: () => {
           setSelectedFlow('tour')
           setGuestCount(10)
@@ -590,8 +594,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-guest-flow',
         title: 'Make the guest flow feel complete',
-        body: 'The guest sees a clear package, date, group size, add-ons, and the exact details captured before anyone replies.',
-        cue: 'Now showing a private event with a larger guest count.',
+        body: 'This is where the website becomes more than a contact form. It becomes a guided quote builder for the exact service the guest selected.',
+        happening: 'The guest sees a package, date, guest count, captured details, and optional add-ons. Each click updates the quote and the information your team receives.',
+        improvement: 'Instead of scattered notes across forms, WhatsApp, and memory, the request arrives complete enough for a faster reply, clearer price expectation, and fewer missed revenue add-ons.',
+        cue: 'showing a private event with a larger guest count and extra add-ons.',
         action: () => {
           setSelectedFlow('event')
           setGuestCount(32)
@@ -602,8 +608,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-confirmation',
         title: 'Turn the request into a confirmation',
-        body: 'The system prepares a WhatsApp summary, calculates the deposit, and lets the team move the booking status forward.',
-        cue: 'Marking the deposit as submitted so the follow-up state changes.',
+        body: 'Once the details are captured, the same request can become a clean confirmation instead of another manual message thread.',
+        happening: 'The system prepares a WhatsApp-ready summary, calculates the deposit, and shows the current booking status in one place.',
+        improvement: 'Dana can send a consistent confirmation, collect the right deposit, and move the request from inquiry to awaiting deposit to confirmed without rewriting the same information.',
+        cue: 'marking the deposit as submitted so the follow-up state changes.',
         action: () => {
           setStatus('depositSubmitted')
         },
@@ -611,8 +619,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-ops-queue',
         title: 'Give Dana one action queue',
-        body: 'All stays, tours, venue requests, and preorders can land in one dashboard with value, status, and next action.',
-        cue: 'Opening Karim’s high-value event request.',
+        body: 'The admin side turns website activity into a daily operations list, not just a stream of notifications.',
+        happening: 'Requests from stays, tours, venues, restaurant reservations, and products are grouped by value, status, date, and next action.',
+        improvement: 'High-value or overdue items become obvious. Your operations manager can see what needs a deposit, what needs a reply, and what can be prepared today.',
+        cue: 'opening Karim’s high-value event request.',
         action: () => {
           setSelectedLeadIndex(0)
         },
@@ -620,8 +630,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-ai-reply',
         title: 'Use AI where it saves typing',
-        body: 'The assistant drafts a careful reply from approved Beit Toureef knowledge. Your team can edit before sending.',
-        cue: 'Selecting Nour’s dinner inquiry to show a tailored reply.',
+        body: 'AI is useful when it reduces repetitive writing without replacing the human tone of the team.',
+        happening: 'The assistant looks at the selected request and drafts a reply using saved Beit Toureef packages, policies, availability notes, menus, and common questions.',
+        improvement: 'Your team still reviews before sending, but the first draft already contains the right context, next question, and deposit or confirmation language.',
+        cue: 'selecting Nour’s dinner inquiry to show a tailored reply.',
         action: () => {
           setSelectedLeadIndex(2)
         },
@@ -629,8 +641,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-staff-app',
         title: 'Bring the workflow to the phone',
-        body: 'The mobile view gives front desk, kitchen, guide, and shop teams the day’s tasks without opening the full dashboard.',
-        cue: 'Highlighting the staff phone view and prep actions.',
+        body: 'After a request is confirmed, the system should help the people doing the work, not only the person managing bookings.',
+        happening: 'The mobile staff view shows today’s checkout notes, dinner prep, product pickups, balances, and WhatsApp actions in a compact phone-friendly format.',
+        improvement: 'Front desk, kitchen, guides, setup, and shop staff can each see the details they need without opening a full dashboard or asking Dana to forward messages.',
+        cue: 'highlighting the staff phone view and prep actions.',
         action: () => {
           setSelectedFlow('table')
           setGuestCount(14)
@@ -640,8 +654,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-next-capabilities',
         title: 'End with the expansion path',
-        body: 'After the first flow proves value, the same base can grow into AI/RAG, automation, payments, mobile, and an owned booking engine.',
-        cue: 'Opening the AI + RAG mini demo as a natural next step.',
+        body: 'The POC does not need to replace everything at once. It can start around the highest-friction flow and expand only after the team sees value.',
+        happening: 'The same request layer can later connect AI/RAG, follow-up automation, payment reconciliation, mobile workflows, and HotelRunner or an owned booking engine.',
+        improvement: 'Beit Toureef can keep what works now, improve the weak handoffs first, and gradually move toward a custom system they own and can adapt.',
+        cue: 'opening the AI + RAG mini demo as a natural next step.',
         action: () => {
           setSelectedCapabilityIndex(1)
         },
@@ -879,37 +895,70 @@ export default function BeitToureefPoc() {
           <div className="mx-auto max-w-[1240px] 2xl:max-w-[1600px]">
             <div className="mb-6 grid gap-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Core workflow demo</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Main upgrade</p>
                 <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
-                  From guest intent to team action.
+                  Your website stays the front door. I add the flow after each click.
                 </h2>
               </div>
               <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
-                This is the layer that can sit behind your current website links. Rooms can keep using HotelRunner first,
-                while tours, venues, tables, and Namlieh requests become structured forms that feed one operations queue.
+                The public site already introduces the rooms, tours, venues, restaurant, Namlieh, HotelRunner, and WhatsApp.
+                The POC shows the missing middle: turn each guest click into a clear request, a price, a deposit step,
+                and one action for your team.
               </p>
             </div>
 
             <div className="mb-6 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
-              <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Your current site</p>
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-[#FFF8EA]">The simple version</p>
+                <p className="mt-1 text-sm leading-relaxed text-[#B8AFA2]">
+                  A guest can still enter from the same website pages. The difference is what your team receives after
+                  the click.
+                </p>
+              </div>
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">1. What you already have</p>
                   <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                    Existing buttons on rooms, tours, venues, restaurant pages, and Namlieh stay where guests already find them.
+                    Public pages and CTAs for stays, tours, venues, events, restaurant bookings, Namlieh, HotelRunner,
+                    and WhatsApp.
                   </p>
                 </div>
-                <ArrowRight className="hidden text-[#D7B56D] md:block" size={20} aria-hidden="true" />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Request layer</p>
+                <div className="rounded-md border border-[#D7B56D]/20 bg-[#D7B56D]/10 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">2. What I add</p>
                   <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                    Each click opens the right fields, add-ons, price logic, deposit rule, and WhatsApp confirmation.
+                    A smart request layer behind those CTAs: service-specific questions, add-ons, quote math, deposit
+                    rules, and ready-to-send replies.
                   </p>
                 </div>
-                <ArrowRight className="hidden text-[#D7B56D] md:block" size={20} aria-hidden="true" />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Team follow-up</p>
+                <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">3. What your team gets</p>
                   <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                    Every request lands in the same action queue with owner, value, status, next step, and guest context.
+                    One organized request with price, deposit status, WhatsApp summary, owner, next action, and prep
+                    tasks.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 grid gap-3 lg:grid-cols-3">
+                <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-sm font-semibold text-[#FFF8EA]">Tours page</p>
+                  <p className="mt-1 text-xs leading-relaxed text-[#AFA698]">Today: packages, prices, and WhatsApp CTA.</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">
+                    Upgrade: group size, transport, guide language, add-ons, deposit, and a clean itinerary request.
+                  </p>
+                </div>
+                <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-sm font-semibold text-[#FFF8EA]">Venues and events</p>
+                  <p className="mt-1 text-xs leading-relaxed text-[#AFA698]">Today: spaces, photos, and inquiry path.</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">
+                    Upgrade: date, guest count, occasion, setup, budget, package choice, and date-hold deposit.
+                  </p>
+                </div>
+                <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-sm font-semibold text-[#FFF8EA]">Rooms and products</p>
+                  <p className="mt-1 text-xs leading-relaxed text-[#AFA698]">Today: HotelRunner checkout and Namlieh cart.</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">
+                    Upgrade: better HotelRunner handoff first, then optional owned booking, guest baskets, pickups, and
+                    preorders.
                   </p>
                 </div>
               </div>
@@ -1172,51 +1221,55 @@ export default function BeitToureefPoc() {
             <section className="mt-8 border-t border-[#EEE1C6]/12 pt-8">
               <div className="mb-5 grid gap-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Supporting modules</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">After the guest submits</p>
                   <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
-                    The pieces that sit underneath the main flow.
+                    The same request powers every card below.
                   </h2>
                 </div>
                 <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
-                  These modules are not separate mini apps. They all read from the same request record created when a
-                  guest uses your website, so every team view stays in sync as the request moves from inquiry to deposit
-                  to preparation.
+                  The section below is the back-office side of the same guest request. It is not a set of separate tools.
+                  The same details from the website become a timeline item, a quote, a deposit link, staff tasks, an AI
+                  reply draft, and simple follow-up numbers.
                 </p>
               </div>
 
               <div className="mb-5 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
                 <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
                   <Plug size={18} className="text-[#E9C56F]" />
-                  How the modules connect to the same website request
+                  Plain-English flow after a guest clicks
                 </div>
-                <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">One guest request</p>
+                <div className="grid gap-3 md:grid-cols-4">
+                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">1. Click current CTA</p>
                     <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                      A room, tour, event, table, or product inquiry creates one shared record.
+                      The guest starts from your existing stay, tour, event, dinner, or product page.
                     </p>
                   </div>
-                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Quote and timeline</p>
+                  <div className="rounded-md border border-[#D7B56D]/20 bg-[#D7B56D]/10 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">2. Answer guided questions</p>
                     <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                      Dates, add-ons, deposit, validity, and guest confirmation update together.
+                      The form asks only what matters for that service, then saves price, date, deposit, and notes.
                     </p>
                   </div>
-                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Staff preparation</p>
+                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">3. Dana sees the action</p>
                     <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                      Front desk, kitchen, guide, shop, and setup each see only the tasks they need.
+                      The dashboard says what to do next: reply, send deposit link, confirm, or prepare.
                     </p>
                   </div>
-                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Reply and analytics</p>
+                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">4. The team follows through</p>
                     <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                      AI drafts use saved packages and policies, while metrics show what needs action.
+                      The same request appears below as payment, timeline, staff prep, AI reply, and reporting.
                     </p>
                   </div>
+                </div>
+                <div className="mt-4 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                  <p className="text-sm font-semibold text-[#FFF8EA]">How to read the cards below</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                    Each card answers one operational question: When is it happening? What does the guest owe? What
+                    should staff prepare? What should we reply? What needs attention today?
+                  </p>
                 </div>
               </div>
 
@@ -1619,14 +1672,14 @@ export default function BeitToureefPoc() {
         <AnimatePresence>
           {isTourActive && activeTourStep && (
             <m.aside
-              className="beit-poc fixed inset-x-3 bottom-3 z-50 md:inset-x-auto md:right-6 md:bottom-6 md:w-[390px]"
+              className="beit-poc fixed inset-x-3 bottom-3 z-50 md:inset-x-auto md:right-6 md:bottom-6 md:w-[460px]"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
               transition={{ duration: 0.22 }}
               aria-live="polite"
             >
-              <div className="overflow-hidden rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
+              <div className="max-h-[calc(100vh-1.5rem)] overflow-y-auto rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
                 <div className="border-b border-[#D8CAB5] bg-[#F7F1E8] p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3">
@@ -1672,8 +1725,19 @@ export default function BeitToureefPoc() {
                     {activeTourStep.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[#5A5044]">{activeTourStep.body}</p>
-                  <div className="mt-4 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
-                    <p className="text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
+                  <div className="mt-4 grid gap-3">
+                    <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">What is happening</div>
+                      <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.happening}</p>
+                    </div>
+                    <div className="rounded-md border border-[#D8CAB5] bg-[#F3E7D0] p-3">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Workflow improvement</div>
+                      <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.improvement}</p>
+                    </div>
+                  </div>
+                  <div className="mt-3 rounded-md border border-[#D8CAB5] bg-white p-3">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Demo action</div>
+                    <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-2">
