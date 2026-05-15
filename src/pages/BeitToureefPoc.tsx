@@ -68,6 +68,18 @@ interface TimelineItem {
   note: string
 }
 
+interface CapabilityDemo {
+  title: string
+  icon: typeof Smartphone
+  detail: string
+  proofLabel: string
+  proofTitle: string
+  proofBody: string
+  sampleItems: string[]
+  operatorView: string[]
+  outcome: string
+}
+
 const flowOptions: FlowOption[] = [
   {
     id: 'event',
@@ -284,36 +296,72 @@ const analyticsCards = [
   { label: 'Best channel', value: 'Website', detail: 'Highest confirmed-request rate' },
 ]
 
-const nextCapabilities = [
+const nextCapabilities: CapabilityDemo[] = [
   {
     title: 'Mobile staff app',
     icon: Smartphone,
     detail: 'A simple phone view for arrivals, prep lists, guest notes, WhatsApp actions, and payment status while the team is away from the desk.',
+    proofLabel: 'Phone preview',
+    proofTitle: 'Today’s arrivals and tasks',
+    proofBody: 'A lightweight staff screen for the front desk, kitchen, guide, and shop. It shows only what each person needs today.',
+    sampleItems: ['16:00 Jnayneh setup: 18 guests', 'Kitchen note: 4 vegetarian portions', 'Payment: $250 date-hold received'],
+    operatorView: ['Tap to call or WhatsApp the guest', 'Mark prep tasks done from the phone', 'See balance and notes before arrival'],
+    outcome: 'Less running back to the desk, fewer missed details during busy service.',
   },
   {
     title: 'AI + RAG knowledge assistant',
     icon: Database,
     detail: 'Answers and drafts replies from Beit Toureef-specific knowledge: rooms, tour packages, policies, menus, pickup rules, and FAQs.',
+    proofLabel: 'AI draft',
+    proofTitle: 'Answer from saved Beit Toureef knowledge',
+    proofBody: 'The assistant searches the approved knowledge base, drafts a reply, and cites what it used before Dana sends it.',
+    sampleItems: ['Guest asks: Can 14 people do a custom tour with lunch?', 'Retrieved: tour add-ons, group pricing, lunch options', 'Draft: quote, deposit note, and two available time windows'],
+    operatorView: ['Edit tone before sending', 'See missing details the guest should confirm', 'Update FAQs when policies change'],
+    outcome: 'Faster replies without inventing answers or losing the Beit Toureef voice.',
   },
   {
     title: 'Automated follow-up engine',
     icon: WandSparkles,
     detail: 'Schedules deposit nudges, day-before confirmations, arrival instructions, product pickup reminders, and post-visit follow-ups.',
+    proofLabel: 'Automation queue',
+    proofTitle: 'The right message at the right moment',
+    proofBody: 'Each booking gets timed reminders based on status, date, and payment. Staff can approve sensitive messages.',
+    sampleItems: ['T-48h: confirm guest count and dietary notes', 'T-24h: send map pin and arrival instructions', 'T+1d: thank-you note and product reorder link'],
+    operatorView: ['Pause reminders for VIP guests', 'Review overdue deposits every morning', 'Reuse message templates by flow'],
+    outcome: 'Deposits and confirmations happen earlier, with less manual chasing.',
   },
   {
     title: 'Payment reconciliation',
     icon: CreditCard,
     detail: 'Matches deposit links, OMT/bank references, cash notes, balance due, receipts, and booking status in one operations view.',
+    proofLabel: 'Payment desk',
+    proofTitle: 'Match money to the right request',
+    proofBody: 'A clean payment view shows what was requested, what arrived, what is still due, and which booking should update.',
+    sampleItems: ['Karim Haddad: $250 deposit matched', 'Nour Saliba: $120 balance due at arrival', 'Cedars Studio: bank reference needs review'],
+    operatorView: ['Flag unclear transfers', 'Generate receipt notes', 'Move booking to confirmed after match'],
+    outcome: 'Fewer payment questions and clearer date-hold decisions.',
   },
   {
     title: 'Integration layer',
     icon: Plug,
     detail: 'Connects existing tools instead of replacing them: HotelRunner stays, website forms, WhatsApp templates, shop preorders, and analytics.',
+    proofLabel: 'Connected tools',
+    proofTitle: 'One operations layer over existing systems',
+    proofBody: 'The POC can grow around Beit Toureef’s current tools instead of forcing a new all-in-one platform.',
+    sampleItems: ['HotelRunner stay imports arrival dates', 'Website forms create structured requests', 'Shop preorders attach to stays and events'],
+    operatorView: ['Keep current booking links', 'Route each inquiry to the right owner', 'Track source and conversion by channel'],
+    outcome: 'Better operations without asking the team to abandon tools that already work.',
   },
   {
     title: 'Guest memory',
     icon: Users,
     detail: 'Remembers returning guests, dietary notes, preferred language, favorite add-ons, past visits, and product preferences.',
+    proofLabel: 'Guest profile',
+    proofTitle: 'Remember the small hospitality details',
+    proofBody: 'Returning guests can be recognized with context: what they booked, what they liked, and what the team should prepare.',
+    sampleItems: ['Maya Khoury: Arabic preferred, vegetarian lunch', 'Last visit: Aartez cultural walk, transport added', 'Suggested: Namlieh breakfast basket for next stay'],
+    operatorView: ['Confirm preferences before arrival', 'Suggest relevant add-ons', 'Avoid asking repeat guests the same questions'],
+    outcome: 'More personal service and better repeat-guest revenue.',
   },
 ]
 
@@ -465,9 +513,11 @@ export default function BeitToureefPoc() {
   ])
   const [status, setStatus] = useState<BookingStatus>('awaitingDeposit')
   const [selectedLeadIndex, setSelectedLeadIndex] = useState(0)
+  const [selectedCapabilityIndex, setSelectedCapabilityIndex] = useState(0)
 
   const flow = getSelectedFlow(selectedFlow)
   const selectedLead = adminLeads[selectedLeadIndex] ?? adminLeads[0]
+  const selectedCapability = nextCapabilities[selectedCapabilityIndex] ?? nextCapabilities[0]
 
   const addOnTotal = useMemo(
     () => addOns.filter((item) => selectedAddOns.includes(item.name)).reduce((sum, item) => sum + item.price, 0),
@@ -1148,25 +1198,123 @@ export default function BeitToureefPoc() {
               </p>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-              {nextCapabilities.map((item) => {
-                const Icon = item.icon
-                return (
-                  <div key={item.title} className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
-                    <div className="flex items-start gap-3">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#D7B56D]/12 text-[#E9C56F]">
-                        <Icon size={19} />
-                      </span>
-                      <div>
-                        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#FFF8EA]">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">{item.detail}</p>
+            <div className="grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
+              <div className="grid gap-3 md:grid-cols-2">
+                {nextCapabilities.map((item, index) => {
+                  const Icon = item.icon
+                  const isActive = selectedCapabilityIndex === index
+                  return (
+                    <button
+                      key={item.title}
+                      type="button"
+                      onClick={() => setSelectedCapabilityIndex(index)}
+                      className={`rounded-lg border p-4 text-left transition ${
+                        isActive
+                          ? 'border-[#D7B56D] bg-[#D7B56D]/12 shadow-xl shadow-black/20'
+                          : 'border-[#EEE1C6]/12 bg-[#1A1D17] hover:border-[#EEE1C6]/25'
+                      }`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${
+                            isActive ? 'bg-[#D7B56D] text-[#1E1A12]' : 'bg-[#D7B56D]/12 text-[#E9C56F]'
+                          }`}
+                        >
+                          <Icon size={19} />
+                        </span>
+                        <div>
+                          <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#FFF8EA]">
+                            {item.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">{item.detail}</p>
+                          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#EEE1C6]/10 px-2.5 py-1 text-xs font-medium text-[#E9C56F]">
+                            View mini demo <ArrowRight size={13} />
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+
+              <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5">
+                <div className="rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
+                        {selectedCapability.proofLabel}
+                      </p>
+                      <h3 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold">
+                        {selectedCapability.proofTitle}
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#6B6258]">
+                        {selectedCapability.proofBody}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 rounded-md bg-[#252017] px-3 py-2 text-sm font-semibold text-[#FFF8EA]">
+                      {(() => {
+                        const Icon = selectedCapability.icon
+                        return <Icon size={17} className="text-[#E9C56F]" />
+                      })()}
+                      Live concept
+                    </span>
+                  </div>
+
+                  <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_0.85fr]">
+                    <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
+                      <div className="mb-3 flex items-center justify-between gap-3">
+                        <div className="text-sm font-semibold text-[#4D4438]">Sample workflow</div>
+                        <span className="rounded-full bg-[#E8DDC9] px-2 py-1 text-xs text-[#6B6258]">
+                          Dummy data
+                        </span>
+                      </div>
+                      <div className="space-y-2">
+                        {selectedCapability.sampleItems.map((item, index) => (
+                          <div key={item} className="flex gap-3 rounded-md border border-[#D8CAB5] bg-white p-3">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#7A5B22] text-xs font-semibold text-white">
+                              {index + 1}
+                            </span>
+                            <span className="text-sm leading-relaxed text-[#4D4438]">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
+                      <div className="text-sm font-semibold">Dana’s team can</div>
+                      <div className="mt-3 space-y-2">
+                        {selectedCapability.operatorView.map((item) => (
+                          <div key={item} className="flex gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                            <Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" />
+                            <span className="text-sm leading-relaxed text-[#EADDCB]">{item}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
-                )
-              })}
+
+                  <div className="mt-4 rounded-md border border-[#5D7D45]/25 bg-[#EEF5E8] p-4">
+                    <div className="flex items-start gap-3">
+                      <Sparkles size={18} className="mt-0.5 shrink-0 text-[#5D7D45]" />
+                      <div>
+                        <div className="text-sm font-semibold text-[#3D562F]">Business outcome</div>
+                        <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{selectedCapability.outcome}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                    {['Request captured', 'Staff reviewed', 'Guest confirmed'].map((step) => (
+                      <div key={step} className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-2 text-sm">
+                        <div className="font-semibold text-[#4D4438]">{step}</div>
+                        <div className="mt-1 h-1.5 rounded-full bg-[#E8DDC9]">
+                          <div className="h-full rounded-full bg-[#7A5B22]" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
