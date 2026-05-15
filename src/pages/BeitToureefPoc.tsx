@@ -940,7 +940,21 @@ export default function BeitToureefPoc() {
         </section>
 
         <section id="demo" className="scroll-mt-24 px-4 py-8 sm:px-6 md:scroll-mt-20 lg:px-8">
-          <div className="mx-auto grid max-w-[1240px] gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:max-w-[1600px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
+          <div className="mx-auto max-w-[1240px] 2xl:max-w-[1600px]">
+            <div className="mb-6 grid gap-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Core workflow demo</p>
+                <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                  From guest intent to team action.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
+                These three panels are the main story: choose what the guest wants, capture the right request details,
+                then see what your team needs to handle next.
+              </p>
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
             <aside
               id="tour-guest-intent"
               className={cn(
@@ -1130,7 +1144,85 @@ export default function BeitToureefPoc() {
                 </div>
               </section>
 
-              <section className="grid gap-5 lg:grid-cols-[1fr_0.95fr]">
+            </main>
+
+            <aside className="space-y-5">
+              <section
+                id="tour-ops-queue"
+                className={cn(
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
+                  isTourTargetActive('tour-ops-queue') && 'poc-tour-active',
+                )}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Operations view</p>
+                    <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                      Your action queue
+                    </h2>
+                  </div>
+                  <PackageCheck className="text-[#8BE3AD]" size={26} />
+                </div>
+
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <div className="text-xl font-semibold text-[#FFF8EA]">12</div>
+                    <div className="text-xs text-[#AFA698]">Open requests</div>
+                  </div>
+                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <div className="text-xl font-semibold text-[#FFF8EA]">$4.8k</div>
+                    <div className="text-xs text-[#AFA698]">Potential value</div>
+                  </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                  {adminLeads.map((lead, index) => (
+                    <button
+                      key={`${lead.name}-${lead.date}`}
+                      type="button"
+                      onClick={() => setSelectedLeadIndex(index)}
+                      className={`w-full rounded-md border p-3 text-left transition ${
+                        selectedLeadIndex === index
+                          ? 'border-[#D7B56D] bg-[#D7B56D]/10'
+                          : 'border-[#EEE1C6]/10 bg-[#10120F] hover:border-[#EEE1C6]/25'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <div className="text-sm font-semibold text-[#FFF8EA]">{lead.name}</div>
+                          <div className="text-xs text-[#AFA698]">{lead.type} · {lead.date}</div>
+                        </div>
+                        <div className="text-sm font-semibold text-[#E9C56F]">{lead.value}</div>
+                      </div>
+                      <div className="mt-3 flex flex-wrap items-center gap-2">
+                        <span className={`inline-flex rounded-full border px-2 py-1 text-xs ${statusClasses[lead.status]}`}>
+                          {lead.status}
+                        </span>
+                        <span className="text-xs text-[#CFC5B8]">{lead.action}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </section>
+
+            </aside>
+          </div>
+
+            <section className="mt-8 border-t border-[#EEE1C6]/12 pt-8">
+              <div className="mb-5 grid gap-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Supporting modules</p>
+                  <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                    The pieces that sit underneath the main flow.
+                  </h2>
+                </div>
+                <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
+                  These modules are the optional operating layer around the three-panel demo: shared timelines, quote
+                  math, staff tasks, AI reply drafts, and the few numbers that help your team decide what to do next.
+                </p>
+              </div>
+
+              <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
                 <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
                   <div className="flex items-center justify-between gap-3">
                     <div>
@@ -1198,9 +1290,7 @@ export default function BeitToureefPoc() {
                     </p>
                   </div>
                 </div>
-              </section>
 
-              <section className="grid gap-5 lg:grid-cols-[0.95fr_1fr]">
                 <div className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017]">
                   <div className="flex items-center justify-between gap-3">
                     <div>
@@ -1254,9 +1344,7 @@ export default function BeitToureefPoc() {
                     ))}
                   </div>
                 </div>
-              </section>
 
-              <section className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
                 <div
                   id="tour-staff-app"
                   className={cn(
@@ -1307,7 +1395,7 @@ export default function BeitToureefPoc() {
                   <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
                     No vanity charts. Just the few signals that help you decide what to follow up, sell, or prepare.
                   </p>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
                     {analyticsCards.map((item) => (
                       <div key={item.label} className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                         <div className="text-xs uppercase tracking-wider text-[#AFA698]">{item.label}</div>
@@ -1317,108 +1405,48 @@ export default function BeitToureefPoc() {
                     ))}
                   </div>
                 </div>
-              </section>
-            </main>
 
-            <aside className="space-y-5">
-              <section
-                id="tour-ops-queue"
-                className={cn(
-                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
-                  isTourTargetActive('tour-ops-queue') && 'poc-tour-active',
-                )}
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Operations view</p>
-                    <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
-                      Your action queue
-                    </h2>
-                  </div>
-                  <PackageCheck className="text-[#8BE3AD]" size={26} />
-                </div>
-
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
-                    <div className="text-xl font-semibold text-[#FFF8EA]">12</div>
-                    <div className="text-xs text-[#AFA698]">Open requests</div>
-                  </div>
-                  <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
-                    <div className="text-xl font-semibold text-[#FFF8EA]">$4.8k</div>
-                    <div className="text-xs text-[#AFA698]">Potential value</div>
-                  </div>
-                </div>
-
-                <div className="mt-4 space-y-2">
-                  {adminLeads.map((lead, index) => (
-                    <button
-                      key={`${lead.name}-${lead.date}`}
-                      type="button"
-                      onClick={() => setSelectedLeadIndex(index)}
-                      className={`w-full rounded-md border p-3 text-left transition ${
-                        selectedLeadIndex === index
-                          ? 'border-[#D7B56D] bg-[#D7B56D]/10'
-                          : 'border-[#EEE1C6]/10 bg-[#10120F] hover:border-[#EEE1C6]/25'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <div className="text-sm font-semibold text-[#FFF8EA]">{lead.name}</div>
-                          <div className="text-xs text-[#AFA698]">{lead.type} · {lead.date}</div>
-                        </div>
-                        <div className="text-sm font-semibold text-[#E9C56F]">{lead.value}</div>
-                      </div>
-                      <div className="mt-3 flex flex-wrap items-center gap-2">
-                        <span className={`inline-flex rounded-full border px-2 py-1 text-xs ${statusClasses[lead.status]}`}>
-                          {lead.status}
-                        </span>
-                        <span className="text-xs text-[#CFC5B8]">{lead.action}</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </section>
-
-              <section
-                id="tour-ai-reply"
-                className={cn(
-                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
-                  isTourTargetActive('tour-ai-reply') && 'poc-tour-active',
-                )}
-              >
-                <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
-                  <Bot size={18} className="text-[#E9C56F]" />
-                  Your reply draft
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
-                  AI can draft a careful answer from saved packages, policies, and availability. Your team still reviews
-                  before sending.
-                </p>
-                <pre className="mt-3 whitespace-pre-wrap rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3 text-xs leading-relaxed text-[#EADDCB]">
-                  {aiReply}
-                </pre>
-                <button
-                  type="button"
-                  className="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-2 text-sm font-semibold text-[#F2D891]"
+                <section
+                  id="tour-ai-reply"
+                  className={cn(
+                    'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4 xl:col-span-2',
+                    isTourTargetActive('tour-ai-reply') && 'poc-tour-active',
+                  )}
                 >
-                  <Send size={16} />
-                  Copy WhatsApp reply
-                </button>
-              </section>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
+                    <Bot size={18} className="text-[#E9C56F]" />
+                    Your reply draft
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#B8AFA2]">
+                    AI can draft a careful answer from saved packages, policies, and availability. Your team still reviews
+                    before sending.
+                  </p>
+                  <pre className="mt-3 whitespace-pre-wrap rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3 text-xs leading-relaxed text-[#EADDCB]">
+                    {aiReply}
+                  </pre>
+                  <button
+                    type="button"
+                    className="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-2 text-sm font-semibold text-[#F2D891]"
+                  >
+                    <Send size={16} />
+                    Copy WhatsApp reply
+                  </button>
+                </section>
 
-              <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
-                <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
-                  <CircleAlert size={18} className="text-[#F6A38C]" />
-                  Why this matters
-                </div>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[#CFC5B8]">
-                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Fewer repeated questions on WhatsApp.</li>
-                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Deposits secure high-value dates earlier.</li>
-                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Add-ons make tours, stays, and products work together.</li>
-                  <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> You see what needs attention before it becomes a problem.</li>
-                </ul>
-              </section>
-            </aside>
+                <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
+                    <CircleAlert size={18} className="text-[#F6A38C]" />
+                    Why this matters
+                  </div>
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[#CFC5B8]">
+                    <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Fewer repeated questions on WhatsApp.</li>
+                    <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Deposits secure high-value dates earlier.</li>
+                    <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> Add-ons make tours, stays, and products work together.</li>
+                    <li className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" /> You see what needs attention before it becomes a problem.</li>
+                  </ul>
+                </section>
+              </div>
+            </section>
           </div>
         </section>
 
