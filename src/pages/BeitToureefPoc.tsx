@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
-import { m } from 'framer-motion'
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
+import { AnimatePresence, m } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import {
   ArrowRight,
@@ -16,20 +16,32 @@ import {
   Lock,
   MessageCircle,
   PackageCheck,
+  Pause,
   Plug,
+  Play,
   Smartphone,
   Send,
   ShieldCheck,
   Sparkles,
   Users,
   WandSparkles,
+  X,
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
+import { cn } from '../utils/cn'
 
 type FlowKey = 'event' | 'tour' | 'table' | 'products'
 type BookingStatus = 'new' | 'awaitingDeposit' | 'depositSubmitted' | 'confirmed'
 type LeadStatus = 'Awaiting deposit' | 'Confirmed' | 'New request' | 'Quote sent' | 'Overdue'
+type TourTarget =
+  | 'tour-guest-intent'
+  | 'tour-guest-flow'
+  | 'tour-confirmation'
+  | 'tour-ops-queue'
+  | 'tour-ai-reply'
+  | 'tour-staff-app'
+  | 'tour-next-capabilities'
 
 interface FlowOption {
   id: FlowKey
@@ -79,6 +91,14 @@ interface CapabilityDemo {
   sampleItems: string[]
   operatorView: string[]
   outcome: string
+}
+
+interface WalkthroughStep {
+  targetId: TourTarget
+  title: string
+  body: string
+  cue: string
+  action: () => void
 }
 
 const flowOptions: FlowOption[] = [
@@ -516,6 +536,9 @@ export default function BeitToureefPoc() {
   const [status, setStatus] = useState<BookingStatus>('awaitingDeposit')
   const [selectedLeadIndex, setSelectedLeadIndex] = useState(0)
   const [selectedCapabilityIndex, setSelectedCapabilityIndex] = useState(0)
+  const [isTourActive, setIsTourActive] = useState(false)
+  const [isTourAuto, setIsTourAuto] = useState(false)
+  const [tourStepIndex, setTourStepIndex] = useState(0)
 
   const flow = getSelectedFlow(selectedFlow)
   const selectedLead = adminLeads[selectedLeadIndex] ?? adminLeads[0]
@@ -557,6 +580,138 @@ export default function BeitToureefPoc() {
     'Could you please confirm the final guest count and any food preferences?',
   ].join('\n')
 
+  const walkthroughSteps = useMemo<WalkthroughStep[]>(
+    () => [
+      {
+        targetId: 'tour-guest-intent',
+        title: 'Start with the guest intent',
+        body: 'Each path asks for different details, so your team gets a clean request instead of a loose WhatsApp message.',
+        cue: 'Switching to a tour request with transport and guide add-ons.',
+        action: () => {
+          setSelectedFlow('tour')
+          setGuestCount(10)
+          setSelectedAddOns(['Private guide upgrade', 'Transport coordination'])
+          setStatus('new')
+        },
+      },
+      {
+        targetId: 'tour-guest-flow',
+        title: 'Make the guest flow feel complete',
+        body: 'The guest sees a clear package, date, group size, add-ons, and the exact details captured before anyone replies.',
+        cue: 'Now showing a private event with a larger guest count.',
+        action: () => {
+          setSelectedFlow('event')
+          setGuestCount(32)
+          setSelectedAddOns(['Village breakfast basket', 'Local producer gift box', 'Transport coordination'])
+          setStatus('awaitingDeposit')
+        },
+      },
+      {
+        targetId: 'tour-confirmation',
+        title: 'Turn the request into a confirmation',
+        body: 'The system prepares a WhatsApp summary, calculates the deposit, and lets the team move the booking status forward.',
+        cue: 'Marking the deposit as submitted so the follow-up state changes.',
+        action: () => {
+          setStatus('depositSubmitted')
+        },
+      },
+      {
+        targetId: 'tour-ops-queue',
+        title: 'Give Dana one action queue',
+        body: 'All stays, tours, venue requests, and preorders can land in one dashboard with value, status, and next action.',
+        cue: 'Opening Karim’s high-value event request.',
+        action: () => {
+          setSelectedLeadIndex(0)
+        },
+      },
+      {
+        targetId: 'tour-ai-reply',
+        title: 'Use AI where it saves typing',
+        body: 'The assistant drafts a careful reply from approved Beit Toureef knowledge. Your team can edit before sending.',
+        cue: 'Selecting Nour’s dinner inquiry to show a tailored reply.',
+        action: () => {
+          setSelectedLeadIndex(2)
+        },
+      },
+      {
+        targetId: 'tour-staff-app',
+        title: 'Bring the workflow to the phone',
+        body: 'The mobile view gives front desk, kitchen, guide, and shop teams the day’s tasks without opening the full dashboard.',
+        cue: 'Highlighting the staff phone view and prep actions.',
+        action: () => {
+          setSelectedFlow('table')
+          setGuestCount(14)
+          setStatus('confirmed')
+        },
+      },
+      {
+        targetId: 'tour-next-capabilities',
+        title: 'End with the expansion path',
+        body: 'After the first flow proves value, the same base can grow into AI/RAG, automation, payments, mobile, and an owned booking engine.',
+        cue: 'Opening the AI + RAG mini demo as a natural next step.',
+        action: () => {
+          setSelectedCapabilityIndex(1)
+        },
+      },
+    ],
+    [],
+  )
+
+  const activeTourStep = walkthroughSteps[tourStepIndex] ?? walkthroughSteps[0]
+  const activeTourTargetId = isTourActive ? activeTourStep?.targetId : undefined
+
+  const isTourTargetActive = (targetId: TourTarget) => activeTourTargetId === targetId
+
+  const scrollToTourTarget = useCallback((targetId: string, behavior: ScrollBehavior = 'smooth') => {
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById(targetId)
+      if (!target) return
+
+      const topOffset = targetId === 'demo' ? 84 : Math.min(120, Math.max(84, window.innerHeight * 0.12))
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - topOffset
+
+      window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior,
+      })
+    })
+  }, [])
+
+  const startWalkthrough = useCallback(() => {
+    setIsTourActive(true)
+    setIsTourAuto(true)
+    setTourStepIndex(0)
+    window.history.replaceState(null, '', `${window.location.pathname}#demo`)
+    scrollToTourTarget(walkthroughSteps[0].targetId)
+  }, [scrollToTourTarget, walkthroughSteps])
+
+  const stopWalkthrough = useCallback(() => {
+    setIsTourActive(false)
+    setIsTourAuto(false)
+  }, [])
+
+  const goToTourStep = useCallback(
+    (index: number, shouldPause = true) => {
+      const safeIndex = Math.max(0, Math.min(index, walkthroughSteps.length - 1))
+      setTourStepIndex(safeIndex)
+      if (shouldPause) setIsTourAuto(false)
+    },
+    [walkthroughSteps.length],
+  )
+
+  const nextTourStep = useCallback(() => {
+    if (tourStepIndex >= walkthroughSteps.length - 1) {
+      setIsTourAuto(false)
+      return
+    }
+
+    goToTourStep(tourStepIndex + 1)
+  }, [goToTourStep, tourStepIndex, walkthroughSteps.length])
+
+  const previousTourStep = useCallback(() => {
+    goToTourStep(tourStepIndex - 1)
+  }, [goToTourStep, tourStepIndex])
+
   useEffect(() => {
     document.title = 'Beit Toureef POC | Likwiid'
 
@@ -586,12 +741,39 @@ export default function BeitToureefPoc() {
     const targetId = decodeURIComponent(location.hash.slice(1))
     let frame = window.requestAnimationFrame(() => {
       frame = window.requestAnimationFrame(() => {
-        document.getElementById(targetId)?.scrollIntoView({ block: 'start' })
+        scrollToTourTarget(targetId, 'auto')
       })
     })
 
     return () => window.cancelAnimationFrame(frame)
-  }, [hasAccess, location.hash])
+  }, [hasAccess, location.hash, scrollToTourTarget])
+
+  useEffect(() => {
+    if (!isTourActive || !activeTourStep) return
+
+    activeTourStep.action()
+    scrollToTourTarget(activeTourStep.targetId)
+  }, [activeTourStep, isTourActive, scrollToTourTarget])
+
+  useEffect(() => {
+    if (!isTourActive || !isTourAuto) return
+
+    const timer = window.setTimeout(() => {
+      if (tourStepIndex >= walkthroughSteps.length - 1) {
+        setIsTourAuto(false)
+        return
+      }
+
+      const nextStep = Math.min(tourStepIndex + 1, walkthroughSteps.length - 1)
+      setTourStepIndex(nextStep)
+
+      if (nextStep >= walkthroughSteps.length - 1) {
+        setIsTourAuto(false)
+      }
+    }, 5600)
+
+    return () => window.clearTimeout(timer)
+  }, [isTourActive, isTourAuto, tourStepIndex, walkthroughSteps.length])
 
   const toggleAddOn = (name: string) => {
     setSelectedAddOns((current) =>
@@ -604,7 +786,8 @@ export default function BeitToureefPoc() {
   }
 
   return (
-    <PageTransition>
+    <>
+      <PageTransition>
       <div className="beit-poc min-h-screen bg-[#11130F] pt-20 text-[#F7F1E8]">
         <section className="border-b border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-[1240px] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
@@ -641,8 +824,13 @@ export default function BeitToureefPoc() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.24 }}
               >
-                <Button href="#demo" size="md" className="rounded-lg bg-[#D7B56D] text-[#1E1A12] hover:opacity-100">
-                  Walk through the demo <ArrowRight size={18} />
+                <Button
+                  type="button"
+                  onClick={startWalkthrough}
+                  size="md"
+                  className="rounded-lg bg-[#D7B56D] text-[#1E1A12] hover:opacity-100"
+                >
+                  Walk through the demo <Sparkles size={18} />
                 </Button>
                 <Button
                   href="https://wa.me/96181398752"
@@ -753,7 +941,13 @@ export default function BeitToureefPoc() {
 
         <section id="demo" className="scroll-mt-24 px-4 py-8 sm:px-6 md:scroll-mt-20 lg:px-8">
           <div className="mx-auto grid max-w-[1240px] gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:max-w-[1600px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
-            <aside className="space-y-3">
+            <aside
+              id="tour-guest-intent"
+              className={cn(
+                'poc-tour-target scroll-mt-28 space-y-3 rounded-[18px] transition',
+                isTourTargetActive('tour-guest-intent') && 'poc-tour-active',
+              )}
+            >
               <div className="mb-4">
                 <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
                   Guest intent
@@ -803,7 +997,13 @@ export default function BeitToureefPoc() {
             </aside>
 
             <main className="space-y-5">
-              <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5">
+              <section
+                id="tour-guest-flow"
+                className={cn(
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5',
+                  isTourTargetActive('tour-guest-flow') && 'poc-tour-active',
+                )}
+              >
                 <div className="rounded-md border border-[#DFD2BB] bg-white p-4 md:p-5">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
@@ -885,7 +1085,13 @@ export default function BeitToureefPoc() {
                     </div>
                   </div>
 
-                  <div className="mt-5 grid gap-4 md:grid-cols-[1fr_230px]">
+                  <div
+                    id="tour-confirmation"
+                    className={cn(
+                      'poc-tour-target mt-5 grid scroll-mt-28 gap-4 rounded-[18px] md:grid-cols-[1fr_230px]',
+                      isTourTargetActive('tour-confirmation') && 'poc-tour-active',
+                    )}
+                  >
                     <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-4">
                       <div className="flex items-center gap-2 text-sm font-semibold text-[#4D4438]">
                         <MessageCircle size={18} className="text-[#228B66]" />
@@ -1051,7 +1257,13 @@ export default function BeitToureefPoc() {
               </section>
 
               <section className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-                <div className="poc-ink-panel rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30">
+                <div
+                  id="tour-staff-app"
+                  className={cn(
+                    'poc-ink-panel poc-tour-target scroll-mt-28 rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30',
+                    isTourTargetActive('tour-staff-app') && 'poc-tour-active',
+                  )}
+                >
                   <div className="poc-ink-surface rounded-[22px] border border-[#EEE1C6]/10 bg-[#1A1D17] p-4">
                     <div className="flex items-center justify-between gap-3">
                       <div>
@@ -1109,7 +1321,13 @@ export default function BeitToureefPoc() {
             </main>
 
             <aside className="space-y-5">
-              <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+              <section
+                id="tour-ops-queue"
+                className={cn(
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
+                  isTourTargetActive('tour-ops-queue') && 'poc-tour-active',
+                )}
+              >
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Operations view</p>
@@ -1161,7 +1379,13 @@ export default function BeitToureefPoc() {
                 </div>
               </section>
 
-              <section className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+              <section
+                id="tour-ai-reply"
+                className={cn(
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
+                  isTourTargetActive('tour-ai-reply') && 'poc-tour-active',
+                )}
+              >
                 <div className="flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
                   <Bot size={18} className="text-[#E9C56F]" />
                   Your reply draft
@@ -1198,7 +1422,13 @@ export default function BeitToureefPoc() {
           </div>
         </section>
 
-        <section className="border-t border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
+        <section
+          id="tour-next-capabilities"
+          className={cn(
+            'poc-tour-target scroll-mt-28 border-t border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8',
+            isTourTargetActive('tour-next-capabilities') && 'poc-tour-active',
+          )}
+        >
           <div className="mx-auto max-w-[1240px]">
             <div className="mb-5 grid gap-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
               <div>
@@ -1359,7 +1589,119 @@ export default function BeitToureefPoc() {
             </div>
           </div>
         </section>
+
       </div>
     </PageTransition>
+
+        <AnimatePresence>
+          {isTourActive && activeTourStep && (
+            <m.aside
+              className="beit-poc fixed inset-x-3 bottom-3 z-50 md:inset-x-auto md:right-6 md:bottom-6 md:w-[390px]"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.22 }}
+              aria-live="polite"
+            >
+              <div className="overflow-hidden rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
+                <div className="border-b border-[#D8CAB5] bg-[#F7F1E8] p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3">
+                      <div className="poc-assistant-orbit poc-ink-panel flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-[#252017] text-[#E9C56F]">
+                        <Bot size={20} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
+                          Guided demo assistant
+                        </p>
+                        <p className="mt-1 text-sm text-[#6B6258]">
+                          Step {tourStepIndex + 1} of {walkthroughSteps.length}
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={stopWalkthrough}
+                      className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
+                      aria-label="Close guided walkthrough"
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-[#E8DDC9]">
+                    <m.div
+                      className="h-full rounded-full bg-[#7A5B22]"
+                      initial={false}
+                      animate={{ width: `${((tourStepIndex + 1) / walkthroughSteps.length) * 100}%` }}
+                      transition={{ duration: 0.35 }}
+                    />
+                  </div>
+                </div>
+
+                <m.div
+                  key={activeTourStep.targetId}
+                  className="p-4"
+                  initial={{ opacity: 0, x: 14 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold leading-snug text-[#252017]">
+                    {activeTourStep.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5A5044]">{activeTourStep.body}</p>
+                  <div className="mt-4 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
+                    <div className="flex gap-2">
+                      <Sparkles size={16} className="mt-0.5 shrink-0 text-[#7A5B22]" />
+                      <p className="text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {walkthroughSteps.map((step, index) => (
+                      <button
+                        key={step.targetId}
+                        type="button"
+                        onClick={() => goToTourStep(index)}
+                        className={cn(
+                          'h-2.5 rounded-full transition-all',
+                          tourStepIndex === index ? 'w-8 bg-[#7A5B22]' : 'w-2.5 bg-[#D8CAB5] hover:bg-[#AA8A4A]',
+                        )}
+                        aria-label={`Go to walkthrough step ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-[1fr_auto_1fr] gap-2">
+                    <button
+                      type="button"
+                      onClick={previousTourStep}
+                      disabled={tourStepIndex === 0}
+                      className="min-h-11 rounded-md border border-[#D8CAB5] px-3 text-sm font-semibold text-[#5A5044] transition hover:border-[#7A5B22] disabled:cursor-not-allowed disabled:opacity-45"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsTourAuto((current) => !current)}
+                      className="flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#D8CAB5] text-[#5A5044] transition hover:border-[#7A5B22] hover:text-[#252017]"
+                      aria-label={isTourAuto ? 'Pause automatic walkthrough' : 'Resume automatic walkthrough'}
+                    >
+                      {isTourAuto ? <Pause size={17} /> : <Play size={17} />}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={tourStepIndex >= walkthroughSteps.length - 1 ? stopWalkthrough : nextTourStep}
+                      className="poc-ink-panel flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#252017] px-3 text-sm font-semibold text-[#FFF8EA] transition hover:bg-[#3A3124]"
+                    >
+                      {tourStepIndex >= walkthroughSteps.length - 1 ? 'Finish' : 'Next'}
+                      {tourStepIndex < walkthroughSteps.length - 1 && <ArrowRight size={16} />}
+                    </button>
+                  </div>
+                </m.div>
+              </div>
+            </m.aside>
+          )}
+        </AnimatePresence>
+    </>
   )
 }

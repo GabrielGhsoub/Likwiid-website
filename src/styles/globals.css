@@ -253,6 +253,47 @@ body {
   transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
 }
 
+.beit-poc .poc-tour-target {
+  position: relative;
+}
+
+.beit-poc .poc-tour-active {
+  z-index: 12;
+}
+
+.beit-poc .poc-tour-active::before {
+  animation: poc-tour-glow 1.8s ease-in-out infinite;
+  border: 2px solid rgba(215, 181, 109, 0.78);
+  border-radius: inherit;
+  box-shadow: 0 0 0 8px rgba(215, 181, 109, 0.12), 0 18px 60px rgba(20, 15, 8, 0.22);
+  content: "";
+  inset: -6px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 8;
+}
+
+.beit-poc .poc-tour-active::after {
+  background: #D7B56D;
+  border-radius: 999px;
+  color: #1E1A12;
+  content: "Guided focus";
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 0.45rem 0.65rem;
+  pointer-events: none;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  z-index: 9;
+}
+
+.beit-poc .poc-assistant-orbit {
+  animation: poc-assistant-breathe 2.4s ease-in-out infinite;
+}
+
 .beit-poc .poc-status-awaiting-deposit {
   background-color: rgba(154, 101, 13, 0.14);
   border-color: rgba(154, 101, 13, 0.45);
@@ -407,6 +448,32 @@ body {
 .light .beit-poc .poc-ink-panel [class*="border-[#EEE1C6]"],
 .light .beit-poc .poc-ink-panel[class*="border-[#EEE1C6]"] {
   border-color: rgba(238, 225, 198, 0.12) !important;
+}
+
+@media (max-width: 640px) {
+  .beit-poc .poc-tour-active::after {
+    display: none;
+  }
+}
+
+@keyframes poc-tour-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 7px rgba(215, 181, 109, 0.1), 0 18px 60px rgba(20, 15, 8, 0.2);
+    opacity: 0.82;
+  }
+  50% {
+    box-shadow: 0 0 0 13px rgba(215, 181, 109, 0.18), 0 24px 70px rgba(20, 15, 8, 0.28);
+    opacity: 1;
+  }
+}
+
+@keyframes poc-assistant-breathe {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(215, 181, 109, 0.34);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(215, 181, 109, 0);
+  }
 }
 
 ::selection {
