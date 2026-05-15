@@ -201,6 +201,29 @@ const timelineItems: TimelineItem[] = [
   },
 ]
 
+const currentSiteFindings = [
+  {
+    area: 'Rooms',
+    current: 'Book Your Stay already sends guests to HotelRunner.',
+    opportunity: 'Keep HotelRunner, then add pre-arrival add-ons, guest notes, and arrival confidence pages.',
+  },
+  {
+    area: 'Tours',
+    current: 'Out & About tour cards list packages, prices, add-ons, and WhatsApp numbers.',
+    opportunity: 'Turn each tour into a structured request with date, guests, transport, language, deposit, and confirmation.',
+  },
+  {
+    area: 'Venues',
+    current: 'Sofra w Tannour, Meeting Room, Jnayneh, exhibitions, events, and photoshoots are presented.',
+    opportunity: 'Qualify event leads before the first reply: date, guest count, budget, setup, food, and date-hold deposit.',
+  },
+  {
+    area: 'Namlieh',
+    current: 'The shop shows local product categories and add-to-cart actions.',
+    opportunity: 'Bundle products into preorders, guest arrival baskets, event gifts, and pickup/delivery workflows.',
+  },
+]
+
 const statusClasses: Record<LeadStatus, string> = {
   'Awaiting deposit': 'border-[#B7791F]/35 bg-[#B7791F]/12 text-[#FFD166]',
   Confirmed: 'border-[#2F855A]/35 bg-[#2F855A]/12 text-[#8BE3AD]',
@@ -368,6 +391,37 @@ export default function BeitToureefPoc() {
                 reminder or release the date hold.
               </div>
             </m.div>
+          </div>
+        </section>
+
+        <section className="border-b border-[#EEE1C6]/10 px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1240px]">
+            <div className="mb-5 max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Grounded in their current website</p>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                This does not replace what Beit Toureef already has. It connects it.
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">
+                Their public site already presents rooms, venues, tours, restaurant reservations, and Namlieh products.
+                The opportunity is making those paths easier for guests to complete and easier for Dana’s team to track.
+              </p>
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              {currentSiteFindings.map((item) => (
+                <div key={item.area} className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                  <div className="text-sm font-semibold text-[#FFF8EA]">{item.area}</div>
+                  <div className="mt-3 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#B8AFA2]">Already there</div>
+                    <p className="mt-1 text-sm leading-relaxed text-[#D9D0C4]">{item.current}</p>
+                  </div>
+                  <div className="mt-2 rounded-md border border-[#D7B56D]/20 bg-[#D7B56D]/10 p-3">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Improve next</div>
+                    <p className="mt-1 text-sm leading-relaxed text-[#F0E4D2]">{item.opportunity}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
