@@ -44,7 +44,7 @@
   --color-text-tertiary: #8B949E;
   --color-text-inverse: #1A1A2E;
 
-  /* Accent Colors — Primary brand palette (Cyan + Blue) */
+  /* Accent Colors: Primary brand palette (Cyan + Blue) */
   --color-accent-gold: #06B6D4;
   --color-accent-gold-hover: #0891B2;
   --color-accent-gold-dim: #06B6D41A;
@@ -169,7 +169,7 @@
   --color-text-tertiary: #4B5563;
   --color-text-inverse: #FFFFFF;
 
-  /* Accent Colors — Darker variants for light backgrounds */
+  /* Accent Colors: Darker variants for light backgrounds */
   --color-accent-gold: #0E7490;
   --color-accent-gold-hover: #155E75;
   --color-accent-gold-dim: #0E74901A;
@@ -528,7 +528,7 @@ a:not([class]):hover {
    Liquid / Fluid Animation Keyframes
    ========================================================================== */
 
-/* Blob Morphing — organic shape-shifting for decorative background elements */
+/* Blob Morphing: organic shape-shifting for decorative background elements */
 @keyframes blob-morph {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -548,7 +548,7 @@ a:not([class]):hover {
   }
 }
 
-/* Blob Morph — subtle variant (no rotation, just shape change) */
+/* Blob Morph: subtle variant (no rotation, just shape change) */
 @keyframes blob-morph-subtle {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -561,7 +561,7 @@ a:not([class]):hover {
   }
 }
 
-/* Wave — sinusoidal motion for section dividers and backgrounds */
+/* Wave: sinusoidal motion for section dividers and backgrounds */
 @keyframes wave {
   0% {
     transform: translateX(0) translateZ(0);
@@ -574,7 +574,7 @@ a:not([class]):hover {
   }
 }
 
-/* Wave vertical shift — for layered wave backgrounds */
+/* Wave vertical shift: for layered wave backgrounds */
 @keyframes wave-shift {
   0%, 100% {
     transform: translateY(0);
@@ -584,7 +584,7 @@ a:not([class]):hover {
   }
 }
 
-/* Liquid Gradient Flow — slowly shifting gradient background position */
+/* Liquid Gradient Flow: slowly shifting gradient background position */
 @keyframes liquid-gradient {
   0% {
     background-position: 0% 50%;
@@ -597,7 +597,7 @@ a:not([class]):hover {
   }
 }
 
-/* Ripple Click — expanding ring effect for interactive elements */
+/* Ripple Click: expanding ring effect for interactive elements */
 @keyframes ripple-click {
   0% {
     transform: scale(0);
@@ -609,7 +609,7 @@ a:not([class]):hover {
   }
 }
 
-/* Ripple Pulse — continuous subtle pulse for hover states */
+/* Ripple Pulse: continuous subtle pulse for hover states */
 @keyframes ripple-pulse {
   0% {
     box-shadow: 0 0 0 0 var(--color-accent-gold-dim);
@@ -622,7 +622,7 @@ a:not([class]):hover {
   }
 }
 
-/* Fluid Text Reveal — clip-path wipe for text entrance */
+/* Fluid Text Reveal: clip-path wipe for text entrance */
 @keyframes fluid-text-reveal {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -651,7 +651,7 @@ a:not([class]):hover {
   }
 }
 
-/* Enhanced Float — multi-axis organic float with rotation */
+/* Enhanced Float: multi-axis organic float with rotation */
 @keyframes float-organic {
   0%, 100% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -670,7 +670,7 @@ a:not([class]):hover {
   }
 }
 
-/* Enhanced Drift — larger, slower multi-point drift path */
+/* Enhanced Drift: larger, slower multi-point drift path */
 @keyframes drift-wide {
   0%, 100% { transform: translateX(0) translateY(0) scale(1); }
   20% { transform: translateX(40px) translateY(-20px) scale(1.02); }
@@ -679,7 +679,7 @@ a:not([class]):hover {
   80% { transform: translateX(-30px) translateY(-25px) scale(1); }
 }
 
-/* Liquid Shimmer — sweeping highlight effect */
+/* Liquid Shimmer: sweeping highlight effect */
 @keyframes liquid-shimmer {
   0% {
     transform: translateX(-100%) skewX(-15deg);
@@ -689,7 +689,7 @@ a:not([class]):hover {
   }
 }
 
-/* Shimmer pulse — subtle background shimmer */
+/* Shimmer pulse: subtle background shimmer */
 @keyframes shimmer-pulse {
   0%, 100% {
     opacity: 0.4;

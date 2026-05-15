@@ -13,7 +13,7 @@ const whatSteps: Step[] = [
     number: '01',
     title: 'Landscape',
     description:
-      'Map the full picture — goals, stakeholders, competitors, and the ecosystem you operate in.',
+      'Map the full picture: goals, stakeholders, competitors, and the ecosystem you operate in.',
   },
   {
     number: '02',
@@ -25,7 +25,7 @@ const whatSteps: Step[] = [
     number: '03',
     title: 'Blueprint',
     description:
-      'Design the ideal future state and draft the requirements. Strategy first — no tech decisions yet.',
+      'Design the ideal future state and draft the requirements. Strategy first. No tech decisions yet.',
   },
 ]
 
@@ -154,7 +154,7 @@ export function Process() {
         <div ref={ref}>
           <Phase
             label="What?"
-            caption="Strategy and discovery — before a single line of code."
+            caption="Strategy and discovery before a single line of code."
             steps={whatSteps}
             isVisible={isVisible}
             gridCols="md:grid-cols-3"
