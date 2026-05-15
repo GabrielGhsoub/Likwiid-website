@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { LazyMotion, domMax } from 'framer-motion'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
@@ -36,6 +36,12 @@ function usePrefetchRoutes() {
 
 const NotFound = lazy(() => import('./pages/NotFound'))
 
+function LegacyBeitToureefRedirect() {
+  const location = useLocation()
+
+  return <Navigate to={`/beit-toureef-walkthrough${location.hash}`} replace />
+}
+
 function LoadingFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Loading">
@@ -65,7 +71,8 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
-            <Route path="/beit-toureef-poc" element={<BeitToureefPoc />} />
+            <Route path="/beit-toureef-walkthrough" element={<BeitToureefPoc />} />
+            <Route path="/beit-toureef-poc" element={<LegacyBeitToureefRedirect />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

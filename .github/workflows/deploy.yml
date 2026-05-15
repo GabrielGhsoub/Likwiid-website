@@ -43,10 +43,12 @@ jobs:
         run: echo "likwiid.com" > dist/CNAME
       - name: Add 404.html for SPA routing
         run: cp dist/index.html dist/404.html
-      - name: Add direct POC route
+      - name: Add direct Beit Toureef routes
         run: |
-          mkdir -p dist/beit-toureef-poc
-          cp dist/index.html dist/beit-toureef-poc/index.html
+          for route in beit-toureef-walkthrough beit-toureef-poc; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

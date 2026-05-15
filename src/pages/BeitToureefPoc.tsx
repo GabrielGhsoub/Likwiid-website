@@ -392,7 +392,7 @@ const statusClasses: Record<LeadStatus, string> = {
 }
 
 const bookingStatuses: BookingStatus[] = ['new', 'awaitingDeposit', 'depositSubmitted', 'confirmed']
-const ACCESS_SESSION_KEY = 'beit-toureef-poc-access'
+const ACCESS_SESSION_KEY = 'beit-toureef-walkthrough-access'
 const USERNAME_HASH = '1499b57617911e2f32d6c7eac6a5e76fe272bb43c4405ab9a7cdea160012c836'
 const PASSWORD_HASH = '9716e4ef85ee2fb9c9605a299c81c83fde128836be550173ff1b2334eb2c2b2f'
 
@@ -446,7 +446,7 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
         return
       }
 
-      setError('Invalid demo credentials.')
+      setError('Invalid walkthrough credentials.')
     } catch {
       setError('Could not verify access in this browser.')
     } finally {
@@ -466,13 +466,15 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-[#D7B56D] text-[#1E1A12]">
               <Lock size={22} />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Private POC preview</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">
+              Private interactive walkthrough
+            </p>
             <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#FFF8EA]">
-              Beit Toureef demo access
+              Beit Toureef walkthrough access
             </h1>
             <p className="mt-3 text-sm leading-relaxed text-[#CFC5B8]">
-              This concept page is shared by Likwiid as a private demo. Enter the demo credentials to view the
-              booking, deposit, WhatsApp, AI, and operations workflow.
+              This private walkthrough is shared by Likwiid to show practical feature additions for your current website:
+              booking, deposit, WhatsApp, AI, and operations workflows.
             </p>
 
             <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
@@ -507,12 +509,12 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
                 disabled={isChecking}
                 className="flex h-12 w-full items-center justify-center rounded-md bg-[#D7B56D] px-4 text-sm font-semibold text-[#1E1A12] transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isChecking ? 'Checking access...' : 'View private demo'}
+                {isChecking ? 'Checking access...' : 'View private walkthrough'}
               </button>
             </form>
 
             <p className="mt-4 text-xs leading-relaxed text-[#AFA698]">
-              This preview is private and only available through the shared demo credentials.
+              This walkthrough is private and only available through the shared walkthrough credentials.
             </p>
           </m.div>
         </div>
@@ -654,10 +656,10 @@ export default function BeitToureefPoc() {
       {
         targetId: 'tour-next-capabilities',
         title: 'End with the expansion path',
-        body: 'The POC does not need to replace everything at once. It can start around the highest-friction flow and expand only after the team sees value.',
+        body: 'The walkthrough does not need to replace everything at once. It can start around the highest-friction flow and expand only after the team sees value.',
         happening: 'The same request layer can later connect AI/RAG, follow-up automation, payment reconciliation, mobile workflows, and HotelRunner or an owned booking engine.',
         improvement: 'Beit Toureef can keep what works now, improve the weak handoffs first, and gradually move toward a custom system they own and can adapt.',
-        cue: 'opening the AI + RAG mini demo as a natural next step.',
+        cue: 'opening the AI + RAG feature preview as a natural next step.',
         action: () => {
           setSelectedCapabilityIndex(1)
         },
@@ -703,7 +705,7 @@ export default function BeitToureefPoc() {
   }, [goToTourStep, tourStepIndex])
 
   useEffect(() => {
-    document.title = 'Beit Toureef POC | Likwiid'
+    document.title = 'Beit Toureef Walkthrough | Likwiid'
 
     const existingMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
     const meta = existingMeta ?? document.createElement('meta')
@@ -779,7 +781,7 @@ export default function BeitToureefPoc() {
                   size="md"
                   className="rounded-lg bg-[#D7B56D] text-[#1E1A12] hover:opacity-100"
                 >
-                  Walk through the demo
+                  Start interactive walkthrough
                 </Button>
                 <Button
                   href="https://wa.me/96181398752"
@@ -870,8 +872,9 @@ export default function BeitToureefPoc() {
                 </h2>
               </div>
               <p className="text-sm leading-relaxed text-[#CFC5B8]">
-                The POC is intentionally not a full rebuild. The first version should improve your existing website’s
-                highest-friction paths, then expand only once your team sees fewer missed details and more confirmed bookings.
+                This private walkthrough is intentionally not a full rebuild. The first version should improve your
+                existing website’s highest-friction paths, then expand only once your team sees fewer missed details and
+                more confirmed bookings.
               </p>
             </div>
 
@@ -902,8 +905,8 @@ export default function BeitToureefPoc() {
               </div>
               <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
                 The public site already introduces the rooms, tours, venues, restaurant, Namlieh, HotelRunner, and WhatsApp.
-                The POC shows the missing middle: turn each guest click into a clear request, a price, a deposit step,
-                and one action for your team.
+                This walkthrough shows the missing middle: turn each guest click into a clear request, a price, a deposit
+                step, and one action for your team.
               </p>
             </div>
 
@@ -1517,8 +1520,9 @@ export default function BeitToureefPoc() {
                 </h2>
               </div>
               <p className="text-sm leading-relaxed text-[#CFC5B8]">
-                These are not all first-phase features. They show the path from a booking/deposit POC into a practical
-                operating system with mobile workflows, AI support, and integrations around the tools you already use.
+                These are not all first-phase features. They show the path from a booking/deposit walkthrough into a
+                practical operating system with mobile workflows, AI support, and integrations around the tools you
+                already use.
               </p>
             </div>
 
@@ -1552,7 +1556,7 @@ export default function BeitToureefPoc() {
                           </h3>
                           <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">{item.detail}</p>
                           <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#EEE1C6]/10 px-2.5 py-1 text-xs font-medium text-[#E9C56F]">
-                            View mini demo <ArrowRight size={13} />
+                            View feature preview <ArrowRight size={13} />
                           </span>
                         </div>
                       </div>
@@ -1688,7 +1692,7 @@ export default function BeitToureefPoc() {
                       </div>
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
-                          Guided demo assistant
+                          Guided walkthrough assistant
                         </p>
                         <p className="mt-1 text-sm text-[#6B6258]">
                           Step {tourStepIndex + 1} of {walkthroughSteps.length}
@@ -1736,7 +1740,7 @@ export default function BeitToureefPoc() {
                     </div>
                   </div>
                   <div className="mt-3 rounded-md border border-[#D8CAB5] bg-white p-3">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Demo action</div>
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Walkthrough action</div>
                     <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
                   </div>
 

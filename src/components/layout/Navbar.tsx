@@ -28,8 +28,9 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
   const { theme, toggleTheme } = useTheme()
-  const isPocRoute = location.pathname === '/beit-toureef-poc'
-  const isPocLight = isPocRoute && theme === 'light'
+  const isPrivateWalkthroughRoute =
+    location.pathname === '/beit-toureef-walkthrough' || location.pathname === '/beit-toureef-poc'
+  const isPocLight = isPrivateWalkthroughRoute && theme === 'light'
 
   useEffect(() => {
     let ticking = false
@@ -136,7 +137,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow] duration-300',
           mobileOpen && 'z-30 md:z-40',
-          isPocRoute
+          isPrivateWalkthroughRoute
             ? isPocLight
               ? 'bg-[#F7F1E8]/95 border-b border-[#D8CAB5] shadow-sm shadow-[#4E3E27]/10 backdrop-blur-md'
               : 'bg-[#11130F]/95 border-b border-[#EEE1C6]/12 shadow-lg shadow-black/20 backdrop-blur-md'
@@ -148,7 +149,7 @@ export function Navbar() {
             to="/"
             className={cn(
               'font-[family-name:var(--font-display)] text-xl font-bold transition-colors no-underline',
-              isPocRoute
+              isPrivateWalkthroughRoute
                 ? isPocLight ? 'text-[#252017] hover:text-[#7A5B22]' : 'text-[#FFF8EA] hover:text-[#E9C56F]'
                 : 'text-text-primary hover:text-accent-gold',
             )}
@@ -164,7 +165,7 @@ export function Navbar() {
                 aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={cn(
                   'inline-flex min-h-11 items-center text-sm font-medium transition-colors duration-200 no-underline relative',
-                  isPocRoute
+                  isPrivateWalkthroughRoute
                     ? isPocLight
                       ? location.pathname === link.path ? 'text-[#252017] font-semibold' : 'text-[#6B6258] hover:text-[#252017]'
                       : location.pathname === link.path ? 'text-[#FFF8EA] font-semibold' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
@@ -185,7 +186,7 @@ export function Navbar() {
               onClick={toggleTheme}
               className={cn(
                 'flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors cursor-pointer',
-                isPocRoute
+                isPrivateWalkthroughRoute
                   ? isPocLight
                     ? 'text-[#6B6258] hover:text-[#252017] hover:bg-[#D8CAB5]/35'
                     : 'text-[#D9D0C4] hover:text-[#FFF8EA] hover:bg-[#EEE1C6]/10'
@@ -200,7 +201,7 @@ export function Navbar() {
           <button
             className={cn(
               'md:hidden p-3 rounded-lg transition-colors cursor-pointer',
-              isPocRoute
+              isPrivateWalkthroughRoute
                 ? isPocLight
                   ? 'text-[#252017] hover:bg-[#D8CAB5]/35 active:bg-[#D8CAB5]/35'
                   : 'text-[#FFF8EA] hover:bg-[#EEE1C6]/10 active:bg-[#EEE1C6]/10'
@@ -235,7 +236,7 @@ export function Navbar() {
               aria-label="Navigation menu"
               className={cn(
                 'fixed top-0 right-0 bottom-0 z-50 w-[280px] border-l shadow-2xl md:hidden',
-                isPocRoute
+                isPrivateWalkthroughRoute
                   ? isPocLight ? 'bg-[#F7F1E8] border-[#D8CAB5]' : 'bg-[#11130F] border-[#EEE1C6]/12'
                   : 'bg-bg-secondary border-border',
               )}
@@ -249,7 +250,7 @@ export function Navbar() {
                 <div
                   className={cn(
                     'flex items-center justify-between px-6 py-4 border-b',
-                    isPocRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
+                    isPrivateWalkthroughRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
                   )}
                 >
                   <Link
@@ -257,7 +258,7 @@ export function Navbar() {
                     onClick={closeMobile}
                     className={cn(
                       'font-[family-name:var(--font-display)] text-lg font-bold transition-colors no-underline',
-                      isPocRoute
+                      isPrivateWalkthroughRoute
                         ? isPocLight ? 'text-[#252017] hover:text-[#7A5B22]' : 'text-[#FFF8EA] hover:text-[#E9C56F]'
                         : 'text-text-primary hover:text-accent-gold',
                     )}
@@ -268,7 +269,7 @@ export function Navbar() {
                     onClick={closeMobile}
                     className={cn(
                       'flex min-h-11 min-w-11 items-center justify-center rounded-lg transition-colors',
-                      isPocRoute
+                      isPrivateWalkthroughRoute
                         ? isPocLight ? 'text-[#6B6258] hover:text-[#252017]' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
                         : 'text-text-secondary hover:text-text-primary',
                     )}
@@ -295,7 +296,7 @@ export function Navbar() {
                           aria-current={location.pathname === link.path ? 'page' : undefined}
                           className={cn(
                             'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-[background-color,color] duration-200 text-base',
-                            isPocRoute
+                            isPrivateWalkthroughRoute
                               ? isPocLight
                                 ? location.pathname === link.path
                                   ? 'bg-[#D7B56D]/18 text-[#7A5B22]'
@@ -324,14 +325,14 @@ export function Navbar() {
                 <div
                   className={cn(
                     'px-6 py-4 border-t',
-                    isPocRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
+                    isPrivateWalkthroughRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
                   )}
                 >
                   <button
                     onClick={toggleTheme}
                     className={cn(
                       'w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors',
-                      isPocRoute
+                      isPrivateWalkthroughRoute
                         ? isPocLight
                           ? 'bg-[#FFF8EA] hover:bg-[#EFE4D0] text-[#252017] border border-[#D8CAB5]'
                           : 'bg-[#1A1D17] hover:bg-[#252017] text-[#FFF8EA]'
