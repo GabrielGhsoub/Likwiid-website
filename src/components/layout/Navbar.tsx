@@ -28,6 +28,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
   const { theme, toggleTheme } = useTheme()
+  const isPocRoute = location.pathname === '/beit-toureef-poc'
 
   useEffect(() => {
     let ticking = false
@@ -133,13 +134,18 @@ export function Navbar() {
         aria-label="Main navigation"
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow] duration-300',
-          scrolled ? 'glass-strong border-b border-border/50 shadow-sm' : 'bg-transparent border-b border-transparent',
+          isPocRoute
+            ? 'bg-[#11130F]/95 border-b border-[#EEE1C6]/12 shadow-lg shadow-black/20 backdrop-blur-md'
+            : scrolled ? 'glass-strong border-b border-border/50 shadow-sm' : 'bg-transparent border-b border-transparent',
         )}
       >
         <div className="mx-auto max-w-[1200px] px-6 py-3 md:py-4 flex items-center justify-between">
           <Link
             to="/"
-            className="font-[family-name:var(--font-display)] text-xl font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
+            className={cn(
+              'font-[family-name:var(--font-display)] text-xl font-bold transition-colors no-underline',
+              isPocRoute ? 'text-[#FFF8EA] hover:text-[#E9C56F]' : 'text-text-primary hover:text-accent-gold',
+            )}
           >
             Likwiid
           </Link>
@@ -152,7 +158,9 @@ export function Navbar() {
                 aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={cn(
                   'text-sm font-medium transition-colors duration-200 no-underline relative',
-                  location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
+                  isPocRoute
+                    ? location.pathname === link.path ? 'text-[#FFF8EA] font-semibold' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
+                    : location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
                 )}
               >
                 {link.label}
@@ -167,7 +175,12 @@ export function Navbar() {
             ))}
             <button
               onClick={toggleTheme}
-              className="text-text-secondary hover:text-text-primary p-2 -m-2 rounded-full hover:bg-bg-tertiary transition-colors cursor-pointer"
+              className={cn(
+                'p-2 -m-2 rounded-full transition-colors cursor-pointer',
+                isPocRoute
+                  ? 'text-[#D9D0C4] hover:text-[#FFF8EA] hover:bg-[#EEE1C6]/10'
+                  : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary',
+              )}
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -175,7 +188,12 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden text-text-primary p-3 hover:bg-bg-tertiary active:bg-bg-tertiary rounded-lg transition-colors cursor-pointer"
+            className={cn(
+              'md:hidden p-3 rounded-lg transition-colors cursor-pointer',
+              isPocRoute
+                ? 'text-[#FFF8EA] hover:bg-[#EEE1C6]/10 active:bg-[#EEE1C6]/10'
+                : 'text-text-primary hover:bg-bg-tertiary active:bg-bg-tertiary',
+            )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -203,25 +221,34 @@ export function Navbar() {
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
-              className="fixed top-0 right-0 bottom-0 z-40 w-[280px] bg-bg-secondary border-l border-border shadow-2xl md:hidden"
+              className={cn(
+                'fixed top-0 right-0 bottom-0 z-40 w-[280px] border-l shadow-2xl md:hidden',
+                isPocRoute ? 'bg-[#11130F] border-[#EEE1C6]/12' : 'bg-bg-secondary border-border',
+              )}
               initial={MOBILE_DRAWER_INITIAL}
               animate={MOBILE_DRAWER_ANIMATE}
               exit={MOBILE_DRAWER_EXIT}
               transition={MOBILE_DRAWER_TRANSITION}
             >
-              <div className="flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+                <div className="flex flex-col h-full">
+                  {/* Header */}
+                <div className={cn('flex items-center justify-between px-6 py-4 border-b', isPocRoute ? 'border-[#EEE1C6]/12' : 'border-border')}>
                   <Link
                     to="/"
                     onClick={closeMobile}
-                    className="font-[family-name:var(--font-display)] text-lg font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
+                    className={cn(
+                      'font-[family-name:var(--font-display)] text-lg font-bold transition-colors no-underline',
+                      isPocRoute ? 'text-[#FFF8EA] hover:text-[#E9C56F]' : 'text-text-primary hover:text-accent-gold',
+                    )}
                   >
                     Likwiid
                   </Link>
                   <button
                     onClick={closeMobile}
-                    className="text-text-secondary hover:text-text-primary transition-colors p-2 -mr-2"
+                    className={cn(
+                      'transition-colors p-2 -mr-2',
+                      isPocRoute ? 'text-[#D9D0C4] hover:text-[#FFF8EA]' : 'text-text-secondary hover:text-text-primary',
+                    )}
                     aria-label="Close menu"
                   >
                     <X size={20} />
@@ -245,9 +272,13 @@ export function Navbar() {
                           aria-current={location.pathname === link.path ? 'page' : undefined}
                           className={cn(
                             'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-[background-color,color] duration-200 text-base',
-                            location.pathname === link.path
-                              ? 'bg-accent-gold/10 text-accent-gold'
-                              : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',
+                            isPocRoute
+                              ? location.pathname === link.path
+                                ? 'bg-[#D7B56D]/12 text-[#E9C56F]'
+                                : 'text-[#FFF8EA] hover:bg-[#EEE1C6]/10 hover:text-[#E9C56F]'
+                              : location.pathname === link.path
+                                ? 'bg-accent-gold/10 text-accent-gold'
+                                : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',
                           )}
                         >
                           <div className="flex items-center justify-between">
@@ -263,10 +294,15 @@ export function Navbar() {
                 </nav>
 
                 {/* Footer with Theme Toggle */}
-                <div className="px-6 py-4 border-t border-border">
+                <div className={cn('px-6 py-4 border-t', isPocRoute ? 'border-[#EEE1C6]/12' : 'border-border')}>
                   <button
                     onClick={toggleTheme}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-bg-tertiary hover:bg-bg-primary text-text-primary transition-colors"
+                    className={cn(
+                      'w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors',
+                      isPocRoute
+                        ? 'bg-[#1A1D17] hover:bg-[#252017] text-[#FFF8EA]'
+                        : 'bg-bg-tertiary hover:bg-bg-primary text-text-primary',
+                    )}
                     aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                   >
                     <span className="text-sm font-medium">
