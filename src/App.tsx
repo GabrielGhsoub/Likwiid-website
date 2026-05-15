@@ -11,6 +11,7 @@ const CaseStudy = lazy(() => import('./pages/CaseStudy'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Privacy = lazy(() => import('./pages/Privacy'))
+const BeitToureefPoc = lazy(() => import('./pages/BeitToureefPoc'))
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -64,6 +65,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/beit-toureef-poc" element={<BeitToureefPoc />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
