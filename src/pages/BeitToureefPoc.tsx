@@ -410,8 +410,7 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
             </form>
 
             <p className="mt-4 text-xs leading-relaxed text-[#AFA698]">
-              This page is excluded from navigation and marked noindex. For stronger protection, the next step would be
-              server-side authentication or a private preview environment.
+              This preview is private and only available through the shared demo credentials.
             </p>
           </m.div>
         </div>
