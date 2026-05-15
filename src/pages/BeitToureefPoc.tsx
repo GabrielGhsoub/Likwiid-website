@@ -204,23 +204,56 @@ const timelineItems: TimelineItem[] = [
 const currentSiteFindings = [
   {
     area: 'Rooms',
-    current: 'Book Your Stay already sends guests to HotelRunner.',
-    opportunity: 'Keep HotelRunner, then add pre-arrival add-ons, guest notes, and arrival confidence pages.',
+    current: 'Book Your Stay already sends guests to HotelRunner, and the stay page lists 3 houses, 20 rooms, meals, taxi, airport shuttle, tours, and local SIM help.',
+    opportunity: 'Keep HotelRunner, then add a pre-arrival page for add-ons, guest notes, arrival instructions, transfers, tours, and concierge requests.',
   },
   {
     area: 'Tours',
-    current: 'Out & About tour cards list packages, prices, add-ons, and WhatsApp numbers.',
-    opportunity: 'Turn each tour into a structured request with date, guests, transport, language, deposit, and confirmation.',
+    current: 'Out & About already shows tour packages, group-tier prices, per-person add-ons, custom tours, and WhatsApp CTAs.',
+    opportunity: 'Turn each tour into a quote builder with group size, transport, add-ons, language, dietary notes, deposit, and a ready-to-send itinerary.',
   },
   {
     area: 'Venues',
-    current: 'Sofra w Tannour, Meeting Room, Jnayneh, exhibitions, events, and photoshoots are presented.',
-    opportunity: 'Qualify event leads before the first reply: date, guest count, budget, setup, food, and date-hold deposit.',
+    current: 'Sofra w Tannour, Meeting Room, Jnayneh, exhibitions, birthdays, corporate gatherings, weddings, and photoshoots are already presented.',
+    opportunity: 'Qualify event leads before the first reply: date, guest count, occasion, preferred space, setup, food/drinks, budget, and date-hold deposit.',
   },
   {
     area: 'Namlieh',
     current: 'The shop shows local product categories and add-to-cart actions.',
     opportunity: 'Bundle products into preorders, guest arrival baskets, event gifts, and pickup/delivery workflows.',
+  },
+]
+
+const improvementRoadmap = [
+  {
+    phase: 'Quick win',
+    title: 'Structured WhatsApp buttons',
+    detail: 'Replace generic messages with prefilled booking, tour, event, and preorder summaries.',
+  },
+  {
+    phase: 'Quick win',
+    title: 'Ask Before Booking intake',
+    detail: 'Turn the contact-page intent into a guided form that routes questions by stay, event, tour, restaurant, or shop.',
+  },
+  {
+    phase: 'First build',
+    title: 'Event and tour deposit flow',
+    detail: 'Generate quote, date hold, deposit link, confirmation, and follow-up reminders from one dashboard.',
+  },
+  {
+    phase: 'First build',
+    title: 'Guest arrival page',
+    detail: 'Give confirmed guests one mobile page with map, check-in, breakfast hours, transfer, local tips, and official WhatsApp.',
+  },
+  {
+    phase: 'Expand',
+    title: 'AI-assisted operations inbox',
+    detail: 'Classify inquiries, spot missing details, draft replies, and flag overdue deposits for staff review.',
+  },
+  {
+    phase: 'Expand',
+    title: 'Namlieh preorder bundles',
+    detail: 'Connect the shop to stays, events, and corporate gifting through seasonal bundles and pickup windows.',
   },
 ]
 
@@ -419,6 +452,37 @@ export default function BeitToureefPoc() {
                     <div className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Improve next</div>
                     <p className="mt-1 text-sm leading-relaxed text-[#F0E4D2]">{item.opportunity}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-[#EEE1C6]/10 px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1240px]">
+            <div className="mb-5 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Specific improvement plan</p>
+                <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                  Practical upgrades, ordered by business value.
+                </h2>
+              </div>
+              <p className="text-sm leading-relaxed text-[#CFC5B8]">
+                The POC is intentionally not a full rebuild. The first version should improve the existing website’s
+                highest-friction paths, then expand only once the team sees fewer missed details and more confirmed bookings.
+              </p>
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {improvementRoadmap.map((item) => (
+                <div key={item.title} className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                  <span className="inline-flex rounded-full border border-[#D7B56D]/20 bg-[#D7B56D]/10 px-2.5 py-1 text-xs font-semibold text-[#E9C56F]">
+                    {item.phase}
+                  </span>
+                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-lg font-semibold text-[#FFF8EA]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">{item.detail}</p>
                 </div>
               ))}
             </div>
