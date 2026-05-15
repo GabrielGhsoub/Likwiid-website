@@ -126,8 +126,10 @@ const ASSISTANT_MIN_WIDTH = 320
 const ASSISTANT_MIN_HEIGHT = 360
 const ASSISTANT_DEFAULT_WIDTH = 460
 const ASSISTANT_DEFAULT_HEIGHT = 590
+const ASSISTANT_DESKTOP_MIN_WIDTH = 768
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
+const isAssistantMobileViewport = () => typeof window !== 'undefined' && window.innerWidth < ASSISTANT_DESKTOP_MIN_WIDTH
 
 const getAssistantViewportLimits = () => {
   if (typeof window === 'undefined') {
@@ -843,6 +845,8 @@ export default function BeitToureefPoc() {
   }, [])
 
   const startWalkthrough = useCallback(() => {
+    if (isAssistantMobileViewport()) return
+
     const firstStep = walkthroughSteps[0]
 
     if (!firstStep) return
@@ -919,6 +923,10 @@ export default function BeitToureefPoc() {
     }
 
     const handleResize = () => {
+      if (isAssistantMobileViewport()) {
+        setIsTourActive(false)
+      }
+
       setAssistantWindow((current) => normalizeAssistantWindow(current))
     }
 
@@ -1009,7 +1017,7 @@ export default function BeitToureefPoc() {
                 handles every day.
               </m.p>
               <m.div
-                className="mt-7 flex flex-wrap gap-3"
+                className="mt-7 hidden flex-wrap gap-3 md:flex"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.24 }}
@@ -1259,17 +1267,17 @@ export default function BeitToureefPoc() {
                   </div>
 
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
-                    <label className="block">
+                    <label className="block min-w-0">
                       <span className="text-sm font-medium text-[#4D4438]">Preferred date</span>
-                      <div className="poc-paper-chip mt-2 flex items-center gap-2 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-3 text-sm">
-                        <CalendarDays size={18} className="text-[#7A5B22]" />
-                        {flow.date}
+                      <div className="poc-paper-chip mt-2 flex min-w-0 items-start gap-2 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-3 text-sm">
+                        <CalendarDays size={18} className="shrink-0 text-[#7A5B22]" />
+                        <span className="min-w-0 break-words leading-snug">{flow.date}</span>
                       </div>
                     </label>
-                    <label className="block">
+                    <label className="block min-w-0">
                       <span className="text-sm font-medium text-[#4D4438]">Guests</span>
-                      <div className="poc-paper-chip mt-2 flex min-h-11 items-center gap-3 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1">
-                        <Users size={18} className="text-[#7A5B22]" />
+                      <div className="poc-paper-chip mt-2 flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-2 sm:min-h-11 sm:flex-nowrap sm:py-1">
+                        <Users size={18} className="shrink-0 text-[#7A5B22]" />
                         <input
                           aria-label="Guest count"
                           type="range"
@@ -1277,9 +1285,9 @@ export default function BeitToureefPoc() {
                           max="60"
                           value={guestCount}
                           onChange={(event) => setGuestCount(Number(event.target.value))}
-                          className="h-11 min-w-0 flex-1 accent-[#7A5B22]"
+                          className="order-3 h-9 min-w-0 basis-full accent-[#7A5B22] sm:order-none sm:h-11 sm:flex-1 sm:basis-0"
                         />
-                        <span className="w-8 text-right text-sm font-semibold">{guestCount}</span>
+                        <span className="ml-auto w-8 shrink-0 text-right text-sm font-semibold">{guestCount}</span>
                       </div>
                     </label>
                   </div>
