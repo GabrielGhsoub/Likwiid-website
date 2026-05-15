@@ -30,6 +30,9 @@ type FlowKey = 'event' | 'tour' | 'table' | 'products'
 type BookingStatus = 'new' | 'awaitingDeposit' | 'depositSubmitted' | 'confirmed'
 type LeadStatus = 'Awaiting deposit' | 'Confirmed' | 'New request' | 'Quote sent' | 'Overdue'
 type TourTarget =
+  | 'tour-hero'
+  | 'tour-current-site'
+  | 'tour-improvement-plan'
   | 'tour-guest-intent'
   | 'tour-guest-flow'
   | 'tour-confirmation'
@@ -295,7 +298,7 @@ const improvementRoadmap = [
 ]
 
 const prepChecklist = [
-  { task: 'Confirm final guest count', owner: 'Dana', status: 'Done' },
+  { task: 'Confirm final guest count', owner: 'Operations admin', status: 'Done' },
   { task: 'Send deposit reminder', owner: 'Front desk', status: 'Due today' },
   { task: 'Kitchen: vegetarian portions', owner: 'Sofra', status: 'Saved' },
   { task: 'Pack Namlieh gift boxes', owner: 'Shop', status: 'Tomorrow' },
@@ -580,6 +583,42 @@ export default function BeitToureefPoc() {
   const walkthroughSteps = useMemo<WalkthroughStep[]>(
     () => [
       {
+        targetId: 'tour-hero',
+        title: 'Start with the business outcome',
+        body: 'The walkthrough opens with the practical promise: fewer loose messages and more confirmed experiences.',
+        happening: 'The client first sees the main idea: add a focused feature layer that turns website interest into cleaner requests and confirmations.',
+        improvement: 'It frames the work as a focused addition around existing demand: cleaner requests, clearer deposits, and better daily follow-up.',
+        cue: 'focusing the opening section and the main business outcome.',
+        action: () => {
+          setStatus('awaitingDeposit')
+          setSelectedLeadIndex(0)
+        },
+      },
+      {
+        targetId: 'tour-current-site',
+        title: 'Connect it to your current website',
+        body: 'This step shows that the walkthrough starts from what Beit Toureef already has, not from a blank rebuild.',
+        happening: 'Rooms, tours, venues, restaurant reservations, and Namlieh are treated as existing entry points that can feed better structured requests.',
+        improvement: 'The client sees that Likwiid can improve the handoff after each click while preserving the website paths guests already understand.',
+        cue: 'highlighting the current-site audit cards.',
+        action: () => {
+          setSelectedFlow('event')
+          setGuestCount(24)
+          setSelectedAddOns(['Village breakfast basket', 'Local producer gift box'])
+        },
+      },
+      {
+        targetId: 'tour-improvement-plan',
+        title: 'Show the first feature additions',
+        body: 'Before the detailed demo, the roadmap explains what can be added first and what can wait.',
+        happening: 'The feature plan groups the work by business value: request capture, deposits, guest arrival pages, AI inbox help, and Namlieh bundles.',
+        improvement: 'This keeps the conversation practical: start with the flow that removes the most work, prove value, then expand.',
+        cue: 'reviewing the practical upgrade roadmap.',
+        action: () => {
+          setSelectedCapabilityIndex(0)
+        },
+      },
+      {
         targetId: 'tour-guest-intent',
         title: 'Start with the guest intent',
         body: 'The first improvement is routing every website CTA into the right type of request, instead of treating all inquiries the same.',
@@ -612,7 +651,7 @@ export default function BeitToureefPoc() {
         title: 'Turn the request into a confirmation',
         body: 'Once the details are captured, the same request can become a clean confirmation instead of another manual message thread.',
         happening: 'The system prepares a WhatsApp-ready summary, calculates the deposit, and shows the current booking status in one place.',
-        improvement: 'Dana can send a consistent confirmation, collect the right deposit, and move the request from inquiry to awaiting deposit to confirmed without rewriting the same information.',
+        improvement: 'The admin can send a consistent confirmation, collect the right deposit, and move the request from inquiry to awaiting deposit to confirmed without rewriting the same information.',
         cue: 'marking the deposit as submitted so the follow-up state changes.',
         action: () => {
           setStatus('depositSubmitted')
@@ -620,13 +659,26 @@ export default function BeitToureefPoc() {
       },
       {
         targetId: 'tour-ops-queue',
-        title: 'Give Dana one action queue',
+        title: 'Give the admin one action queue',
         body: 'The admin side turns website activity into a daily operations list, not just a stream of notifications.',
         happening: 'Requests from stays, tours, venues, restaurant reservations, and products are grouped by value, status, date, and next action.',
         improvement: 'High-value or overdue items become obvious. Your operations manager can see what needs a deposit, what needs a reply, and what can be prepared today.',
         cue: 'opening Karim’s high-value event request.',
         action: () => {
           setSelectedLeadIndex(0)
+        },
+      },
+      {
+        targetId: 'tour-staff-app',
+        title: 'Bring the workflow to the phone',
+        body: 'After a request is confirmed, the system should help the people doing the work, not only the person managing bookings.',
+        happening: 'The mobile staff view shows today’s checkout notes, dinner prep, product pickups, balances, and WhatsApp actions in a compact phone-friendly format.',
+        improvement: 'Front desk, kitchen, guides, setup, and shop staff can each see the details they need without opening a full dashboard or asking the admin to forward messages.',
+        cue: 'highlighting the staff phone view and prep actions.',
+        action: () => {
+          setSelectedFlow('table')
+          setGuestCount(14)
+          setStatus('confirmed')
         },
       },
       {
@@ -638,19 +690,6 @@ export default function BeitToureefPoc() {
         cue: 'selecting Nour’s dinner inquiry to show a tailored reply.',
         action: () => {
           setSelectedLeadIndex(2)
-        },
-      },
-      {
-        targetId: 'tour-staff-app',
-        title: 'Bring the workflow to the phone',
-        body: 'After a request is confirmed, the system should help the people doing the work, not only the person managing bookings.',
-        happening: 'The mobile staff view shows today’s checkout notes, dinner prep, product pickups, balances, and WhatsApp actions in a compact phone-friendly format.',
-        improvement: 'Front desk, kitchen, guides, setup, and shop staff can each see the details they need without opening a full dashboard or asking Dana to forward messages.',
-        cue: 'highlighting the staff phone view and prep actions.',
-        action: () => {
-          setSelectedFlow('table')
-          setGuestCount(14)
-          setStatus('confirmed')
         },
       },
       {
@@ -673,11 +712,32 @@ export default function BeitToureefPoc() {
 
   const isTourTargetActive = (targetId: TourTarget) => activeTourTargetId === targetId
 
+  const focusTourTarget = useCallback((targetId: TourTarget, behavior: ScrollBehavior = 'smooth') => {
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById(targetId)
+
+      if (!target) return
+
+      const topOffset = window.innerWidth < 768 ? 92 : 110
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - topOffset
+      window.scrollTo({ top: Math.max(targetTop, 0), behavior })
+
+      if (target instanceof HTMLElement) {
+        target.focus({ preventScroll: true })
+      }
+    })
+  }, [])
+
   const startWalkthrough = useCallback(() => {
+    const firstStep = walkthroughSteps[0]
+
+    if (!firstStep) return
+
     setIsTourActive(true)
     setTourStepIndex(0)
-    walkthroughSteps[0]?.action()
-  }, [walkthroughSteps])
+    firstStep.action()
+    focusTourTarget(firstStep.targetId)
+  }, [focusTourTarget, walkthroughSteps])
 
   const stopWalkthrough = useCallback(() => {
     setIsTourActive(false)
@@ -686,10 +746,15 @@ export default function BeitToureefPoc() {
   const goToTourStep = useCallback(
     (index: number) => {
       const safeIndex = Math.max(0, Math.min(index, walkthroughSteps.length - 1))
+      const step = walkthroughSteps[safeIndex]
+
+      if (!step) return
+
       setTourStepIndex(safeIndex)
-      walkthroughSteps[safeIndex]?.action()
+      step.action()
+      focusTourTarget(step.targetId)
     },
-    [walkthroughSteps],
+    [focusTourTarget, walkthroughSteps],
   )
 
   const nextTourStep = useCallback(() => {
@@ -741,9 +806,16 @@ export default function BeitToureefPoc() {
     <>
       <PageTransition>
       <div className="beit-poc min-h-screen bg-[#11130F] pt-20 text-[#F7F1E8]">
-        <section className="border-b border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-[1240px] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-            <div>
+        <section
+          id="tour-hero"
+          tabIndex={-1}
+          className={cn(
+            'poc-tour-target scroll-mt-28 border-b border-[#EEE1C6]/10 px-4 py-10 outline-none sm:px-6 lg:px-8',
+            isTourTargetActive('tour-hero') && 'poc-tour-active',
+          )}
+        >
+          <div className="mx-auto max-w-[1240px]">
+            <div className="max-w-4xl">
               <m.p
                 className="mb-3 inline-flex items-center rounded-full border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#E9C56F]"
                 initial={{ opacity: 0, y: 12 }}
@@ -783,52 +855,19 @@ export default function BeitToureefPoc() {
                 >
                   Start interactive walkthrough
                 </Button>
-                <Button
-                  href="https://wa.me/96181398752"
-                  variant="secondary"
-                  size="md"
-                  className="rounded-lg border-[#EEE1C6]/20 text-[#FFF8EA] hover:border-[#D7B56D]"
-                >
-                  Discuss with Gabriel
-                </Button>
               </m.div>
             </div>
-
-            <m.div
-              className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4 shadow-2xl shadow-black/30"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.18 }}
-            >
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Today’s control room</p>
-                  <p className="text-sm text-[#B8AFA2]">What needs action before guests arrive.</p>
-                </div>
-                <ShieldCheck className="text-[#8BE3AD]" size={24} />
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  ['Needs attention', '5'],
-                  ['Deposits pending', '$1.1k'],
-                  ['Arrival notes ready', '9/12'],
-                  ['Preorders due', '3'],
-                ].map(([label, value]) => (
-                  <div key={label} className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-4">
-                    <div className="text-2xl font-semibold text-[#FFF8EA]">{value}</div>
-                    <div className="mt-1 text-xs text-[#AFA698]">{label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="poc-priority-note mt-3 rounded-md border p-3 text-sm">
-                <span className="font-semibold">Priority:</span> Lea’s workshop deposit is overdue. Send a gentle
-                reminder or release the date hold.
-              </div>
-            </m.div>
           </div>
         </section>
 
-        <section className="border-b border-[#EEE1C6]/10 px-4 py-8 sm:px-6 lg:px-8">
+        <section
+          id="tour-current-site"
+          tabIndex={-1}
+          className={cn(
+            'poc-tour-target scroll-mt-28 border-b border-[#EEE1C6]/10 px-4 py-8 outline-none sm:px-6 lg:px-8',
+            isTourTargetActive('tour-current-site') && 'poc-tour-active',
+          )}
+        >
           <div className="mx-auto max-w-[1240px]">
             <div className="mb-5 max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Grounded in your current website</p>
@@ -862,7 +901,14 @@ export default function BeitToureefPoc() {
           </div>
         </section>
 
-        <section className="border-b border-[#EEE1C6]/10 px-4 py-8 sm:px-6 lg:px-8">
+        <section
+          id="tour-improvement-plan"
+          tabIndex={-1}
+          className={cn(
+            'poc-tour-target scroll-mt-28 border-b border-[#EEE1C6]/10 px-4 py-8 outline-none sm:px-6 lg:px-8',
+            isTourTargetActive('tour-improvement-plan') && 'poc-tour-active',
+          )}
+        >
           <div className="mx-auto max-w-[1240px]">
             <div className="mb-5 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
               <div>
@@ -970,8 +1016,9 @@ export default function BeitToureefPoc() {
             <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
             <aside
               id="tour-guest-intent"
+              tabIndex={-1}
               className={cn(
-                'poc-tour-target scroll-mt-28 space-y-3 rounded-[18px] transition',
+                'poc-tour-target scroll-mt-28 space-y-3 rounded-[18px] outline-none transition',
                 isTourTargetActive('tour-guest-intent') && 'poc-tour-active',
               )}
             >
@@ -1026,8 +1073,9 @@ export default function BeitToureefPoc() {
             <main className="space-y-5">
               <section
                 id="tour-guest-flow"
+                tabIndex={-1}
                 className={cn(
-                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] md:p-5',
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#F8F3EA] p-4 text-[#252017] outline-none md:p-5',
                   isTourTargetActive('tour-guest-flow') && 'poc-tour-active',
                 )}
               >
@@ -1114,8 +1162,9 @@ export default function BeitToureefPoc() {
 
                   <div
                     id="tour-confirmation"
+                    tabIndex={-1}
                     className={cn(
-                      'poc-tour-target mt-5 grid scroll-mt-28 gap-4 rounded-[18px] md:grid-cols-[1fr_230px]',
+                      'poc-tour-target mt-5 grid scroll-mt-28 gap-4 rounded-[18px] outline-none md:grid-cols-[1fr_230px]',
                       isTourTargetActive('tour-confirmation') && 'poc-tour-active',
                     )}
                   >
@@ -1162,8 +1211,9 @@ export default function BeitToureefPoc() {
             <aside className="space-y-5">
               <section
                 id="tour-ops-queue"
+                tabIndex={-1}
                 className={cn(
-                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4',
+                  'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4 outline-none',
                   isTourTargetActive('tour-ops-queue') && 'poc-tour-active',
                 )}
               >
@@ -1255,7 +1305,7 @@ export default function BeitToureefPoc() {
                     </p>
                   </div>
                   <div className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">3. Dana sees the action</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">3. Admin sees the action</p>
                     <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
                       The dashboard says what to do next: reply, send deposit link, confirm, or prepare.
                     </p>
@@ -1268,10 +1318,10 @@ export default function BeitToureefPoc() {
                   </div>
                 </div>
                 <div className="mt-4 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
-                  <p className="text-sm font-semibold text-[#FFF8EA]">How to read the cards below</p>
+                  <p className="text-sm font-semibold text-[#FFF8EA]">Some enhancements this walkthrough can include</p>
                   <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
-                    Each card answers one operational question: When is it happening? What does the guest owe? What
-                    should staff prepare? What should we reply? What needs attention today?
+                    These cards are examples of work Likwiid can add around one guest request: timing, amount owed,
+                    deposit link, staff prep, reply draft, and today’s follow-up priorities.
                   </p>
                 </div>
               </div>
@@ -1401,8 +1451,9 @@ export default function BeitToureefPoc() {
 
                 <div
                   id="tour-staff-app"
+                  tabIndex={-1}
                   className={cn(
-                    'poc-ink-panel poc-tour-target scroll-mt-28 rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30',
+                    'poc-ink-panel poc-tour-target scroll-mt-28 rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30 outline-none',
                     isTourTargetActive('tour-staff-app') && 'poc-tour-active',
                   )}
                 >
@@ -1462,8 +1513,9 @@ export default function BeitToureefPoc() {
 
                 <section
                   id="tour-ai-reply"
+                  tabIndex={-1}
                   className={cn(
-                    'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4 xl:col-span-2',
+                    'poc-tour-target scroll-mt-28 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4 outline-none xl:col-span-2',
                     isTourTargetActive('tour-ai-reply') && 'poc-tour-active',
                   )}
                 >
@@ -1506,8 +1558,9 @@ export default function BeitToureefPoc() {
 
         <section
           id="tour-next-capabilities"
+          tabIndex={-1}
           className={cn(
-            'poc-tour-target scroll-mt-28 border-t border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8',
+            'poc-tour-target scroll-mt-28 border-t border-[#EEE1C6]/10 px-4 py-10 outline-none sm:px-6 lg:px-8',
             isTourTargetActive('tour-next-capabilities') && 'poc-tour-active',
           )}
         >
@@ -1646,7 +1699,7 @@ export default function BeitToureefPoc() {
 
         <section className="border-t border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1240px] rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-5 md:p-6">
-            <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="grid gap-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Suggested next step</p>
                 <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
@@ -1659,13 +1712,6 @@ export default function BeitToureefPoc() {
                   or customization becomes limiting, this can also become a fully owned Beit Toureef booking engine.
                 </p>
               </div>
-              <Button
-                href="https://wa.me/96181398752"
-                size="md"
-                className="rounded-lg bg-[#D7B56D] text-[#1E1A12] hover:opacity-100"
-              >
-                Schedule a walkthrough <ArrowRight size={18} />
-              </Button>
             </div>
           </div>
         </section>
@@ -1769,7 +1815,7 @@ export default function BeitToureefPoc() {
                     <button
                       type="button"
                       onClick={tourStepIndex >= walkthroughSteps.length - 1 ? stopWalkthrough : nextTourStep}
-                      className="poc-ink-panel flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#252017] px-3 text-sm font-semibold text-[#FFF8EA] transition hover:bg-[#3A3124]"
+                      className="poc-solid-action flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#252017] px-3 text-sm font-semibold text-[#FFF8EA] transition hover:bg-[#3A3124]"
                     >
                       {tourStepIndex >= walkthroughSteps.length - 1 ? 'Finish' : 'Next'}
                       {tourStepIndex < walkthroughSteps.length - 1 && <ArrowRight size={16} />}
