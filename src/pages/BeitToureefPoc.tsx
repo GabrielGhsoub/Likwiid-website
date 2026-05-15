@@ -1903,9 +1903,9 @@ export default function BeitToureefPoc() {
               aria-live="polite"
               data-testid="guided-walkthrough-assistant"
             >
-              <div className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
+              <div className="poc-assistant-window relative flex h-full min-h-0 flex-col overflow-hidden rounded-lg border shadow-2xl">
                 <div
-                  className="shrink-0 cursor-grab touch-none select-none border-b border-[#D8CAB5] bg-[#F7F1E8] p-4 active:cursor-grabbing"
+                  className="poc-assistant-header shrink-0 cursor-grab touch-none select-none border-b p-4 active:cursor-grabbing"
                   onPointerDown={(event) => startAssistantMove(event, 'drag')}
                   title="Drag to move panel"
                 >
@@ -1916,12 +1916,14 @@ export default function BeitToureefPoc() {
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
+                          <p className="poc-assistant-label text-xs font-semibold uppercase tracking-wider">
                             Guided walkthrough assistant
                           </p>
-                          <Move size={14} className="shrink-0 text-[#8A7B69]" aria-hidden="true" />
+                          <Move size={14} className="poc-assistant-muted shrink-0" aria-hidden="true" />
                         </div>
-                        <p className="mt-1 text-sm text-[#6B6258]">Step {tourStepIndex + 1} of {walkthroughSteps.length}</p>
+                        <p className="poc-assistant-muted mt-1 text-sm">
+                          Step {tourStepIndex + 1} of {walkthroughSteps.length}
+                        </p>
                       </div>
                     </div>
                     <div className="flex shrink-0 items-center gap-1">
@@ -1929,7 +1931,7 @@ export default function BeitToureefPoc() {
                         type="button"
                         onPointerDown={(event) => event.stopPropagation()}
                         onClick={resetAssistantWindow}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
+                        className="poc-assistant-icon-button flex min-h-11 min-w-11 items-center justify-center rounded-md transition"
                         aria-label="Reset guided walkthrough panel position"
                         title="Reset panel"
                       >
@@ -1939,7 +1941,7 @@ export default function BeitToureefPoc() {
                         type="button"
                         onPointerDown={(event) => event.stopPropagation()}
                         onClick={stopWalkthrough}
-                        className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
+                        className="poc-assistant-icon-button flex min-h-11 min-w-11 items-center justify-center rounded-md transition"
                         aria-label="Close guided walkthrough"
                         title="Close panel"
                       >
@@ -1947,9 +1949,9 @@ export default function BeitToureefPoc() {
                       </button>
                     </div>
                   </div>
-                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-[#E8DDC9]">
+                  <div className="poc-assistant-progress-track mt-4 h-1.5 overflow-hidden rounded-full">
                     <m.div
-                      className="h-full rounded-full bg-[#7A5B22]"
+                      className="poc-assistant-progress-fill h-full rounded-full"
                       initial={false}
                       animate={{ width: `${((tourStepIndex + 1) / walkthroughSteps.length) * 100}%` }}
                       transition={{ duration: 0.35 }}
@@ -1964,23 +1966,25 @@ export default function BeitToureefPoc() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.18 }}
                 >
-                  <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold leading-snug text-[#252017]">
+                  <h3 className="poc-assistant-title font-[family-name:var(--font-display)] text-xl font-semibold leading-snug">
                     {activeTourStep.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5A5044]">{activeTourStep.body}</p>
+                  <p className="poc-assistant-muted mt-2 text-sm leading-relaxed">{activeTourStep.body}</p>
                   <div className="mt-4 grid gap-3">
-                    <div className="rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
-                      <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">What is happening</div>
-                      <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.happening}</p>
+                    <div className="poc-assistant-card rounded-md border p-3">
+                      <div className="poc-assistant-label text-xs font-semibold uppercase tracking-wider">What is happening</div>
+                      <p className="poc-assistant-body mt-1 text-sm leading-relaxed">{activeTourStep.happening}</p>
                     </div>
-                    <div className="rounded-md border border-[#D8CAB5] bg-[#F3E7D0] p-3">
-                      <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Workflow improvement</div>
-                      <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.improvement}</p>
+                    <div className="poc-assistant-card-alt rounded-md border p-3">
+                      <div className="poc-assistant-label text-xs font-semibold uppercase tracking-wider">
+                        Workflow improvement
+                      </div>
+                      <p className="poc-assistant-body mt-1 text-sm leading-relaxed">{activeTourStep.improvement}</p>
                     </div>
                   </div>
-                  <div className="mt-3 rounded-md border border-[#D8CAB5] bg-white p-3">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">Walkthrough action</div>
-                    <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
+                  <div className="poc-assistant-card mt-3 rounded-md border p-3">
+                    <div className="poc-assistant-label text-xs font-semibold uppercase tracking-wider">Walkthrough action</div>
+                    <p className="poc-assistant-body mt-1 text-sm leading-relaxed">{activeTourStep.cue}</p>
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -1988,8 +1992,8 @@ export default function BeitToureefPoc() {
                       <span
                         key={step.targetId}
                         className={cn(
-                          'h-2.5 rounded-full transition-all',
-                          tourStepIndex === index ? 'w-8 bg-[#7A5B22]' : 'w-2.5 bg-[#D8CAB5]',
+                          'poc-assistant-step-dot h-2.5 rounded-full transition-all',
+                          tourStepIndex === index ? 'w-8 is-active' : 'w-2.5',
                         )}
                         aria-label={`Walkthrough step ${index + 1}`}
                       />
@@ -2001,7 +2005,7 @@ export default function BeitToureefPoc() {
                       type="button"
                       onClick={previousTourStep}
                       disabled={tourStepIndex === 0}
-                      className="min-h-11 rounded-md border border-[#D8CAB5] px-3 text-sm font-semibold text-[#5A5044] transition hover:border-[#7A5B22] disabled:cursor-not-allowed disabled:opacity-45"
+                      className="poc-assistant-secondary-action min-h-11 rounded-md border px-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-45"
                     >
                       Back
                     </button>
@@ -2018,7 +2022,7 @@ export default function BeitToureefPoc() {
                 <button
                   type="button"
                   onPointerDown={(event) => startAssistantMove(event, 'resize')}
-                  className="absolute bottom-2 right-2 flex h-8 w-8 cursor-nwse-resize touch-none select-none items-center justify-center rounded-md border border-[#D8CAB5] bg-[#FFF8EA]/95 text-[#7A5B22] shadow-sm transition hover:bg-[#F3E7D0]"
+                  className="poc-assistant-resize absolute bottom-2 right-2 flex h-8 w-8 cursor-nwse-resize touch-none select-none items-center justify-center rounded-md border shadow-sm transition"
                   aria-label="Resize guided walkthrough assistant"
                   title="Resize panel"
                 >

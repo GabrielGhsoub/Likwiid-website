@@ -295,6 +295,73 @@ body {
   animation: poc-assistant-breathe 2.4s ease-in-out infinite;
 }
 
+.beit-poc .poc-assistant-window {
+  background-color: #1A1D17;
+  border-color: rgba(238, 225, 198, 0.16);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  color: #FFF8EA;
+}
+
+.beit-poc .poc-assistant-header {
+  background-color: #10120F;
+  border-color: rgba(238, 225, 198, 0.14);
+}
+
+.beit-poc .poc-assistant-title {
+  color: #FFF8EA;
+}
+
+.beit-poc .poc-assistant-label {
+  color: #E9C56F;
+}
+
+.beit-poc .poc-assistant-body {
+  color: #EADDCB;
+}
+
+.beit-poc .poc-assistant-muted {
+  color: #B8AFA2;
+}
+
+.beit-poc .poc-assistant-card {
+  background-color: #10120F;
+  border-color: rgba(238, 225, 198, 0.12);
+}
+
+.beit-poc .poc-assistant-card-alt {
+  background-color: #242A20;
+  border-color: rgba(238, 225, 198, 0.12);
+}
+
+.beit-poc .poc-assistant-progress-track,
+.beit-poc .poc-assistant-step-dot {
+  background-color: rgba(238, 225, 198, 0.18);
+}
+
+.beit-poc .poc-assistant-progress-fill,
+.beit-poc .poc-assistant-step-dot.is-active {
+  background-color: #E9C56F;
+}
+
+.beit-poc .poc-assistant-icon-button,
+.beit-poc .poc-assistant-secondary-action,
+.beit-poc .poc-assistant-resize {
+  border-color: rgba(238, 225, 198, 0.16);
+  color: #D9D0C4;
+}
+
+.beit-poc .poc-assistant-icon-button:hover,
+.beit-poc .poc-assistant-secondary-action:hover,
+.beit-poc .poc-assistant-resize:hover {
+  background-color: rgba(238, 225, 198, 0.1);
+  border-color: rgba(233, 197, 111, 0.5);
+  color: #FFF8EA;
+}
+
+.beit-poc .poc-assistant-resize {
+  background-color: rgba(16, 18, 15, 0.94);
+}
+
 .beit-poc .poc-status-awaiting-deposit {
   background-color: rgba(154, 101, 13, 0.14);
   border-color: rgba(154, 101, 13, 0.45);
@@ -480,6 +547,73 @@ body {
 .light .beit-poc .poc-ink-surface [class*="border-[#EEE1C6]"],
 .light .beit-poc .poc-ink-surface[class*="border-[#EEE1C6]"] {
   border-color: rgba(122, 91, 34, 0.18) !important;
+}
+
+.light .beit-poc .poc-assistant-window {
+  background-color: #FFF8EA;
+  border-color: #D8CAB5;
+  box-shadow: 0 18px 45px rgba(78, 62, 39, 0.12);
+  color: #252017;
+}
+
+.light .beit-poc .poc-assistant-header {
+  background-color: #F7F1E8;
+  border-color: #D8CAB5;
+}
+
+.light .beit-poc .poc-assistant-title {
+  color: #252017;
+}
+
+.light .beit-poc .poc-assistant-label {
+  color: #7A5B22;
+}
+
+.light .beit-poc .poc-assistant-body {
+  color: #4D4438;
+}
+
+.light .beit-poc .poc-assistant-muted {
+  color: #6B6258;
+}
+
+.light .beit-poc .poc-assistant-card {
+  background-color: #FAF7F1;
+  border-color: #D8CAB5;
+}
+
+.light .beit-poc .poc-assistant-card-alt {
+  background-color: #F3E7D0;
+  border-color: #D8CAB5;
+}
+
+.light .beit-poc .poc-assistant-progress-track,
+.light .beit-poc .poc-assistant-step-dot {
+  background-color: #E8DDC9;
+}
+
+.light .beit-poc .poc-assistant-progress-fill,
+.light .beit-poc .poc-assistant-step-dot.is-active {
+  background-color: #7A5B22;
+}
+
+.light .beit-poc .poc-assistant-icon-button,
+.light .beit-poc .poc-assistant-secondary-action,
+.light .beit-poc .poc-assistant-resize {
+  border-color: #D8CAB5;
+  color: #5A5044;
+}
+
+.light .beit-poc .poc-assistant-icon-button:hover,
+.light .beit-poc .poc-assistant-secondary-action:hover,
+.light .beit-poc .poc-assistant-resize:hover {
+  background-color: #E8DDC9;
+  border-color: #7A5B22;
+  color: #252017;
+}
+
+.light .beit-poc .poc-assistant-resize {
+  background-color: rgba(255, 248, 234, 0.95);
 }
 
 .beit-poc .poc-solid-action,
