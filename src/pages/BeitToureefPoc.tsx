@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
 import { AnimatePresence, m } from 'framer-motion'
-import { useLocation } from 'react-router-dom'
 import {
   ArrowRight,
   BarChart3,
@@ -16,9 +15,7 @@ import {
   Lock,
   MessageCircle,
   PackageCheck,
-  Pause,
   Plug,
-  Play,
   Smartphone,
   Send,
   ShieldCheck,
@@ -523,7 +520,6 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
 }
 
 export default function BeitToureefPoc() {
-  const location = useLocation()
   const [hasAccess, setHasAccess] = useState(() => sessionStorage.getItem(ACCESS_SESSION_KEY) === '1')
   const [selectedFlow, setSelectedFlow] = useState<FlowKey>('event')
   const [guestCount, setGuestCount] = useState(24)
@@ -535,7 +531,6 @@ export default function BeitToureefPoc() {
   const [selectedLeadIndex, setSelectedLeadIndex] = useState(0)
   const [selectedCapabilityIndex, setSelectedCapabilityIndex] = useState(0)
   const [isTourActive, setIsTourActive] = useState(false)
-  const [isTourAuto, setIsTourAuto] = useState(false)
   const [tourStepIndex, setTourStepIndex] = useState(0)
 
   const flow = getSelectedFlow(selectedFlow)
@@ -660,46 +655,27 @@ export default function BeitToureefPoc() {
 
   const isTourTargetActive = (targetId: TourTarget) => activeTourTargetId === targetId
 
-  const scrollToTourTarget = useCallback((targetId: string, behavior: ScrollBehavior = 'smooth') => {
-    window.requestAnimationFrame(() => {
-      const target = document.getElementById(targetId)
-      if (!target) return
-
-      const topOffset = targetId === 'demo' ? 84 : Math.min(120, Math.max(84, window.innerHeight * 0.12))
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - topOffset
-
-      window.scrollTo({
-        top: Math.max(targetTop, 0),
-        behavior,
-      })
-    })
-  }, [])
-
   const startWalkthrough = useCallback(() => {
     setIsTourActive(true)
-    setIsTourAuto(true)
     setTourStepIndex(0)
-    window.history.replaceState(null, '', `${window.location.pathname}#demo`)
-    scrollToTourTarget(walkthroughSteps[0].targetId)
-  }, [scrollToTourTarget, walkthroughSteps])
+    walkthroughSteps[0]?.action()
+  }, [walkthroughSteps])
 
   const stopWalkthrough = useCallback(() => {
     setIsTourActive(false)
-    setIsTourAuto(false)
   }, [])
 
   const goToTourStep = useCallback(
-    (index: number, shouldPause = true) => {
+    (index: number) => {
       const safeIndex = Math.max(0, Math.min(index, walkthroughSteps.length - 1))
       setTourStepIndex(safeIndex)
-      if (shouldPause) setIsTourAuto(false)
+      walkthroughSteps[safeIndex]?.action()
     },
-    [walkthroughSteps.length],
+    [walkthroughSteps],
   )
 
   const nextTourStep = useCallback(() => {
     if (tourStepIndex >= walkthroughSteps.length - 1) {
-      setIsTourAuto(false)
       return
     }
 
@@ -732,46 +708,6 @@ export default function BeitToureefPoc() {
       }
     }
   }, [])
-
-  useEffect(() => {
-    if (!hasAccess || !location.hash) return
-
-    const targetId = decodeURIComponent(location.hash.slice(1))
-    let frame = window.requestAnimationFrame(() => {
-      frame = window.requestAnimationFrame(() => {
-        scrollToTourTarget(targetId, 'auto')
-      })
-    })
-
-    return () => window.cancelAnimationFrame(frame)
-  }, [hasAccess, location.hash, scrollToTourTarget])
-
-  useEffect(() => {
-    if (!isTourActive || !activeTourStep) return
-
-    activeTourStep.action()
-    scrollToTourTarget(activeTourStep.targetId)
-  }, [activeTourStep, isTourActive, scrollToTourTarget])
-
-  useEffect(() => {
-    if (!isTourActive || !isTourAuto) return
-
-    const timer = window.setTimeout(() => {
-      if (tourStepIndex >= walkthroughSteps.length - 1) {
-        setIsTourAuto(false)
-        return
-      }
-
-      const nextStep = Math.min(tourStepIndex + 1, walkthroughSteps.length - 1)
-      setTourStepIndex(nextStep)
-
-      if (nextStep >= walkthroughSteps.length - 1) {
-        setIsTourAuto(false)
-      }
-    }, 5600)
-
-    return () => window.clearTimeout(timer)
-  }, [isTourActive, isTourAuto, tourStepIndex, walkthroughSteps.length])
 
   const toggleAddOn = (name: string) => {
     setSelectedAddOns((current) =>
@@ -1742,20 +1678,18 @@ export default function BeitToureefPoc() {
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {walkthroughSteps.map((step, index) => (
-                      <button
+                      <span
                         key={step.targetId}
-                        type="button"
-                        onClick={() => goToTourStep(index)}
                         className={cn(
                           'h-2.5 rounded-full transition-all',
-                          tourStepIndex === index ? 'w-8 bg-[#7A5B22]' : 'w-2.5 bg-[#D8CAB5] hover:bg-[#AA8A4A]',
+                          tourStepIndex === index ? 'w-8 bg-[#7A5B22]' : 'w-2.5 bg-[#D8CAB5]',
                         )}
-                        aria-label={`Go to walkthrough step ${index + 1}`}
+                        aria-label={`Walkthrough step ${index + 1}`}
                       />
                     ))}
                   </div>
 
-                  <div className="mt-5 grid grid-cols-[1fr_auto_1fr] gap-2">
+                  <div className="mt-5 grid grid-cols-2 gap-2">
                     <button
                       type="button"
                       onClick={previousTourStep}
@@ -1763,14 +1697,6 @@ export default function BeitToureefPoc() {
                       className="min-h-11 rounded-md border border-[#D8CAB5] px-3 text-sm font-semibold text-[#5A5044] transition hover:border-[#7A5B22] disabled:cursor-not-allowed disabled:opacity-45"
                     >
                       Back
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setIsTourAuto((current) => !current)}
-                      className="flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#D8CAB5] text-[#5A5044] transition hover:border-[#7A5B22] hover:text-[#252017]"
-                      aria-label={isTourAuto ? 'Pause automatic walkthrough' : 'Resume automatic walkthrough'}
-                    >
-                      {isTourAuto ? <Pause size={17} /> : <Play size={17} />}
                     </button>
                     <button
                       type="button"
