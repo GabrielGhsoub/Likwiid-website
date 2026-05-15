@@ -245,6 +245,56 @@ body {
   line-height: 1.6;
 }
 
+.beit-poc {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.light .beit-poc {
+  background-color: #F7F1E8 !important;
+  color: #252017 !important;
+}
+
+.light .beit-poc [class*="bg-[#11130F]"] {
+  background-color: #F7F1E8 !important;
+}
+
+.light .beit-poc [class*="bg-[#1A1D17]"] {
+  background-color: #FFF8EA !important;
+}
+
+.light .beit-poc [class*="bg-[#10120F]"],
+.light .beit-poc [class*="bg-[#252017]"],
+.light .beit-poc [class*="bg-[#262117]"],
+.light .beit-poc [class*="bg-[#2A2F25]"] {
+  background-color: #FAF7F1 !important;
+}
+
+.light .beit-poc [class*="border-[#EEE1C6]"] {
+  border-color: rgba(122, 91, 34, 0.18) !important;
+}
+
+.light .beit-poc [class*="text-[#F7F1E8]"],
+.light .beit-poc [class*="text-[#FFF8EA]"],
+.light .beit-poc [class*="text-[#EADDCB]"] {
+  color: #252017 !important;
+}
+
+.light .beit-poc [class*="text-[#CFC5B8]"],
+.light .beit-poc [class*="text-[#B8AFA2]"],
+.light .beit-poc [class*="text-[#AFA698]"],
+.light .beit-poc [class*="text-[#D9D0C4]"] {
+  color: #6B6258 !important;
+}
+
+.light .beit-poc [class*="text-[#E9C56F]"],
+.light .beit-poc [class*="text-[#F2D891]"] {
+  color: #7A5B22 !important;
+}
+
+.light .beit-poc [class*="shadow-black"] {
+  box-shadow: 0 18px 45px rgba(78, 62, 39, 0.12) !important;
+}
+
 ::selection {
   background-color: var(--color-accent-gold);
   color: var(--color-bg-primary);

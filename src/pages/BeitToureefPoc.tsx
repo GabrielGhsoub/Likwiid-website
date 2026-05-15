@@ -438,7 +438,7 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#11130F] px-4 pt-24 text-[#F7F1E8] sm:px-6 lg:px-8">
+      <div className="beit-poc min-h-screen bg-[#11130F] px-4 pt-24 text-[#F7F1E8] sm:px-6 lg:px-8">
         <div className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-[520px] items-center">
           <m.div
             className="w-full rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-5 shadow-2xl shadow-black/30 md:p-6"
@@ -590,7 +590,7 @@ export default function BeitToureefPoc() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#11130F] pt-20 text-[#F7F1E8]">
+      <div className="beit-poc min-h-screen bg-[#11130F] pt-20 text-[#F7F1E8]">
         <section className="border-b border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-[1240px] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
