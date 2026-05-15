@@ -949,9 +949,34 @@ export default function BeitToureefPoc() {
                 </h2>
               </div>
               <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
-                These three panels are the main story: choose what the guest wants, capture the right request details,
-                then see what your team needs to handle next.
+                This is the layer that can sit behind your current website links. Rooms can keep using HotelRunner first,
+                while tours, venues, tables, and Namlieh requests become structured forms that feed one operations queue.
               </p>
+            </div>
+
+            <div className="mb-6 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+              <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Your current site</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                    Existing buttons on rooms, tours, venues, restaurant pages, and Namlieh stay where guests already find them.
+                  </p>
+                </div>
+                <ArrowRight className="hidden text-[#D7B56D] md:block" size={20} aria-hidden="true" />
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Request layer</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                    Each click opens the right fields, add-ons, price logic, deposit rule, and WhatsApp confirmation.
+                  </p>
+                </div>
+                <ArrowRight className="hidden text-[#D7B56D] md:block" size={20} aria-hidden="true" />
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Team follow-up</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                    Every request lands in the same action queue with owner, value, status, next step, and guest context.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
@@ -1217,9 +1242,46 @@ export default function BeitToureefPoc() {
                   </h2>
                 </div>
                 <p className="max-w-2xl text-sm leading-relaxed text-[#CFC5B8]">
-                  These modules are the optional operating layer around the three-panel demo: shared timelines, quote
-                  math, staff tasks, AI reply drafts, and the few numbers that help your team decide what to do next.
+                  These modules are not separate mini apps. They all read from the same request record created when a
+                  guest uses your website, so every team view stays in sync as the request moves from inquiry to deposit
+                  to preparation.
                 </p>
+              </div>
+
+              <div className="mb-5 rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[#FFF8EA]">
+                  <Plug size={18} className="text-[#E9C56F]" />
+                  How the modules connect to the same website request
+                </div>
+                <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">One guest request</p>
+                    <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                      A room, tour, event, table, or product inquiry creates one shared record.
+                    </p>
+                  </div>
+                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Quote and timeline</p>
+                    <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                      Dates, add-ons, deposit, validity, and guest confirmation update together.
+                    </p>
+                  </div>
+                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Staff preparation</p>
+                    <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                      Front desk, kitchen, guide, shop, and setup each see only the tasks they need.
+                    </p>
+                  </div>
+                  <ArrowRight className="hidden text-[#D7B56D] md:block" size={18} aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Reply and analytics</p>
+                    <p className="mt-1 text-sm leading-relaxed text-[#CFC5B8]">
+                      AI drafts use saved packages and policies, while metrics show what needs action.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
