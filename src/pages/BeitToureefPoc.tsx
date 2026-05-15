@@ -22,9 +22,7 @@ import {
   Smartphone,
   Send,
   ShieldCheck,
-  Sparkles,
   Users,
-  WandSparkles,
   X,
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
@@ -342,7 +340,7 @@ const nextCapabilities: CapabilityDemo[] = [
   },
   {
     title: 'Automated follow-up engine',
-    icon: WandSparkles,
+    icon: ListChecks,
     detail: 'Schedules deposit nudges, day-before confirmations, arrival instructions, product pickup reminders, and post-visit follow-ups.',
     proofLabel: 'Automation queue',
     proofTitle: 'The right message at the right moment',
@@ -793,11 +791,10 @@ export default function BeitToureefPoc() {
           <div className="mx-auto grid max-w-[1240px] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
               <m.p
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#E9C56F]"
+                className="mb-3 inline-flex items-center rounded-full border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#E9C56F]"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <Sparkles size={14} />
                 Prepared for Beit Toureef operations
               </m.p>
               <m.h1
@@ -830,7 +827,7 @@ export default function BeitToureefPoc() {
                   size="md"
                   className="rounded-lg bg-[#D7B56D] text-[#1E1A12] hover:opacity-100"
                 >
-                  Walk through the demo <Sparkles size={18} />
+                  Walk through the demo
                 </Button>
                 <Button
                   href="https://wa.me/96181398752"
@@ -1539,12 +1536,9 @@ export default function BeitToureefPoc() {
                   </div>
 
                   <div className="mt-4 rounded-md border border-[#5D7D45]/25 bg-[#EEF5E8] p-4">
-                    <div className="flex items-start gap-3">
-                      <Sparkles size={18} className="mt-0.5 shrink-0 text-[#5D7D45]" />
-                      <div>
-                        <div className="text-sm font-semibold text-[#3D562F]">Business outcome</div>
-                        <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{selectedCapability.outcome}</p>
-                      </div>
+                    <div>
+                      <div className="text-sm font-semibold text-[#3D562F]">Business outcome</div>
+                      <p className="mt-1 text-sm leading-relaxed text-[#4D4438]">{selectedCapability.outcome}</p>
                     </div>
                   </div>
 
@@ -1650,10 +1644,7 @@ export default function BeitToureefPoc() {
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[#5A5044]">{activeTourStep.body}</p>
                   <div className="mt-4 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] p-3">
-                    <div className="flex gap-2">
-                      <Sparkles size={16} className="mt-0.5 shrink-0 text-[#7A5B22]" />
-                      <p className="text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
-                    </div>
+                    <p className="text-sm leading-relaxed text-[#4D4438]">{activeTourStep.cue}</p>
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-2">
