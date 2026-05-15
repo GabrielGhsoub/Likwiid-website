@@ -9,16 +9,19 @@ import {
   CircleAlert,
   ClipboardList,
   CreditCard,
+  Database,
   Gift,
   ListChecks,
   Lock,
   MessageCircle,
   PackageCheck,
+  Plug,
   Smartphone,
   Send,
   ShieldCheck,
   Sparkles,
   Users,
+  WandSparkles,
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
@@ -279,6 +282,39 @@ const analyticsCards = [
   { label: 'Deposit risk', value: '$1.1k', detail: 'Value waiting on payment links' },
   { label: 'Top add-on', value: 'Transport', detail: 'Requested on 42% of tours' },
   { label: 'Best channel', value: 'Website', detail: 'Highest confirmed-request rate' },
+]
+
+const nextCapabilities = [
+  {
+    title: 'Mobile staff app',
+    icon: Smartphone,
+    detail: 'A simple phone view for arrivals, prep lists, guest notes, WhatsApp actions, and payment status while the team is away from the desk.',
+  },
+  {
+    title: 'AI + RAG knowledge assistant',
+    icon: Database,
+    detail: 'Answers and drafts replies from Beit Toureef-specific knowledge: rooms, tour packages, policies, menus, pickup rules, and FAQs.',
+  },
+  {
+    title: 'Automated follow-up engine',
+    icon: WandSparkles,
+    detail: 'Schedules deposit nudges, day-before confirmations, arrival instructions, product pickup reminders, and post-visit follow-ups.',
+  },
+  {
+    title: 'Payment reconciliation',
+    icon: CreditCard,
+    detail: 'Matches deposit links, OMT/bank references, cash notes, balance due, receipts, and booking status in one operations view.',
+  },
+  {
+    title: 'Integration layer',
+    icon: Plug,
+    detail: 'Connects existing tools instead of replacing them: HotelRunner stays, website forms, WhatsApp templates, shop preorders, and analytics.',
+  },
+  {
+    title: 'Guest memory',
+    icon: Users,
+    detail: 'Remembers returning guests, dietary notes, preferred language, favorite add-ons, past visits, and product preferences.',
+  },
 ]
 
 const statusClasses: Record<LeadStatus, string> = {
@@ -1094,6 +1130,44 @@ export default function BeitToureefPoc() {
                 </ul>
               </section>
             </aside>
+          </div>
+        </section>
+
+        <section className="border-t border-[#EEE1C6]/10 px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1240px]">
+            <div className="mb-5 grid gap-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">What can come next</p>
+                <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
+                  Add capability only where it removes work.
+                </h2>
+              </div>
+              <p className="text-sm leading-relaxed text-[#CFC5B8]">
+                These are not all first-phase features. They show the path from a booking/deposit POC into a practical
+                operating system with mobile workflows, AI support, and integrations around the tools Beit Toureef already uses.
+              </p>
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {nextCapabilities.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div key={item.title} className="rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-4">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#D7B56D]/12 text-[#E9C56F]">
+                        <Icon size={19} />
+                      </span>
+                      <div>
+                        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-[#FFF8EA]">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[#CFC5B8]">{item.detail}</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </section>
 
