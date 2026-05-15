@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { m } from 'framer-motion'
 import {
   ArrowRight,
@@ -9,6 +9,7 @@ import {
   ClipboardList,
   CreditCard,
   Gift,
+  Lock,
   MessageCircle,
   PackageCheck,
   Send,
@@ -266,6 +267,17 @@ const statusClasses: Record<LeadStatus, string> = {
 }
 
 const bookingStatuses: BookingStatus[] = ['new', 'awaitingDeposit', 'depositSubmitted', 'confirmed']
+const ACCESS_SESSION_KEY = 'beit-toureef-poc-access'
+const USERNAME_HASH = '1499b57617911e2f32d6c7eac6a5e76fe272bb43c4405ab9a7cdea160012c836'
+const PASSWORD_HASH = '9716e4ef85ee2fb9c9605a299c81c83fde128836be550173ff1b2334eb2c2b2f'
+
+async function sha256Hex(value: string) {
+  const encoded = new TextEncoder().encode(value)
+  const digest = await crypto.subtle.digest('SHA-256', encoded)
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('')
+}
 
 function formatCurrency(value: number) {
   return new Intl.NumberFormat('en-US', {
@@ -286,7 +298,107 @@ function getSelectedFlow(selectedFlow: FlowKey) {
   return flowOptions.find((item) => item.id === selectedFlow) ?? flowOptions[0]
 }
 
+function AccessGate({ onUnlock }: { onUnlock: () => void }) {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [isChecking, setIsChecking] = useState(false)
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsChecking(true)
+    setError('')
+
+    try {
+      const [usernameHash, passwordHash] = await Promise.all([
+        sha256Hex(username.trim().toLowerCase()),
+        sha256Hex(password),
+      ])
+
+      if (usernameHash === USERNAME_HASH && passwordHash === PASSWORD_HASH) {
+        sessionStorage.setItem(ACCESS_SESSION_KEY, '1')
+        onUnlock()
+        return
+      }
+
+      setError('Invalid demo credentials.')
+    } catch {
+      setError('Could not verify access in this browser.')
+    } finally {
+      setIsChecking(false)
+    }
+  }
+
+  return (
+    <PageTransition>
+      <div className="min-h-screen bg-[#11130F] px-4 pt-24 text-[#F7F1E8] sm:px-6 lg:px-8">
+        <div className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-[520px] items-center">
+          <m.div
+            className="w-full rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-5 shadow-2xl shadow-black/30 md:p-6"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-[#D7B56D] text-[#1E1A12]">
+              <Lock size={22} />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Private POC preview</p>
+            <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-[#FFF8EA]">
+              Beit Toureef demo access
+            </h1>
+            <p className="mt-3 text-sm leading-relaxed text-[#CFC5B8]">
+              This concept page is shared by Likwiid as a private demo. Enter the demo credentials to view the
+              booking, deposit, WhatsApp, AI, and operations workflow.
+            </p>
+
+            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+              <label className="block">
+                <span className="text-sm font-medium text-[#F0E4D2]">Username</span>
+                <input
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  autoComplete="username"
+                  className="mt-2 h-12 w-full rounded-md border border-[#EEE1C6]/16 bg-[#10120F] px-3 text-base text-[#FFF8EA] outline-none transition focus:border-[#D7B56D]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-medium text-[#F0E4D2]">Password</span>
+                <input
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  type="password"
+                  autoComplete="current-password"
+                  className="mt-2 h-12 w-full rounded-md border border-[#EEE1C6]/16 bg-[#10120F] px-3 text-base text-[#FFF8EA] outline-none transition focus:border-[#D7B56D]"
+                />
+              </label>
+
+              {error && (
+                <div className="rounded-md border border-[#B85C45]/30 bg-[#B85C45]/10 px-3 py-2 text-sm text-[#F6A38C]">
+                  {error}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isChecking}
+                className="flex h-12 w-full items-center justify-center rounded-md bg-[#D7B56D] px-4 text-sm font-semibold text-[#1E1A12] transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isChecking ? 'Checking access...' : 'View private demo'}
+              </button>
+            </form>
+
+            <p className="mt-4 text-xs leading-relaxed text-[#AFA698]">
+              This page is excluded from navigation and marked noindex. For stronger protection, the next step would be
+              server-side authentication or a private preview environment.
+            </p>
+          </m.div>
+        </div>
+      </div>
+    </PageTransition>
+  )
+}
+
 export default function BeitToureefPoc() {
+  const [hasAccess, setHasAccess] = useState(() => sessionStorage.getItem(ACCESS_SESSION_KEY) === '1')
   const [selectedFlow, setSelectedFlow] = useState<FlowKey>('event')
   const [guestCount, setGuestCount] = useState(24)
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([
@@ -333,12 +445,35 @@ export default function BeitToureefPoc() {
 
   useEffect(() => {
     document.title = 'Beit Toureef POC | Likwiid'
+
+    const existingMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
+    const meta = existingMeta ?? document.createElement('meta')
+    const previousContent = existingMeta?.content
+
+    if (!existingMeta) {
+      meta.name = 'robots'
+      document.head.appendChild(meta)
+    }
+
+    meta.content = 'noindex,nofollow,noarchive'
+
+    return () => {
+      if (existingMeta && previousContent !== undefined) {
+        existingMeta.content = previousContent
+      } else if (!existingMeta) {
+        meta.remove()
+      }
+    }
   }, [])
 
   const toggleAddOn = (name: string) => {
     setSelectedAddOns((current) =>
       current.includes(name) ? current.filter((item) => item !== name) : [...current, name],
     )
+  }
+
+  if (!hasAccess) {
+    return <AccessGate onUnlock={() => setHasAccess(true)} />
   }
 
   return (
