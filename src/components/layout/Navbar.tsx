@@ -135,6 +135,7 @@ export function Navbar() {
         aria-label="Main navigation"
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow] duration-300',
+          mobileOpen && 'z-30 md:z-40',
           isPocRoute
             ? isPocLight
               ? 'bg-[#F7F1E8]/95 border-b border-[#D8CAB5] shadow-sm shadow-[#4E3E27]/10 backdrop-blur-md'
@@ -162,7 +163,7 @@ export function Navbar() {
                 to={link.path}
                 aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={cn(
-                  'text-sm font-medium transition-colors duration-200 no-underline relative',
+                  'inline-flex min-h-11 items-center text-sm font-medium transition-colors duration-200 no-underline relative',
                   isPocRoute
                     ? isPocLight
                       ? location.pathname === link.path ? 'text-[#252017] font-semibold' : 'text-[#6B6258] hover:text-[#252017]'
@@ -183,7 +184,7 @@ export function Navbar() {
             <button
               onClick={toggleTheme}
               className={cn(
-                'p-2 -m-2 rounded-full transition-colors cursor-pointer',
+                'flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors cursor-pointer',
                 isPocRoute
                   ? isPocLight
                     ? 'text-[#6B6258] hover:text-[#252017] hover:bg-[#D8CAB5]/35'
@@ -218,7 +219,7 @@ export function Navbar() {
           <>
             {/* Backdrop */}
             <m.div
-              className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               initial={MOBILE_BACKDROP_INITIAL}
               animate={MOBILE_BACKDROP_ANIMATE}
               exit={MOBILE_BACKDROP_EXIT}
@@ -233,7 +234,7 @@ export function Navbar() {
               aria-modal="true"
               aria-label="Navigation menu"
               className={cn(
-                'fixed top-0 right-0 bottom-0 z-40 w-[280px] border-l shadow-2xl md:hidden',
+                'fixed top-0 right-0 bottom-0 z-50 w-[280px] border-l shadow-2xl md:hidden',
                 isPocRoute
                   ? isPocLight ? 'bg-[#F7F1E8] border-[#D8CAB5]' : 'bg-[#11130F] border-[#EEE1C6]/12'
                   : 'bg-bg-secondary border-border',
@@ -266,7 +267,7 @@ export function Navbar() {
                   <button
                     onClick={closeMobile}
                     className={cn(
-                      'transition-colors p-2 -mr-2',
+                      'flex min-h-11 min-w-11 items-center justify-center rounded-lg transition-colors',
                       isPocRoute
                         ? isPocLight ? 'text-[#6B6258] hover:text-[#252017]' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
                         : 'text-text-secondary hover:text-text-primary',

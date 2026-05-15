@@ -32,7 +32,7 @@ export function Footer() {
         <div className="flex items-center gap-4">
           <Link
             to="/"
-            className="font-[family-name:var(--font-display)] text-lg font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
+            className="inline-flex min-h-11 items-center font-[family-name:var(--font-display)] text-lg font-bold text-text-primary hover:text-accent-gold transition-colors no-underline"
           >
             Likwiid
           </Link>
@@ -42,7 +42,7 @@ export function Footer() {
           <span className="text-text-tertiary text-sm" aria-hidden="true">&middot;</span>
           <Link
             to="/privacy"
-            className="text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
+            className="inline-flex min-h-11 items-center text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
           >
             Privacy Policy
           </Link>

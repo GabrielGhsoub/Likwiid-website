@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { m } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import {
   ArrowRight,
   BarChart3,
@@ -366,11 +367,11 @@ const nextCapabilities: CapabilityDemo[] = [
 ]
 
 const statusClasses: Record<LeadStatus, string> = {
-  'Awaiting deposit': 'border-[#B7791F]/35 bg-[#B7791F]/12 text-[#FFD166]',
-  Confirmed: 'border-[#2F855A]/35 bg-[#2F855A]/12 text-[#8BE3AD]',
-  'New request': 'border-[#5D7D45]/35 bg-[#5D7D45]/12 text-[#BBD7A1]',
-  'Quote sent': 'border-[#89623E]/35 bg-[#89623E]/12 text-[#E8C89A]',
-  Overdue: 'border-[#B85C45]/35 bg-[#B85C45]/12 text-[#F6A38C]',
+  'Awaiting deposit': 'poc-status-chip poc-status-awaiting-deposit',
+  Confirmed: 'poc-status-chip poc-status-confirmed',
+  'New request': 'poc-status-chip poc-status-new-request',
+  'Quote sent': 'poc-status-chip poc-status-quote-sent',
+  Overdue: 'poc-status-chip poc-status-overdue',
 }
 
 const bookingStatuses: BookingStatus[] = ['new', 'awaitingDeposit', 'depositSubmitted', 'confirmed']
@@ -504,6 +505,7 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
 }
 
 export default function BeitToureefPoc() {
+  const location = useLocation()
   const [hasAccess, setHasAccess] = useState(() => sessionStorage.getItem(ACCESS_SESSION_KEY) === '1')
   const [selectedFlow, setSelectedFlow] = useState<FlowKey>('event')
   const [guestCount, setGuestCount] = useState(24)
@@ -577,6 +579,19 @@ export default function BeitToureefPoc() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    if (!hasAccess || !location.hash) return
+
+    const targetId = decodeURIComponent(location.hash.slice(1))
+    let frame = window.requestAnimationFrame(() => {
+      frame = window.requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView({ block: 'start' })
+      })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [hasAccess, location.hash])
 
   const toggleAddOn = (name: string) => {
     setSelectedAddOns((current) =>
@@ -666,7 +681,7 @@ export default function BeitToureefPoc() {
                   </div>
                 ))}
               </div>
-              <div className="mt-3 rounded-md border border-[#B85C45]/25 bg-[#B85C45]/10 p-3 text-sm text-[#F0C0B5]">
+              <div className="poc-priority-note mt-3 rounded-md border p-3 text-sm">
                 <span className="font-semibold">Priority:</span> Lea’s workshop deposit is overdue. Send a gentle
                 reminder or release the date hold.
               </div>
@@ -736,8 +751,8 @@ export default function BeitToureefPoc() {
           </div>
         </section>
 
-        <section id="demo" className="px-4 py-8 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-[1240px] gap-6 xl:grid-cols-[340px_1fr_360px]">
+        <section id="demo" className="scroll-mt-24 px-4 py-8 sm:px-6 md:scroll-mt-20 lg:px-8">
+          <div className="mx-auto grid max-w-[1240px] gap-6 xl:grid-cols-[320px_minmax(0,1fr)_340px] 2xl:max-w-[1600px] 2xl:grid-cols-[340px_minmax(0,1fr)_360px]">
             <aside className="space-y-3">
               <div className="mb-4">
                 <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#FFF8EA]">
@@ -811,7 +826,7 @@ export default function BeitToureefPoc() {
                     </label>
                     <label className="block">
                       <span className="text-sm font-medium text-[#4D4438]">Guests</span>
-                      <div className="mt-2 flex items-center gap-3 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-2">
+                      <div className="mt-2 flex min-h-11 items-center gap-3 rounded-md border border-[#D8CAB5] bg-[#FAF7F1] px-3 py-1">
                         <Users size={18} className="text-[#7A5B22]" />
                         <input
                           aria-label="Guest count"
@@ -820,7 +835,7 @@ export default function BeitToureefPoc() {
                           max="60"
                           value={guestCount}
                           onChange={(event) => setGuestCount(Number(event.target.value))}
-                          className="min-w-0 flex-1 accent-[#7A5B22]"
+                          className="h-11 min-w-0 flex-1 accent-[#7A5B22]"
                         />
                         <span className="w-8 text-right text-sm font-semibold">{guestCount}</span>
                       </div>
@@ -876,12 +891,12 @@ export default function BeitToureefPoc() {
                         <MessageCircle size={18} className="text-[#228B66]" />
                         WhatsApp-ready confirmation
                       </div>
-                      <pre className="mt-3 max-h-[240px] overflow-auto whitespace-pre-wrap rounded-md bg-[#262117] p-3 text-xs leading-relaxed text-[#FFF8EA]">
+                      <pre className="poc-ink-panel mt-3 max-h-none overflow-visible whitespace-pre-wrap rounded-md bg-[#262117] p-3 text-xs leading-relaxed text-[#FFF8EA] md:max-h-[240px] md:overflow-auto">
                         {whatsappMessage}
                       </pre>
                     </div>
 
-                    <div className="rounded-md border border-[#D8CAB5] bg-[#252017] p-4 text-[#FFF8EA]">
+                    <div className="poc-ink-panel rounded-md border border-[#D8CAB5] bg-[#252017] p-4 text-[#FFF8EA]">
                       <div className="flex items-center gap-2 text-sm font-semibold">
                         <CreditCard size={18} className="text-[#E9C56F]" />
                         Deposit
@@ -894,7 +909,7 @@ export default function BeitToureefPoc() {
                             key={item}
                             type="button"
                             onClick={() => setStatus(item)}
-                            className={`rounded-md border px-3 py-2 text-sm transition ${
+                            className={`min-h-11 rounded-md border px-3 py-2 text-sm transition ${
                               status === item
                                 ? 'border-[#D7B56D] bg-[#D7B56D] text-[#1E1A12]'
                                 : 'border-[#EEE1C6]/15 hover:border-[#D7B56D]'
@@ -998,7 +1013,7 @@ export default function BeitToureefPoc() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 rounded-md bg-[#252017] p-3 text-[#FFF8EA]">
+                  <div className="poc-ink-panel mt-3 rounded-md bg-[#252017] p-3 text-[#FFF8EA]">
                     <div className="flex items-center justify-between text-sm">
                       <span>Total quote</span>
                       <span className="font-semibold">{formatCurrency(estimatedTotal)}</span>
@@ -1036,8 +1051,8 @@ export default function BeitToureefPoc() {
               </section>
 
               <section className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-                <div className="rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30">
-                  <div className="rounded-[22px] border border-[#EEE1C6]/10 bg-[#1A1D17] p-4">
+                <div className="poc-ink-panel rounded-[28px] border border-[#EEE1C6]/12 bg-[#10120F] p-3 shadow-2xl shadow-black/30">
+                  <div className="poc-ink-surface rounded-[22px] border border-[#EEE1C6]/10 bg-[#1A1D17] p-4">
                     <div className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-[#E9C56F]">Mobile staff view</p>
@@ -1049,7 +1064,7 @@ export default function BeitToureefPoc() {
                     </div>
                     <div className="mt-4 space-y-2">
                       {staffToday.map((item) => (
-                        <div key={`${item.time}-${item.title}`} className="rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                        <div key={`${item.time}-${item.title}`} className="poc-ink-surface rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                           <div className="flex items-start gap-3">
                             <span className="rounded-md bg-[#D7B56D] px-2 py-1 text-xs font-semibold text-[#1E1A12]">
                               {item.time}
@@ -1064,7 +1079,7 @@ export default function BeitToureefPoc() {
                     </div>
                     <button
                       type="button"
-                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-[#228B66] px-3 py-2 text-sm font-semibold text-white"
+                      className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-[#228B66] px-3 py-2 text-sm font-semibold text-white"
                     >
                       <MessageCircle size={16} />
                       Open guest WhatsApp
@@ -1160,7 +1175,7 @@ export default function BeitToureefPoc() {
                 </pre>
                 <button
                   type="button"
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-2 text-sm font-semibold text-[#F2D891]"
+                  className="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-[#D7B56D]/30 bg-[#D7B56D]/10 px-3 py-2 text-sm font-semibold text-[#F2D891]"
                 >
                   <Send size={16} />
                   Copy WhatsApp reply
@@ -1251,7 +1266,7 @@ export default function BeitToureefPoc() {
                         {selectedCapability.proofBody}
                       </p>
                     </div>
-                    <span className="inline-flex items-center gap-2 rounded-md bg-[#252017] px-3 py-2 text-sm font-semibold text-[#FFF8EA]">
+                    <span className="poc-ink-panel inline-flex items-center gap-2 rounded-md bg-[#252017] px-3 py-2 text-sm font-semibold text-[#FFF8EA]">
                       {(() => {
                         const Icon = selectedCapability.icon
                         return <Icon size={17} className="text-[#E9C56F]" />
@@ -1280,11 +1295,11 @@ export default function BeitToureefPoc() {
                       </div>
                     </div>
 
-                    <div className="rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
+                    <div className="poc-ink-panel rounded-md border border-[#252017]/10 bg-[#252017] p-3 text-[#FFF8EA]">
                       <div className="text-sm font-semibold">Your team can</div>
                       <div className="mt-3 space-y-2">
                         {selectedCapability.operatorView.map((item) => (
-                          <div key={item} className="flex gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
+                          <div key={item} className="poc-ink-surface flex gap-2 rounded-md border border-[#EEE1C6]/10 bg-[#10120F] p-3">
                             <Check size={16} className="mt-0.5 shrink-0 text-[#8BE3AD]" />
                             <span className="text-sm leading-relaxed text-[#EADDCB]">{item}</span>
                           </div>

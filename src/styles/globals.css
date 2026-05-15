@@ -249,6 +249,77 @@ body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+.beit-poc .poc-status-chip {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.beit-poc .poc-status-awaiting-deposit {
+  background-color: rgba(154, 101, 13, 0.14);
+  border-color: rgba(154, 101, 13, 0.45);
+  color: #7A4B00;
+}
+
+.beit-poc .poc-status-confirmed {
+  background-color: rgba(22, 101, 52, 0.12);
+  border-color: rgba(22, 101, 52, 0.35);
+  color: #166534;
+}
+
+.beit-poc .poc-status-new-request {
+  background-color: rgba(63, 98, 18, 0.12);
+  border-color: rgba(63, 98, 18, 0.35);
+  color: #3F6212;
+}
+
+.beit-poc .poc-status-quote-sent {
+  background-color: rgba(124, 74, 24, 0.12);
+  border-color: rgba(124, 74, 24, 0.35);
+  color: #7C4A18;
+}
+
+.beit-poc .poc-status-overdue,
+.beit-poc .poc-priority-note {
+  background-color: rgba(138, 58, 40, 0.12);
+  border-color: rgba(138, 58, 40, 0.4);
+  color: #8A3A28;
+}
+
+.dark .beit-poc .poc-status-awaiting-deposit {
+  background-color: rgba(183, 121, 31, 0.12);
+  border-color: rgba(183, 121, 31, 0.35);
+  color: #FFD166;
+}
+
+.dark .beit-poc .poc-status-confirmed {
+  background-color: rgba(47, 133, 90, 0.12);
+  border-color: rgba(47, 133, 90, 0.35);
+  color: #8BE3AD;
+}
+
+.dark .beit-poc .poc-status-new-request {
+  background-color: rgba(93, 125, 69, 0.12);
+  border-color: rgba(93, 125, 69, 0.35);
+  color: #BBD7A1;
+}
+
+.dark .beit-poc .poc-status-quote-sent {
+  background-color: rgba(137, 98, 62, 0.12);
+  border-color: rgba(137, 98, 62, 0.35);
+  color: #E8C89A;
+}
+
+.dark .beit-poc .poc-status-overdue {
+  background-color: rgba(184, 92, 69, 0.12);
+  border-color: rgba(184, 92, 69, 0.35);
+  color: #F6A38C;
+}
+
+.dark .beit-poc .poc-priority-note {
+  background-color: rgba(184, 92, 69, 0.1);
+  border-color: rgba(184, 92, 69, 0.25);
+  color: #F0C0B5;
+}
+
 .light .beit-poc {
   background-color: #F7F1E8 !important;
   color: #252017 !important;
@@ -263,8 +334,6 @@ body {
 }
 
 .light .beit-poc [class*="bg-[#10120F]"],
-.light .beit-poc [class*="bg-[#252017]"],
-.light .beit-poc [class*="bg-[#262117]"],
 .light .beit-poc [class*="bg-[#2A2F25]"] {
   background-color: #FAF7F1 !important;
 }
@@ -293,6 +362,51 @@ body {
 
 .light .beit-poc [class*="shadow-black"] {
   box-shadow: 0 18px 45px rgba(78, 62, 39, 0.12) !important;
+}
+
+.beit-poc .poc-ink-panel,
+.light .beit-poc .poc-ink-panel {
+  background-color: #252017 !important;
+}
+
+.beit-poc .poc-ink-surface,
+.light .beit-poc .poc-ink-surface {
+  background-color: #10120F !important;
+  border-color: rgba(238, 225, 198, 0.1) !important;
+}
+
+.beit-poc .poc-ink-panel,
+.light .beit-poc .poc-ink-panel,
+.light .beit-poc .poc-ink-panel[class*="text-[#F7F1E8]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#FFF8EA]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#EADDCB]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#F7F1E8]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#FFF8EA]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#EADDCB]"] {
+  color: #FFF8EA !important;
+}
+
+.light .beit-poc .poc-ink-panel[class*="text-[#CFC5B8]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#B8AFA2]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#AFA698]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#D9D0C4]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#CFC5B8]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#B8AFA2]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#AFA698]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#D9D0C4]"] {
+  color: #CFC5B8 !important;
+}
+
+.light .beit-poc .poc-ink-panel[class*="text-[#E9C56F]"],
+.light .beit-poc .poc-ink-panel[class*="text-[#F2D891]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#E9C56F]"],
+.light .beit-poc .poc-ink-panel [class*="text-[#F2D891]"] {
+  color: #E9C56F !important;
+}
+
+.light .beit-poc .poc-ink-panel [class*="border-[#EEE1C6]"],
+.light .beit-poc .poc-ink-panel[class*="border-[#EEE1C6]"] {
+  border-color: rgba(238, 225, 198, 0.12) !important;
 }
 
 ::selection {
