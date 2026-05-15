@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { AnimatePresence, m } from 'framer-motion'
 import {
   ArrowRight,
@@ -11,11 +11,14 @@ import {
   CreditCard,
   Database,
   Gift,
+  Grip,
   ListChecks,
   Lock,
+  Maximize2,
   MessageCircle,
   PackageCheck,
   Plug,
+  Move,
   Smartphone,
   Send,
   ShieldCheck,
@@ -40,6 +43,22 @@ type TourTarget =
   | 'tour-ai-reply'
   | 'tour-staff-app'
   | 'tour-next-capabilities'
+
+type AssistantWindowInteraction = 'drag' | 'resize'
+
+interface AssistantWindowState {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+interface AssistantInteractionState {
+  mode: AssistantWindowInteraction
+  startX: number
+  startY: number
+  startWindow: AssistantWindowState
+}
 
 interface FlowOption {
   id: FlowKey
@@ -99,6 +118,75 @@ interface WalkthroughStep {
   improvement: string
   cue: string
   action: () => void
+}
+
+const ASSISTANT_EDGE_GAP = 12
+const ASSISTANT_DESKTOP_GAP = 24
+const ASSISTANT_MIN_WIDTH = 320
+const ASSISTANT_MIN_HEIGHT = 360
+const ASSISTANT_DEFAULT_WIDTH = 460
+const ASSISTANT_DEFAULT_HEIGHT = 590
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
+
+const getAssistantViewportLimits = () => {
+  if (typeof window === 'undefined') {
+    return {
+      gap: ASSISTANT_DESKTOP_GAP,
+      maxWidth: ASSISTANT_DEFAULT_WIDTH,
+      maxHeight: ASSISTANT_DEFAULT_HEIGHT,
+      minWidth: ASSISTANT_MIN_WIDTH,
+      minHeight: ASSISTANT_MIN_HEIGHT,
+    }
+  }
+
+  const gap = window.innerWidth < 768 ? ASSISTANT_EDGE_GAP : ASSISTANT_DESKTOP_GAP
+  const availableWidth = Math.max(window.innerWidth - gap * 2, 260)
+  const availableHeight = Math.max(window.innerHeight - gap * 2, 320)
+  const minWidth = Math.min(ASSISTANT_MIN_WIDTH, availableWidth)
+  const minHeight = Math.min(ASSISTANT_MIN_HEIGHT, availableHeight)
+
+  return {
+    gap,
+    maxWidth: availableWidth,
+    maxHeight: availableHeight,
+    minWidth,
+    minHeight,
+  }
+}
+
+const normalizeAssistantWindow = (assistantWindow: AssistantWindowState): AssistantWindowState => {
+  const { gap, maxHeight, maxWidth, minHeight, minWidth } = getAssistantViewportLimits()
+  const width = clamp(assistantWindow.width, minWidth, maxWidth)
+  const height = clamp(assistantWindow.height, minHeight, maxHeight)
+
+  if (typeof window === 'undefined') {
+    return { ...assistantWindow, width, height }
+  }
+
+  return {
+    width,
+    height,
+    x: clamp(assistantWindow.x, gap, window.innerWidth - width - gap),
+    y: clamp(assistantWindow.y, gap, window.innerHeight - height - gap),
+  }
+}
+
+const getDefaultAssistantWindow = (): AssistantWindowState => {
+  const { gap, maxHeight, maxWidth, minHeight, minWidth } = getAssistantViewportLimits()
+  const width = clamp(ASSISTANT_DEFAULT_WIDTH, minWidth, maxWidth)
+  const height = clamp(ASSISTANT_DEFAULT_HEIGHT, minHeight, maxHeight)
+
+  if (typeof window === 'undefined') {
+    return { x: gap, y: gap, width, height }
+  }
+
+  return {
+    x: Math.max(gap, window.innerWidth - width - gap),
+    y: Math.max(gap, window.innerHeight - height - gap),
+    width,
+    height,
+  }
 }
 
 const flowOptions: FlowOption[] = [
@@ -539,6 +627,8 @@ export default function BeitToureefPoc() {
   const [selectedCapabilityIndex, setSelectedCapabilityIndex] = useState(0)
   const [isTourActive, setIsTourActive] = useState(false)
   const [tourStepIndex, setTourStepIndex] = useState(0)
+  const [assistantWindow, setAssistantWindow] = useState<AssistantWindowState>(() => getDefaultAssistantWindow())
+  const assistantInteractionRef = useRef<AssistantInteractionState | null>(null)
 
   const flow = getSelectedFlow(selectedFlow)
   const selectedLead = adminLeads[selectedLeadIndex] ?? adminLeads[0]
@@ -712,6 +802,30 @@ export default function BeitToureefPoc() {
 
   const isTourTargetActive = (targetId: TourTarget) => activeTourTargetId === targetId
 
+  const resetAssistantWindow = useCallback(() => {
+    setAssistantWindow(getDefaultAssistantWindow())
+  }, [])
+
+  const startAssistantMove = useCallback(
+    (event: ReactPointerEvent<HTMLElement>, mode: AssistantWindowInteraction) => {
+      if (event.button !== 0) return
+
+      event.preventDefault()
+      event.stopPropagation()
+
+      assistantInteractionRef.current = {
+        mode,
+        startX: event.clientX,
+        startY: event.clientY,
+        startWindow: assistantWindow,
+      }
+
+      document.body.style.cursor = mode === 'drag' ? 'grabbing' : 'nwse-resize'
+      document.body.style.userSelect = 'none'
+    },
+    [assistantWindow],
+  )
+
   const focusTourTarget = useCallback((targetId: TourTarget, behavior: ScrollBehavior = 'smooth') => {
     window.requestAnimationFrame(() => {
       const target = document.getElementById(targetId)
@@ -735,9 +849,10 @@ export default function BeitToureefPoc() {
 
     setIsTourActive(true)
     setTourStepIndex(0)
+    resetAssistantWindow()
     firstStep.action()
     focusTourTarget(firstStep.targetId)
-  }, [focusTourTarget, walkthroughSteps])
+  }, [focusTourTarget, resetAssistantWindow, walkthroughSteps])
 
   const stopWalkthrough = useCallback(() => {
     setIsTourActive(false)
@@ -768,6 +883,58 @@ export default function BeitToureefPoc() {
   const previousTourStep = useCallback(() => {
     goToTourStep(tourStepIndex - 1)
   }, [goToTourStep, tourStepIndex])
+
+  useEffect(() => {
+    const clearAssistantInteraction = () => {
+      assistantInteractionRef.current = null
+      document.body.style.cursor = ''
+      document.body.style.userSelect = ''
+    }
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const interaction = assistantInteractionRef.current
+
+      if (!interaction) return
+
+      event.preventDefault()
+
+      const deltaX = event.clientX - interaction.startX
+      const deltaY = event.clientY - interaction.startY
+
+      setAssistantWindow(
+        normalizeAssistantWindow(
+          interaction.mode === 'drag'
+            ? {
+                ...interaction.startWindow,
+                x: interaction.startWindow.x + deltaX,
+                y: interaction.startWindow.y + deltaY,
+              }
+            : {
+                ...interaction.startWindow,
+                width: interaction.startWindow.width + deltaX,
+                height: interaction.startWindow.height + deltaY,
+              },
+        ),
+      )
+    }
+
+    const handleResize = () => {
+      setAssistantWindow((current) => normalizeAssistantWindow(current))
+    }
+
+    window.addEventListener('pointermove', handlePointerMove)
+    window.addEventListener('pointerup', clearAssistantInteraction)
+    window.addEventListener('pointercancel', clearAssistantInteraction)
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      window.removeEventListener('pointerup', clearAssistantInteraction)
+      window.removeEventListener('pointercancel', clearAssistantInteraction)
+      window.removeEventListener('resize', handleResize)
+      clearAssistantInteraction()
+    }
+  }, [])
 
   useEffect(() => {
     document.title = 'Beit Toureef Walkthrough | Likwiid'
@@ -1722,37 +1889,63 @@ export default function BeitToureefPoc() {
         <AnimatePresence>
           {isTourActive && activeTourStep && (
             <m.aside
-              className="beit-poc fixed inset-x-3 bottom-3 z-50 md:inset-x-auto md:right-6 md:bottom-6 md:w-[460px]"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              className="beit-poc fixed z-50"
+              style={{
+                height: assistantWindow.height,
+                left: assistantWindow.x,
+                top: assistantWindow.y,
+                width: assistantWindow.width,
+              }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.22 }}
               aria-live="polite"
+              data-testid="guided-walkthrough-assistant"
             >
-              <div className="max-h-[calc(100vh-1.5rem)] overflow-y-auto rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
-                <div className="border-b border-[#D8CAB5] bg-[#F7F1E8] p-4">
+              <div className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-[#D8CAB5] bg-[#FFF8EA] text-[#252017] shadow-2xl shadow-black/25">
+                <div
+                  className="shrink-0 cursor-grab touch-none select-none border-b border-[#D8CAB5] bg-[#F7F1E8] p-4 active:cursor-grabbing"
+                  onPointerDown={(event) => startAssistantMove(event, 'drag')}
+                  title="Drag to move panel"
+                >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3">
                       <div className="poc-assistant-orbit poc-ink-panel flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-[#252017] text-[#E9C56F]">
                         <Bot size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
-                          Guided walkthrough assistant
-                        </p>
-                        <p className="mt-1 text-sm text-[#6B6258]">
-                          Step {tourStepIndex + 1} of {walkthroughSteps.length}
-                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-xs font-semibold uppercase tracking-wider text-[#7A5B22]">
+                            Guided walkthrough assistant
+                          </p>
+                          <Move size={14} className="shrink-0 text-[#8A7B69]" aria-hidden="true" />
+                        </div>
+                        <p className="mt-1 text-sm text-[#6B6258]">Step {tourStepIndex + 1} of {walkthroughSteps.length}</p>
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      onClick={stopWalkthrough}
-                      className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
-                      aria-label="Close guided walkthrough"
-                    >
-                      <X size={18} />
-                    </button>
+                    <div className="flex shrink-0 items-center gap-1">
+                      <button
+                        type="button"
+                        onPointerDown={(event) => event.stopPropagation()}
+                        onClick={resetAssistantWindow}
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
+                        aria-label="Reset guided walkthrough panel position"
+                        title="Reset panel"
+                      >
+                        <Maximize2 size={17} />
+                      </button>
+                      <button
+                        type="button"
+                        onPointerDown={(event) => event.stopPropagation()}
+                        onClick={stopWalkthrough}
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#6B6258] transition hover:bg-[#E8DDC9] hover:text-[#252017]"
+                        aria-label="Close guided walkthrough"
+                        title="Close panel"
+                      >
+                        <X size={18} />
+                      </button>
+                    </div>
                   </div>
                   <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-[#E8DDC9]">
                     <m.div
@@ -1766,7 +1959,7 @@ export default function BeitToureefPoc() {
 
                 <m.div
                   key={activeTourStep.targetId}
-                  className="p-4"
+                  className="min-h-0 flex-1 overflow-y-auto p-4"
                   initial={{ opacity: 0, x: 14 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.18 }}
@@ -1822,6 +2015,15 @@ export default function BeitToureefPoc() {
                     </button>
                   </div>
                 </m.div>
+                <button
+                  type="button"
+                  onPointerDown={(event) => startAssistantMove(event, 'resize')}
+                  className="absolute bottom-2 right-2 flex h-8 w-8 cursor-nwse-resize touch-none select-none items-center justify-center rounded-md border border-[#D8CAB5] bg-[#FFF8EA]/95 text-[#7A5B22] shadow-sm transition hover:bg-[#F3E7D0]"
+                  aria-label="Resize guided walkthrough assistant"
+                  title="Resize panel"
+                >
+                  <Grip size={16} />
+                </button>
               </div>
             </m.aside>
           )}
