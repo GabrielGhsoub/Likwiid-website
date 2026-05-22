@@ -62,6 +62,34 @@ export const projects: Project[] = [
     platform: 'mobile',
   },
   {
+    id: 'voxflow',
+    slug: 'voxflow',
+    title: 'VoxFlow',
+    subtitle: 'Offline vocal re-education with guided practice, recordings, and progress',
+    client: 'Likwiid',
+    category: 'Mobile',
+    year: '2026',
+    description:
+      'A calm offline-first mobile app for vocal re-education, guiding users through daily 10-minute practice sessions with private recordings, A/B comparison, progress tracking, and clinical learning articles.',
+    challenge:
+      'Vocal practice can be hard to keep consistent when timers, instructions, recordings, and education live in separate tools. VoxFlow needed to feel private, steady, and clinically grounded without adding social pressure or noisy wellness patterns.',
+    approach:
+      'Built an Expo React Native app around a six-phase routine, breathing-paced visual feedback, guided exercise cards, local baseline and weekly samples, A/B voice comparison, a progress calendar, milestone articles, and device-only storage.',
+    results:
+      'Delivered an Android-ready wellness companion with onboarding, guided sessions, saved recordings, comparison workflows, weekly targets, milestone progress, and a quiet article library designed for repeat daily use.',
+    techStack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'AsyncStorage', 'Expo Audio'],
+    images: [
+      '/images/projects/voxflow/practice.webp',
+      '/images/projects/voxflow/session.webp',
+      '/images/projects/voxflow/progress.webp',
+      '/images/projects/voxflow/compare.webp',
+      '/images/projects/voxflow/learn.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #F8F5F0 0%, #3D7B7B 100%)',
+    platform: 'mobile',
+  },
+  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
