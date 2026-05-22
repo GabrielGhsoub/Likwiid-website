@@ -118,6 +118,32 @@ export const projects: Project[] = [
     platform: 'web',
   },
   {
+    id: 'healthcare-pdf-api',
+    slug: 'healthcare-pdf-api',
+    title: 'Healthcare PDF API',
+    subtitle: 'Secure medical document generation with encryption, audit, and retention controls',
+    client: 'Likwiid',
+    category: 'Enterprise',
+    year: '2026',
+    description:
+      'A compliance-focused NestJS backend for generating medical PDFs from templates or raw HTML, with API key authentication, Swagger documentation, encrypted storage, audit trails, webhooks, and retention policies.',
+    challenge:
+      'Healthcare document workflows need more than a PDF renderer. They need controlled access, traceable document events, protected PHI, predictable deletion rules, and integration-friendly API documentation for clinical and operations teams.',
+    approach:
+      'Built modular services for authentication, PDF generation, templates, encryption, audit logging, webhooks, and health checks using NestJS, TypeORM, PostgreSQL, Redis queues, Puppeteer, Handlebars, Docker, and OpenAPI documentation.',
+    results:
+      'Delivered an API-focused backend with sync and async generation endpoints, five medical document templates, scoped and hashed API keys, AES-256-GCM encryption, audit queries, webhook retry logic, Docker setup, and automated PDF expiry.',
+    techStack: ['NestJS', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Puppeteer', 'Redis', 'Swagger', 'Docker'],
+    images: [
+      '/images/projects/healthcare-pdf-api/architecture.webp',
+      '/images/projects/healthcare-pdf-api/api-contract.webp',
+      '/images/projects/healthcare-pdf-api/lifecycle.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0F766E 0%, #1E3A8A 100%)',
+    platform: 'web',
+  },
+  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
