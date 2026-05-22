@@ -34,6 +34,34 @@ export const projects: Project[] = [
     liveLabel: 'Live Site',
   },
   {
+    id: 'personal-fitness-tracker',
+    slug: 'personal-fitness-tracker',
+    title: 'Personal Fitness Tracker',
+    subtitle: 'Heart-rate guided endurance training with readiness and plan progress',
+    client: 'Likwiid',
+    category: 'Mobile',
+    year: '2026',
+    description:
+      'A local-first mobile training app for endurance athletes, combining daily readiness, heart-rate-zone guidance, run logging, and 12-week plan progress in one focused dashboard.',
+    challenge:
+      'Most fitness trackers bury training context behind generic charts or cloud-first workflows. This app needed to make readiness, run history, and plan adherence clear on-device for heart-rate guided training.',
+    approach:
+      'Built an Expo React Native app with SQLite storage, a cardio-focused training protocol, BLE heart-rate strap support, HRV and resting-heart-rate baselines, MAF pace tracking, training-load charts, run history, and plan compliance views.',
+    results:
+      'Delivered a polished mobile tracker with realistic local run history, readiness scoring, live run preparation, heart-rate-zone targets, weekly trend reviews, MAF progress, and a structured 12-week endurance plan.',
+    techStack: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Zustand', 'NativeWind', 'BLE'],
+    images: [
+      '/images/projects/personal-fitness-tracker/today.webp',
+      '/images/projects/personal-fitness-tracker/run.webp',
+      '/images/projects/personal-fitness-tracker/history.webp',
+      '/images/projects/personal-fitness-tracker/trends.webp',
+      '/images/projects/personal-fitness-tracker/plan.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #020617 0%, #10B981 100%)',
+    platform: 'mobile',
+  },
+  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
