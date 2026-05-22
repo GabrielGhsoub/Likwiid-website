@@ -90,6 +90,34 @@ export const projects: Project[] = [
     platform: 'mobile',
   },
   {
+    id: 'linkedin-templates-extension',
+    slug: 'linkedin-templates-extension',
+    title: 'LinkedIn Templates Extension',
+    subtitle: 'Privacy-first Chrome extension for faster LinkedIn outreach',
+    client: 'Likwiid',
+    category: 'Enterprise',
+    year: '2026',
+    description:
+      'A Manifest V3 Chrome extension for sales, recruiting, and founder-led outreach teams that saves reusable LinkedIn message templates, replaces profile variables, and inserts polished messages without risky automation.',
+    challenge:
+      'Outreach teams repeat the same LinkedIn messages across prospects, candidates, and follow-ups, but heavy automation can create account risk and still leaves teams managing snippets across notes, docs, and inboxes.',
+    approach:
+      'Built a React and TypeScript extension with a polished popup, full options dashboard, template categories, variable detection, Chrome Storage sync, import and export, LinkedIn composer insertion, keyboard shortcuts, and local-first privacy controls.',
+    results:
+      'Delivered a focused productivity tool with searchable templates, one-click insertion feedback, reusable category workflows, smart variables like first name and company, synced settings, and a Chrome Web Store-ready Manifest V3 structure.',
+    techStack: ['Chrome Extension MV3', 'React', 'TypeScript', 'Tailwind CSS', 'Webpack', 'Chrome Storage API'],
+    images: [
+      '/images/projects/linkedin-templates/options-templates.webp',
+      '/images/projects/linkedin-templates/options-editor.webp',
+      '/images/projects/linkedin-templates/options-settings.webp',
+      '/images/projects/linkedin-templates/popup-inserted.webp',
+      '/images/projects/linkedin-templates/popup-sales-filter.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0A66C2 0%, #111827 100%)',
+    platform: 'web',
+  },
+  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
