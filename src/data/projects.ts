@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 'gcg-website',
     slug: 'gcg-website',
-    title: 'Ghoussoub Consulting Group Website',
+    title: 'GCG Website',
     subtitle: 'Premium science-consulting website with clear pathways and conversion flows',
     client: 'Ghoussoub Consulting Group',
     category: 'Enterprise',
