@@ -48,6 +48,7 @@ jobs:
           for route in services work about contact \
             work/gcg-website \
             work/personal-fitness-tracker \
+            work/voxflow \
             work/padel-booking \
             work/padel-admin-portal \
             work/ai-fitness-coach \
