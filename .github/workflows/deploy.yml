@@ -43,6 +43,20 @@ jobs:
         run: echo "likwiid.com" > dist/CNAME
       - name: Add 404.html for SPA routing
         run: cp dist/index.html dist/404.html
+      - name: Add direct site routes
+        run: |
+          for route in services work about contact \
+            work/gcg-website \
+            work/personal-fitness-tracker \
+            work/padel-booking \
+            work/padel-admin-portal \
+            work/ai-fitness-coach \
+            work/bully-ai \
+            work/sems-energy-management \
+            work/salsaflow; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
       - name: Add direct Beit Toureef routes
         run: |
           for route in beit-toureef-walkthrough beit-toureef-poc; do
