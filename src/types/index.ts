@@ -27,6 +27,7 @@ export interface Project {
   gradient: string
   platform: 'mobile' | 'web'
   liveUrl?: string
+  liveLabel?: string
   androidUrl?: string
 }
 

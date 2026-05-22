@@ -2,6 +2,38 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
+    id: 'gcg-website',
+    slug: 'gcg-website',
+    title: 'Ghoussoub Consulting Group Website',
+    subtitle: 'Premium science-consulting website with clear pathways and conversion flows',
+    client: 'Ghoussoub Consulting Group',
+    category: 'Enterprise',
+    year: '2026',
+    description:
+      'A polished digital presence for Ghoussoub Consulting Group, positioning the firm around science-driven consulting, R&D support, STEM tutoring, and investment diligence.',
+    challenge:
+      'GCG needed a website that could make a broad, technical service offering feel clear and credible for several audiences: organizations, research teams, students, families, investors, and partners.',
+    approach:
+      'Built a React and Vite website with structured audience pathways, service pages for R&D and tutoring, investment and careers routes, refined light and dark themes, animated science visuals, SEO metadata, and conversion-ready consultation and contact flows.',
+    results:
+      'Delivered a premium consulting platform with clear service segmentation, trust-building methodology sections, responsive navigation, legal pages, analytics hooks, and a GitHub Pages deployment.',
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router'],
+    images: [
+      '/images/projects/gcg/home.webp',
+      '/images/projects/gcg/pathways.webp',
+      '/images/projects/gcg/services.webp',
+      '/images/projects/gcg/process.webp',
+      '/images/projects/gcg/engagement-models.webp',
+      '/images/projects/gcg/research.webp',
+      '/images/projects/gcg/tutoring.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #000040 0%, #A9822B 100%)',
+    platform: 'web',
+    liveUrl: 'https://gabrielghsoub.github.io/gcg-website/',
+    liveLabel: 'Live Site',
+  },
+  {
     id: 'padel-booking',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',

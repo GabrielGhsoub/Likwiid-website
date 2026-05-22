@@ -139,12 +139,12 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
       </div>
 
       {images.length > 1 && (
-        <div className="flex items-center gap-0">
+        <div className="flex max-w-full flex-wrap items-center justify-center gap-0">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-              className="p-5 cursor-pointer"
+              className="p-3 sm:p-5 cursor-pointer"
               aria-label={`Go to screenshot ${i + 1}`}
               aria-current={i === current ? true : undefined}
             >
@@ -236,7 +236,7 @@ export default function CaseStudy() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
                 >
-                  <ExternalLink size={12} /> App Store
+                  <ExternalLink size={12} /> {project.liveLabel ?? 'App Store'}
                 </a>
               )}
               {project.androidUrl && (

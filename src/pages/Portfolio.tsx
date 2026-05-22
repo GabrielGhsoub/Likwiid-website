@@ -68,13 +68,15 @@ export default function Portfolio() {
                 transition={projectTransitions[i]}
                 whileHover={CARD_HOVER}
               >
-                <Link to={`/work/${project.slug}`} className="group block no-underline">
-                  <div className="rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-lg">
-                    <div className="flex flex-col md:flex-row">
+                <article className="group rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-lg">
+                  <div className="flex flex-col md:flex-row">
+                    <Link
+                      to={`/work/${project.slug}`}
+                      className="block no-underline w-full md:w-[280px] h-[180px] md:h-auto md:min-h-[160px] shrink-0"
+                      aria-label={`View ${project.title} case study`}
+                    >
                       {/* Preview */}
-                      <div
-                        className="w-full md:w-[280px] h-[180px] md:h-auto md:min-h-[160px] shrink-0 relative overflow-hidden flex items-center justify-center bg-bg-tertiary"
-                      >
+                      <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary">
                         {project.images.length > 0 && project.platform === 'mobile' ? (
                           <div className="bg-bg-tertiary rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                             <div className="rounded-lg overflow-hidden">
@@ -112,35 +114,37 @@ export default function Portfolio() {
                           <ArrowUpRight className="text-text-primary" size={20} />
                         </div>
                       </div>
+                    </Link>
 
-                      {/* Info */}
-                      <div className="flex-1 p-5 flex flex-col justify-center min-w-0">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-                          <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
-                          {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <ExternalLink size={10} /> App Store
-                            </a>
-                          )}
-                          {project.androidUrl && (
-                            <a
-                              href={project.androidUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <ExternalLink size={10} /> Play Store
-                            </a>
-                          )}
-                        </div>
+                    {/* Info */}
+                    <div className="flex-1 p-5 flex flex-col justify-center min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
+                        <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalLink size={10} /> {project.liveLabel ?? 'App Store'}
+                          </a>
+                        )}
+                        {project.androidUrl && (
+                          <a
+                            href={project.androidUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalLink size={10} /> Play Store
+                          </a>
+                        )}
+                      </div>
+                      <Link to={`/work/${project.slug}`} className="block no-underline">
                         <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-tight">
                           {project.title}
                         </h3>
@@ -150,10 +154,10 @@ export default function Portfolio() {
                             <Badge key={tech}>{tech}</Badge>
                           ))}
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </article>
               </m.div>
             ))}
           </div>
