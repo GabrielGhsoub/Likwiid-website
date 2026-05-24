@@ -2,6 +2,36 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
+    id: 'padel-booking',
+    slug: 'padel-booking',
+    title: 'Padel Booking Platform',
+    subtitle: 'League management, matchmaking, and real-time court booking',
+    client: 'Likwiid',
+    category: 'Mobile',
+    year: '2025',
+    description:
+      'A full-featured mobile platform for the Lebanese padel community with league management, player matchmaking, skill-based filtering, and real-time court booking.',
+    challenge:
+      'The Lebanese padel community lacked a dedicated platform. Courts were booked via WhatsApp and Instagram DMs. There was no way to find players at your skill level, track league standings, or manage competitive play.',
+    approach:
+      'Built a React Native Expo app with Supabase backend. Features include league creation and management with standings, skill-level-based matchmaking (D- to C+), player profiles with win/loss records, real-time match joining, and court check-in.',
+    results:
+      'Fully functional app with league management, matchmaking, player profiles, and standings. Active testing with the Beirut padel community.',
+    techStack: ['React Native', 'Expo', 'Supabase', 'Zustand', 'NativeWind', 'TypeScript'],
+    images: [
+      '/images/projects/padel/home.webp',
+      '/images/projects/padel/play.webp',
+      '/images/projects/padel/league.webp',
+      '/images/projects/padel/profile.webp',
+    ],
+    featured: true,
+    spotlight: true,
+    gradient: 'linear-gradient(135deg, #0C1445 0%, #0E7490 100%)',
+    platform: 'mobile',
+    liveUrl: 'https://apps.apple.com/lb/app/padel-lebanon/id6759597948',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.padellebanon.app',
+  },
+  {
     id: 'gcg-website',
     slug: 'gcg-website',
     title: 'GCG Website',
@@ -28,6 +58,7 @@ export const projects: Project[] = [
       '/images/projects/gcg/tutoring.webp',
     ],
     featured: true,
+    spotlight: true,
     gradient: 'linear-gradient(135deg, #000040 0%, #A9822B 100%)',
     platform: 'web',
     liveUrl: 'https://gabrielghsoub.github.io/gcg-website/',
@@ -142,35 +173,6 @@ export const projects: Project[] = [
     featured: true,
     gradient: 'linear-gradient(135deg, #0F766E 0%, #1E3A8A 100%)',
     platform: 'web',
-  },
-  {
-    id: 'padel-booking',
-    slug: 'padel-booking',
-    title: 'Padel Booking Platform',
-    subtitle: 'League management, matchmaking, and real-time court booking',
-    client: 'Likwiid',
-    category: 'Mobile',
-    year: '2025',
-    description:
-      'A full-featured mobile platform for the Lebanese padel community with league management, player matchmaking, skill-based filtering, and real-time court booking.',
-    challenge:
-      'The Lebanese padel community lacked a dedicated platform. Courts were booked via WhatsApp and Instagram DMs. There was no way to find players at your skill level, track league standings, or manage competitive play.',
-    approach:
-      'Built a React Native Expo app with Supabase backend. Features include league creation and management with standings, skill-level-based matchmaking (D- to C+), player profiles with win/loss records, real-time match joining, and court check-in.',
-    results:
-      'Fully functional app with league management, matchmaking, player profiles, and standings. Active testing with the Beirut padel community.',
-    techStack: ['React Native', 'Expo', 'Supabase', 'Zustand', 'NativeWind', 'TypeScript'],
-    images: [
-      '/images/projects/padel/home.webp',
-      '/images/projects/padel/play.webp',
-      '/images/projects/padel/league.webp',
-      '/images/projects/padel/profile.webp',
-    ],
-    featured: true,
-    gradient: 'linear-gradient(135deg, #0C1445 0%, #0E7490 100%)',
-    platform: 'mobile',
-    liveUrl: 'https://apps.apple.com/lb/app/padel-lebanon/id6759597948',
-    androidUrl: 'https://play.google.com/store/apps/details?id=com.padellebanon.app',
   },
   {
     id: 'padel-admin',

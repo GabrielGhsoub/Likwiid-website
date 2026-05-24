@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { m } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, ExternalLink } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Star } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { Badge } from '../components/ui/Badge'
@@ -68,7 +68,11 @@ export default function Portfolio() {
                 transition={projectTransitions[i]}
                 whileHover={CARD_HOVER}
               >
-                <article className="group rounded-lg border border-border bg-bg-secondary hover:border-border-hover transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-lg">
+                <article className={`group rounded-lg border bg-bg-secondary transition-[border-color,box-shadow] duration-300 overflow-hidden hover:shadow-lg ${
+                  project.spotlight
+                    ? 'border-accent-gold/60 shadow-[0_12px_32px_rgba(10,129,163,0.10)] hover:border-accent-gold'
+                    : 'border-border hover:border-border-hover'
+                }`}>
                   <div className="flex flex-col md:flex-row">
                     <Link
                       to={`/work/${project.slug}`}
@@ -77,6 +81,12 @@ export default function Portfolio() {
                     >
                       {/* Preview */}
                       <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary">
+                        {project.spotlight && (
+                          <div className="absolute left-3 top-3 z-[2] inline-flex items-center gap-1.5 rounded-full border border-accent-gold/60 bg-bg-secondary/95 px-2.5 py-1 text-[11px] font-medium text-accent-gold shadow-sm backdrop-blur">
+                            <Star size={12} fill="currentColor" strokeWidth={1.6} />
+                            Featured
+                          </div>
+                        )}
                         {project.images.length > 0 && project.platform === 'mobile' ? (
                           <div className="bg-bg-tertiary rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                             <div className="rounded-lg overflow-hidden">

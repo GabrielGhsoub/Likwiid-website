@@ -24,6 +24,7 @@ export interface Project {
   techStack: string[]
   images: string[]
   featured: boolean
+  spotlight?: boolean
   gradient: string
   platform: 'mobile' | 'web'
   liveUrl?: string
