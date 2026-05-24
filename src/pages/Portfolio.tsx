@@ -81,12 +81,6 @@ export default function Portfolio() {
                     >
                       {/* Preview */}
                       <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary">
-                        {project.spotlight && (
-                          <div className="absolute left-3 top-3 z-[2] inline-flex items-center gap-1.5 rounded-full border border-accent-gold/60 bg-bg-secondary/95 px-2.5 py-1 text-[11px] font-medium text-accent-gold shadow-sm backdrop-blur">
-                            <Star size={12} fill="currentColor" strokeWidth={1.6} />
-                            Featured
-                          </div>
-                        )}
                         {project.images.length > 0 && project.platform === 'mobile' ? (
                           <div className="bg-bg-tertiary rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                             <div className="rounded-lg overflow-hidden">
@@ -128,30 +122,38 @@ export default function Portfolio() {
 
                     {/* Info */}
                     <div className="flex-1 p-5 flex flex-col justify-center min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                        <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-                        <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
-                        {project.liveUrl && (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <ExternalLink size={10} /> {project.liveLabel ?? 'App Store'}
-                          </a>
-                        )}
-                        {project.androidUrl && (
-                          <a
-                            href={project.androidUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <ExternalLink size={10} /> Play Store
-                          </a>
+                      <div className="mb-2 flex items-start justify-between gap-3">
+                        <div className="flex min-w-0 flex-wrap items-center gap-2">
+                          <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
+                          <span className="text-xs px-1.5 py-0.5 rounded bg-bg-tertiary text-text-tertiary">{project.category}</span>
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink size={10} /> {project.liveLabel ?? 'App Store'}
+                            </a>
+                          )}
+                          {project.androidUrl && (
+                            <a
+                              href={project.androidUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-accent-gold hover:text-accent-gold/80 inline-flex items-center gap-1 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink size={10} /> Play Store
+                            </a>
+                          )}
+                        </div>
+                        {project.spotlight && (
+                          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold-dim px-2.5 py-1 text-[11px] font-medium text-accent-gold shadow-sm">
+                            <Star size={12} fill="currentColor" strokeWidth={1.6} />
+                            Featured
+                          </span>
                         )}
                       </div>
                       <Link to={`/work/${project.slug}`} className="block no-underline">
