@@ -37,6 +37,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://likwiid.com/work/breathebreak</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://likwiid.com/work/linkedin-templates-extension</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
