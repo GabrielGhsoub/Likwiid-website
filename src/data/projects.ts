@@ -121,6 +121,33 @@ export const projects: Project[] = [
     platform: 'mobile',
   },
   {
+    id: 'breathebreak',
+    slug: 'breathebreak',
+    title: 'BreatheBreak',
+    subtitle: 'Mac menu-bar breathing reminders for screen-heavy workdays',
+    client: 'Likwiid',
+    category: 'Enterprise',
+    year: '2026',
+    description:
+      'A macOS menu-bar wellness utility that turns screen-heavy workdays into gentle breathing check-ins with phased reminders, quick reset exercises, Control Pause tracking, and local session history.',
+    challenge:
+      'Breathing tools often require opening a separate app, which breaks focus. BreatheBreak needed to keep recovery cues present but unobtrusive during deep work, video calls, and Focus mode.',
+    approach:
+      'Built a SwiftUI menu-bar app with AppKit overlay windows, SwiftData session logs, notification scheduling, meeting-aware smart pause, training/consolidation/maintenance phases, chimes, stealth mode, launch-at-login support, and CSV export.',
+    results:
+      'Delivered a lightweight Mac companion with a compact countdown popover, Breathe Now and snooze controls, guided breathing overlays, daily Control Pause checks, streak and average CP metrics, 7-day trends, and settings built for repeat workday use.',
+    techStack: ['SwiftUI', 'AppKit', 'SwiftData', 'UserNotifications', 'Combine', 'Charts', 'ServiceManagement'],
+    images: [
+      '/images/projects/breathebreak/menubar.webp',
+      '/images/projects/breathebreak/overlay.webp',
+      '/images/projects/breathebreak/settings.webp',
+      '/images/projects/breathebreak/flow.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0F172A 0%, #0F766E 54%, #F59E0B 100%)',
+    platform: 'web',
+  },
+  {
     id: 'linkedin-templates-extension',
     slug: 'linkedin-templates-extension',
     title: 'LinkedIn Templates Extension',
