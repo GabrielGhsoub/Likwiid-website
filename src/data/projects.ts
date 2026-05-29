@@ -17,6 +17,7 @@ export const projects: Project[] = [
       'Built a React Native Expo app with Supabase backend. Features include league creation and management with standings, skill-level-based matchmaking (D- to C+), player profiles with win/loss records, real-time match joining, and court check-in.',
     results:
       'Fully functional app with league management, matchmaking, player profiles, and standings. Active testing with the Beirut padel community.',
+    businessResult: 'Moved community play from DMs into owned booking and league workflows.',
     techStack: ['React Native', 'Expo', 'Supabase', 'Zustand', 'NativeWind', 'TypeScript'],
     images: [
       '/images/projects/padel/home.webp',
@@ -47,6 +48,7 @@ export const projects: Project[] = [
       'Built a React and Vite website with structured audience pathways, service pages for R&D and tutoring, investment and careers routes, refined light and dark themes, animated science visuals, SEO metadata, and conversion-ready consultation and contact flows.',
     results:
       'Delivered a premium consulting platform with clear service segmentation, trust-building methodology sections, responsive navigation, legal pages, analytics hooks, and a GitHub Pages deployment.',
+    businessResult: 'Created a credible conversion path for consulting, tutoring, and investor diligence leads.',
     techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router'],
     images: [
       '/images/projects/gcg/home.webp',
@@ -65,6 +67,35 @@ export const projects: Project[] = [
     liveLabel: 'Live Site',
   },
   {
+    id: 'sems',
+    slug: 'sems-energy-management',
+    title: 'SEMS: Smart Energy Management',
+    subtitle: 'Multi-source energy visibility and cost control for Lebanese households',
+    client: 'Likwiid',
+    category: 'IoT',
+    year: '2026',
+    description:
+      'A software-first energy management platform for homes running on EDL grid power, private generators, solar, and battery storage, with real-time monitoring, cost tracking, device analytics, and offline-aware mobile access.',
+    challenge:
+      'Lebanese households often juggle unreliable grid supply, generator subscriptions, solar systems, and batteries without one place to see what is powering the home, what each device costs, or how source changes affect the monthly bill.',
+    approach:
+      'Built a TypeScript monorepo with an Expo React Native app, NestJS API, PostgreSQL and TimescaleDB telemetry storage, Redis-backed real-time updates, shared validation schemas, and a simulated Lebanese energy data engine to validate the full product before hardware integration.',
+    results:
+      'Delivered a working mobile and backend foundation with authentication, device and room management, tariff configuration, current and historical telemetry APIs, source-aware cost calculation, offline cached views, and demo scenarios for EDL outages, generator use, solar production, and device-level consumption.',
+    businessResult: 'Turned fragmented EDL, generator, solar, and battery data into one cost-control dashboard.',
+    techStack: ['React Native', 'Expo', 'NestJS', 'TimescaleDB', 'PostgreSQL', 'Redis', 'Socket.io', 'TypeScript'],
+    images: [
+      '/images/projects/sems/overview.webp',
+      '/images/projects/sems/analytics.webp',
+      '/images/projects/sems/devices.webp',
+      '/images/projects/sems/tariffs.webp',
+      '/images/projects/sems/architecture.webp',
+    ],
+    featured: true,
+    gradient: 'linear-gradient(135deg, #0F766E 0%, #2563EB 55%, #F59E0B 100%)',
+    platform: 'web',
+  },
+  {
     id: 'personal-fitness-tracker',
     slug: 'personal-fitness-tracker',
     title: 'Personal Fitness Tracker',
@@ -80,6 +111,7 @@ export const projects: Project[] = [
       'Built an Expo React Native app with SQLite storage, a cardio-focused training protocol, BLE heart-rate strap support, HRV and resting-heart-rate baselines, MAF pace tracking, training-load charts, run history, and plan compliance views.',
     results:
       'Delivered a polished mobile tracker with realistic local run history, readiness scoring, live run preparation, heart-rate-zone targets, weekly trend reviews, MAF progress, and a structured 12-week endurance plan.',
+    businessResult: 'Turned scattered endurance metrics into a practical readiness and plan-tracking routine.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Zustand', 'NativeWind', 'BLE'],
     images: [
       '/images/projects/personal-fitness-tracker/today.webp',
@@ -108,6 +140,7 @@ export const projects: Project[] = [
       'Built an Expo React Native app around a six-phase routine, breathing-paced visual feedback, guided exercise cards, local baseline and weekly samples, A/B voice comparison, a progress calendar, milestone articles, and device-only storage.',
     results:
       'Delivered an Android-ready wellness companion with onboarding, guided sessions, saved recordings, comparison workflows, weekly targets, milestone progress, and a quiet article library designed for repeat daily use.',
+    businessResult: 'Packaged daily vocal practice into a private, repeatable, offline-first workflow.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'AsyncStorage', 'Expo Audio'],
     images: [
       '/images/projects/voxflow/practice.webp',
@@ -136,6 +169,7 @@ export const projects: Project[] = [
       'Built a SwiftUI menu-bar app with AppKit overlay windows, SwiftData session logs, notification scheduling, meeting-aware smart pause, training/consolidation/maintenance phases, chimes, stealth mode, launch-at-login support, and CSV export.',
     results:
       'Delivered a lightweight Mac companion with a compact countdown popover, Breathe Now and snooze controls, guided breathing overlays, daily Control Pause checks, streak and average CP metrics, 7-day trends, and settings built for repeat workday use.',
+    businessResult: 'Kept wellness prompts present during deep work without asking users to open another app.',
     techStack: ['SwiftUI', 'AppKit', 'SwiftData', 'UserNotifications', 'Combine', 'Charts', 'ServiceManagement'],
     images: [
       '/images/projects/breathebreak/menubar.webp',
@@ -163,6 +197,7 @@ export const projects: Project[] = [
       'Built a React and TypeScript extension with a polished popup, full options dashboard, template categories, variable detection, Chrome Storage sync, import and export, LinkedIn composer insertion, keyboard shortcuts, and local-first privacy controls.',
     results:
       'Delivered a focused productivity tool with searchable templates, one-click insertion feedback, reusable category workflows, smart variables like first name and company, synced settings, and a Chrome Web Store-ready Manifest V3 structure.',
+    businessResult: 'Reduced repetitive LinkedIn outreach work while keeping users in control of each message.',
     techStack: ['Chrome Extension MV3', 'React', 'TypeScript', 'Tailwind CSS', 'Webpack', 'Chrome Storage API'],
     images: [
       '/images/projects/linkedin-templates/options-templates.webp',
@@ -191,6 +226,7 @@ export const projects: Project[] = [
       'Built modular services for authentication, PDF generation, templates, encryption, audit logging, webhooks, and health checks using NestJS, TypeORM, PostgreSQL, Redis queues, Puppeteer, Handlebars, Docker, and OpenAPI documentation.',
     results:
       'Delivered an API-focused backend with sync and async generation endpoints, five medical document templates, scoped and hashed API keys, AES-256-GCM encryption, audit queries, webhook retry logic, Docker setup, and automated PDF expiry.',
+    businessResult: 'Showed enterprise backend depth around sensitive documents, auditability, and API operations.',
     techStack: ['NestJS', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Puppeteer', 'Redis', 'Swagger', 'Docker'],
     images: [
       '/images/projects/healthcare-pdf-api/architecture.webp',
@@ -217,6 +253,7 @@ export const projects: Project[] = [
       'Built a React web app with a clean admin UI using shadcn/ui components. Features include league CRUD with multi-tab detail views (overview, players, weeks, matches, standings, statistics, playoffs), user management with role/status filtering, Swiss-system pairing, check-in toggle controls, and theme/notification settings.',
     results:
       'Fully functional admin portal with league lifecycle management, user administration, standings tracking, and real-time check-in controls. Used in active testing with the Beirut padel community.',
+    businessResult: 'Gave league operators a dashboard to manage play without touching the database.',
     techStack: ['React', 'TypeScript', 'Supabase', 'shadcn/ui', 'Tailwind CSS', 'Vite'],
     images: [
       '/images/projects/padel-admin/leagues.webp',
@@ -245,6 +282,7 @@ export const projects: Project[] = [
       "Built a React Native Expo app with an AI Coach powered by LLM integration. The coach knows the user's full program, training history, and preferences. It provides exercise-specific form cues, RPE-based load recommendations, nutrition guidance, and weekly progress summaries.",
     results:
       'Working prototype with AI Coach chat, workout tracking with RPE logging, program generation, and workout summary analytics.',
+    businessResult: 'Explored adaptive coaching workflows that personalize training from user history.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'Claude API', 'Zustand', 'SQLite'],
     images: [
       '/images/projects/fitness/program.webp',
@@ -274,6 +312,7 @@ export const projects: Project[] = [
       "Built with Expo SDK 54 and React Native New Architecture. Features escalating notification system (gentle to nuclear) with 5 personalities (Disappointed Friend, Drill Sergeant, Passive-Aggressive, Existential, Hype Beast). Includes ADHD Toolbox with courses and quick exercises, commitment contracts based on Cialdini's influence framework, stats with streaks and community comparison, and daily psychology tips.",
     results:
       'Fully functional app with task management, escalating notifications, ADHD learning system, productivity stats, and community features. Targeting chronic procrastinators and Gen Z users.',
+    businessResult: 'Built a memorable productivity concept with a differentiated behavioral hook.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'NativeWind', 'Expo Notifications'],
     images: [
       '/images/projects/bully/home.webp',
@@ -283,28 +322,6 @@ export const projects: Project[] = [
     ],
     featured: true,
     gradient: 'linear-gradient(135deg, #0A1628 0%, #1E3A5F 100%)',
-    platform: 'mobile',
-  },
-  {
-    id: 'sems',
-    slug: 'sems-energy-management',
-    title: 'SEMS: Smart Energy Management',
-    subtitle: 'IoT-powered multi-source energy optimization for Lebanese households',
-    client: 'Likwiid',
-    category: 'IoT',
-    year: '2025 - Present',
-    description:
-      'A Raspberry Pi hub with mobile app for managing three power sources: state grid, private generators, and solar.',
-    challenge:
-      'Lebanese households juggle 3 power sources (state grid, private generators, solar) with no unified management tool. Generator costs consume 44% of average household income.',
-    approach:
-      'Designing a Raspberry Pi hub running Home Assistant OS with a React Native Expo mobile app and cloud backend. Multi-source energy monitoring, AI-driven optimization, and sustainability-first approach.',
-    results:
-      'In development. Targeting 20-30% energy cost reduction through intelligent source switching and consumption optimization.',
-    techStack: ['React Native', 'Expo', 'NestJS', 'PostgreSQL', 'TimescaleDB', 'MQTT', 'Raspberry Pi', 'Zigbee'],
-    images: ['/images/projects/sems/placeholder.svg'],
-    featured: false,
-    gradient: 'linear-gradient(135deg, #134E4A 0%, #1E40AF 100%)',
     platform: 'mobile',
   },
   {
@@ -323,6 +340,7 @@ export const projects: Project[] = [
       'Expo React Native app using device sensors (accelerometer, gyroscope) for real-time movement analysis, camera for video self-review, and a rule-based AI coach that provides specific technique feedback.',
     results:
       'In development. Targeting real-time posture scoring, timing accuracy analysis, and personalized drill recommendations.',
+    businessResult: 'Explores affordable movement feedback for dancers outside private lessons.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'expo-sensors', 'expo-camera', 'SQLite', 'Zustand'],
     images: ['/images/projects/salsa/quest3.webp'],
     featured: false,

@@ -21,8 +21,11 @@ export interface Project {
   challenge: string
   approach: string
   results: string
+  businessResult?: string
   techStack: string[]
   images: string[]
+  previewImage?: string
+  previewAlt?: string
   featured: boolean
   spotlight?: boolean
   gradient: string
