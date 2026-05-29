@@ -1,6 +1,6 @@
 import type { Project } from '../types'
 
-export const projects: Project[] = [
+const projectCatalog: Project[] = [
   {
     id: 'padel-booking',
     slug: 'padel-booking',
@@ -347,6 +347,26 @@ export const projects: Project[] = [
     gradient: 'linear-gradient(135deg, #115E59 0%, #1D4ED8 100%)',
     platform: 'mobile',
   },
+]
+
+const leadProjectIds = [
+  'padel-booking',
+  'gcg-website',
+  'padel-admin',
+  'sems',
+  'bully-ai',
+  'personal-fitness-tracker',
+]
+
+const leadProjectIdSet = new Set(leadProjectIds)
+
+export const projects: Project[] = [
+  ...leadProjectIds.map((id) => {
+    const project = projectCatalog.find((item) => item.id === id)
+    if (!project) throw new Error(`Missing lead project: ${id}`)
+    return project
+  }),
+  ...projectCatalog.filter((project) => !leadProjectIdSet.has(project.id)),
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)
