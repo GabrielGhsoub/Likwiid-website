@@ -8,7 +8,7 @@ interface PhoneFrameProps {
 export function PhoneFrame({ children, className }: PhoneFrameProps) {
   return (
     <div className={cn('inline-flex flex-col items-center', className)}>
-      <div className="relative bg-[#1a1a1a] rounded-[2rem] p-[4px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]" style={{ width: 170 }}>
+      <div className="relative bg-[#1a1a1a] rounded-[2rem] p-[4px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]" style={{ width: 'clamp(210px, 70vw, 320px)' }}>
         {/* Dynamic Island */}
         <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[22%] h-[6px] bg-[#000] rounded-full z-20" />
         {/* Screen */}

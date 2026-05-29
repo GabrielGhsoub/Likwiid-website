@@ -85,15 +85,15 @@ export const projects: Project[] = [
     businessResult: 'Turned fragmented EDL, generator, solar, and battery data into one cost-control dashboard.',
     techStack: ['React Native', 'Expo', 'NestJS', 'TimescaleDB', 'PostgreSQL', 'Redis', 'Socket.io', 'TypeScript'],
     images: [
-      '/images/projects/sems/overview.webp',
+      '/images/projects/sems/dashboard.webp',
       '/images/projects/sems/analytics.webp',
       '/images/projects/sems/devices.webp',
       '/images/projects/sems/tariffs.webp',
-      '/images/projects/sems/architecture.webp',
+      '/images/projects/sems/home-profile.webp',
     ],
     featured: true,
     gradient: 'linear-gradient(135deg, #0F766E 0%, #2563EB 55%, #F59E0B 100%)',
-    platform: 'web',
+    platform: 'mobile',
   },
   {
     id: 'personal-fitness-tracker',

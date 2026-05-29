@@ -80,7 +80,7 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
           </button>
         )}
 
-        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[170px]' : 'w-full max-w-[600px]'}`}>
+        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[220px] sm:w-[280px] md:w-[320px]' : 'w-full max-w-[600px]'}`}>
           <AnimatePresence mode="wait" custom={direction}>
             <m.div
               key={current}
