@@ -8,6 +8,12 @@ interface ImageWithLoadingProps {
   className?: string
   containerClassName?: string
   loading?: 'lazy' | 'eager'
+  decoding?: 'async' | 'sync' | 'auto'
+  fetchPriority?: 'high' | 'low' | 'auto'
+  sizes?: string
+  srcSet?: string
+  width?: number | string
+  height?: number | string
 }
 
 const IMG_INITIAL = { opacity: 0, filter: 'blur(10px)' }
@@ -39,6 +45,12 @@ export function ImageWithLoading({
   className,
   containerClassName,
   loading = 'lazy',
+  decoding = 'async',
+  fetchPriority = 'auto',
+  sizes,
+  srcSet,
+  width,
+  height,
 }: ImageWithLoadingProps) {
   const [loaded, setLoaded] = useState(false)
 
@@ -62,6 +74,12 @@ export function ImageWithLoading({
         animate={loaded ? IMG_LOADED : IMG_EMPTY}
         transition={IMG_TRANSITION}
         loading={loading}
+        decoding={decoding}
+        fetchPriority={fetchPriority}
+        sizes={sizes}
+        srcSet={srcSet}
+        width={width}
+        height={height}
       />
     </div>
   )
