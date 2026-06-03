@@ -199,10 +199,8 @@ export default function CaseStudy() {
 
   return (
     <PageTransition key={slug}>
-      <div className="pt-14 pb-6 md:pb-16">
-        <div className="h-40 md:h-52 w-full bg-bg-primary" />
-
-        <div className="mx-auto max-w-[800px] px-6 -mt-20 relative">
+      <div className="pt-20 pb-16 px-6">
+        <div className="mx-auto max-w-[800px] relative">
           <m.div
             initial={FADE_UP_INITIAL}
             animate={FADE_UP_ANIMATE}
