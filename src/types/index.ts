@@ -33,6 +33,30 @@ export interface Project {
   liveUrl?: string
   liveLabel?: string
   androidUrl?: string
+  // --- Rich case-study fields (optional; sections hide gracefully when absent) ---
+  oneLiner?: string
+  role?: string
+  timeline?: string
+  metrics?: ProjectMetric[]
+  keyFeatures?: ProjectFeature[]
+  architecture?: ProjectArchitectureNote[]
+  highlights?: string[]
+}
+
+export interface ProjectMetric {
+  value: string
+  label: string
+  basis?: string
+}
+
+export interface ProjectFeature {
+  title: string
+  description?: string
+}
+
+export interface ProjectArchitectureNote {
+  area: string
+  detail?: string
 }
 
 export type ProjectCategory = 'Enterprise' | 'Mobile' | 'IoT' | 'AI' | 'All'

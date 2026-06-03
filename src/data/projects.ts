@@ -1,4 +1,5 @@
 import type { Project } from '../types'
+import { projectEnrichment } from './projectEnrichment'
 
 const projectCatalog: Project[] = [
   {
@@ -328,7 +329,7 @@ const projectCatalog: Project[] = [
     id: 'salsaflow',
     slug: 'salsaflow',
     title: 'SalsaFlow',
-    subtitle: 'AI-powered movement analysis for salsa dancers',
+    subtitle: 'Immersive WebXR salsa trainer for Meta Quest with real-time motion grading',
     client: 'Likwiid',
     category: 'AI',
     year: '2025 - Present',
@@ -345,7 +346,7 @@ const projectCatalog: Project[] = [
     images: ['/images/projects/salsa/quest3.webp'],
     featured: false,
     gradient: 'linear-gradient(135deg, #115E59 0%, #1D4ED8 100%)',
-    platform: 'mobile',
+    platform: 'web',
   },
 ]
 
@@ -360,6 +361,11 @@ const leadProjectIds = [
 
 const leadProjectIdSet = new Set(leadProjectIds)
 
+const withEnrichment = (project: Project): Project => {
+  const enrichment = projectEnrichment[project.slug]
+  return enrichment ? { ...project, ...enrichment } : project
+}
+
 export const projects: Project[] = [
   ...leadProjectIds.map((id) => {
     const project = projectCatalog.find((item) => item.id === id)
@@ -367,7 +373,7 @@ export const projects: Project[] = [
     return project
   }),
   ...projectCatalog.filter((project) => !leadProjectIdSet.has(project.id)),
-]
+].map(withEnrichment)
 
 export const featuredProjects = projects.filter((p) => p.featured)
 
