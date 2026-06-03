@@ -1,7 +1,8 @@
 import { useMemo, useState, useCallback, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, Check } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { PhoneFrame, BrowserFrame } from '../components/ui/DeviceFrame'
@@ -28,6 +29,13 @@ const LIQUID_REVEAL = {
   },
 }
 
+const METRIC_COLS: Record<number, string> = {
+  2: 'sm:grid-cols-2',
+  3: 'sm:grid-cols-3',
+  4: 'sm:grid-cols-4',
+  5: 'sm:grid-cols-5',
+}
+
 const SLIDE_VARIANTS = {
   enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -35,6 +43,32 @@ const SLIDE_VARIANTS = {
 }
 const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
 const WHILE_DRAG = { cursor: 'grabbing' as const }
+
+// --- Shared building blocks -------------------------------------------------
+
+function Eyebrow({ children }: { children: ReactNode }) {
+  return (
+    <h2 className="mb-4 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+      {children}
+    </h2>
+  )
+}
+
+function Reveal({ children, className }: { children: ReactNode; className?: string }) {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 })
+  return (
+    <div ref={ref}>
+      <m.div
+        variants={LIQUID_REVEAL}
+        initial="hidden"
+        animate={isVisible ? 'visible' : 'hidden'}
+        className={className}
+      >
+        {children}
+      </m.div>
+    </div>
+  )
+}
 
 function ScreenshotCarousel({ images, title, platform }: { images: string[]; title: string; platform: 'mobile' | 'web' }) {
   const [current, setCurrent] = useState(0)
@@ -165,8 +199,9 @@ function CaseStudySection({ title, content }: { title: string; content: string }
         variants={LIQUID_REVEAL}
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
+        className="border-l-2 border-border pl-5 md:pl-6"
       >
-        <h2 className="text-base md:text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
+        <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
           {title}
         </h2>
         <p className="text-text-secondary leading-relaxed text-lg">{content}</p>
@@ -188,7 +223,18 @@ export default function CaseStudy() {
       { title: 'Challenge', content: project.challenge },
       { title: 'Approach', content: project.approach },
       { title: 'Results', content: project.results },
-    ]
+    ].filter((s) => s.content && s.content.trim().length > 0)
+  }, [project])
+
+  const facts = useMemo(() => {
+    if (!project) return []
+    return [
+      { label: 'Role', value: project.role },
+      { label: 'Timeline', value: project.timeline },
+      { label: 'Year', value: project.year },
+      { label: 'Client', value: project.client },
+      { label: 'Platform', value: project.platform === 'mobile' ? 'Mobile app' : 'Web app' },
+    ].filter((f): f is { label: string; value: string } => Boolean(f.value))
   }, [project])
 
   useEffect(() => {
@@ -197,10 +243,18 @@ export default function CaseStudy() {
 
   if (!project) return <Navigate to="/work" replace />
 
+  const lead = project.oneLiner ?? project.subtitle
+  const metrics = (project.metrics ?? []).slice(0, 5)
+  const metricColClass = METRIC_COLS[Math.min(Math.max(metrics.length, 2), 5)] ?? 'sm:grid-cols-4'
+  const keyFeatures = project.keyFeatures ?? []
+  const architecture = project.architecture ?? []
+  const highlights = project.highlights ?? []
+
   return (
     <PageTransition key={slug}>
       <div className="pt-20 pb-16 px-6">
-        <div className="mx-auto max-w-[800px] relative">
+        <div className="mx-auto max-w-[820px] relative">
+          {/* ---------- Hero ---------- */}
           <m.div
             initial={FADE_UP_INITIAL}
             animate={FADE_UP_ANIMATE}
@@ -208,20 +262,24 @@ export default function CaseStudy() {
           >
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary text-sm mb-6 transition-colors py-2"
+              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary text-sm mb-8 transition-colors py-2"
             >
               <ArrowLeft size={14} /> Back to work
             </Link>
 
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-              <span className="text-xs text-text-tertiary">{project.client}</span>
-            </div>
+            <span className="inline-flex items-center gap-2.5 text-xs text-accent-gold font-[family-name:var(--font-mono)] uppercase tracking-wider">
+              <span className="h-px w-8 bg-accent-gold/50" aria-hidden="true" />
+              {project.category} case study
+            </span>
 
-            <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary">
+            <h1 className="mt-4 text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
               {project.title}
             </h1>
-            <p className="mt-2 text-text-secondary text-lg">{project.subtitle}</p>
+            {lead && (
+              <p className="mt-4 max-w-2xl text-lg md:text-xl leading-relaxed text-text-secondary">
+                {lead}
+              </p>
+            )}
 
             <div className="mt-6 flex flex-wrap items-center gap-2">
               {project.techStack.map((tech) => (
@@ -248,28 +306,142 @@ export default function CaseStudy() {
                 </a>
               )}
             </div>
+
+            {/* ---------- Meta strip ---------- */}
+            {facts.length > 0 && (
+              <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4 border-y border-border py-5">
+                {facts.map((f) => (
+                  <div key={f.label} className="min-w-0">
+                    <dt className="text-[11px] uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
+                      {f.label}
+                    </dt>
+                    <dd className="mt-1 text-sm text-text-primary">{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </m.div>
 
+          {/* ---------- Metrics band ---------- */}
+          {metrics.length > 0 && (
+            <Reveal className="mt-10 border-y border-border py-8">
+              <div className={`grid grid-cols-2 gap-x-4 gap-y-8 ${metricColClass}`}>
+                {metrics.map((metric) => (
+                  <div key={metric.label} className="text-center" title={metric.basis}>
+                    <div className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold leading-tight">
+                      {metric.value}
+                    </div>
+                    <div className="mt-2 text-xs md:text-sm leading-snug text-text-secondary">
+                      {metric.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
+          {/* ---------- Screenshots ---------- */}
           {project.images.length > 0 && (
             <m.div
-              className="mt-12"
+              className="mt-14"
               initial={FADE_UP_INITIAL}
               animate={FADE_UP_ANIMATE}
               transition={TRANSITION_DELAY_015}
             >
-              <h2 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-6">
-                Screenshots
-              </h2>
+              <Eyebrow>Screenshots</Eyebrow>
               <ScreenshotCarousel images={project.images} title={project.title} platform={project.platform} />
             </m.div>
           )}
 
-          <div className="mt-16 space-y-12">
-            {sections.map((section) => (
-              <CaseStudySection key={section.title} title={section.title} content={section.content} />
-            ))}
-          </div>
+          {/* ---------- Narrative ---------- */}
+          {sections.length > 0 && (
+            <div className="mt-16 space-y-12">
+              {sections.map((section) => (
+                <CaseStudySection key={section.title} title={section.title} content={section.content} />
+              ))}
+            </div>
+          )}
 
+          {/* ---------- Key features ---------- */}
+          {keyFeatures.length > 0 && (
+            <Reveal className="mt-16">
+              <Eyebrow>Key features</Eyebrow>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {keyFeatures.map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="rounded-lg border border-border bg-bg-secondary/50 p-5 transition-colors hover:border-border-hover"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-gold-dim text-accent-gold">
+                        <Check size={13} strokeWidth={2.5} />
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
+                          {feature.title}
+                        </h3>
+                        {feature.description && (
+                          <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
+                            {feature.description}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
+          {/* ---------- Architecture ---------- */}
+          {architecture.length > 0 && (
+            <Reveal className="mt-16">
+              <Eyebrow>Under the hood</Eyebrow>
+              <dl className="divide-y divide-border border-y border-border">
+                {architecture.map((note) => (
+                  <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
+                    <dt className="font-medium font-[family-name:var(--font-display)] text-text-primary">
+                      {note.area}
+                    </dt>
+                    {note.detail && (
+                      <dd className="text-sm leading-relaxed text-text-secondary">{note.detail}</dd>
+                    )}
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          )}
+
+          {/* ---------- Highlights ---------- */}
+          {highlights.length > 0 && (
+            <Reveal className="mt-16">
+              <Eyebrow>Notable engineering</Eyebrow>
+              <ul className="space-y-4 border-l-2 border-accent-gold/30 pl-5 md:pl-6">
+                {highlights.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
+                    <span className="text-base leading-relaxed text-text-secondary">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          )}
+
+          {/* ---------- Business impact ---------- */}
+          {project.businessResult && (
+            <Reveal className="mt-16">
+              <div className="rounded-xl border border-accent-gold/30 bg-accent-gold-dim px-6 py-7 md:px-8">
+                <span className="text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+                  Business impact
+                </span>
+                <p className="mt-3 text-xl md:text-2xl font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
+                  {project.businessResult}
+                </p>
+              </div>
+            </Reveal>
+          )}
+
+          {/* ---------- Next project ---------- */}
           <m.div
             className="mt-20 pt-8 border-t border-border"
             initial={FADE_IN_INITIAL}
