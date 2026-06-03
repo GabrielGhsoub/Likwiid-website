@@ -53,6 +53,7 @@ const projectCatalog: Project[] = [
     techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router'],
     images: [
       '/images/projects/gcg/home.webp',
+      '/images/projects/gcg/dark-home.webp',
       '/images/projects/gcg/pathways.webp',
       '/images/projects/gcg/services.webp',
       '/images/projects/gcg/process.webp',
@@ -181,6 +182,7 @@ const projectCatalog: Project[] = [
     featured: true,
     gradient: 'linear-gradient(135deg, #0F172A 0%, #0F766E 54%, #F59E0B 100%)',
     platform: 'web',
+    platformLabel: 'macOS · Menu bar',
   },
   {
     id: 'linkedin-templates-extension',

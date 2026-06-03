@@ -30,6 +30,7 @@ export interface Project {
   spotlight?: boolean
   gradient: string
   platform: 'mobile' | 'web'
+  platformLabel?: string
   liveUrl?: string
   liveLabel?: string
   androidUrl?: string

@@ -233,7 +233,7 @@ export default function CaseStudy() {
       { label: 'Timeline', value: project.timeline },
       { label: 'Year', value: project.year },
       { label: 'Client', value: project.client },
-      { label: 'Platform', value: project.platform === 'mobile' ? 'Mobile app' : 'Web app' },
+      { label: 'Platform', value: project.platformLabel ?? (project.platform === 'mobile' ? 'Mobile app' : 'Web app') },
     ].filter((f): f is { label: string; value: string } => Boolean(f.value))
   }, [project])
 
