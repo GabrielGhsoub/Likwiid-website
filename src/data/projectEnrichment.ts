@@ -53,7 +53,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "12",
-        "label": "Skill tiers (D–A+)"
+        "label": "Skill tiers (D-A+)"
       },
       {
         "value": "70+",
@@ -133,7 +133,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "results": "A deployed portal driving the full league lifecycle without touching the database: one-click weekly pairings in five modes, auto-recomputed tie-broken standings, per-player stats, and a semi-final/final bracket. Jest covers the high-risk logic; CI/CD backs up the DB before every deploy.",
     "businessResult": "Turned league admin from spreadsheet guesswork into a few clicks a week, with fair pairings and standings automatic.",
     "role": "Solo design, build and ship (full-stack: React admin portal + NestJS backend)",
-    "timeline": "~Jan–Mar 2025 (backend scaffolded late Jan, admin portal iterated through mid-Mar per git/file dates)",
+    "timeline": "~Jan-Mar 2025 (backend scaffolded late Jan, admin portal iterated through mid-Mar per git/file dates)",
     "techStack": [
       "React 19",
       "TypeScript",
@@ -321,7 +321,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
   "sems-energy-management": {
     "oneLiner": "One dashboard for homes juggling EDL grid, generators, solar and batteries in Lebanon",
     "description": "A software-first energy platform for Lebanese homes running EDL grid, diesel generators, solar and batteries at once. One live dashboard shows what's powering the home, what it costs, and how source switches hit the bill.",
-    "challenge": "Consumer energy products assume a stable single-source grid; none handle a Lebanese home drawing from grid, generator, solar and battery the same day — and it had to be proven with no meter hardware yet.",
+    "challenge": "Consumer energy products assume a stable single-source grid; none handle a Lebanese home drawing from grid, generator, solar and battery the same day, and it had to be proven with no meter hardware yet.",
     "approach": "A TypeScript Turborepo (pnpm) built end to end: NestJS 10 + Prisma over PostgreSQL 16/TimescaleDB and Redis, an Expo SDK 54 app, and a deterministic simulator modeling real Lebanese energy cycles to validate everything before hardware.",
     "results": "Phase 1 POC verified end to end against live TimescaleDB and Redis: ~38 endpoints returned expected status, both continuous aggregates materialized, and the simulator seeded 7,205 readings/day in under 0.1s. The app ships auth, live dashboard, device management, analytics and four demo scenarios.",
     "businessResult": "Unifies grid, generator, solar and battery into one source-aware cost dashboard, validated end to end before any hardware spend.",
@@ -418,9 +418,9 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
   "voxflow": {
     "oneLiner": "Offline-first vocal re-education: a guided 10-minute routine with private recordings and A/B compare",
     "description": "VoxFlow is an Android-first, fully offline app that folds voice-practice timer, instructions, recorder, and reference reading into one calm, clinically-sequenced 10-minute routine. No account, no server, no telemetry.",
-    "challenge": "Voice-recovery practice fails because a session means juggling a timer, notes, recorder, and articles — while most apps add streak guilt and cloud accounts. VoxFlow had to unify all of it offline, account-free, in a non-judgmental clinical tone.",
+    "challenge": "Voice-recovery practice fails because a session means juggling a timer, notes, recorder, and articles, while most apps add streak guilt and cloud accounts. VoxFlow had to unify all of it offline, account-free, in a non-judgmental clinical tone.",
     "approach": "Built with Expo and React Native around a deterministic routine engine: one phase timeline (six phases, 600s) derives phase, exercise, breath cue, and pitch from a single clock. expo-audio handles capture with live metering; a run-token A/B player cancels cleanly across modes.",
-    "results": "A complete installable Android app (com.likwiid.voxflow): onboarding with a permanent Day-Zero baseline, guided six-phase session, recordings library, three-mode A/B compare, progress calendar with milestone timeline, gated learn library, and local JSON export. Zero runtime network calls — all data stays device-local.",
+    "results": "A complete installable Android app (com.likwiid.voxflow): onboarding with a permanent Day-Zero baseline, guided six-phase session, recordings library, three-mode A/B compare, progress calendar with milestone timeline, gated learn library, and local JSON export. Zero runtime network calls, all data stays device-local.",
     "businessResult": "Packaged fragmented vocal practice into one private, offline 10-minute routine with built-in progress and comparison.",
     "role": "Solo design, build and ship (Likwiid)",
     "timeline": "Core build concentrated over a focused sprint in May 2026 (16 commits, foundation through QA hardening)",
@@ -466,7 +466,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         "title": "Private on-device recording with live coaching",
-        "description": "High-quality expo-audio capture, too-quiet/steady/too-loud metering, waveform from file bytes — never uploaded."
+        "description": "High-quality expo-audio capture, too-quiet/steady/too-loud metering, waveform from file bytes, never uploaded."
       },
       {
         "title": "Offline-first, account-free privacy",
@@ -478,7 +478,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         "title": "Private progress without gamification",
-        "description": "Monthly calendar, weekly target, streak logic, and Day 7/14/30/60/90 timeline — no points or leaderboards."
+        "description": "Monthly calendar, weekly target, streak logic, and Day 7/14/30/60/90 timeline, no points or leaderboards."
       }
     ],
     "architecture": [
@@ -500,13 +500,13 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         "area": "Data portability",
-        "detail": "Storage-abstracted JSON export snapshots all keys and file:// audio refs — no cloud."
+        "detail": "Storage-abstracted JSON export snapshots all keys and file:// audio refs, no cloud."
       }
     ],
     "highlights": [
       "10-minute routine: six phases summing to exactly 600 seconds",
       "Three A/B compare modes with run-token playback cancellation",
-      "Zero network calls — every byte stays device-local",
+      "Zero network calls, every byte stays device-local",
       "10 learn articles, 35 reading passages across 4 languages incl. Arabic RTL",
       "Waveforms rendered deterministically from actual audio file bytes"
     ]
@@ -519,7 +519,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "results": "A test-backed companion across eight screens. Live 1Hz zone-colored HR with spoken zone, interval, cadence, and fueling cues; optional voice AI coach. Post-run it stores the full trace, cloud-corrects elevation, and computes MAF pace, GAP, decoupling, VDOT, and CTL/ATL/TSB load. 16 analytics modules, 93 unit tests, optional sync and GPX export.",
     "businessResult": "A single on-device coach that guides a 12-week endurance plan live and explains it afterward.",
     "role": "Solo design, build and ship",
-    "timeline": "~5 weeks (Apr 28 – Jun 3, 2026, per git history)",
+    "timeline": "~5 weeks (Apr 28 - Jun 3, 2026, per git history)",
     "techStack": [
       "React Native 0.83",
       "Expo SDK 55",
@@ -809,13 +809,13 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
   },
   "breathebreak": {
     "oneLiner": "Native macOS menu-bar coach that turns screen-heavy days into Buteyko-paced breathing check-ins",
-    "description": "BreatheBreak is a native macOS menu-bar coach that keeps recovery breathing present during deep work without stealing focus. It runs Dock-less as an LSUIElement agent, paces Buteyko-inspired reminders, and tracks Control Pause CO2 tolerance — all on-device.",
+    "description": "BreatheBreak is a native macOS menu-bar coach that keeps recovery breathing present during deep work without stealing focus. It runs Dock-less as an LSUIElement agent, paces Buteyko-inspired reminders, and tracks Control Pause CO2 tolerance, all on-device.",
     "challenge": "A breathing tool only works mid-task, but opening an app or sitting through forced animations breaks the focus it protects. The goal: cue breathing all day while staying silent during calls, Focus mode, and off-hours.",
     "approach": "A SwiftUI + AppKit MenuBarExtra app with three interruption tiers (icon pulse, edge toast, floating NSPanel overlay). A DispatchSourceTimer drives scheduling; a TrainingPhase state machine auto-paces reminders; sessions persist via SwiftData.",
     "results": "A sandbox-compliant macOS 14+ companion that runs invisibly: countdown popover with snooze/pause, context-aware reminders respecting calls and Focus mode, full Buteyko progression, and Control Pause tracking with streaks and a Swift Charts 7-day trend.",
     "businessResult": "Keeps recovery breathing present all day without pulling users out of deep work, calls, or Focus mode.",
     "role": "Solo design, build and ship",
-    "timeline": "Built March 2026 (source commits 12–31 Mar 2026); shipping as v1.0.0",
+    "timeline": "Built March 2026 (source commits 12-31 Mar 2026); shipping as v1.0.0",
     "techStack": [
       "Swift",
       "SwiftUI",
@@ -848,7 +848,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "keyFeatures": [
       {
         "title": "Context-aware reminder engine",
-        "description": "Four skip guards — active hours, pause, in-meeting, system Focus/DND — gate every cue."
+        "description": "Four skip guards (active hours, pause, in-meeting, system Focus/DND) gate every cue."
       },
       {
         "title": "Buteyko adaptive progression",
@@ -890,10 +890,10 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       }
     ],
     "highlights": [
-      "Solved the App Sandbox Focus-mode gap (no public API) by parsing DoNotDisturb Assertions.json, falling back to controlcenter/ncprefs domains, and subscribing to DND notifications — throttled and cached for high-frequency reads.",
-      "Three-tier interruption design (icon pulse to edge toast to full overlay) keyed to cycle count and training phase — present without nagging.",
+      "Solved the App Sandbox Focus-mode gap (no public API) by parsing DoNotDisturb Assertions.json, falling back to controlcenter/ncprefs domains, and subscribing to DND notifications, throttled and cached for high-frequency reads.",
+      "Three-tier interruption design (icon pulse to edge toast to full overlay) keyed to cycle count and training phase, present without nagging.",
       "TrainingPhase state machine reads weekly completion: offers to level up at 80%+ or ease off below 50%, turning a fixed timer into a habit protocol.",
-      "Declarative breathing engine — each exercise is an array of BreathPhase(instruction, duration, targetScale) values the overlay and toast animate identically.",
+      "Declarative breathing engine, each exercise is an array of BreathPhase(instruction, duration, targetScale) values the overlay and toast animate identically.",
       "Resilient scheduling: DispatchSourceTimer with a persisted next-fire date survives relaunch, plus a one-shot-then-repeat pattern for clean snooze handling.",
       "Defensive audio with a three-approach fallback (NSSound named, NSSound from file, AudioServices) and a strong reference held to survive ARC mid-playback.",
       "Clean separation across AppState, BreathReminderManager, ProcessMonitor, FocusModeObserver, SoundManager, and OverlayCoordinator, wired via Combine."
@@ -998,7 +998,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "description": "A production-grade NestJS reference backend that turns structured clinical data into encrypted, audit-tracked medical PDFs. Built for healthcare integrators needing HIPAA-aligned PHI handling out of the box.",
     "challenge": "Rendering a PDF is easy; the hard part is access control, encrypting PHI at rest, keeping it out of logs, an immutable compliance audit trail, and clean self-serve docs.",
     "approach": "A modular NestJS 10 app with one bounded module per concern. Puppeteer renders Handlebars templates via sync and async (Bull/Redis) paths; a single EncryptionService centralizes AES-256-GCM and SHA-256, with PostgreSQL/TypeORM persistence.",
-    "results": "Docker-deployable API with sync/async generation, five seeded templates, scoped hashed API keys, AES-256-GCM encryption of PHI and PDFs, a queryable audit trail, retry webhooks, health probes, and nightly retention expiry — backed by 96 unit tests.",
+    "results": "Docker-deployable API with sync/async generation, five seeded templates, scoped hashed API keys, AES-256-GCM encryption of PHI and PDFs, a queryable audit trail, retry webhooks, health probes, and nightly retention expiry, backed by 96 unit tests.",
     "businessResult": "Enterprise backend depth: encryption, auditability, and clean API operations a healthcare integrator could build on.",
     "role": "Solo architecture, build and documentation",
     "techStack": [
@@ -1046,7 +1046,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         "title": "Five seeded medical templates",
-        "description": "Report, prescription, lab results, patient summary, CMS-1500 — Handlebars, seeded via migration."
+        "description": "Report, prescription, lab results, patient summary, CMS-1500, Handlebars, seeded via migration."
       },
       {
         "title": "HIPAA-style audit trail",
