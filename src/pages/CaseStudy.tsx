@@ -1,8 +1,8 @@
-import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
+import { useMemo, useState, useCallback, useEffect, useLayoutEffect } from 'react'
 import type { ReactNode } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, ChevronDown, Check } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { PhoneFrame, BrowserFrame } from '../components/ui/DeviceFrame'
@@ -44,6 +44,15 @@ const WHILE_DRAG = { cursor: 'grabbing' as const }
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
+// Strip versions / noise so hero tags stay high-level (e.g. "Expo SDK 54" -> "Expo")
+const simplifyTech = (t: string) =>
+  t
+    .replace(/\s+REST API$/i, '')
+    .replace(/\s+SDK\s+[\d.]+$/i, '')
+    .replace(/\s+MV3$/i, '')
+    .replace(/\s+v?\d+(\.\d+)*$/i, '')
+    .trim()
 
 // --- Shared building blocks -------------------------------------------------
 
@@ -266,7 +275,6 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
 
 export default function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
-  const gridRef = useRef<HTMLDivElement>(null)
   const projectIndex = projects.findIndex((p) => p.slug === slug)
   const project = projects[projectIndex]
   const nextProject = projects[(projectIndex + 1) % projects.length]
@@ -292,17 +300,27 @@ export default function CaseStudy() {
     ].filter((f): f is { label: string; value: string } => Boolean(f.value))
   }, [project])
 
+  const [techOpen, setTechOpen] = useState(false)
+
   useEffect(() => {
     document.title = project ? `${project.title} | Likwiid` : 'Likwiid'
   }, [project])
+
+  // Each case study (incl. "Next project") should open at the top, not keep prior scroll.
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [slug])
 
   if (!project) return <Navigate to="/work" replace />
 
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 5)
+  const images = project.images.slice(0, 4)
+  const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 5)
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
   const highlights = project.highlights ?? []
+  const hasTechDetails = project.techStack.length > 0 || architecture.length > 0 || highlights.length > 0
 
   return (
     <PageTransition key={slug}>
@@ -322,8 +340,6 @@ export default function CaseStudy() {
             animate={FADE_UP_ANIMATE}
             transition={TRANSITION_BASE}
           >
-            <Eyebrow>{project.category} case study</Eyebrow>
-
             <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
               {project.title}
             </h1>
@@ -334,7 +350,7 @@ export default function CaseStudy() {
             )}
 
             <div className="mt-6 flex flex-wrap items-center gap-2">
-              {project.techStack.map((tech) => (
+              {heroTags.map((tech) => (
                 <Badge key={tech}>{tech}</Badge>
               ))}
               {project.liveUrl && (
@@ -378,15 +394,14 @@ export default function CaseStudy() {
           {metrics.length > 0 && <MetricsBand metrics={metrics} />}
 
           {/* ---------- Screenshots ---------- */}
-          {project.images.length > 0 && (
+          {images.length > 0 && (
             <m.div
               className="mt-14"
               initial={FADE_UP_INITIAL}
               animate={FADE_UP_ANIMATE}
               transition={TRANSITION_DELAY_015}
             >
-              <Eyebrow>Screenshots</Eyebrow>
-              <ScreenshotCarousel images={project.images} title={project.title} platform={project.platform} />
+              <ScreenshotCarousel images={images} title={project.title} platform={project.platform} />
             </m.div>
           )}
 
@@ -401,7 +416,7 @@ export default function CaseStudy() {
           {/* ---------- Challenge → Approach → Outcome ---------- */}
           {steps.length > 0 && (
             <Reveal className="mt-14">
-              <div ref={gridRef} className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+              <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
                 {steps.map((step, i) => (
                   <div key={step.label} className="flex flex-col bg-bg-secondary p-5">
                     <div className="mb-3 flex items-center gap-2.5">
@@ -446,43 +461,6 @@ export default function CaseStudy() {
             </Reveal>
           )}
 
-          {/* ---------- Architecture ---------- */}
-          {architecture.length > 0 && (
-            <Reveal className="mt-16">
-              <Eyebrow>Under the hood</Eyebrow>
-              <dl className="divide-y divide-border border-y border-border">
-                {architecture.map((note, i) => (
-                  <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-6">
-                    <dt className="flex items-center gap-2.5 font-medium font-[family-name:var(--font-display)] text-text-primary">
-                      <span className="font-[family-name:var(--font-mono)] text-xs text-accent-gold/70">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      {note.area}
-                    </dt>
-                    {note.detail && (
-                      <dd className="text-sm leading-relaxed text-text-secondary">{note.detail}</dd>
-                    )}
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          )}
-
-          {/* ---------- Highlights ---------- */}
-          {highlights.length > 0 && (
-            <Reveal className="mt-16">
-              <Eyebrow>Notable engineering</Eyebrow>
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {highlights.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
-                    <span className="text-sm leading-relaxed text-text-secondary">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          )}
-
           {/* ---------- Business impact ---------- */}
           {project.businessResult && (
             <Reveal className="mt-16">
@@ -494,6 +472,89 @@ export default function CaseStudy() {
                   {project.businessResult}
                 </p>
               </div>
+            </Reveal>
+          )}
+
+          {/* ---------- Technical details (collapsed) ---------- */}
+          {hasTechDetails && (
+            <Reveal className="mt-16">
+              <button
+                type="button"
+                onClick={() => setTechOpen((o) => !o)}
+                aria-expanded={techOpen}
+                className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-bg-secondary/50 px-5 py-4 text-left transition-colors hover:border-border-hover"
+              >
+                <span className="flex flex-col gap-0.5">
+                  <span className="font-[family-name:var(--font-mono)] text-xs font-medium uppercase tracking-wider text-accent-gold">
+                    Technical details
+                  </span>
+                  <span className="text-sm text-text-tertiary">Stack, architecture &amp; engineering notes</span>
+                </span>
+                <ChevronDown
+                  size={18}
+                  className={`shrink-0 text-text-tertiary transition-transform duration-300 ${techOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <AnimatePresence initial={false}>
+                {techOpen && (
+                  <m.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-10 px-1 pt-8">
+                      {project.techStack.length > 0 && (
+                        <div>
+                          <Eyebrow>Tech stack</Eyebrow>
+                          <div className="flex flex-wrap gap-2">
+                            {project.techStack.map((tech) => (
+                              <Badge key={tech}>{tech}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {architecture.length > 0 && (
+                        <div>
+                          <Eyebrow>Under the hood</Eyebrow>
+                          <dl className="divide-y divide-border border-y border-border">
+                            {architecture.map((note, i) => (
+                              <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-6">
+                                <dt className="flex items-center gap-2.5 font-medium font-[family-name:var(--font-display)] text-text-primary">
+                                  <span className="font-[family-name:var(--font-mono)] text-xs text-accent-gold/70">
+                                    {String(i + 1).padStart(2, '0')}
+                                  </span>
+                                  {note.area}
+                                </dt>
+                                {note.detail && (
+                                  <dd className="text-sm leading-relaxed text-text-secondary">{note.detail}</dd>
+                                )}
+                              </div>
+                            ))}
+                          </dl>
+                        </div>
+                      )}
+
+                      {highlights.length > 0 && (
+                        <div>
+                          <Eyebrow>Notable engineering</Eyebrow>
+                          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                            {highlights.map((item, i) => (
+                              <li key={i} className="flex items-start gap-3">
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
+                                <span className="text-sm leading-relaxed text-text-secondary">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </m.div>
+                )}
+              </AnimatePresence>
             </Reveal>
           )}
 
