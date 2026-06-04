@@ -55,7 +55,7 @@ export default function App() {
   usePrefetchRoutes()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    window.scrollTo(0, 0)
   }, [location.pathname, location.key])
 
   return (
