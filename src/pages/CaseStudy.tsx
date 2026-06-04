@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback, useEffect } from 'react'
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
@@ -8,14 +8,12 @@ import { Badge } from '../components/ui/Badge'
 import { PhoneFrame, BrowserFrame } from '../components/ui/DeviceFrame'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { projects } from '../data/projects'
+import type { ProjectMetric } from '../types'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
-const FADE_IN_INITIAL = { opacity: 0 }
-const FADE_IN_ANIMATE = { opacity: 1 }
 const TRANSITION_BASE = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }
-const TRANSITION_DELAY_06 = { duration: 0.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] as const }
 
 const LIQUID_REVEAL = {
   hidden: { opacity: 0, y: 20 },
@@ -24,7 +22,7 @@ const LIQUID_REVEAL = {
     y: 0,
     transition: {
       opacity: { duration: 0.5 },
-      y: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+      y: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
     },
   },
 }
@@ -44,11 +42,15 @@ const SLIDE_VARIANTS = {
 const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
 const WHILE_DRAG = { cursor: 'grabbing' as const }
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
 // --- Shared building blocks -------------------------------------------------
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-4 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+    <h2 className="mb-4 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+      <span className="h-px w-6 bg-accent-gold/50" aria-hidden="true" />
       {children}
     </h2>
   )
@@ -66,6 +68,77 @@ function Reveal({ children, className }: { children: ReactNode; className?: stri
       >
         {children}
       </m.div>
+    </div>
+  )
+}
+
+// --- Animated metric counter ------------------------------------------------
+
+function parseMetric(value: string) {
+  const match = /^(\d[\d,]*(?:\.\d+)?)(.*)$/.exec(value.trim())
+  if (!match) return { num: null as number | null, decimals: 0, hasComma: false, suffix: value }
+  const raw = match[1]
+  return {
+    num: parseFloat(raw.replace(/,/g, '')),
+    decimals: raw.includes('.') ? raw.split('.')[1].length : 0,
+    hasComma: raw.includes(','),
+    suffix: match[2],
+  }
+}
+
+function CountUpMetric({ metric, active }: { metric: ProjectMetric; active: boolean }) {
+  const parsed = useMemo(() => parseMetric(metric.value), [metric.value])
+  // Static for non-numeric / reduced-motion; otherwise animate up from 0 once visible.
+  const animates = parsed.num !== null && !prefersReducedMotion()
+  const [display, setDisplay] = useState(parsed.num === null ? 0 : animates ? 0 : parsed.num)
+
+  useEffect(() => {
+    if (!animates || !active || parsed.num === null) return
+    const target = parsed.num
+    const duration = 1100
+    let raf = 0
+    let startTs = 0
+    const step = (ts: number) => {
+      if (!startTs) startTs = ts
+      const t = Math.min((ts - startTs) / duration, 1)
+      const eased = 1 - Math.pow(1 - t, 3)
+      setDisplay(target * eased)
+      if (t < 1) raf = requestAnimationFrame(step)
+      else setDisplay(target)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [parsed.num, active, animates])
+
+  let rendered: string
+  if (parsed.num === null) {
+    rendered = metric.value
+  } else {
+    const n = parsed.decimals > 0 ? display.toFixed(parsed.decimals) : Math.round(display).toString()
+    const withSep = parsed.hasComma ? Number(n).toLocaleString('en-US') : n
+    rendered = withSep + parsed.suffix
+  }
+
+  return (
+    <div className="text-center" title={metric.basis}>
+      <div className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold leading-tight tabular-nums">
+        {rendered}
+      </div>
+      <div className="mt-2 text-xs md:text-sm leading-snug text-text-secondary">{metric.label}</div>
+    </div>
+  )
+}
+
+function MetricsBand({ metrics }: { metrics: ProjectMetric[] }) {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 })
+  const colClass = METRIC_COLS[Math.min(Math.max(metrics.length, 2), 5)] ?? 'sm:grid-cols-4'
+  return (
+    <div ref={ref} className="mt-10 border-y border-border py-8">
+      <div className={`grid grid-cols-2 gap-x-4 gap-y-8 ${colClass}`}>
+        {metrics.map((metric) => (
+          <CountUpMetric key={metric.label} metric={metric} active={isVisible} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -191,38 +264,20 @@ function ScreenshotCarousel({ images, title, platform }: { images: string[]; tit
   )
 }
 
-function CaseStudySection({ title, content }: { title: string; content: string }) {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 })
-  return (
-    <div ref={ref}>
-      <m.section
-        variants={LIQUID_REVEAL}
-        initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
-        className="border-l-2 border-border pl-5 md:pl-6"
-      >
-        <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
-          {title}
-        </h2>
-        <p className="text-text-secondary leading-relaxed text-lg">{content}</p>
-      </m.section>
-    </div>
-  )
-}
-
 export default function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
+  const gridRef = useRef<HTMLDivElement>(null)
   const projectIndex = projects.findIndex((p) => p.slug === slug)
   const project = projects[projectIndex]
   const nextProject = projects[(projectIndex + 1) % projects.length]
 
-  const sections = useMemo(() => {
+  // Challenge → Approach → Outcome as a compact 3-step flow
+  const steps = useMemo(() => {
     if (!project) return []
     return [
-      { title: 'Overview', content: project.description },
-      { title: 'Challenge', content: project.challenge },
-      { title: 'Approach', content: project.approach },
-      { title: 'Results', content: project.results },
+      { label: 'Challenge', content: project.challenge },
+      { label: 'Approach', content: project.approach },
+      { label: 'Outcome', content: project.results },
     ].filter((s) => s.content && s.content.trim().length > 0)
   }, [project])
 
@@ -245,7 +300,6 @@ export default function CaseStudy() {
 
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 5)
-  const metricColClass = METRIC_COLS[Math.min(Math.max(metrics.length, 2), 5)] ?? 'sm:grid-cols-4'
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
   const highlights = project.highlights ?? []
@@ -254,25 +308,23 @@ export default function CaseStudy() {
     <PageTransition key={slug}>
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[820px] relative">
+          {/* ---------- Back link ---------- */}
+          <Link
+            to="/work"
+            className="mb-8 inline-flex w-fit items-center gap-2 py-1 text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >
+            <ArrowLeft size={14} /> Back to work
+          </Link>
+
           {/* ---------- Hero ---------- */}
           <m.div
             initial={FADE_UP_INITIAL}
             animate={FADE_UP_ANIMATE}
             transition={TRANSITION_BASE}
           >
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary text-sm mb-8 transition-colors py-2"
-            >
-              <ArrowLeft size={14} /> Back to work
-            </Link>
+            <Eyebrow>{project.category} case study</Eyebrow>
 
-            <span className="inline-flex items-center gap-2.5 text-xs text-accent-gold font-[family-name:var(--font-mono)] uppercase tracking-wider">
-              <span className="h-px w-8 bg-accent-gold/50" aria-hidden="true" />
-              {project.category} case study
-            </span>
-
-            <h1 className="mt-4 text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
               {project.title}
             </h1>
             {lead && (
@@ -322,23 +374,8 @@ export default function CaseStudy() {
             )}
           </m.div>
 
-          {/* ---------- Metrics band ---------- */}
-          {metrics.length > 0 && (
-            <Reveal className="mt-10 border-y border-border py-8">
-              <div className={`grid grid-cols-2 gap-x-4 gap-y-8 ${metricColClass}`}>
-                {metrics.map((metric) => (
-                  <div key={metric.label} className="text-center" title={metric.basis}>
-                    <div className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold leading-tight">
-                      {metric.value}
-                    </div>
-                    <div className="mt-2 text-xs md:text-sm leading-snug text-text-secondary">
-                      {metric.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          )}
+          {/* ---------- Metrics band (animated) ---------- */}
+          {metrics.length > 0 && <MetricsBand metrics={metrics} />}
 
           {/* ---------- Screenshots ---------- */}
           {project.images.length > 0 && (
@@ -353,39 +390,55 @@ export default function CaseStudy() {
             </m.div>
           )}
 
-          {/* ---------- Narrative ---------- */}
-          {sections.length > 0 && (
-            <div className="mt-16 space-y-12">
-              {sections.map((section) => (
-                <CaseStudySection key={section.title} title={section.title} content={section.content} />
-              ))}
-            </div>
+          {/* ---------- Overview ---------- */}
+          {project.description && (
+            <Reveal className="mt-16">
+              <Eyebrow>Overview</Eyebrow>
+              <p className="max-w-2xl text-lg leading-relaxed text-text-secondary">{project.description}</p>
+            </Reveal>
+          )}
+
+          {/* ---------- Challenge → Approach → Outcome ---------- */}
+          {steps.length > 0 && (
+            <Reveal className="mt-14">
+              <div ref={gridRef} className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+                {steps.map((step, i) => (
+                  <div key={step.label} className="flex flex-col bg-bg-secondary p-5">
+                    <div className="mb-3 flex items-center gap-2.5">
+                      <span className="font-[family-name:var(--font-mono)] text-sm font-semibold text-accent-gold">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-xs font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
+                        {step.label}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-relaxed text-text-secondary">{step.content}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           )}
 
           {/* ---------- Key features ---------- */}
           {keyFeatures.length > 0 && (
             <Reveal className="mt-16">
               <Eyebrow>Key features</Eyebrow>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {keyFeatures.map((feature) => (
                   <div
                     key={feature.title}
-                    className="rounded-lg border border-border bg-bg-secondary/50 p-5 transition-colors hover:border-border-hover"
+                    className="flex items-start gap-3 rounded-lg border border-border bg-bg-secondary/50 p-4 transition-colors hover:border-border-hover"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-gold-dim text-accent-gold">
-                        <Check size={13} strokeWidth={2.5} />
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
-                          {feature.title}
-                        </h3>
-                        {feature.description && (
-                          <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-                            {feature.description}
-                          </p>
-                        )}
-                      </div>
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-gold-dim text-accent-gold">
+                      <Check size={13} strokeWidth={2.5} />
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
+                        {feature.title}
+                      </h3>
+                      {feature.description && (
+                        <p className="mt-1 text-sm leading-snug text-text-secondary">{feature.description}</p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -398,9 +451,12 @@ export default function CaseStudy() {
             <Reveal className="mt-16">
               <Eyebrow>Under the hood</Eyebrow>
               <dl className="divide-y divide-border border-y border-border">
-                {architecture.map((note) => (
-                  <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
-                    <dt className="font-medium font-[family-name:var(--font-display)] text-text-primary">
+                {architecture.map((note, i) => (
+                  <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-6">
+                    <dt className="flex items-center gap-2.5 font-medium font-[family-name:var(--font-display)] text-text-primary">
+                      <span className="font-[family-name:var(--font-mono)] text-xs text-accent-gold/70">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
                       {note.area}
                     </dt>
                     {note.detail && (
@@ -416,11 +472,11 @@ export default function CaseStudy() {
           {highlights.length > 0 && (
             <Reveal className="mt-16">
               <Eyebrow>Notable engineering</Eyebrow>
-              <ul className="space-y-4 border-l-2 border-accent-gold/30 pl-5 md:pl-6">
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {highlights.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
-                    <span className="text-base leading-relaxed text-text-secondary">{item}</span>
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
+                    <span className="text-sm leading-relaxed text-text-secondary">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -442,12 +498,7 @@ export default function CaseStudy() {
           )}
 
           {/* ---------- Next project ---------- */}
-          <m.div
-            className="mt-20 pt-8 border-t border-border"
-            initial={FADE_IN_INITIAL}
-            animate={FADE_IN_ANIMATE}
-            transition={TRANSITION_DELAY_06}
-          >
+          <m.div className="mt-20 pt-8 border-t border-border">
             <Link
               to={`/work/${nextProject.slug}`}
               className="group flex items-center justify-between no-underline"
