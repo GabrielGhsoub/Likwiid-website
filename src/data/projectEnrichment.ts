@@ -52,29 +52,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "12-tier",
-        "label": "Skill rating scale (D- to A+)",
-        "basis": "data/constants/skill-levels.ts SKILL_LEVEL_LABELS plus 1-12 numeric mapping; ratings.api.ts RATING_SCALE"
+        "value": "12",
+        "label": "Skill tiers (D–A+)"
       },
       {
         "value": "70+",
-        "label": "REST API endpoints integrated",
-        "basis": "17 *.api.ts modules in services/api/ and 90+ endpoint workarounds documented in CLAUDE.md"
+        "label": "Backend endpoints"
       },
       {
-        "value": "3 languages / ~1,494 keys each",
-        "label": "Trilingual EN/AR/FR with RTL",
-        "basis": "i18n/en.json, ar.json, fr.json; en.json has 1,494 colon-delimited keys; i18n/config.ts forces RTL for Arabic"
+        "value": "3",
+        "label": "Languages, RTL Arabic"
       },
       {
-        "value": "4",
-        "label": "League pairing algorithms",
-        "basis": "PairingMethod enum in shared/types/league.types.ts: random, skill_based, swiss, round_robin"
-      },
-      {
-        "value": "24h",
-        "label": "Offline cache window",
-        "basis": "shared/lib/queryClient.ts gcTime 1000*60*60*24 with expo-network onlineManager listener"
+        "value": "2",
+        "label": "App stores live"
       }
     ],
     "keyFeatures": [
@@ -166,24 +157,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "5 pairing methods",
-        "label": "Pairing algorithms",
-        "basis": "PairingMethod enum (random, skill_based, swiss, manual, round_robin) in src/modules/leagues/enums/pairing-method.enum.ts; logic in league-pairing.service.ts"
+        "value": "5",
+        "label": "Pairing methods"
       },
       {
-        "value": "7 league tabs",
-        "label": "League workspace views",
-        "basis": "TabsTrigger values (overview, players, weeks, matches, standings, statistics, playoff) in Padel-Admin/src/pages/league-details.tsx"
+        "value": "7",
+        "label": "Workspace views"
       },
       {
-        "value": "38 league endpoints",
-        "label": "Backend league API surface",
-        "basis": "Count of @Get/@Post/@Put/@Delete decorators across src/modules/leagues/controllers/ (5 controllers)"
+        "value": "38",
+        "label": "API endpoints"
       },
       {
-        "value": "JWT + rotating refresh",
-        "label": "Auth model",
-        "basis": "auth.service.ts: signAsync access (1h) + refresh (30d), storeRefreshToken hashed in Redis, REFRESH_LOCK_PREFIX guards concurrent refresh"
+        "value": "1-click",
+        "label": "Weekly pairings"
       }
     ],
     "keyFeatures": [
@@ -259,23 +246,19 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "9",
-        "label": "Routes",
-        "basis": "src/config/routes.tsx + src/shared/constants/routes.ts: Home, Invest, Careers, Tutoring, Research, Privacy, Terms, Accessibility, NotFound"
+        "label": "Pages"
       },
       {
         "value": "4",
-        "label": "Audience pathways",
-        "basis": "PATHWAYS array in src/components/Pathways.tsx (Organizations, Research Teams, Students & Families, Partners & Investors)"
+        "label": "Audience pathways"
       },
       {
-        "value": "3 themes",
-        "label": "Light / dark / system",
-        "basis": "src/contexts/ThemeContext.tsx theme modes; CSS variables in src/index.css :root and [data-theme='dark']; no-flash inline script in index.html"
+        "value": "3",
+        "label": "Themes"
       },
       {
         "value": "0",
-        "label": "Backend / network calls for forms",
-        "basis": "AGENTS.md 'no backend integration'; Contact.tsx and Footer.tsx use mailto: drafts only"
+        "label": "Backend dependencies"
       }
     ],
     "keyFeatures": [
@@ -365,23 +348,19 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "4",
-        "label": "power sources unified",
-        "basis": "SourceType enum (EDL, GENERATOR, SOLAR, BATTERY) in apps/backend/prisma/schema.prisma and packages/shared/src/constants/source-types.ts"
+        "label": "Power sources unified"
       },
       {
         "value": "14",
-        "label": "device types modeled",
-        "basis": "DeviceType enum in apps/backend/prisma/schema.prisma (REFRIGERATOR, HVAC, WATER_HEATER, ... EV_CHARGER, OTHER)"
+        "label": "Device types"
       },
       {
-        "value": "7,205 readings/day in <0.1s",
-        "label": "simulator throughput",
-        "basis": "docs/e2e-test-report.md Data Generator CLI: seed generated 7,205 readings for a 1-day range in <0.1s"
+        "value": "7,205",
+        "label": "Readings/day simulated"
       },
       {
-        "value": "~38 REST endpoints, all verified",
-        "label": "backend API surface",
-        "basis": "docs/ARCHITECTURE.md endpoint table and docs/e2e-test-report.md showing each auth/devices/sources/telemetry/energy/tariff/health endpoint returning expected status against live TimescaleDB + Redis"
+        "value": "38",
+        "label": "API endpoints"
       }
     ],
     "keyFeatures": [
@@ -460,24 +439,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "10-minute",
-        "label": "guided routine",
-        "basis": "src/routine/phases.ts — six phase durations sum to exactly 600 seconds (90+120+120+120+90+60)"
+        "value": "10 min",
+        "label": "Daily routine"
       },
       {
-        "value": "6 phases / 13 steps",
-        "label": "clinical sequence",
-        "basis": "src/routine/phases.ts — routinePhases array with 13 RoutineStep entries and stepDetails map"
+        "value": "6",
+        "label": "Practice phases"
       },
       {
-        "value": "3 A/B modes",
-        "label": "baseline comparison",
-        "basis": "src/recording/use-compare-playback.ts — playSlot (single), playSequential, playInterleaved with run-token cancellation"
+        "value": "3",
+        "label": "Compare modes"
       },
       {
-        "value": "0 network calls",
-        "label": "fully offline",
-        "basis": "No HTTP client or backend in package.json; all data via AsyncStorage + expo-file-system, no auth flow anywhere in src/"
+        "value": "0",
+        "label": "Network calls"
       }
     ],
     "keyFeatures": [
@@ -565,24 +540,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "12-week",
-        "label": "periodized training protocol",
-        "basis": "lib/protocol/plan.ts RUN_SPECS — weeks 1-12 with Z2, intervals, strides, tempo finish, 5K time trial; PROTOCOL_WEEKS=12 in config/constants.ts"
+        "value": "12 wk",
+        "label": "Training protocol"
       },
       {
         "value": "1 Hz",
-        "label": "live HR coaching pipeline",
-        "basis": "CONTEXT.md HR pipeline + UI_HR_UPDATE_INTERVAL_MS=1000 in config/constants.ts; BLE samples throttled to 1Hz at source"
+        "label": "Live HR coaching"
       },
       {
         "value": "16",
-        "label": "on-device analytics modules",
-        "basis": "lib/metrics/ contains 16 files: load, vdot, decoupling, hrv, maf, injuryRisk, overtraining, terrain, trends, compliance, insights, review, cadence, elevation, shoes, zones"
+        "label": "Analytics modules"
       },
       {
         "value": "93",
-        "label": "unit tests across safety-critical logic",
-        "basis": "grep of test/ — 93 it()/test() cases in 36 describe blocks covering zones, maf, guardrails, elevation, route matching, injuryRisk, AI parsing"
+        "label": "Unit tests"
       }
     ],
     "keyFeatures": [
@@ -667,23 +638,19 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "7",
-        "label": "agentic action types",
-        "basis": "AIAction union and executeAIAction switch in src/features/workout/hooks/useWorkoutAI.ts (adjust_weight, adjust_reps, swap_exercise, skip_exercise, skip_remaining_sets, add_rest, message)"
+        "label": "AI action types"
+      },
+      {
+        "value": "10 wk",
+        "label": "Periodized program"
       },
       {
         "value": "11",
-        "label": "SQLite schema migrations",
-        "basis": "SCHEMA_VERSION = 11 with migrateV1..migrateV10toV11 in src/shared/db/migrate.ts"
+        "label": "Data migrations"
       },
       {
         "value": "0",
-        "label": "API keys shipped in the app",
-        "basis": "LLM access is via a self-hosted Claude proxy at src/shared/config/api.ts; callAPI/streamAPI in src/shared/services/apiClient.ts send a bearer token to the proxy, not to Anthropic directly"
-      },
-      {
-        "value": "10-week",
-        "label": "periodized program + deload",
-        "basis": "Pure Bodybuilding Upper/Lower seed in src/data/seedData.ts and buildProgramOverview; deload week inserted via migrateV5toV6 in src/shared/db/migrate.ts"
+        "label": "Secrets in the app"
       }
     ],
     "keyFeatures": [
@@ -771,24 +738,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "5-stage",
-        "label": "escalation ladder, gentle to nuclear",
-        "basis": "ESCALATION_CONFIG in src/features/escalation/services/engine.ts defines 5 levels with thresholds -30/0/+60/+360/+1440 minutes"
+        "value": "5",
+        "label": "Escalation stages"
       },
       {
-        "value": "1 batched",
-        "label": "AI call generates all 5 notification bodies",
-        "basis": "src/features/notifications/services/aiRoasts.ts generateAIMessages() requests all levels in one Opus proxy call, cached on Task.aiMessages"
+        "value": "5",
+        "label": "Personalities"
       },
       {
-        "value": "5 personalities x 4 reminder types",
-        "label": "of comedic voice and task experience",
-        "basis": "5 files in src/features/escalation/services/personalities/ + ReminderTypeId union (standard|posture|salsa|boredom) registered in src/features/reminders/registry.ts"
+        "value": "4",
+        "label": "Reminder types"
       },
       {
-        "value": "9 modules / 21 test specs",
-        "label": "in the companion NestJS backend",
-        "basis": "src/modules in bully-api has 9 modules (social-proof, completions, leaderboard, scarcity, purchases, content, challenges, admin, health); 21 *.spec.ts files"
+        "value": "1",
+        "label": "AI call → 5 messages"
       }
     ],
     "keyFeatures": [
@@ -867,23 +830,19 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "4",
-        "label": "guided breathing exercises",
-        "basis": "ExerciseType.swift defines quickReset, boxBreath, physiologicalSigh, controlPause with declarative BreathPhase arrays"
+        "label": "Breathing exercises"
       },
       {
-        "value": "3-phase",
-        "label": "adaptive training model",
-        "basis": "TrainingPhase.swift: training (7m) / consolidation (15m) / maintenance (30m) with auto-progression in AppState.checkPhaseProgression()"
+        "value": "3",
+        "label": "Adaptive phases"
       },
       {
-        "value": "4 skip guards",
-        "label": "before every reminder",
-        "basis": "BreathReminderManager.shouldSkipReminder() checks active hours, pause, in-meeting (ProcessMonitor), and Focus mode (FocusModeObserver)"
+        "value": "100%",
+        "label": "On-device"
       },
       {
-        "value": "100% on-device",
-        "label": "no network calls",
-        "basis": "SwiftData local store (ScreenBreatheApp.swift ModelContainer), UserDefaults settings, CSV export via NSSavePanel; no networking code anywhere in the repo"
+        "value": "0",
+        "label": "Distractions"
       }
     ],
     "keyFeatures": [
@@ -965,24 +924,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "3 surfaces",
-        "label": "LinkedIn composers supported",
-        "basis": "content-script.ts injects into .msg-form__contenteditable (messaging), .connect-button-send-invite__custom-message (connection requests), and .compose-form__message-editor (InMail)"
+        "value": "3",
+        "label": "LinkedIn composers"
       },
       {
-        "value": "7+ profile variables",
-        "label": "Auto-filled fields",
-        "basis": "src/utils/variables.ts profileVars: firstName, lastName, fullName, headline, company, jobTitle, location, plus custom variables"
+        "value": "7+",
+        "label": "Profile variables"
       },
       {
-        "value": "0 network calls",
-        "label": "Required by default",
-        "basis": "Extension persists entirely to chrome.storage.sync/local (src/utils/storage.ts); README states no data is sent to external servers and the NestJS backend is optional"
+        "value": "0",
+        "label": "Network calls"
       },
       {
-        "value": "~5,000 lines",
-        "label": "TypeScript across extension + API",
-        "basis": "src/ totals ~4,064 lines (content-script.ts 841, Options.tsx 782, Popup.tsx 337) and backend/src ~1,005 lines"
+        "value": "1-click",
+        "label": "Message insertion"
       }
     ],
     "keyFeatures": [
@@ -1065,23 +1020,19 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     "metrics": [
       {
         "value": "5",
-        "label": "medical document templates",
-        "basis": "templates/*.hbs and migration 1712534400004-SeedDefaultTemplates.ts: medical-report, prescription, lab-results, patient-summary, insurance-form"
+        "label": "Document templates"
       },
       {
-        "value": "AES-256-GCM",
-        "label": "encryption at rest",
-        "basis": "src/modules/encryption/encryption.service.ts — encrypt/encryptBuffer use aes-256-gcm with per-record IV + auth tag; 32-byte key enforced"
+        "value": "AES-256",
+        "label": "Encryption at rest"
       },
       {
         "value": "96",
-        "label": "unit tests across 7 suites",
-        "basis": "grep of it()/test() in src/**/*.spec.ts: encryption 17, auth 18, audit 16, templates 14, pdf-generation 15, webhooks 6, api-key guard 10"
+        "label": "Unit tests"
       },
       {
-        "value": "3x retry + backoff",
-        "label": "async webhook delivery",
-        "basis": "pdf-generation.service.ts Bull queue (attempts:3, exponential backoff) and webhook.service.ts sendWebhook retry loop"
+        "value": "3×",
+        "label": "Webhook retries"
       }
     ],
     "keyFeatures": [
@@ -1165,24 +1116,20 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     "metrics": [
       {
-        "value": "15 moves",
-        "label": "Curriculum size",
-        "basis": "CURRICULUM array in src/curriculum/moves.ts — 15 MoveDefinitions across beginner/intermediate/advanced with unlock chains"
+        "value": "15",
+        "label": "Salsa moves"
       },
       {
-        "value": "4 modes",
-        "label": "Practice modes",
-        "basis": "Lesson, Free Practice, Drill (src/modes/drill.ts), Tempo Trainer (src/modes/tempo-trainer.ts), wired in src/index.ts and menu-system.ts"
+        "value": "4",
+        "label": "Practice modes"
       },
       {
-        "value": "25 joints/hand @ 30 Hz",
-        "label": "Mocap capture fidelity",
-        "basis": "JOINT_NAMES (25 WebXR hand joints) and SAMPLE_PERIOD_MS = 1000/30 in src/capture/joint-recorder.ts"
+        "value": "30 Hz",
+        "label": "Motion capture"
       },
       {
-        "value": "72-90 FPS budget",
-        "label": "VR frame target",
-        "basis": "VR performance context in AGENTS.md and the allocation-free hot-path design across motion-tracker.ts, two-bone-ik.ts and instructor.ts"
+        "value": "90",
+        "label": "FPS target (VR)"
       }
     ],
     "keyFeatures": [
