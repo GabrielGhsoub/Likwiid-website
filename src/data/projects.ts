@@ -118,6 +118,7 @@ const projectCatalog: Project[] = [
     images: [
       '/images/projects/personal-fitness-tracker/today.webp',
       '/images/projects/personal-fitness-tracker/run.webp',
+      '/images/projects/personal-fitness-tracker/coach.webp',
       '/images/projects/personal-fitness-tracker/history.webp',
       '/images/projects/personal-fitness-tracker/trends.webp',
       '/images/projects/personal-fitness-tracker/plan.webp',
@@ -233,6 +234,7 @@ const projectCatalog: Project[] = [
     techStack: ['NestJS', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Puppeteer', 'Redis', 'Swagger', 'Docker'],
     images: [
       '/images/projects/healthcare-pdf-api/landing.webp',
+      '/images/projects/healthcare-pdf-api/swagger.webp',
       '/images/projects/healthcare-pdf-api/architecture.webp',
       '/images/projects/healthcare-pdf-api/api-contract.webp',
       '/images/projects/healthcare-pdf-api/lifecycle.webp',
