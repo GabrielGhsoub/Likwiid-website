@@ -45,13 +45,17 @@ const WHILE_DRAG = { cursor: 'grabbing' as const }
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
-// Strip versions / noise so hero tags stay high-level (e.g. "Expo SDK 54" -> "Expo")
+// Strip versions / noise so hero tags stay high-level
+// (e.g. "Expo SDK 54" -> "Expo", "TypeScript 6 (strict)" -> "TypeScript")
 const simplifyTech = (t: string) =>
   t
+    .replace(/\s*\([^)]*\)/g, '') // drop parentheticals like "(strict)"
     .replace(/\s+REST API$/i, '')
-    .replace(/\s+SDK\s+[\d.]+$/i, '')
+    .replace(/\s+API$/i, '')
     .replace(/\s+MV3$/i, '')
-    .replace(/\s+v?\d+(\.\d+)*$/i, '')
+    .replace(/\s+SDK\b/gi, '') // "Expo SDK 54" -> "Expo  54"
+    .replace(/\s+v?\d+(\.\d+)*\b/gi, '') // strip version tokens anywhere
+    .replace(/\s{2,}/g, ' ')
     .trim()
 
 // --- Shared building blocks -------------------------------------------------
