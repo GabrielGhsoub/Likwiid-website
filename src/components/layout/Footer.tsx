@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { SOCIAL } from '../../utils/constants'
+import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -49,6 +50,15 @@ export function Footer() {
         </div>
 
         <div className="flex items-center gap-6">
+          <a
+            href={SOCIAL.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 text-text-secondary hover:text-text-primary transition-colors"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon size={20} />
+          </a>
           <a
             href={SOCIAL.github}
             target="_blank"

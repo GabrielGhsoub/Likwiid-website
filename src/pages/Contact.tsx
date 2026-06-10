@@ -4,6 +4,7 @@ import { Mail, Github, Linkedin, Check, AlertCircle, ChevronDown } from 'lucide-
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { Button } from '../components/ui/Button'
+import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
 import type { ContactFormData } from '../types'
@@ -72,6 +73,15 @@ export default function Contact() {
               </p>
 
               <div className="mt-10 space-y-4">
+                <a
+                  href={SOCIAL.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+                >
+                  <WhatsAppIcon size={20} className="text-accent-gold" />
+                  WhatsApp: {SOCIAL.phone}
+                </a>
                 <a
                   href={`mailto:${SOCIAL.email}`}
                   className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
