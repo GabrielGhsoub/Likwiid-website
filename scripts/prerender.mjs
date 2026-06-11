@@ -68,6 +68,15 @@ const routes = {
       'Have a project in mind? Reach out on WhatsApp at +961 81 398 752 or email gabriel@likwiid.com. We reply within 24 hours.'
     ),
   },
+  'booking-websites': {
+    title: 'Booking Websites for Salons, Clinics & Small Hotels | Likwiid',
+    description:
+      'Simple, fast websites where your customers book and pay online. From $3,000, most projects $8,000 to $15,000, delivered in 2 to 4 weeks. Commission-free bookings you own.',
+    content: block(
+      'Websites with online booking for salons, clinics, and small hotels',
+      'Your customers want to book at 11pm from their phone. We build simple, fast websites where customers book and pay online: real availability, deposits, automatic reminders, and a site you own. From $3,000, most projects $8,000 to $15,000, in 2 to 4 weeks.'
+    ),
+  },
   privacy: { title: 'Privacy Policy | Likwiid', description: 'Likwiid privacy policy.', content: '' },
   'beit-toureef-walkthrough': { title: 'Beit Toureef Walkthrough | Likwiid', description: 'Website walkthrough prepared for Beit Toureef.', content: '' },
   'beit-toureef-poc': { title: 'Beit Toureef Walkthrough | Likwiid', description: 'Website walkthrough prepared for Beit Toureef.', content: '' },
@@ -125,11 +134,6 @@ for (const [path, meta] of Object.entries(routes)) {
   count++
 }
 
-// Retired /booking-websites page -> hard redirect to /work (covers already-sent email links)
-const redirectHtml = `<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>Work | Likwiid</title><meta name="robots" content="noindex"><link rel="canonical" href="${SITE_URL}/work"><meta http-equiv="refresh" content="0;url=${SITE_URL}/work"><script>location.replace('${SITE_URL}/work')</script></head><body><p>Redirecting to <a href="${SITE_URL}/work">our work</a>.</p></body></html>`
-mkdirSync(join(dist, 'booking-websites'), { recursive: true })
-writeFileSync(join(dist, 'booking-websites', 'index.html'), redirectHtml)
-
 // SPA fallback for unknown routes
 copyFileSync(join(dist, 'index.html'), join(dist, '404.html'))
-console.log(`prerender: wrote ${count} routes + booking-websites redirect + 404.html`)
+console.log(`prerender: wrote ${count} routes + 404.html`)
