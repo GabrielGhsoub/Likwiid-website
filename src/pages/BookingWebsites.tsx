@@ -6,6 +6,7 @@ import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { ImageWithLoading } from '../components/ui/ImageWithLoading'
+import { PhoneFrame } from '../components/ui/DeviceFrame'
 import { SOCIAL } from '../utils/constants'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -153,12 +154,32 @@ export default function BookingWebsites() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-lg border border-border overflow-hidden">
-              <ImageWithLoading
-                src="/images/projects/padel/home.webp"
-                alt="Booking platform built by Likwiid showing available time slots"
-                className="w-full h-auto"
-              />
+            <div
+              className="relative flex items-center justify-center overflow-hidden rounded-2xl px-6 py-10 sm:px-10 sm:py-12"
+              style={{ background: 'linear-gradient(135deg, #0C1445 0%, #0E7490 100%)' }}
+            >
+              <div className="relative">
+                {/* Secondary screen peeking behind for depth (desktop only) */}
+                <div className="absolute -right-16 -top-6 hidden rotate-[8deg] opacity-90 lg:block" aria-hidden="true">
+                  <PhoneFrame className="scale-90">
+                    <ImageWithLoading
+                      src="/images/projects/padel/league.webp"
+                      alt=""
+                      className="block h-auto w-full"
+                    />
+                  </PhoneFrame>
+                </div>
+                {/* Primary screen */}
+                <div className="relative z-10">
+                  <PhoneFrame>
+                    <ImageWithLoading
+                      src="/images/projects/padel/home.webp"
+                      alt="Booking platform built by Likwiid showing available time slots on a phone"
+                      className="block h-auto w-full"
+                    />
+                  </PhoneFrame>
+                </div>
+              </div>
             </div>
           </div>
 
