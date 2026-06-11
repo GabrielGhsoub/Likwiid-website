@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
-import { ImageWithLoading } from '../components/ui/ImageWithLoading'
-import { PhoneFrame } from '../components/ui/DeviceFrame'
+import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
 import { SOCIAL } from '../utils/constants'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -154,32 +153,17 @@ export default function BookingWebsites() {
                 </Link>
               </div>
             </div>
-            <div
-              className="relative flex items-center justify-center overflow-hidden rounded-2xl px-6 py-10 sm:px-10 sm:py-12"
-              style={{ background: 'linear-gradient(135deg, #0C1445 0%, #0E7490 100%)' }}
-            >
-              <div className="relative">
-                {/* Secondary screen peeking behind for depth (desktop only) */}
-                <div className="absolute -right-16 -top-6 hidden rotate-[8deg] opacity-90 lg:block" aria-hidden="true">
-                  <PhoneFrame className="scale-90">
-                    <ImageWithLoading
-                      src="/images/projects/padel/league.webp"
-                      alt=""
-                      className="block h-auto w-full"
-                    />
-                  </PhoneFrame>
-                </div>
-                {/* Primary screen */}
-                <div className="relative z-10">
-                  <PhoneFrame>
-                    <ImageWithLoading
-                      src="/images/projects/padel/home.webp"
-                      alt="Booking platform built by Likwiid showing available time slots on a phone"
-                      className="block h-auto w-full"
-                    />
-                  </PhoneFrame>
-                </div>
-              </div>
+            <div className="flex items-center justify-center">
+              <ScreenshotCarousel
+                images={[
+                  '/images/projects/padel/home.webp',
+                  '/images/projects/padel/play.webp',
+                  '/images/projects/padel/league.webp',
+                  '/images/projects/padel/profile.webp',
+                ]}
+                title="Likwiid booking platform"
+                platform="mobile"
+              />
             </div>
           </div>
 
@@ -191,7 +175,7 @@ export default function BookingWebsites() {
                   Straightforward pricing
                 </h2>
                 <p className="mt-4 text-text-secondary leading-relaxed">
-                  Booking websites start from <span className="text-text-primary font-semibold">$3,000</span>.
+                  Booking websites start from <span className="text-text-primary font-semibold">$1,500</span>.
                   Most projects land between <span className="text-text-primary font-semibold">$8,000 and $15,000</span>{' '}
                   depending on payments, integrations, and content, and take 2 to 4 weeks.
                 </p>
