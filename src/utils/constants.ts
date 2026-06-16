@@ -10,8 +10,8 @@ export const SOCIAL = {
   github: 'https://github.com/GabrielGhsoub',
   linkedin: 'https://linkedin.com/in/gabriel-ghoussoub',
   email: 'gabriel@likwiid.com',
-  whatsapp: 'https://wa.me/96181398752',
-  phone: '+961 81 398 752',
+  whatsapp: 'https://wa.me/96176160979',
+  phone: '+961 76 160 979',
 } as const
 
 export const NAV_LINKS = [
