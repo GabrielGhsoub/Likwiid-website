@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Code, Cloud, Brain, Glasses, LayoutDashboard, Wrench, ArrowRight } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
-import { services } from '../../data/services'
+import { useLocalizedServices } from '../../i18n/localizedContent'
 import { Card } from '../ui/Card'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Badge } from '../ui/Badge'
@@ -64,6 +64,7 @@ export function ServiceCards() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { ref, isVisible } = useScrollAnimation()
+  const services = useLocalizedServices()
   const preview = services.slice(0, 3)
 
   return (

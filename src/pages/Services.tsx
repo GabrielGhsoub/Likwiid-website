@@ -9,6 +9,7 @@ import { Card } from '../components/ui/Card'
 import { Badge } from '../components/ui/Badge'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { services } from '../data/services'
+import { useLocalizedServices } from '../i18n/localizedContent'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
@@ -61,7 +62,8 @@ export default function Services() {
   const modalRef = useRef<HTMLDivElement>(null)
   const previouslyFocusedRef = useRef<HTMLElement | null>(null)
 
-  const selectedService = services.find((s) => s.id === expanded)
+  const localizedServices = useLocalizedServices()
+  const selectedService = localizedServices.find((s) => s.id === expanded)
 
   // Page title
   useEffect(() => { document.title = t('services.documentTitle') }, [t])
@@ -134,7 +136,7 @@ export default function Services() {
           />
 
           <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {services.map((service, i) => (
+            {localizedServices.map((service, i) => (
                 <m.div
                   key={service.id}
                   initial={FADE_UP_INITIAL}

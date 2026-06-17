@@ -246,5 +246,1145 @@
     "underTheHood": "Por dentro",
     "notableEngineering": "Engenharia em destaque",
     "nextProject": "Próximo projeto"
+  },
+  "projectsData": {
+    "padel-booking": {
+      "title": "Plataforma de reservas de padel",
+      "subtitle": "Gestão de ligas, emparelhamento e reserva de quadras em tempo real",
+      "oneLiner": "App de padel em produção para o Líbano: motor de ligas, emparelhamento por nível e reserva de quadras",
+      "description": "App React Native (Expo) em produção para a comunidade de padel do Líbano. Reserva de quadras, emparelhamento por nível e ligas competitivas completas, disponível na App Store e no Google Play.",
+      "challenge": "A cena do padel no Líbano funcionava no WhatsApp e em planilhas, sem disponibilidade real de quadras, sem emparelhamento por nível e sem ligas estruturadas, tudo sobre uma conexão de internet pouco confiável.",
+      "approach": "App Expo SDK 54 / RN 0.81 New Architecture: Expo Router (42 telas), Zustand com TanStack Query e cache offline de 24h, e uma API REST NestJS sob medida (70+ endpoints) atrás de um cliente Axios reforçado.",
+      "results": "Publicada nas duas lojas: reserva de quadras, 12 níveis de classificação, emparelhamento, avaliações entre pares e um ciclo de vida de liga completo até os playoffs. Offline-first, trilíngue (EN/AR/FR com RTL), com deep links universais, E2E com Playwright e monitoramento com Sentry.",
+      "businessResult": "Substituiu a coordenação por WhatsApp e planilhas por uma plataforma publicada nas lojas que controla a reserva, o emparelhamento e o jogo em liga.",
+      "role": "Design de produto solo, integração mobile + backend, build e publicação nas lojas",
+      "timeline": "Desenvolvimento em 2025; publicada na App Store e no Google Play (v1.1.1)",
+      "metrics": [
+        {
+          "value": "12",
+          "label": "Níveis de jogo (D-A+)"
+        },
+        {
+          "value": "70+",
+          "label": "Endpoints de backend"
+        },
+        {
+          "value": "3",
+          "label": "Idiomas, árabe RTL"
+        },
+        {
+          "value": "2",
+          "label": "App stores ativas"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motor de liga competitiva completo",
+          "description": "Check-in, quatro algoritmos de emparelhamento, pontuação 2v2, classificações e chave de playoffs."
+        },
+        {
+          "title": "Classificação e emparelhamento de 12 níveis",
+          "description": "Os níveis de D- a A+ alimentam a descoberta, as ligas por faixa de nível e as avaliações entre pares."
+        },
+        {
+          "title": "Offline-first para redes pouco confiáveis",
+          "description": "Cache do TanStack Query de 24h com detecção por conectividade sobre AsyncStorage."
+        },
+        {
+          "title": "Trilíngue com RTL árabe completo",
+          "description": "EN/AR/FR com cerca de 1.494 chaves cada, troca em tempo de execução, RTL completo para árabe."
+        },
+        {
+          "title": "Descoberta e reserva de quadras",
+          "description": "Filtre quadras, veja preços, reserve com códigos promocionais e opções de pagamento locais."
+        },
+        {
+          "title": "Convites compartilháveis via deep links",
+          "description": "Os links universais em padellb.club impulsionam códigos de acesso, verificação e redefinições."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Dados e estado",
+          "detail": "Zustand (24 stores) para o estado do cliente; TanStack Query para o estado do servidor, cache de 24h"
+        },
+        {
+          "area": "Backend e autenticação",
+          "detail": "API REST NestJS via 17 módulos tipados; cliente Axios com refresh JWT single-flight"
+        },
+        {
+          "area": "Domínio de liga",
+          "detail": "DTOs tipados para semanas, check-in, partidas 2v2, classificações, estatísticas e chave de playoffs"
+        },
+        {
+          "area": "Navegação e deep links",
+          "detail": "Expo Router em 42 telas; links universais padellb.club para compartilhamentos e autenticação"
+        },
+        {
+          "area": "Confiabilidade e entrega",
+          "detail": "Sentry, error boundaries, E2E com Playwright, EAS Build e atualizações OTA (v1.1.1)"
+        }
+      ],
+      "highlights": [
+        "Refresh JWT proativo single-flight ~60s antes de expirar para evitar conflitos de rotação",
+        "Sistema de torneio completo: Swiss, round-robin, emparelhamento manual, confirmação de pontuação, playoffs",
+        "Contornou um bug do OkHttp 4.12 + nginx via parâmetros de cache-busting em 90+ endpoints",
+        "Offline-first: cache de 24h, online manager do expo-network, hidratação síncrona em memória",
+        "Cerca de 1.494 chaves i18n por idioma em EN/AR/FR com RTL árabe completo",
+        "Escala feature-first: 16+ módulos, 259 componentes, 24 stores, 17 serviços de API tipados"
+      ]
+    },
+    "padel-admin-portal": {
+      "title": "Portal de administração de Padel",
+      "subtitle": "Painel web para gestão de ligas e jogadores",
+      "oneLiner": "Console de administração para gerir ligas de padel por jogadores: emparelhamentos, pontuação, classificações e playoffs",
+      "description": "Um console de administração em React para gerir ligas de padel pelo navegador em vez da base de dados. Os operadores gerem plantéis, geram emparelhamentos 2v2 semanais, registam resultados e conduzem playoffs contra a mesma API NestJS que alimenta a app do jogador.",
+      "challenge": "Conduzir uma época de padel ao vivo implica emparelhamentos justos a cada semana, faltas, resultados de sets e classificações com desempates. As folhas de cálculo não escalam, e editar diretamente a base de dados de produção é arriscado.",
+      "approach": "Uma SPA em React 19 + Vite com TanStack Router (protegido por autenticação), TanStack Query, Zustand e Radix UI sobre Tailwind v4. A lógica de emparelhamento, pontuação, classificação e playoff reside num backend NestJS 11 + TypeORM + PostgreSQL.",
+      "results": "Um portal implementado que conduz todo o ciclo de vida da liga sem tocar na base de dados: emparelhamentos semanais com um clique em cinco modos, classificações com desempate recalculadas automaticamente, estatísticas por jogador e um quadro de meia-final/final. O Jest cobre a lógica de alto risco; o CI/CD faz backup da base de dados antes de cada implementação.",
+      "businessResult": "Transformou a administração da liga, de suposições em folha de cálculo para alguns cliques por semana, com emparelhamentos e classificações justos de forma automática.",
+      "role": "Design, desenvolvimento e lançamento a solo (full-stack: portal de administração React + backend NestJS)",
+      "timeline": "~jan.-mar. 2025 (backend iniciado no final de janeiro, portal de administração iterado até meados de março conforme as datas de git/ficheiros)",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Métodos de emparelhamento"
+        },
+        {
+          "value": "7",
+          "label": "Vistas do espaço de trabalho"
+        },
+        {
+          "value": "38",
+          "label": "Endpoints da API"
+        },
+        {
+          "value": "1-click",
+          "label": "Emparelhamentos semanais"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Emparelhamentos semanais, de cinco formas",
+          "description": "Aleatório, por nível, suíço, round-robin de equidade ou manual, com gestão automática de byes."
+        },
+        {
+          "title": "Round-robin que otimiza a equidade",
+          "description": "Constrói matrizes de companheiros/adversários a partir do histórico de jogos para maximizar os confrontos inéditos."
+        },
+        {
+          "title": "Pontuação com classificações ao vivo",
+          "description": "Os resultados set a set recalculam a tabela com desempates por sets e por jogos."
+        },
+        {
+          "title": "Espaço de trabalho de liga com sete separadores",
+          "description": "Resumo, Jogadores, Semanas, Jogos, Classificações, Estatísticas e Playoff numa única vista."
+        },
+        {
+          "title": "Autenticação por função com rotação de tokens",
+          "description": "Acesso apenas para administradores; os refresh tokens rodam perante um 401, um bloqueio Redis evita condições de corrida."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Camada de dados",
+          "detail": "TanStack Query com hooks por funcionalidade; um módulo de normalização mapeia o JSON em bruto para tipos estritos."
+        },
+        {
+          "area": "Domínio do backend",
+          "detail": "NestJS 11 + TypeORM + PostgreSQL; as ligas dividem-se em serviços de emparelhamento, pontuação, classificação, estatísticas e playoff."
+        },
+        {
+          "area": "Autenticação",
+          "detail": "Passport JWT; refresh tokens cifrados com bcrypt no Redis, rotação protegida por bloqueio, verificação de funções no servidor."
+        },
+        {
+          "area": "Entrega",
+          "detail": "Frontend nginx em Docker; GitHub Actions para o GHCR, implementações com Ansible com backup do Postgres antes da implementação."
+        }
+      ],
+      "highlights": [
+        "O round-robin usa uma heurística combinatória de equidade real, não uma simples baralhação.",
+        "A rotação de refresh tokens está reforçada contra condições de corrida por atualização concorrente através de um bloqueio Redis.",
+        "A camada de API tolera formatos de backend paginados, planos, aninhados e com múltiplas grafias.",
+        "A store de autenticação distingue as falhas reais 401/403 dos erros de rede transitórios para manter as sessões ativas.",
+        "As rotas lazy repetem o carregamento de chunks e depois recarregam por completo, eliminando os ecrãs em branco por chunks desatualizados após as implementações.",
+        "Os pontos por liga, limites de jogadores, intervalos de nível e códigos de acesso são modelados, não fixados no código."
+      ]
+    },
+    "gcg-website": {
+      "title": "Site GCG",
+      "subtitle": "Site premium de consultoria científica com trilhas claras e fluxos de conversão",
+      "oneLiner": "Site de consultoria científica com trilhas por público, analytics que respeita a privacidade e theming acessível",
+      "description": "Site de marketing em produção para a Ghoussoub Consulting Group, uma firma de orientação científica que abrange consultoria, P&D, tutoria STEM e due diligence de investimento. Uma SPA em React 19 que apresenta uma oferta ampla como quatro pontos de entrada por público.",
+      "challenge": "Fazer com que um portfólio amplo e muito técnico pareça crível para cinco públicos bem diferentes em um único site coerente, mantendo-se honesto, rápido, acessível e implantável em hospedagem estática gratuita com URLs limpas.",
+      "approach": "Construída uma SPA em React 19 / TypeScript / Vite 8 com React Router 7 e um sistema de tokens do Tailwind CSS 4 que resolve os temas claro, escuro e de sistema a partir de uma única fonte. Uma seção «Choose Your Path» segmenta quatro públicos para trilhas sob medida; visuais científicos em SVG feitos à mão se animam com Framer Motion com suporte a movimento reduzido; o analytics Umami, que respeita a privacidade, mede a intenção.",
+      "results": "Plataforma no ar com 9 rotas, segmentação por público, páginas de P&D e tutoria orientadas por metodologia, dados estruturados JSON-LD, navegação acessível com aprisionamento de foco e um fluxo de contato animado e validado. Sem backend, a captação de leads usa rascunhos mailto pré-preenchidos e honestos. Uma CI rigorosa bloqueia cada deploy em lint, typecheck e build.",
+      "businessResult": "Transformou uma oferta científica ampla de cinco públicos em um único site crível e pronto para conversão, que se mantém honesto à medida que a firma cresce.",
+      "role": "Design, desenvolvimento e entrega em solo",
+      "timeline": "~Abril a maio de 2026 (31 commits, primeiro commit 2026-04-07, último 2026-05-15)",
+      "metrics": [
+        {
+          "value": "9",
+          "label": "Páginas"
+        },
+        {
+          "value": "4",
+          "label": "Trilhas por público"
+        },
+        {
+          "value": "3",
+          "label": "Temas"
+        },
+        {
+          "value": "0",
+          "label": "Dependências de backend"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Roteamento por trilha de público",
+          "description": "Uma seção «Choose Your Path» direciona quatro públicos para páginas de serviços sob medida."
+        },
+        {
+          "title": "Páginas dedicadas de serviços científicos",
+          "description": "Páginas de P&D e tutoria com pipelines metodológicos, entregáveis e SEO por página."
+        },
+        {
+          "title": "Visuais científicos animados feitos à mão",
+          "description": "Redes moleculares em SVG personalizadas, hélice de DNA e formas de onda de osciloscópio; sem recursos de stock."
+        },
+        {
+          "title": "Analytics que respeita a privacidade, captação de leads honesta",
+          "description": "O Umami respeita o Do-Not-Track; os formulários abrem rascunhos mailto, sem falsa persistência no servidor."
+        },
+        {
+          "title": "Theming claro/escuro/sistema sem flash",
+          "description": "Um único conjunto de tokens CSS controla todos os temas por meio de um script inline executado antes da renderização."
+        },
+        {
+          "title": "SPA no GitHub Pages com deep links limpos",
+          "description": "Um esquema de redirecionamento em quatro partes mantém as rotas do lado do cliente funcionando na hospedagem estática."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Renderização e roteamento",
+          "detail": "SPA em React 19, React Router 7; rotas com lazy loading e divididas em chunks vendor-react e vendor-motion."
+        },
+        {
+          "area": "Theming",
+          "detail": "Um único conjunto de tokens CSS no index.css; o ThemeContext persiste no localStorage, um script inline define data-theme antes da renderização."
+        },
+        {
+          "area": "SEO e dados estruturados",
+          "detail": "O hook useSEO atualiza título, canonical, OG, Twitter e JSON-LD por rota; schemas Organization e WebSite, sitemap, robots."
+        },
+        {
+          "area": "Analytics",
+          "detail": "Umami desativado por feature flag até VITE_UMAMI_WEBSITE_ID ser definido; respeita o Do-Not-Track; data-umami-event ao longo dos fluxos."
+        },
+        {
+          "area": "Deploy",
+          "detail": "O GitHub Actions bloqueia em lint, typecheck e build; os deep links sobrevivem via captura no 404.html e restauração no index.html."
+        }
+      ],
+      "highlights": [
+        "Arte SVG generativa: um grafo molecular liga átomos dentro de 220px; hélice de DNA senoidal, tudo memoizado e ciente do movimento reduzido",
+        "Acessibilidade integrada: contornos focus-visible, media query de movimento reduzido, aprisionamento de foco no menu mobile, alvos de toque de 44px",
+        "Honestidade como restrição: o ExpertiseStandards separa exemplos representativos de resultados reais; mailto em vez de falsa captação de leads",
+        "Higiene rigorosa: TypeScript noUnusedLocals/Parameters, Husky, lint-staged, Prettier, a CI falha diante de qualquer erro de lint, tipo ou build",
+        "UX de contato animada e validada: rótulos flutuantes, indicadores válido/inválido com mola, tremor ao errar, estados idle/loading/success",
+        "Página 404 caprichada («Drifted Out Of Orbit») com três caminhos de recuperação, noindex, dentro do mesmo sistema de redirecionamento da SPA"
+      ]
+    },
+    "sems-energy-management": {
+      "title": "SEMS: gestão inteligente de energia",
+      "subtitle": "Visibilidade energética multifonte e controle de custos para residências libanesas",
+      "oneLiner": "Um único painel para residências que combinam rede EDL, geradores, solar e baterias no Líbano",
+      "description": "Uma plataforma energética com abordagem software-first para residências libanesas que funcionam simultaneamente com rede EDL, geradores a diesel, energia solar e baterias. Um painel ao vivo mostra o que alimenta a casa, quanto custa e como as trocas de fonte impactam a conta.",
+      "challenge": "Os produtos de energia de consumo presumem uma rede estável de fonte única; nenhum lida com uma residência libanesa que no mesmo dia consome da rede, de um gerador, do solar e de uma bateria, e isso precisava ser comprovado sem nenhum hardware de medição.",
+      "approach": "Um Turborepo em TypeScript (pnpm) construído de ponta a ponta: NestJS 10 + Prisma sobre PostgreSQL 16/TimescaleDB e Redis, um app Expo SDK 54 e um simulador determinístico que modela os ciclos energéticos reais do Líbano para validar tudo antes do hardware.",
+      "results": "A prova de conceito da fase 1 foi verificada de ponta a ponta contra TimescaleDB e Redis reais: cerca de 38 endpoints retornaram o status esperado, ambos os agregados contínuos se materializaram e o simulador gerou 7,205 leituras/dia em menos de 0,1 s. O app entrega autenticação, painel ao vivo, gestão de dispositivos, analítica e quatro cenários de demonstração.",
+      "businessResult": "Unifica rede, gerador, solar e bateria em um único painel de custos consciente da fonte, validado de ponta a ponta antes de qualquer gasto com hardware.",
+      "role": "Arquitetura, design, desenvolvimento e verificação solo (full-stack)",
+      "timeline": "Prova de conceito da fase 1 construída em fevereiro de 2026 (arquitetura congelada, monorepo estruturado, backend + mobile + motor de simulação, verificado de ponta a ponta contra contêineres reais em 2026-02-24)",
+      "metrics": [
+        {
+          "value": "4",
+          "label": "Fontes de energia unificadas"
+        },
+        {
+          "value": "14",
+          "label": "Tipos de dispositivos"
+        },
+        {
+          "value": "7,205",
+          "label": "Leituras/dia simuladas"
+        },
+        {
+          "value": "38",
+          "label": "Endpoints de API"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Painel multifonte ao vivo",
+          "description": "Fonte ativa, watts em tempo real, custo do dia e maiores consumidores via WebSocket."
+        },
+        {
+          "title": "Motor de custos consciente da fonte",
+          "description": "Tarifa cada kWh segundo as faixas reais da EDL do Líbano, as taxas de amperagem do gerador, o solar e a bateria."
+        },
+        {
+          "title": "Simulador de energia libanês",
+          "description": "Modelo configurável de horários da EDL, partida automática do gerador, solar, bateria e climatização com ruído de sensor."
+        },
+        {
+          "title": "Demos guiadas por cenários",
+          "description": "Quatro cenários integrados mostram quedas de energia e transições de fonte sem hardware de medição."
+        },
+        {
+          "title": "Gestão de dispositivos agrupados por cômodo",
+          "description": "CRUD em 14 tipos de dispositivos com potência, indicadores e detalhamento de custo por dispositivo."
+        },
+        {
+          "title": "Analítica de séries temporais com TimescaleDB",
+          "description": "Uma hypertable com agregados contínuos por hora e por dia acelera os detalhamentos de custo e fonte."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Monorepo",
+          "detail": "Turborepo + pnpm: apps NestJS e Expo, pacote Zod/custos compartilhado como única fonte de verdade, pacote data-generator."
+        },
+        {
+          "area": "Camada de dados",
+          "detail": "PostgreSQL 16 + TimescaleDB; hypertable energy_readings, agregados por hora/dia, compressão, retenção; 11 modelos Prisma."
+        },
+        {
+          "area": "Tempo real",
+          "detail": "Gateway Socket.io /energy autenticado por JWT, salas por residência, adaptador Redis para escalar, reconexão automática com OfflineBanner."
+        },
+        {
+          "area": "Autenticação",
+          "detail": "JWT sob medida (Passport, bcrypt): tokens de acesso de 15 min, tokens de refresh com hash e rotativos com detecção de roubo por família, guards de rotas."
+        }
+      ],
+      "highlights": [
+        "Uma simulação determinística e configurável com física modelada (climatização, solar, estado de carga da bateria) torna os dados de demo reproduzíveis sem medidores",
+        "Constantes de domínio libanesas codificam as faixas da EDL, as taxas do gerador, os limites de tensão e as horas de sol sazonais",
+        "Esquemas Zod como única fonte de verdade compartilhados por backend e mobile, eliminando a divergência cliente/servidor",
+        "Verificação real de ponta a ponta: um relatório e2e documenta os bugs encontrados e corrigidos contra contêineres reais",
+        "DevOps de produção: Dockerfile multiestágio sem root, CI com GitHub Actions com cache, Husky + lint-staged"
+      ]
+    },
+    "voxflow": {
+      "title": "VoxFlow",
+      "subtitle": "Reeducação vocal offline com prática guiada, gravações e progresso",
+      "oneLiner": "Reeducação vocal offline-first: uma rotina guiada de 10 minutos com gravações privadas e comparação A/B",
+      "description": "VoxFlow é um app Android-first, totalmente offline, que reúne cronômetro de prática vocal, instruções, gravador e leitura de referência em uma única rotina de 10 minutos, serena e com sequência clínica. Sem conta, sem servidor, sem telemetria.",
+      "challenge": "A prática de recuperação vocal fracassa porque uma sessão significa equilibrar cronômetro, notas, gravador e artigos, enquanto a maioria dos apps adiciona a culpa das sequências e contas na nuvem. O VoxFlow precisava unificar tudo offline, sem conta e com um tom clínico sem julgamentos.",
+      "approach": "Construído com Expo e React Native em torno de um motor de rotina determinístico: uma única linha do tempo de fases (seis fases, 600s) deriva a fase, o exercício, a deixa de respiração e o tom a partir de um único relógio. O expo-audio cuida da captura com medição ao vivo; um player A/B com token de execução cancela de forma limpa entre os modos.",
+      "results": "Um app Android completo e instalável (com.likwiid.voxflow): integração com uma referência Day-Zero permanente, sessão guiada de seis fases, biblioteca de gravações, comparação A/B de três modos, calendário de progresso com linha do tempo de marcos, biblioteca de aprendizado com desbloqueio progressivo e exportação JSON local. Zero chamadas de rede em execução, todos os dados permanecem no dispositivo.",
+      "businessResult": "Transforma uma prática vocal fragmentada em uma única rotina privada de 10 minutos offline, com progresso e comparação integrados.",
+      "role": "Design, desenvolvimento e lançamento solo (Likwiid)",
+      "timeline": "Desenvolvimento principal concentrado em um sprint focado em maio de 2026 (16 commits, dos alicerces ao reforço de QA)",
+      "metrics": [
+        {
+          "value": "10 min",
+          "label": "Rotina diária"
+        },
+        {
+          "value": "6",
+          "label": "Fases de prática"
+        },
+        {
+          "value": "3",
+          "label": "Modos de comparação"
+        },
+        {
+          "value": "0",
+          "label": "Chamadas de rede"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motor de rotina de seis fases guiado pelo tempo",
+          "description": "Um único relógio determinístico conduz a fase, a instrução, a deixa de respiração e o tom; suporta pausar, pular e reiniciar."
+        },
+        {
+          "title": "Comparação vocal A/B de três modos",
+          "description": "Referência contra gravação posterior, nos modos único, sequencial ou intercalado, com cancelamento limpo."
+        },
+        {
+          "title": "Gravação privada no dispositivo com coaching ao vivo",
+          "description": "Captura de alta qualidade com expo-audio, medição muito baixo/estável/muito alto, forma de onda a partir dos bytes do arquivo, nunca enviada."
+        },
+        {
+          "title": "Privacidade offline-first, sem conta",
+          "description": "Sem login, servidor ou telemetria; todos os dados em armazenamento local com namespaces e validado por esquema."
+        },
+        {
+          "title": "Biblioteca de aprendizado clínico com diagramas sob medida",
+          "description": "Dez artigos com desbloqueio por marcos e sete diagramas anatômicos desenhados à mão em react-native-svg, em markdown."
+        },
+        {
+          "title": "Progresso privado sem gamificação",
+          "description": "Calendário mensal, meta semanal, lógica de sequência e linha do tempo de Dia 7/14/30/60/90, sem pontos ou rankings."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Motor de rotina",
+          "detail": "Linha do tempo pura indexada pelo tempo (src/routine/) que deriva fase, instrução e tom a partir dos segundos decorridos."
+        },
+        {
+          "area": "Camada de dados local",
+          "detail": "AsyncStorage versionado e com namespaces, com validação de esquema na leitura; o contexto persiste cada mutação."
+        },
+        {
+          "area": "Captura e reprodução de áudio",
+          "detail": "Gravação HIGH_QUALITY com expo-audio, medição ao vivo e formas de onda derivadas dos bytes do arquivo."
+        },
+        {
+          "area": "Conteúdo offline e i18n",
+          "detail": "10 artigos com desbloqueio integrados com diagramas SVG mais 35 trechos em EN, AR (RTL), FR, IT."
+        },
+        {
+          "area": "Portabilidade de dados",
+          "detail": "Exportação JSON abstraída do armazenamento que captura todas as chaves e as referências de áudio file://, sem nuvem."
+        }
+      ],
+      "highlights": [
+        "Rotina de 10 minutos: seis fases somando exatamente 600 segundos",
+        "Três modos de comparação A/B com cancelamento de reprodução por token de execução",
+        "Zero chamadas de rede, cada byte permanece no dispositivo",
+        "10 artigos de aprendizado, 35 trechos de leitura em 4 idiomas incl. árabe RTL",
+        "Formas de onda renderizadas de forma determinística a partir dos bytes reais do arquivo de áudio"
+      ]
+    },
+    "personal-fitness-tracker": {
+      "title": "Rastreador de fitness pessoal",
+      "subtitle": "Treino de resistência guiado por frequência cardíaca, com prontidão e progresso do plano",
+      "oneLiner": "Treinador de resistência local-first com orientação cardíaca BLE ao vivo e um copiloto de IA durante a corrida",
+      "description": "StaminaForge é um app de resistência React Native (Expo SDK 55) local-first que se conecta via Bluetooth a uma cinta Garmin HRM-Dual para treinar ao vivo um plano estruturado de 12 wk baseado em zonas de frequência cardíaca, e depois explicar cada corrida. Funciona totalmente offline.",
+      "challenge": "Ler um fluxo de frequência cardíaca BLE ao vivo com confiabilidade suficiente para treinar a partir dele, executar um plano real de 12 wk, e transformar um GPS de celular ruidoso em ritmo e elevação confiáveis, tudo no dispositivo, com a tela desligada e com uma só mão.",
+      "approach": "Um motor de treino puro, sem efeitos colaterais (uma máquina de estados que retorna instruções), é desacoplado de um gerenciador BLE singleton, um reducer de GPS e áudio assíncrono. O estado roda no Zustand e o histórico no SQLite. Uma camada de IA opcional transmite via SSE através de um proxy auto-hospedado, limitada por um validador de ações rígido.",
+      "results": "Um companheiro coberto por testes distribuído em oito telas. FC ao vivo a 1 Hz colorida por zona com anúncio falado da zona, dos intervalos, da cadência e do abastecimento; treinador de IA por voz opcional. Após a corrida, armazena o traço completo, corrige a elevação pela nuvem e calcula o ritmo MAF, o GAP, o desacoplamento, o VDOT e a carga CTL/ATL/TSB. 16 módulos de análise, 93 testes unitários, sincronização e exportação GPX opcionais.",
+      "businessResult": "Um único treinador no dispositivo que guia um plano de resistência de 12 wk ao vivo e o explica depois.",
+      "role": "Design, desenvolvimento e lançamento solo",
+      "timeline": "~5 semanas (28 abr. - 3 jun. 2026, conforme o histórico do git)",
+      "metrics": [
+        {
+          "value": "12 wk",
+          "label": "Protocolo de treino"
+        },
+        {
+          "value": "1 Hz",
+          "label": "Treino de FC ao vivo"
+        },
+        {
+          "value": "16",
+          "label": "Módulos de análise"
+        },
+        {
+          "value": "93",
+          "label": "Testes unitários"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Treino de frequência cardíaca ao vivo via Bluetooth",
+          "description": "Conecta-se a uma Garmin HRM-Dual, transmite a FC a 1 Hz e fala instruções em tempo real mais um alarme scream-mode ao ultrapassar o teto."
+        },
+        {
+          "title": "Copiloto de IA por voz durante a corrida",
+          "description": "A IA opcional dá breves verificações faladas e responde a perguntas por voz sem duplicar as instruções críticas de segurança."
+        },
+        {
+          "title": "Protocolo de resistência estruturado de 12 semanas",
+          "description": "Base Z2, intervalos noruegueses 4x4, tiros, finalização em tempo, semanas de redução e um contrarrelógio final de 5K."
+        },
+        {
+          "title": "Elevação corrigida pela nuvem e ritmo ajustado à inclinação",
+          "description": "O DEM da Open-Meteo corrige a altitude do GPS, alimentando o GAP, a segmentação do terreno e uma faixa de qualidade dos dados."
+        },
+        {
+          "title": "Análise aprofundada pós-corrida",
+          "description": "Ritmo MAF, distribuição de zonas, desacoplamento, VDOT, carga CTL/ATL/TSB, além de alertas de risco de lesão e overtraining."
+        },
+        {
+          "title": "Local-first com sincronização e exportação opcionais",
+          "description": "SQLite no dispositivo, totalmente offline; sincronização multidispositivo auto-hospedada e exportação GPX opcionais."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Pipeline de FC em tempo real",
+          "detail": "Quadros GATT 0x180D da Garmin HRM-Dual analisados por um gerenciador BLE singleton, limitados a 1 Hz, distribuídos via Zustand para a UI, o reducer de corrida e o motor de treino; fonte simulada habilitável por configurações para desenvolvimento."
+        },
+        {
+          "area": "Motor de treino puro",
+          "detail": "lib/coach/engine.ts: tick(sample, elapsedMs, cadence) sem efeitos colaterais que retorna instruções sobre um tempo de corrida monotônico, tratando os tetos Z2, o scream-mode, os intervalos, a cadência e o abastecimento com tempos de espera por instrução."
+        },
+        {
+          "area": "Camada de dados local-first",
+          "detail": "SQLite no dispositivo (WAL, chaves estrangeiras, 12 tabelas) armazena amostras brutas sem agregação na escrita; as métricas são calculadas no momento da consulta. Preferências via Zustand + AsyncStorage. Sem conta nem nuvem."
+        },
+        {
+          "area": "Camada de IA limitada",
+          "detail": "Proxy auto-hospedado com streaming SSE e um parser de JSON balanceado; um validador rígido (lib/ai/actions.ts) permite apenas ações limitadas e não destrutivas. Verificações limitadas, sem duplicações e com fallback determinístico offline."
+        },
+        {
+          "area": "Elevação e mapeamento",
+          "detail": "Altitude do GPS corrigida pela nuvem contra o DEM da Open-Meteo sem chave (em lotes, com nova tentativa, degrada para valores nulos), renderizada sobre um mapa base MapLibre + CARTO sem chave com GAP e segmentação do terreno."
+        }
+      ],
+      "highlights": [
+        "O motor de treino é uma máquina de estados pura (ADR-0004): determinístico, desacoplado de BLE/áudio/React, densamente coberto por testes unitários.",
+        "As instruções de áudio nunca bloqueiam o pipeline de FC; um dispatcher assíncrono consome as instruções para manter a latência da fala fora do caminho crítico.",
+        "A IA é aditiva: as instruções durante a corrida não repetem as locais, limitam-se a cerca de uma verificação a cada 5 min e recorrem ao modo offline.",
+        "Defesa em profundidade: um validador limita cada ação da IA (por ex. MAF restrito a +/-10 bpm) para que uma resposta ruim não possa causar dano.",
+        "TypeScript estrito, sem `any`; Zod apenas nas fronteiras reais (bytes BLE, linhas SQLite, GPS), com os tipos como contrato (ADR-0008).",
+        "Tratamento honesto de sensores: GPS suavizado antes do cálculo de elevação, o DEM degrada para valores nulos, faixa de qualidade dos dados sinaliza traços ruins.",
+        "Oito ADRs registram as decisões estruturais (apenas local, Zustand+SQLite, motor de treino puro, singleton BLE preguiçoso)."
+      ]
+    },
+    "ai-fitness-coach": {
+      "title": "Treinador de fitness com IA",
+      "subtitle": "Treino personalizado com IA e programacao de treino adaptativa",
+      "oneLiner": "Treinador de forca agentico que adapta cargas, instrucoes e o seu treino em tempo real a partir do historico de treino",
+      "description": "Um aplicativo de forca local-first em React Native (Expo) cujo treinador de IA agentico conhece o programa completo do atleta, o historico serie a serie e a prontidao antes do treino, e pode reestruturar o treino em andamento a partir de uma unica linha de feedback.",
+      "challenge": "Os aplicativos de mercado entregam programas estaticos que ignoram como foi a ultima serie. O dificil e fornecer ao modelo contexto estruturado suficiente para dar conselhos de carga seguros e especificos, e entao deixa-lo executar acoes reversiveis na sessao ao vivo sem corromper o estado do treino.",
+      "approach": "Foi construido um aplicativo Expo SDK 54 / RN 0.81 (New Architecture) sobre um esquema SQLite normalizado (11 migracoes). Um construtor de contexto serializa o programa, as series recentes e a prontidao em prompts compactos enviados a um proxy Claude auto-hospedado via SSE, sem embarcar nenhuma chave de API. O feedback em texto livre ou por voz vira acoes tipadas e reversiveis, persistidas como modificacoes auditaveis.",
+      "results": "Foi publicado um APK de release de Android com um ciclo de treino completo: navegador de programa, avaliacao de prontidao, tela de treino ativo com cargas pre-preenchidas pela IA, instrucoes em streaming, feedback pos-serie limitado, deteccao de PR ao vivo, entrada agentica e um chat de Coach ciente do programa. Executa o programa Upper/Lower de 10 semanas de Jeff Nippard com deload, substituicoes, busca FTS5, calculo de anilhas e um fallback baseado no historico quando o modelo esta indisponivel.",
+      "businessResult": "Um padrao de nivel producao para integrar um LLM agentico em um fluxo mobile em tempo real e offline-first, com acoes seguras e reversiveis.",
+      "role": "Design, desenvolvimento e publicacao solo",
+      "timeline": "~Fev 2026 a Mai 2026 (historico git ativo; APK de release Mai 2026)",
+      "metrics": [
+        {
+          "value": "7",
+          "label": "Tipos de acao de IA"
+        },
+        {
+          "value": "10 wk",
+          "label": "Programa periodizado"
+        },
+        {
+          "value": "11",
+          "label": "Migracoes de dados"
+        },
+        {
+          "value": "0",
+          "label": "Segredos no aplicativo"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Coaching agentico durante o treino",
+          "description": "Uma linha digitada ou falada vira acoes tipadas: ajustar carga, substituir, pular ou adicionar descanso, cada uma reversivel."
+        },
+        {
+          "title": "Cargas e instrucoes conscientes do contexto",
+          "description": "Le o bloco do programa, as metas de RPE, a prontidao e o historico de series para pre-preencher cargas com calculo de anilhas."
+        },
+        {
+          "title": "Conselhos guiados pela prontidao e seguros em deload",
+          "description": "Uma avaliacao pre-treino alimenta cada prompt; semanas de deload tornam o treinador conservador."
+        },
+        {
+          "title": "Chat em streaming ciente do programa",
+          "description": "Uma aba de Coach transmite token a token com o programa de 10 semanas e as ultimas 12 sessoes em contexto."
+        },
+        {
+          "title": "Deteccao de PR ao vivo e feedback pos-serie",
+          "description": "As series de trabalho disparam verificacoes de PR e uma breve reacao de IA limitada sobre a adequacao da carga."
+        },
+        {
+          "title": "Offline-first com sincronizacao entre dispositivos",
+          "description": "Todos os dados ficam no dispositivo em SQLite; um backend opcional auto-hospedado faz backup e restaura."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Camada de dados",
+          "detail": "SQLite normalizado: semanas, dias, series marcadas com RPE, avaliacoes, tabelas de IA, busca FTS5, 11 migracoes transacionais."
+        },
+        {
+          "area": "Integracao de IA",
+          "detail": "Proxy Claude (opus) auto-hospedado via SSE; nenhuma chave de modelo embarcada, com streaming de tokens ao vivo e parsing JSON."
+        },
+        {
+          "area": "Loop de acoes agentico",
+          "detail": "useWorkoutAI constroi contexto novo, aplica cada acao ao estado e grava uma linha ai_modifications reversivel."
+        },
+        {
+          "area": "Engenharia de contexto",
+          "detail": "aiContext.ts serializa o programa, o historico de varias semanas, a prontidao e as substituicoes em prompts com orcamento de tokens controlado."
+        },
+        {
+          "area": "Offline-first + sincronizacao",
+          "detail": "Leituras/gravacoes passam primeiro pelo SQLite local; a sincronizacao opcional faz backup de tabelas e preferencias com uma protecao contra sobrescrita no primeiro sync."
+        }
+      ],
+      "highlights": [
+        "Resiliencia em primeiro lugar: cargas baseadas no historico sao pre-preenchidas instantaneamente, o modelo as refina, e novas tentativas junto a um cartao de fallback visivel mantem os treinos utilizaveis.",
+        "Seguranca nos prompts e nos dados: restricoes de deload se propagam para cada prompt; substituicoes ficam limitadas a alternativas pre-validadas.",
+        "IA auditavel: cada mudanca na sessao ao vivo e salva em ai_modifications com o JSON de antes/depois e um controle de desfazer.",
+        "Streaming SSE feito a mao com um fallback sem streaming e um extrator JSON de colchetes balanceados que sobrevive a saidas ruidosas.",
+        "TypeScript baseado em funcionalidades: padrao repository sobre SQLite mais stores Zustand para o estado de treino, avaliacao, cronometro e IA.",
+        "Dominio do oficio: um motor de tempo de repeticoes ajusta os cronometros, as cargas mantem sua unidade ao longo do historico e o calculo de anilhas alimenta o raciocinio do modelo."
+      ]
+    },
+    "bully-ai": {
+      "title": "Bully.ai",
+      "subtitle": "O app que te faz sentir culpa até você finalmente fazer as coisas",
+      "oneLiner": "Um app de produtividade baseado em psicologia comportamental que escala de cutucões gentis a sermões arrasadores",
+      "description": "Um app de produtividade em React Native para pessoas procrastinadoras e com TDAH que troca os lembretes alegres por uma cascata de notificações em cinco etapas, escalando de uma cutucada gentil a um sermão arrasador, somado a uma camada real de apoio ao TDAH e a um backend de prova social anônimo.",
+      "challenge": "Lembretes suaves são ignorados sem esforço justamente por quem mais precisa deles. As notificações são disparadas pelo sistema operacional quando o JS do app não está rodando, então todo o texto de escalada personalizado por IA precisa existir antes do agendamento e degradar com elegância quando a IA ou a rede falha.",
+      "approach": "Construído sobre Expo SDK 54 / React Native 0.81 New Architecture, TypeScript, Zustand e NativeWind. Um motor de escalada de funções puras mapeia cinco níveis para limiares em minutos de defasagem; uma única chamada em lote ao Claude Opus pré-gera os cinco textos de personalidade na criação da tarefa, em cache e reagendados, com modelos de fallback. Os tipos de lembrete formam um registro de plugins; um backend NestJS + Prisma + Redis alimenta a prova social anônima.",
+      "results": "Um app compilável com notificações que escalam com IA, uma aba de chat de IA em streaming, cinco personalidades, quatro tipos de lembrete plugáveis, um sistema de aprendizado sobre TDAH, estatísticas com comparação comunitária e widgets nativos de tela inicial no iOS/Android. Por trás dele há um backend NestJS com forma de produção, com nove módulos, agregação em cache no Redis, um cron de percentis a cada hora e autenticação de tempo constante. Cada caminho de IA tem um modelo de fallback.",
+      "businessResult": "Transformou um gancho marcante, «o app que te intimida», em um produto resiliente com um motor de notificações com IA e um backend de prova social anônimo.",
+      "role": "Design, desenvolvimento e entrega solo (app móvel + backend complementar)",
+      "timeline": "Desenvolvimento ativo de 2025 a 2026 (commits móveis até abr. 2026, backend até mar. 2026)",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Etapas de escalada"
+        },
+        {
+          "value": "5",
+          "label": "Personalidades"
+        },
+        {
+          "value": "4",
+          "label": "Tipos de lembrete"
+        },
+        {
+          "value": "1",
+          "label": "Chamada de IA → 5 mensagens"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Notificações que escalam personalizadas por IA",
+          "description": "Cascata de cinco etapas, gerada pelo Claude por personalidade, pré-renderizada em uma única chamada em lote, com modelo de fallback."
+        },
+        {
+          "title": "Cinco personalidades intimidadoras",
+          "description": "Amigo Decepcionado, Sargento Instrutor, Passivo-Agressivo, Existencial e Hype Beast, nas notificações e no chat."
+        },
+        {
+          "title": "Tipos de lembrete plugáveis",
+          "description": "Reset de postura, drill de salsa em 5 fases e cronômetro de tédio como plugins de registro com sua própria interface de execução."
+        },
+        {
+          "title": "Coach de IA em chat ao vivo",
+          "description": "Streaming token a token a partir do proxy do Claude na personalidade ativa, com fallback que mantém o tom."
+        },
+        {
+          "title": "Sistema de aprendizado sobre TDAH",
+          "description": "Cinco cursos, oito exercícios interativos com badges e 42 dicas de psicologia diárias em rodízio."
+        },
+        {
+          "title": "Backend de prova social anônimo",
+          "description": "NestJS + Prisma + Redis registra as tarefas concluídas por ID de dispositivo, calculando rankings e posições em percentis."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Notificações pré-geradas",
+          "detail": "O orquestrador agenda instantaneamente notificações de modelo e depois as aprimora de forma assíncrona com texto de IA e as reagenda."
+        },
+        {
+          "area": "Registro de plugins de tipos de lembrete",
+          "detail": "Cada experiência de tarefa é um plugin com executor, formulário de configuração e esquema de rastreamento, e não um switch."
+        },
+        {
+          "area": "Proxy do Claude auto-hospedado",
+          "detail": "Toda a IA roda sobre SSE no Opus; leituras com buffer/em streaming, limpeza de marcações de código, bearer token no ambiente EXPO_PUBLIC."
+        },
+        {
+          "area": "Backend anônimo e resiliente",
+          "detail": "Chaves por UUID de dispositivo, em cache no Redis, cron de percentis a cada hora sob trava SET NX, guarda de API com timingSafeEqual."
+        }
+      ],
+      "highlights": [
+        "O texto de IA é limitado a strings de 80 caracteres sem emoji para caber em notificações reais de celular",
+        "Cada caminho de IA degrada com elegância: notificações de modelo e um fallback de chat que mantém o tom, nunca uma tela em branco",
+        "Adiar um lembrete acelera a escalada em 30 minutos por adiamento, punindo a procrastinação",
+        "Widget multiplataforma via plugin Expo personalizado: SwiftUI no iOS, Kotlin no Android, ponte App Group",
+        "Oito ADRs documentam o registro de plugins, os sermões pré-gerados, o store particionado e o tratamento do token do proxy",
+        "Backend com forma de produção: Swagger, helmet, limites de taxa, sondas de saúde, Postgres + Redis em Docker e 21 specs"
+      ]
+    },
+    "breathebreak": {
+      "title": "BreatheBreak",
+      "subtitle": "Lembretes de respiração na barra de menus do Mac para dias intensos diante da tela",
+      "oneLiner": "Coach nativo de macOS na barra de menus que transforma dias intensos diante da tela em pausas de respiração no ritmo do método Buteyko",
+      "description": "O BreatheBreak é um coach nativo de macOS na barra de menus que mantém a respiração de recuperação presente durante o trabalho focado sem roubar a atenção. Executa sem Dock como agente LSUIElement, dita o ritmo de lembretes inspirados no método Buteyko e acompanha o Control Pause, a sua tolerância ao CO2, tudo no dispositivo.",
+      "challenge": "Uma ferramenta de respiração só funciona no meio da tarefa, mas abrir um app ou aguentar animações forçadas quebra o foco que ela deveria proteger. O objetivo: estimular a respiração o dia todo permanecendo em silêncio durante chamadas, o modo Foco e fora do horário de trabalho.",
+      "approach": "Um app SwiftUI e AppKit baseado em MenuBarExtra com três níveis de interrupção (pulso do ícone, aviso na borda, janela flutuante NSPanel sobreposta). Um DispatchSourceTimer comanda o agendamento; uma máquina de estados TrainingPhase ajusta o ritmo dos lembretes automaticamente; as sessões são preservadas via SwiftData.",
+      "results": "Um companheiro para macOS 14+ em conformidade com o sandbox que roda de forma invisível: popover de contagem regressiva com adiar e pausar, lembretes contextuais que respeitam chamadas e o modo Foco, progressão Buteyko completa, e acompanhamento do Control Pause com sequências e uma tendência de 7 dias com Swift Charts.",
+      "businessResult": "Mantém a respiração de recuperação presente o dia todo sem tirar o usuário do trabalho focado, das chamadas ou do modo Foco.",
+      "role": "Design, desenvolvimento e publicação solo",
+      "timeline": "Desenvolvido em março de 2026 (commits de origem de 12 a 31 de março de 2026); publicado como v1.0.0",
+      "metrics": [
+        {
+          "value": "4",
+          "label": "Exercícios de respiração"
+        },
+        {
+          "value": "3",
+          "label": "Fases adaptativas"
+        },
+        {
+          "value": "100%",
+          "label": "No dispositivo"
+        },
+        {
+          "value": "0",
+          "label": "Distrações"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motor de lembretes contextual",
+          "description": "Quatro barreiras de omissão (horas ativas, pausa, em reunião, Foco/NPM do sistema) controlam cada sinal."
+        },
+        {
+          "title": "Progressão adaptativa Buteyko",
+          "description": "Um modelo de três fases (7/15/30 min) ajusta o nível automaticamente conforme a taxa de conclusão semanal."
+        },
+        {
+          "title": "Interrupções em três níveis",
+          "description": "Pulso de ícone e aviso na borda silenciosos; apenas um a cada quatro ciclos escala para uma sobreposição completa."
+        },
+        {
+          "title": "Acompanhamento de CO2 por Control Pause",
+          "description": "Verificações guiadas de retenção da respiração com sequências, médias e uma tendência de 7 dias com Swift Charts."
+        },
+        {
+          "title": "Local em primeiro lugar com exportação CSV",
+          "description": "Cada sessão permanece no dispositivo via SwiftData; exportação CSV com um toque."
+        },
+        {
+          "title": "Integração nativa ao sandbox",
+          "description": "Agente LSUIElement sem Dock, início ao fazer login via SMAppService, Foco inferido dentro do sandbox."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Estrutura do app",
+          "detail": "Cena SwiftUI MenuBarExtra .window, agente LSUIElement; AppState @MainActor como fonte de verdade, OverlayCoordinator liga o Combine ao AppKit."
+        },
+        {
+          "area": "Agendamento",
+          "detail": "DispatchSourceTimer com data do próximo disparo persistida e padrão de disparo único e depois repetição para o adiar; o Control Pause usa UNCalendarNotificationTrigger."
+        },
+        {
+          "area": "Integração com o SO",
+          "detail": "Foco inferido de DoNotDisturb Assertions.json mais controlcenter/ncprefs; reuniões via sondagem de bundle-ID do NSWorkspace; início via SMAppService."
+        },
+        {
+          "area": "Camada de dados",
+          "detail": "SwiftData @Model BreathSession com consultas #Predicate para sequências, médias de CP, taxa semanal; tendência com Swift Charts; exportação CSV."
+        }
+      ],
+      "highlights": [
+        "Resolveu a ausência de API pública do modo Foco no App Sandbox analisando o DoNotDisturb Assertions.json, com recurso aos domínios controlcenter/ncprefs e assinatura das notificações NPM, limitado e em cache para leituras de alta frequência.",
+        "Design de interrupções em três níveis (pulso de ícone, aviso na borda, sobreposição completa) atrelado à contagem de ciclos e à fase de treino, presente sem importunar.",
+        "A máquina de estados TrainingPhase lê a taxa de conclusão semanal: oferece subir de nível a 80%+ ou aliviar abaixo de 50%, transformando um temporizador fixo em um protocolo de hábito.",
+        "Motor de respiração declarativo: cada exercício é um array de valores BreathPhase(instruction, duration, targetScale) que a sobreposição e o aviso animam de forma idêntica.",
+        "Agendamento resiliente: um DispatchSourceTimer com data do próximo disparo persistida sobrevive ao reinício, mais um padrão de disparo único e depois repetição para um tratamento limpo do adiar.",
+        "Áudio defensivo com um recurso de três abordagens (NSSound nomeado, NSSound a partir de arquivo, AudioServices) e uma referência forte mantida para sobreviver ao ARC durante a reprodução.",
+        "Separação limpa entre AppState, BreathReminderManager, ProcessMonitor, FocusModeObserver, SoundManager e OverlayCoordinator, conectados via Combine."
+      ]
+    },
+    "linkedin-templates-extension": {
+      "title": "Extensão de modelos do LinkedIn",
+      "subtitle": "Extensão do Chrome com abordagem privacy-first para uma prospecção mais rápida no LinkedIn",
+      "oneLiner": "Gerenciador de modelos do LinkedIn com abordagem privacy-first: uma extensão Manifest V3 com um backend opcional de sincronização para equipes",
+      "description": "Uma extensão do Chrome Manifest V3 para recrutadores e SDRs que permite salvar modelos reutilizáveis de mensagens do LinkedIn e inseri-los com um clique, com as variáveis de perfil preenchidas automaticamente. Local-first e offline; um backend opcional em NestJS adiciona a sincronização de equipes.",
+      "challenge": "As equipes de prospecção reutilizam os mesmos trechos, espalhados entre documentos e caixas de entrada. As ferramentas de automação resolvem isso, mas fazem com que as contas sejam banidas, então a personalização precisava funcionar por meio de uma injeção manual com aparência nativa nos cambiantes compositores React do LinkedIn.",
+      "approach": "Desenvolvida em React 18, TypeScript e Webpack sobre Manifest V3. Um MutationObserver em um content script injeta um botão Templates nos compositores do LinkedIn; um backend opcional em NestJS + PostgreSQL adiciona autenticação JWT, sincronização na nuvem e bibliotecas de equipe.",
+      "results": "Uma extensão pronta para compilar cobrindo as três superfícies de composição, com um popup refinado, um painel de opções e importação/exportação em JSON. As variáveis são detectadas automaticamente como chips e preenchidas com os dados de perfil extraídos. Validada de ponta a ponta com Playwright; o backend opcional entrega autenticação, CRUD e compartilhamento de equipe.",
+      "businessResult": "Transforma trechos dispersos do LinkedIn em prospecção personalizada com um clique, sem o risco de banimento das ferramentas de automação.",
+      "role": "Design, desenvolvimento e entrega em solo (extensão + backend), por meio de um pipeline de build multiagente",
+      "timeline": "Desenvolvida em abril de 2026; ~95% pronta para envio à Chrome Web Store (ícones e recursos da loja presentes, política de privacidade pendente)",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "Compositores do LinkedIn"
+        },
+        {
+          "value": "7+",
+          "label": "Variáveis de perfil"
+        },
+        {
+          "value": "0",
+          "label": "Chamadas de rede"
+        },
+        {
+          "value": "1-click",
+          "label": "Inserção de mensagem"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Inserção com um clique em cada compositor",
+          "description": "Um MutationObserver injeta um botão nativo nos editores de mensagens, de conexão e InMail."
+        },
+        {
+          "title": "Variáveis de perfil inteligentes",
+          "description": "Extrai {{firstName}}, {{company}} e mais, substituindo-as na inserção."
+        },
+        {
+          "title": "Detecção de variáveis em tempo real",
+          "description": "O editor analisa os tokens {{...}} enquanto você digita e os exibe como chips."
+        },
+        {
+          "title": "Busca na página navegável por teclado",
+          "description": "Menu suspenso injetado com busca e navegação completa por setas/Enter/Escape."
+        },
+        {
+          "title": "Local-first com sincronização de equipe opcional",
+          "description": "Offline via chrome.storage; um backend opcional em NestJS adiciona a nuvem e bibliotecas de equipe."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Content script + resiliência do DOM",
+          "detail": "Um MutationObserver corresponde aos seletores do editor e deduplica a injeção com uma flag de dados diante das rerenderizações do React."
+        },
+        {
+          "area": "Inserção segura para o estado do React",
+          "detail": "Define o textContent e dispara um evento input sintético que se propaga para que o React detecte a mudança."
+        },
+        {
+          "area": "Barramento de mensagens tipado",
+          "detail": "O popup e o content script trocam um protocolo tipado por meio de um service worker que gerencia o armazenamento."
+        },
+        {
+          "area": "Armazenamento consciente de cotas",
+          "detail": "Envolve o chrome.storage.sync, captura erros de cota para recorrer ao armazenamento local e inicializa os valores padrão."
+        },
+        {
+          "area": "Backend opcional em NestJS",
+          "detail": "NestJS + PostgreSQL com autenticação JWT/bcrypt, CRUD de modelos, Swagger e compartilhamento de equipe gerenciado pelo proprietário."
+        }
+      ],
+      "highlights": [
+        "Seguro contra XSS por construção: o conteúdo dos modelos passa por textContent antes da injeção",
+        "A inserção dispara eventos input sintéticos para que o compositor React do LinkedIn registre o texto",
+        "Acesso completo pelo teclado, além de um atalho Ctrl/Cmd+Shift+T e um menu de contexto com clique direito",
+        "Degradação elegante: valores ausentes mantêm o token literal; um estouro de cota de sincronização recorre ao armazenamento local",
+        "Acabamento nativo do LinkedIn: pulsação do botão, menu suspenso ancorado, toasts, estados skeleton",
+        "Verificada com capturas do Playwright; inclui ícones de 16/32/48/128px para a Web Store"
+      ]
+    },
+    "healthcare-pdf-api": {
+      "title": "API PDF para saúde",
+      "subtitle": "Geração segura de documentos médicos com criptografia, auditoria e controles de retenção",
+      "oneLiner": "Uma API de referência em NestJS alinhada à HIPAA para gerar, criptografar e auditar PDFs médicos",
+      "description": "Um backend de referência em NestJS de nível de produção que transforma dados clínicos estruturados em PDFs médicos criptografados e rastreados por auditoria. Criado para integradores de saúde que precisam de tratamento de PHI alinhado à HIPAA desde o início.",
+      "challenge": "Renderizar um PDF é fácil; o difícil é o controle de acesso, criptografar os PHI em repouso, mantê-los fora dos logs, uma trilha de auditoria de conformidade imutável e uma documentação de autoatendimento clara.",
+      "approach": "Uma aplicação NestJS 10 modular com um módulo delimitado por responsabilidade. O Puppeteer renderiza modelos Handlebars por caminhos síncronos e assíncronos (Bull/Redis); um único EncryptionService centraliza AES-256-GCM e SHA-256, com persistência em PostgreSQL/TypeORM.",
+      "results": "Uma API implantável via Docker com geração síncrona e assíncrona, cinco modelos pré-carregados, chaves de API com hash e escopo limitado, criptografia AES-256-GCM de PHI e PDFs, uma trilha de auditoria consultável, webhooks com novas tentativas, sondas de integridade e expiração de retenção noturna, respaldada por 96 testes unitários.",
+      "businessResult": "Profundidade de backend corporativo: criptografia, auditabilidade e operações de API limpas sobre as quais um integrador de saúde pode construir.",
+      "role": "Arquitetura, desenvolvimento e documentação solo",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Modelos de documentos"
+        },
+        {
+          "value": "AES-256",
+          "label": "Criptografia em repouso"
+        },
+        {
+          "value": "96",
+          "label": "Testes unitários"
+        },
+        {
+          "value": "3×",
+          "label": "Novas tentativas de webhook"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "PHI e PDFs criptografados em repouso",
+          "description": "Um único serviço AES-256-GCM criptografa a carga útil, o PDF e o caminho do arquivo; chaves de API com hash SHA-256."
+        },
+        {
+          "title": "Geração síncrona e assíncrona com webhooks",
+          "description": "Renderização inline ou enfileirada com Bull, com nova tentativa de backoff 3x e webhooks de sucesso ou falha."
+        },
+        {
+          "title": "Cinco modelos médicos pré-carregados",
+          "description": "Laudo, prescrição, resultados de exames, resumo do paciente, CMS-1500, em Handlebars, pré-carregados via migração."
+        },
+        {
+          "title": "Trilha de auditoria no estilo HIPAA",
+          "description": "Cada evento de geração, download, exclusão ou autenticação é registrado com ator, IP e agente; consultável e paginado."
+        },
+        {
+          "title": "Controle de acesso por chave de API com escopo limitado",
+          "description": "Permissões por chave, limites diários aplicados no banco de dados, lista de IPs permitidos e expiração em um único guard."
+        },
+        {
+          "title": "Retenção e expiração automatizadas",
+          "description": "Um cron noturno exclui os PDFs que ultrapassam sua janela de retenção e registra a exclusão."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Camada de dados",
+          "detail": "PostgreSQL/TypeORM, quatro tabelas, cinco migrações; audit_logs indexada para consultas de conformidade rápidas"
+        },
+        {
+          "area": "Processamento assíncrono",
+          "detail": "A fila Bull/Redis renderiza via Puppeteer, criptografa, persiste e dispara webhooks em caso de sucesso ou falha"
+        },
+        {
+          "area": "Segurança e autenticação",
+          "detail": "O ApiKeyGuard verifica chaves com hash, lista de IPs permitidos e expiração; Helmet, lista de permissões CORS, ValidationPipe global"
+        },
+        {
+          "area": "Proteção de PHI",
+          "detail": "O Winston mascara por regex ssn/dob/phone/email/diagnosis; os PHI são criptografados antes de persistir, nunca em texto puro"
+        },
+        {
+          "area": "Operabilidade",
+          "detail": "/health e /health/ready sondam Postgres, Redis e o armazenamento; Docker, Swagger e página inicial incluídos"
+        }
+      ],
+      "highlights": [
+        "Fonte única de verdade criptográfica: a tag de autenticação GCM é empacotada com o IV para que qualquer adulteração falhe na descriptografia",
+        "Autenticação em defesa em profundidade: chaves com hash, permissões delimitadas, limites diários, lista de IPs permitidos, limitação de taxa em dois níveis",
+        "Registro de auditoria à prova de falhas: retorna null em vez de lançar uma exceção, sem nunca interromper uma requisição clínica",
+        "Assíncrono de verdade: o processador Bull espelha o renderizador síncrono, além de novas tentativas, webhooks e rastreamento de entrega",
+        "Documentação como produto: interface Swagger personalizada e página inicial auto-hospedada servida pela API",
+        "96 testes unitários cobrindo criptografia, autenticação, auditoria, modelos, webhooks e geração"
+      ]
+    },
+    "salsaflow": {
+      "title": "SalsaFlow",
+      "subtitle": "Treinador de salsa WebXR imersivo para Meta Quest com avaliação de movimento em tempo real",
+      "oneLiner": "Um treinador de salsa WebXR para Meta Quest que avalia sua dança tempo a tempo diante de um par ao vivo",
+      "description": "O SalsaFlow é um instrutor de salsa WebXR nativo do navegador para Meta Quest. Os alunos dançam com um par virtual articulado enquanto o app avalia o ritmo e a qualidade do movimento a cada tempo.",
+      "challenge": "Replicar o retorno de um instrutor particular em software exige um par que se move no tempo, avaliação precisa no tempo apenas a partir das poses WebXR de cabeça e mãos, e zero quadros perdidos a 72-90 FPS.",
+      "approach": "Um app WebXR em ECS estrito sobre IWSDK e Three.js. Um singleton BeatClock é a única autoridade de tempo, todos os sistemas se sincronizam em fase via Preact Signals. Um BVH de salsa CMU é retargeteado em um dançarino do Mixamo, com um solver de IK de dois ossos sob medida e caminhos críticos sem alocação.",
+      "results": "Um protótipo funcional com quatro modos de prática, um currículo de 15 movimentos com desbloqueios encadeados, cinco faixas de áudio espacial e três camadas de retorno ao vivo. Um gravador integrado exporta poses de mão de 25 articulações a 30 Hz. Instala-se como PWA offline.",
+      "businessResult": "Prova que o coaching objetivo de salsa pode rodar no navegador em um headset de VR de consumo, sem loja de apps nem instrutor.",
+      "role": "Concepção, desenvolvimento e lançamento em solo",
+      "timeline": "2025-2026 (documentos de pesquisa datados de abril de 2026), em desenvolvimento ativo",
+      "metrics": [
+        {
+          "value": "15",
+          "label": "Movimentos de salsa"
+        },
+        {
+          "value": "4",
+          "label": "Modos de prática"
+        },
+        {
+          "value": "30 Hz",
+          "label": "Captura de movimento"
+        },
+        {
+          "value": "90",
+          "label": "FPS alvo (VR)"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Par VR ao vivo a partir de mocap real",
+          "description": "Um dançarino do Mixamo executa um BVH de salsa CMU e se aproxima do aluno via IK sob medida."
+        },
+        {
+          "title": "Avaliação de movimento tempo a tempo",
+          "description": "Poses de cabeça e mãos no referencial da cabeça, avaliadas em verde/amarelo/vermelho quanto a ritmo e direção."
+        },
+        {
+          "title": "Quatro modos de prática",
+          "description": "Lição, Prática Livre, Drill e um Tempo Trainer que adapta o BPM ao desempenho."
+        },
+        {
+          "title": "Três camadas de retorno em VR",
+          "description": "Barra de ritmo, brilhos coloridos nas mãos e pegadas no chão sincronizadas ao tempo."
+        },
+        {
+          "title": "Currículo de 15 movimentos",
+          "description": "Do iniciante ao avançado, com desbloqueios encadeados e pontuações salvas localmente."
+        },
+        {
+          "title": "Gravador de mocap integrado",
+          "description": "Exporta a cabeça mais 25 articulações por mão a 30 Hz em formato JSON."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Renderização e framework",
+          "detail": "WebXR de navegador via IWSDK sobre Three.js, estúdio construído a partir de entidades de transformação ECS."
+        },
+        {
+          "area": "Padrão de arquitetura",
+          "detail": "ECS elics estrito, um sistema por arquivo, estado em Preact Signals, sem polling."
+        },
+        {
+          "area": "Timing",
+          "detail": "O singleton BeatClock emite ticks a cada 60000/bpm ms, recuperando os tempos perdidos."
+        },
+        {
+          "area": "Pipeline de movimento",
+          "detail": "BVH CMU retargeteado para Mixamo via SkeletonUtils, a IK de dois ossos sobrescreve o braço a cada quadro."
+        },
+        {
+          "area": "Persistência e offline",
+          "detail": "ProgressStore em IndexedDB com fallback em memória, PWA instalável offline."
+        }
+      ],
+      "highlights": [
+        "Caminhos críticos de VR sem alocação: objetos matemáticos por quadro pré-alocados, ring buffers de alocação zero para evitar quedas por causa do GC",
+        "IK de dois ossos em forma fechada escrita à mão, com pole-vector e limitação de alcance máximo, sem bibliotecas externas",
+        "Retargeting robusto de CMU para Mixamo com mapeamento explícito de ossos e remoção da translação raiz",
+        "Normalização do movimento no referencial da cabeça para que a direção seja independente da orientação",
+        "Um único BeatClock conduz todo o timing com lógica de recuperação após travadas do GC",
+        "Degradação graciosa: de IndexedDB para memória, de ossos ausentes para a raiz, erros de listeners isolados"
+      ]
+    }
+  },
+  "servicesData": {
+    "fullstack": {
+      "title": "Desenvolvimento Full-Stack Web e Mobile",
+      "shortDescription": "Construímos aplicações de produção, do banco de dados à interface. Aplicações web, aplicativos móveis, APIs e soluções que funcionam de forma integrada em todas as camadas.",
+      "longDescription": "De portais de seguros corporativos que atendem milhares de usuários a aplicativos de treino pessoal, construímos toda a vertical. Nossa stack é fluida: React e React Native para o frontend, Java/Spring Boot ou Node.js/NestJS no backend, com PostgreSQL ou MongoDB para os dados. Nós nos adaptamos ao que o projeto precisa.",
+      "deliverables": [
+        "Aplicações web",
+        "Aplicativos móveis (iOS/Android)",
+        "APIs REST/GraphQL",
+        "Arquitetura de banco de dados"
+      ]
+    },
+    "cloud": {
+      "title": "Consultoria Cloud e DevOps",
+      "shortDescription": "Infrastructure as Code, pipelines CI/CD, conteinerização e arquitetura cloud para equipes que precisam escalar com fluidez.",
+      "longDescription": "Projetamos e implementamos infraestrutura cloud que escala conforme a demanda. Da configuração do seu primeiro pipeline CI/CD à migração de monolitos para microsserviços no Kubernetes, ajudamos as equipes a entregar mais rápido e com confiança.",
+      "deliverables": [
+        "Planos de migração cloud",
+        "Configuração de Infrastructure as Code",
+        "Pipelines CI/CD",
+        "Painéis de monitoramento",
+        "Auditorias de otimização de custos"
+      ]
+    },
+    "ai": {
+      "title": "Integração de IA/ML e Automação",
+      "shortDescription": "Integramos capacidades de IA em produtos existentes. Funcionalidades baseadas em LLM, automação inteligente e fluxos de agentes que se adaptam ao seu domínio.",
+      "longDescription": "A IA só tem valor quando resolve problemas reais. Integramos LLMs, construímos pipelines de automação inteligente e projetamos sistemas multiagente que de fato chegam à produção, não apenas demonstrações.",
+      "deliverables": [
+        "Funcionalidades baseadas em IA",
+        "Chatbots",
+        "Pipelines de processamento de documentos",
+        "Fluxos de automação",
+        "Agentes de revisão de código com IA"
+      ]
+    },
+    "vr": {
+      "title": "Desenvolvimento VR/XR",
+      "shortDescription": "Criamos experiências imersivas para Meta Quest e além. Do conceito ao aplicativo VR implementado.",
+      "longDescription": "A tecnologia imersiva é a próxima interface. Desenvolvemos aplicações VR e experiências 3D interativas para Meta Quest, com foco em casos de uso práticos, de simulações de treinamento a ferramentas criativas.",
+      "deliverables": [
+        "Aplicações VR",
+        "Experiências 3D interativas",
+        "Protótipos XR"
+      ]
+    },
+    "consulting": {
+      "title": "Arquitetura de Software e Consultoria",
+      "shortDescription": "Estratégia técnica, revisões de arquitetura e design de sistemas para equipes que precisam de orientação de nível sênior para navegar pela complexidade.",
+      "longDescription": "Às vezes você precisa de um segundo olhar experiente. Oferecemos revisões de arquitetura, consultorias de design de sistemas e estratégia técnica para equipes diante de decisões complexas, canalizando a complexidade para sistemas limpos e gerenciáveis.",
+      "deliverables": [
+        "Architecture decision records",
+        "Documentos de design de sistemas",
+        "Recomendações de stack tecnológica",
+        "Auditorias de código",
+        "Sessões de mentoria para equipes"
+      ]
+    },
+    "ai-remediation": {
+      "title": "Manutenção e Remediação de Código de IA",
+      "shortDescription": "Entregou rápido com código gerado por IA? Nós colocamos em ordem. Refatoração, testes e dissolução da dívida técnica.",
+      "longDescription": "O código gerado por IA leva você ao mercado rapidamente, mas acumula dívida ainda mais rápido. Auditamos, refatoramos, adicionamos cobertura de testes, otimizamos o desempenho e documentamos bases de código construídas com assistência de IA, para que sua equipe possa voltar a avançar rápido.",
+      "deliverables": [
+        "Auditorias de qualidade de código",
+        "Planos de refatoração",
+        "Implementação de suítes de testes",
+        "Profiling de desempenho",
+        "Documentação"
+      ]
+    }
+  },
+  "aboutData": {
+    "personalBio": "A Likwiid é um estúdio digital fundado por Gabriel Ghoussoub, engenheiro de software full-stack com mais de 5 anos de experiência levando software à produção em fintech, insurtech, monitoramento por satélite, IoT e VR. Construímos de ponta a ponta, da arquitetura à implantação, tanto para startups quanto para grandes empresas.",
+    "personalTitle": "Fundador e Engenheiro de Software Full-Stack",
+    "founderRole": "Fundador e Engenheiro Principal",
+    "founderBio": "Gabriel é um engenheiro de software full-stack com mais de 5 anos de experiência construindo sistemas em produção em fintech, insurtech, monitoramento por satélite, IoT e VR. Possui um diploma em Engenharia da Computação e Comunicações pela Antonine University. Liderou equipes multidisciplinares de até 5 engenheiros, reduziu os tempos de implantação em 93 % e alcançou uma disponibilidade do sistema de 99,95 % por meio de CI/CD e otimização de desempenho.",
+    "philosophy": "O software deve fluir. Como a água que se adapta a qualquer recipiente, a boa engenharia se adapta a qualquer problema. O nome Likwiid incorpora essa crença: fluidez e adaptabilidade em tudo o que construímos.",
+    "interests": [
+      "Dança de salsa",
+      "Fórmula 1",
+      "Exploração espacial",
+      "Arquiteturas de agentes de IA",
+      "Desenvolvimento de VR para Meta Quest",
+      "Gestão energética IoT"
+    ],
+    "journey": [
+      {
+        "role": "Engenharia da Computação e Comunicações",
+        "description": "Formado em Engenharia da Computação e Comunicações."
+      },
+      {
+        "role": "Estagiário Desenvolvedor Java",
+        "description": "Aprimoramento de um sistema de controle de acesso de funcionários baseado em Java Spring, com a integração de mais de 20 novas funcionalidades."
+      },
+      {
+        "role": "Desenvolvedor Web",
+        "description": "Entrega de mais de 15 sites voltados ao cliente com PHP e WordPress. Criação de scripts em Python para automatizar o web scraping de dados de mercado."
+      },
+      {
+        "role": "Engenheiro de Software Java",
+        "description": "Desenvolvimento de microsserviços escaláveis com Spring Boot e Kubernetes. Redução dos tempos de implantação de 4 horas para 15 minutos. Alcance de 90 % de cobertura de testes com JUnit/Mockito."
+      },
+      {
+        "role": "Engenheiro de Software",
+        "description": "Projeto de um sistema automatizado de gestão energética IoT com interface Angular, gerando uma redução de 15 % nos custos de energia por meio de análise preditiva."
+      },
+      {
+        "role": "Engenheiro de Software de Nível Intermediário",
+        "description": "Rearquitetura da ferramenta de monitoramento Inpulse com uma stack totalmente reativa (Java WebFlux, React). Melhora da capacidade de resposta do sistema em 40 % sob altas cargas de dados."
+      },
+      {
+        "role": "Engenheiro de Software Sênior",
+        "description": "Liderança de uma equipe de 5 engenheiros na criação de uma carteira de identidade digital nacional que integra funcionalidades bancárias e controle de identidade e acesso."
+      },
+      {
+        "role": "Engenheiro de Software",
+        "description": "Engenharia de serviços backend e APIs escaláveis com Node.js, TypeScript, Elixir e NestJS. Desenvolvimento full-stack com Java Spring Boot e React."
+      },
+      {
+        "role": "Fundador",
+        "description": "Fundação da Likwiid como estúdio digital. Desenvolvimento full-stack, arquitetura em nuvem, integração de IA e experiências de VR para clientes do mundo todo."
+      }
+    ]
+  },
+  "categories": {
+    "All": "Todos",
+    "Enterprise": "Empresa",
+    "Mobile": "Móvel",
+    "IoT": "IoT",
+    "AI": "IA"
   }
 }

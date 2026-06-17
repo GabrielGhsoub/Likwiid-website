@@ -8,7 +8,7 @@ import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { projects } from '../data/projects'
+import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { ProjectMetric } from '../types'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -152,6 +152,7 @@ function MetricsBand({ metrics }: { metrics: ProjectMetric[] }) {
 export default function CaseStudy() {
   const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
+  const projects = useLocalizedProjects()
   const projectIndex = projects.findIndex((p) => p.slug === slug)
   const project = projects[projectIndex]
   const nextProject = projects[(projectIndex + 1) % projects.length]

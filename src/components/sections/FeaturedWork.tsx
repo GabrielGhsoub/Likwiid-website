@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Star } from 'lucide-react'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
-import { featuredProjects } from '../../data/projects'
+import { useLocalizedFeaturedProjects } from '../../i18n/localizedContent'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Badge } from '../ui/Badge'
 import { ImageWithLoading } from '../ui/ImageWithLoading'
 
 const HOME_FEATURED_COUNT = 6
-const homeProjects = featuredProjects.slice(0, HOME_FEATURED_COUNT)
 
 const STAGGER_CONTAINER = {
   hidden: {},
@@ -50,6 +49,7 @@ const PROJECT_HOVER = {
 export function FeaturedWork() {
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
+  const homeProjects = useLocalizedFeaturedProjects().slice(0, HOME_FEATURED_COUNT)
 
   return (
     <section className="py-16 px-6">

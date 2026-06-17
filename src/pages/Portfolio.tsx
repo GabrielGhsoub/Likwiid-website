@@ -6,6 +6,7 @@ import { ArrowUpRight, ExternalLink, Star, Plus } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { projects, projectCategories } from '../data/projects'
+import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { ProjectCategory } from '../types'
 
 const INITIAL_VISIBLE_COUNT = 6
@@ -52,9 +53,10 @@ export default function Portfolio() {
     setVisibleCount(INITIAL_VISIBLE_COUNT)
   }
 
+  const localizedProjects = useLocalizedProjects()
   const filtered = useMemo(
-    () => activeFilter === 'All' ? projects : projects.filter((p) => p.category === activeFilter),
-    [activeFilter],
+    () => activeFilter === 'All' ? localizedProjects : localizedProjects.filter((p) => p.category === activeFilter),
+    [activeFilter, localizedProjects],
   )
   const visibleProjects = filtered.slice(0, visibleCount)
   const hiddenCount = Math.max(filtered.length - visibleProjects.length, 0)
@@ -119,7 +121,7 @@ export default function Portfolio() {
                         : 'border-border text-text-secondary hover:border-border-hover hover:text-text-primary'
                     }`}
                   >
-                    {cat}
+                    {t(`categories.${cat}`, { defaultValue: cat })}
                     <span className={`text-xs tabular-nums ${isActive ? 'text-accent-gold/70' : 'text-text-tertiary'}`}>
                       {categoryCounts[cat]}
                     </span>
@@ -209,7 +211,7 @@ export default function Portfolio() {
                           <div className="flex min-w-0 flex-wrap items-center gap-2">
                             <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
                             <span className="h-1 w-1 rounded-full bg-text-tertiary/50" aria-hidden="true" />
-                            <span className="text-xs text-text-tertiary">{project.category}</span>
+                            <span className="text-xs text-text-tertiary">{t(`categories.${project.category}`, { defaultValue: project.category })}</span>
                           </div>
                           {project.spotlight && (
                             <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold-dim px-2.5 py-1 text-[11px] font-medium text-accent-gold">

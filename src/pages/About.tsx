@@ -6,6 +6,7 @@ import { SectionHeading } from '../components/ui/SectionHeading'
 import { TechStack } from '../components/sections/TechStack'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { aboutSections } from '../data/personal'
+import { useLocalizedAbout } from '../i18n/localizedContent'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
@@ -55,6 +56,8 @@ export default function About() {
   const { ref: philosophyRef, isVisible: philosophyVisible } = useScrollAnimation()
   const { ref: interestsRef, isVisible: interestsVisible } = useScrollAnimation()
 
+  const about = useLocalizedAbout()
+
   useEffect(() => { document.title = t('about.documentTitle') }, [t])
 
   return (
@@ -89,10 +92,10 @@ export default function About() {
                   {t('about.founder')}
                 </h3>
                 <h4 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
-                  {aboutSections.founder.name}
+                  {about.founder.name}
                 </h4>
-                <p className="text-text-tertiary text-sm mb-3">{aboutSections.founder.role}</p>
-                <p className="text-text-secondary text-sm leading-relaxed">{aboutSections.founder.bio}</p>
+                <p className="text-text-tertiary text-sm mb-3">{about.founder.role}</p>
+                <p className="text-text-secondary text-sm leading-relaxed">{about.founder.bio}</p>
               </m.div>
 
               <div ref={journeyRef}>
@@ -101,7 +104,7 @@ export default function About() {
                 </h3>
                 <div className="space-y-8 relative pl-8">
                   <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
-                  {aboutSections.journey.map((item, i) => {
+                  {about.journey.map((item, i) => {
                     const isHighlight = 'highlight' in item && item.highlight
                     return (
                       <m.div
@@ -142,7 +145,7 @@ export default function About() {
                     {t('about.philosophy')}
                   </h3>
                   <blockquote className="border-l-2 border-accent-gold pl-6 text-text-secondary text-lg italic leading-relaxed">
-                    {aboutSections.philosophy}
+                    {about.philosophy}
                   </blockquote>
                 </m.div>
               </div>
@@ -162,7 +165,7 @@ export default function About() {
                     initial="hidden"
                     animate={interestsVisible ? 'visible' : 'hidden'}
                   >
-                    {aboutSections.interests.map((interest) => (
+                    {about.interests.map((interest) => (
                       <m.span
                         key={interest}
                         variants={STAGGER_ITEM}
