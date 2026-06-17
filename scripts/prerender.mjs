@@ -15,11 +15,14 @@ const SITE_URL = 'https://likwiid.com'
 const escapeHtml = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+// Visually hidden (sr-only) via INLINE styles so it applies before any CSS loads: crawlers,
+// link scanners, and no-JS parsers still read it in the DOM, but it never flashes for users
+// during the gap between first paint and React hydration. React replaces #root on mount.
 const block = (heading, body) => `
-    <div style="max-width:760px;margin:0 auto;padding:96px 24px;font-family:system-ui,sans-serif">
+    <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
       <h1>${escapeHtml(heading)}</h1>
       <p>${escapeHtml(body)}</p>
-      <p><a href="${SITE_URL}/contact">Contact Likwiid</a> &middot; <a href="https://wa.me/96181398752">WhatsApp +961 81 398 752</a> &middot; <a href="mailto:gabriel@likwiid.com">gabriel@likwiid.com</a></p>
+      <p><a href="${SITE_URL}/contact">Contact Likwiid</a> &middot; <a href="https://wa.me/96176160979">WhatsApp +961 76 160 979</a> &middot; <a href="mailto:gabriel@likwiid.com">gabriel@likwiid.com</a></p>
     </div>`
 
 const routes = {
@@ -62,19 +65,19 @@ const routes = {
   contact: {
     title: 'Contact | Likwiid',
     description:
-      'Start a conversation about your project. WhatsApp +961 81 398 752 or gabriel@likwiid.com. We reply within 24 hours.',
+      'Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.',
     content: block(
       'Contact',
-      'Have a project in mind? Reach out on WhatsApp at +961 81 398 752 or email gabriel@likwiid.com. We reply within 24 hours.'
+      'Have a project in mind? Reach out on WhatsApp at +961 76 160 979 or email gabriel@likwiid.com. We reply within 24 hours.'
     ),
   },
   'booking-websites': {
     title: 'Booking Websites for Salons, Clinics & Small Hotels | Likwiid',
     description:
-      'Simple, fast websites where your customers book and pay online. From $3,000, most projects $8,000 to $15,000, delivered in 2 to 4 weeks. Commission-free bookings you own.',
+      'Simple, fast websites where your customers book and pay online. From $1,500, most projects $8,000 to $15,000, delivered in 2 to 4 weeks. Commission-free bookings you own.',
     content: block(
       'Websites with online booking for salons, clinics, and small hotels',
-      'Your customers want to book at 11pm from their phone. We build simple, fast websites where customers book and pay online: real availability, deposits, automatic reminders, and a site you own. From $3,000, most projects $8,000 to $15,000, in 2 to 4 weeks.'
+      'Your customers want to book at 11pm from their phone. We build simple, fast websites where customers book and pay online: real availability, deposits, automatic reminders, and a site you own. From $1,500, most projects $8,000 to $15,000, in 2 to 4 weeks.'
     ),
   },
   privacy: { title: 'Privacy Policy | Likwiid', description: 'Likwiid privacy policy.', content: '' },
