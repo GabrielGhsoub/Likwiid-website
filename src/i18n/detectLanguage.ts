@@ -1,5 +1,3 @@
-import type { i18n as I18nType } from 'i18next'
-
 export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es', 'pt'] as const
 export type Lang = (typeof SUPPORTED_LANGUAGES)[number]
 export const DEFAULT_LANGUAGE: Lang = 'en'
@@ -56,7 +54,8 @@ export function getInitialLanguage(): Lang {
 
 // First-visit only: refine by IP country so e.g. a visitor in France with an English
 // browser still gets French. Never overrides a manual/saved choice. Fails silently.
-export async function refineLanguageByIP(i18n: I18nType): Promise<void> {
+// `apply` loads the target language bundle (if needed) and switches to it.
+export async function refineLanguageByIP(apply: (lang: Lang) => Promise<void>): Promise<void> {
   if (getSavedLanguage()) return
   try {
     const controller = new AbortController()
@@ -67,8 +66,8 @@ export async function refineLanguageByIP(i18n: I18nType): Promise<void> {
     const data = await res.json()
     const cc = String(data?.country_code ?? '').toUpperCase()
     const lang = COUNTRY_TO_LANG[cc]
-    if (lang && lang !== i18n.language && !getSavedLanguage()) {
-      await i18n.changeLanguage(lang)
+    if (lang && lang !== DEFAULT_LANGUAGE && !getSavedLanguage()) {
+      await apply(lang)
     }
   } catch {
     /* geo service unavailable / blocked — keep the synchronous guess */

@@ -4,6 +4,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import { Globe, Check, ChevronDown } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { SUPPORTED_LANGUAGES, saveLanguage, isSupported, type Lang } from '../../i18n/detectLanguage'
+import { setLanguage } from '../../i18n/config'
 
 const LANG_NAMES: Record<Lang, string> = {
   en: 'English',
@@ -41,8 +42,8 @@ export function LanguageSwitcher({ variant = 'icon' }: { variant?: 'icon' | 'ful
   }, [open])
 
   const choose = (lang: Lang) => {
-    void i18n.changeLanguage(lang)
     saveLanguage(lang)
+    void setLanguage(lang)
     setOpen(false)
   }
 
