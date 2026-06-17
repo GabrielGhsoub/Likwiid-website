@@ -56,11 +56,14 @@ function localizeProject(t: AnyT, p: Project): Project {
 
 export function useLocalizedServices(): Service[] {
   const { t, i18n } = useTranslation()
+  // i18n.language forces recompute on a live language switch (t can be referentially stable)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => baseServices.map((s) => localizeService(t, s)), [t, i18n.language])
 }
 
 export function useLocalizedProjects(): Project[] {
   const { t, i18n } = useTranslation()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => baseProjects.map((p) => localizeProject(t, p)), [t, i18n.language])
 }
 
