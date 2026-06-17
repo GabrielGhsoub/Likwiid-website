@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { m } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ArrowUpRight, ExternalLink, Star, Plus } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
@@ -33,17 +34,18 @@ const categoryCounts = projectCategories.reduce<Record<string, number>>((acc, ca
 }, {})
 
 const stats: ReadonlyArray<readonly [string, string]> = [
-  ['12+', 'shipped builds'],
-  ['4', 'product surfaces'],
-  ['1', 'owner-led team'],
+  ['12+', 'statShippedBuilds'],
+  ['4', 'statProductSurfaces'],
+  ['1', 'statOwnerLedTeam'],
 ]
 
 export default function Portfolio() {
+  const { t } = useTranslation()
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All')
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => { document.title = 'Work | Likwiid' }, [])
+  useEffect(() => { document.title = t('portfolio.documentTitle') }, [t])
 
   const handleFilterChange = (category: ProjectCategory) => {
     setActiveFilter(category)
@@ -74,25 +76,25 @@ export default function Portfolio() {
               <div className="max-w-[760px]">
                 <span className="inline-flex items-center gap-2.5 text-xs text-accent-gold font-[family-name:var(--font-mono)] uppercase tracking-wider">
                   <span className="h-px w-8 bg-accent-gold/50" aria-hidden="true" />
-                  Selected work
+                  {t('portfolio.eyebrow')}
                 </span>
                 <h1 className="mt-5 text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
-                  Work that turns messy operations into owned software
+                  {t('portfolio.title')}
                 </h1>
                 <p className="mt-5 max-w-2xl text-lg leading-relaxed text-text-secondary">
-                  Mobile apps, dashboards, backends, and private tools built around real workflows, not generic templates.
+                  {t('portfolio.subtitle')}
                 </p>
               </div>
 
               <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border sm:min-w-[380px]">
                 {stats.map(([value, label]) => (
                   <div key={label} className="bg-bg-secondary px-4 py-5">
-                    <dt className="sr-only">{label}</dt>
+                    <dt className="sr-only">{t(`portfolio.${label}`)}</dt>
                     <dd>
                       <span className="block text-2xl font-semibold font-[family-name:var(--font-display)] text-text-primary md:text-3xl">
                         {value}
                       </span>
-                      <span className="mt-1 block text-xs leading-snug text-text-tertiary">{label}</span>
+                      <span className="mt-1 block text-xs leading-snug text-text-tertiary">{t(`portfolio.${label}`)}</span>
                     </dd>
                   </div>
                 ))}
@@ -102,7 +104,7 @@ export default function Portfolio() {
 
           {/* ---------- Filter bar ---------- */}
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div role="tablist" aria-label="Filter projects by category" className="flex flex-wrap gap-2">
+            <div role="tablist" aria-label={t('portfolio.filterTablistLabel')} className="flex flex-wrap gap-2">
               {projectCategories.map((cat) => {
                 const isActive = activeFilter === cat
                 return (
@@ -126,7 +128,7 @@ export default function Portfolio() {
               })}
             </div>
             <p className="text-sm text-text-tertiary tabular-nums shrink-0">
-              {visibleProjects.length} of {filtered.length} projects
+              {t('portfolio.projectsCount', { visible: visibleProjects.length, total: filtered.length })}
             </p>
           </div>
 
@@ -134,7 +136,7 @@ export default function Portfolio() {
           <div ref={gridRef} className="scroll-mt-24 space-y-4">
             {visibleProjects.map((project, i) => {
               const previewImage = project.previewImage ?? project.images[0]
-              const previewAlt = project.previewAlt ?? `${project.title} project preview`
+              const previewAlt = project.previewAlt ?? t('portfolio.previewAlt', { title: project.title })
               const isPriorityImage = i === 0
 
               return (
@@ -155,7 +157,7 @@ export default function Portfolio() {
                       <Link
                         to={`/work/${project.slug}`}
                         className="block no-underline w-full md:w-[300px] h-[200px] md:h-auto md:min-h-[200px] shrink-0"
-                        aria-label={`View ${project.title} case study`}
+                        aria-label={t('portfolio.viewCaseStudyAria', { title: project.title })}
                       >
                         <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary border-b border-border md:border-b-0 md:border-r">
                           {previewImage && project.platform === 'mobile' ? (
@@ -212,7 +214,7 @@ export default function Portfolio() {
                           {project.spotlight && (
                             <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold-dim px-2.5 py-1 text-[11px] font-medium text-accent-gold">
                               <Star size={12} fill="currentColor" strokeWidth={1.6} />
-                              Featured
+                              {t('portfolio.featured')}
                             </span>
                           )}
                         </div>
@@ -251,7 +253,7 @@ export default function Portfolio() {
                                 className="inline-flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-accent-gold"
                                 onClick={(e) => e.stopPropagation()}
                               >
-                                <ExternalLink size={12} /> {project.liveLabel ?? 'App Store'}
+                                <ExternalLink size={12} /> {project.liveLabel ?? t('portfolio.appStore')}
                               </a>
                             )}
                             {project.androidUrl && (
@@ -262,7 +264,7 @@ export default function Portfolio() {
                                 className="inline-flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-accent-gold"
                                 onClick={(e) => e.stopPropagation()}
                               >
-                                <ExternalLink size={12} /> Play Store
+                                <ExternalLink size={12} /> {t('portfolio.playStore')}
                               </a>
                             )}
                           </div>
@@ -270,7 +272,7 @@ export default function Portfolio() {
                             to={`/work/${project.slug}`}
                             className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
                           >
-                            View case study
+                            {t('portfolio.viewCaseStudy')}
                             <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                           </Link>
                         </div>
@@ -293,7 +295,7 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="mt-3 text-center text-xs text-text-tertiary tabular-nums">
-                  Showing {visibleProjects.length} of {filtered.length} projects
+                  {t('portfolio.showingCount', { visible: visibleProjects.length, total: filtered.length })}
                 </p>
               </div>
 
@@ -304,7 +306,7 @@ export default function Portfolio() {
                   className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-bg-secondary px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold"
                 >
                   <Plus size={16} />
-                  Load more
+                  {t('portfolio.loadMore')}
                   <span className="text-text-tertiary">({Math.min(LOAD_MORE_COUNT, hiddenCount)})</span>
                 </button>
               ) : isExpanded ? (
@@ -313,7 +315,7 @@ export default function Portfolio() {
                   onClick={handleShowLess}
                   className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-transparent px-6 py-3 text-sm font-medium text-text-tertiary transition-colors hover:text-text-primary"
                 >
-                  Show less
+                  {t('portfolio.showLess')}
                 </button>
               ) : null}
             </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, type FormEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
 import { Mail, Github, Linkedin, Check, AlertCircle, ChevronDown } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
@@ -9,8 +10,22 @@ import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
 import type { ContactFormData } from '../types'
 
-const PROJECT_TYPES = ['Web App', 'Mobile App', 'Cloud/DevOps', 'AI Integration', 'VR Development', 'Code Audit', 'Other']
-const BUDGETS = ['< $5k', '$5k - $15k', '$15k - $50k', '$50k+', "Let's discuss"]
+const PROJECT_TYPES = [
+  { value: 'Web App', labelKey: 'contact.projectTypeWebApp' },
+  { value: 'Mobile App', labelKey: 'contact.projectTypeMobileApp' },
+  { value: 'Cloud/DevOps', labelKey: 'contact.projectTypeCloudDevOps' },
+  { value: 'AI Integration', labelKey: 'contact.projectTypeAiIntegration' },
+  { value: 'VR Development', labelKey: 'contact.projectTypeVrDevelopment' },
+  { value: 'Code Audit', labelKey: 'contact.projectTypeCodeAudit' },
+  { value: 'Other', labelKey: 'contact.projectTypeOther' },
+]
+const BUDGETS = [
+  { value: '< $5k', labelKey: 'contact.budgetUnder5k' },
+  { value: '$5k - $15k', labelKey: 'contact.budget5to15k' },
+  { value: '$15k - $50k', labelKey: 'contact.budget15to50k' },
+  { value: '$50k+', labelKey: 'contact.budget50kPlus' },
+  { value: "Let's discuss", labelKey: 'contact.budgetDiscuss' },
+]
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
@@ -21,17 +36,18 @@ const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1
 const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 14 }
 
 export default function Contact() {
+  const { t } = useTranslation()
   const { status, submit, reset } = useFormSubmit()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
 
-  useEffect(() => { document.title = 'Contact | Likwiid' }, [])
+  useEffect(() => { document.title = t('contact.documentTitle') }, [t])
 
   const validate = (data: ContactFormData): boolean => {
     const newErrors: Partial<Record<keyof ContactFormData, string>> = {}
-    if (!data.name.trim()) newErrors.name = 'Name is required'
-    if (!data.email.trim()) newErrors.email = 'Email is required'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) newErrors.email = 'Invalid email address'
-    if (!data.message.trim()) newErrors.message = 'Message is required'
+    if (!data.name.trim()) newErrors.name = t('contact.errorNameRequired')
+    if (!data.email.trim()) newErrors.email = t('contact.errorEmailRequired')
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) newErrors.email = t('contact.errorEmailInvalid')
+    if (!data.message.trim()) newErrors.message = t('contact.errorMessageRequired')
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -56,7 +72,7 @@ export default function Contact() {
     <PageTransition>
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <SectionHeading as="h1" title="Contact" subtitle="Start a conversation about your next project." />
+          <SectionHeading as="h1" title={t('contact.heading')} subtitle={t('contact.subheading')} />
 
           <div className="grid md:grid-cols-2 gap-16">
             <m.div
@@ -65,11 +81,10 @@ export default function Contact() {
               transition={TRANSITION_DELAY_01}
             >
               <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-text-primary">
-                Let&apos;s build something together.
+                {t('contact.introTitle')}
               </h2>
               <p className="mt-4 text-text-secondary leading-relaxed">
-                Have a project in mind? Need technical guidance? We&apos;re always open to discussing new ideas and
-                opportunities. Reach out and we&apos;ll get back to you within 24 hours.
+                {t('contact.introBody')}
               </p>
 
               <div className="mt-10 space-y-4">
@@ -127,21 +142,21 @@ export default function Contact() {
                     </div>
                   </m.div>
                   <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
-                    Thanks!
+                    {t('contact.successTitle')}
                   </h3>
-                  <p className="mt-2 text-text-secondary">We&apos;ll get back to you within 24 hours.</p>
+                  <p className="mt-2 text-text-secondary">{t('contact.successBody')}</p>
                   <button
                     onClick={reset}
                     className="mt-6 py-2 px-4 text-accent-gold text-sm hover:underline cursor-pointer"
                   >
-                    Send another message
+                    {t('contact.sendAnother')}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div>
                     <label htmlFor="name" className="block text-sm text-text-secondary mb-1.5">
-                      Name <span className="text-accent-gold" aria-hidden="true">*</span>
+                      {t('contact.labelName')} <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="name"
@@ -153,14 +168,14 @@ export default function Contact() {
                       aria-describedby={errors.name ? 'name-error' : undefined}
                       onChange={() => errors.name && setErrors(prev => { const next = { ...prev }; delete next.name; return next })}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.name ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
-                      placeholder="Your name"
+                      placeholder={t('contact.placeholderName')}
                     />
                     {errors.name && <p id="name-error" className="mt-1 text-error-base text-xs">{errors.name}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm text-text-secondary mb-1.5">
-                      Email <span className="text-accent-gold" aria-hidden="true">*</span>
+                      {t('contact.labelEmail')} <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="email"
@@ -172,28 +187,28 @@ export default function Contact() {
                       aria-describedby={errors.email ? 'email-error' : undefined}
                       onChange={() => errors.email && setErrors(prev => { const next = { ...prev }; delete next.email; return next })}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.email ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300`}
-                      placeholder="you@company.com"
+                      placeholder={t('contact.placeholderEmail')}
                     />
                     {errors.email && <p id="email-error" className="mt-1 text-error-base text-xs">{errors.email}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="company" className="block text-sm text-text-secondary mb-1.5">
-                      Company
+                      {t('contact.labelCompany')}
                     </label>
                     <input
                       id="company"
                       name="company"
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300"
-                      placeholder="Your company (optional)"
+                      placeholder={t('contact.placeholderCompany')}
                     />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="projectType" className="block text-sm text-text-secondary mb-1.5">
-                        Project type
+                        {t('contact.labelProjectType')}
                       </label>
                       <div className="relative">
                         <select
@@ -201,10 +216,10 @@ export default function Contact() {
                           name="projectType"
                           className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
-                          <option value="">Select...</option>
-                          {PROJECT_TYPES.map((t) => (
-                            <option key={t} value={t}>
-                              {t}
+                          <option value="">{t('contact.selectPlaceholder')}</option>
+                          {PROJECT_TYPES.map((pt) => (
+                            <option key={pt.value} value={pt.value}>
+                              {t(pt.labelKey)}
                             </option>
                           ))}
                         </select>
@@ -214,7 +229,7 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
-                        Budget range
+                        {t('contact.labelBudget')}
                       </label>
                       <div className="relative">
                         <select
@@ -222,10 +237,10 @@ export default function Contact() {
                           name="budget"
                           className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
-                          <option value="">Select...</option>
+                          <option value="">{t('contact.selectPlaceholder')}</option>
                           {BUDGETS.map((b) => (
-                            <option key={b} value={b}>
-                              {b}
+                            <option key={b.value} value={b.value}>
+                              {t(b.labelKey)}
                             </option>
                           ))}
                         </select>
@@ -236,7 +251,7 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="message" className="block text-sm text-text-secondary mb-1.5">
-                      Message <span className="text-accent-gold" aria-hidden="true">*</span>
+                      {t('contact.labelMessage')} <span className="text-accent-gold" aria-hidden="true">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -248,7 +263,7 @@ export default function Contact() {
                       onChange={() => errors.message && setErrors(prev => { const next = { ...prev }; delete next.message; return next })}
                       rows={5}
                       className={`w-full px-4 py-3 rounded-lg bg-bg-secondary border ${errors.message ? 'border-error-base' : 'border-border'} text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 resize-none`}
-                      placeholder="Tell us about your project..."
+                      placeholder={t('contact.placeholderMessage')}
                     />
                     {errors.message && <p id="message-error" className="mt-1 text-error-base text-xs">{errors.message}</p>}
                   </div>
@@ -256,12 +271,12 @@ export default function Contact() {
                   {status === 'error' && (
                     <div role="alert" className="flex items-center gap-2 text-error-base text-sm">
                       <AlertCircle size={16} />
-                      Something went wrong. Please try again.
+                      {t('contact.errorSubmit')}
                     </div>
                   )}
 
                   <Button type="submit" variant="primary" size="lg" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
-                    {status === 'submitting' ? 'Sending...' : 'Send message'}
+                    {status === 'submitting' ? t('contact.submitSending') : t('contact.submitSend')}
                   </Button>
                 </form>
               )}

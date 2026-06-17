@@ -1,4 +1,5 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { Button } from '../ui/Button'
 
@@ -28,6 +29,7 @@ const CTA_ITEM = {
 }
 
 export function CTA() {
+  const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
   return (
@@ -46,20 +48,20 @@ export function CTA() {
             className="relative text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
             variants={CTA_ITEM}
           >
-            Ready to ship your next product?
+            {t('cta.title')}
           </m.h2>
           <m.p
             className="relative mt-4 text-text-secondary text-lg max-w-xl mx-auto"
             variants={CTA_ITEM}
           >
-            From idea to production in weeks, not months. Let&apos;s turn your vision into software that delivers.
+            {t('cta.subtitle')}
           </m.p>
           <m.div
             className="relative mt-8"
             variants={CTA_ITEM}
           >
             <Button variant="primary" size="lg" href="/contact">
-              Let&apos;s talk
+              {t('cta.ctaPrimary')}
             </Button>
           </m.div>
         </m.div>

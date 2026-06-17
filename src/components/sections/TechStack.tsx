@@ -1,4 +1,5 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { skills, skillCategories } from '../../data/skills'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -67,12 +68,13 @@ const BADGE_HOVER = {
 }
 
 export function TechStack() {
+  const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
   return (
     <section className="py-16 px-6 bg-bg-secondary/30">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeading title="Tech stack" subtitle="Tools and technologies we work with daily." />
+        <SectionHeading title={t('techStack.title')} subtitle={t('techStack.subtitle')} />
 
         <m.div
           ref={ref}

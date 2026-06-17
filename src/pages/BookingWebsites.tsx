@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
 import { CalendarCheck, BellRing, Wallet, Globe, Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -13,53 +14,30 @@ const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
 
-const PAIN_POINTS = [
-  'Customers can only book by phone, so evening and weekend requests go to whoever answers first.',
-  'Marketplace apps take a commission on every booking that should have been yours.',
-  'No-shows cost you hours because nothing collects a deposit or sends a reminder.',
-  'Your only web presence is an Instagram page, so you never own your customer list.',
-]
+const PAIN_POINT_KEYS = ['painPoint1', 'painPoint2', 'painPoint3', 'painPoint4'] as const
 
 const FEATURES = [
-  {
-    icon: CalendarCheck,
-    title: 'Real online booking',
-    description:
-      'Customers see your actual availability and pick a time slot themselves. No back-and-forth calls, no waiting for a callback.',
-  },
-  {
-    icon: Wallet,
-    title: 'Deposits and payments',
-    description:
-      'Take a card deposit at booking time so no-shows stop costing you money. We work with the payment providers available in your country.',
-  },
-  {
-    icon: BellRing,
-    title: 'Automatic reminders',
-    description:
-      'WhatsApp or email reminders go out before every appointment, without anyone on your team lifting a finger.',
-  },
-  {
-    icon: Globe,
-    title: 'A site you own',
-    description:
-      'Your own domain, your own customer list, your own brand. No commissions to a marketplace, no platform lock-in.',
-  },
-]
+  { icon: CalendarCheck, titleKey: 'feature1Title', descKey: 'feature1Desc' },
+  { icon: Wallet, titleKey: 'feature2Title', descKey: 'feature2Desc' },
+  { icon: BellRing, titleKey: 'feature3Title', descKey: 'feature3Desc' },
+  { icon: Globe, titleKey: 'feature4Title', descKey: 'feature4Desc' },
+] as const
 
-const PRICING_INCLUDES = [
-  'Design and build, mobile-first',
-  'Online booking or ordering flow',
-  'WhatsApp click-to-chat built in',
-  'Hosting and domain setup',
-  'Training so your team can run it',
-  'A real person who replies within 24 hours',
-]
+const PRICING_INCLUDE_KEYS = [
+  'pricingItem1',
+  'pricingItem2',
+  'pricingItem3',
+  'pricingItem4',
+  'pricingItem5',
+  'pricingItem6',
+] as const
 
 export default function BookingWebsites() {
+  const { t } = useTranslation()
+
   useEffect(() => {
-    document.title = 'Booking Websites for Salons, Clinics & Small Hotels | Likwiid'
-  }, [])
+    document.title = t('booking.docTitle')
+  }, [t])
 
   return (
     <PageTransition>
@@ -73,22 +51,20 @@ export default function BookingWebsites() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-tight">
-              Websites with online booking for salons, clinics, and small hotels.
+              {t('booking.heroTitle')}
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
-              Your customers want to book at 11pm from their phone. If your website can&apos;t take that booking,
-              they move on to one that can. We build simple, fast websites where customers book and pay
-              online, and you keep every booking commission-free.
+              {t('booking.heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button variant="primary" size="lg" href={SOCIAL.whatsapp}>
                 <span className="inline-flex items-center gap-2">
                   <WhatsAppIcon size={18} />
-                  Chat on WhatsApp
+                  {t('booking.chatWhatsApp')}
                 </span>
               </Button>
               <Button variant="secondary" size="lg" href="/contact">
-                Send a message
+                {t('booking.sendMessage')}
               </Button>
             </div>
           </m.div>
@@ -100,12 +76,12 @@ export default function BookingWebsites() {
             transition={TRANSITION_DELAY_02}
             className="mt-20 grid md:grid-cols-2 gap-4"
           >
-            {PAIN_POINTS.map((point) => (
+            {PAIN_POINT_KEYS.map((key) => (
               <div
-                key={point}
+                key={key}
                 className="rounded-lg border border-border bg-bg-secondary/50 p-5 text-text-secondary leading-relaxed"
               >
-                {point}
+                {t(`booking.${key}`)}
               </div>
             ))}
           </m.div>
@@ -113,16 +89,16 @@ export default function BookingWebsites() {
           {/* What you get */}
           <div className="mt-20">
             <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary">
-              What you get
+              {t('booking.whatYouGetTitle')}
             </h2>
             <div className="mt-8 grid sm:grid-cols-2 gap-6">
               {FEATURES.map((feature) => (
-                <div key={feature.title} className="rounded-lg border border-border p-6">
+                <div key={feature.titleKey} className="rounded-lg border border-border p-6">
                   <feature.icon size={24} className="text-accent-gold" />
                   <h3 className="mt-4 text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
-                    {feature.title}
+                    {t(`booking.${feature.titleKey}`)}
                   </h3>
-                  <p className="mt-2 text-text-secondary leading-relaxed">{feature.description}</p>
+                  <p className="mt-2 text-text-secondary leading-relaxed">{t(`booking.${feature.descKey}`)}</p>
                 </div>
               ))}
             </div>
@@ -132,24 +108,20 @@ export default function BookingWebsites() {
           <div className="mt-20 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary">
-                We have built this before.
+                {t('booking.proofTitle')}
               </h2>
               <p className="mt-4 text-text-secondary leading-relaxed">
-                We designed and built a complete court-booking platform: customers browse available
-                slots, book, and pay from their phone, and the owners manage everything from an admin
-                dashboard. The same building blocks work for salon appointments, clinic visits, and
-                hotel room reservations.
+                {t('booking.proofPara1')}
               </p>
               <p className="mt-4 text-text-secondary leading-relaxed">
-                What this means for your business: customers book and pay online instead of calling or
-                sending a DM and hoping someone answers.
+                {t('booking.proofPara2')}
               </p>
               <div className="mt-6">
                 <Link
                   to="/work/padel-booking"
                   className="text-accent-gold hover:underline font-medium"
                 >
-                  See the booking platform case study →
+                  {t('booking.caseStudyLink')}
                 </Link>
               </div>
             </div>
@@ -161,7 +133,7 @@ export default function BookingWebsites() {
                   '/images/projects/padel/league.webp',
                   '/images/projects/padel/profile.webp',
                 ]}
-                title="Likwiid booking platform"
+                title={t('booking.carouselTitle')}
                 platform="mobile"
               />
             </div>
@@ -172,23 +144,22 @@ export default function BookingWebsites() {
             <div className="grid md:grid-cols-2 gap-10">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary">
-                  Straightforward pricing
+                  {t('booking.pricingTitle')}
                 </h2>
                 <p className="mt-4 text-text-secondary leading-relaxed">
-                  Booking websites start from <span className="text-text-primary font-semibold">$1,500</span>.
-                  Most projects land between <span className="text-text-primary font-semibold">$8,000 and $15,000</span>{' '}
-                  depending on payments, integrations, and content, and take 2 to 4 weeks.
+                  {t('booking.pricingPara1a')} <span className="text-text-primary font-semibold">$1,500</span>.
+                  {' '}{t('booking.pricingPara1b')} <span className="text-text-primary font-semibold">{t('booking.pricingRange')}</span>{' '}
+                  {t('booking.pricingPara1c')}
                 </p>
                 <p className="mt-4 text-text-secondary leading-relaxed">
-                  We are a two-person studio and take on 2 to 3 projects at a time, so you always talk
-                  to the person actually building your site.
+                  {t('booking.pricingPara2')}
                 </p>
               </div>
               <ul className="space-y-3">
-                {PRICING_INCLUDES.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-text-secondary">
+                {PRICING_INCLUDE_KEYS.map((key) => (
+                  <li key={key} className="flex items-start gap-3 text-text-secondary">
                     <Check size={18} className="text-accent-gold mt-1 shrink-0" />
-                    {item}
+                    {t(`booking.${key}`)}
                   </li>
                 ))}
               </ul>
@@ -198,21 +169,20 @@ export default function BookingWebsites() {
           {/* Final CTA */}
           <div className="mt-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary">
-              Want to see what this looks like for your business?
+              {t('booking.finalCtaTitle')}
             </h2>
             <p className="mt-4 text-text-secondary text-lg max-w-xl mx-auto">
-              Send us your current website or Instagram page and we&apos;ll reply with a short, free
-              list of what we would fix first. No obligation.
+              {t('booking.finalCtaSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Button variant="primary" size="lg" href={SOCIAL.whatsapp}>
                 <span className="inline-flex items-center gap-2">
                   <WhatsAppIcon size={18} />
-                  Chat on WhatsApp
+                  {t('booking.chatWhatsApp')}
                 </span>
               </Button>
               <Button variant="secondary" size="lg" href={`mailto:${SOCIAL.email}`}>
-                Email {SOCIAL.email}
+                {t('booking.emailLabel')} {SOCIAL.email}
               </Button>
             </div>
           </div>

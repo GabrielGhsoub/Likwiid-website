@@ -1,94 +1,85 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 
 const LAST_UPDATED = 'March 31, 2026'
 
 export default function Privacy() {
-  useEffect(() => { document.title = 'Privacy Policy | Likwiid' }, [])
+  const { t } = useTranslation()
+  useEffect(() => { document.title = t('privacy.documentTitle') }, [t])
 
   return (
     <PageTransition>
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[800px]">
-          <SectionHeading as="h1" title="Privacy Policy" />
+          <SectionHeading as="h1" title={t('privacy.title')} />
 
           <p className="text-text-tertiary text-sm mb-10">
-            Last updated: {LAST_UPDATED}
+            {t('privacy.lastUpdated', { date: LAST_UPDATED })}
           </p>
 
           <div className="space-y-10">
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Information we collect
+                {t('privacy.collectTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                When you use our contact form, we collect the information you provide: your name, email address,
-                company name (if provided), and message content. We do not collect any information automatically
-                beyond what is strictly necessary for the website to function.
+                {t('privacy.collectBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                How we use your information
+                {t('privacy.useTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                We use the information you submit through our contact form solely to respond to your inquiry and
-                discuss potential projects. We will not send you marketing communications unless you have explicitly
-                opted in to receive them.
+                {t('privacy.useBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Data sharing
+                {t('privacy.sharingTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                We do not sell, trade, or share your personal information with third parties. Your data stays with us
-                and is used exclusively for the purpose it was provided.
+                {t('privacy.sharingBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Cookies and local storage
+                {t('privacy.cookiesTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                We only use essential cookies. Specifically, we store your theme preference (light or dark mode)
-                in your browser&apos;s localStorage. We do not use any tracking cookies or third-party cookies.
+                {t('privacy.cookiesBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Analytics
+                {t('privacy.analyticsTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                We use privacy-friendly analytics that do not use cookies and do not track personal data. No
-                personally identifiable information is collected through our analytics, and your browsing activity
-                is not tracked across websites.
+                {t('privacy.analyticsBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Data retention
+                {t('privacy.retentionTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                Contact form submissions are retained for legitimate business purposes, such as maintaining
-                records of client communications and project discussions. We keep this data only as long as
-                necessary for these purposes.
+                {t('privacy.retentionBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Your rights
+                {t('privacy.rightsTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                You have the right to request access to, correction of, or deletion of any personal data we hold
-                about you. To exercise any of these rights, please contact us at{' '}
+                {t('privacy.rightsBody')}{' '}
                 <a href="mailto:gabriel@likwiid.com" className="text-accent-gold hover:underline">
                   gabriel@likwiid.com
                 </a>.
@@ -97,21 +88,19 @@ export default function Privacy() {
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Updates to this policy
+                {t('privacy.updatesTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                We may update this privacy policy from time to time. Any changes will be reflected on this page
-                with an updated revision date. We encourage you to review this policy periodically.
+                {t('privacy.updatesBody')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
-                Contact
+                {t('privacy.contactTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed">
-                If you have any questions about this privacy policy or how we handle your data, please reach out
-                at{' '}
+                {t('privacy.contactBody')}{' '}
                 <a href="mailto:gabriel@likwiid.com" className="text-accent-gold hover:underline">
                   gabriel@likwiid.com
                 </a>.

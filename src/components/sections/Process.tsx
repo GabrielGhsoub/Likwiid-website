@@ -1,4 +1,5 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { SectionHeading } from '../ui/SectionHeading'
 
@@ -7,54 +8,6 @@ type Step = {
   title: string
   description: string
 }
-
-const whatSteps: Step[] = [
-  {
-    number: '01',
-    title: 'Landscape',
-    description:
-      'Map the full picture: goals, stakeholders, competitors, and the ecosystem you operate in.',
-  },
-  {
-    number: '02',
-    title: 'Audit',
-    description:
-      'Go deep on the tools, spreadsheets, and workflows that keep the business running today.',
-  },
-  {
-    number: '03',
-    title: 'Blueprint',
-    description:
-      'Design the ideal future state and draft the requirements. Strategy first. No tech decisions yet.',
-  },
-]
-
-const howSteps: Step[] = [
-  {
-    number: '04',
-    title: 'Architecture',
-    description:
-      'Pick the frameworks, weigh the constraints, and lock in the technical foundations.',
-  },
-  {
-    number: '05',
-    title: 'Replatform',
-    description:
-      'Plan the data strategy: what to keep, what to migrate, and how to move it safely.',
-  },
-  {
-    number: '06',
-    title: 'Build',
-    description:
-      'Ship the system with tight feedback loops and AI-accelerated delivery.',
-  },
-  {
-    number: '07',
-    title: 'Evolve',
-    description:
-      'Keep improving after launch. Great partnerships are ongoing, not one-time handoffs.',
-  },
-]
 
 const STAGGER_CONTAINER = {
   hidden: {},
@@ -144,24 +97,66 @@ function Phase({ label, caption, steps, isVisible, gridCols }: PhaseProps) {
 }
 
 export function Process() {
+  const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
+
+  const whatSteps: Step[] = [
+    {
+      number: '01',
+      title: t('process.step1Title'),
+      description: t('process.step1Description'),
+    },
+    {
+      number: '02',
+      title: t('process.step2Title'),
+      description: t('process.step2Description'),
+    },
+    {
+      number: '03',
+      title: t('process.step3Title'),
+      description: t('process.step3Description'),
+    },
+  ]
+
+  const howSteps: Step[] = [
+    {
+      number: '04',
+      title: t('process.step4Title'),
+      description: t('process.step4Description'),
+    },
+    {
+      number: '05',
+      title: t('process.step5Title'),
+      description: t('process.step5Description'),
+    },
+    {
+      number: '06',
+      title: t('process.step6Title'),
+      description: t('process.step6Description'),
+    },
+    {
+      number: '07',
+      title: t('process.step7Title'),
+      description: t('process.step7Description'),
+    },
+  ]
 
   return (
     <section className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeading title="How we work" align="center" />
+        <SectionHeading title={t('process.heading')} align="center" />
 
         <div ref={ref}>
           <Phase
-            label="What?"
-            caption="Strategy and discovery before a single line of code."
+            label={t('process.whatLabel')}
+            caption={t('process.whatCaption')}
             steps={whatSteps}
             isVisible={isVisible}
             gridCols="md:grid-cols-3"
           />
           <Phase
-            label="How?"
-            caption="Technical execution, from architecture to continuous evolution."
+            label={t('process.howLabel')}
+            caption={t('process.howCaption')}
             steps={howSteps}
             isVisible={isVisible}
             gridCols="md:grid-cols-4"

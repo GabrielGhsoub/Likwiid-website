@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 
 export default function NotFound() {
-  useEffect(() => { document.title = 'Page Not Found | Likwiid' }, [])
+  const { t } = useTranslation()
+  useEffect(() => { document.title = t('notFound.documentTitle') }, [t])
 
   return (
     <PageTransition>
@@ -11,10 +13,10 @@ export default function NotFound() {
         <div className="text-center max-w-md">
           <h1 className="text-6xl font-bold font-[family-name:var(--font-display)] text-text-primary mb-4">404</h1>
           <p className="text-text-secondary text-lg mb-8">
-            This page doesn&apos;t exist. It may have been moved or the URL might be wrong.
+            {t('notFound.description')}
           </p>
           <Button variant="primary" size="lg" href="/">
-            Back to home
+            {t('notFound.backHome')}
           </Button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
 import { Code, Cloud, Brain, Glasses, LayoutDashboard, Wrench, X } from 'lucide-react'
 import type { ComponentType } from 'react'
@@ -54,6 +55,7 @@ const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 export default function Services() {
+  const { t } = useTranslation()
   const [expanded, setExpanded] = useState<string | null>(null)
   const { ref, isVisible } = useScrollAnimation()
   const modalRef = useRef<HTMLDivElement>(null)
@@ -62,7 +64,7 @@ export default function Services() {
   const selectedService = services.find((s) => s.id === expanded)
 
   // Page title
-  useEffect(() => { document.title = 'Services | Likwiid' }, [])
+  useEffect(() => { document.title = t('services.documentTitle') }, [t])
 
   // Scroll lock
   useEffect(() => {
@@ -127,8 +129,8 @@ export default function Services() {
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading
             as="h1"
-            title="Services"
-            subtitle="End-to-end software engineering. From architecture to deployment, we handle it all."
+            title={t('services.title')}
+            subtitle={t('services.subtitle')}
           />
 
           <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
@@ -197,7 +199,7 @@ export default function Services() {
                 <button
                   onClick={() => setExpanded(null)}
                   className="absolute top-6 right-6 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-                  aria-label="Close"
+                  aria-label={t('services.closeAriaLabel')}
                 >
                   <X size={24} />
                 </button>
@@ -217,7 +219,7 @@ export default function Services() {
                 </p>
 
                 <h4 className="mt-4 text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
-                  Deliverables
+                  {t('services.deliverables')}
                 </h4>
                 <ul className="mt-2 space-y-1.5">
                   {selectedService.deliverables.map((d) => (

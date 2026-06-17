@@ -1,6 +1,14 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { stats } from '../../data/personal'
+
+const STAT_LABEL_KEYS: Record<string, string> = {
+  'Websites Delivered': 'websitesDelivered',
+  'Products Shipped': 'productsShipped',
+  'Reply Time': 'replyTime',
+  'Industries Served': 'industriesServed',
+}
 
 const STAGGER_CONTAINER = {
   hidden: {},
@@ -31,6 +39,7 @@ const STAT_ITEM = {
 }
 
 export function Stats() {
+  const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
   return (
@@ -51,7 +60,11 @@ export function Stats() {
               <div className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-accent-gold">
                 {stat.value}
               </div>
-              <div className="mt-2 text-sm text-text-secondary">{stat.label}</div>
+              <div className="mt-2 text-sm text-text-secondary">
+                {STAT_LABEL_KEYS[stat.label]
+                  ? t(`stats.${STAT_LABEL_KEYS[stat.label]}`)
+                  : stat.label}
+              </div>
             </m.div>
           ))}
         </m.div>

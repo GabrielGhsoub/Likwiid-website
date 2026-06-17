@@ -1,4 +1,5 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { Code, Cloud, Brain, Glasses, LayoutDashboard, Wrench, ArrowRight } from 'lucide-react'
 import type { ComponentType } from 'react'
@@ -60,6 +61,7 @@ function renderIcon(name: string, size: number, className: string) {
 }
 
 export function ServiceCards() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { ref, isVisible } = useScrollAnimation()
   const preview = services.slice(0, 3)
@@ -67,7 +69,7 @@ export function ServiceCards() {
   return (
     <section className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeading title="What we do" subtitle="End-to-end software engineering across the full stack." />
+        <SectionHeading title={t('serviceCards.title')} subtitle={t('serviceCards.subtitle')} />
 
         <m.div
           ref={ref}
@@ -103,7 +105,7 @@ export function ServiceCards() {
             to="/services"
             className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors py-3"
           >
-            View all services
+            {t('serviceCards.viewAll')}
             <ArrowRight size={16} />
           </Link>
         </div>

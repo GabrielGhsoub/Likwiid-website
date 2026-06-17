@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -48,18 +49,19 @@ const STAGGER_ITEM = {
 }
 
 export default function About() {
+  const { t } = useTranslation()
   const [photoLoaded, setPhotoLoaded] = useState(false)
   const { ref: journeyRef, isVisible: journeyVisible } = useScrollAnimation()
   const { ref: philosophyRef, isVisible: philosophyVisible } = useScrollAnimation()
   const { ref: interestsRef, isVisible: interestsVisible } = useScrollAnimation()
 
-  useEffect(() => { document.title = 'About | Likwiid' }, [])
+  useEffect(() => { document.title = t('about.documentTitle') }, [t])
 
   return (
     <PageTransition>
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <SectionHeading as="h1" title="About" subtitle="A digital studio built on real engineering experience." />
+          <SectionHeading as="h1" title={t('about.title')} subtitle={t('about.subtitle')} />
 
           <div className="grid lg:grid-cols-[1fr_320px] gap-16">
             <div>
@@ -70,12 +72,10 @@ export default function About() {
                 transition={TRANSITION_DELAY_02}
               >
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">
-                  Likwiid is a digital studio founded by Gabriel Ghoussoub, a full-stack software engineer with 5+ years
-                  of experience shipping production software across fintech, insurtech, satellite monitoring, IoT, and VR.
+                  {t('about.intro1')}
                 </p>
                 <p className="text-text-secondary text-lg leading-relaxed">
-                  We build end-to-end, from architecture to deployment, for startups and enterprises alike.
-                  Based in Beirut, working with clients in the US, Europe, and the Middle East.
+                  {t('about.intro2')}
                 </p>
               </m.div>
 
@@ -86,7 +86,7 @@ export default function About() {
                 transition={TRANSITION_DELAY_03}
               >
                 <h3 className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-3">
-                  Founder
+                  {t('about.founder')}
                 </h3>
                 <h4 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
                   {aboutSections.founder.name}
@@ -97,7 +97,7 @@ export default function About() {
 
               <div ref={journeyRef}>
                 <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-8">
-                  Journey
+                  {t('about.journey')}
                 </h3>
                 <div className="space-y-8 relative pl-8">
                   <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
@@ -139,7 +139,7 @@ export default function About() {
                   transition={TRANSITION_BASE}
                 >
                   <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-4">
-                    Philosophy
+                    {t('about.philosophy')}
                   </h3>
                   <blockquote className="border-l-2 border-accent-gold pl-6 text-text-secondary text-lg italic leading-relaxed">
                     {aboutSections.philosophy}
@@ -154,7 +154,7 @@ export default function About() {
                   transition={TRANSITION_BASE}
                 >
                   <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-4">
-                    Beyond code
+                    {t('about.beyondCode')}
                   </h3>
                   <m.div
                     className="flex flex-wrap gap-3"
@@ -186,13 +186,13 @@ export default function About() {
                 <div className="relative aspect-[3/4] w-full bg-bg-tertiary">
                   <img
                     src="/gabriel.webp"
-                    alt="Gabriel Ghoussoub"
+                    alt={t('about.photoAlt')}
                     className="w-full h-full object-cover object-top"
                     style={{ opacity: photoLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
                     onLoad={() => setPhotoLoaded(true)}
                   />
                   {!photoLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label="Loading photo">
+                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label={t('about.loadingPhoto')}>
                       <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
                     </div>
                   )}

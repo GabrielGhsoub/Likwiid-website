@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect, useLayoutEffect } from 'react'
 import type { ReactNode } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
@@ -149,6 +150,7 @@ function MetricsBand({ metrics }: { metrics: ProjectMetric[] }) {
 }
 
 export default function CaseStudy() {
+  const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
   const projectIndex = projects.findIndex((p) => p.slug === slug)
   const project = projects[projectIndex]
@@ -158,28 +160,28 @@ export default function CaseStudy() {
   const steps = useMemo(() => {
     if (!project) return []
     return [
-      { label: 'Challenge', content: project.challenge },
-      { label: 'Approach', content: project.approach },
-      { label: 'Outcome', content: project.results },
+      { label: t('caseStudy.stepChallenge'), content: project.challenge },
+      { label: t('caseStudy.stepApproach'), content: project.approach },
+      { label: t('caseStudy.stepOutcome'), content: project.results },
     ].filter((s) => s.content && s.content.trim().length > 0)
-  }, [project])
+  }, [project, t])
 
   const facts = useMemo(() => {
     if (!project) return []
     return [
-      { label: 'Role', value: project.role },
-      { label: 'Timeline', value: project.timeline },
-      { label: 'Year', value: project.year },
-      { label: 'Client', value: project.client },
-      { label: 'Platform', value: project.platformLabel ?? (project.platform === 'mobile' ? 'Mobile app' : 'Web app') },
+      { label: t('caseStudy.factRole'), value: project.role },
+      { label: t('caseStudy.factTimeline'), value: project.timeline },
+      { label: t('caseStudy.factYear'), value: project.year },
+      { label: t('caseStudy.factClient'), value: project.client },
+      { label: t('caseStudy.factPlatform'), value: project.platformLabel ?? (project.platform === 'mobile' ? t('caseStudy.platformMobile') : t('caseStudy.platformWeb')) },
     ].filter((f): f is { label: string; value: string } => Boolean(f.value))
-  }, [project])
+  }, [project, t])
 
   const [techOpen, setTechOpen] = useState(false)
 
   useEffect(() => {
-    document.title = project ? `${project.title} | Likwiid` : 'Likwiid'
-  }, [project])
+    document.title = project ? t('caseStudy.docTitle', { title: project.title }) : 'Likwiid'
+  }, [project, t])
 
   // Each case study (incl. "Next project") should open at the top, not keep prior scroll.
   useLayoutEffect(() => {
@@ -206,7 +208,7 @@ export default function CaseStudy() {
             to="/work"
             className="mb-8 inline-flex w-fit items-center gap-2 py-1 text-sm text-text-secondary transition-colors hover:text-text-primary"
           >
-            <ArrowLeft size={14} /> Back to work
+            <ArrowLeft size={14} /> {t('caseStudy.backToWork')}
           </Link>
 
           {/* ---------- Hero ---------- */}
@@ -235,7 +237,7 @@ export default function CaseStudy() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
                 >
-                  <ExternalLink size={12} /> {project.liveLabel ?? 'App Store'}
+                  <ExternalLink size={12} /> {project.liveLabel ?? t('caseStudy.appStore')}
                 </a>
               )}
               {project.androidUrl && (
@@ -245,7 +247,7 @@ export default function CaseStudy() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
                 >
-                  <ExternalLink size={12} /> Play Store
+                  <ExternalLink size={12} /> {t('caseStudy.playStore')}
                 </a>
               )}
             </div>
@@ -283,7 +285,7 @@ export default function CaseStudy() {
           {/* ---------- Overview ---------- */}
           {project.description && (
             <Reveal className="mt-16">
-              <Eyebrow>Overview</Eyebrow>
+              <Eyebrow>{t('caseStudy.overview')}</Eyebrow>
               <p className="max-w-2xl text-lg leading-relaxed text-text-secondary">{project.description}</p>
             </Reveal>
           )}
@@ -312,7 +314,7 @@ export default function CaseStudy() {
           {/* ---------- Key features ---------- */}
           {keyFeatures.length > 0 && (
             <Reveal className="mt-16">
-              <Eyebrow>Key features</Eyebrow>
+              <Eyebrow>{t('caseStudy.keyFeatures')}</Eyebrow>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {keyFeatures.map((feature) => (
                   <div
@@ -341,7 +343,7 @@ export default function CaseStudy() {
             <Reveal className="mt-16">
               <div className="rounded-xl border border-accent-gold/30 bg-accent-gold-dim px-6 py-7 md:px-8">
                 <span className="text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
-                  Business impact
+                  {t('caseStudy.businessImpact')}
                 </span>
                 <p className="mt-3 text-xl md:text-2xl font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
                   {project.businessResult}
@@ -361,9 +363,9 @@ export default function CaseStudy() {
               >
                 <span className="flex flex-col gap-0.5">
                   <span className="font-[family-name:var(--font-mono)] text-xs font-medium uppercase tracking-wider text-accent-gold">
-                    Technical details
+                    {t('caseStudy.technicalDetails')}
                   </span>
-                  <span className="text-sm text-text-tertiary">Stack, architecture &amp; engineering notes</span>
+                  <span className="text-sm text-text-tertiary">{t('caseStudy.technicalDetailsSub')}</span>
                 </span>
                 <ChevronDown
                   size={18}
@@ -383,7 +385,7 @@ export default function CaseStudy() {
                     <div className="space-y-10 px-1 pt-8">
                       {project.techStack.length > 0 && (
                         <div>
-                          <Eyebrow>Tech stack</Eyebrow>
+                          <Eyebrow>{t('caseStudy.techStack')}</Eyebrow>
                           <div className="flex flex-wrap gap-2">
                             {project.techStack.map((tech) => (
                               <Badge key={tech}>{tech}</Badge>
@@ -394,7 +396,7 @@ export default function CaseStudy() {
 
                       {architecture.length > 0 && (
                         <div>
-                          <Eyebrow>Under the hood</Eyebrow>
+                          <Eyebrow>{t('caseStudy.underTheHood')}</Eyebrow>
                           <dl className="divide-y divide-border border-y border-border">
                             {architecture.map((note, i) => (
                               <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-6">
@@ -415,7 +417,7 @@ export default function CaseStudy() {
 
                       {highlights.length > 0 && (
                         <div>
-                          <Eyebrow>Notable engineering</Eyebrow>
+                          <Eyebrow>{t('caseStudy.notableEngineering')}</Eyebrow>
                           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                             {highlights.map((item, i) => (
                               <li key={i} className="flex items-start gap-3">
@@ -440,7 +442,7 @@ export default function CaseStudy() {
               className="group flex items-center justify-between no-underline"
             >
               <div>
-                <span className="text-xs text-text-tertiary uppercase tracking-wider">Next project</span>
+                <span className="text-xs text-text-tertiary uppercase tracking-wider">{t('caseStudy.nextProject')}</span>
                 <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors">
                   {nextProject.title}
                 </h3>

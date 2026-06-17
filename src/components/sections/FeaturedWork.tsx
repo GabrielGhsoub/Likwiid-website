@@ -1,4 +1,5 @@
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Star } from 'lucide-react'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
@@ -47,12 +48,13 @@ const PROJECT_HOVER = {
 }
 
 export function FeaturedWork() {
+  const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
   return (
     <section className="py-16 px-6">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeading title="Featured work" subtitle="Selected projects we've designed, built, and shipped." />
+        <SectionHeading title={t('featuredWork.title')} subtitle={t('featuredWork.subtitle')} />
 
         <m.div
           ref={ref}
@@ -112,7 +114,7 @@ export function FeaturedWork() {
                     {project.spotlight && (
                       <span className="absolute left-3 top-3 z-[1] inline-flex items-center gap-1.5 rounded-full border border-accent-gold/40 bg-bg-primary/70 px-2.5 py-1 text-[11px] font-medium text-accent-gold backdrop-blur-sm">
                         <Star size={12} fill="currentColor" strokeWidth={1.6} />
-                        Featured
+                        {t('featuredWork.featuredBadge')}
                       </span>
                     )}
                     <div className="absolute right-3 top-3 z-[1] flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/70 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
@@ -152,7 +154,7 @@ export function FeaturedWork() {
             to="/work"
             className="text-accent-gold hover:text-accent-gold/80 font-medium text-sm inline-flex items-center gap-2 transition-colors py-3"
           >
-            View all projects
+            {t('featuredWork.viewAllProjects')}
             <ArrowRight size={16} />
           </Link>
         </div>

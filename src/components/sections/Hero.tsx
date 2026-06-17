@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { m } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -12,6 +13,7 @@ const DESCRIPTION_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36
 const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] as const }
 
 export function Hero() {
+  const { t } = useTranslation()
   const bgRef = useRef<HTMLDivElement>(null)
   const [bgVisible, setBgVisible] = useState(true)
 
@@ -66,7 +68,7 @@ export function Hero() {
           animate={FADE_UP_VISIBLE}
           transition={SUBTITLE_TRANSITION}
         >
-          Digital Studio
+          {t('hero.eyebrow')}
         </m.p>
 
         <m.h1
@@ -76,7 +78,7 @@ export function Hero() {
           animate={FADE_UP_VISIBLE}
           transition={TITLE_TRANSITION}
         >
-          Software that flows.
+          {t('hero.title')}
         </m.h1>
 
         <m.p
@@ -85,8 +87,7 @@ export function Hero() {
           animate={FADE_UP_VISIBLE}
           transition={DESCRIPTION_TRANSITION}
         >
-          We design, build, and ship production software that adapts to any challenge. From enterprise platforms to mobile apps,
-          cloud infrastructure to AI integration. Based in Beirut, shipping worldwide.
+          {t('hero.description')}
         </m.p>
 
         <m.div
@@ -96,10 +97,10 @@ export function Hero() {
           transition={BUTTONS_TRANSITION}
         >
           <Button variant="primary" size="lg" href="/contact">
-            Get in touch
+            {t('hero.ctaPrimary')}
           </Button>
           <Button variant="secondary" size="lg" href="/work">
-            See our work
+            {t('hero.ctaSecondary')}
           </Button>
         </m.div>
       </div>
