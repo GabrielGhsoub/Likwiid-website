@@ -1,10 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
+import { LanguageSwitcher } from '../ui/LanguageSwitcher'
+
+const navKey = (path: string) => (path === '/' ? 'home' : path.replace(/^\//, ''))
 
 const MOBILE_DRAWER_INITIAL = { x: '100%' }
 const MOBILE_DRAWER_ANIMATE = { x: 0 }
@@ -27,6 +31,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const { t } = useTranslation()
   const { theme, toggleTheme } = useTheme()
   const isPrivateWalkthroughRoute =
     location.pathname === '/beit-toureef-walkthrough' || location.pathname === '/beit-toureef-poc'
@@ -172,7 +177,7 @@ export function Navbar() {
                     : location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
                 )}
               >
-                {link.label}
+                {t(`nav.${navKey(link.path)}`)}
                 {location.pathname === link.path && (
                   <m.div
                     className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-accent-gold to-accent-blue"
@@ -182,6 +187,7 @@ export function Navbar() {
                 )}
               </Link>
             ))}
+            <LanguageSwitcher />
             <button
               onClick={toggleTheme}
               className={cn(
@@ -192,7 +198,7 @@ export function Navbar() {
                     : 'text-[#D9D0C4] hover:text-[#FFF8EA] hover:bg-[#EEE1C6]/10'
                   : 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary',
               )}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={theme === 'dark' ? t('theme.toLight') : t('theme.toDark')}
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -310,7 +316,7 @@ export function Navbar() {
                           )}
                         >
                           <div className="flex items-center justify-between">
-                            <span>{link.label}</span>
+                            <span>{t(`nav.${navKey(link.path)}`)}</span>
                             {location.pathname === link.path && (
                               <span className="text-accent-gold text-xs">●</span>
                             )}
@@ -324,10 +330,11 @@ export function Navbar() {
                 {/* Footer with Theme Toggle */}
                 <div
                   className={cn(
-                    'px-6 py-4 border-t',
+                    'flex flex-col gap-3 px-6 py-4 border-t',
                     isPrivateWalkthroughRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
                   )}
                 >
+                  <LanguageSwitcher variant="full" />
                   <button
                     onClick={toggleTheme}
                     className={cn(
@@ -338,10 +345,10 @@ export function Navbar() {
                           : 'bg-[#1A1D17] hover:bg-[#252017] text-[#FFF8EA]'
                         : 'bg-bg-tertiary hover:bg-bg-primary text-text-primary',
                     )}
-                    aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                    aria-label={theme === 'dark' ? t('theme.toLight') : t('theme.toDark')}
                   >
                     <span className="text-sm font-medium">
-                      {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                      {theme === 'dark' ? t('theme.light') : t('theme.dark')}
                     </span>
                     {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                   </button>

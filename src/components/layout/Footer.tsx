@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { SOCIAL } from '../../utils/constants'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
@@ -25,6 +26,7 @@ function WaveDivider() {
 }
 
 export function Footer() {
+  const { t } = useTranslation()
   return (
     <footer className="mt-0">
       <WaveDivider />
@@ -38,14 +40,14 @@ export function Footer() {
             Likwiid
           </Link>
           <span className="text-text-tertiary text-sm">
-            &copy; {CURRENT_YEAR} Likwiid. Founded by Gabriel Ghoussoub.
+            {t('footer.copyright', { year: CURRENT_YEAR })}
           </span>
           <span className="text-text-tertiary text-sm" aria-hidden="true">&middot;</span>
           <Link
             to="/privacy"
             className="inline-flex min-h-11 items-center text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
           >
-            Privacy Policy
+            {t('footer.privacy')}
           </Link>
         </div>
 

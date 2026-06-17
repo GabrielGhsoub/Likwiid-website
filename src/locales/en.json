@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "language": {
+    "change": "Change language",
+    "label": "Language"
+  },
+  "footer": {
+    "copyright": "© {{year}} Likwiid. Founded by Gabriel Ghoussoub.",
+    "privacy": "Privacy Policy"
+  }
+}

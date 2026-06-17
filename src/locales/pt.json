@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Início",
+    "services": "Serviços",
+    "work": "Projetos",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo escuro",
+    "toLight": "Mudar para o modo claro",
+    "toDark": "Mudar para o modo escuro"
+  },
+  "language": {
+    "change": "Alterar idioma",
+    "label": "Idioma"
+  },
+  "footer": {
+    "copyright": "© {{year}} Likwiid. Fundado por Gabriel Ghoussoub.",
+    "privacy": "Política de privacidade"
+  }
+}
