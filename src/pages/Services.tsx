@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { m, AnimatePresence } from 'framer-motion'
 import { Code, Cloud, Brain, Glasses, LayoutDashboard, Wrench, X } from 'lucide-react'
 import type { ComponentType } from 'react'
@@ -167,6 +168,33 @@ export default function Services() {
                   </Card>
                 </m.div>
             ))}
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <Link
+              to="/booking-websites"
+              className="group rounded-lg border border-border bg-bg-secondary/50 p-6 no-underline transition-colors hover:border-accent-gold/50"
+            >
+              <h2 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                {t('services.bookingTeaserTitle')}
+              </h2>
+              <p className="mt-2 text-text-secondary text-sm">{t('services.bookingTeaserBody')}</p>
+              <span className="mt-3 inline-block text-accent-gold text-sm font-medium">
+                {t('services.bookingTeaserLink')} &rarr;
+              </span>
+            </Link>
+            <Link
+              to="/process"
+              className="group rounded-lg border border-border bg-bg-secondary/50 p-6 no-underline transition-colors hover:border-accent-gold/50"
+            >
+              <h2 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                {t('services.processTeaserTitle')}
+              </h2>
+              <p className="mt-2 text-text-secondary text-sm">{t('services.processTeaserBody')}</p>
+              <span className="mt-3 inline-block text-accent-gold text-sm font-medium">
+                {t('services.processTeaserLink')} &rarr;
+              </span>
+            </Link>
           </div>
         </div>
       </div>

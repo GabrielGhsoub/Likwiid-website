@@ -17,6 +17,18 @@ export const SOCIAL = {
 export const NAV_LINKS = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
+  { label: 'How We Work', path: '/process' },
+  { label: 'Work', path: '/work' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
+] as const
+
+// Secondary links surfaced in the footer so key pages (incl. the booking-websites landing
+// page) are reachable and crawlable from every page.
+export const FOOTER_LINKS = [
+  { label: 'Services', path: '/services' },
+  { label: 'How We Work', path: '/process' },
+  { label: 'Booking Websites', path: '/booking-websites' },
   { label: 'Work', path: '/work' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
