@@ -78,7 +78,7 @@ export function LanguageSwitcher({ variant = 'icon' }: { variant?: 'icon' | 'ful
   // --- Mobile (full-width) variant: lives in the drawer footer ---
   if (variant === 'full') {
     return (
-      <div className="relative">
+      <div ref={ref} className="relative">
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}

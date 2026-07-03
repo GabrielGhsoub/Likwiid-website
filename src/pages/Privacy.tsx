@@ -3,11 +3,18 @@ import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 
-const LAST_UPDATED = 'March 31, 2026'
+const LAST_UPDATED_ISO = '2026-03-31'
 
 export default function Privacy() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   useEffect(() => { document.title = t('privacy.documentTitle') }, [t])
+
+  // Format the date in the active locale instead of hardcoding an English string.
+  const lastUpdated = new Intl.DateTimeFormat(i18n.language, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(new Date(LAST_UPDATED_ISO))
 
   return (
     <PageTransition>
@@ -16,7 +23,7 @@ export default function Privacy() {
           <SectionHeading as="h1" title={t('privacy.title')} />
 
           <p className="text-text-tertiary text-sm mb-10">
-            {t('privacy.lastUpdated', { date: LAST_UPDATED })}
+            {t('privacy.lastUpdated', { date: lastUpdated })}
           </p>
 
           <div className="space-y-10">

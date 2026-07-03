@@ -126,7 +126,7 @@ export function FeaturedWork() {
                     <div className="mb-2 flex items-center gap-2">
                       <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
                       <span className="h-1 w-1 rounded-full bg-text-tertiary/50" aria-hidden="true" />
-                      <span className="text-xs text-text-tertiary">{project.category}</span>
+                      <span className="text-xs text-text-tertiary">{t(`categories.${project.category}`, { defaultValue: project.category })}</span>
                     </div>
                     <h3 className="text-base font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-snug">
                       {project.title}

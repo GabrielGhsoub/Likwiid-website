@@ -106,15 +106,14 @@ export default function Portfolio() {
 
           {/* ---------- Filter bar ---------- */}
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div role="tablist" aria-label={t('portfolio.filterTablistLabel')} className="flex flex-wrap gap-2">
+            <div role="group" aria-label={t('portfolio.filterTablistLabel')} className="flex flex-wrap gap-2">
               {projectCategories.map((cat) => {
                 const isActive = activeFilter === cat
                 return (
                   <button
                     key={cat}
-                    role="tab"
                     onClick={() => handleFilterChange(cat as ProjectCategory)}
-                    aria-selected={isActive}
+                    aria-pressed={isActive}
                     className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors cursor-pointer ${
                       isActive
                         ? 'border-accent-gold bg-accent-gold-dim text-accent-gold'

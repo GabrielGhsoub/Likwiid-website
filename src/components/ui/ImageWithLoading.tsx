@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { m } from 'framer-motion'
 import { cn } from '../../utils/cn'
 
@@ -54,6 +54,12 @@ export function ImageWithLoading({
 }: ImageWithLoadingProps) {
   const [loaded, setLoaded] = useState(false)
 
+  // Images served from cache can finish loading before React attaches onLoad, which would leave
+  // them stuck at opacity 0. Reveal immediately if the element is already complete when mounted.
+  const attachImg = useCallback((node: HTMLImageElement | null) => {
+    if (node?.complete) setLoaded(true)
+  }, [])
+
   return (
     <div className={cn('relative overflow-hidden', containerClassName)}>
       {/* Loading shimmer */}
@@ -66,6 +72,7 @@ export function ImageWithLoading({
 
       {/* Image with fade-in animation */}
       <m.img
+        ref={attachImg}
         src={src}
         alt={alt}
         className={className}

@@ -1,6 +1,7 @@
-import { useMemo, useState, useEffect, useLayoutEffect } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import NotFound from './NotFound'
 import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check } from 'lucide-react'
@@ -184,12 +185,9 @@ export default function CaseStudy() {
     document.title = project ? t('caseStudy.docTitle', { title: project.title }) : 'Likwiid'
   }, [project, t])
 
-  // Each case study (incl. "Next project") should open at the top, not keep prior scroll.
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0)
-  }, [slug])
+  // Scroll-to-top on navigation is handled globally in App; no per-page scroll needed here.
 
-  if (!project) return <Navigate to="/work" replace />
+  if (!project) return <NotFound />
 
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 5)

@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PhoneFrame, BrowserFrame } from './DeviceFrame'
@@ -18,10 +19,21 @@ interface ScreenshotCarouselProps {
 }
 
 export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarouselProps) {
+  const { t } = useTranslation()
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
   const Frame = platform === 'mobile' ? PhoneFrame : BrowserFrame
+
+  // Warm the adjacent slides so a swipe/click reveals the next image without a spinner.
+  useEffect(() => {
+    if (images.length <= 1) return
+    const neighbors = [(current + 1) % images.length, (current - 1 + images.length) % images.length]
+    neighbors.forEach((i) => {
+      const img = new Image()
+      img.src = images[i]
+    })
+  }, [current, images])
 
   const paginate = useCallback((dir: number) => {
     setDirection(dir)
@@ -49,13 +61,13 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
   }, [images.length, paginate])
 
   return (
-    <div className="flex flex-col items-center gap-4" role="region" aria-roledescription="carousel" aria-label={`${title} screenshots`} onKeyDown={handleKeyDown} tabIndex={0}>
+    <div className="flex flex-col items-center gap-4" role="region" aria-roledescription="carousel" aria-label={t('carousel.regionLabel', { title })} onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="relative w-full flex items-center justify-center" aria-live="polite">
         {images.length > 1 && (
           <button
             onClick={() => paginate(-1)}
             className="absolute left-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
-            aria-label="Previous screenshot"
+            aria-label={t('carousel.previous')}
           >
             <ChevronLeft size={20} />
           </button>
@@ -88,7 +100,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
                 >
                   <img
                     src={images[current]}
-                    alt={`${title} screenshot ${current + 1}`}
+                    alt={t('carousel.slideAlt', { title, index: current + 1 })}
                     className="absolute inset-0 w-full h-full object-contain block"
                     style={{
                       opacity: loadedImages.has(current) ? 1 : 0,
@@ -98,7 +110,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
                     onLoad={() => handleImageLoad(current)}
                   />
                   {!loadedImages.has(current) && (
-                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label="Loading screenshot">
+                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label={t('carousel.loading')}>
                       <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
                     </div>
                   )}
@@ -112,7 +124,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
           <button
             onClick={() => paginate(1)}
             className="absolute right-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
-            aria-label="Next screenshot"
+            aria-label={t('carousel.next')}
           >
             <ChevronRight size={20} />
           </button>
@@ -126,7 +138,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
               key={i}
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
               className="p-3 sm:p-5 cursor-pointer"
-              aria-label={`Go to screenshot ${i + 1}`}
+              aria-label={t('carousel.goToSlide', { index: i + 1 })}
               aria-current={i === current ? true : undefined}
             >
               <div className={`h-2 rounded-full transition-[background-color,width] duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
