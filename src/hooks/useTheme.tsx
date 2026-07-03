@@ -8,13 +8,26 @@ const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
   toggleTheme: () => {},
 })
 
+function readStoredTheme(): Theme | null {
+  try {
+    const saved = localStorage.getItem('likwiid-theme')
+    return saved === 'dark' || saved === 'light' ? saved : null
+  } catch {
+    return null
+  }
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('likwiid-theme') as Theme | null
-      if (saved === 'dark' || saved === 'light') return saved
+    if (typeof window === 'undefined') return 'light'
+    const saved = readStoredTheme()
+    if (saved) return saved
+    // No stored preference — respect the OS setting instead of always defaulting to light.
+    try {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    } catch {
+      return 'light'
     }
-    return 'light'
   })
 
   useEffect(() => {
@@ -26,7 +39,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const toggleTheme = useCallback(() => {
     setTheme(prev => {
       const next = prev === 'dark' ? 'light' : 'dark'
-      localStorage.setItem('likwiid-theme', next)
+      try {
+        localStorage.setItem('likwiid-theme', next)
+      } catch {
+        /* ignore (private mode / disabled storage) */
+      }
       return next
     })
   }, [])

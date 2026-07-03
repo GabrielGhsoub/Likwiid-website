@@ -2,6 +2,9 @@ export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es', 'pt'] as const
 export type Lang = (typeof SUPPORTED_LANGUAGES)[number]
 export const DEFAULT_LANGUAGE: Lang = 'en'
 const STORAGE_KEY = 'likwiid-language'
+// Marks that the one-time IP geolocation lookup has already run for this visitor, so we never
+// disclose their IP to the geo service on subsequent page loads.
+const DETECTED_KEY = 'likwiid-lang-detected'
 
 // Country (ISO 3166-1 alpha-2) → site language. Anything unmapped falls back to English.
 const COUNTRY_TO_LANG: Record<string, Lang> = {
@@ -52,11 +55,28 @@ export function getInitialLanguage(): Lang {
   return getSavedLanguage() ?? getBrowserLanguage() ?? DEFAULT_LANGUAGE
 }
 
+function hasDetected(): boolean {
+  try {
+    return localStorage.getItem(DETECTED_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+function markDetected(): void {
+  try {
+    localStorage.setItem(DETECTED_KEY, '1')
+  } catch {
+    /* ignore (private mode / disabled storage) */
+  }
+}
+
 // First-visit only: refine by IP country so e.g. a visitor in France with an English
-// browser still gets French. Never overrides a manual/saved choice. Fails silently.
+// browser still gets French. Runs the geolocation lookup at most once per visitor (guarded by
+// a persisted marker) and never overrides a manual/saved choice. Fails silently.
 // `apply` loads the target language bundle (if needed) and switches to it.
 export async function refineLanguageByIP(apply: (lang: Lang) => Promise<void>): Promise<void> {
-  if (getSavedLanguage()) return
+  if (getSavedLanguage() || hasDetected()) return
   try {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 3500)
@@ -66,10 +86,14 @@ export async function refineLanguageByIP(apply: (lang: Lang) => Promise<void>): 
     const data = await res.json()
     const cc = String(data?.country_code ?? '').toUpperCase()
     const lang = COUNTRY_TO_LANG[cc]
+    // Record that detection ran (regardless of outcome) so the next load skips the lookup.
+    markDetected()
     if (lang && lang !== DEFAULT_LANGUAGE && !getSavedLanguage()) {
+      // Persist the detected language so it stays consistent on future visits without re-querying.
       await apply(lang)
+      saveLanguage(lang)
     }
   } catch {
-    /* geo service unavailable / blocked — keep the synchronous guess */
+    /* geo service unavailable / blocked — keep the synchronous guess, retry next load */
   }
 }
