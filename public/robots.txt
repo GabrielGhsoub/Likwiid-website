@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /beit-toureef-walkthrough/
+Disallow: /beit-toureef-poc/
+Disallow: /email/
 
 Sitemap: https://likwiid.com/sitemap.xml

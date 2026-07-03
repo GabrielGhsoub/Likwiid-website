@@ -37,40 +37,65 @@
     </style>
 
     <script>
-      (function(){var t=localStorage.getItem('likwiid-theme');document.documentElement.className=t==='dark'||t==='light'?t:'light'})()
+      (function(){var t;try{t=localStorage.getItem('likwiid-theme')}catch(e){}if(t!=='dark'&&t!=='light'){try{t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){t='light'}}document.documentElement.className=t})()
     </script>
     <title>Likwiid | Software Studio</title>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Likwiid",
-        "description": "Software studio specializing in full-stack development, cloud architecture, AI integration, and VR experiences.",
-        "url": "https://likwiid.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Gabriel Ghoussoub",
-          "jobTitle": "Full-Stack Software Engineer",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Beirut",
-            "addressCountry": "LB"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://likwiid.com/#organization",
+            "name": "Likwiid",
+            "alternateName": "Likwiid Software Studio",
+            "description": "Founder-led software studio that leads with strategy before code, then architects, builds, and evolves web and mobile products.",
+            "url": "https://likwiid.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://likwiid.com/apple-touch-icon.png",
+              "width": 180,
+              "height": 180
+            },
+            "image": "https://likwiid.com/og-image.png",
+            "email": "gabriel@likwiid.com",
+            "founder": {
+              "@type": "Person",
+              "name": "Gabriel Ghoussoub",
+              "jobTitle": "Founder & Lead Engineer",
+              "sameAs": [
+                "https://github.com/GabrielGhsoub",
+                "https://linkedin.com/in/gabriel-ghoussoub"
+              ]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Beirut",
+              "addressCountry": "LB"
+            },
+            "sameAs": [
+              "https://github.com/GabrielGhsoub",
+              "https://linkedin.com/in/gabriel-ghoussoub"
+            ],
+            "knowsAbout": [
+              "Full-Stack Development",
+              "Cloud Architecture",
+              "AI Integration",
+              "Booking Websites",
+              "VR Development"
+            ],
+            "areaServed": "Worldwide"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://likwiid.com/#website",
+            "url": "https://likwiid.com/",
+            "name": "Likwiid",
+            "publisher": { "@id": "https://likwiid.com/#organization" },
+            "inLanguage": "en"
           }
-        },
-        "email": "gabriel@likwiid.com",
-        "logo": "https://likwiid.com/og-image.png",
-        "sameAs": [
-          "https://github.com/GabrielGhsoub",
-          "https://linkedin.com/in/gabriel-ghoussoub"
-        ],
-        "knowsAbout": [
-          "Full-Stack Development",
-          "Cloud Architecture",
-          "AI Integration",
-          "VR Development"
-        ],
-        "areaServed": "Worldwide"
+        ]
       }
     </script>
 
