@@ -21,7 +21,9 @@ interface CardProps {
 }
 
 export function Card({ children, className, hover = true, onClick }: CardProps) {
-  const isInteractive = hover && onClick
+  // Interactivity (role/tabindex/keyboard) is driven by having an onClick, independent of the
+  // hover-scale animation — so click-to-open cards remain keyboard-operable even with hover off.
+  const isInteractive = Boolean(onClick)
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
