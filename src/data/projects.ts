@@ -7,7 +7,7 @@ const projectCatalog: Project[] = [
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
     subtitle: 'League management, matchmaking, and real-time court booking',
-    client: 'Likwiid',
+    client: 'Padel Inc',
     category: 'Mobile',
     year: '2025',
     description:
@@ -38,7 +38,7 @@ const projectCatalog: Project[] = [
     slug: 'gcg-website',
     title: 'GCG Website',
     subtitle: 'Premium science-consulting website with clear pathways and conversion flows',
-    client: 'Ghoussoub Consulting Group',
+    client: 'GCG',
     category: 'Enterprise',
     year: '2026',
     description:
@@ -249,7 +249,7 @@ const projectCatalog: Project[] = [
     slug: 'padel-admin-portal',
     title: 'Padel Admin Portal',
     subtitle: 'Web dashboard for league and player management',
-    client: 'Likwiid',
+    client: 'Padel Inc',
     category: 'Enterprise',
     year: '2025',
     description:
