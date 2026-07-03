@@ -72,6 +72,9 @@ export type SkillCategory = 'Frontend' | 'Backend' | 'Cloud & DevOps' | 'Mobile'
 export interface Stat {
   value: string
   label: string
+  // Stable i18n key (under the `stats` namespace) so labels can be renamed without breaking
+  // translation lookups.
+  key: string
 }
 
 export interface PersonalInfo {
@@ -94,4 +97,11 @@ export interface ContactFormData {
   projectType: string
   budget: string
   message: string
+}
+
+export interface ContactSubmitPayload extends ContactFormData {
+  // Honeypot field: must stay empty for real humans. Bots that auto-fill it are dropped.
+  website?: string
+  // Milliseconds from form render to submit — near-instant submits are almost always bots.
+  elapsedMs?: number
 }

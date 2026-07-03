@@ -1,4 +1,4 @@
-import { useState, useEffect, type FormEvent } from 'react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
 import { Mail, Github, Linkedin, Check, AlertCircle, ChevronDown } from 'lucide-react'
@@ -39,6 +39,10 @@ export default function Contact() {
   const { t } = useTranslation()
   const { status, submit, reset } = useFormSubmit()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
+  // Timestamp of when the form became available, used for the anti-spam timing heuristic.
+  // Set in an effect (not during render) to keep the render pure.
+  const mountedAtRef = useRef(0)
+  useEffect(() => { mountedAtRef.current = Date.now() }, [])
 
   useEffect(() => { document.title = t('contact.documentTitle') }, [t])
 
@@ -56,16 +60,25 @@ export default function Contact() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const data: ContactFormData = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      company: formData.get('company') as string,
-      projectType: formData.get('projectType') as string,
-      budget: formData.get('budget') as string,
-      message: formData.get('message') as string,
+      name: ((formData.get('name') as string) ?? '').trim().slice(0, 200),
+      email: ((formData.get('email') as string) ?? '').trim().slice(0, 200),
+      company: ((formData.get('company') as string) ?? '').trim().slice(0, 200),
+      projectType: (formData.get('projectType') as string) ?? '',
+      budget: (formData.get('budget') as string) ?? '',
+      message: ((formData.get('message') as string) ?? '').trim().slice(0, 5000),
     }
-    if (validate(data)) {
-      submit(data)
+    if (!validate(data)) {
+      // Move focus to the first field with an error so keyboard/screen-reader users hear it.
+      const emailValid = data.email.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)
+      const firstInvalid = !data.name.trim() ? 'name' : !emailValid ? 'email' : 'message'
+      document.getElementById(firstInvalid)?.focus()
+      return
     }
+    submit({
+      ...data,
+      website: (formData.get('website') as string) ?? '',
+      elapsedMs: Date.now() - mountedAtRef.current,
+    })
   }
 
   return (
@@ -154,6 +167,11 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  {/* Honeypot: hidden from humans, tempting to bots. Real users leave it empty. */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                    <label htmlFor="website">Website (leave this blank)</label>
+                    <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                  </div>
                   <div>
                     <label htmlFor="name" className="block text-sm text-text-secondary mb-1.5">
                       {t('contact.labelName')} <span className="text-accent-gold" aria-hidden="true">*</span>
