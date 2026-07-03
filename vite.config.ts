@@ -1,25 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import compression from 'vite-plugin-compression'
 
 export default defineConfig({
   base: '/',
-  plugins: [
-    react(),
-    tailwindcss(),
-    compression({ algorithm: 'gzip', threshold: 1024, disable: process.env.NODE_ENV !== 'production' }),
-    compression({ algorithm: 'brotliCompress', ext: '.br', threshold: 1024, disable: process.env.NODE_ENV !== 'production' }),
-  ],
+  plugins: [react(), tailwindcss()],
   build: {
     cssMinify: 'lightningcss',
     target: 'es2020',
     modulePreload: { polyfill: false },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['framer-motion'],
+        // Function form so react-dom's client runtime (createRoot + internals) is actually
+        // grouped into the long-lived vendor chunk instead of leaking into the entry chunk.
+        // i18next is split out too so the framework cache survives content-string changes.
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return
+          if (/[\\/]node_modules[\\/](react|react-dom|scheduler|react-router|react-router-dom)[\\/]/.test(id)) {
+            return 'vendor'
+          }
+          if (/[\\/]node_modules[\\/](i18next|react-i18next)[\\/]/.test(id)) return 'i18n'
+          if (id.includes('framer-motion')) return 'motion'
         },
       },
     },

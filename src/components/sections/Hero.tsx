@@ -6,11 +6,7 @@ import { Button } from '../ui/Button'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const TITLE_INITIAL = { opacity: 0, y: 30 }
-const SUBTITLE_TRANSITION = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
-const TITLE_TRANSITION = { duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
-const DESCRIPTION_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
-const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+const BUTTONS_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 export function Hero() {
   const { t } = useTranslation()
@@ -62,33 +58,22 @@ export function Hero() {
       </div>
 
       <div className="relative max-w-[1200px] w-full">
-        <m.p
-          className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-4"
-          initial={FADE_UP_INITIAL}
-          animate={FADE_UP_VISIBLE}
-          transition={SUBTITLE_TRANSITION}
-        >
+        {/* Eyebrow, headline, and description render statically (no opacity gating) so the LCP
+            element paints on first render instead of waiting for the animation runtime to load. */}
+        <p className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-4">
           {t('hero.eyebrow')}
-        </m.p>
+        </p>
 
-        <m.h1
+        <h1
           className="font-[family-name:var(--font-display)] font-bold text-text-primary leading-[1.1]"
           style={{ fontSize: 'var(--font-size-hero)' }}
-          initial={TITLE_INITIAL}
-          animate={FADE_UP_VISIBLE}
-          transition={TITLE_TRANSITION}
         >
           {t('hero.title')}
-        </m.h1>
+        </h1>
 
-        <m.p
-          className="mt-6 text-text-secondary text-lg md:text-xl max-w-2xl leading-relaxed"
-          initial={FADE_UP_INITIAL}
-          animate={FADE_UP_VISIBLE}
-          transition={DESCRIPTION_TRANSITION}
-        >
+        <p className="mt-6 text-text-secondary text-lg md:text-xl max-w-2xl leading-relaxed">
           {t('hero.description')}
-        </m.p>
+        </p>
 
         <m.div
           className="mt-8 flex flex-wrap gap-4"
