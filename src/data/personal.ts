@@ -4,12 +4,12 @@ export const personalInfo: PersonalInfo = {
   name: 'Gabriel Ghoussoub',
   title: 'Founder & Full-Stack Software Engineer',
   location: 'Beirut, Lebanon',
-  bio: "Likwiid is a digital studio founded by Gabriel Ghoussoub, a full-stack software engineer with 5+ years of experience shipping production software across fintech, insurtech, satellite monitoring, IoT, and VR. We build end-to-end, from architecture to deployment, for startups and enterprises alike.",
+  bio: "Likwiid is a founder-led software studio led by Gabriel Ghoussoub, a full-stack software engineer with 5+ years of experience shipping production software across fintech, insurtech, satellite monitoring, IoT, and VR. We lead with strategy before code and build end-to-end, from architecture to deployment, for startups and enterprises alike.",
   stats: [
-    { value: '15+', label: 'Websites Delivered' },
-    { value: '10+', label: 'Products Shipped' },
-    { value: '< 24h', label: 'Reply Time' },
-    { value: '5+', label: 'Industries Served' },
+    { value: '99.95%', key: 'uptime', label: 'System Uptime' },
+    { value: '10+', key: 'productsShipped', label: 'Products Shipped' },
+    { value: '< 24h', key: 'replyTime', label: 'Reply Time' },
+    { value: '5+', key: 'industriesServed', label: 'Industries Served' },
   ],
 }
 

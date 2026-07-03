@@ -2,9 +2,16 @@
   "nav": {
     "home": "Accueil",
     "services": "Services",
+    "process": "Notre méthode",
     "work": "Projets",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "bookingWebsites": "Sites de réservation",
+    "skipToContent": "Aller au contenu",
+    "mainNav": "Navigation principale",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menuLabel": "Menu de navigation"
   },
   "theme": {
     "light": "Mode clair",
@@ -18,12 +25,13 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Fondé par Gabriel Ghoussoub.",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "sitemapLabel": "Pied de page"
   },
   "hero": {
-    "eyebrow": "Studio numérique",
+    "eyebrow": "Studio logiciel dirigé par son fondateur",
     "title": "Des logiciels qui coulent de source.",
-    "description": "Nous concevons, développons et déployons des logiciels prêts pour la production qui s'adaptent à tous les défis. Des plateformes d'entreprise aux applications mobiles, de l'infrastructure cloud à l'intégration de l'IA. Basés à Beirut, livrés partout dans le monde.",
+    "description": "Likwiid est un studio logiciel dirigé par son fondateur. Nous commençons par la stratégie avant le code, puis nous concevons, développons et livrons des sites de réservation, des applications web et mobiles et des intégrations d'IA qui transforment des opérations désorganisées en logiciels qui vous appartiennent. Basés à Beirut, nous travaillons partout dans le monde.",
     "ctaPrimary": "Nous contacter",
     "ctaSecondary": "Voir nos réalisations"
   },
@@ -31,7 +39,8 @@
     "websitesDelivered": "Sites web livrés",
     "productsShipped": "Produits lancés",
     "replyTime": "Délai de réponse",
-    "industriesServed": "Secteurs servis"
+    "industriesServed": "Secteurs servis",
+    "uptime": "Disponibilité système"
   },
   "serviceCards": {
     "title": "Ce que nous faisons",
@@ -78,7 +87,7 @@
     "documentTitle": "À propos | Likwiid",
     "title": "À propos",
     "subtitle": "Un studio numérique fondé sur une véritable expérience d'ingénierie.",
-    "intro1": "Likwiid est un studio numérique fondé par Gabriel Ghoussoub, ingénieur logiciel full-stack avec plus de 5 ans d'expérience dans la livraison de logiciels en production dans la fintech, l'insurtech, la surveillance satellite, l'IoT et la VR.",
+    "intro1": "Likwiid est un studio logiciel dirigé par son fondateur, Gabriel Ghoussoub, ingénieur logiciel full-stack avec plus de 5 ans d'expérience dans la livraison de logiciels en production dans la fintech, l'insurtech, la surveillance satellite, l'IoT et la VR.",
     "intro2": "Nous construisons de bout en bout, de l'architecture au déploiement, pour les startups comme pour les grandes entreprises. Basés à Beirut, nous travaillons avec des clients aux États-Unis, en Europe et au Moyen-Orient.",
     "founder": "Fondateur",
     "journey": "Parcours",
@@ -132,7 +141,30 @@
     "title": "Services",
     "subtitle": "Ingénierie logicielle de bout en bout. De l'architecture au déploiement, nous gérons tout.",
     "closeAriaLabel": "Fermer",
-    "deliverables": "Livrables"
+    "deliverables": "Livrables",
+    "bookingTeaserTitle": "Sites de réservation pour salons, cliniques et petits hôtels",
+    "bookingTeaserBody": "Un forfait ciblé où vos clients réservent et paient en ligne — acomptes, rappels et un site qui vous appartient. À partir de 1 500 $ ; la plupart des projets entre 8 000 $ et 15 000 $, en 2 à 4 semaines.",
+    "bookingTeaserLink": "Voir les sites de réservation",
+    "processTeaserTitle": "Notre méthode",
+    "processTeaserBody": "La stratégie avant le code : notre méthode d'engagement en sept étapes « Quoi / Comment », de la Cartographie à l'Évolution.",
+    "processTeaserLink": "Voir notre méthode"
+  },
+  "processPage": {
+    "documentTitle": "Notre méthode | Likwiid",
+    "title": "Notre méthode",
+    "subtitle": "La stratégie avant la moindre ligne de code.",
+    "intro": "La plupart des studios commencent par la technologie. Nous commençons par votre activité. Notre accompagnement se déroule en deux phases — Quoi, où nous cadrons la stratégie, et Comment, où nous exécutons — pour un logiciel qui colle à votre façon de travailler.",
+    "bookingTitle": "Un projet plus petit et bien défini ?",
+    "bookingBody": "Si vous avez surtout besoin que vos clients réservent et paient en ligne, notre forfait site de réservation passe directement à la réalisation, avec un périmètre et un prix fixes.",
+    "bookingLink": "Voir les sites de réservation"
+  },
+  "carousel": {
+    "previous": "Capture précédente",
+    "next": "Capture suivante",
+    "loading": "Chargement de la capture",
+    "regionLabel": "Captures d'écran de {{title}}",
+    "slideAlt": "Capture d'écran {{index}} de {{title}}",
+    "goToSlide": "Aller à la capture {{index}}"
   },
   "portfolio": {
     "documentTitle": "Réalisations | Likwiid",
@@ -183,7 +215,7 @@
     "pricingPara1b": "La plupart des projets se situent entre",
     "pricingRange": "8 000 $ et 15 000 $",
     "pricingPara1c": "selon les paiements, les intégrations et le contenu, et prennent 2 à 4 semaines.",
-    "pricingPara2": "Nous sommes un studio de deux personnes et prenons 2 à 3 projets à la fois, donc vous parlez toujours à la personne qui construit réellement votre site.",
+    "pricingPara2": "Likwiid est dirigé par son fondateur et prend 2 à 3 projets à la fois, donc vous parlez toujours à la personne qui construit réellement votre site.",
     "pricingItem1": "Conception et développement, mobile d'abord",
     "pricingItem2": "Parcours de réservation ou de commande en ligne",
     "pricingItem3": "Chat WhatsApp en un clic intégré",

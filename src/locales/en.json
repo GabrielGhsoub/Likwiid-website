@@ -2,9 +2,16 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "process": "How We Work",
     "work": "Work",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "bookingWebsites": "Booking Websites",
+    "skipToContent": "Skip to content",
+    "mainNav": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuLabel": "Navigation menu"
   },
   "theme": {
     "light": "Light mode",
@@ -18,12 +25,13 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Founded by Gabriel Ghoussoub.",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "sitemapLabel": "Footer"
   },
   "hero": {
-    "eyebrow": "Digital Studio",
+    "eyebrow": "Founder-led software studio",
     "title": "Software that flows.",
-    "description": "We design, build, and ship production software that adapts to any challenge. From enterprise platforms to mobile apps, cloud infrastructure to AI integration. Based in Beirut, shipping worldwide.",
+    "description": "Likwiid is a founder-led software studio. We lead with strategy before code, then design, build, and ship booking websites, web and mobile apps, and AI integrations that turn messy operations into software you own. Based in Beirut, working worldwide.",
     "ctaPrimary": "Get in touch",
     "ctaSecondary": "See our work"
   },
@@ -31,7 +39,8 @@
     "websitesDelivered": "Websites Delivered",
     "productsShipped": "Products Shipped",
     "replyTime": "Reply Time",
-    "industriesServed": "Industries Served"
+    "industriesServed": "Industries Served",
+    "uptime": "System Uptime"
   },
   "serviceCards": {
     "title": "What we do",
@@ -78,7 +87,7 @@
     "documentTitle": "About | Likwiid",
     "title": "About",
     "subtitle": "A digital studio built on real engineering experience.",
-    "intro1": "Likwiid is a digital studio founded by Gabriel Ghoussoub, a full-stack software engineer with 5+ years of experience shipping production software across fintech, insurtech, satellite monitoring, IoT, and VR.",
+    "intro1": "Likwiid is a founder-led software studio led by Gabriel Ghoussoub, a full-stack software engineer with 5+ years of experience shipping production software across fintech, insurtech, satellite monitoring, IoT, and VR.",
     "intro2": "We build end-to-end, from architecture to deployment, for startups and enterprises alike. Based in Beirut, working with clients in the US, Europe, and the Middle East.",
     "founder": "Founder",
     "journey": "Journey",
@@ -132,7 +141,30 @@
     "title": "Services",
     "subtitle": "End-to-end software engineering. From architecture to deployment, we handle it all.",
     "closeAriaLabel": "Close",
-    "deliverables": "Deliverables"
+    "deliverables": "Deliverables",
+    "bookingTeaserTitle": "Booking websites for salons, clinics & small hotels",
+    "bookingTeaserBody": "A focused package where customers book and pay online — deposits, reminders, and a site you own. From $1,500; most projects $8,000–$15,000, in 2–4 weeks.",
+    "bookingTeaserLink": "See booking websites",
+    "processTeaserTitle": "How we work",
+    "processTeaserBody": "Strategy before code: our seven-step What / How engagement method, from Landscape to Evolve.",
+    "processTeaserLink": "See our process"
+  },
+  "processPage": {
+    "documentTitle": "How We Work | Likwiid",
+    "title": "How we work",
+    "subtitle": "Strategy before a single line of code.",
+    "intro": "Most build shops start with technology. We start with your business. Our engagement runs in two phases — What, where we get the strategy right, and How, where we execute — so you get software that fits how you actually work.",
+    "bookingTitle": "Have a smaller, well-defined project?",
+    "bookingBody": "If you mainly need customers to book and pay online, our booking-website package goes straight to build with fixed scope and pricing.",
+    "bookingLink": "See booking websites"
+  },
+  "carousel": {
+    "previous": "Previous screenshot",
+    "next": "Next screenshot",
+    "loading": "Loading screenshot",
+    "regionLabel": "{{title}} screenshots",
+    "slideAlt": "{{title}} screenshot {{index}}",
+    "goToSlide": "Go to screenshot {{index}}"
   },
   "portfolio": {
     "documentTitle": "Work | Likwiid",
@@ -183,7 +215,7 @@
     "pricingPara1b": "Most projects land between",
     "pricingRange": "$8,000 and $15,000",
     "pricingPara1c": "depending on payments, integrations, and content, and take 2 to 4 weeks.",
-    "pricingPara2": "We are a two-person studio and take on 2 to 3 projects at a time, so you always talk to the person actually building your site.",
+    "pricingPara2": "Likwiid is founder-led and takes on 2 to 3 projects at a time, so you always talk to the person actually building your site.",
     "pricingItem1": "Design and build, mobile-first",
     "pricingItem2": "Online booking or ordering flow",
     "pricingItem3": "WhatsApp click-to-chat built in",

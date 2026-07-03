@@ -3,13 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { stats } from '../../data/personal'
 
-const STAT_LABEL_KEYS: Record<string, string> = {
-  'Websites Delivered': 'websitesDelivered',
-  'Products Shipped': 'productsShipped',
-  'Reply Time': 'replyTime',
-  'Industries Served': 'industriesServed',
-}
-
 const STAGGER_CONTAINER = {
   hidden: {},
   visible: {
@@ -53,7 +46,7 @@ export function Stats() {
         >
           {stats.map((stat) => (
             <m.div
-              key={stat.label}
+              key={stat.key}
               className="text-center"
               variants={STAT_ITEM}
             >
@@ -61,9 +54,7 @@ export function Stats() {
                 {stat.value}
               </div>
               <div className="mt-2 text-sm text-text-secondary">
-                {STAT_LABEL_KEYS[stat.label]
-                  ? t(`stats.${STAT_LABEL_KEYS[stat.label]}`)
-                  : stat.label}
+                {t(`stats.${stat.key}`, { defaultValue: stat.label })}
               </div>
             </m.div>
           ))}

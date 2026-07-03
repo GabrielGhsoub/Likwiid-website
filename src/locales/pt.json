@@ -2,9 +2,16 @@
   "nav": {
     "home": "Início",
     "services": "Serviços",
+    "process": "Como trabalhamos",
     "work": "Projetos",
     "about": "Sobre",
-    "contact": "Contato"
+    "contact": "Contato",
+    "bookingWebsites": "Sites de reservas",
+    "skipToContent": "Ir para o conteúdo",
+    "mainNav": "Navegação principal",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "menuLabel": "Menu de navegação"
   },
   "theme": {
     "light": "Modo claro",
@@ -18,12 +25,13 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Fundado por Gabriel Ghoussoub.",
-    "privacy": "Política de privacidade"
+    "privacy": "Política de privacidade",
+    "sitemapLabel": "Rodapé"
   },
   "hero": {
-    "eyebrow": "Estúdio digital",
+    "eyebrow": "Estúdio de software liderado pelo fundador",
     "title": "Software que flui.",
-    "description": "Projetamos, construímos e lançamos software pronto para produção que se adapta a qualquer desafio. De plataformas corporativas a aplicativos móveis, da infraestrutura em nuvem à integração de IA. Sediados em Beirut, entregando para o mundo todo.",
+    "description": "A Likwiid é um estúdio de software liderado pelo fundador. Começamos pela estratégia antes do código e então projetamos, construímos e lançamos sites de reservas, aplicativos web e móveis e integrações de IA que transformam operações desorganizadas em software que é seu. Sediados em Beirut, trabalhando para o mundo todo.",
     "ctaPrimary": "Fale conosco",
     "ctaSecondary": "Ver nosso trabalho"
   },
@@ -31,7 +39,8 @@
     "websitesDelivered": "Sites entregues",
     "productsShipped": "Produtos lançados",
     "replyTime": "Tempo de resposta",
-    "industriesServed": "Setores atendidos"
+    "industriesServed": "Setores atendidos",
+    "uptime": "Disponibilidade do sistema"
   },
   "serviceCards": {
     "title": "O que fazemos",
@@ -78,7 +87,7 @@
     "documentTitle": "Sobre | Likwiid",
     "title": "Sobre",
     "subtitle": "Um estúdio digital construído sobre experiência real de engenharia.",
-    "intro1": "A Likwiid é um estúdio digital fundado por Gabriel Ghoussoub, engenheiro de software full-stack com mais de 5 anos de experiência entregando software em produção em fintech, insurtech, monitoramento de satélites, IoT e VR.",
+    "intro1": "A Likwiid é um estúdio de software liderado pelo fundador, Gabriel Ghoussoub, engenheiro de software full-stack com mais de 5 anos de experiência entregando software em produção em fintech, insurtech, monitoramento de satélites, IoT e VR.",
     "intro2": "Construímos de ponta a ponta, da arquitetura à implantação, para startups e grandes empresas. Sediados em Beirut, trabalhamos com clientes nos EUA, na Europa e no Oriente Médio.",
     "founder": "Fundador",
     "journey": "Trajetória",
@@ -132,7 +141,30 @@
     "title": "Serviços",
     "subtitle": "Engenharia de software de ponta a ponta. Da arquitetura à implantação, cuidamos de tudo.",
     "closeAriaLabel": "Fechar",
-    "deliverables": "Entregáveis"
+    "deliverables": "Entregáveis",
+    "bookingTeaserTitle": "Sites de reservas para salões, clínicas e pequenos hotéis",
+    "bookingTeaserBody": "Um pacote focado em que os seus clientes reservam e pagam online — sinais, lembretes e um site que é seu. A partir de US$ 1.500; a maioria dos projetos entre US$ 8.000 e US$ 15.000, em 2 a 4 semanas.",
+    "bookingTeaserLink": "Ver sites de reservas",
+    "processTeaserTitle": "Como trabalhamos",
+    "processTeaserBody": "Estratégia antes do código: o nosso método de sete passos «O quê / Como», do Panorama à Evolução.",
+    "processTeaserLink": "Ver o nosso método"
+  },
+  "processPage": {
+    "documentTitle": "Como trabalhamos | Likwiid",
+    "title": "Como trabalhamos",
+    "subtitle": "Estratégia antes de uma única linha de código.",
+    "intro": "A maioria dos estúdios começa pela tecnologia. Nós começamos pelo seu negócio. O nosso trabalho tem duas fases — O quê, onde acertamos a estratégia, e Como, onde executamos — para que você obtenha software que se encaixa na forma como realmente trabalha.",
+    "bookingTitle": "Tem um projeto menor e bem definido?",
+    "bookingBody": "Se você precisa sobretudo que os seus clientes reservem e paguem online, o nosso pacote de site de reservas vai direto à construção, com escopo e preço fixos.",
+    "bookingLink": "Ver sites de reservas"
+  },
+  "carousel": {
+    "previous": "Captura anterior",
+    "next": "Próxima captura",
+    "loading": "Carregando captura",
+    "regionLabel": "Capturas de tela de {{title}}",
+    "slideAlt": "Captura de tela {{index}} de {{title}}",
+    "goToSlide": "Ir para a captura {{index}}"
   },
   "portfolio": {
     "documentTitle": "Trabalho | Likwiid",
@@ -183,7 +215,7 @@
     "pricingPara1b": "A maioria dos projetos fica entre",
     "pricingRange": "8.000 $ e 15.000 $",
     "pricingPara1c": "dependendo dos pagamentos, das integrações e do conteúdo, e demoram de 2 a 4 semanas.",
-    "pricingPara2": "Somos um estúdio de duas pessoas e aceitamos 2 a 3 projetos de cada vez, por isso fala sempre com a pessoa que está realmente a construir o seu site.",
+    "pricingPara2": "A Likwiid é liderada pelo fundador e aceita 2 a 3 projetos de cada vez, por isso você fala sempre com a pessoa que está realmente construindo o seu site.",
     "pricingItem1": "Design e desenvolvimento, mobile-first",
     "pricingItem2": "Fluxo de reserva ou de pedido online",
     "pricingItem3": "Chat do WhatsApp com um clique integrado",
