@@ -50,27 +50,6 @@
     "featuredBadge": "En vedette",
     "viewAllProjects": "Voir tous les projets"
   },
-  "process": {
-    "heading": "Notre façon de travailler",
-    "whatLabel": "Quoi ?",
-    "whatCaption": "Stratégie et exploration avant la moindre ligne de code.",
-    "howLabel": "Comment ?",
-    "howCaption": "Exécution technique, de l'architecture à l'évolution continue.",
-    "step1Title": "Panorama",
-    "step1Description": "Cartographier l'ensemble du tableau : objectifs, parties prenantes, concurrents et l'écosystème dans lequel vous évoluez.",
-    "step2Title": "Audit",
-    "step2Description": "Plonger au cœur des outils, tableurs et processus qui font tourner l'entreprise aujourd'hui.",
-    "step3Title": "Plan directeur",
-    "step3Description": "Concevoir l'état futur idéal et rédiger les exigences. La stratégie d'abord. Aucune décision technique pour l'instant.",
-    "step4Title": "Architecture",
-    "step4Description": "Choisir les frameworks, peser les contraintes et verrouiller les fondations techniques.",
-    "step5Title": "Replateformage",
-    "step5Description": "Planifier la stratégie de données : quoi conserver, quoi migrer et comment le déplacer en toute sécurité.",
-    "step6Title": "Construction",
-    "step6Description": "Livrer le système avec des boucles de rétroaction serrées et une livraison accélérée par l'IA.",
-    "step7Title": "Évolution",
-    "step7Description": "Continuer à s'améliorer après le lancement. Les grands partenariats sont durables, pas de simples passations ponctuelles."
-  },
   "cta": {
     "title": "Prêt à lancer votre prochain produit ?",
     "subtitle": "De l'idée à la production en quelques semaines, pas en mois. Transformons votre vision en un logiciel qui tient ses promesses.",

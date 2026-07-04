@@ -50,27 +50,6 @@
     "featuredBadge": "Featured",
     "viewAllProjects": "View all projects"
   },
-  "process": {
-    "heading": "How we work",
-    "whatLabel": "What?",
-    "whatCaption": "Strategy and discovery before a single line of code.",
-    "howLabel": "How?",
-    "howCaption": "Technical execution, from architecture to continuous evolution.",
-    "step1Title": "Landscape",
-    "step1Description": "Map the full picture: goals, stakeholders, competitors, and the ecosystem you operate in.",
-    "step2Title": "Audit",
-    "step2Description": "Go deep on the tools, spreadsheets, and workflows that keep the business running today.",
-    "step3Title": "Blueprint",
-    "step3Description": "Design the ideal future state and draft the requirements. Strategy first. No tech decisions yet.",
-    "step4Title": "Architecture",
-    "step4Description": "Pick the frameworks, weigh the constraints, and lock in the technical foundations.",
-    "step5Title": "Replatform",
-    "step5Description": "Plan the data strategy: what to keep, what to migrate, and how to move it safely.",
-    "step6Title": "Build",
-    "step6Description": "Ship the system with tight feedback loops and AI-accelerated delivery.",
-    "step7Title": "Evolve",
-    "step7Description": "Keep improving after launch. Great partnerships are ongoing, not one-time handoffs."
-  },
   "cta": {
     "title": "Ready to ship your next product?",
     "subtitle": "From idea to production in weeks, not months. Let's turn your vision into software that delivers.",

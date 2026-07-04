@@ -50,27 +50,6 @@
     "featuredBadge": "Destacado",
     "viewAllProjects": "Ver todos los proyectos"
   },
-  "process": {
-    "heading": "Cómo trabajamos",
-    "whatLabel": "¿Qué?",
-    "whatCaption": "Estrategia y descubrimiento antes de una sola línea de código.",
-    "howLabel": "¿Cómo?",
-    "howCaption": "Ejecución técnica, de la arquitectura a la evolución continua.",
-    "step1Title": "Panorama",
-    "step1Description": "Trazamos el panorama completo: objetivos, partes interesadas, competidores y el ecosistema en el que operas.",
-    "step2Title": "Auditoría",
-    "step2Description": "Profundizamos en las herramientas, hojas de cálculo y flujos de trabajo que mantienen el negocio en marcha hoy.",
-    "step3Title": "Plan maestro",
-    "step3Description": "Diseñamos el estado futuro ideal y redactamos los requisitos. La estrategia primero. Aún sin decisiones técnicas.",
-    "step4Title": "Arquitectura",
-    "step4Description": "Elegimos los frameworks, sopesamos las restricciones y consolidamos las bases técnicas.",
-    "step5Title": "Replataforma",
-    "step5Description": "Planificamos la estrategia de datos: qué conservar, qué migrar y cómo moverlo de forma segura.",
-    "step6Title": "Construcción",
-    "step6Description": "Lanzamos el sistema con ciclos de retroalimentación ágiles y una entrega acelerada por IA.",
-    "step7Title": "Evolución",
-    "step7Description": "Seguimos mejorando después del lanzamiento. Las grandes alianzas son continuas, no entregas puntuales."
-  },
   "cta": {
     "title": "¿Listo para lanzar tu próximo producto?",
     "subtitle": "De la idea a producción en semanas, no en meses. Convirtamos tu visión en software que cumple.",

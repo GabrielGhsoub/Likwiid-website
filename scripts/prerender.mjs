@@ -160,7 +160,7 @@ const routes = {
       'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration and AI-code remediation, and software architecture consulting.',
     content: block(
       'Services',
-      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting: guided by our What / How engagement method.'
+      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting.'
     ),
   },
   work: {
