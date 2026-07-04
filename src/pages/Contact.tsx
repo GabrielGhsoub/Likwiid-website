@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, type FormEvent } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { m } from 'framer-motion'
 import { Mail, Github, Linkedin, Check, AlertCircle, ChevronDown } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
@@ -19,12 +20,13 @@ const PROJECT_TYPES = [
   { value: 'Code Audit', labelKey: 'contact.projectTypeCodeAudit' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
 ]
+// Deliberately floored at the studio's real minimum: an under-floor option anchors
+// low and invites projects we cannot take on.
 const BUDGETS = [
-  { value: '< $5k', labelKey: 'contact.budgetUnder5k' },
   { value: '$5k - $15k', labelKey: 'contact.budget5to15k' },
   { value: '$15k - $50k', labelKey: 'contact.budget15to50k' },
   { value: '$50k+', labelKey: 'contact.budget50kPlus' },
-  { value: "Let's discuss", labelKey: 'contact.budgetDiscuss' },
+  { value: 'Not sure yet', labelKey: 'contact.budgetNotSure' },
 ]
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -99,8 +101,39 @@ export default function Contact() {
               <p className="mt-4 text-text-secondary leading-relaxed">
                 {t('contact.introBody')}
               </p>
+              <p className="mt-3 text-text-tertiary text-sm">
+                {t('contact.locationNote')}
+              </p>
 
-              <div className="mt-10 space-y-4">
+              <div className="mt-8 flex items-center gap-4 rounded-lg border border-border bg-bg-secondary/50 p-4">
+                <img
+                  src="/gabriel.webp"
+                  alt={t('contact.founderPhotoAlt')}
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  className="h-14 w-14 rounded-full object-cover"
+                />
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  {t('contact.founderNote')}
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <h3 className="text-sm font-medium text-text-primary uppercase tracking-wider font-[family-name:var(--font-mono)]">
+                  {t('contact.stepsTitle')}
+                </h3>
+                <ol className="mt-3 space-y-2.5">
+                  {(['step1', 'step2', 'step3'] as const).map((step, i) => (
+                    <li key={step} className="flex gap-3 text-text-secondary text-sm leading-relaxed">
+                      <span className="text-accent-gold font-[family-name:var(--font-mono)] shrink-0">{i + 1}.</span>
+                      {t(`contact.${step}`)}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="mt-8 space-y-1">
                 <a
                   href={SOCIAL.whatsapp}
                   target="_blank"
@@ -108,7 +141,10 @@ export default function Contact() {
                   className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
                 >
                   <WhatsAppIcon size={20} className="text-accent-gold" />
-                  WhatsApp: {SOCIAL.phone}
+                  <span>
+                    WhatsApp: {SOCIAL.phone}{' '}
+                    <span className="text-text-tertiary text-sm">({t('contact.fastestReply')})</span>
+                  </span>
                 </a>
                 <a
                   href={`mailto:${SOCIAL.email}`}
@@ -117,23 +153,26 @@ export default function Contact() {
                   <Mail size={20} className="text-accent-gold" />
                   {SOCIAL.email}
                 </a>
+              </div>
+
+              <div className="mt-6 flex items-center gap-5">
                 <a
                   href={SOCIAL.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="GitHub"
+                  className="p-2 -m-2 text-text-tertiary hover:text-text-primary transition-colors"
                 >
-                  <Github size={20} className="text-accent-gold" />
-                  GitHub
+                  <Github size={18} />
                 </a>
                 <a
                   href={SOCIAL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="LinkedIn"
+                  className="p-2 -m-2 text-text-tertiary hover:text-text-primary transition-colors"
                 >
-                  <Linkedin size={20} className="text-accent-gold" />
-                  LinkedIn
+                  <Linkedin size={18} />
                 </a>
               </div>
             </m.div>
@@ -157,10 +196,28 @@ export default function Contact() {
                   <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary">
                     {t('contact.successTitle')}
                   </h3>
-                  <p className="mt-2 text-text-secondary">{t('contact.successBody')}</p>
+                  <p className="mt-2 text-text-secondary max-w-md">{t('contact.successBody')}</p>
+                  <p className="mt-3 text-text-secondary text-sm max-w-md">
+                    <Trans
+                      i18nKey="contact.successHurry"
+                      components={{
+                        whatsapp: (
+                          <a
+                            href={SOCIAL.whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent-gold hover:underline"
+                          />
+                        ),
+                      }}
+                    />
+                  </p>
+                  <Link to="/work" className="mt-5 text-accent-gold text-sm hover:underline">
+                    {t('contact.successBrowseWork')}
+                  </Link>
                   <button
                     onClick={reset}
-                    className="mt-6 py-2 px-4 text-accent-gold text-sm hover:underline cursor-pointer"
+                    className="mt-3 py-2 px-4 text-text-tertiary text-sm hover:text-text-primary hover:underline cursor-pointer"
                   >
                     {t('contact.sendAnother')}
                   </button>
@@ -180,6 +237,7 @@ export default function Contact() {
                       id="name"
                       name="name"
                       type="text"
+                      autoComplete="name"
                       required
                       aria-required="true"
                       aria-invalid={!!errors.name}
@@ -199,6 +257,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
+                      autoComplete="email"
                       required
                       aria-required="true"
                       aria-invalid={!!errors.email}
@@ -218,6 +277,7 @@ export default function Contact() {
                       id="company"
                       name="company"
                       type="text"
+                      autoComplete="organization"
                       className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300"
                       placeholder={t('contact.placeholderCompany')}
                     />
@@ -248,6 +308,7 @@ export default function Contact() {
                     <div>
                       <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
                         {t('contact.labelBudget')}
+                        <span className="block text-xs text-text-tertiary font-normal mt-0.5">{t('contact.budgetHint')}</span>
                       </label>
                       <div className="relative">
                         <select
@@ -287,15 +348,21 @@ export default function Contact() {
                   </div>
 
                   {status === 'error' && (
-                    <div role="alert" className="flex items-center gap-2 text-error-base text-sm">
-                      <AlertCircle size={16} />
-                      {t('contact.errorSubmit')}
+                    <div role="alert" className="flex items-start gap-2 text-error-base text-sm">
+                      <AlertCircle size={16} className="mt-0.5 shrink-0" />
+                      <span>
+                        {t('contact.errorSubmit')}{' '}
+                        <a href={`mailto:${SOCIAL.email}`} className="underline hover:no-underline">
+                          {t('contact.errorFallback')}
+                        </a>
+                      </span>
                     </div>
                   )}
 
                   <Button type="submit" variant="primary" size="lg" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
                     {status === 'submitting' ? t('contact.submitSending') : t('contact.submitSend')}
                   </Button>
+                  <p className="text-text-tertiary text-xs">{t('contact.privacyNote')}</p>
                 </form>
               )}
             </m.div>
