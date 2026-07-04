@@ -1,18 +1,20 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { m } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowUpRight, ExternalLink, Star, Plus } from 'lucide-react'
+import type { TFunction } from 'i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
-import { projects, projectCategories } from '../data/projects'
 import { useLocalizedProjects } from '../i18n/localizedContent'
-import type { ProjectCategory } from '../types'
+import type { Project, ProjectStatus } from '../types'
 
-const INITIAL_VISIBLE_COUNT = 6
-const LOAD_MORE_COUNT = 4
+// Studio section starts collapsed to keep the page curated; client work always shows in full.
+const STUDIO_INITIAL_COUNT = 5
+
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
+const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
+const CARD_VIEWPORT = { once: true, margin: '-40px' } as const
 
 const CARD_HOVER = {
   y: -4,
@@ -23,50 +25,219 @@ const CARD_HOVER = {
   },
 }
 
-const projectTransitions = projects.map((_, i) => ({
+const cardTransition = (i: number) => ({
   duration: 0.4,
-  delay: i * 0.06,
+  delay: Math.min(i, 3) * 0.06,
   ease: [0.22, 1, 0.36, 1] as const,
-}))
+})
 
-const categoryCounts = projectCategories.reduce<Record<string, number>>((acc, cat) => {
-  acc[cat] = cat === 'All' ? projects.length : projects.filter((p) => p.category === cat).length
-  return acc
-}, {})
-
+// Only claims a diligent buyer can verify: live products, total builds, platforms.
 const stats: ReadonlyArray<readonly [string, string]> = [
-  ['12+', 'statShippedBuilds'],
-  ['4', 'statProductSurfaces'],
-  ['1', 'statOwnerLedTeam'],
+  ['3', 'statLiveProducts'],
+  ['12', 'statBuiltEndToEnd'],
+  ['4', 'statPlatformsShipped'],
 ]
+
+const STATUS_STYLES: Record<ProjectStatus, string> = {
+  live: 'border-accent-gold/40 bg-accent-gold-dim text-accent-gold',
+  shipped: 'border-border text-text-secondary',
+  inDevelopment: 'border-border text-text-tertiary',
+}
+
+function StatusPill({ status, t }: { status: ProjectStatus; t: TFunction }) {
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center rounded-full border px-2.5 py-1 text-[11px] font-medium ${STATUS_STYLES[status]}`}
+    >
+      {t(`portfolio.status${status.charAt(0).toUpperCase()}${status.slice(1)}`)}
+    </span>
+  )
+}
+
+function ProjectCard({ project, index, priority }: { project: Project; index: number; priority: boolean }) {
+  const { t } = useTranslation()
+  const previewImage = project.previewImage ?? project.images[0]
+  const previewAlt = project.previewAlt ?? t('portfolio.previewAlt', { title: project.title })
+  const isClientWork = project.client !== 'Likwiid'
+  const platformLabel =
+    project.platformLabel ?? t(project.platform === 'mobile' ? 'caseStudy.platformMobile' : 'caseStudy.platformWeb')
+
+  return (
+    <m.div
+      initial={FADE_UP_INITIAL}
+      whileInView={FADE_UP_VISIBLE}
+      viewport={CARD_VIEWPORT}
+      transition={cardTransition(index)}
+      whileHover={CARD_HOVER}
+    >
+      <article
+        className={`group relative rounded-xl border bg-bg-secondary transition-[border-color,box-shadow] duration-300 overflow-hidden ${
+          project.spotlight
+            ? 'border-accent-gold/50 shadow-[0_12px_32px_rgba(6,182,212,0.10)] hover:border-accent-gold hover:shadow-[0_18px_44px_rgba(6,182,212,0.16)]'
+            : 'border-border hover:border-border-hover hover:shadow-lg'
+        }`}
+      >
+        <div className="flex flex-col md:flex-row">
+          {/* Preview */}
+          <Link
+            to={`/work/${project.slug}`}
+            className="block no-underline w-full md:w-[300px] h-[200px] md:h-auto md:min-h-[200px] shrink-0"
+            aria-label={t('portfolio.viewCaseStudyAria', { title: project.title })}
+          >
+            <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary border-b border-border md:border-b-0 md:border-r">
+              {previewImage && project.platform === 'mobile' ? (
+                <div className="rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-transform duration-500 ease-out group-hover:scale-[1.04]">
+                  <div className="rounded-lg overflow-hidden">
+                    <img
+                      src={previewImage}
+                      alt={previewAlt}
+                      className="h-[170px] w-auto block"
+                      loading={priority ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchPriority={priority ? 'high' : 'auto'}
+                    />
+                  </div>
+                </div>
+              ) : previewImage && project.platform === 'web' ? (
+                <div className="w-[88%] transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+                  <div className="rounded-md overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                    <div className="bg-bg-tertiary px-2 py-1 flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
+                        <div className="w-[6px] h-[6px] rounded-full bg-[#ff5f57]" />
+                        <div className="w-[6px] h-[6px] rounded-full bg-[#febc2e]" />
+                        <div className="w-[6px] h-[6px] rounded-full bg-[#28c840]" />
+                      </div>
+                      <div className="flex-1 bg-bg-secondary rounded px-2 py-0.5">
+                        <div className="w-[40%] h-[4px] rounded bg-border" />
+                      </div>
+                    </div>
+                    <img
+                      src={previewImage}
+                      alt={previewAlt}
+                      className="w-full h-auto block"
+                      loading={priority ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchPriority={priority ? 'high' : 'auto'}
+                    />
+                  </div>
+                </div>
+              ) : null}
+              <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/70 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                <ArrowUpRight className="text-text-primary" size={16} />
+              </div>
+            </div>
+          </Link>
+
+          {/* Info */}
+          <div className="flex flex-1 flex-col p-5 md:p-6 min-w-0">
+            <div className="mb-2.5 flex items-start justify-between gap-3">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
+                <span className="h-1 w-1 rounded-full bg-text-tertiary/50" aria-hidden="true" />
+                <span className="text-xs text-text-tertiary">{platformLabel}</span>
+                <span className="h-1 w-1 rounded-full bg-text-tertiary/50" aria-hidden="true" />
+                {/* Attribution: the single most-checked trust fact on a work page. */}
+                <span className={`text-xs ${isClientWork ? 'font-medium text-text-primary' : 'text-text-tertiary'}`}>
+                  {isClientWork
+                    ? `${t('portfolio.clientWorkLabel')} · ${project.client}`
+                    : t('portfolio.studioProductLabel')}
+                </span>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <StatusPill status={project.status} t={t} />
+                {project.spotlight && (
+                  <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold-dim px-2.5 py-1 text-[11px] font-medium text-accent-gold">
+                    <Star size={12} fill="currentColor" strokeWidth={1.6} />
+                    {t('portfolio.featured')}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <Link to={`/work/${project.slug}`} className="block no-underline">
+              <h3 className="text-lg md:text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-snug">
+                {project.title}
+              </h3>
+              {/* One outcome line per card: what it is, for whom, strongest concrete fact. */}
+              <p className="mt-1.5 text-text-secondary text-sm leading-snug line-clamp-2">
+                {project.oneLiner ?? project.subtitle}
+              </p>
+            </Link>
+
+            <div className="mt-3.5 flex flex-wrap gap-1.5">
+              {project.techStack.slice(0, 4).map((tech) => (
+                <Badge key={tech}>{tech}</Badge>
+              ))}
+              {project.techStack.length > 4 && (
+                <span className="inline-flex items-center px-2 py-1 text-xs text-text-tertiary">
+                  +{project.techStack.length - 4}
+                </span>
+              )}
+            </div>
+
+            {/* Footer: external proof links + case study link */}
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
+              <div className="flex flex-wrap items-center gap-2">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:border-accent-gold hover:text-accent-gold"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink size={12} /> {project.liveLabel ?? t('portfolio.appStore')}
+                  </a>
+                )}
+                {project.androidUrl && (
+                  <a
+                    href={project.androidUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:border-accent-gold hover:text-accent-gold"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink size={12} /> {t('portfolio.playStore')}
+                  </a>
+                )}
+              </div>
+              <Link
+                to={`/work/${project.slug}`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
+              >
+                {t('portfolio.viewCaseStudy')}
+                <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </article>
+    </m.div>
+  )
+}
+
+function SectionHeadingRow({ label }: { label: string }) {
+  return (
+    <div className="mb-6 flex items-center gap-3">
+      <h2 className="text-sm font-medium text-accent-gold uppercase tracking-[0.2em] font-[family-name:var(--font-mono)]">
+        {label}
+      </h2>
+      <span className="h-px flex-1 bg-border" aria-hidden="true" />
+    </div>
+  )
+}
 
 export default function Portfolio() {
   const { t } = useTranslation()
-  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All')
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT)
-  const gridRef = useRef<HTMLDivElement>(null)
+  const [showAllStudio, setShowAllStudio] = useState(false)
 
   useEffect(() => { document.title = t('portfolio.documentTitle') }, [t])
 
-  const handleFilterChange = (category: ProjectCategory) => {
-    setActiveFilter(category)
-    setVisibleCount(INITIAL_VISIBLE_COUNT)
-  }
-
   const localizedProjects = useLocalizedProjects()
-  const filtered = useMemo(
-    () => activeFilter === 'All' ? localizedProjects : localizedProjects.filter((p) => p.category === activeFilter),
-    [activeFilter, localizedProjects],
-  )
-  const visibleProjects = filtered.slice(0, visibleCount)
-  const hiddenCount = Math.max(filtered.length - visibleProjects.length, 0)
-  const isExpanded = visibleProjects.length > INITIAL_VISIBLE_COUNT && hiddenCount === 0
-  const progress = filtered.length > 0 ? Math.round((visibleProjects.length / filtered.length) * 100) : 0
-
-  const handleShowLess = () => {
-    setVisibleCount(INITIAL_VISIBLE_COUNT)
-    gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const clientProjects = localizedProjects.filter((p) => p.client !== 'Likwiid')
+  const studioProjects = localizedProjects.filter((p) => p.client === 'Likwiid')
+  const visibleStudio = showAllStudio ? studioProjects : studioProjects.slice(0, STUDIO_INITIAL_COUNT)
+  const hiddenStudioCount = studioProjects.length - visibleStudio.length
 
   return (
     <PageTransition>
@@ -88,7 +259,7 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border sm:min-w-[380px]">
+              <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:min-w-[380px] sm:grid-cols-3">
                 {stats.map(([value, label]) => (
                   <div key={label} className="bg-bg-secondary px-4 py-5">
                     <dt className="sr-only">{t(`portfolio.${label}`)}</dt>
@@ -104,223 +275,46 @@ export default function Portfolio() {
             </div>
           </header>
 
-          {/* ---------- Filter bar ---------- */}
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div role="group" aria-label={t('portfolio.filterTablistLabel')} className="flex flex-wrap gap-2">
-              {projectCategories.map((cat) => {
-                const isActive = activeFilter === cat
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => handleFilterChange(cat as ProjectCategory)}
-                    aria-pressed={isActive}
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors cursor-pointer ${
-                      isActive
-                        ? 'border-accent-gold bg-accent-gold-dim text-accent-gold'
-                        : 'border-border text-text-secondary hover:border-border-hover hover:text-text-primary'
-                    }`}
-                  >
-                    {t(`categories.${cat}`, { defaultValue: cat })}
-                    <span className={`text-xs tabular-nums ${isActive ? 'text-accent-gold/70' : 'text-text-tertiary'}`}>
-                      {categoryCounts[cat]}
-                    </span>
-                  </button>
-                )
-              })}
+          {/* ---------- Client work ---------- */}
+          <section aria-labelledby="client-work-heading">
+            <div id="client-work-heading">
+              <SectionHeadingRow label={t('portfolio.clientWorkHeading')} />
             </div>
-            <p className="text-sm text-text-tertiary tabular-nums shrink-0">
-              {t('portfolio.projectsCount', { visible: visibleProjects.length, total: filtered.length })}
+            <div className="space-y-4">
+              {clientProjects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} priority={i === 0} />
+              ))}
+            </div>
+          </section>
+
+          {/* ---------- Studio products ---------- */}
+          <section aria-labelledby="studio-heading" className="mt-16">
+            <div id="studio-heading">
+              <SectionHeadingRow label={t('portfolio.studioHeading')} />
+            </div>
+            <p className="mb-6 -mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
+              {t('portfolio.studioIntro')}
             </p>
-          </div>
+            <div className="space-y-4">
+              {visibleStudio.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} priority={false} />
+              ))}
+            </div>
 
-          {/* ---------- Project grid ---------- */}
-          <div ref={gridRef} className="scroll-mt-24 space-y-4">
-            {visibleProjects.map((project, i) => {
-              const previewImage = project.previewImage ?? project.images[0]
-              const previewAlt = project.previewAlt ?? t('portfolio.previewAlt', { title: project.title })
-              const isPriorityImage = i === 0
-
-              return (
-                <m.div
-                  key={project.id}
-                  initial={FADE_UP_INITIAL}
-                  animate={FADE_UP_ANIMATE}
-                  transition={projectTransitions[i]}
-                  whileHover={CARD_HOVER}
-                >
-                  <article className={`group relative rounded-xl border bg-bg-secondary transition-[border-color,box-shadow] duration-300 overflow-hidden ${
-                    project.spotlight
-                      ? 'border-accent-gold/50 shadow-[0_12px_32px_rgba(6,182,212,0.10)] hover:border-accent-gold hover:shadow-[0_18px_44px_rgba(6,182,212,0.16)]'
-                      : 'border-border hover:border-border-hover hover:shadow-lg'
-                  }`}>
-                    <div className="flex flex-col md:flex-row">
-                      {/* Preview */}
-                      <Link
-                        to={`/work/${project.slug}`}
-                        className="block no-underline w-full md:w-[300px] h-[200px] md:h-auto md:min-h-[200px] shrink-0"
-                        aria-label={t('portfolio.viewCaseStudyAria', { title: project.title })}
-                      >
-                        <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-bg-tertiary border-b border-border md:border-b-0 md:border-r">
-                          {previewImage && project.platform === 'mobile' ? (
-                            <div className="rounded-xl p-[2px] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-transform duration-500 ease-out group-hover:scale-[1.04]">
-                              <div className="rounded-lg overflow-hidden">
-                                <img
-                                  src={previewImage}
-                                  alt={previewAlt}
-                                  className="h-[150px] md:h-[150px] w-auto block"
-                                  loading={isPriorityImage ? 'eager' : 'lazy'}
-                                  decoding="async"
-                                  fetchPriority={isPriorityImage ? 'high' : 'auto'}
-                                />
-                              </div>
-                            </div>
-                          ) : previewImage && project.platform === 'web' ? (
-                            <div className="w-[88%] transition-transform duration-500 ease-out group-hover:scale-[1.03]">
-                              <div className="rounded-md overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-                                <div className="bg-bg-tertiary px-2 py-1 flex items-center gap-1.5">
-                                  <div className="flex items-center gap-1">
-                                    <div className="w-[6px] h-[6px] rounded-full bg-[#ff5f57]" />
-                                    <div className="w-[6px] h-[6px] rounded-full bg-[#febc2e]" />
-                                    <div className="w-[6px] h-[6px] rounded-full bg-[#28c840]" />
-                                  </div>
-                                  <div className="flex-1 bg-bg-secondary rounded px-2 py-0.5">
-                                    <div className="w-[40%] h-[4px] rounded bg-border" />
-                                  </div>
-                                </div>
-                                <img
-                                  src={previewImage}
-                                  alt={previewAlt}
-                                  className="w-full h-auto block"
-                                  loading={isPriorityImage ? 'eager' : 'lazy'}
-                                  decoding="async"
-                                  fetchPriority={isPriorityImage ? 'high' : 'auto'}
-                                />
-                              </div>
-                            </div>
-                          ) : null}
-                          <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/70 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
-                            <ArrowUpRight className="text-text-primary" size={16} />
-                          </div>
-                        </div>
-                      </Link>
-
-                      {/* Info */}
-                      <div className="flex flex-1 flex-col p-5 md:p-6 min-w-0">
-                        <div className="mb-2.5 flex items-start justify-between gap-3">
-                          <div className="flex min-w-0 flex-wrap items-center gap-2">
-                            <span className="text-xs text-accent-gold font-[family-name:var(--font-mono)]">{project.year}</span>
-                            <span className="h-1 w-1 rounded-full bg-text-tertiary/50" aria-hidden="true" />
-                            <span className="text-xs text-text-tertiary">{t(`categories.${project.category}`, { defaultValue: project.category })}</span>
-                          </div>
-                          {project.spotlight && (
-                            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent-gold/40 bg-accent-gold-dim px-2.5 py-1 text-[11px] font-medium text-accent-gold">
-                              <Star size={12} fill="currentColor" strokeWidth={1.6} />
-                              {t('portfolio.featured')}
-                            </span>
-                          )}
-                        </div>
-
-                        <Link to={`/work/${project.slug}`} className="block no-underline">
-                          <h3 className="text-lg md:text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-snug">
-                            {project.title}
-                          </h3>
-                          <p className="mt-1.5 text-text-secondary text-sm leading-snug line-clamp-2">{project.subtitle}</p>
-                          {project.businessResult && (
-                            <p className="mt-2.5 text-sm leading-snug text-text-primary/90 line-clamp-2">
-                              {project.businessResult}
-                            </p>
-                          )}
-                        </Link>
-
-                        <div className="mt-3.5 flex flex-wrap gap-1.5">
-                          {project.techStack.slice(0, 4).map((tech) => (
-                            <Badge key={tech}>{tech}</Badge>
-                          ))}
-                          {project.techStack.length > 4 && (
-                            <span className="inline-flex items-center px-2 py-1 text-xs text-text-tertiary">
-                              +{project.techStack.length - 4}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Footer: external links + case study link */}
-                        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-                          <div className="flex flex-wrap items-center gap-4">
-                            {project.liveUrl && (
-                              <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-accent-gold"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <ExternalLink size={12} /> {project.liveLabel ?? t('portfolio.appStore')}
-                              </a>
-                            )}
-                            {project.androidUrl && (
-                              <a
-                                href={project.androidUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-xs text-text-secondary transition-colors hover:text-accent-gold"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <ExternalLink size={12} /> {t('portfolio.playStore')}
-                              </a>
-                            )}
-                          </div>
-                          <Link
-                            to={`/work/${project.slug}`}
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
-                          >
-                            {t('portfolio.viewCaseStudy')}
-                            <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </m.div>
-              )
-            })}
-          </div>
-
-          {/* ---------- Pagination ---------- */}
-          {filtered.length > INITIAL_VISIBLE_COUNT && (
-            <div className="mt-12 flex flex-col items-center gap-5">
-              <div className="w-full max-w-[260px]">
-                <div className="h-1 w-full overflow-hidden rounded-full bg-border" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
-                  <div
-                    className="h-full rounded-full bg-accent-gold transition-[width] duration-500 ease-out"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-                <p className="mt-3 text-center text-xs text-text-tertiary tabular-nums">
-                  {t('portfolio.showingCount', { visible: visibleProjects.length, total: filtered.length })}
-                </p>
-              </div>
-
-              {hiddenCount > 0 ? (
+            {hiddenStudioCount > 0 && (
+              <div className="mt-10 flex justify-center">
                 <button
                   type="button"
-                  onClick={() => setVisibleCount((count) => Math.min(count + LOAD_MORE_COUNT, filtered.length))}
+                  onClick={() => setShowAllStudio(true)}
                   className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-bg-secondary px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold"
                 >
                   <Plus size={16} />
-                  {t('portfolio.loadMore')}
-                  <span className="text-text-tertiary">({Math.min(LOAD_MORE_COUNT, hiddenCount)})</span>
+                  {t('portfolio.showAllStudio')}
+                  <span className="text-text-tertiary">({hiddenStudioCount})</span>
                 </button>
-              ) : isExpanded ? (
-                <button
-                  type="button"
-                  onClick={handleShowLess}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-transparent px-6 py-3 text-sm font-medium text-text-tertiary transition-colors hover:text-text-primary"
-                >
-                  {t('portfolio.showLess')}
-                </button>
-              ) : null}
-            </div>
-          )}
+              </div>
+            )}
+          </section>
         </div>
       </div>
     </PageTransition>

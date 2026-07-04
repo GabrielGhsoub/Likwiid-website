@@ -4,6 +4,7 @@ import { projectEnrichment } from './projectEnrichment'
 const projectCatalog: Project[] = [
   {
     id: 'padel-booking',
+    status: 'live',
     slug: 'padel-booking',
     title: 'Padel Booking Platform',
     subtitle: 'League management, matchmaking, and real-time court booking',
@@ -35,6 +36,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'gcg-website',
+    status: 'live',
     slug: 'gcg-website',
     title: 'GCG Website',
     subtitle: 'Premium science-consulting website with clear pathways and conversion flows',
@@ -70,6 +72,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'sems',
+    status: 'inDevelopment',
     slug: 'sems-energy-management',
     title: 'SEMS: Smart Energy Management',
     subtitle: 'Multi-source energy visibility and cost control for Lebanese households',
@@ -99,6 +102,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'personal-fitness-tracker',
+    status: 'shipped',
     slug: 'personal-fitness-tracker',
     title: 'Personal Fitness Tracker',
     subtitle: 'Heart-rate guided endurance training with readiness and plan progress',
@@ -129,6 +133,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'voxflow',
+    status: 'shipped',
     slug: 'voxflow',
     title: 'VoxFlow',
     subtitle: 'Offline vocal re-education with guided practice, recordings, and progress',
@@ -158,6 +163,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'breathebreak',
+    status: 'shipped',
     slug: 'breathebreak',
     title: 'BreatheBreak',
     subtitle: 'Mac menu-bar breathing reminders for screen-heavy workdays',
@@ -187,6 +193,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'linkedin-templates-extension',
+    status: 'shipped',
     slug: 'linkedin-templates-extension',
     title: 'LinkedIn Templates Extension',
     subtitle: 'Privacy-first Chrome extension for faster LinkedIn outreach',
@@ -216,6 +223,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'healthcare-pdf-api',
+    status: 'shipped',
     slug: 'healthcare-pdf-api',
     title: 'Healthcare PDF API',
     subtitle: 'Secure medical document generation with encryption, audit, and retention controls',
@@ -246,6 +254,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'padel-admin',
+    status: 'live',
     slug: 'padel-admin-portal',
     title: 'Padel Admin Portal',
     subtitle: 'Web dashboard for league and player management',
@@ -275,6 +284,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'ai-fitness-coach',
+    status: 'inDevelopment',
     slug: 'ai-fitness-coach',
     title: 'AI Fitness Coach',
     subtitle: 'AI-powered personal training with adaptive workout programming',
@@ -305,6 +315,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'bully-ai',
+    status: 'shipped',
     slug: 'bully-ai',
     title: 'Bully.ai',
     subtitle: 'The app that guilt-trips you into getting things done',
@@ -333,6 +344,7 @@ const projectCatalog: Project[] = [
   },
   {
     id: 'salsaflow',
+    status: 'inDevelopment',
     slug: 'salsaflow',
     title: 'SalsaFlow',
     subtitle: 'Immersive WebXR salsa trainer for Meta Quest with real-time motion grading',

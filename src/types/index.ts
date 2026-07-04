@@ -9,12 +9,17 @@ export interface Service {
   deliverables: string[]
 }
 
+export type ProjectStatus = 'live' | 'shipped' | 'inDevelopment'
+
 export interface Project {
   id: string
   slug: string
   title: string
   subtitle: string
   client: string
+  // Honest delivery state shown on the work index: 'live' = running in production or in
+  // app stores, 'shipped' = built end to end but not publicly released, 'inDevelopment'.
+  status: ProjectStatus
   category: ProjectCategory
   year: string
   description: string

@@ -711,7 +711,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ]
   },
   "bully-ai": {
-    "oneLiner": "A behavioral-psychology productivity app that escalates from gentle nudges to nuclear roasts",
+    "oneLiner": "A behavioral psychology experiment in escalating reminders for people who ignore gentle nudges",
     "description": "A React Native productivity app for procrastinators and ADHD users that swaps cheerful reminders for a five-step notification cascade escalating from a gentle nudge to a nuclear roast, paired with a real ADHD support layer and anonymous social-proof backend.",
     "challenge": "Soft reminders are trivially ignored by the people who need them most. Notifications fire from the OS when the app's JS isn't running, so all AI-personalized escalating copy must exist before scheduling, and degrade gracefully when AI or network fails.",
     "approach": "Built on Expo SDK 54 / React Native 0.81 New Architecture, TypeScript, Zustand, and NativeWind. A pure-function escalation engine maps five levels to minute-offset thresholds; one batched Claude Opus call pre-generates all five personality bodies at task creation, cached and rescheduled, with template fallbacks. Reminder types are a plugin registry; a NestJS + Prisma + Redis backend powers anonymous social proof.",
