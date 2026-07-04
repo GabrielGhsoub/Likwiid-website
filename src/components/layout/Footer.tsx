@@ -1,20 +1,10 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { SOCIAL, FOOTER_LINKS } from '../../utils/constants'
+import { SOCIAL } from '../../utils/constants'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
 const CURRENT_YEAR = new Date().getFullYear()
-
-// Map each footer path to its i18n label key so the footer stays fully translated.
-const FOOTER_LINK_KEYS: Record<string, string> = {
-  '/services': 'nav.services',
-  '/process': 'nav.process',
-  '/booking-websites': 'nav.bookingWebsites',
-  '/work': 'nav.work',
-  '/about': 'nav.about',
-  '/contact': 'nav.contact',
-}
 
 function WaveDivider() {
   return (
@@ -41,20 +31,6 @@ export function Footer() {
     <footer className="mt-0">
       <WaveDivider />
       <div className="border-t border-border">
-      <nav aria-label={t('footer.sitemapLabel')} className="mx-auto max-w-[1200px] px-6 pt-8">
-        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          {FOOTER_LINKS.map((link) => (
-            <li key={link.path}>
-              <Link
-                to={link.path}
-                className="inline-flex min-h-11 items-center text-sm text-text-secondary hover:text-text-primary transition-colors no-underline"
-              >
-                {t(FOOTER_LINK_KEYS[link.path])}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
       <div className="mx-auto max-w-[1200px] px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Link
