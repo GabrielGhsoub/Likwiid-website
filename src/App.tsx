@@ -11,7 +11,6 @@ import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import Home from './pages/Home'
 
 const Services = lazy(() => import('./pages/Services'))
-const Process = lazy(() => import('./pages/Process'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
 const CaseStudy = lazy(() => import('./pages/CaseStudy'))
 const About = lazy(() => import('./pages/About'))
@@ -28,7 +27,6 @@ function usePrefetchRoutes() {
 
     const prefetch = () => {
       import('./pages/Services')
-      import('./pages/Process')
       import('./pages/BookingWebsites')
       import('./pages/Portfolio')
       import('./pages/CaseStudy')
@@ -85,7 +83,6 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/process" element={<Process />} />
                 <Route path="/work" element={<Portfolio />} />
                 <Route path="/work/:slug" element={<CaseStudy />} />
                 <Route path="/about" element={<About />} />

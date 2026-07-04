@@ -163,15 +163,6 @@ const routes = {
       'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting: guided by our What / How engagement method.'
     ),
   },
-  process: {
-    title: 'How We Work: Our Engagement Method | Likwiid',
-    description:
-      'Likwiid leads with strategy before code. A seven-step engagement method in two phases: What (Landscape, Audit, Blueprint) and How (Architecture, Replatform, Build, Evolve).',
-    content: block(
-      'How we work: the Likwiid engagement method',
-      'Strategy before a single line of code. Phase one, What: 1 Landscape, 2 Audit, 3 Blueprint. Phase two, How: 4 Architecture, 5 Replatform, 6 Build, 7 Evolve. Great partnerships are ongoing, not one-time handoffs.'
-    ),
-  },
   work: {
     title: 'Work | Likwiid',
     description:
@@ -245,7 +236,6 @@ for (const slug of workSlugs) {
 
 const BREADCRUMB_LABELS = {
   services: 'Services',
-  process: 'How We Work',
   work: 'Work',
   about: 'About',
   contact: 'Contact',

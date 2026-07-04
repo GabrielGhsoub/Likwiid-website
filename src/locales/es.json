@@ -2,11 +2,9 @@
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
-    "process": "Cómo trabajamos",
     "work": "Proyectos",
     "about": "Acerca de",
     "contact": "Contacto",
-    "bookingWebsites": "Webs de reservas",
     "skipToContent": "Saltar al contenido",
     "mainNav": "Navegación principal",
     "openMenu": "Abrir menú",
@@ -25,8 +23,7 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Fundado por Gabriel Ghoussoub.",
-    "privacy": "Política de privacidad",
-    "sitemapLabel": "Pie de página"
+    "privacy": "Política de privacidad"
   },
   "hero": {
     "eyebrow": "Estudio de software dirigido por su fundador",
@@ -144,19 +141,7 @@
     "deliverables": "Entregables",
     "bookingTeaserTitle": "Webs de reservas para salones, clínicas y hoteles pequeños",
     "bookingTeaserBody": "Un paquete enfocado donde tus clientes reservan y pagan en línea, con depósitos, recordatorios y un sitio que es tuyo. Desde 1500 $; la mayoría de los proyectos entre 8000 $ y 15 000 $, en 2 a 4 semanas.",
-    "bookingTeaserLink": "Ver webs de reservas",
-    "processTeaserTitle": "Cómo trabajamos",
-    "processTeaserBody": "La estrategia antes que el código: nuestro método de trabajo de siete pasos «Qué / Cómo», desde el Panorama hasta la Evolución.",
-    "processTeaserLink": "Ver nuestro método"
-  },
-  "processPage": {
-    "documentTitle": "Cómo trabajamos | Likwiid",
-    "title": "Cómo trabajamos",
-    "subtitle": "La estrategia antes de una sola línea de código.",
-    "intro": "La mayoría de los estudios empiezan por la tecnología. Nosotros empezamos por tu negocio. Nuestro acompañamiento tiene dos fases: Qué (definir bien la estrategia) y Cómo (ejecución), para que obtengas software que encaja con tu forma real de trabajar.",
-    "bookingTitle": "¿Tienes un proyecto más pequeño y bien definido?",
-    "bookingBody": "Si sobre todo necesitas que tus clientes reserven y paguen en línea, nuestro paquete de web de reservas va directo a la construcción, con alcance y precio fijos.",
-    "bookingLink": "Ver webs de reservas"
+    "bookingTeaserLink": "Ver webs de reservas"
   },
   "carousel": {
     "previous": "Captura anterior",
