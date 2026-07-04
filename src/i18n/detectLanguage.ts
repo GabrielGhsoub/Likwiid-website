@@ -94,6 +94,6 @@ export async function refineLanguageByIP(apply: (lang: Lang) => Promise<void>): 
       saveLanguage(lang)
     }
   } catch {
-    /* geo service unavailable / blocked — keep the synchronous guess, retry next load */
+    /* geo service unavailable / blocked - keep the synchronous guess, retry next load */
   }
 }

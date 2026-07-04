@@ -31,7 +31,7 @@ export class ErrorBoundary extends Component<Props, State> {
         <div className="max-w-md">
           <h1 className="text-2xl font-semibold text-text-primary mb-3">Something went wrong</h1>
           <p className="text-text-secondary mb-6">
-            Sorry — the page hit an unexpected error. Reloading usually fixes it. If it keeps
+            Sorry, the page hit an unexpected error. Reloading usually fixes it. If it keeps
             happening, get in touch and we&rsquo;ll sort it out.
           </p>
           <div className="flex items-center justify-center gap-3">

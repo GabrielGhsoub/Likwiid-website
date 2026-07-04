@@ -23,7 +23,7 @@ export async function loadLanguage(lang: Lang): Promise<void> {
     i18n.addResourceBundle(lang, 'translation', mod.default, true, true)
     loaded.add(lang)
   } catch {
-    /* chunk failed to load — stay on the current language */
+    /* chunk failed to load - stay on the current language */
   }
 }
 

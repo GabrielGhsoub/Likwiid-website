@@ -41,21 +41,21 @@ function replaceOrThrow(html, regex, replacer, label) {
     matched = true
     return replacer(...args)
   })
-  if (!matched) throw new Error(`prerender: pattern for "${label}" did not match — base HTML changed?`)
+  if (!matched) throw new Error(`prerender: pattern for "${label}" did not match: base HTML changed?`)
   return out
 }
 
 const caseStudies = {
   'padel-booking': {
-    title: 'Padel Booking Platform — Case Study | Likwiid',
+    title: 'Padel Booking Platform: Case Study | Likwiid',
     description:
       'A mobile platform for the Lebanese padel community: league management, skill-based matchmaking, player profiles, and real-time court booking. Live on iOS and Android.',
     heading: 'Padel Booking Platform',
     summary:
-      'A full-featured React Native app that moved a padel community off WhatsApp DMs into owned booking and league workflows — matchmaking, standings, and court check-in. Live on the App Store and Google Play.',
+      'A full-featured React Native app that moved a padel community off WhatsApp DMs into owned booking and league workflows: matchmaking, standings, and court check-in. Live on the App Store and Google Play.',
   },
   'gcg-website': {
-    title: 'GCG Consulting Website — Case Study | Likwiid',
+    title: 'GCG Consulting Website: Case Study | Likwiid',
     description:
       'A premium consulting website for Ghoussoub Consulting Group with audience pathways, R&D and tutoring service pages, and conversion-ready consultation flows.',
     heading: 'GCG Website',
@@ -63,7 +63,7 @@ const caseStudies = {
       'A polished React and Vite website that made a broad, technical consulting offer feel clear and credible across organizations, research teams, students, investors, and partners.',
   },
   'sems-energy-management': {
-    title: 'SEMS Smart Energy Management — Case Study | Likwiid',
+    title: 'SEMS Smart Energy Management: Case Study | Likwiid',
     description:
       'A software-first energy platform unifying EDL grid, generator, solar, and battery data into one real-time cost-control dashboard for Lebanese households.',
     heading: 'SEMS: Smart Energy Management',
@@ -71,63 +71,63 @@ const caseStudies = {
       'A TypeScript monorepo (Expo app, NestJS API, TimescaleDB telemetry) that turns fragmented grid, generator, solar, and battery data into one source-aware cost dashboard.',
   },
   'personal-fitness-tracker': {
-    title: 'Personal Fitness Tracker — Case Study | Likwiid',
+    title: 'Personal Fitness Tracker: Case Study | Likwiid',
     description:
       'A local-first endurance training app: daily readiness scoring, heart-rate-zone guidance, run logging, and 12-week plan progress on one on-device dashboard.',
     heading: 'Personal Fitness Tracker',
     summary:
-      'An Expo React Native app with on-device SQLite storage, BLE heart-rate support, and a structured 12-week endurance plan — readiness, run history, and plan adherence in one view.',
+      'An Expo React Native app with on-device SQLite storage, BLE heart-rate support, and a structured 12-week endurance plan: readiness, run history, and plan adherence in one view.',
   },
   voxflow: {
-    title: 'VoxFlow Vocal Re-education App — Case Study | Likwiid',
+    title: 'VoxFlow Vocal Re-education App: Case Study | Likwiid',
     description:
       'A calm, offline-first vocal re-education app with guided daily practice, private on-device recordings, A/B comparison, and progress tracking.',
     heading: 'VoxFlow',
     summary:
-      'A quiet, clinically grounded Expo app that packages daily vocal practice into a private, repeatable, offline-first routine — guided sessions, recordings, and a progress calendar.',
+      'A quiet, clinically grounded Expo app that packages daily vocal practice into a private, repeatable, offline-first routine: guided sessions, recordings, and a progress calendar.',
   },
   breathebreak: {
-    title: 'BreatheBreak macOS Menu-bar App — Case Study | Likwiid',
+    title: 'BreatheBreak macOS Menu-bar App: Case Study | Likwiid',
     description:
       'A macOS menu-bar wellness utility that turns screen-heavy workdays into gentle breathing check-ins with phased reminders, quick resets, and Control Pause tracking.',
     heading: 'BreatheBreak',
     summary:
-      'A lightweight SwiftUI menu-bar app that keeps recovery cues present but unobtrusive during deep work — phased reminders, meeting-aware smart pause, and CP trends.',
+      'A lightweight SwiftUI menu-bar app that keeps recovery cues present but unobtrusive during deep work: phased reminders, meeting-aware smart pause, and CP trends.',
   },
   'linkedin-templates-extension': {
-    title: 'LinkedIn Templates Chrome Extension — Case Study | Likwiid',
+    title: 'LinkedIn Templates Chrome Extension: Case Study | Likwiid',
     description:
-      'A privacy-first Manifest V3 Chrome extension that saves reusable LinkedIn message templates with smart variables and one-click insertion — no risky automation.',
+      'A privacy-first Manifest V3 Chrome extension that saves reusable LinkedIn message templates with smart variables and one-click insertion: no risky automation.',
     heading: 'LinkedIn Templates Extension',
     summary:
       'A React and TypeScript MV3 extension for outreach teams: searchable templates, smart variables like first name and company, synced settings, and local-first privacy.',
   },
   'healthcare-pdf-api': {
-    title: 'Healthcare PDF API — Case Study | Likwiid',
+    title: 'Healthcare PDF API: Case Study | Likwiid',
     description:
       'A compliance-focused NestJS backend for medical PDF generation: API-key auth, AES-256-GCM encryption, audit trails, webhooks, and retention policies.',
     heading: 'Healthcare PDF API',
     summary:
-      'A modular NestJS backend for controlled medical document workflows — scoped API keys, encrypted storage, traceable audit events, webhook retries, and automated expiry.',
+      'A modular NestJS backend for controlled medical document workflows: scoped API keys, encrypted storage, traceable audit events, webhook retries, and automated expiry.',
   },
   'padel-admin-portal': {
-    title: 'Padel Admin Portal — Case Study | Likwiid',
+    title: 'Padel Admin Portal: Case Study | Likwiid',
     description:
       'A web admin dashboard for the Padel platform: league lifecycle management, role-based user administration, real-time standings, and check-in controls.',
     heading: 'Padel Admin Portal',
     summary:
-      'A React admin companion that gives league operators a dashboard to run leagues, manage players by role, and control check-in — without touching the database.',
+      'A React admin companion that gives league operators a dashboard to run leagues, manage players by role, and control check-in without touching the database.',
   },
   'ai-fitness-coach': {
-    title: 'AI Fitness Coach — Case Study | Likwiid',
+    title: 'AI Fitness Coach: Case Study | Likwiid',
     description:
       'A mobile fitness app with an AI coach that generates personalized 12-week programs, gives real-time form cues, and adapts training to performance history.',
     heading: 'AI Fitness Coach',
     summary:
-      'An Expo app with an LLM-powered coach that knows the user’s full program and history — form cues, RPE-based load recommendations, and weekly progress summaries.',
+      'An Expo app with an LLM-powered coach that knows the user’s full program and history: form cues, RPE-based load recommendations, and weekly progress summaries.',
   },
   'bully-ai': {
-    title: 'Bully.ai Productivity App — Case Study | Likwiid',
+    title: 'Bully.ai Productivity App: Case Study | Likwiid',
     description:
       'A React Native productivity app that fights procrastination with escalating notifications, five bully personalities, and an ADHD toolbox.',
     heading: 'Bully.ai',
@@ -135,7 +135,7 @@ const caseStudies = {
       'A behavioral-psychology productivity app with an escalating notification system, five personalities, commitment contracts, and an ADHD toolbox of courses and exercises.',
   },
   salsaflow: {
-    title: 'SalsaFlow Motion Trainer — Case Study | Likwiid',
+    title: 'SalsaFlow Motion Trainer: Case Study | Likwiid',
     description:
       'An Expo mobile app using device sensors and AI for real-time salsa movement analysis, posture scoring, and personalized drill feedback.',
     heading: 'SalsaFlow',
@@ -148,9 +148,9 @@ const routes = {
   '': {
     title: 'Likwiid | Founder-Led Software Studio',
     description:
-      'Likwiid is a founder-led software studio. We lead with strategy before code — landscape, audit, and blueprint — then architect, build, and evolve web and mobile products. Based in Beirut, shipping worldwide.',
+      'Likwiid is a founder-led software studio. We lead with strategy before code (landscape, audit, and blueprint), then architect, build, and evolve web and mobile products. Based in Beirut, shipping worldwide.',
     content: block(
-      'Likwiid — Software that flows',
+      'Likwiid: Software that flows',
       'A founder-led software studio in Beirut shipping web and mobile products worldwide. We lead with strategy before code: booking websites, full-stack development, cloud architecture, and AI integration. Replies within 24 hours.'
     ),
   },
@@ -160,15 +160,15 @@ const routes = {
       'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration and AI-code remediation, and software architecture consulting.',
     content: block(
       'Services',
-      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting — guided by our What / How engagement method.'
+      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting: guided by our What / How engagement method.'
     ),
   },
   process: {
-    title: 'How We Work — Our Engagement Method | Likwiid',
+    title: 'How We Work: Our Engagement Method | Likwiid',
     description:
       'Likwiid leads with strategy before code. A seven-step engagement method in two phases: What (Landscape, Audit, Blueprint) and How (Architecture, Replatform, Build, Evolve).',
     content: block(
-      'How we work — the Likwiid engagement method',
+      'How we work: the Likwiid engagement method',
       'Strategy before a single line of code. Phase one, What: 1 Landscape, 2 Audit, 3 Blueprint. Phase two, How: 4 Architecture, 5 Replatform, 6 Build, 7 Evolve. Great partnerships are ongoing, not one-time handoffs.'
     ),
   },

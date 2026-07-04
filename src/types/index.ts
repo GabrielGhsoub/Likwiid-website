@@ -102,6 +102,6 @@ export interface ContactFormData {
 export interface ContactSubmitPayload extends ContactFormData {
   // Honeypot field: must stay empty for real humans. Bots that auto-fill it are dropped.
   website?: string
-  // Milliseconds from form render to submit — near-instant submits are almost always bots.
+  // Milliseconds from form render to submit - near-instant submits are almost always bots.
   elapsedMs?: number
 }

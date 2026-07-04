@@ -22,7 +22,7 @@ const BookingWebsites = lazy(() => import('./pages/BookingWebsites'))
 
 function usePrefetchRoutes() {
   useEffect(() => {
-    // Respect Data Saver — don't speculatively fetch route chunks on metered/slow connections.
+    // Respect Data Saver - don't speculatively fetch route chunks on metered/slow connections.
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
     if (conn?.saveData) return
 

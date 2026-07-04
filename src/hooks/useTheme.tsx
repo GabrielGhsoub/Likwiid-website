@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (typeof window === 'undefined') return 'light'
     const saved = readStoredTheme()
     if (saved) return saved
-    // No stored preference — respect the OS setting instead of always defaulting to light.
+    // No stored preference - respect the OS setting instead of always defaulting to light.
     try {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     } catch {
