@@ -166,11 +166,56 @@ const routes = {
   work: {
     title: 'Work | Likwiid',
     description:
-      'Selected work: booking platforms, healthcare APIs, IoT energy management, AI products, and productivity tools built by Likwiid.',
+      'Selected work: booking platforms, healthcare APIs, IoT energy management, and AI products built by Likwiid. We also build direct booking websites for small hotels, guesthouses, and tour operators.',
     content: block(
       'Our Work',
-      'Selected projects: a court booking platform live on iOS and Android with an admin portal, a healthcare PDF API, IoT energy management, an AI fitness coach, and productivity tools.'
+      'Selected projects: a court booking platform live on iOS and Android with an admin portal, a healthcare PDF API, IoT energy management, and productivity tools. We also build direct booking websites for small hotels, guesthouses, and tour operators.'
     ),
+    hreflang: true,
+  },
+  'pt/work': {
+    lang: 'pt',
+    title: 'Projetos | Likwiid',
+    description:
+      'Projetos selecionados: plataformas de reservas, APIs de saúde, gestão de energia IoT e produtos com IA construídos pela Likwiid. Criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.',
+    content: block(
+      'Os nossos projetos',
+      'Projetos selecionados: uma plataforma de reservas de campos disponível para iOS e Android com portal de administração, uma API de documentos de saúde, gestão de energia IoT e ferramentas de produtividade. Também criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.'
+    ),
+    hreflang: true,
+  },
+  'es/work': {
+    lang: 'es',
+    title: 'Proyectos | Likwiid',
+    description:
+      'Proyectos seleccionados: plataformas de reservas, APIs sanitarias, gestión energética IoT y productos con IA creados por Likwiid. Creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.',
+    content: block(
+      'Nuestro trabajo',
+      'Proyectos seleccionados: una plataforma de reservas de pistas disponible en iOS y Android con portal de administración, una API de documentos sanitarios, gestión energética IoT y herramientas de productividad. También creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.'
+    ),
+    hreflang: true,
+  },
+  'it/work': {
+    lang: 'it',
+    title: 'Progetti | Likwiid',
+    description:
+      'Progetti selezionati: piattaforme di prenotazione, API sanitarie, gestione energetica IoT e prodotti con IA realizzati da Likwiid. Creiamo siti con prenotazione diretta per piccoli hotel, guest house e tour operator.',
+    content: block(
+      'I nostri progetti',
+      'Progetti selezionati: una piattaforma di prenotazione campi disponibile su iOS e Android con portale di amministrazione, una API per documenti sanitari, gestione energetica IoT e strumenti di produttività. Creiamo anche siti con prenotazione diretta per piccoli hotel, guest house e tour operator.'
+    ),
+    hreflang: true,
+  },
+  'fr/work': {
+    lang: 'fr',
+    title: 'Projets | Likwiid',
+    description:
+      "Projets sélectionnés : plateformes de réservation, API santé, gestion d'énergie IoT et produits IA créés par Likwiid. Nous créons des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes.",
+    content: block(
+      'Nos projets',
+      "Projets sélectionnés : une plateforme de réservation de terrains disponible sur iOS et Android avec portail d'administration, une API de documents de santé, la gestion d'énergie IoT et des outils de productivité. Nous créons aussi des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes."
+    ),
+    hreflang: true,
   },
   about: {
     title: 'About | Likwiid',
@@ -274,11 +319,30 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
+// The /work cluster: every localized variant plus x-default pointing at English, per
+// Google's localized-pages guidance. Injected into each of the five work routes.
+const WORK_HREFLANG_LINKS = [
+  ['en', `${SITE_URL}/work/`],
+  ['pt', `${SITE_URL}/pt/work/`],
+  ['es', `${SITE_URL}/es/work/`],
+  ['it', `${SITE_URL}/it/work/`],
+  ['fr', `${SITE_URL}/fr/work/`],
+  ['x-default', `${SITE_URL}/work/`],
+]
+  .map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`)
+  .join('\n')
+
 function renderRoute(path, meta) {
   let html = baseHtml
   const url = canonicalUrl(path)
   const noindex = Boolean(meta.robots)
 
+  html = replaceOrThrow(
+    html,
+    /<html lang="en"/,
+    () => `<html lang="${meta.lang ?? 'en'}"`,
+    'html lang'
+  )
   html = replaceOrThrow(html, /<title>[^<]*<\/title>/, () => `<title>${escapeHtml(meta.title)}</title>`, 'title')
   html = replaceOrThrow(
     html,
@@ -328,6 +392,10 @@ function renderRoute(path, meta) {
         : `<link rel="canonical" href="${url}" />`,
     'canonical'
   )
+
+  if (meta.hreflang) {
+    html = html.replace('</head>', `${WORK_HREFLANG_LINKS}\n  </head>`)
+  }
 
   if (!noindex) {
     const graph = jsonLdGraph(path, meta)
