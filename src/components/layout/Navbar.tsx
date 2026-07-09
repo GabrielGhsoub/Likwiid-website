@@ -6,7 +6,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
-import { LanguageSwitcher } from '../ui/LanguageSwitcher'
+import { LanguageLinks } from '../ui/LanguageLinks'
 
 const navKey = (path: string) => (path === '/' ? 'home' : path.replace(/^\//, ''))
 
@@ -187,7 +187,7 @@ export function Navbar() {
                 )}
               </Link>
             ))}
-            <LanguageSwitcher />
+            <LanguageLinks />
             <button
               onClick={toggleTheme}
               className={cn(
@@ -337,7 +337,7 @@ export function Navbar() {
                     isPrivateWalkthroughRoute ? isPocLight ? 'border-[#D8CAB5]' : 'border-[#EEE1C6]/12' : 'border-border',
                   )}
                 >
-                  <LanguageSwitcher variant="full" />
+                  <LanguageLinks variant="stack" />
                   <button
                     onClick={toggleTheme}
                     className={cn(
