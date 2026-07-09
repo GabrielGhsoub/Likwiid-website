@@ -1,0 +1,114 @@
+{
+  "_TODO": "AI-translated, pending native review",
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "work": "Progetti",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "skipToContent": "Vai al contenuto",
+    "mainNav": "Navigazione principale",
+    "openMenu": "Apri il menu",
+    "closeMenu": "Chiudi il menu",
+    "menuLabel": "Menu di navigazione"
+  },
+  "theme": {
+    "light": "Tema chiaro",
+    "dark": "Tema scuro",
+    "toLight": "Passa al tema chiaro",
+    "toDark": "Passa al tema scuro"
+  },
+  "language": {
+    "change": "Cambia lingua",
+    "label": "Lingua"
+  },
+  "footer": {
+    "copyright": "© {{year}} Likwiid. Fondato da Gabriel Ghoussoub.",
+    "privacy": "Informativa sulla privacy"
+  },
+  "hero": {
+    "eyebrow": "Studio software guidato dal fondatore",
+    "title": "Software che scorre.",
+    "description": "Likwiid è uno studio software guidato dal fondatore. Partiamo dalla strategia prima del codice, poi progettiamo, costruiamo e lanciamo siti di prenotazione, app web e mobile e integrazioni di IA che trasformano operazioni disordinate in software di tua proprietà. Con sede a Beirut, lavoriamo in tutto il mondo.",
+    "ctaPrimary": "Contattaci",
+    "ctaSecondary": "Guarda i nostri progetti"
+  },
+  "hospitality": {
+    "heading": "Piccoli hotel, guest house e tour operator",
+    "body": "Creiamo siti semplici e veloci dove i tuoi ospiti prenotano e ti pagano direttamente, senza commissioni alle piattaforme di prenotazione. Disponibilità reale, caparre e promemoria automatici, nelle lingue dei tuoi ospiti. Il sito, le prenotazioni e la lista degli ospiti sono tuoi.",
+    "cta": "Parlaci della tua struttura",
+    "csTitle": "Caso studio in arrivo",
+    "csBody": "Un progetto recente per una piccola attività ricettiva. I dettagli appariranno qui quando il cliente avrà approvato la condivisione.",
+    "csBeforeLabel": "Prima",
+    "csAfterLabel": "Dopo",
+    "csBeforeAlt": "Il sito prima del rinnovo",
+    "csAfterAlt": "Il sito dopo il rinnovo",
+    "csLinkLabel": "Visita il sito"
+  },
+  "portfolio": {
+    "documentTitle": "Progetti | Likwiid",
+    "eyebrow": "Progetti selezionati",
+    "title": "Lavori che trasformano operazioni disordinate in software di tua proprietà",
+    "subtitle": "App mobile, dashboard, backend e strumenti privati costruiti attorno a flussi di lavoro reali. Ogni progetto qui è stato progettato, costruito e consegnato dal fondatore.",
+    "previewAlt": "Anteprima del progetto {{title}}",
+    "viewCaseStudyAria": "Vedi il caso studio di {{title}}",
+    "featured": "In evidenza",
+    "appStore": "App Store",
+    "playStore": "Play Store",
+    "viewCaseStudy": "Vedi il caso studio",
+    "clientWorkHeading": "Lavori per clienti",
+    "clientWorkLabel": "Lavoro per cliente",
+    "studioHeading": "Prodotti dello studio e R&S",
+    "studioProductLabel": "Prodotto dello studio",
+    "studioIntro": "Prodotti che progettiamo, costruiamo e lanciamo con il nome Likwiid. Gli stessi standard, la nostra roadmap.",
+    "statusLive": "In produzione",
+    "statusShipped": "Consegnato",
+    "statusInDevelopment": "In sviluppo",
+    "statLiveProducts": "prodotti in produzione",
+    "statBuiltEndToEnd": "prodotti costruiti da cima a fondo",
+    "statPlatformsShipped": "piattaforme consegnate",
+    "showAllStudio": "Mostra tutti i progetti dello studio"
+  },
+  "caseStudy": {
+    "platformMobile": "App mobile",
+    "platformWeb": "App web"
+  },
+  "projectsData": {
+    "padel-booking": {
+      "oneLiner": "App di padel in produzione per il Libano: motore di campionati, abbinamenti per livello e prenotazione campi"
+    },
+    "padel-admin-portal": {
+      "oneLiner": "Console di amministrazione per campionati di padel: accoppiamenti, punteggi, classifiche e playoff"
+    },
+    "gcg-website": {
+      "oneLiner": "Sito di consulenza scientifica con percorsi per pubblico, analytics rispettosi della privacy e temi accessibili"
+    },
+    "sems-energy-management": {
+      "oneLiner": "Un unico cruscotto per case che gestiscono rete elettrica, generatori, solare e batterie in Libano"
+    },
+    "voxflow": {
+      "oneLiner": "Rieducazione vocale offline: una routine guidata di 10 minuti con registrazioni private e confronto A/B"
+    },
+    "personal-fitness-tracker": {
+      "oneLiner": "Coach di resistenza che funziona senza cloud, con guida cardio dal vivo e un co-pilota IA durante la corsa"
+    },
+    "ai-fitness-coach": {
+      "oneLiner": "Coach IA di forza che adatta pesi, indicazioni e allenamento in tempo reale dal tuo storico"
+    },
+    "bully-ai": {
+      "oneLiner": "Un esperimento di psicologia comportamentale con promemoria progressivi per chi ignora gli avvisi gentili"
+    },
+    "breathebreak": {
+      "oneLiner": "Coach nella barra dei menu del Mac che trasforma giornate davanti allo schermo in pause di respirazione"
+    },
+    "linkedin-templates-extension": {
+      "oneLiner": "Gestore di modelli LinkedIn attento alla privacy, con sincronizzazione opzionale per i team"
+    },
+    "healthcare-pdf-api": {
+      "oneLiner": "Una API conforme agli standard sanitari per generare, cifrare e verificare documenti medici in PDF"
+    },
+    "salsaflow": {
+      "oneLiner": "Un trainer di salsa in realtà virtuale che valuta il tuo ballo battito per battito con un partner virtuale"
+    }
+  }
+}

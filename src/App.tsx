@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
 import { LazyMotion, MotionConfig } from 'framer-motion'
+import { setLanguage } from './i18n/config'
+import type { Lang } from './i18n/detectLanguage'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
 // hero paints first and animation capabilities stream in right after.
@@ -52,6 +54,15 @@ function LegacyBeitToureefRedirect() {
   return <Navigate to={`/beit-toureef-walkthrough${location.search}${location.hash}`} replace />
 }
 
+// Locale-prefixed /work routes: the URL is the source of truth for language. This runs on
+// client-side navigation too (the config.ts boot check only covers the initial page load).
+function LocaleWork({ lang }: { lang: Lang }) {
+  useEffect(() => {
+    void setLanguage(lang)
+  }, [lang])
+  return <Portfolio />
+}
+
 function LoadingFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Loading">
@@ -84,6 +95,10 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/work" element={<Portfolio />} />
+                <Route path="/pt/work" element={<LocaleWork lang="pt" />} />
+                <Route path="/es/work" element={<LocaleWork lang="es" />} />
+                <Route path="/it/work" element={<LocaleWork lang="it" />} />
+                <Route path="/fr/work" element={<LocaleWork lang="fr" />} />
                 <Route path="/work/:slug" element={<CaseStudy />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />

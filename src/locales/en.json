@@ -142,6 +142,18 @@
     "slideAlt": "{{title}} screenshot {{index}}",
     "goToSlide": "Go to screenshot {{index}}"
   },
+  "hospitality": {
+    "heading": "Small hotels, guesthouses & tour operators",
+    "body": "We build simple, fast websites where your guests book and pay you directly, with no commission going to booking platforms. Real availability, deposits, and automatic reminders, in the languages your guests speak. You own the site, the bookings, and your guest list.",
+    "cta": "Tell us about your property",
+    "csTitle": "Case study coming soon",
+    "csBody": "A recent project for a small hospitality business. Details will appear here once the client has approved sharing them.",
+    "csBeforeLabel": "Before",
+    "csAfterLabel": "After",
+    "csBeforeAlt": "The website before the redesign",
+    "csAfterAlt": "The website after the redesign",
+    "csLinkLabel": "Visit the live site"
+  },
   "portfolio": {
     "documentTitle": "Work | Likwiid",
     "eyebrow": "Selected work",

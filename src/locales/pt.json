@@ -1,10 +1,11 @@
 {
+  "_TODO": "AI-translated, pending native review",
   "nav": {
     "home": "Início",
     "services": "Serviços",
     "work": "Projetos",
     "about": "Sobre",
-    "contact": "Contato",
+    "contact": "Contacto",
     "skipToContent": "Ir para o conteúdo",
     "mainNav": "Navegação principal",
     "openMenu": "Abrir menu",
@@ -29,7 +30,7 @@
     "eyebrow": "Estúdio de software liderado pelo fundador",
     "title": "Software que flui.",
     "description": "A Likwiid é um estúdio de software liderado pelo fundador. Começamos pela estratégia antes do código e então projetamos, construímos e lançamos sites de reservas, aplicativos web e móveis e integrações de IA que transformam operações desorganizadas em software que é seu. Sediados em Beirut, trabalhando para o mundo todo.",
-    "ctaPrimary": "Fale conosco",
+    "ctaPrimary": "Fale connosco",
     "ctaSecondary": "Ver nosso trabalho"
   },
   "stats": {
@@ -1398,5 +1399,17 @@
     "Mobile": "Móvel",
     "IoT": "IoT",
     "AI": "IA"
+  },
+  "hospitality": {
+    "heading": "Pequenos hotéis, casas de hóspedes e operadores turísticos",
+    "body": "Criamos sites simples e rápidos onde os seus hóspedes reservam e pagam diretamente, sem comissões para plataformas de reservas. Disponibilidade real, sinais e lembretes automáticos, nas línguas que os seus hóspedes falam. O site, as reservas e a lista de hóspedes são seus.",
+    "cta": "Fale-nos do seu alojamento",
+    "csTitle": "Caso de estudo em breve",
+    "csBody": "Um projeto recente para um pequeno negócio de hotelaria. Os detalhes vão aparecer aqui assim que o cliente aprovar a partilha.",
+    "csBeforeLabel": "Antes",
+    "csAfterLabel": "Depois",
+    "csBeforeAlt": "O site antes da renovação",
+    "csAfterAlt": "O site depois da renovação",
+    "csLinkLabel": "Visitar o site"
   }
 }

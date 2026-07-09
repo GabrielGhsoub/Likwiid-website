@@ -1,4 +1,5 @@
 {
+  "_TODO": "AI-translated, pending native review",
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
@@ -1398,5 +1399,17 @@
     "Mobile": "Móvil",
     "IoT": "IoT",
     "AI": "IA"
+  },
+  "hospitality": {
+    "heading": "Hoteles pequeños, casas de huéspedes y operadores turísticos",
+    "body": "Creamos webs sencillas y rápidas donde tus huéspedes reservan y te pagan directamente, sin comisiones para las plataformas de reservas. Disponibilidad real, depósitos y recordatorios automáticos, en los idiomas que hablan tus huéspedes. La web, las reservas y tu lista de huéspedes son tuyas.",
+    "cta": "Cuéntanos sobre tu alojamiento",
+    "csTitle": "Caso de estudio próximamente",
+    "csBody": "Un proyecto reciente para un pequeño negocio de hostelería. Los detalles aparecerán aquí cuando el cliente apruebe compartirlos.",
+    "csBeforeLabel": "Antes",
+    "csAfterLabel": "Después",
+    "csBeforeAlt": "La web antes del rediseño",
+    "csAfterAlt": "La web después del rediseño",
+    "csLinkLabel": "Visitar la web"
   }
 }

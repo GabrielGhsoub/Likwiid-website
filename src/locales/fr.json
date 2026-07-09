@@ -1,4 +1,5 @@
 {
+  "_TODO": "AI-translated, pending native review",
   "nav": {
     "home": "Accueil",
     "services": "Services",
@@ -1398,5 +1399,17 @@
     "Mobile": "Mobile",
     "IoT": "IoT",
     "AI": "IA"
+  },
+  "hospitality": {
+    "heading": "Petits hôtels, maisons d'hôtes et voyagistes",
+    "body": "Nous créons des sites simples et rapides où vos clients réservent et vous paient directement, sans commission pour les plateformes de réservation. Disponibilités réelles, acomptes et rappels automatiques, dans les langues de vos clients. Le site, les réservations et votre fichier clients vous appartiennent.",
+    "cta": "Parlez-nous de votre établissement",
+    "csTitle": "Étude de cas à venir",
+    "csBody": "Un projet récent pour une petite entreprise d'hôtellerie. Les détails apparaîtront ici dès que le client aura approuvé leur partage.",
+    "csBeforeLabel": "Avant",
+    "csAfterLabel": "Après",
+    "csBeforeAlt": "Le site avant la refonte",
+    "csAfterAlt": "Le site après la refonte",
+    "csLinkLabel": "Visiter le site"
   }
 }

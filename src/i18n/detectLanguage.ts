@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es', 'pt'] as const
+export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es', 'pt', 'it'] as const
 export type Lang = (typeof SUPPORTED_LANGUAGES)[number]
 export const DEFAULT_LANGUAGE: Lang = 'en'
 const STORAGE_KEY = 'likwiid-language'
@@ -16,6 +16,15 @@ const COUNTRY_TO_LANG: Record<string, Lang> = {
   CR: 'es', PA: 'es', UY: 'es', PR: 'es',
   // Portuguese
   BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
+  // Italian
+  IT: 'it', SM: 'it', VA: 'it',
+}
+
+// A pathname like /pt/work carries its own locale: the route always wins over any
+// saved, browser, or IP-detected language, and no automatic redirect ever happens.
+export function getRouteLanguage(pathname: string): Lang | null {
+  const first = pathname.split('/')[1]
+  return first !== 'en' && isSupported(first) ? first : null
 }
 
 export function isSupported(value: unknown): value is Lang {
