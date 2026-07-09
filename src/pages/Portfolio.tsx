@@ -6,6 +6,7 @@ import { ArrowUpRight, ExternalLink, Star, Plus } from 'lucide-react'
 import type { TFunction } from 'i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
+import { HospitalityCaseStudy } from '../components/sections/HospitalityCaseStudy'
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { Project, ProjectStatus } from '../types'
 
@@ -274,6 +275,30 @@ export default function Portfolio() {
               </dl>
             </div>
           </header>
+
+          {/* ---------- Small hotels, guesthouses & tour operators ---------- */}
+          <section
+            aria-labelledby="hospitality-heading"
+            className="mb-16 rounded-xl border border-accent-gold/30 bg-accent-gold-dim/40 p-6 md:p-8"
+          >
+            <h2
+              id="hospitality-heading"
+              className="text-xl md:text-2xl font-semibold font-[family-name:var(--font-display)] text-text-primary"
+            >
+              {t('hospitality.heading')}
+            </h2>
+            <p className="mt-3 max-w-3xl text-text-secondary leading-relaxed">
+              {t('hospitality.body')}
+            </p>
+            <HospitalityCaseStudy />
+            <Link
+              to="/contact"
+              className="mt-5 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-bg-primary no-underline transition-opacity hover:opacity-90"
+            >
+              {t('hospitality.cta')}
+              <ArrowUpRight size={15} />
+            </Link>
+          </section>
 
           {/* ---------- Client work ---------- */}
           <section aria-labelledby="client-work-heading">
