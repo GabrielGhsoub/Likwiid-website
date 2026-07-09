@@ -228,17 +228,29 @@ function SectionHeadingRow({ label }: { label: string }) {
   )
 }
 
+type WorkFilter = 'all' | 'client' | 'studio'
+
 export default function Portfolio() {
   const { t } = useTranslation()
   const [showAllStudio, setShowAllStudio] = useState(false)
+  const [filter, setFilter] = useState<WorkFilter>('all')
 
   useEffect(() => { document.title = t('portfolio.documentTitle') }, [t])
 
   const localizedProjects = useLocalizedProjects()
   const clientProjects = localizedProjects.filter((p) => p.client !== 'Likwiid')
   const studioProjects = localizedProjects.filter((p) => p.client === 'Likwiid')
-  const visibleStudio = showAllStudio ? studioProjects : studioProjects.slice(0, STUDIO_INITIAL_COUNT)
+  // When the studio filter is explicitly chosen the visitor wants to browse it all,
+  // so the collapsed view only applies in the combined "all" view.
+  const studioExpanded = showAllStudio || filter === 'studio'
+  const visibleStudio = studioExpanded ? studioProjects : studioProjects.slice(0, STUDIO_INITIAL_COUNT)
   const hiddenStudioCount = studioProjects.length - visibleStudio.length
+
+  const filters: ReadonlyArray<readonly [WorkFilter, string]> = [
+    ['all', t('portfolio.filterAll')],
+    ['client', t('portfolio.clientWorkHeading')],
+    ['studio', t('portfolio.studioHeading')],
+  ]
 
   return (
     <PageTransition>
@@ -248,11 +260,7 @@ export default function Portfolio() {
           <header className="mb-12 border-b border-border pb-12">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-[760px]">
-                <span className="inline-flex items-center gap-2.5 text-xs text-accent-gold font-[family-name:var(--font-mono)] uppercase tracking-wider">
-                  <span className="h-px w-8 bg-accent-gold/50" aria-hidden="true" />
-                  {t('portfolio.eyebrow')}
-                </span>
-                <h1 className="mt-5 text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
+                <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
                   {t('portfolio.title')}
                 </h1>
                 <p className="mt-5 max-w-2xl text-lg leading-relaxed text-text-secondary">
@@ -300,46 +308,72 @@ export default function Portfolio() {
             </Link>
           </section>
 
+          {/* ---------- Filter ---------- */}
+          <div role="group" aria-label={t('portfolio.filterLabel')} className="mb-10 flex flex-wrap gap-2">
+            {filters.map(([value, label]) => {
+              const isActive = filter === value
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setFilter(value)}
+                  aria-pressed={isActive}
+                  className={`inline-flex min-h-11 items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors cursor-pointer ${
+                    isActive
+                      ? 'border-accent-gold bg-accent-gold-dim text-accent-gold'
+                      : 'border-border text-text-secondary hover:border-border-hover hover:text-text-primary'
+                  }`}
+                >
+                  {label}
+                </button>
+              )
+            })}
+          </div>
+
           {/* ---------- Client work ---------- */}
-          <section aria-labelledby="client-work-heading">
-            <div id="client-work-heading">
-              <SectionHeadingRow label={t('portfolio.clientWorkHeading')} />
-            </div>
-            <div className="space-y-4">
-              {clientProjects.map((project, i) => (
-                <ProjectCard key={project.id} project={project} index={i} priority={i === 0} />
-              ))}
-            </div>
-          </section>
+          {filter !== 'studio' && (
+            <section aria-labelledby="client-work-heading">
+              <div id="client-work-heading">
+                <SectionHeadingRow label={t('portfolio.clientWorkHeading')} />
+              </div>
+              <div className="space-y-4">
+                {clientProjects.map((project, i) => (
+                  <ProjectCard key={project.id} project={project} index={i} priority={i === 0} />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* ---------- Studio products ---------- */}
-          <section aria-labelledby="studio-heading" className="mt-16">
-            <div id="studio-heading">
-              <SectionHeadingRow label={t('portfolio.studioHeading')} />
-            </div>
-            <p className="mb-6 -mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
-              {t('portfolio.studioIntro')}
-            </p>
-            <div className="space-y-4">
-              {visibleStudio.map((project, i) => (
-                <ProjectCard key={project.id} project={project} index={i} priority={false} />
-              ))}
-            </div>
-
-            {hiddenStudioCount > 0 && (
-              <div className="mt-10 flex justify-center">
-                <button
-                  type="button"
-                  onClick={() => setShowAllStudio(true)}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-bg-secondary px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold"
-                >
-                  <Plus size={16} />
-                  {t('portfolio.showAllStudio')}
-                  <span className="text-text-tertiary">({hiddenStudioCount})</span>
-                </button>
+          {filter !== 'client' && (
+            <section aria-labelledby="studio-heading" className={filter === 'studio' ? '' : 'mt-16'}>
+              <div id="studio-heading">
+                <SectionHeadingRow label={t('portfolio.studioHeading')} />
               </div>
-            )}
-          </section>
+              <p className="mb-6 -mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
+                {t('portfolio.studioIntro')}
+              </p>
+              <div className="space-y-4">
+                {visibleStudio.map((project, i) => (
+                  <ProjectCard key={project.id} project={project} index={i} priority={false} />
+                ))}
+              </div>
+
+              {hiddenStudioCount > 0 && (
+                <div className="mt-10 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllStudio(true)}
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-bg-secondary px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-accent-gold hover:text-accent-gold"
+                  >
+                    <Plus size={16} />
+                    {t('portfolio.showAllStudio')}
+                    <span className="text-text-tertiary">({hiddenStudioCount})</span>
+                  </button>
+                </div>
+              )}
+            </section>
+          )}
         </div>
       </div>
     </PageTransition>

@@ -145,7 +145,6 @@
   },
   "portfolio": {
     "documentTitle": "Trabajo | Likwiid",
-    "eyebrow": "Trabajos seleccionados",
     "title": "Proyectos que convierten operaciones caóticas en software propio",
     "subtitle": "Apps móviles, dashboards, backends y herramientas privadas construidas alrededor de flujos de trabajo reales. Cada proyecto aquí fue diseñado, construido y entregado por el fundador.",
     "previewAlt": "Vista previa del proyecto {{title}}",
@@ -165,7 +164,9 @@
     "statLiveProducts": "productos en producción",
     "statBuiltEndToEnd": "productos construidos de principio a fin",
     "statPlatformsShipped": "plataformas entregadas",
-    "showAllStudio": "Ver todos los proyectos del estudio"
+    "showAllStudio": "Ver todos los proyectos del estudio",
+    "filterAll": "Todos",
+    "filterLabel": "Filtrar proyectos"
   },
   "booking": {
     "docTitle": "Sitios web con reservas para salones, clínicas y hoteles pequeños | Likwiid",

@@ -47,7 +47,6 @@
   },
   "portfolio": {
     "documentTitle": "Progetti | Likwiid",
-    "eyebrow": "Progetti selezionati",
     "title": "Lavori che trasformano operazioni disordinate in software di tua proprietà",
     "subtitle": "App mobile, dashboard, backend e strumenti privati costruiti attorno a flussi di lavoro reali. Ogni progetto qui è stato progettato, costruito e consegnato dal fondatore.",
     "previewAlt": "Anteprima del progetto {{title}}",
@@ -67,7 +66,9 @@
     "statLiveProducts": "prodotti in produzione",
     "statBuiltEndToEnd": "prodotti costruiti da cima a fondo",
     "statPlatformsShipped": "piattaforme consegnate",
-    "showAllStudio": "Mostra tutti i progetti dello studio"
+    "showAllStudio": "Mostra tutti i progetti dello studio",
+    "filterAll": "Tutti",
+    "filterLabel": "Filtra i progetti"
   },
   "caseStudy": {
     "platformMobile": "App mobile",

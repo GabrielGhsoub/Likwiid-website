@@ -156,7 +156,6 @@
   },
   "portfolio": {
     "documentTitle": "Work | Likwiid",
-    "eyebrow": "Selected work",
     "title": "Work that turns messy operations into owned software",
     "subtitle": "Mobile apps, dashboards, backends, and private tools built around real workflows. Every project here was designed, built, and shipped by the founder.",
     "previewAlt": "{{title}} project preview",
@@ -176,7 +175,9 @@
     "statLiveProducts": "products live in production",
     "statBuiltEndToEnd": "products built end to end",
     "statPlatformsShipped": "platforms shipped",
-    "showAllStudio": "Show all studio projects"
+    "showAllStudio": "Show all studio projects",
+    "filterAll": "All",
+    "filterLabel": "Filter projects"
   },
   "booking": {
     "docTitle": "Booking Websites for Salons, Clinics & Small Hotels | Likwiid",
