@@ -33,6 +33,116 @@
     "ctaPrimary": "Contattaci",
     "ctaSecondary": "Guarda i nostri progetti"
   },
+  "stats": {
+    "websitesDelivered": "Siti web consegnati",
+    "productsShipped": "Prodotti lanciati",
+    "replyTime": "Tempo di risposta",
+    "industriesServed": "Settori serviti",
+    "uptime": "Disponibilità del sistema"
+  },
+  "serviceCards": {
+    "title": "Cosa facciamo",
+    "subtitle": "Ingegneria del software completa, su tutto lo stack.",
+    "viewAll": "Vedi tutti i servizi"
+  },
+  "featuredWork": {
+    "title": "Progetti in evidenza",
+    "subtitle": "Una selezione di progetti che abbiamo progettato, costruito e consegnato.",
+    "featuredBadge": "In evidenza",
+    "viewAllProjects": "Vedi tutti i progetti"
+  },
+  "cta": {
+    "title": "Pronto a lanciare il tuo prossimo prodotto?",
+    "subtitle": "Dall'idea alla produzione in settimane, non mesi. Trasformiamo la tua visione in software che dà risultati.",
+    "ctaPrimary": "Parliamone"
+  },
+  "techStack": {
+    "title": "Stack tecnologico",
+    "subtitle": "Strumenti e tecnologie che usiamo ogni giorno."
+  },
+  "about": {
+    "documentTitle": "Chi siamo | Likwiid",
+    "title": "Chi siamo",
+    "subtitle": "Uno studio digitale costruito su vera esperienza di ingegneria.",
+    "intro1": "Likwiid è uno studio software guidato dal fondatore Gabriel Ghoussoub, ingegnere del software full-stack con oltre 5 anni di esperienza nella consegna di software in produzione tra fintech, insurtech, monitoraggio satellitare, IoT e realtà virtuale.",
+    "intro2": "Costruiamo da cima a fondo, dall'architettura al deployment, per startup e grandi aziende. Con sede a Beirut, lavoriamo con clienti negli Stati Uniti, in Europa e in Medio Oriente.",
+    "founder": "Fondatore",
+    "journey": "Percorso",
+    "philosophy": "Filosofia",
+    "beyondCode": "Oltre il codice",
+    "photoAlt": "Gabriel Ghoussoub",
+    "loadingPhoto": "Caricamento della foto"
+  },
+  "contact": {
+    "documentTitle": "Contatti | Likwiid",
+    "heading": "Contatti",
+    "subheading": "Inizia una conversazione sul tuo prossimo progetto.",
+    "introTitle": "Costruiamo qualcosa insieme.",
+    "introBody": "Raccontaci cosa stai costruendo, cosa deve fare e per quando ti serve. Gabriel legge ogni messaggio e risponde personalmente entro 24 ore.",
+    "locationNote": "Con sede a Beirut, lavoriamo con clienti nei fusi orari di Stati Uniti, Europa e MENA.",
+    "founderNote": "Ti risponderà Gabriel, il fondatore. Nessun passaggio di mano, nessun team commerciale.",
+    "founderPhotoAlt": "Gabriel Ghoussoub, fondatore di Likwiid",
+    "stepsTitle": "Cosa succede dopo",
+    "step1": "Gabriel legge il tuo messaggio e risponde entro 24 ore.",
+    "step2": "Fissiamo una breve chiamata per definire il progetto.",
+    "step3": "Ricevi una proposta chiara con un prezzo fisso, di solito entro pochi giorni.",
+    "fastestReply": "risposta più rapida",
+    "successTitle": "Messaggio ricevuto.",
+    "successBody": "Gabriel ti risponderà da gabriel@likwiid.com entro 24 ore.",
+    "successHurry": "Hai fretta? <whatsapp>Scrivici su WhatsApp</whatsapp>.",
+    "successBrowseWork": "Guarda i nostri progetti mentre aspetti",
+    "sendAnother": "Invia un altro messaggio",
+    "labelName": "Nome",
+    "placeholderName": "Il tuo nome",
+    "labelEmail": "Email",
+    "placeholderEmail": "tu@azienda.com",
+    "labelCompany": "Azienda",
+    "placeholderCompany": "La tua azienda (facoltativo)",
+    "labelProjectType": "Tipo di progetto",
+    "labelBudget": "Fascia di budget",
+    "budgetHint": "Basta un intervallo indicativo. Ci aiuta a suggerirti l'approccio giusto.",
+    "labelMessage": "Messaggio",
+    "placeholderMessage": "Cosa stai costruendo, cosa deve fare e per quando ti serve?",
+    "selectPlaceholder": "Seleziona...",
+    "projectTypeWebApp": "App web",
+    "projectTypeMobileApp": "App mobile",
+    "projectTypeCloudDevOps": "Cloud/DevOps",
+    "projectTypeAiIntegration": "Integrazione IA",
+    "projectTypeVrDevelopment": "Sviluppo VR",
+    "projectTypeCodeAudit": "Audit del codice",
+    "projectTypeOther": "Altro",
+    "budget5to15k": "$5k - $15k",
+    "budget15to50k": "$15k - $50k",
+    "budget50kPlus": "$50k+",
+    "budgetNotSure": "Non lo so ancora",
+    "errorSubmit": "Qualcosa è andato storto. Riprova.",
+    "errorFallback": "Oppure scrivi direttamente a gabriel@likwiid.com.",
+    "privacyNote": "I tuoi dati arrivano a Gabriel e a nessun altro.",
+    "submitSending": "Invio in corso...",
+    "submitSend": "Invia il messaggio",
+    "errorNameRequired": "Il nome è obbligatorio",
+    "errorEmailRequired": "L'email è obbligatoria",
+    "errorEmailInvalid": "Indirizzo email non valido",
+    "errorMessageRequired": "Il messaggio è obbligatorio"
+  },
+  "services": {
+    "documentTitle": "Servizi | Likwiid",
+    "title": "Servizi",
+    "subtitle": "Ingegneria del software completa. Dall'architettura al deployment, ci occupiamo di tutto.",
+    "closeAriaLabel": "Chiudi",
+    "deliverables": "Cosa consegniamo",
+    "bookingTeaserTitle": "Siti con prenotazione per saloni, cliniche e piccoli hotel",
+    "bookingTeaserBody": "Un pacchetto mirato dove i clienti prenotano e pagano online, con caparre, promemoria e un sito di tua proprietà. A partire da $1,500; la maggior parte dei progetti si aggira tra $8,000 e $15,000 e richiede da 2 a 4 settimane.",
+    "bookingTeaserLink": "Scopri i siti di prenotazione"
+  },
+  "carousel": {
+    "previous": "Screenshot precedente",
+    "next": "Screenshot successivo",
+    "loading": "Caricamento dello screenshot",
+    "regionLabel": "Screenshot di {{title}}",
+    "slideAlt": "Screenshot {{index}} di {{title}}",
+    "goToSlide": "Vai allo screenshot {{index}}"
+  },
   "hospitality": {
     "heading": "Piccoli hotel, guest house e tour operator",
     "body": "Creiamo siti semplici e veloci dove i tuoi ospiti prenotano e ti pagano direttamente, senza commissioni alle piattaforme di prenotazione. Disponibilità reale, caparre e promemoria automatici, nelle lingue dei tuoi ospiti. Il sito, le prenotazioni e la lista degli ospiti sono tuoi.",
@@ -70,46 +180,1237 @@
     "filterAll": "Tutti",
     "filterLabel": "Filtra i progetti"
   },
+  "booking": {
+    "docTitle": "Siti con prenotazione online per saloni, cliniche e piccoli hotel | Likwiid",
+    "heroTitle": "Siti web con prenotazione online per saloni, cliniche e piccoli hotel.",
+    "heroSubtitle": "I tuoi clienti vogliono prenotare alle 23 dal telefono. Se il tuo sito non può accettare quella prenotazione, passano a uno che può farlo. Creiamo siti semplici e veloci dove i clienti prenotano e pagano online, e ogni prenotazione resta tua, senza commissioni.",
+    "chatWhatsApp": "Scrivici su WhatsApp",
+    "sendMessage": "Invia un messaggio",
+    "painPoint1": "I clienti possono prenotare solo per telefono, così le richieste di sera e nel weekend vanno a chi risponde per primo.",
+    "painPoint2": "Le app di marketplace prendono una commissione su ogni prenotazione che doveva essere tua.",
+    "painPoint3": "I no-show ti costano ore perché nulla raccoglie una caparra o invia un promemoria.",
+    "painPoint4": "La tua unica presenza online è una pagina Instagram, quindi la lista dei tuoi clienti non è mai tua.",
+    "whatYouGetTitle": "Cosa ottieni",
+    "feature1Title": "Prenotazione online vera",
+    "feature1Desc": "I clienti vedono la tua disponibilità reale e scelgono da soli l'orario. Niente telefonate avanti e indietro, niente attese per essere richiamati.",
+    "feature2Title": "Caparre e pagamenti",
+    "feature2Desc": "Incassa una caparra con carta al momento della prenotazione, così i no-show smettono di costarti denaro. Lavoriamo con i fornitori di pagamento disponibili nel tuo paese.",
+    "feature3Title": "Promemoria automatici",
+    "feature3Desc": "Promemoria via WhatsApp o email partono prima di ogni appuntamento, senza che nessuno del tuo team muova un dito.",
+    "feature4Title": "Un sito di tua proprietà",
+    "feature4Desc": "Il tuo dominio, la tua lista clienti, il tuo brand. Niente commissioni a un marketplace, nessun vincolo con una piattaforma.",
+    "proofTitle": "Lo abbiamo già costruito.",
+    "proofPara1": "Abbiamo progettato e costruito una piattaforma completa per la prenotazione di campi sportivi: i clienti consultano gli orari disponibili, prenotano e pagano dal telefono, e i proprietari gestiscono tutto da un pannello di amministrazione. Gli stessi blocchi funzionano per gli appuntamenti in salone, le visite in clinica e le prenotazioni di camere d'hotel.",
+    "proofPara2": "Cosa significa per la tua attività: i clienti prenotano e pagano online invece di chiamare o mandare un messaggio sperando che qualcuno risponda.",
+    "caseStudyLink": "Vedi il caso studio della piattaforma di prenotazione →",
+    "carouselTitle": "Piattaforma di prenotazione Likwiid",
+    "pricingTitle": "Prezzi chiari",
+    "pricingPara1a": "I siti con prenotazione partono da",
+    "pricingPara1b": "La maggior parte dei progetti si colloca tra",
+    "pricingRange": "$8,000 e $15,000",
+    "pricingPara1c": "a seconda di pagamenti, integrazioni e contenuti, e richiede da 2 a 4 settimane.",
+    "pricingPara2": "Likwiid è guidato dal fondatore e segue da 2 a 3 progetti alla volta, così parli sempre con la persona che costruisce davvero il tuo sito.",
+    "pricingItem1": "Design e sviluppo, mobile-first",
+    "pricingItem2": "Flusso di prenotazione o ordini online",
+    "pricingItem3": "Chat WhatsApp integrata con un clic",
+    "pricingItem4": "Configurazione di hosting e dominio",
+    "pricingItem5": "Formazione perché il tuo team possa gestirlo",
+    "pricingItem6": "Una persona vera che risponde entro 24 ore",
+    "finalCtaTitle": "Vuoi vedere come sarebbe per la tua attività?",
+    "finalCtaSubtitle": "Mandaci il tuo sito attuale o la tua pagina Instagram e ti risponderemo con una breve lista gratuita di ciò che sistemeremmo per primo. Senza impegno.",
+    "emailLabel": "Email"
+  },
+  "privacy": {
+    "documentTitle": "Informativa sulla privacy | Likwiid",
+    "title": "Informativa sulla privacy",
+    "lastUpdated": "Ultimo aggiornamento: {{date}}",
+    "collectTitle": "Informazioni che raccogliamo",
+    "collectBody": "Quando usi il nostro modulo di contatto raccogliamo le informazioni che fornisci: nome, indirizzo email, nome dell'azienda (se indicato) e contenuto del messaggio. Non raccogliamo automaticamente alcuna informazione oltre a quanto strettamente necessario al funzionamento del sito.",
+    "useTitle": "Come usiamo le tue informazioni",
+    "useBody": "Usiamo le informazioni che invii tramite il modulo di contatto solo per rispondere alla tua richiesta e discutere di possibili progetti. Non ti invieremo comunicazioni di marketing a meno che tu non abbia dato un consenso esplicito a riceverle.",
+    "sharingTitle": "Condivisione dei dati",
+    "sharingBody": "Non vendiamo, scambiamo né condividiamo i tuoi dati personali con terze parti. I tuoi dati restano con noi e vengono usati solo per lo scopo per cui li hai forniti.",
+    "cookiesTitle": "Cookie e archiviazione locale",
+    "cookiesBody": "Usiamo solo cookie essenziali. In particolare, salviamo la tua preferenza di tema (chiaro o scuro) nel localStorage del tuo browser. Non usiamo cookie di tracciamento né cookie di terze parti.",
+    "analyticsTitle": "Analytics",
+    "analyticsBody": "Usiamo analytics rispettosi della privacy che non usano cookie e non tracciano dati personali. I nostri analytics non raccolgono alcuna informazione che possa identificarti e la tua navigazione non viene tracciata tra siti diversi.",
+    "retentionTitle": "Conservazione dei dati",
+    "retentionBody": "I messaggi inviati tramite il modulo di contatto vengono conservati per legittime finalità aziendali, come tenere traccia delle comunicazioni con i clienti e delle discussioni sui progetti. Conserviamo questi dati solo per il tempo necessario a tali scopi.",
+    "rightsTitle": "I tuoi diritti",
+    "rightsBody": "Hai il diritto di richiedere l'accesso, la correzione o la cancellazione di qualsiasi dato personale che conserviamo su di te. Per esercitare uno di questi diritti, contattaci a",
+    "updatesTitle": "Aggiornamenti a questa informativa",
+    "updatesBody": "Potremmo aggiornare questa informativa sulla privacy di tanto in tanto. Ogni modifica sarà riportata su questa pagina con la data di revisione aggiornata. Ti invitiamo a rileggere questa informativa periodicamente.",
+    "contactTitle": "Contatti",
+    "contactBody": "Se hai domande su questa informativa o su come trattiamo i tuoi dati, scrivici a"
+  },
+  "notFound": {
+    "documentTitle": "Pagina non trovata | Likwiid",
+    "description": "Questa pagina non esiste. Forse è stata spostata o l'indirizzo è sbagliato.",
+    "backHome": "Torna alla home"
+  },
   "caseStudy": {
+    "stepChallenge": "Sfida",
+    "stepApproach": "Approccio",
+    "stepOutcome": "Risultato",
+    "factRole": "Ruolo",
+    "factTimeline": "Tempi",
+    "factYear": "Anno",
+    "factClient": "Cliente",
+    "factPlatform": "Piattaforma",
     "platformMobile": "App mobile",
-    "platformWeb": "App web"
+    "platformWeb": "App web",
+    "docTitle": "{{title}} | Likwiid",
+    "backToWork": "Torna ai progetti",
+    "appStore": "App Store",
+    "playStore": "Play Store",
+    "overview": "Panoramica",
+    "keyFeatures": "Funzionalità principali",
+    "businessImpact": "Impatto sul business",
+    "technicalDetails": "Dettagli tecnici",
+    "technicalDetailsSub": "Stack, architettura e note di ingegneria",
+    "techStack": "Stack tecnologico",
+    "underTheHood": "Sotto il cofano",
+    "notableEngineering": "Soluzioni tecniche degne di nota",
+    "nextProject": "Prossimo progetto"
+  },
+  "categories": {
+    "All": "Tutti",
+    "Enterprise": "Aziendale",
+    "Mobile": "Mobile",
+    "IoT": "IoT",
+    "AI": "IA"
   },
   "projectsData": {
     "padel-booking": {
-      "oneLiner": "App di padel in produzione per il Libano: motore di campionati, abbinamenti per livello e prenotazione campi"
+      "title": "Piattaforma di prenotazione padel",
+      "subtitle": "Gestione campionati, abbinamento giocatori e prenotazione campi in tempo reale",
+      "oneLiner": "App di padel in produzione per il Libano: motore di campionati, abbinamenti per livello e prenotazione campi",
+      "description": "App React Native (Expo) in produzione per la community del padel in Libano. Prenotazione campi, abbinamento per livello e campionati competitivi completi, disponibile su App Store e Google Play.",
+      "challenge": "La scena del padel in Libano si reggeva su WhatsApp e fogli di calcolo, senza disponibilità reale dei campi, senza abbinamento per livello e senza campionati strutturati, il tutto su una connessione internet inaffidabile.",
+      "approach": "App Expo SDK 54 / RN 0.81 New Architecture: Expo Router (42 schermate), Zustand insieme a TanStack Query con cache offline di 24h e una API REST NestJS su misura (70+ endpoint) dietro un client Axios irrobustito.",
+      "results": "Pubblicata su entrambi gli store: prenotazione campi, 12 livelli di gioco, abbinamento, valutazioni tra giocatori e un ciclo di vita completo del campionato fino ai playoff. Offline-first, trilingue (EN/AR/FR con RTL), con deep link universali, E2E con Playwright e monitoraggio con Sentry.",
+      "businessResult": "Ha sostituito il coordinamento via WhatsApp e fogli di calcolo con una piattaforma pubblicata negli store che gestisce prenotazioni, abbinamenti e gioco di campionato.",
+      "role": "Product design in solitaria, integrazione mobile + backend, build e pubblicazione negli store",
+      "timeline": "Sviluppo nel 2025; pubblicata su App Store e Google Play (v1.1.1)",
+      "metrics": [
+        {
+          "value": "12",
+          "label": "Livelli di gioco (D-A+)"
+        },
+        {
+          "value": "70+",
+          "label": "Endpoint di backend"
+        },
+        {
+          "value": "3",
+          "label": "Lingue, arabo RTL"
+        },
+        {
+          "value": "2",
+          "label": "App store attivi"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motore di campionato competitivo completo",
+          "description": "Check-in, quattro algoritmi di accoppiamento, punteggi 2v2, classifiche e tabellone dei playoff."
+        },
+        {
+          "title": "Valutazione a 12 livelli e abbinamento",
+          "description": "I livelli da D- ad A+ alimentano la scoperta dei giocatori, i campionati per fascia di livello e le valutazioni tra pari."
+        },
+        {
+          "title": "Offline-first per reti inaffidabili",
+          "description": "Cache TanStack Query di 24h con rilevamento della connettività su AsyncStorage."
+        },
+        {
+          "title": "Trilingue con RTL arabo completo",
+          "description": "EN/AR/FR con circa 1.494 chiavi ciascuna, cambio a runtime, RTL completo per l'arabo."
+        },
+        {
+          "title": "Scoperta e prenotazione dei campi",
+          "description": "Filtra i campi, consulta i prezzi, prenota con codici promozionali e opzioni di pagamento locali."
+        },
+        {
+          "title": "Inviti condivisibili tramite deep link",
+          "description": "I link universali su padellb.club gestiscono codici di accesso, verifica e reimpostazioni."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Dati e stato",
+          "detail": "Zustand (24 store) per lo stato client; TanStack Query per lo stato server, cache di 24h"
+        },
+        {
+          "area": "Backend e autenticazione",
+          "detail": "API REST NestJS in 17 moduli tipizzati; client Axios con refresh JWT single-flight"
+        },
+        {
+          "area": "Dominio del campionato",
+          "detail": "DTO tipizzati per settimane, check-in, partite 2v2, classifiche, statistiche e tabellone dei playoff"
+        },
+        {
+          "area": "Navigazione e deep link",
+          "detail": "Expo Router su 42 schermate; link universali padellb.club per condivisioni e autenticazione"
+        },
+        {
+          "area": "Affidabilità e delivery",
+          "detail": "Sentry, error boundary, E2E con Playwright, EAS Build e aggiornamenti OTA (v1.1.1)"
+        }
+      ],
+      "highlights": [
+        "Refresh JWT proattivo single-flight circa 60s prima della scadenza per evitare conflitti di rotazione",
+        "Sistema di torneo completo: svizzero, round-robin, accoppiamento manuale, conferma dei punteggi, playoff",
+        "Aggirato un bug di OkHttp 4.12 + nginx con parametri di cache-busting su 90+ endpoint",
+        "Offline-first: cache di 24h, online manager di expo-network, idratazione sincrona in memoria",
+        "Circa 1.494 chiavi i18n per lingua su EN/AR/FR con RTL arabo completo",
+        "Scala feature-first: 16+ moduli, 259 componenti, 24 store, 17 servizi API tipizzati"
+      ]
     },
     "padel-admin-portal": {
-      "oneLiner": "Console di amministrazione per campionati di padel: accoppiamenti, punteggi, classifiche e playoff"
+      "title": "Portale di amministrazione Padel",
+      "subtitle": "Dashboard web per la gestione di campionati e giocatori",
+      "oneLiner": "Console di amministrazione per campionati di padel: accoppiamenti, punteggi, classifiche e playoff",
+      "description": "Una console di amministrazione in React per gestire i campionati di padel dal browser invece che dal database. Gli operatori gestiscono le rose, generano gli accoppiamenti 2v2 settimanali, registrano i punteggi e conducono i playoff sulla stessa API NestJS che alimenta l'app dei giocatori.",
+      "challenge": "Gestire una stagione di padel dal vivo significa accoppiamenti equi ogni settimana, assenze, punteggi dei set e classifiche con spareggi. I fogli di calcolo non scalano e modificare direttamente il database di produzione è rischioso.",
+      "approach": "Una SPA React 19 + Vite con TanStack Router (protetta da autenticazione), TanStack Query, Zustand e Radix UI su Tailwind v4. La logica di accoppiamento, punteggio, classifica e playoff vive in un backend NestJS 11 + TypeORM + PostgreSQL.",
+      "results": "Un portale in produzione che guida l'intero ciclo di vita del campionato senza toccare il database: accoppiamenti settimanali con un clic in cinque modalità, classifiche con spareggi ricalcolate automaticamente, statistiche per giocatore e un tabellone di semifinale e finale. Jest copre la logica ad alto rischio; la CI/CD esegue il backup del database prima di ogni deploy.",
+      "businessResult": "Ha trasformato l'amministrazione del campionato da congetture su fogli di calcolo a pochi clic a settimana, con accoppiamenti e classifiche equi in automatico.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria (full-stack: portale di amministrazione React + backend NestJS)",
+      "timeline": "~gen-mar 2025 (backend impostato a fine gennaio, portale di amministrazione iterato fino a metà marzo secondo le date di git e dei file)",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Metodi di accoppiamento"
+        },
+        {
+          "value": "7",
+          "label": "Viste dell'area di lavoro"
+        },
+        {
+          "value": "38",
+          "label": "Endpoint API"
+        },
+        {
+          "value": "1-click",
+          "label": "Accoppiamenti settimanali"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Accoppiamenti settimanali in cinque modi",
+          "description": "Casuale, per livello, svizzero, round-robin di equità o manuale, con gestione automatica dei bye."
+        },
+        {
+          "title": "Round-robin che ottimizza l'equità",
+          "description": "Costruisce matrici di compagni e avversari dallo storico delle partite per massimizzare gli incontri inediti."
+        },
+        {
+          "title": "Punteggi con classifiche in tempo reale",
+          "description": "I punteggi set per set ricalcolano la classifica con spareggi per set e per game."
+        },
+        {
+          "title": "Area di lavoro del campionato a sette schede",
+          "description": "Panoramica, Giocatori, Settimane, Partite, Classifiche, Statistiche e Playoff in un'unica vista."
+        },
+        {
+          "title": "Autenticazione per ruolo con rotazione dei token",
+          "description": "Accesso riservato agli amministratori; i refresh token ruotano su 401, un lock Redis previene le race condition."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Livello dati",
+          "detail": "TanStack Query con hook per funzionalità; un modulo di normalizzazione mappa il JSON grezzo su tipi rigorosi."
+        },
+        {
+          "area": "Dominio backend",
+          "detail": "NestJS 11 + TypeORM + PostgreSQL; i campionati sono suddivisi in servizi di accoppiamento, punteggio, classifica, statistiche e playoff."
+        },
+        {
+          "area": "Autenticazione",
+          "detail": "Passport JWT; refresh token con hash bcrypt in Redis, rotazione protetta da lock, verifica dei ruoli lato server."
+        },
+        {
+          "area": "Delivery",
+          "detail": "Frontend nginx in Docker; GitHub Actions verso GHCR, deploy con Ansible con backup di Postgres prima di ogni rilascio."
+        }
+      ],
+      "highlights": [
+        "Il round-robin usa una vera euristica combinatoria di equità, non un semplice rimescolamento.",
+        "La rotazione dei refresh token è protetta dalle race condition di refresh concorrenti tramite un lock Redis.",
+        "Il livello API tollera formati di backend paginati, piatti, annidati e con grafie multiple.",
+        "Lo store di autenticazione distingue i veri errori 401/403 dagli errori di rete transitori per mantenere vive le sessioni.",
+        "Le route lazy ritentano il caricamento dei chunk e poi ricaricano per intero, eliminando le schermate bianche da chunk obsoleti dopo i deploy.",
+        "Punti per campionato, limiti di giocatori, fasce di livello e codici di accesso sono modellati, non cablati nel codice."
+      ]
     },
     "gcg-website": {
-      "oneLiner": "Sito di consulenza scientifica con percorsi per pubblico, analytics rispettosi della privacy e temi accessibili"
+      "title": "Sito web GCG",
+      "subtitle": "Sito premium di consulenza scientifica con percorsi chiari e flussi di conversione",
+      "oneLiner": "Sito di consulenza scientifica con percorsi per pubblico, analytics rispettosi della privacy e temi accessibili",
+      "description": "Sito marketing in produzione per Ghoussoub Consulting Group, una società a guida scientifica che spazia tra consulenza, R&S, tutoring STEM e due diligence per investimenti. Una SPA React 19 che presenta un'offerta ampia come quattro punti di ingresso per pubblico.",
+      "challenge": "Rendere un portafoglio ampio e molto tecnico credibile per cinque pubblici molto diversi in un unico sito coerente, restando onesto, veloce, accessibile e distribuibile su hosting statico gratuito con URL puliti.",
+      "approach": "SPA costruita con React 19 / TypeScript / Vite 8, React Router 7 e un sistema di token Tailwind CSS 4 che risolve i temi chiaro, scuro e di sistema da un'unica fonte. Una sezione \"Choose Your Path\" segmenta quattro pubblici verso percorsi su misura; visual scientifici in SVG fatti a mano animati con Framer Motion con supporto del movimento ridotto; l'analytics Umami, rispettosa della privacy, misura l'intento.",
+      "results": "Piattaforma live con 9 route, segmentazione per pubblico, pagine di R&S e tutoring basate sulla metodologia, dati strutturati JSON-LD, navigazione accessibile con focus trapping e un flusso di contatto animato e validato. Senza backend, la raccolta dei lead usa bozze mailto precompilate e oneste. Una CI rigorosa blocca ogni deploy su lint, typecheck e build.",
+      "businessResult": "Ha trasformato un'ampia offerta scientifica per cinque pubblici in un unico sito credibile e pronto alla conversione, che resta onesto man mano che la società cresce.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria",
+      "timeline": "~da aprile a maggio 2026 (31 commit, primo commit 2026-04-07, ultimo 2026-05-15)",
+      "metrics": [
+        {
+          "value": "9",
+          "label": "Pagine"
+        },
+        {
+          "value": "4",
+          "label": "Percorsi per pubblico"
+        },
+        {
+          "value": "3",
+          "label": "Temi"
+        },
+        {
+          "value": "0",
+          "label": "Dipendenze di backend"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Routing per percorso di pubblico",
+          "description": "Una sezione \"Choose Your Path\" indirizza quattro pubblici verso pagine di servizi su misura."
+        },
+        {
+          "title": "Pagine dedicate ai servizi scientifici",
+          "description": "Pagine di R&S e tutoring con pipeline metodologiche, deliverable e SEO per pagina."
+        },
+        {
+          "title": "Visual scientifici animati fatti a mano",
+          "description": "Reti molecolari in SVG personalizzate, elica di DNA e forme d'onda da oscilloscopio; nessuna risorsa stock."
+        },
+        {
+          "title": "Analytics rispettosa della privacy, raccolta lead onesta",
+          "description": "Umami rispetta il Do-Not-Track; i moduli aprono bozze mailto, senza finta persistenza lato server."
+        },
+        {
+          "title": "Tema chiaro/scuro/di sistema senza flash",
+          "description": "Un unico set di token CSS guida tutti i temi tramite uno script inline eseguito prima del rendering."
+        },
+        {
+          "title": "SPA su GitHub Pages con deep link puliti",
+          "description": "Uno schema di redirect in quattro parti mantiene funzionanti le route client-side su hosting statico."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Rendering e routing",
+          "detail": "SPA React 19, React Router 7; route caricate in modo lazy e suddivise nei chunk vendor-react e vendor-motion."
+        },
+        {
+          "area": "Theming",
+          "detail": "Un unico set di token CSS in index.css; ThemeContext persiste in localStorage, uno script inline imposta data-theme prima del rendering."
+        },
+        {
+          "area": "SEO e dati strutturati",
+          "detail": "L'hook useSEO aggiorna titolo, canonical, OG, Twitter e JSON-LD per route; schemi Organization e WebSite, sitemap, robots."
+        },
+        {
+          "area": "Analytics",
+          "detail": "Umami disattivata da feature flag finché VITE_UMAMI_WEBSITE_ID non è definito; rispetta il Do-Not-Track; data-umami-event lungo i flussi."
+        },
+        {
+          "area": "Deployment",
+          "detail": "GitHub Actions blocca su lint, typecheck e build; i deep link sopravvivono grazie alla cattura in 404.html e al ripristino in index.html."
+        }
+      ],
+      "highlights": [
+        "Arte SVG generativa: un grafo molecolare lega gli atomi entro 220px; elica di DNA sinusoidale, tutto memoizzato e consapevole del movimento ridotto",
+        "Accessibilità integrata: outline focus-visible, media query per il movimento ridotto, focus trapping nel menu mobile, target touch da 44px",
+        "L'onestà come vincolo: ExpertiseStandards separa gli esempi rappresentativi dai risultati reali; mailto invece di una finta raccolta lead",
+        "Igiene rigorosa: TypeScript noUnusedLocals/Parameters, Husky, lint-staged, Prettier, la CI fallisce su qualsiasi errore di lint, tipo o build",
+        "UX di contatto animata e validata: etichette flottanti, indicatori valido/non valido con animazione a molla, shake in caso di errore, stati idle/loading/success",
+        "Pagina 404 curata (\"Drifted Out Of Orbit\") con tre percorsi di recupero, noindex, dentro lo stesso sistema di redirect della SPA"
+      ]
     },
     "sems-energy-management": {
-      "oneLiner": "Un unico cruscotto per case che gestiscono rete elettrica, generatori, solare e batterie in Libano"
+      "title": "SEMS: gestione intelligente dell'energia",
+      "subtitle": "Visibilità energetica multifonte e controllo dei costi per le famiglie libanesi",
+      "oneLiner": "Un unico cruscotto per case che gestiscono rete elettrica, generatori, solare e batterie in Libano",
+      "description": "Una piattaforma energetica software-first per le case libanesi che usano insieme rete EDL, generatori diesel, solare e batterie. Un dashboard in tempo reale mostra cosa sta alimentando la casa, quanto costa e come i cambi di fonte incidono sulla bolletta.",
+      "challenge": "I prodotti energetici consumer presuppongono una rete stabile a fonte unica; nessuno gestisce una casa libanese che nello stesso giorno attinge da rete, generatore, solare e batteria, e bisognava dimostrarlo senza ancora hardware di misura.",
+      "approach": "Un Turborepo TypeScript (pnpm) costruito da cima a fondo: NestJS 10 + Prisma su PostgreSQL 16/TimescaleDB e Redis, un'app Expo SDK 54 e un simulatore deterministico che modella i cicli energetici reali del Libano per validare tutto prima dell'hardware.",
+      "results": "La POC di fase 1 è stata verificata da cima a fondo su TimescaleDB e Redis reali: circa 38 endpoint hanno restituito lo stato atteso, entrambi gli aggregati continui si sono materializzati e il simulatore ha generato 7.205 letture al giorno in meno di 0,1 s. L'app include autenticazione, dashboard in tempo reale, gestione dei dispositivi, analytics e quattro scenari demo.",
+      "businessResult": "Unifica rete, generatore, solare e batteria in un unico dashboard dei costi consapevole della fonte, validato da cima a fondo prima di qualsiasi spesa in hardware.",
+      "role": "Architettura, progettazione, sviluppo e verifica in solitaria (full-stack)",
+      "timeline": "POC di fase 1 costruita a febbraio 2026 (architettura congelata, monorepo impostato, backend + mobile + motore di simulazione, verificata end-to-end su container reali il 2026-02-24)",
+      "metrics": [
+        {
+          "value": "4",
+          "label": "Fonti di energia unificate"
+        },
+        {
+          "value": "14",
+          "label": "Tipi di dispositivi"
+        },
+        {
+          "value": "7,205",
+          "label": "Letture/giorno simulate"
+        },
+        {
+          "value": "38",
+          "label": "Endpoint API"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Dashboard multifonte in tempo reale",
+          "description": "Fonte attiva, watt in tempo reale, costo del giorno e principali consumatori via WebSocket."
+        },
+        {
+          "title": "Motore dei costi consapevole della fonte",
+          "description": "Prezza ogni kWh sulle fasce reali EDL del Libano, sui canoni per amperaggio del generatore, sul solare e sulla batteria."
+        },
+        {
+          "title": "Simulatore energetico libanese",
+          "description": "Modello configurabile con seed di orari EDL, avvio automatico del generatore, solare, batteria e climatizzazione con rumore di sensore."
+        },
+        {
+          "title": "Demo basate su scenari",
+          "description": "Quattro scenari integrati mostrano blackout e transizioni di fonte senza hardware di misura."
+        },
+        {
+          "title": "Gestione dei dispositivi raggruppati per stanza",
+          "description": "CRUD su 14 tipi di dispositivi con potenza, flag e dettaglio dei costi per dispositivo."
+        },
+        {
+          "title": "Analytics di serie temporali con TimescaleDB",
+          "description": "Una hypertable con aggregati continui orari e giornalieri accelera i dettagli di costi e fonti."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Monorepo",
+          "detail": "Turborepo + pnpm: app NestJS ed Expo, pacchetto condiviso Zod/costi come unica fonte di verità, pacchetto data-generator."
+        },
+        {
+          "area": "Livello dati",
+          "detail": "PostgreSQL 16 + TimescaleDB; hypertable energy_readings, aggregati orari e giornalieri, compressione, retention; 11 modelli Prisma."
+        },
+        {
+          "area": "Tempo reale",
+          "detail": "Gateway Socket.io /energy autenticato via JWT, stanze per abitazione, adapter Redis per scalare, riconnessione automatica con OfflineBanner."
+        },
+        {
+          "area": "Autenticazione",
+          "detail": "JWT su misura (Passport, bcrypt): access token da 15 min, refresh token con hash e rotazione con rilevamento del furto per famiglia, guard sulle route."
+        }
+      ],
+      "highlights": [
+        "Una simulazione deterministica e configurabile con fisica modellata (climatizzazione, solare, stato di carica della batteria) rende i dati demo riproducibili senza contatori",
+        "Le costanti di dominio libanesi codificano le fasce EDL, i canoni del generatore, le soglie di tensione e le ore di sole stagionali",
+        "Schemi Zod come unica fonte di verità condivisi da backend e mobile, eliminando le divergenze client/server",
+        "Verifica end-to-end reale: un report e2e documenta i bug trovati e corretti su container reali",
+        "DevOps di produzione: Dockerfile multi-stage senza root, CI GitHub Actions con cache, Husky + lint-staged"
+      ]
     },
     "voxflow": {
-      "oneLiner": "Rieducazione vocale offline: una routine guidata di 10 minuti con registrazioni private e confronto A/B"
+      "title": "VoxFlow",
+      "subtitle": "Rieducazione vocale offline con pratica guidata, registrazioni e progressi",
+      "oneLiner": "Rieducazione vocale offline: una routine guidata di 10 minuti con registrazioni private e confronto A/B",
+      "description": "VoxFlow è un'app Android-first, completamente offline, che riunisce timer di pratica vocale, istruzioni, registratore e lettura di riferimento in un'unica routine di 10 minuti, serena e con sequenza clinica. Nessun account, nessun server, nessuna telemetria.",
+      "challenge": "La pratica di recupero vocale fallisce perché una sessione significa destreggiarsi tra timer, appunti, registratore e articoli, mentre la maggior parte delle app aggiunge il senso di colpa delle streak e account cloud. VoxFlow doveva unificare tutto offline, senza account e con un tono clinico privo di giudizio.",
+      "approach": "Costruita con Expo e React Native attorno a un motore di routine deterministico: un'unica timeline di fasi (sei fasi, 600s) deriva fase, esercizio, segnale di respirazione e tono da un solo orologio. expo-audio gestisce la cattura con misurazione in tempo reale; un player A/B con run token si annulla in modo pulito tra le modalità.",
+      "results": "Un'app Android completa e installabile (com.likwiid.voxflow): onboarding con una registrazione di riferimento Day-Zero permanente, sessione guidata a sei fasi, libreria delle registrazioni, confronto A/B a tre modalità, calendario dei progressi con timeline dei traguardi, libreria di apprendimento a sblocco progressivo ed esportazione JSON locale. Zero chiamate di rete a runtime, tutti i dati restano sul dispositivo.",
+      "businessResult": "Ha trasformato una pratica vocale frammentata in un'unica routine privata di 10 minuti offline, con progressi e confronto integrati.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria (Likwiid)",
+      "timeline": "Sviluppo principale concentrato in uno sprint mirato a maggio 2026 (16 commit, dalle fondamenta all'irrobustimento in QA)",
+      "metrics": [
+        {
+          "value": "10 min",
+          "label": "Routine quotidiana"
+        },
+        {
+          "value": "6",
+          "label": "Fasi di pratica"
+        },
+        {
+          "value": "3",
+          "label": "Modalità di confronto"
+        },
+        {
+          "value": "0",
+          "label": "Chiamate di rete"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motore di routine a sei fasi guidato dal tempo",
+          "description": "Un unico orologio deterministico guida fase, istruzione, segnale di respirazione e tono; supporta pausa, salto e riavvio."
+        },
+        {
+          "title": "Confronto vocale A/B a tre modalità",
+          "description": "Registrazione di riferimento contro registrazione successiva, in modalità singola, sequenziale o alternata, con annullamento pulito."
+        },
+        {
+          "title": "Registrazione privata sul dispositivo con coaching in tempo reale",
+          "description": "Cattura di alta qualità con expo-audio, misurazione troppo basso/stabile/troppo alto, forma d'onda dai byte del file, mai caricata online."
+        },
+        {
+          "title": "Privacy offline-first, senza account",
+          "description": "Nessun login, server o telemetria; tutti i dati in storage locale con namespace e validazione di schema."
+        },
+        {
+          "title": "Libreria di apprendimento clinico con diagrammi su misura",
+          "description": "Dieci articoli sbloccati per traguardi e sette diagrammi anatomici disegnati a mano in react-native-svg, in markdown."
+        },
+        {
+          "title": "Progressi privati senza gamification",
+          "description": "Calendario mensile, obiettivo settimanale, logica delle streak e timeline dei giorni 7/14/30/60/90, senza punti né classifiche."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Motore di routine",
+          "detail": "Timeline pura indicizzata sul tempo (src/routine/) che deriva fase, istruzione e tono dai secondi trascorsi."
+        },
+        {
+          "area": "Livello dati locale",
+          "detail": "AsyncStorage versionato e con namespace, con validazione di schema in lettura; il context persiste ogni mutazione."
+        },
+        {
+          "area": "Cattura e riproduzione audio",
+          "detail": "Registrazione HIGH_QUALITY con expo-audio, misurazione in tempo reale e forme d'onda derivate dai byte del file."
+        },
+        {
+          "area": "Contenuti offline e i18n",
+          "detail": "10 articoli a sblocco progressivo integrati con diagrammi SVG più 35 brani in EN, AR (RTL), FR, IT."
+        },
+        {
+          "area": "Portabilità dei dati",
+          "detail": "Esportazione JSON astratta dallo storage che cattura tutte le chiavi e i riferimenti audio file://, senza cloud."
+        }
+      ],
+      "highlights": [
+        "Routine di 10 minuti: sei fasi che sommano esattamente 600 secondi",
+        "Tre modalità di confronto A/B con annullamento della riproduzione tramite run token",
+        "Zero chiamate di rete, ogni byte resta sul dispositivo",
+        "10 articoli di apprendimento, 35 brani di lettura in 4 lingue incluso l'arabo RTL",
+        "Forme d'onda renderizzate in modo deterministico dai byte reali del file audio"
+      ]
     },
     "personal-fitness-tracker": {
-      "oneLiner": "Coach di resistenza che funziona senza cloud, con guida cardio dal vivo e un co-pilota IA durante la corsa"
+      "title": "Fitness tracker personale",
+      "subtitle": "Allenamento di resistenza guidato dalla frequenza cardiaca, con prontezza e avanzamento del piano",
+      "oneLiner": "Coach di resistenza che funziona senza cloud, con guida cardio dal vivo e un co-pilota IA durante la corsa",
+      "description": "StaminaForge è un'app di resistenza React Native (Expo SDK 55) local-first che si accoppia via Bluetooth con una fascia Garmin HRM-Dual per guidare dal vivo un piano strutturato di 12 settimane basato su zone di frequenza cardiaca, e poi spiegare ogni corsa. Funziona completamente offline.",
+      "challenge": "Leggere un flusso BLE di frequenza cardiaca in modo abbastanza affidabile da allenarcisi sopra, eseguire un vero piano di 12 settimane e trasformare il GPS rumoroso del telefono in ritmo e dislivello attendibili, tutto sul dispositivo, a schermo spento e con una sola mano.",
+      "approach": "Un motore di coaching puro e privo di effetti collaterali (una macchina a stati che restituisce indicazioni) è disaccoppiato da un gestore BLE singleton, un reducer GPS e audio asincrono. Lo stato gira su Zustand e lo storico su SQLite. Un livello di IA opzionale trasmette in streaming via SSE attraverso un proxy self-hosted, delimitato da un validatore di azioni rigoroso.",
+      "results": "Un compagno di allenamento coperto da test su otto schermate. FC in tempo reale a 1 Hz colorata per zona con annuncio vocale di zona, intervalli, cadenza e alimentazione; coach IA vocale opzionale. Dopo la corsa salva la traccia completa, corregge il dislivello via cloud e calcola ritmo MAF, GAP, disaccoppiamento, VDOT e carico CTL/ATL/TSB. 16 moduli di analisi, 93 test unitari, sincronizzazione ed esportazione GPX opzionali.",
+      "businessResult": "Un unico coach sul dispositivo che guida dal vivo un piano di resistenza di 12 settimane e lo spiega a posteriori.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria",
+      "timeline": "~5 settimane (28 apr - 3 giu 2026, secondo la cronologia git)",
+      "metrics": [
+        {
+          "value": "12 wk",
+          "label": "Protocollo di allenamento"
+        },
+        {
+          "value": "1 Hz",
+          "label": "Coaching FC in tempo reale"
+        },
+        {
+          "value": "16",
+          "label": "Moduli di analisi"
+        },
+        {
+          "value": "93",
+          "label": "Test unitari"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Coaching della frequenza cardiaca in tempo reale via Bluetooth",
+          "description": "Si accoppia con una Garmin HRM-Dual, trasmette la FC a 1 Hz e pronuncia indicazioni in tempo reale, più un allarme scream-mode oltre la soglia massima."
+        },
+        {
+          "title": "Co-pilota IA vocale durante la corsa",
+          "description": "L'IA opzionale offre brevi check-in vocali e risponde a domande a voce senza duplicare le indicazioni critiche per la sicurezza."
+        },
+        {
+          "title": "Protocollo di resistenza strutturato di 12 settimane",
+          "description": "Base Z2, intervalli norvegesi 4x4, allunghi, finale in tempo, settimane di scarico e una prova a cronometro finale sui 5K."
+        },
+        {
+          "title": "Dislivello corretto via cloud e ritmo aggiustato per pendenza",
+          "description": "Il DEM di Open-Meteo corregge l'altitudine GPS, alimentando GAP, segmentazione del terreno e una striscia di qualità dei dati."
+        },
+        {
+          "title": "Analisi approfondita post-corsa",
+          "description": "Ritmo MAF, distribuzione delle zone, disaccoppiamento, VDOT, carico CTL/ATL/TSB, più avvisi di rischio infortuni e sovrallenamento."
+        },
+        {
+          "title": "Local-first con sincronizzazione ed esportazione opzionali",
+          "description": "SQLite sul dispositivo, completamente offline; sincronizzazione multi-dispositivo self-hosted ed esportazione GPX opzionali."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Pipeline FC in tempo reale",
+          "detail": "Frame GATT 0x180D della Garmin HRM-Dual analizzati da un gestore BLE singleton, limitati a 1 Hz, distribuiti via Zustand a UI, reducer della corsa e motore di coaching; sorgente simulata attivabile dalle impostazioni per lo sviluppo."
+        },
+        {
+          "area": "Motore di coaching puro",
+          "detail": "lib/coach/engine.ts: tick(sample, elapsedMs, cadence) privo di effetti collaterali che restituisce indicazioni su un tempo di corsa monotono, gestendo soglie Z2, scream-mode, intervalli, cadenza e alimentazione con cooldown per indicazione."
+        },
+        {
+          "area": "Livello dati local-first",
+          "detail": "SQLite sul dispositivo (WAL, chiavi esterne, 12 tabelle) memorizza i campioni grezzi senza aggregazione in scrittura; le metriche si calcolano al momento della query. Preferenze via Zustand + AsyncStorage. Nessun account né cloud."
+        },
+        {
+          "area": "Livello IA delimitato",
+          "detail": "Proxy self-hosted con streaming SSE e un parser JSON a parentesi bilanciate; un validatore rigoroso (lib/ai/actions.ts) consente solo azioni delimitate e non distruttive. Check-in limitati, deduplicati e con fallback deterministico offline."
+        },
+        {
+          "area": "Dislivello e mappe",
+          "detail": "Altitudine GPS corretta via cloud sul DEM di Open-Meteo senza chiave (a lotti, con retry, degrada a valori nulli), renderizzata su una mappa base MapLibre + CARTO senza chiave con GAP e segmentazione del terreno."
+        }
+      ],
+      "highlights": [
+        "Il motore di coaching è una macchina a stati pura (ADR-0004): deterministica, disaccoppiata da BLE/audio/React, coperta fittamente da test unitari.",
+        "Le indicazioni audio non bloccano mai la pipeline FC; un dispatcher asincrono consuma le indicazioni così la latenza del parlato resta fuori dal percorso critico.",
+        "L'IA è additiva: i prompt in corsa non ripetono le indicazioni locali, si limitano a circa un check-in ogni 5 min e ripiegano sulla modalità offline.",
+        "Difesa in profondità: un validatore delimita ogni azione dell'IA (per esempio MAF limitato a +/-10 bpm) così una risposta sbagliata non può fare danni.",
+        "TypeScript strict, nessun `any`; Zod solo sui confini reali (byte BLE, righe SQLite, GPS), con i tipi come contratto (ADR-0008).",
+        "Gestione onesta dei sensori: GPS smussato prima del calcolo del dislivello, il DEM degrada a valori nulli, una striscia di qualità dei dati segnala le tracce difettose.",
+        "Otto ADR raccolgono le decisioni portanti (solo locale, Zustand+SQLite, motore di coaching puro, singleton BLE lazy)."
+      ]
     },
     "ai-fitness-coach": {
-      "oneLiner": "Coach IA di forza che adatta pesi, indicazioni e allenamento in tempo reale dal tuo storico"
+      "title": "Coach fitness con IA",
+      "subtitle": "Personal training basato sull'IA con programmazione adattiva degli allenamenti",
+      "oneLiner": "Coach IA di forza che adatta pesi, indicazioni e allenamento in tempo reale dal tuo storico",
+      "description": "Un'app di forza local-first in React Native (Expo) il cui coach IA agentico conosce l'intero programma dell'atleta, lo storico serie per serie e la prontezza pre-allenamento, e può ristrutturare la sessione in corso a partire da una sola riga di feedback.",
+      "challenge": "Le app in commercio offrono programmi statici che ignorano com'è andata l'ultima serie. La parte difficile è dare al modello abbastanza contesto strutturato per consigli di carico sicuri e specifici, e poi permettergli di eseguire azioni reversibili sulla sessione dal vivo senza corrompere lo stato dell'allenamento.",
+      "approach": "App Expo SDK 54 / RN 0.81 (New Architecture) su uno schema SQLite normalizzato (11 migrazioni). Un costruttore di contesto serializza programma, serie recenti e prontezza in prompt compatti per un proxy Claude self-hosted via SSE, così nessuna chiave API viaggia nell'app. Il feedback in testo libero o vocale diventa azioni tipizzate e annullabili, persistite come modifiche verificabili.",
+      "results": "Pubblicato un APK di release Android con un ciclo di allenamento completo: esplorazione del programma, valutazione della prontezza, schermata di allenamento attivo con pesi precompilati dall'IA, indicazioni in streaming, feedback post-serie limitato, rilevamento dei PR in tempo reale, input agentico e una chat Coach che conosce il programma. Esegue il programma Upper/Lower di 10 settimane di Jeff Nippard con scarico, sostituzioni, ricerca FTS5, calcolo dei dischi e un fallback basato sullo storico quando il modello non è disponibile.",
+      "businessResult": "Un pattern di livello produzione per integrare un LLM agentico in un flusso mobile in tempo reale e offline-first, con azioni sicure e reversibili.",
+      "role": "Progettazione, sviluppo e pubblicazione in solitaria",
+      "timeline": "~da feb 2026 a mag 2026 (cronologia git attiva; APK di release a maggio 2026)",
+      "metrics": [
+        {
+          "value": "7",
+          "label": "Tipi di azione IA"
+        },
+        {
+          "value": "10 wk",
+          "label": "Programma periodizzato"
+        },
+        {
+          "value": "11",
+          "label": "Migrazioni dei dati"
+        },
+        {
+          "value": "0",
+          "label": "Segreti nell'app"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Coaching agentico durante l'allenamento",
+          "description": "Una riga scritta o detta a voce diventa azioni tipizzate: regolare il carico, sostituire, saltare o aggiungere recupero, ognuna annullabile."
+        },
+        {
+          "title": "Pesi e indicazioni basati sul contesto",
+          "description": "Legge il blocco del programma, gli obiettivi di RPE, la prontezza e lo storico delle serie per precompilare i pesi con il calcolo dei dischi."
+        },
+        {
+          "title": "Consigli guidati dalla prontezza e sicuri in scarico",
+          "description": "Una valutazione pre-allenamento alimenta ogni prompt; nelle settimane di scarico il coach diventa conservativo."
+        },
+        {
+          "title": "Chat in streaming che conosce il programma",
+          "description": "Una scheda Coach trasmette token per token con il programma di 10 settimane e le ultime 12 sessioni nel contesto."
+        },
+        {
+          "title": "Rilevamento dei PR in tempo reale e feedback post-serie",
+          "description": "Le serie di lavoro attivano controlli dei PR e una breve reazione dell'IA, limitata, sull'adeguatezza del carico."
+        },
+        {
+          "title": "Offline-first con sincronizzazione tra dispositivi",
+          "description": "Tutti i dati vivono sul dispositivo in SQLite; un backend opzionale self-hosted li salva e li ripristina."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Livello dati",
+          "detail": "SQLite normalizzato: settimane, giorni, serie etichettate con RPE, valutazioni, tabelle IA, ricerca FTS5, 11 migrazioni transazionali."
+        },
+        {
+          "area": "Integrazione IA",
+          "detail": "Proxy Claude (opus) self-hosted via SSE; nessuna chiave del modello nell'app, con streaming dei token in tempo reale e parsing JSON."
+        },
+        {
+          "area": "Ciclo di azioni agentico",
+          "detail": "useWorkoutAI costruisce contesto aggiornato, applica ogni azione allo stato e scrive una riga ai_modifications annullabile."
+        },
+        {
+          "area": "Ingegneria del contesto",
+          "detail": "aiContext.ts serializza programma, storico multi-settimana, prontezza e sostituzioni in prompt con budget di token controllato."
+        },
+        {
+          "area": "Offline-first + sincronizzazione",
+          "detail": "Letture e scritture passano prima dal SQLite locale; la sincronizzazione opzionale salva tabelle e preferenze con una protezione contro la sovrascrittura al primo sync."
+        }
+      ],
+      "highlights": [
+        "Resilienza prima di tutto: i pesi basati sullo storico si precompilano all'istante, il modello li affina, e i retry più una card di fallback visibile mantengono utilizzabili gli allenamenti.",
+        "Sicurezza nei prompt e nei dati: i vincoli di scarico si propagano in ogni prompt; le sostituzioni sono limitate ad alternative già validate.",
+        "IA verificabile: ogni modifica alla sessione dal vivo viene salvata in ai_modifications con il JSON prima/dopo e un controllo di annullamento.",
+        "Streaming SSE scritto a mano con un fallback senza streaming e un estrattore JSON a parentesi bilanciate che sopravvive a output rumorosi.",
+        "TypeScript organizzato per funzionalità: pattern repository su SQLite più store Zustand per lo stato di allenamento, valutazione, timer e IA.",
+        "Cura del dominio: un motore di tempo delle ripetizioni regola i timer, i pesi conservano la loro unità lungo lo storico e il calcolo dei dischi guida il ragionamento del modello."
+      ]
     },
     "bully-ai": {
-      "oneLiner": "Un esperimento di psicologia comportamentale con promemoria progressivi per chi ignora gli avvisi gentili"
+      "title": "Bully.ai",
+      "subtitle": "L'app che ti fa sentire in colpa finché non fai le cose",
+      "oneLiner": "Un esperimento di psicologia comportamentale con promemoria progressivi per chi ignora gli avvisi gentili",
+      "description": "Un'app di produttività in React Native per procrastinatori e persone con ADHD che sostituisce i promemoria allegri con una cascata di notifiche in cinque passi, che scala da una spinta gentile a una ramanzina demolitrice, insieme a un vero livello di supporto per l'ADHD e a un backend di riprova sociale anonimo.",
+      "challenge": "I promemoria gentili vengono ignorati senza sforzo proprio da chi ne ha più bisogno. Le notifiche partono dal sistema operativo quando il JS dell'app non è in esecuzione, quindi tutti i testi di escalation personalizzati dall'IA devono esistere prima della programmazione e degradare con eleganza quando l'IA o la rete falliscono.",
+      "approach": "Costruita su Expo SDK 54 / React Native 0.81 New Architecture, TypeScript, Zustand e NativeWind. Un motore di escalation a funzioni pure associa cinque livelli a soglie di minuti di ritardo; una singola chiamata batch a Claude Opus pregenera i cinque messaggi di personalità alla creazione dell'attività, con cache e riprogrammazione, e template di riserva. I tipi di promemoria sono un registro di plugin; un backend NestJS + Prisma + Redis alimenta la riprova sociale anonima.",
+      "results": "Un'app compilabile con notifiche a escalation IA, una scheda di chat IA in streaming, cinque personalità, quattro tipi di promemoria a plugin, un sistema di apprendimento sull'ADHD, statistiche con confronto con la community e widget nativi per la schermata iniziale su iOS/Android. Dietro c'è un backend NestJS dalla forma di produzione con nove moduli, aggregazione in cache con Redis, un cron orario dei percentili e autenticazione a tempo costante. Ogni percorso IA ha un template di riserva.",
+      "businessResult": "Ha trasformato un aggancio memorabile, \"l'app che ti bullizza\", in un prodotto resiliente con un motore di notifiche IA e un backend di riprova sociale anonimo.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria (app mobile + backend di supporto)",
+      "timeline": "Sviluppo attivo dal 2025 al 2026 (commit mobile fino ad apr 2026, backend fino a mar 2026)",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Fasi di escalation"
+        },
+        {
+          "value": "5",
+          "label": "Personalità"
+        },
+        {
+          "value": "4",
+          "label": "Tipi di promemoria"
+        },
+        {
+          "value": "1",
+          "label": "Chiamata IA → 5 messaggi"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Notifiche a escalation personalizzate dall'IA",
+          "description": "Cascata in cinque fasi, generata da Claude per personalità, pre-renderizzata in una sola chiamata batch, con template di riserva."
+        },
+        {
+          "title": "Cinque personalità da bullo",
+          "description": "Amico Deluso, Sergente Istruttore, Passivo-Aggressivo, Esistenziale e Hype Beast, nelle notifiche e in chat."
+        },
+        {
+          "title": "Tipi di promemoria a plugin",
+          "description": "Reset della postura, drill di salsa in 5 fasi e timer della noia come plugin di registro con la propria interfaccia di esecuzione."
+        },
+        {
+          "title": "Coach IA in chat dal vivo",
+          "description": "Streaming token per token dal proxy Claude nella personalità attiva, con fallback che mantiene il tono."
+        },
+        {
+          "title": "Sistema di apprendimento sull'ADHD",
+          "description": "Cinque corsi, otto esercizi interattivi con badge e 42 consigli di psicologia quotidiani a rotazione."
+        },
+        {
+          "title": "Backend di riprova sociale anonimo",
+          "description": "NestJS + Prisma + Redis registra i completamenti per ID dispositivo e calcola classifiche e ranghi percentili."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Notifiche pregenerate",
+          "detail": "L'orchestratore programma all'istante notifiche da template, poi le migliora in modo asincrono con testo IA e le riprogramma."
+        },
+        {
+          "area": "Registro di plugin dei tipi di promemoria",
+          "detail": "Ogni esperienza di attività è un plugin con esecutore, modulo di configurazione e schema di tracciamento, non uno switch."
+        },
+        {
+          "area": "Proxy Claude self-hosted",
+          "detail": "Tutta l'IA gira via SSE su Opus; letture bufferizzate e in streaming, rimozione dei blocchi di codice, bearer token nell'ambiente EXPO_PUBLIC."
+        },
+        {
+          "area": "Backend anonimo e resiliente",
+          "detail": "Chiavi per UUID del dispositivo, cache Redis, cron orario dei percentili sotto lock SET NX, guard API con timingSafeEqual."
+        }
+      ],
+      "highlights": [
+        "Il testo IA è vincolato a stringhe di 80 caratteri senza emoji per stare in notifiche reali del telefono",
+        "Ogni percorso IA degrada con eleganza: notifiche da template e un fallback di chat che mantiene il tono, mai una schermata vuota",
+        "Posticipare un promemoria accelera l'escalation di 30 minuti a ogni rinvio, punendo la procrastinazione",
+        "Widget multipiattaforma tramite un plugin Expo personalizzato: SwiftUI su iOS, Kotlin su Android, bridge App Group",
+        "Otto ADR documentano il registro dei plugin, le ramanzine pregenerate, lo store partizionato e la gestione del token del proxy",
+        "Backend dalla forma di produzione: Swagger, helmet, rate limit, probe di salute, Postgres + Redis in Docker e 21 spec"
+      ]
     },
     "breathebreak": {
-      "oneLiner": "Coach nella barra dei menu del Mac che trasforma giornate davanti allo schermo in pause di respirazione"
+      "title": "BreatheBreak",
+      "subtitle": "Promemoria di respirazione nella barra dei menu del Mac per giornate intense davanti allo schermo",
+      "oneLiner": "Coach nella barra dei menu del Mac che trasforma giornate davanti allo schermo in pause di respirazione",
+      "description": "BreatheBreak è un coach nativo per macOS nella barra dei menu che mantiene presente la respirazione di recupero durante il lavoro concentrato senza rubare l'attenzione. Gira senza Dock come agente LSUIElement, scandisce promemoria ispirati al metodo Buteyko e traccia il Control Pause, la tua tolleranza alla CO2, tutto sul dispositivo.",
+      "challenge": "Uno strumento di respirazione funziona solo nel mezzo del lavoro, ma aprire un'app o subire animazioni forzate rompe la concentrazione che dovrebbe proteggere. L'obiettivo: invitare a respirare tutto il giorno restando in silenzio durante le chiamate, la modalità Full immersion e fuori orario.",
+      "approach": "Un'app SwiftUI e AppKit basata su MenuBarExtra con tre livelli di interruzione (pulsazione dell'icona, avviso sul bordo, finestra flottante NSPanel in sovraimpressione). Un DispatchSourceTimer governa la pianificazione; una macchina a stati TrainingPhase regola automaticamente il ritmo dei promemoria; le sessioni persistono via SwiftData.",
+      "results": "Un compagno per macOS 14+ conforme al sandbox che gira in modo invisibile: popover con conto alla rovescia, posticipo e pausa, promemoria contestuali che rispettano chiamate e modalità Full immersion, progressione Buteyko completa e tracciamento del Control Pause con streak e una tendenza a 7 giorni con Swift Charts.",
+      "businessResult": "Mantiene presente la respirazione di recupero tutto il giorno senza strappare l'utente dal lavoro concentrato, dalle chiamate o dalla modalità Full immersion.",
+      "role": "Progettazione, sviluppo e pubblicazione in solitaria",
+      "timeline": "Sviluppata a marzo 2026 (commit dal 12 al 31 marzo 2026); pubblicata come v1.0.0",
+      "metrics": [
+        {
+          "value": "4",
+          "label": "Esercizi di respirazione"
+        },
+        {
+          "value": "3",
+          "label": "Fasi adattive"
+        },
+        {
+          "value": "100%",
+          "label": "Sul dispositivo"
+        },
+        {
+          "value": "0",
+          "label": "Distrazioni"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Motore di promemoria contestuale",
+          "description": "Quattro filtri di esclusione (ore attive, pausa, in riunione, Full immersion/Non disturbare di sistema) controllano ogni avviso."
+        },
+        {
+          "title": "Progressione adattiva Buteyko",
+          "description": "Un modello a tre fasi (7/15/30 min) regola il livello automaticamente in base al tasso di completamento settimanale."
+        },
+        {
+          "title": "Interruzioni a tre livelli",
+          "description": "Pulsazione dell'icona e avviso sul bordo silenziosi; solo un ciclo su quattro scala a una sovraimpressione completa."
+        },
+        {
+          "title": "Tracciamento della CO2 con Control Pause",
+          "description": "Verifiche guidate di apnea con streak, medie e una tendenza a 7 giorni con Swift Charts."
+        },
+        {
+          "title": "Local-first con esportazione CSV",
+          "description": "Ogni sessione resta sul dispositivo via SwiftData; esportazione CSV con un tocco."
+        },
+        {
+          "title": "Integrazione nativa nel sandbox",
+          "description": "Agente LSUIElement senza Dock, avvio al login via SMAppService, Full immersion dedotta dentro il sandbox."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Shell dell'app",
+          "detail": "Scena SwiftUI MenuBarExtra .window, agente LSUIElement; AppState @MainActor come fonte di verità, OverlayCoordinator fa da ponte tra Combine e AppKit."
+        },
+        {
+          "area": "Pianificazione",
+          "detail": "DispatchSourceTimer con data del prossimo scatto persistita e pattern a scatto singolo poi ripetizione per il posticipo; il Control Pause usa UNCalendarNotificationTrigger."
+        },
+        {
+          "area": "Integrazione con il sistema",
+          "detail": "Full immersion dedotta da DoNotDisturb Assertions.json più controlcenter/ncprefs; riunioni tramite polling dei bundle ID di NSWorkspace; avvio via SMAppService."
+        },
+        {
+          "area": "Livello dati",
+          "detail": "SwiftData @Model BreathSession con query #Predicate per streak, medie CP e tasso settimanale; tendenza con Swift Charts; esportazione CSV."
+        }
+      ],
+      "highlights": [
+        "Risolta l'assenza di API pubblica per la modalità Full immersion nell'App Sandbox analizzando DoNotDisturb Assertions.json, con fallback sui domini controlcenter/ncprefs e sottoscrizione alle notifiche DND, con throttling e cache per letture ad alta frequenza.",
+        "Design delle interruzioni a tre livelli (pulsazione dell'icona, avviso sul bordo, sovraimpressione completa) legato al conteggio dei cicli e alla fase di allenamento, presente senza assillare.",
+        "La macchina a stati TrainingPhase legge il completamento settimanale: propone di salire di livello sopra l'80% o di rallentare sotto il 50%, trasformando un timer fisso in un protocollo di abitudine.",
+        "Motore di respirazione dichiarativo: ogni esercizio è un array di valori BreathPhase(instruction, duration, targetScale) che la sovraimpressione e l'avviso animano in modo identico.",
+        "Pianificazione resiliente: un DispatchSourceTimer con data del prossimo scatto persistita sopravvive al riavvio, più un pattern a scatto singolo poi ripetizione per una gestione pulita del posticipo.",
+        "Audio difensivo con un fallback a tre approcci (NSSound per nome, NSSound da file, AudioServices) e un riferimento forte mantenuto per sopravvivere ad ARC durante la riproduzione.",
+        "Separazione pulita tra AppState, BreathReminderManager, ProcessMonitor, FocusModeObserver, SoundManager e OverlayCoordinator, collegati via Combine."
+      ]
     },
     "linkedin-templates-extension": {
-      "oneLiner": "Gestore di modelli LinkedIn attento alla privacy, con sincronizzazione opzionale per i team"
+      "title": "Estensione di modelli per LinkedIn",
+      "subtitle": "Estensione Chrome privacy-first per un outreach più rapido su LinkedIn",
+      "oneLiner": "Gestore di modelli LinkedIn attento alla privacy, con sincronizzazione opzionale per i team",
+      "description": "Un'estensione Chrome Manifest V3 per recruiter e SDR che salva modelli riutilizzabili di messaggi LinkedIn e li inserisce con un clic, con le variabili di profilo compilate automaticamente. Local-first e offline; un backend opzionale in NestJS aggiunge la sincronizzazione per i team.",
+      "challenge": "I team di outreach riutilizzano gli stessi frammenti, sparsi tra documenti e caselle di posta. Gli strumenti di automazione risolvono il problema ma fanno bandire gli account, quindi la personalizzazione doveva funzionare con un'iniezione manuale dall'aspetto nativo nei mutevoli compositori React di LinkedIn.",
+      "approach": "Sviluppata in React 18, TypeScript e Webpack su Manifest V3. Un MutationObserver in un content script inietta un pulsante Templates nei compositori di LinkedIn; un backend opzionale in NestJS + PostgreSQL aggiunge autenticazione JWT, sincronizzazione cloud e librerie di team.",
+      "results": "Un'estensione pronta per la build che copre tutte e tre le superfici di composizione, con un popup rifinito, un pannello delle opzioni e importazione ed esportazione JSON. Le variabili vengono rilevate automaticamente come chip e compilate con i dati di profilo estratti. Validata end-to-end con Playwright; il backend opzionale include autenticazione, CRUD e condivisione in team.",
+      "businessResult": "Trasforma frammenti LinkedIn sparsi in outreach personalizzato con un clic, senza il rischio di ban degli strumenti di automazione.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria (estensione + backend), tramite una pipeline di build multi-agente",
+      "timeline": "Sviluppata ad aprile 2026; ~95% pronta per l'invio alla Chrome Web Store (icone e risorse dello store presenti, informativa sulla privacy in sospeso)",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "Compositori LinkedIn"
+        },
+        {
+          "value": "7+",
+          "label": "Variabili di profilo"
+        },
+        {
+          "value": "0",
+          "label": "Chiamate di rete"
+        },
+        {
+          "value": "1-click",
+          "label": "Inserimento del messaggio"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Inserimento con un clic in ogni compositore",
+          "description": "Un MutationObserver inietta un pulsante nativo negli editor di messaggi, collegamento e InMail."
+        },
+        {
+          "title": "Variabili di profilo intelligenti",
+          "description": "Estrae {{firstName}}, {{company}} e altro, sostituendole all'inserimento."
+        },
+        {
+          "title": "Rilevamento delle variabili in tempo reale",
+          "description": "L'editor analizza i token {{...}} mentre scrivi e li mostra come chip."
+        },
+        {
+          "title": "Ricerca in pagina navigabile da tastiera",
+          "description": "Menu a discesa iniettato con ricerca e navigazione completa con frecce/Invio/Esc."
+        },
+        {
+          "title": "Local-first con sincronizzazione di team opzionale",
+          "description": "Offline via chrome.storage; un backend opzionale in NestJS aggiunge cloud e librerie di team."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Content script + resilienza del DOM",
+          "detail": "Un MutationObserver abbina i selettori degli editor e deduplica l'iniezione con un flag dati contro i re-render di React."
+        },
+        {
+          "area": "Inserimento rispettoso dello stato React",
+          "detail": "Imposta il textContent e invia un evento input sintetico che si propaga, così React rileva la modifica."
+        },
+        {
+          "area": "Bus di messaggi tipizzato",
+          "detail": "Popup e content script scambiano un protocollo tipizzato attraverso un service worker che gestisce lo storage."
+        },
+        {
+          "area": "Storage consapevole delle quote",
+          "detail": "Incapsula chrome.storage.sync, intercetta gli errori di quota per ripiegare sullo storage locale e inizializza i valori predefiniti."
+        },
+        {
+          "area": "Backend opzionale in NestJS",
+          "detail": "NestJS + PostgreSQL con autenticazione JWT/bcrypt, CRUD dei modelli, Swagger e condivisione in team gestita dal proprietario."
+        }
+      ],
+      "highlights": [
+        "Sicura contro XSS per costruzione: il contenuto dei modelli passa attraverso textContent prima dell'iniezione",
+        "L'inserimento invia eventi input sintetici così il compositore React di LinkedIn registra il testo",
+        "Accesso completo da tastiera, più una scorciatoia Ctrl/Cmd+Shift+T e un menu contestuale con clic destro",
+        "Degradazione elegante: i valori mancanti conservano il token letterale; lo sforamento della quota di sincronizzazione ripiega sullo storage locale",
+        "Rifinitura nativa in stile LinkedIn: pulsazione del pulsante, menu a discesa ancorato, toast, stati skeleton",
+        "Verificata con screenshot Playwright; include icone da 16/32/48/128px per la Web Store"
+      ]
     },
     "healthcare-pdf-api": {
-      "oneLiner": "Una API conforme agli standard sanitari per generare, cifrare e verificare documenti medici in PDF"
+      "title": "API PDF per la sanità",
+      "subtitle": "Generazione sicura di documenti medici con crittografia, audit e controlli di conservazione",
+      "oneLiner": "Una API conforme agli standard sanitari per generare, cifrare e verificare documenti medici in PDF",
+      "description": "Un backend di riferimento in NestJS di livello produzione che trasforma dati clinici strutturati in PDF medici cifrati e con audit trail. Pensato per gli integratori in ambito sanitario che hanno bisogno di una gestione dei PHI allineata a HIPAA fin da subito.",
+      "challenge": "Renderizzare un PDF è facile; il difficile è il controllo degli accessi, cifrare i PHI a riposo, tenerli fuori dai log, un audit trail di conformità immutabile e una documentazione self-service chiara.",
+      "approach": "Un'applicazione NestJS 10 modulare con un modulo delimitato per responsabilità. Puppeteer renderizza template Handlebars tramite percorsi sincroni e asincroni (Bull/Redis); un unico EncryptionService centralizza AES-256-GCM e SHA-256, con persistenza su PostgreSQL/TypeORM.",
+      "results": "Una API distribuibile con Docker con generazione sincrona e asincrona, cinque template precaricati, chiavi API con hash e ambito limitato, cifratura AES-256-GCM di PHI e PDF, un audit trail interrogabile, webhook con retry, probe di salute e scadenza notturna della conservazione, il tutto coperto da 96 test unitari.",
+      "businessResult": "Profondità di backend enterprise: crittografia, verificabilità e operazioni API pulite su cui un integratore sanitario può costruire.",
+      "role": "Architettura, sviluppo e documentazione in solitaria",
+      "metrics": [
+        {
+          "value": "5",
+          "label": "Template di documenti"
+        },
+        {
+          "value": "AES-256",
+          "label": "Cifratura a riposo"
+        },
+        {
+          "value": "96",
+          "label": "Test unitari"
+        },
+        {
+          "value": "3×",
+          "label": "Retry dei webhook"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "PHI e PDF cifrati a riposo",
+          "description": "Un unico servizio AES-256-GCM cifra payload, PDF e percorso del file; chiavi API con hash SHA-256."
+        },
+        {
+          "title": "Generazione sincrona e asincrona con webhook",
+          "description": "Rendering inline o in coda con Bull, con retry a backoff 3x e webhook di completamento o errore."
+        },
+        {
+          "title": "Cinque template medici precaricati",
+          "description": "Referto, prescrizione, risultati di laboratorio, riepilogo del paziente, CMS-1500, in Handlebars, precaricati via migrazione."
+        },
+        {
+          "title": "Audit trail in stile HIPAA",
+          "description": "Ogni evento di generazione, download, eliminazione o autenticazione è registrato con attore, IP e agente; interrogabile e paginato."
+        },
+        {
+          "title": "Controllo degli accessi con chiavi API ad ambito limitato",
+          "description": "Permessi per chiave, limiti giornalieri applicati nel database, whitelist di IP e scadenza in un solo guard."
+        },
+        {
+          "title": "Conservazione e scadenza automatizzate",
+          "description": "Un cron notturno elimina i PDF oltre la finestra di conservazione e registra l'eliminazione."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Livello dati",
+          "detail": "PostgreSQL/TypeORM, quattro tabelle, cinque migrazioni; audit_logs indicizzata per query di conformità rapide"
+        },
+        {
+          "area": "Elaborazione asincrona",
+          "detail": "La coda Bull/Redis renderizza con Puppeteer, cifra, persiste e invia webhook in caso di completamento o errore"
+        },
+        {
+          "area": "Sicurezza e autenticazione",
+          "detail": "ApiKeyGuard verifica chiavi con hash, whitelist di IP e scadenza; Helmet, allow-list CORS, ValidationPipe globale"
+        },
+        {
+          "area": "Protezione dei PHI",
+          "detail": "Winston oscura via regex ssn/dob/phone/email/diagnosis; i PHI vengono cifrati prima della persistenza, mai in chiaro"
+        },
+        {
+          "area": "Operabilità",
+          "detail": "/health e /health/ready sondano Postgres, Redis e lo storage; Docker, Swagger e landing page inclusi"
+        }
+      ],
+      "highlights": [
+        "Unica fonte di verità crittografica: il tag di autenticazione GCM è impacchettato con l'IV così ogni manomissione fallisce alla decifratura",
+        "Autenticazione con difesa in profondità: chiavi con hash, permessi ad ambito limitato, limiti giornalieri, whitelist di IP, rate limiting a due livelli",
+        "Logging di audit a prova di errore: restituisce null invece di lanciare eccezioni, senza mai interrompere una richiesta clinica",
+        "Asincrono vero: il processore Bull replica il renderer sincrono, più retry, webhook e tracciamento della consegna",
+        "La documentazione come prodotto: interfaccia Swagger personalizzata e landing page self-hosted servita dall'API",
+        "96 test unitari che coprono cifratura, autenticazione, audit, template, webhook e generazione"
+      ]
     },
     "salsaflow": {
-      "oneLiner": "Un trainer di salsa in realtà virtuale che valuta il tuo ballo battito per battito con un partner virtuale"
+      "title": "SalsaFlow",
+      "subtitle": "Trainer di salsa WebXR immersivo per Meta Quest con valutazione del movimento in tempo reale",
+      "oneLiner": "Un trainer di salsa in realtà virtuale che valuta il tuo ballo battito per battito con un partner virtuale",
+      "description": "SalsaFlow è un istruttore di salsa WebXR nativo del browser per Meta Quest. Gli studenti ballano con un partner virtuale riggato mentre l'app valuta tempo e qualità del movimento a ogni battito.",
+      "challenge": "Replicare in software il feedback di un istruttore privato richiede un partner che si muova a tempo, una valutazione precisa al battito solo dalle pose WebXR di testa e mani, e zero frame persi a 72-90 FPS.",
+      "approach": "Un'app WebXR con ECS rigoroso su IWSDK e Three.js. Un singleton BeatClock è l'unica autorità del tempo; tutti i sistemi si sincronizzano in fase tramite Preact Signals. Un BVH di salsa CMU viene ritargettizzato su un ballerino Mixamo, con un solver IK a due ossa su misura e percorsi critici senza allocazioni.",
+      "results": "Un prototipo funzionante con quattro modalità di pratica, un percorso di 15 movimenti con sblocchi concatenati, cinque tracce di audio spaziale e tre livelli di feedback in tempo reale. Un registratore integrato esporta pose delle mani a 25 articolazioni a 30 Hz. Si installa come PWA offline.",
+      "businessResult": "Dimostra che il coaching oggettivo di salsa può girare nel browser su un visore VR consumer, senza app store né istruttore.",
+      "role": "Progettazione, sviluppo e rilascio in solitaria",
+      "timeline": "2025-2026 (documenti di ricerca datati aprile 2026); in sviluppo attivo",
+      "metrics": [
+        {
+          "value": "15",
+          "label": "Movimenti di salsa"
+        },
+        {
+          "value": "4",
+          "label": "Modalità di pratica"
+        },
+        {
+          "value": "30 Hz",
+          "label": "Motion capture"
+        },
+        {
+          "value": "90",
+          "label": "FPS obiettivo (VR)"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Partner VR dal vivo da vero mocap",
+          "description": "Un ballerino Mixamo esegue un BVH di salsa CMU e si protende verso lo studente tramite IK su misura."
+        },
+        {
+          "title": "Valutazione del movimento battito per battito",
+          "description": "Pose di testa e mani nel sistema locale della testa, valutate in verde/giallo/rosso su tempo e direzione."
+        },
+        {
+          "title": "Quattro modalità di pratica",
+          "description": "Lezione, Pratica libera, Drill e un Tempo Trainer che adatta i BPM alle prestazioni."
+        },
+        {
+          "title": "Tre livelli di feedback in VR",
+          "description": "Barra del ritmo, bagliori colorati sulle mani e impronte a terra sincronizzate al battito."
+        },
+        {
+          "title": "Percorso di 15 movimenti",
+          "description": "Da principiante ad avanzato, con sblocchi concatenati e punteggi salvati in locale."
+        },
+        {
+          "title": "Registratore mocap integrato",
+          "description": "Esporta la testa più 25 articolazioni per mano a 30 Hz in formato JSON."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Rendering e framework",
+          "detail": "WebXR nel browser via IWSDK su Three.js; studio costruito da entità di trasformazione ECS."
+        },
+        {
+          "area": "Pattern architetturale",
+          "detail": "ECS elics rigoroso, un sistema per file; stato in Preact Signals, nessun polling."
+        },
+        {
+          "area": "Timing",
+          "detail": "Il singleton BeatClock emette tick ogni 60000/bpm ms, recuperando i battiti persi."
+        },
+        {
+          "area": "Pipeline del movimento",
+          "detail": "BVH CMU ritargettizzato su Mixamo via SkeletonUtils; l'IK a due ossa sovrascrive il braccio a ogni frame."
+        },
+        {
+          "area": "Persistenza e offline",
+          "detail": "ProgressStore su IndexedDB con fallback in memoria; PWA installabile offline."
+        }
+      ],
+      "highlights": [
+        "Percorsi critici VR senza allocazioni: oggetti matematici per frame preallocati, ring buffer ad allocazione zero per evitare cali dovuti al GC",
+        "IK a due ossa in forma chiusa scritta a mano, con pole vector e limite di estensione massima, senza librerie esterne",
+        "Retargeting robusto da CMU a Mixamo con mappa esplicita delle ossa e rimozione della traslazione della radice",
+        "Normalizzazione del movimento nel sistema locale della testa così la direzione è indipendente dall'orientamento",
+        "Un unico BeatClock guida tutto il timing con logica di recupero dopo gli scatti del GC",
+        "Degradazione elegante: da IndexedDB alla memoria, da ossa mancanti alla radice, errori dei listener isolati"
+      ]
     }
+  },
+  "servicesData": {
+    "fullstack": {
+      "title": "Sviluppo Full-Stack Web e Mobile",
+      "shortDescription": "Costruiamo applicazioni di produzione dal database all'interfaccia. App web, app mobile, API e soluzioni che funzionano senza attriti a ogni livello.",
+      "longDescription": "Dai portali assicurativi enterprise con migliaia di utenti alle app di personal training, costruiamo l'intera verticale. Il nostro stack è fluido: React e React Native per il frontend, Java/Spring Boot o Node.js/NestJS sul backend, con PostgreSQL o MongoDB per i dati. Ci adattiamo a ciò di cui il progetto ha bisogno.",
+      "deliverables": [
+        "Applicazioni web",
+        "App mobile (iOS/Android)",
+        "API REST/GraphQL",
+        "Architettura di database"
+      ]
+    },
+    "cloud": {
+      "title": "Consulenza Cloud e DevOps",
+      "shortDescription": "Infrastructure as Code, pipeline CI/CD, containerizzazione e architettura cloud per team che devono scalare con fluidità.",
+      "longDescription": "Progettiamo e implementiamo infrastrutture cloud che scalano con la domanda. Dalla configurazione della tua prima pipeline CI/CD alla migrazione di monoliti verso microservizi su Kubernetes, aiutiamo i team a rilasciare più velocemente e con fiducia.",
+      "deliverables": [
+        "Piani di migrazione cloud",
+        "Configurazione Infrastructure as Code",
+        "Pipeline CI/CD",
+        "Dashboard di monitoraggio",
+        "Audit di ottimizzazione dei costi"
+      ]
+    },
+    "ai": {
+      "title": "Integrazione IA/ML e Automazione",
+      "shortDescription": "Integriamo capacità di IA nei prodotti esistenti. Funzionalità basate su LLM, automazione intelligente e flussi di agenti che si adattano al tuo dominio.",
+      "longDescription": "L'IA ha valore solo quando risolve problemi reali. Integriamo LLM, costruiamo pipeline di automazione intelligente e progettiamo sistemi multi-agente che arrivano davvero in produzione, non solo demo.",
+      "deliverables": [
+        "Funzionalità basate sull'IA",
+        "Chatbot",
+        "Pipeline di elaborazione documenti",
+        "Flussi di automazione",
+        "Agenti IA di revisione del codice"
+      ]
+    },
+    "vr": {
+      "title": "Sviluppo VR/XR",
+      "shortDescription": "Creiamo esperienze immersive per Meta Quest e oltre. Dal concept all'applicazione VR distribuita.",
+      "longDescription": "La tecnologia immersiva è la prossima interfaccia. Sviluppiamo applicazioni VR ed esperienze 3D interattive per Meta Quest, concentrandoci su casi d'uso pratici, dalle simulazioni di formazione agli strumenti creativi.",
+      "deliverables": [
+        "Applicazioni VR",
+        "Esperienze 3D interattive",
+        "Prototipi XR"
+      ]
+    },
+    "consulting": {
+      "title": "Architettura Software e Consulenza",
+      "shortDescription": "Strategia tecnica, revisioni di architettura e progettazione di sistemi per team che hanno bisogno di una guida senior per gestire la complessità.",
+      "longDescription": "A volte serve un secondo paio di occhi esperti. Offriamo revisioni di architettura, consulenze di progettazione di sistemi e strategia tecnica per team alle prese con decisioni complesse, incanalando la complessità in sistemi puliti e gestibili.",
+      "deliverables": [
+        "Architecture decision record",
+        "Documenti di progettazione di sistemi",
+        "Raccomandazioni sullo stack tecnologico",
+        "Audit del codice",
+        "Sessioni di mentoring per team"
+      ]
+    },
+    "ai-remediation": {
+      "title": "Manutenzione e Risanamento di Codice IA",
+      "shortDescription": "Hai lanciato in fretta con codice generato dall'IA? Lo ripuliamo noi. Refactoring, test e dissoluzione del debito tecnico.",
+      "longDescription": "Il codice generato dall'IA ti porta sul mercato in fretta, ma accumula debito ancora più in fretta. Facciamo audit, refactoring, aggiungiamo copertura di test, ottimizziamo le prestazioni e documentiamo codebase costruite con l'assistenza dell'IA, così il tuo team può tornare a muoversi rapidamente.",
+      "deliverables": [
+        "Audit di qualità del codice",
+        "Piani di refactoring",
+        "Implementazione di suite di test",
+        "Profilazione delle prestazioni",
+        "Documentazione"
+      ]
+    }
+  },
+  "aboutData": {
+    "personalBio": "Likwiid è uno studio software guidato dal fondatore Gabriel Ghoussoub, ingegnere software full-stack con oltre 5 anni di esperienza nel portare in produzione software in ambito fintech, insurtech, monitoraggio satellitare, IoT e VR. Partiamo dalla strategia prima del codice e costruiamo da cima a fondo, dall'architettura al deployment, per startup e grandi aziende.",
+    "personalTitle": "Fondatore e Ingegnere Software Full-Stack",
+    "founderRole": "Fondatore e Lead Engineer",
+    "founderBio": "Gabriel è un ingegnere software full-stack con oltre 5 anni di esperienza nella costruzione di sistemi in produzione in ambito fintech, insurtech, monitoraggio satellitare, IoT e VR. Ha una laurea in Ingegneria Informatica e delle Comunicazioni presso la Antonine University. Ha guidato team interfunzionali fino a 5 ingegneri, ridotto i tempi di deployment del 93% e raggiunto una disponibilità di sistema del 99,95% grazie a CI/CD e all'ottimizzazione delle prestazioni.",
+    "philosophy": "Il software deve fluire. Come l'acqua che si adatta a qualsiasi contenitore, la buona ingegneria si adatta a qualsiasi problema. Il nome Likwiid incarna questa convinzione: fluidità e adattabilità in tutto ciò che costruiamo.",
+    "interests": [
+      "Ballo di salsa",
+      "Formula 1",
+      "Esplorazione spaziale",
+      "Architetture di agenti IA",
+      "Sviluppo VR per Meta Quest",
+      "Gestione energetica IoT"
+    ],
+    "journey": [
+      {
+        "role": "Ingegneria Informatica e delle Comunicazioni",
+        "description": "Laurea in Ingegneria Informatica e delle Comunicazioni."
+      },
+      {
+        "role": "Stagista sviluppatore Java",
+        "description": "Miglioramento di un sistema di accesso dei dipendenti basato su Java Spring, con l'integrazione di oltre 20 nuove funzionalità."
+      },
+      {
+        "role": "Sviluppatore web",
+        "description": "Consegna di oltre 15 siti web per clienti con PHP e WordPress. Creazione di script Python per automatizzare il web scraping di dati di mercato."
+      },
+      {
+        "role": "Ingegnere software Java",
+        "description": "Sviluppo di microservizi scalabili con Spring Boot e Kubernetes. Riduzione dei tempi di deployment da 4 ore a 15 minuti. Copertura di test del 90% con JUnit/Mockito."
+      },
+      {
+        "role": "Ingegnere software",
+        "description": "Progettazione di un sistema automatizzato di gestione energetica IoT con interfaccia Angular, con una riduzione del 15% dei costi energetici grazie all'analisi predittiva."
+      },
+      {
+        "role": "Ingegnere software di livello intermedio",
+        "description": "Riprogettazione dello strumento di monitoraggio Inpulse con uno stack completamente reattivo (Java WebFlux, React). Miglioramento della reattività del sistema del 40% sotto carichi di dati elevati."
+      },
+      {
+        "role": "Ingegnere software senior",
+        "description": "Guida di un team di 5 ingegneri nella creazione di una carta d'identità digitale nazionale che integra funzionalità bancarie e controllo di identità e accessi."
+      },
+      {
+        "role": "Ingegnere software",
+        "description": "Sviluppo di servizi backend e API scalabili con Node.js, TypeScript, Elixir e NestJS. Sviluppo full-stack con Java Spring Boot e React."
+      },
+      {
+        "role": "Fondatore",
+        "description": "Fondazione di Likwiid come studio digitale. Sviluppo full-stack, architettura cloud, integrazione di IA ed esperienze VR per clienti in tutto il mondo."
+      }
+    ]
   }
 }
