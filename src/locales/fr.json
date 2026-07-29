@@ -230,7 +230,11 @@
     "feature4Title": "La langue de votre client, bien faite",
     "feature4Desc": "Chaque étape, chaque libellé et chaque prix dans la langue que le client choisit. Rien d'à moitié traduit et aucun libellé interne qui s'affiche par erreur.",
     "ownership": "Les plateformes de réservation apportent de la visibilité, et elles la font payer : une commission sur chaque séjour, leur marque entre vous et votre client, leurs règles. Likwiid Direct est l'autre voie. Votre domaine, votre compte de paiement, votre fichier clients. Nous le construisons, il vous appartient.",
-    "scarcity": "Ce moteur ne gère encore les réservations de personne. Nous aimerions que les vôtres soient les premières, à un prix de référence en échange du droit de montrer le travail fini. Et si vous préférez garder des réservations personnelles et manuelles, c'est une très bonne façon de gérer une activité, et ce produit n'est pas fait pour vous."
+    "scarcity": "Ce moteur ne gère encore les réservations de personne. Nous aimerions que les vôtres soient les premières, à un prix de référence en échange du droit de montrer le travail fini. Et si vous préférez garder des réservations personnelles et manuelles, c'est une très bonne façon de gérer une activité, et ce produit n'est pas fait pour vous.",
+    "demoLaunch": "Lancer la démo complète",
+    "demoOverlayNote": "Propriété fictive, paiement simulé, aucun montant n'est débité.",
+    "demoClose": "Fermer",
+    "demoPreviewAlt": "Aperçu du parcours de réservation Likwiid Direct"
   },
   "privacy": {
     "documentTitle": "Politique de confidentialité | Likwiid",

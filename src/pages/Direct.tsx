@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
-import { SlidersHorizontal, CreditCard, Code2, Languages } from 'lucide-react'
+import { SlidersHorizontal, CreditCard, Code2, Languages, Play, X } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 
@@ -22,9 +22,69 @@ const FEATURES = [
   { icon: Languages, titleKey: 'feature4Title', descKey: 'feature4Desc' },
 ] as const
 
+/** Full-screen, Likwiid-branded demo experience. The fictional property brand
+    lives inside the Likwiid Direct frame, which is the product story: the
+    engine wears each client's brand. */
+function DemoOverlay({
+  src,
+  title,
+  note,
+  closeLabel,
+  onClose,
+}: {
+  src: string
+  title: string
+  note: string
+  closeLabel: string
+  onClose: () => void
+}) {
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex flex-col bg-bg-primary"
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border px-4 md:px-6">
+        <div className="flex min-w-0 items-baseline gap-3">
+          <span className="whitespace-nowrap font-bold font-[family-name:var(--font-display)] text-text-primary">
+            Likwiid Direct
+          </span>
+          <span className="hidden truncate text-sm text-text-tertiary sm:block">{note}</span>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          autoFocus
+          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm text-text-secondary transition-colors hover:text-text-primary hover:border-border-hover"
+        >
+          {closeLabel}
+          <X size={16} aria-hidden="true" />
+        </button>
+      </div>
+      <div className="min-h-0 flex-1">
+        <iframe src={src} title={title} className="block h-full w-full" style={{ border: 0 }} />
+      </div>
+    </div>
+  )
+}
+
 export default function Direct() {
   const { t, i18n } = useTranslation()
-  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [demoOpen, setDemoOpen] = useState(false)
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -36,25 +96,18 @@ export default function Direct() {
     return (DEMO_LANGS as readonly string[]).includes(lang) ? `${DEMO_BASE_URL}&lang=${lang}` : DEMO_BASE_URL
   }, [i18n.language])
 
-  // The embedded demo posts its content height so the iframe can grow without inner scrollbars.
-  useEffect(() => {
-    const onMessage = (event: MessageEvent) => {
-      if (event.origin !== DEMO_ORIGIN) return
-      const data = event.data as { type?: string; height?: number } | null
-      if (data?.type === 'lkd:height' && typeof data.height === 'number' && iframeRef.current) {
-        iframeRef.current.style.height = `${Math.max(560, data.height)}px`
-      }
-    }
-    window.addEventListener('message', onMessage)
-    return () => window.removeEventListener('message', onMessage)
-  }, [])
-
-  const scrollToDemo = () => {
-    document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <PageTransition>
+      {demoOpen ? (
+        <DemoOverlay
+          src={demoSrc}
+          title={t('direct.demoIframeTitle')}
+          note={t('direct.demoOverlayNote')}
+          closeLabel={t('direct.demoClose')}
+          onClose={() => setDemoOpen(false)}
+        />
+      ) : null}
+
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           {/* Hero */}
@@ -74,7 +127,7 @@ export default function Direct() {
               {t('direct.heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button variant="primary" size="lg" onClick={scrollToDemo}>
+              <Button variant="primary" size="lg" onClick={() => setDemoOpen(true)}>
                 {t('direct.ctaDemo')}
               </Button>
               <Button variant="secondary" size="lg" href="/contact">
@@ -101,16 +154,28 @@ export default function Direct() {
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
               {t('direct.demoNote')}
             </p>
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-bg-secondary/50">
-              <iframe
-                ref={iframeRef}
-                src={demoSrc}
-                title={t('direct.demoIframeTitle')}
+            <button
+              type="button"
+              onClick={() => setDemoOpen(true)}
+              className="group relative mt-8 block w-full overflow-hidden rounded-2xl border border-border text-left focus-visible:outline-2 focus-visible:outline-accent-gold"
+            >
+              <img
+                src="/direct-demo-preview.jpg"
+                alt={t('direct.demoPreviewAlt')}
                 loading="lazy"
-                className="block w-full"
-                style={{ border: 0, borderRadius: 16, minHeight: 720 }}
+                className="block w-full transition-transform duration-500 ease-out group-hover:scale-[1.015]"
               />
-            </div>
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
+              />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-6 py-3 font-semibold text-[#1a1a2e] shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <Play size={18} aria-hidden="true" />
+                  {t('direct.demoLaunch')}
+                </span>
+              </span>
+            </button>
           </m.section>
 
           {/* Features */}

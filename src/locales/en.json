@@ -242,7 +242,11 @@
     "feature4Title": "Your guest's language, done properly",
     "feature4Desc": "Every step, every label and every price in the language the guest picks. Nothing half translated and nothing leaking internal labels.",
     "ownership": "Booking platforms bring reach, and they charge for it: commission on every stay, their brand between you and your guest, their rules. Likwiid Direct is the other lane. Your domain, your payment account, your guest list. We build it, you own it.",
-    "scarcity": "This engine is not running anyone's bookings yet. We would like yours to be first, at a reference price in exchange for showing the finished work. And if you would rather keep bookings personal and manual, that is a fine way to run a business, and this product is not for you."
+    "scarcity": "This engine is not running anyone's bookings yet. We would like yours to be first, at a reference price in exchange for showing the finished work. And if you would rather keep bookings personal and manual, that is a fine way to run a business, and this product is not for you.",
+    "demoLaunch": "Launch the full demo",
+    "demoOverlayNote": "Fictional property, simulated checkout, no payment is taken.",
+    "demoClose": "Close",
+    "demoPreviewAlt": "Preview of the Likwiid Direct booking flow"
   },
   "privacy": {
     "documentTitle": "Privacy Policy | Likwiid",

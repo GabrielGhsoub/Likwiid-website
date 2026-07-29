@@ -230,7 +230,11 @@
     "feature4Title": "A língua do seu hóspede, bem feita",
     "feature4Desc": "Cada passo, cada etiqueta e cada preço na língua que o hóspede escolhe. Nada meio traduzido e nenhuma etiqueta interna à vista.",
     "ownership": "As plataformas de reservas trazem alcance, e cobram por isso: comissão em cada estadia, a marca delas entre si e o seu hóspede, as regras delas. O Likwiid Direct é a outra via. O seu domínio, a sua conta de pagamentos, a sua lista de hóspedes. Nós construímos, e é seu.",
-    "scarcity": "Este motor ainda não gere as reservas de ninguém. Gostaríamos que as suas fossem as primeiras, a um preço de referência em troca de podermos mostrar o trabalho terminado. E se preferir manter as reservas pessoais e manuais, é uma ótima forma de gerir um negócio, e este produto não é para si."
+    "scarcity": "Este motor ainda não gere as reservas de ninguém. Gostaríamos que as suas fossem as primeiras, a um preço de referência em troca de podermos mostrar o trabalho terminado. E se preferir manter as reservas pessoais e manuais, é uma ótima forma de gerir um negócio, e este produto não é para si.",
+    "demoLaunch": "Abrir a demonstração completa",
+    "demoOverlayNote": "Propriedade fictícia, pagamento simulado, nenhum valor é cobrado.",
+    "demoClose": "Fechar",
+    "demoPreviewAlt": "Pré-visualização do fluxo de reservas do Likwiid Direct"
   },
   "privacy": {
     "documentTitle": "Política de Privacidade | Likwiid",

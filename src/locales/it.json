@@ -243,7 +243,11 @@
     "feature4Title": "La lingua del tuo ospite, fatta bene",
     "feature4Desc": "Ogni passaggio, ogni etichetta e ogni prezzo nella lingua scelta dall'ospite. Niente tradotto a metà e nessuna etichetta interna in vista.",
     "ownership": "Le piattaforme di prenotazione portano visibilità, e la fanno pagare: commissione su ogni soggiorno, il loro marchio tra te e il tuo ospite, le loro regole. Likwiid Direct è l'altra corsia. Il tuo dominio, il tuo conto per i pagamenti, la tua lista degli ospiti. Noi lo costruiamo, tu ne sei il proprietario.",
-    "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno. Ci piacerebbe che le tue fossero le prime, a un prezzo di riferimento in cambio della possibilità di mostrare il lavoro finito. E se preferisci gestire le prenotazioni in modo personale e manuale, è un ottimo modo di condurre un'attività, e questo prodotto non fa per te."
+    "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno. Ci piacerebbe che le tue fossero le prime, a un prezzo di riferimento in cambio della possibilità di mostrare il lavoro finito. E se preferisci gestire le prenotazioni in modo personale e manuale, è un ottimo modo di condurre un'attività, e questo prodotto non fa per te.",
+    "demoLaunch": "Apri la demo completa",
+    "demoOverlayNote": "Struttura fittizia, pagamento simulato, non viene addebitato nulla.",
+    "demoClose": "Chiudi",
+    "demoPreviewAlt": "Anteprima del flusso di prenotazione di Likwiid Direct"
   },
   "privacy": {
     "documentTitle": "Informativa sulla privacy | Likwiid",
