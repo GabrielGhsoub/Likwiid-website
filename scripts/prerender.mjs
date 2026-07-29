@@ -244,6 +244,15 @@ const routes = {
       'Your customers want to book at 11pm from their phone. We build simple, fast websites where customers book and pay online: real availability, deposits, automatic reminders, and a site you own. From $1,500, most projects $8,000 to $15,000, in 2 to 4 weeks.'
     ),
   },
+  direct: {
+    title: 'Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid',
+    description:
+      "A commission-free booking engine that lives inside your existing website. Options that change the price, card deposits, and the guest's language done properly. Try the live demo.",
+    content: block(
+      'Likwiid Direct: bookings that flow straight to you',
+      'Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list. Try the live demo: Quinta do Fluxo is a fictional guesthouse built so you can click through the exact engine we would build for you, with options that change the price, card deposits, and every step in the language the guest picks.'
+    ),
+  },
   privacy: {
     title: 'Privacy Policy | Likwiid',
     description: 'Likwiid privacy policy.',
@@ -285,6 +294,7 @@ const BREADCRUMB_LABELS = {
   about: 'About',
   contact: 'Contact',
   'booking-websites': 'Booking Websites',
+  direct: 'Likwiid Direct',
 }
 
 function jsonLdGraph(path, meta) {

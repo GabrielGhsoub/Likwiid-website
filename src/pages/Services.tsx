@@ -170,7 +170,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Link
               to="/booking-websites"
               className="group block rounded-lg border border-border bg-bg-secondary/50 p-6 no-underline transition-colors hover:border-accent-gold/50"
@@ -181,6 +181,18 @@ export default function Services() {
               <p className="mt-2 text-text-secondary text-sm">{t('services.bookingTeaserBody')}</p>
               <span className="mt-3 inline-block text-accent-gold text-sm font-medium">
                 {t('services.bookingTeaserLink')} &rarr;
+              </span>
+            </Link>
+            <Link
+              to="/direct"
+              className="group block rounded-lg border border-border bg-bg-secondary/50 p-6 no-underline transition-colors hover:border-accent-gold/50"
+            >
+              <h2 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                {t('services.directTeaserTitle')}
+              </h2>
+              <p className="mt-2 text-text-secondary text-sm">{t('services.directTeaserBody')}</p>
+              <span className="mt-3 inline-block text-accent-gold text-sm font-medium">
+                {t('services.directTeaserLink')} &rarr;
               </span>
             </Link>
           </div>

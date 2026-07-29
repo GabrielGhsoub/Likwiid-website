@@ -132,7 +132,10 @@
     "deliverables": "Deliverables",
     "bookingTeaserTitle": "Booking websites for salons, clinics & small hotels",
     "bookingTeaserBody": "A focused package where customers book and pay online, with deposits, reminders, and a site you own. From $1,500; most projects $8,000 to $15,000, in 2 to 4 weeks.",
-    "bookingTeaserLink": "See booking websites"
+    "bookingTeaserLink": "See booking websites",
+    "directTeaserTitle": "Likwiid Direct: a booking engine for small stays",
+    "directTeaserBody": "A commission-free direct booking engine that lives inside the website you already have. Options that change the price, card deposits, and the guest's language done properly. Try the live demo.",
+    "directTeaserLink": "See Likwiid Direct"
   },
   "carousel": {
     "previous": "Previous screenshot",
@@ -146,6 +149,7 @@
     "heading": "Small hotels, guesthouses & tour operators",
     "body": "We build simple, fast websites where your guests book and pay you directly, with no commission going to booking platforms. Real availability, deposits, and automatic reminders, in the languages your guests speak. You own the site, the bookings, and your guest list.",
     "cta": "Tell us about your property",
+    "directLink": "See Likwiid Direct, our booking engine, running live",
     "csTitle": "Case study coming soon",
     "csBody": "A recent project for a small hospitality business. Details will appear here once the client has approved sharing them.",
     "csBeforeLabel": "Before",
@@ -218,6 +222,27 @@
     "finalCtaTitle": "Want to see what this looks like for your business?",
     "finalCtaSubtitle": "Send us your current website or Instagram page and we'll reply with a short, free list of what we would fix first. No obligation.",
     "emailLabel": "Email"
+  },
+  "direct": {
+    "docTitle": "Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid",
+    "eyebrow": "Likwiid product",
+    "heroTitle": "Bookings that flow straight to you.",
+    "heroSubtitle": "Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list.",
+    "ctaDemo": "Try the live demo",
+    "ctaTalk": "Talk to us",
+    "demoTitle": "Try it yourself",
+    "demoNote": "Quinta do Fluxo is a fictional guesthouse. It exists so you can click through the exact engine we would build for you. The checkout is simulated and no payment is taken.",
+    "demoIframeTitle": "Likwiid Direct live demo",
+    "feature1Title": "Options that change the price",
+    "feature1Desc": "A tasting for two, an airport transfer, an extra night. Guests tick what they want and watch the total and the deposit update in front of them. This is the part no small booking widget does well, and it is the part we built first.",
+    "feature2Title": "A deposit, not the full amount",
+    "feature2Desc": "Most small properties already ask for 20 or 30 percent by bank transfer. Likwiid Direct takes the same deposit by card, at the exact moment the guest decides, and the balance stays payable on arrival.",
+    "feature3Title": "It lives inside the site you already have",
+    "feature3Desc": "One script tag and one div on any WordPress, Wix or hand-built site. No rebuild, no migration. Your website stays yours and the bookings come straight to you.",
+    "feature4Title": "Your guest's language, done properly",
+    "feature4Desc": "Every step, every label and every price in the language the guest picks. Nothing half translated and nothing leaking internal labels.",
+    "ownership": "Booking platforms bring reach, and they charge for it: commission on every stay, their brand between you and your guest, their rules. Likwiid Direct is the other lane. Your domain, your payment account, your guest list. We build it, you own it.",
+    "scarcity": "This engine is not running anyone's bookings yet. We would like yours to be first, at a reference price in exchange for showing the finished work. And if you would rather keep bookings personal and manual, that is a fine way to run a business, and this product is not for you."
   },
   "privacy": {
     "documentTitle": "Privacy Policy | Likwiid",

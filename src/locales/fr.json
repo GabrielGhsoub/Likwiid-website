@@ -133,7 +133,10 @@
     "deliverables": "Livrables",
     "bookingTeaserTitle": "Sites de réservation pour salons, cliniques et petits hôtels",
     "bookingTeaserBody": "Un forfait ciblé où vos clients réservent et paient en ligne, avec acomptes, rappels et un site qui vous appartient. À partir de 1 500 $ ; la plupart des projets entre 8 000 $ et 15 000 $, en 2 à 4 semaines.",
-    "bookingTeaserLink": "Voir les sites de réservation"
+    "bookingTeaserLink": "Voir les sites de réservation",
+    "directTeaserTitle": "Likwiid Direct : un moteur de réservation pour petits hébergements",
+    "directTeaserBody": "Un moteur de réservation directe sans commission qui s'intègre au site que vous avez déjà. Des options qui font varier le prix, des acomptes par carte et la langue du client bien faite. Essayez la démo en direct.",
+    "directTeaserLink": "Voir Likwiid Direct"
   },
   "carousel": {
     "previous": "Capture précédente",
@@ -207,6 +210,27 @@
     "finalCtaTitle": "Vous voulez voir ce que cela donnerait pour votre activité ?",
     "finalCtaSubtitle": "Envoyez-nous votre site actuel ou votre page Instagram et nous vous répondrons avec une courte liste gratuite de ce que nous corrigerions en premier. Sans engagement.",
     "emailLabel": "E-mail"
+  },
+  "direct": {
+    "docTitle": "Likwiid Direct, un moteur de réservation directe pour petits hébergements | Likwiid",
+    "eyebrow": "Produit Likwiid",
+    "heroTitle": "Des réservations qui arrivent directement chez vous.",
+    "heroSubtitle": "Likwiid Direct est un moteur de réservation directe pour les petits hébergements et les expériences. Pas de commission, pas d'intermédiaire, pas de dépendance. Vous gardez votre domaine, votre compte de paiement et votre fichier clients.",
+    "ctaDemo": "Essayer la démo en direct",
+    "ctaTalk": "Parlons-en",
+    "demoTitle": "Essayez par vous-même",
+    "demoNote": "Quinta do Fluxo est une maison d'hôtes fictive. Elle existe pour que vous puissiez parcourir le moteur exact que nous construirions pour vous. Le paiement est simulé et aucun montant n'est débité.",
+    "demoIframeTitle": "Démo en direct de Likwiid Direct",
+    "feature1Title": "Des options qui font varier le prix",
+    "feature1Desc": "Une dégustation pour deux, un transfert depuis l'aéroport, une nuit supplémentaire. Les clients cochent ce qu'ils veulent et voient le total et l'acompte se mettre à jour sous leurs yeux. C'est la partie qu'aucun petit widget de réservation ne fait bien, et c'est la partie que nous avons construite en premier.",
+    "feature2Title": "Un acompte, pas le montant total",
+    "feature2Desc": "La plupart des petits établissements demandent déjà 20 ou 30 pour cent par virement bancaire. Likwiid Direct prend le même acompte par carte, au moment exact où le client se décide, et le solde reste payable à l'arrivée.",
+    "feature3Title": "Il s'intègre au site que vous avez déjà",
+    "feature3Desc": "Une balise script et une div sur n'importe quel site WordPress, Wix ou fait main. Pas de refonte, pas de migration. Votre site reste le vôtre et les réservations arrivent directement chez vous.",
+    "feature4Title": "La langue de votre client, bien faite",
+    "feature4Desc": "Chaque étape, chaque libellé et chaque prix dans la langue que le client choisit. Rien d'à moitié traduit et aucun libellé interne qui s'affiche par erreur.",
+    "ownership": "Les plateformes de réservation apportent de la visibilité, et elles la font payer : une commission sur chaque séjour, leur marque entre vous et votre client, leurs règles. Likwiid Direct est l'autre voie. Votre domaine, votre compte de paiement, votre fichier clients. Nous le construisons, il vous appartient.",
+    "scarcity": "Ce moteur ne gère encore les réservations de personne. Nous aimerions que les vôtres soient les premières, à un prix de référence en échange du droit de montrer le travail fini. Et si vous préférez garder des réservations personnelles et manuelles, c'est une très bonne façon de gérer une activité, et ce produit n'est pas fait pour vous."
   },
   "privacy": {
     "documentTitle": "Politique de confidentialité | Likwiid",
@@ -1405,6 +1429,7 @@
     "heading": "Petits hôtels, maisons d'hôtes et voyagistes",
     "body": "Nous créons des sites simples et rapides où vos clients réservent et vous paient directement, sans commission pour les plateformes de réservation. Disponibilités réelles, acomptes et rappels automatiques, dans les langues de vos clients. Le site, les réservations et votre fichier clients vous appartiennent.",
     "cta": "Parlez-nous de votre établissement",
+    "directLink": "Voir Likwiid Direct, notre moteur de réservation, en action",
     "csTitle": "Étude de cas à venir",
     "csBody": "Un projet récent pour une petite entreprise d'hôtellerie. Les détails apparaîtront ici dès que le client aura approuvé leur partage.",
     "csBeforeLabel": "Avant",

@@ -299,6 +299,11 @@ export default function Portfolio() {
               {t('hospitality.body')}
             </p>
             <HospitalityCaseStudy />
+            <p className="mt-4">
+              <Link to="/direct" className="text-accent-gold hover:underline font-medium">
+                {t('hospitality.directLink')}
+              </Link>
+            </p>
             <Link
               to="/contact"
               className="mt-5 inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-bg-primary no-underline transition-opacity hover:opacity-90"

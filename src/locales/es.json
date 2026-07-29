@@ -133,7 +133,10 @@
     "deliverables": "Entregables",
     "bookingTeaserTitle": "Webs de reservas para salones, clínicas y hoteles pequeños",
     "bookingTeaserBody": "Un paquete enfocado donde tus clientes reservan y pagan en línea, con depósitos, recordatorios y un sitio que es tuyo. Desde 1500 $; la mayoría de los proyectos entre 8000 $ y 15 000 $, en 2 a 4 semanas.",
-    "bookingTeaserLink": "Ver webs de reservas"
+    "bookingTeaserLink": "Ver webs de reservas",
+    "directTeaserTitle": "Likwiid Direct: un motor de reservas para pequeños alojamientos",
+    "directTeaserBody": "Un motor de reserva directa sin comisiones que vive dentro de la web que ya tienes. Opciones que cambian el precio, señales con tarjeta y el idioma del huésped bien hecho. Prueba la demo en vivo.",
+    "directTeaserLink": "Ver Likwiid Direct"
   },
   "carousel": {
     "previous": "Captura anterior",
@@ -207,6 +210,27 @@
     "finalCtaTitle": "¿Quieres ver cómo sería esto para tu negocio?",
     "finalCtaSubtitle": "Envíanos tu web actual o tu página de Instagram y te responderemos con una breve lista gratuita de lo que arreglaríamos primero. Sin compromiso.",
     "emailLabel": "Correo"
+  },
+  "direct": {
+    "docTitle": "Likwiid Direct, un motor de reserva directa para pequeños alojamientos | Likwiid",
+    "eyebrow": "Producto Likwiid",
+    "heroTitle": "Reservas que llegan directamente a ti.",
+    "heroSubtitle": "Likwiid Direct es un motor de reserva directa para pequeños alojamientos y experiencias. Sin comisiones, sin intermediarios, sin ataduras. Tú conservas tu dominio, tu cuenta de pagos y tu lista de huéspedes.",
+    "ctaDemo": "Prueba la demo en vivo",
+    "ctaTalk": "Habla con nosotros",
+    "demoTitle": "Pruébalo tú mismo",
+    "demoNote": "Quinta do Fluxo es una casa de huéspedes ficticia. Existe para que puedas recorrer el motor exacto que construiríamos para ti. El pago es simulado y no se cobra nada.",
+    "demoIframeTitle": "Demo en vivo de Likwiid Direct",
+    "feature1Title": "Opciones que cambian el precio",
+    "feature1Desc": "Una cata para dos, un traslado al aeropuerto, una noche extra. Los huéspedes marcan lo que quieren y ven cómo el total y la señal se actualizan delante de ellos. Esta es la parte que ningún widget pequeño de reservas hace bien, y es la parte que construimos primero.",
+    "feature2Title": "Una señal, no el importe total",
+    "feature2Desc": "La mayoría de los alojamientos pequeños ya piden un 20 o un 30 por ciento por transferencia bancaria. Likwiid Direct cobra esa misma señal con tarjeta, en el momento exacto en que el huésped se decide, y el resto queda pendiente para pagar a la llegada.",
+    "feature3Title": "Vive dentro de la web que ya tienes",
+    "feature3Desc": "Una etiqueta de script y un div en cualquier web hecha con WordPress, Wix o a mano. Sin rehacer nada, sin migraciones. Tu web sigue siendo tuya y las reservas llegan directamente a ti.",
+    "feature4Title": "El idioma de tu huésped, bien hecho",
+    "feature4Desc": "Cada paso, cada etiqueta y cada precio en el idioma que elige el huésped. Nada a medio traducir y ninguna etiqueta interna a la vista.",
+    "ownership": "Las plataformas de reservas aportan alcance, y lo cobran: comisión en cada estancia, su marca entre tú y tu huésped, sus reglas. Likwiid Direct es el otro carril. Tu dominio, tu cuenta de pagos, tu lista de huéspedes. Nosotros lo construimos, tú eres el dueño.",
+    "scarcity": "Este motor todavía no gestiona las reservas de nadie. Nos gustaría que las tuyas fueran las primeras, a un precio de referencia a cambio de poder mostrar el trabajo terminado. Y si prefieres llevar las reservas de forma personal y manual, es una manera estupenda de llevar un negocio, y este producto no es para ti."
   },
   "privacy": {
     "documentTitle": "Política de privacidad | Likwiid",
@@ -1405,6 +1429,7 @@
     "heading": "Hoteles pequeños, casas de huéspedes y operadores turísticos",
     "body": "Creamos webs sencillas y rápidas donde tus huéspedes reservan y te pagan directamente, sin comisiones para las plataformas de reservas. Disponibilidad real, depósitos y recordatorios automáticos, en los idiomas que hablan tus huéspedes. La web, las reservas y tu lista de huéspedes son tuyas.",
     "cta": "Cuéntanos sobre tu alojamiento",
+    "directLink": "Ver Likwiid Direct, nuestro motor de reservas, en funcionamiento",
     "csTitle": "Caso de estudio próximamente",
     "csBody": "Un proyecto reciente para un pequeño negocio de hostelería. Los detalles aparecerán aquí cuando el cliente apruebe compartirlos.",
     "csBeforeLabel": "Antes",

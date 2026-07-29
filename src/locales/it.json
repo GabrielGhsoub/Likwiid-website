@@ -133,7 +133,10 @@
     "deliverables": "Cosa consegniamo",
     "bookingTeaserTitle": "Siti con prenotazione per saloni, cliniche e piccoli hotel",
     "bookingTeaserBody": "Un pacchetto mirato dove i clienti prenotano e pagano online, con caparre, promemoria e un sito di tua proprietà. A partire da $1,500; la maggior parte dei progetti si aggira tra $8,000 e $15,000 e richiede da 2 a 4 settimane.",
-    "bookingTeaserLink": "Scopri i siti di prenotazione"
+    "bookingTeaserLink": "Scopri i siti di prenotazione",
+    "directTeaserTitle": "Likwiid Direct: un motore di prenotazione per piccole strutture",
+    "directTeaserBody": "Un motore di prenotazione diretta senza commissioni che vive dentro il sito che hai già. Opzioni che cambiano il prezzo, caparre con carta e la lingua dell'ospite fatta bene. Prova la demo dal vivo.",
+    "directTeaserLink": "Scopri Likwiid Direct"
   },
   "carousel": {
     "previous": "Screenshot precedente",
@@ -147,6 +150,7 @@
     "heading": "Piccoli hotel, guest house e tour operator",
     "body": "Creiamo siti semplici e veloci dove i tuoi ospiti prenotano e ti pagano direttamente, senza commissioni alle piattaforme di prenotazione. Disponibilità reale, caparre e promemoria automatici, nelle lingue dei tuoi ospiti. Il sito, le prenotazioni e la lista degli ospiti sono tuoi.",
     "cta": "Parlaci della tua struttura",
+    "directLink": "Guarda Likwiid Direct, il nostro motore di prenotazione, in azione",
     "csTitle": "Caso studio in arrivo",
     "csBody": "Un progetto recente per una piccola attività ricettiva. I dettagli appariranno qui quando il cliente avrà approvato la condivisione.",
     "csBeforeLabel": "Prima",
@@ -219,6 +223,27 @@
     "finalCtaTitle": "Vuoi vedere come sarebbe per la tua attività?",
     "finalCtaSubtitle": "Mandaci il tuo sito attuale o la tua pagina Instagram e ti risponderemo con una breve lista gratuita di ciò che sistemeremmo per primo. Senza impegno.",
     "emailLabel": "Email"
+  },
+  "direct": {
+    "docTitle": "Likwiid Direct, un motore di prenotazione diretta per piccole strutture | Likwiid",
+    "eyebrow": "Prodotto Likwiid",
+    "heroTitle": "Prenotazioni che arrivano dritte a te.",
+    "heroSubtitle": "Likwiid Direct è un motore di prenotazione diretta per piccole strutture ed esperienze. Nessuna commissione, nessun intermediario, nessun vincolo. Il dominio, il conto per i pagamenti e la lista degli ospiti restano tuoi.",
+    "ctaDemo": "Prova la demo dal vivo",
+    "ctaTalk": "Parla con noi",
+    "demoTitle": "Provalo tu stesso",
+    "demoNote": "Quinta do Fluxo è una guest house immaginaria. Esiste perché tu possa provare esattamente il motore che costruiremmo per te. Il pagamento è simulato e non viene addebitato nulla.",
+    "demoIframeTitle": "Demo dal vivo di Likwiid Direct",
+    "feature1Title": "Opzioni che cambiano il prezzo",
+    "feature1Desc": "Una degustazione per due, un transfer dall'aeroporto, una notte in più. Gli ospiti selezionano ciò che vogliono e vedono il totale e la caparra aggiornarsi davanti ai loro occhi. È la parte che nessun piccolo widget di prenotazione fa bene, ed è la parte che abbiamo costruito per prima.",
+    "feature2Title": "Una caparra, non l'importo totale",
+    "feature2Desc": "La maggior parte delle piccole strutture chiede già il 20 o il 30 per cento con bonifico bancario. Likwiid Direct incassa la stessa caparra con carta, nel momento esatto in cui l'ospite decide, e il saldo resta da pagare all'arrivo.",
+    "feature3Title": "Vive dentro il sito che hai già",
+    "feature3Desc": "Un tag script e un div su qualsiasi sito WordPress, Wix o fatto a mano. Nessun rifacimento, nessuna migrazione. Il tuo sito resta tuo e le prenotazioni arrivano dritte a te.",
+    "feature4Title": "La lingua del tuo ospite, fatta bene",
+    "feature4Desc": "Ogni passaggio, ogni etichetta e ogni prezzo nella lingua scelta dall'ospite. Niente tradotto a metà e nessuna etichetta interna in vista.",
+    "ownership": "Le piattaforme di prenotazione portano visibilità, e la fanno pagare: commissione su ogni soggiorno, il loro marchio tra te e il tuo ospite, le loro regole. Likwiid Direct è l'altra corsia. Il tuo dominio, il tuo conto per i pagamenti, la tua lista degli ospiti. Noi lo costruiamo, tu ne sei il proprietario.",
+    "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno. Ci piacerebbe che le tue fossero le prime, a un prezzo di riferimento in cambio della possibilità di mostrare il lavoro finito. E se preferisci gestire le prenotazioni in modo personale e manuale, è un ottimo modo di condurre un'attività, e questo prodotto non fa per te."
   },
   "privacy": {
     "documentTitle": "Informativa sulla privacy | Likwiid",
