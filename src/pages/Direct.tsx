@@ -11,7 +11,7 @@ const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
 
 const DEMO_ORIGIN = 'https://gabrielghsoub.github.io'
-const DEMO_BASE_URL = `${DEMO_ORIGIN}/likwiid-direct/?embed=1&slug=quinta-do-fluxo`
+const DEMO_BASE_URL = `${DEMO_ORIGIN}/likwiid-direct-demo/?embed=1&slug=quinta-do-fluxo`
 // Languages the embedded demo ships with; other site languages fall back to the demo default.
 const DEMO_LANGS = ['pt', 'en', 'es'] as const
 
