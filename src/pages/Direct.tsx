@@ -264,6 +264,20 @@ export default function Direct() {
             </p>
           </section>
 
+          {/* Request mode: the engine also runs without a payment step, for
+              owners who confirm every booking themselves. */}
+          <section aria-labelledby="request-heading" className="mt-20">
+            <h2
+              id="request-heading"
+              className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary"
+            >
+              {t('direct.requestTitle')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('direct.requestBody')}
+            </p>
+          </section>
+
           {/* Owner panel illustration */}
           <section aria-labelledby="owner-heading" className="mt-20">
             <div className="flex flex-wrap items-center gap-3">

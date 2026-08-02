@@ -241,6 +241,8 @@
     "demoCard2Property": "Atelier Likwiid",
     "syncTitle": "Sem reservas duplicadas",
     "syncBody": "O Likwiid Direct importa as datas ocupadas dos calendários que já utiliza. Serve qualquer plataforma que exporte um feed iCal, e essas datas fecham aqui automaticamente. Também exporta um feed por unidade, por isso uma reserva direta fecha a data em todos os outros sítios onde anuncia. Na demo ao vivo, o calendário sincronizado contém dados de exemplo.",
+    "requestTitle": "Ou receba pedidos",
+    "requestBody": "Nem todos os proprietários querem que uma reserva se confirme sozinha. O Likwiid Direct também funciona em modo de pedido: o visitante escolhe o que pretende e envia-lhe. Não é reservado nada e não é cobrado nada. É você que confirma, ou sugere outro horário, tal como faz agora. A mesma página, o mesmo calendário, sem qualquer passo de pagamento.",
     "ownerTitle": "O que recebe",
     "ownerBadge": "Ilustração",
     "ownerNotifTitle": "A notificação de reserva",

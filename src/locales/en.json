@@ -253,6 +253,8 @@
     "demoCard2Property": "Atelier Likwiid",
     "syncTitle": "No double bookings",
     "syncBody": "Likwiid Direct imports the busy dates from the calendars you already use. Any platform that can export an iCal feed works, and those dates close here automatically. It also exports a feed for each unit, so a direct booking closes the date everywhere else you list. In the live demo the synced calendar is sample data.",
+    "requestTitle": "Or take enquiries instead",
+    "requestBody": "Not every owner wants a booking to confirm itself. Likwiid Direct also runs in request mode, where a visitor picks what they want and sends it to you. Nothing is booked and nothing is charged. You confirm, or suggest another time, exactly as you do now. Same page, same calendar, no payment step at all.",
     "ownerTitle": "What you receive",
     "ownerBadge": "Illustration",
     "ownerNotifTitle": "The booking notification",
