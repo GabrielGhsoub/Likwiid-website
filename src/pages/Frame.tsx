@@ -30,12 +30,16 @@ const DEMO_CARDS = [
     src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/ana-likwiid`,
     titleKey: 'demoCard1Title',
     brandKey: 'demoCard1Brand',
+    image: '/frame-demo-ana-preview.jpg',
+    previewAltKey: 'demoCard1PreviewAlt',
   },
   {
     id: 'studio',
     src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/studio-likwiid`,
     titleKey: 'demoCard2Title',
     brandKey: 'demoCard2Brand',
+    image: '/frame-demo-studio-preview.jpg',
+    previewAltKey: 'demoCard2PreviewAlt',
   },
 ] as const
 
@@ -187,10 +191,11 @@ export default function Frame() {
                   className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left focus-visible:outline-2 focus-visible:outline-accent-gold"
                 >
                   <span className="relative block aspect-[16/10]">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-bg-secondary transition-transform duration-500 ease-out group-hover:scale-[1.015]"
-                      style={{ backgroundImage: 'var(--gradient-liquid-subtle)' }}
+                    <img
+                      src={card.image}
+                      alt={t(`frame.${card.previewAltKey}`)}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.015]"
                     />
                     <span
                       aria-hidden="true"
