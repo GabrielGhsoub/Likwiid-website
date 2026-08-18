@@ -253,6 +253,15 @@ const routes = {
       'Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list. Try the live demo: Quinta Likwiid is a fictional guesthouse built so you can click through the exact engine we would build for you, with options that change the price, card deposits, and every step in the language the guest picks.'
     ),
   },
+  products: {
+    title: 'Products | Likwiid',
+    description:
+      'Likwiid builds two products: Likwiid Direct, a commission-free direct booking engine for small stays, and Likwiid Frame, a portfolio engine photographers own as files. Both have live demos you can try.',
+    content: block(
+      'Products built by Likwiid',
+      'Beyond client work, Likwiid builds two products. Likwiid Direct is a commission-free direct booking engine for small stays and experiences that lives inside the website you already have. Likwiid Frame is a premium portfolio engine for photographers, with client proofing, a print shop and booking, owned as files with no subscription. Both have live demos with fictional brands and simulated payment steps.'
+    ),
+  },
   frame: {
     title: 'Likwiid Frame, a Portfolio Engine for Photographers | Likwiid',
     description:
@@ -305,6 +314,7 @@ const BREADCRUMB_LABELS = {
   'booking-websites': 'Booking Websites',
   direct: 'Likwiid Direct',
   frame: 'Likwiid Frame',
+  products: 'Products',
 }
 
 function jsonLdGraph(path, meta) {

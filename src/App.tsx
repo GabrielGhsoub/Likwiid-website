@@ -22,6 +22,7 @@ const BeitToureefPoc = lazy(() => import('./pages/BeitToureefPoc'))
 const BookingWebsites = lazy(() => import('./pages/BookingWebsites'))
 const Direct = lazy(() => import('./pages/Direct'))
 const Frame = lazy(() => import('./pages/Frame'))
+const Products = lazy(() => import('./pages/Products'))
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function usePrefetchRoutes() {
       import('./pages/BookingWebsites')
       import('./pages/Direct')
       import('./pages/Frame')
+      import('./pages/Products')
       import('./pages/Portfolio')
       import('./pages/CaseStudy')
       import('./pages/About')
@@ -110,6 +112,7 @@ export default function App() {
                 <Route path="/booking-websites" element={<BookingWebsites />} />
                 <Route path="/direct" element={<Direct />} />
                 <Route path="/frame" element={<Frame />} />
+                <Route path="/products" element={<Products />} />
                 <Route path="/beit-toureef-walkthrough" element={<BeitToureefPoc />} />
                 <Route path="/beit-toureef-poc" element={<LegacyBeitToureefRedirect />} />
                 <Route path="*" element={<NotFound />} />

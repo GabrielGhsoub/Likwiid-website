@@ -19,24 +19,22 @@ import {
   BUTTON_LINK_SECONDARY_MD,
   BUTTON_LINK_TAP,
 } from '../components/ui/buttonLink'
+import { FRAME_DEMO_ORIGIN, withLikwiidReturn } from '../config/demoOrigins'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
 
-const DEMO_ORIGIN = 'https://gabrielghsoub.github.io'
-
-// Tells the demo it was reached from likwiid.com, so it shows its
-// "back to Likwiid" control.
-const FROM_LIKWIID = '?from=likwiid'
+// This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
+const BACK_PATH = '/frame'
 
 // The two public demo portfolios plus the owner panel. Both brands are fictional;
 // the engine wears each photographer's brand, which is the product story.
 const DEMO_CARDS = [
   {
     id: 'ana',
-    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/ana-likwiid${FROM_LIKWIID}`,
+    src: withLikwiidReturn(`${FRAME_DEMO_ORIGIN}/p/ana-likwiid`, BACK_PATH),
     titleKey: 'demoCard1Title',
     brandKey: 'demoCard1Brand',
     image: '/frame-demo-ana-preview.jpg',
@@ -44,7 +42,7 @@ const DEMO_CARDS = [
   },
   {
     id: 'studio',
-    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/studio-likwiid${FROM_LIKWIID}`,
+    src: withLikwiidReturn(`${FRAME_DEMO_ORIGIN}/p/studio-likwiid`, BACK_PATH),
     titleKey: 'demoCard2Title',
     brandKey: 'demoCard2Brand',
     image: '/frame-demo-studio-preview.jpg',
@@ -52,7 +50,7 @@ const DEMO_CARDS = [
   },
 ] as const
 
-const ADMIN_DEMO_SRC = `${DEMO_ORIGIN}/likwiid-frame-demo/admin/ana-likwiid${FROM_LIKWIID}`
+const ADMIN_DEMO_SRC = withLikwiidReturn(`${FRAME_DEMO_ORIGIN}/admin/ana-likwiid`, BACK_PATH)
 
 // feature5 is the Likwiid Direct booking synergy: its card carries an internal
 // cross-sell link to /direct, rendered via linkTo below.

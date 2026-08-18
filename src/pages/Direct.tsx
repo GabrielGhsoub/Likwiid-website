@@ -5,30 +5,26 @@ import { SlidersHorizontal, CreditCard, Code2, Languages, Play } from 'lucide-re
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { BUTTON_LINK_HOVER, BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_TAP } from '../components/ui/buttonLink'
+import { DIRECT_DEMO_ORIGIN, withLikwiidReturn } from '../config/demoOrigins'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
 
-const DEMO_ORIGIN = 'https://gabrielghsoub.github.io'
+// This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
+const BACK_PATH = '/direct'
 // Languages the embedded demo ships with; other site languages fall back to the demo default.
 const DEMO_LANGS = ['pt', 'en', 'es'] as const
-
-/** Appends the from=likwiid marker (which makes the demo show its back to
-    Likwiid control), honouring any query string already on the URL. */
-function withFromLikwiid(url: string) {
-  return `${url}${url.includes('?') ? '&' : '?'}from=likwiid`
-}
 
 /** Full-page demo URL for a given property slug, in the visitor's language when
     the demo supports it. Uses the /p/ pages (the full demo experience), not the
     embed=1 widget view, which is reserved for the iframe loader. */
 function demoHrefFor(slug: string, lang: string) {
-  const base = `${DEMO_ORIGIN}/likwiid-direct-demo/p/${slug}`
+  const base = `${DIRECT_DEMO_ORIGIN}/p/${slug}`
   const short = (lang ?? '').slice(0, 2)
   const localized = (DEMO_LANGS as readonly string[]).includes(short) ? `${base}?lang=${short}` : base
-  return withFromLikwiid(localized)
+  return withLikwiidReturn(localized, BACK_PATH)
 }
 
 const DEMO_CARDS = [

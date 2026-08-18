@@ -217,94 +217,6 @@ function ProjectCard({ project, index, priority }: { project: Project; index: nu
   )
 }
 
-// In-house products with live demos and dedicated product pages.
-const PRODUCTS: ReadonlyArray<{ key: 'Direct' | 'Frame'; to: string; image: string }> = [
-  { key: 'Direct', to: '/direct', image: '/direct-demo-preview.jpg' },
-  { key: 'Frame', to: '/frame', image: '/frame-demo-ana-preview.jpg' },
-]
-
-function ProductCard({ productKey, to, image, index }: { productKey: string; to: string; image: string; index: number }) {
-  const { t } = useTranslation()
-
-  return (
-    <m.div
-      initial={FADE_UP_INITIAL}
-      whileInView={FADE_UP_VISIBLE}
-      viewport={CARD_VIEWPORT}
-      transition={cardTransition(index)}
-      whileHover={CARD_HOVER}
-      className="h-full"
-    >
-      <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary transition-[border-color,box-shadow] duration-300 hover:border-border-hover hover:shadow-lg">
-        {/* Preview: same faux-browser treatment as web project cards */}
-        <Link
-          to={to}
-          className="block no-underline"
-          aria-label={t(`work.product${productKey}Link`)}
-          tabIndex={-1}
-        >
-          <div className="relative flex items-center justify-center overflow-hidden border-b border-border bg-bg-tertiary px-5 pt-5 md:px-6 md:pt-6">
-            <div className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]">
-              <div className="overflow-hidden rounded-t-md shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-                <div className="bg-bg-tertiary px-2 py-1 flex items-center gap-1.5">
-                  <div className="flex items-center gap-1">
-                    <div className="w-[6px] h-[6px] rounded-full bg-[#ff5f57]" />
-                    <div className="w-[6px] h-[6px] rounded-full bg-[#febc2e]" />
-                    <div className="w-[6px] h-[6px] rounded-full bg-[#28c840]" />
-                  </div>
-                  <div className="flex-1 bg-bg-secondary rounded px-2 py-0.5">
-                    <div className="w-[40%] h-[4px] rounded bg-border" />
-                  </div>
-                </div>
-                <img
-                  src={image}
-                  alt={t(`work.product${productKey}ImageAlt`)}
-                  className="block w-full aspect-[16/9] object-cover object-top"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-            <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/70 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
-              <ArrowUpRight className="text-text-primary" size={16} />
-            </div>
-          </div>
-        </Link>
-
-        {/* Info */}
-        <div className="flex flex-1 flex-col p-5 md:p-6">
-          <span className="text-xs text-text-tertiary">{t('portfolio.studioProductLabel')}</span>
-          <Link to={to} className="block no-underline">
-            <h3 className="mt-1.5 text-lg md:text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors leading-snug">
-              {t(`work.product${productKey}Title`)}
-            </h3>
-            <p className="mt-1.5 text-text-secondary text-sm leading-snug">{t(`work.product${productKey}Desc`)}</p>
-          </Link>
-
-          <ul className="mt-4 mb-5 space-y-1.5">
-            {[1, 2, 3].map((n) => (
-              <li key={n} className="flex items-start gap-2 text-sm text-text-secondary">
-                <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
-                {t(`work.product${productKey}Point${n}`)}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-auto flex items-center justify-end border-t border-border pt-4">
-            <Link
-              to={to}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
-            >
-              {t(`work.product${productKey}Link`)}
-              <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
-        </div>
-      </article>
-    </m.div>
-  )
-}
-
 function SectionHeadingRow({ label }: { label: string }) {
   return (
     <div className="mb-6 flex items-center gap-3">
@@ -467,22 +379,6 @@ export default function Portfolio() {
               )}
             </section>
           )}
-
-          {/* ---------- Products ---------- */}
-          {/* Always visible regardless of filter: these are offers, not portfolio entries. */}
-          <section aria-labelledby="products-heading" className="mt-16">
-            <div id="products-heading">
-              <SectionHeadingRow label={t('work.productsTitle')} />
-            </div>
-            <p className="mb-6 -mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
-              {t('work.productsIntro')}
-            </p>
-            <div className="grid gap-4 md:grid-cols-2">
-              {PRODUCTS.map((product, i) => (
-                <ProductCard key={product.key} productKey={product.key} to={product.to} image={product.image} index={i} />
-              ))}
-            </div>
-          </section>
         </div>
       </div>
     </PageTransition>
