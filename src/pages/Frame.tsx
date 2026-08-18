@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { m } from 'framer-motion'
@@ -10,7 +10,6 @@ import {
   CalendarCheck,
   Languages,
   Play,
-  X,
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
@@ -22,12 +21,16 @@ const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1
 
 const DEMO_ORIGIN = 'https://gabrielghsoub.github.io'
 
+// Tells the demo it was reached from likwiid.com, so it shows its
+// "back to Likwiid" control.
+const FROM_LIKWIID = '?from=likwiid'
+
 // The two public demo portfolios plus the owner panel. Both brands are fictional;
 // the engine wears each photographer's brand, which is the product story.
 const DEMO_CARDS = [
   {
     id: 'ana',
-    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/ana-likwiid`,
+    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/ana-likwiid${FROM_LIKWIID}`,
     titleKey: 'demoCard1Title',
     brandKey: 'demoCard1Brand',
     image: '/frame-demo-ana-preview.jpg',
@@ -35,7 +38,7 @@ const DEMO_CARDS = [
   },
   {
     id: 'studio',
-    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/studio-likwiid`,
+    src: `${DEMO_ORIGIN}/likwiid-frame-demo/p/studio-likwiid${FROM_LIKWIID}`,
     titleKey: 'demoCard2Title',
     brandKey: 'demoCard2Brand',
     image: '/frame-demo-studio-preview.jpg',
@@ -43,7 +46,17 @@ const DEMO_CARDS = [
   },
 ] as const
 
-const ADMIN_DEMO_SRC = `${DEMO_ORIGIN}/likwiid-frame-demo/admin/ana-likwiid`
+const ADMIN_DEMO_SRC = `${DEMO_ORIGIN}/likwiid-frame-demo/admin/ana-likwiid${FROM_LIKWIID}`
+
+// Anchor styles mirroring Button (primary lg, secondary md); plain anchors are
+// used here because the demos open as real same-tab navigations, not overlays.
+const LINK_BASE =
+  'inline-flex items-center justify-center gap-2 font-medium rounded-full cursor-pointer no-underline font-[family-name:var(--font-display)]'
+const LINK_PRIMARY_LG = `${LINK_BASE} liquid-ripple bg-accent-gold text-white border border-accent-gold hover:opacity-90 transition-colors duration-200 px-8 py-4 text-lg`
+const LINK_SECONDARY_MD = `${LINK_BASE} border border-border text-text-primary hover:border-border-hover hover:text-accent-gold transition-[border-color,color] duration-200 px-6 py-3 text-base`
+
+const LINK_HOVER = { scale: 1.02 }
+const LINK_TAP = { scale: 0.98 }
 
 // feature5 is the Likwiid Direct booking synergy: its card carries an internal
 // cross-sell link to /direct, rendered via linkTo below.
@@ -56,69 +69,8 @@ const FEATURES = [
   { icon: Languages, titleKey: 'feature6Title', descKey: 'feature6Desc' },
 ] as const
 
-/** Full-screen, Likwiid-branded demo experience. The fictional photographer brand
-    lives inside the Likwiid Frame frame, which is the product story: the
-    engine wears each photographer's brand. */
-function DemoOverlay({
-  src,
-  title,
-  note,
-  closeLabel,
-  onClose,
-}: {
-  src: string
-  title: string
-  note: string
-  closeLabel: string
-  onClose: () => void
-}) {
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [onClose])
-
-  return (
-    <div
-      className="fixed inset-0 z-[100] flex flex-col bg-bg-primary"
-      role="dialog"
-      aria-modal="true"
-      aria-label={title}
-    >
-      <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border px-4 md:px-6">
-        <div className="flex min-w-0 items-baseline gap-3">
-          <span className="whitespace-nowrap font-bold font-[family-name:var(--font-display)] text-text-primary">
-            Likwiid Frame
-          </span>
-          <span className="hidden truncate text-sm text-text-tertiary sm:block">{note}</span>
-        </div>
-        <button
-          type="button"
-          onClick={onClose}
-          autoFocus
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm text-text-secondary transition-colors hover:text-text-primary hover:border-border-hover"
-        >
-          {closeLabel}
-          <X size={16} aria-hidden="true" />
-        </button>
-      </div>
-      <div className="min-h-0 flex-1">
-        <iframe src={src} title={title} className="block h-full w-full" style={{ border: 0 }} />
-      </div>
-    </div>
-  )
-}
-
 export default function Frame() {
   const { t } = useTranslation()
-  const [demoSrc, setDemoSrc] = useState<string | null>(null)
 
   useEffect(() => {
     document.title = t('frame.docTitle')
@@ -126,16 +78,6 @@ export default function Frame() {
 
   return (
     <PageTransition>
-      {demoSrc ? (
-        <DemoOverlay
-          src={demoSrc}
-          title={t('frame.demoIframeTitle')}
-          note={t('frame.demoOverlayNote')}
-          closeLabel={t('frame.demoClose')}
-          onClose={() => setDemoSrc(null)}
-        />
-      ) : null}
-
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           {/* Hero */}
@@ -155,9 +97,14 @@ export default function Frame() {
               {t('frame.heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button variant="primary" size="lg" onClick={() => setDemoSrc(DEMO_CARDS[0].src)}>
+              <m.a
+                href={DEMO_CARDS[0].src}
+                className={LINK_PRIMARY_LG}
+                whileHover={LINK_HOVER}
+                whileTap={LINK_TAP}
+              >
                 {t('frame.ctaDemo')}
-              </Button>
+              </m.a>
               <Button variant="secondary" size="lg" href="/contact">
                 {t('frame.ctaTalk')}
               </Button>
@@ -184,11 +131,10 @@ export default function Frame() {
             </p>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {DEMO_CARDS.map((card) => (
-                <button
+                <a
                   key={card.id}
-                  type="button"
-                  onClick={() => setDemoSrc(card.src)}
-                  className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left focus-visible:outline-2 focus-visible:outline-accent-gold"
+                  href={card.src}
+                  className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left no-underline focus-visible:outline-2 focus-visible:outline-accent-gold"
                 >
                   <span className="relative block aspect-[16/10]">
                     <img
@@ -216,7 +162,7 @@ export default function Frame() {
                       </span>
                     </span>
                   </span>
-                </button>
+                </a>
               ))}
             </div>
 
@@ -230,9 +176,14 @@ export default function Frame() {
                   {t('frame.adminBody')}
                 </p>
               </div>
-              <Button variant="secondary" size="md" onClick={() => setDemoSrc(ADMIN_DEMO_SRC)}>
+              <m.a
+                href={ADMIN_DEMO_SRC}
+                className={LINK_SECONDARY_MD}
+                whileHover={LINK_HOVER}
+                whileTap={LINK_TAP}
+              >
                 {t('frame.adminLink')}
-              </Button>
+              </m.a>
             </div>
           </m.section>
 
