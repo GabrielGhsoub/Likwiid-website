@@ -13,6 +13,12 @@ import {
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
+import {
+  BUTTON_LINK_HOVER,
+  BUTTON_LINK_PRIMARY_LG,
+  BUTTON_LINK_SECONDARY_MD,
+  BUTTON_LINK_TAP,
+} from '../components/ui/buttonLink'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
@@ -47,16 +53,6 @@ const DEMO_CARDS = [
 ] as const
 
 const ADMIN_DEMO_SRC = `${DEMO_ORIGIN}/likwiid-frame-demo/admin/ana-likwiid${FROM_LIKWIID}`
-
-// Anchor styles mirroring Button (primary lg, secondary md); plain anchors are
-// used here because the demos open as real same-tab navigations, not overlays.
-const LINK_BASE =
-  'inline-flex items-center justify-center gap-2 font-medium rounded-full cursor-pointer no-underline font-[family-name:var(--font-display)]'
-const LINK_PRIMARY_LG = `${LINK_BASE} liquid-ripple bg-accent-gold text-white border border-accent-gold hover:opacity-90 transition-colors duration-200 px-8 py-4 text-lg`
-const LINK_SECONDARY_MD = `${LINK_BASE} border border-border text-text-primary hover:border-border-hover hover:text-accent-gold transition-[border-color,color] duration-200 px-6 py-3 text-base`
-
-const LINK_HOVER = { scale: 1.02 }
-const LINK_TAP = { scale: 0.98 }
 
 // feature5 is the Likwiid Direct booking synergy: its card carries an internal
 // cross-sell link to /direct, rendered via linkTo below.
@@ -99,9 +95,9 @@ export default function Frame() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <m.a
                 href={DEMO_CARDS[0].src}
-                className={LINK_PRIMARY_LG}
-                whileHover={LINK_HOVER}
-                whileTap={LINK_TAP}
+                className={BUTTON_LINK_PRIMARY_LG}
+                whileHover={BUTTON_LINK_HOVER}
+                whileTap={BUTTON_LINK_TAP}
               >
                 {t('frame.ctaDemo')}
               </m.a>
@@ -178,9 +174,9 @@ export default function Frame() {
               </div>
               <m.a
                 href={ADMIN_DEMO_SRC}
-                className={LINK_SECONDARY_MD}
-                whileHover={LINK_HOVER}
-                whileTap={LINK_TAP}
+                className={BUTTON_LINK_SECONDARY_MD}
+                whileHover={BUTTON_LINK_HOVER}
+                whileTap={BUTTON_LINK_TAP}
               >
                 {t('frame.adminLink')}
               </m.a>

@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { m } from 'framer-motion'
-import { SlidersHorizontal, CreditCard, Code2, Languages, Play, X } from 'lucide-react'
+import { SlidersHorizontal, CreditCard, Code2, Languages, Play } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
+import { BUTTON_LINK_HOVER, BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_TAP } from '../components/ui/buttonLink'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
@@ -14,11 +15,20 @@ const DEMO_ORIGIN = 'https://gabrielghsoub.github.io'
 // Languages the embedded demo ships with; other site languages fall back to the demo default.
 const DEMO_LANGS = ['pt', 'en', 'es'] as const
 
-/** Demo URL for a given property slug, in the visitor's language when the demo supports it. */
-function demoSrcFor(slug: string, lang: string) {
-  const base = `${DEMO_ORIGIN}/likwiid-direct-demo/?embed=1&slug=${slug}`
+/** Appends the from=likwiid marker (which makes the demo show its back to
+    Likwiid control), honouring any query string already on the URL. */
+function withFromLikwiid(url: string) {
+  return `${url}${url.includes('?') ? '&' : '?'}from=likwiid`
+}
+
+/** Full-page demo URL for a given property slug, in the visitor's language when
+    the demo supports it. Uses the /p/ pages (the full demo experience), not the
+    embed=1 widget view, which is reserved for the iframe loader. */
+function demoHrefFor(slug: string, lang: string) {
+  const base = `${DEMO_ORIGIN}/likwiid-direct-demo/p/${slug}`
   const short = (lang ?? '').slice(0, 2)
-  return (DEMO_LANGS as readonly string[]).includes(short) ? `${base}&lang=${short}` : base
+  const localized = (DEMO_LANGS as readonly string[]).includes(short) ? `${base}?lang=${short}` : base
+  return withFromLikwiid(localized)
 }
 
 const DEMO_CARDS = [
@@ -60,91 +70,15 @@ const FEATURES = [
   { icon: Languages, titleKey: 'feature4Title', descKey: 'feature4Desc' },
 ] as const
 
-/** Full-screen, Likwiid-branded demo experience. The fictional property brand
-    lives inside the Likwiid Direct frame, which is the product story: the
-    engine wears each client's brand. */
-function DemoOverlay({
-  src,
-  title,
-  note,
-  closeLabel,
-  onClose,
-}: {
-  src: string
-  title: string
-  note: string
-  closeLabel: string
-  onClose: () => void
-}) {
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [onClose])
-
-  return (
-    <div
-      className="fixed inset-0 z-[100] flex flex-col bg-bg-primary"
-      role="dialog"
-      aria-modal="true"
-      aria-label={title}
-    >
-      <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border px-4 md:px-6">
-        <div className="flex min-w-0 items-baseline gap-3">
-          <span className="whitespace-nowrap font-bold font-[family-name:var(--font-display)] text-text-primary">
-            Likwiid Direct
-          </span>
-          <span className="hidden truncate text-sm text-text-tertiary sm:block">{note}</span>
-        </div>
-        <button
-          type="button"
-          onClick={onClose}
-          autoFocus
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm text-text-secondary transition-colors hover:text-text-primary hover:border-border-hover"
-        >
-          {closeLabel}
-          <X size={16} aria-hidden="true" />
-        </button>
-      </div>
-      <div className="min-h-0 flex-1">
-        <iframe src={src} title={title} className="block h-full w-full" style={{ border: 0 }} />
-      </div>
-    </div>
-  )
-}
-
 export default function Direct() {
   const { t, i18n } = useTranslation()
-  const [demoSlug, setDemoSlug] = useState<string | null>(null)
 
   useEffect(() => {
     document.title = t('direct.docTitle')
   }, [t])
 
-  const demoSrc = useMemo(
-    () => (demoSlug ? demoSrcFor(demoSlug, i18n.language ?? '') : null),
-    [demoSlug, i18n.language],
-  )
-
   return (
     <PageTransition>
-      {demoSlug && demoSrc ? (
-        <DemoOverlay
-          src={demoSrc}
-          title={t('direct.demoIframeTitle')}
-          note={t('direct.demoOverlayNote')}
-          closeLabel={t('direct.demoClose')}
-          onClose={() => setDemoSlug(null)}
-        />
-      ) : null}
-
       <div className="pt-20 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           {/* Hero */}
@@ -164,9 +98,14 @@ export default function Direct() {
               {t('direct.heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button variant="primary" size="lg" onClick={() => setDemoSlug('quinta-likwiid')}>
+              <m.a
+                href={demoHrefFor('quinta-likwiid', i18n.language ?? '')}
+                className={BUTTON_LINK_PRIMARY_LG}
+                whileHover={BUTTON_LINK_HOVER}
+                whileTap={BUTTON_LINK_TAP}
+              >
                 {t('direct.ctaDemo')}
-              </Button>
+              </m.a>
               <Button variant="secondary" size="lg" href="/contact">
                 {t('direct.ctaTalk')}
               </Button>
@@ -193,11 +132,10 @@ export default function Direct() {
             </p>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {DEMO_CARDS.map((card) => (
-                <button
+                <a
                   key={card.slug}
-                  type="button"
-                  onClick={() => setDemoSlug(card.slug)}
-                  className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left focus-visible:outline-2 focus-visible:outline-accent-gold"
+                  href={demoHrefFor(card.slug, i18n.language ?? '')}
+                  className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left no-underline focus-visible:outline-2 focus-visible:outline-accent-gold"
                 >
                   <span className="relative block aspect-[16/10]">
                     {card.image ? (
@@ -233,7 +171,7 @@ export default function Direct() {
                       </span>
                     </span>
                   </span>
-                </button>
+                </a>
               ))}
             </div>
           </m.section>
