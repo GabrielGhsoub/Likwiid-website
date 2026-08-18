@@ -149,6 +149,24 @@
     "slideAlt": "Capture d'écran {{index}} de {{title}}",
     "goToSlide": "Aller à la capture {{index}}"
   },
+  "work": {
+    "productsTitle": "Produits",
+    "productsIntro": "En plus des projets clients, nous construisons nos propres produits. Ce sont des moteurs que nous configurons pour chaque projet, et chacun a une démo en direct que vous pouvez essayer.",
+    "productDirectTitle": "Likwiid Direct",
+    "productDirectDesc": "Un moteur de réservation directe sans commission pour petits hébergements et expériences.",
+    "productDirectPoint1": "S'intègre au site que vous avez déjà",
+    "productDirectPoint2": "Acomptes par carte, options qui font varier le prix et la langue du client bien gérée",
+    "productDirectPoint3": "Configuré pour chaque établissement, pas un simple modèle",
+    "productDirectLink": "Voir Likwiid Direct",
+    "productDirectImageAlt": "Aperçu de la démo de réservation Likwiid Direct",
+    "productFrameTitle": "Likwiid Frame",
+    "productFrameDesc": "Un moteur de portfolio premium pour les photographes qui veulent un site qui leur appartient.",
+    "productFramePoint1": "Validation client, boutique de tirages et panneau propriétaire intégrés",
+    "productFramePoint2": "Un pipeline d'images qui respecte vos photos",
+    "productFramePoint3": "Payez une fois, sans abonnement : le site fini vous appartient sous forme de fichiers",
+    "productFrameLink": "Voir Likwiid Frame",
+    "productFrameImageAlt": "Aperçu d'un portfolio de démo Likwiid Frame"
+  },
   "portfolio": {
     "documentTitle": "Réalisations | Likwiid",
     "title": "Des projets qui transforment des opérations chaotiques en logiciels que vous possédez",

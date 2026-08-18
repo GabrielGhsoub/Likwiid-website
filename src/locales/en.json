@@ -161,6 +161,24 @@
     "csAfterAlt": "The website after the redesign",
     "csLinkLabel": "Visit the live site"
   },
+  "work": {
+    "productsTitle": "Products",
+    "productsIntro": "Beyond client work, we build products of our own. Both are engines we set up and configure per project, and both have live demos you can try.",
+    "productDirectTitle": "Likwiid Direct",
+    "productDirectDesc": "A commission-free direct booking engine for small stays and experiences.",
+    "productDirectPoint1": "Lives inside the website you already have",
+    "productDirectPoint2": "Card deposits, options that change the price, and the guest's language done properly",
+    "productDirectPoint3": "Configured for each property, not a template",
+    "productDirectLink": "See Likwiid Direct",
+    "productDirectImageAlt": "Likwiid Direct demo booking page preview",
+    "productFrameTitle": "Likwiid Frame",
+    "productFrameDesc": "A premium portfolio engine for photographers who want a site they own.",
+    "productFramePoint1": "Client proofing, a print shop, and an owner panel built in",
+    "productFramePoint2": "An image pipeline that respects your photos",
+    "productFramePoint3": "Pay once, no subscription: the finished site is yours as files",
+    "productFrameLink": "See Likwiid Frame",
+    "productFrameImageAlt": "Likwiid Frame demo portfolio preview"
+  },
   "portfolio": {
     "documentTitle": "Work | Likwiid",
     "title": "Work that turns messy operations into owned software",

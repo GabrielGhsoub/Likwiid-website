@@ -162,6 +162,24 @@
     "csAfterAlt": "Il sito dopo il rinnovo",
     "csLinkLabel": "Visita il sito"
   },
+  "work": {
+    "productsTitle": "Prodotti",
+    "productsIntro": "Oltre ai progetti per i clienti, costruiamo prodotti nostri. Sono motori che configuriamo per ogni progetto, ed entrambi hanno demo dal vivo che puoi provare.",
+    "productDirectTitle": "Likwiid Direct",
+    "productDirectDesc": "Un motore di prenotazione diretta senza commissioni per piccole strutture ed esperienze.",
+    "productDirectPoint1": "Vive dentro il sito che hai già",
+    "productDirectPoint2": "Caparre con carta, opzioni che cambiano il prezzo e la lingua dell'ospite fatta bene",
+    "productDirectPoint3": "Configurato per ogni struttura, non un semplice template",
+    "productDirectLink": "Scopri Likwiid Direct",
+    "productDirectImageAlt": "Anteprima della demo di prenotazione di Likwiid Direct",
+    "productFrameTitle": "Likwiid Frame",
+    "productFrameDesc": "Un motore di portfolio premium per fotografi che vogliono un sito davvero loro.",
+    "productFramePoint1": "Selezione per i clienti, negozio di stampe e pannello del proprietario inclusi",
+    "productFramePoint2": "Una pipeline di immagini che rispetta le tue foto",
+    "productFramePoint3": "Paghi una volta, senza abbonamento: il sito finito è tuo, sotto forma di file",
+    "productFrameLink": "Scopri Likwiid Frame",
+    "productFrameImageAlt": "Anteprima di un portfolio demo di Likwiid Frame"
+  },
   "portfolio": {
     "documentTitle": "Progetti | Likwiid",
     "title": "Lavori che trasformano operazioni disordinate in software di tua proprietà",
