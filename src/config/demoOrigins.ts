@@ -2,8 +2,8 @@
 // they will flip to https://frame.likwiid.com and https://direct.likwiid.com once
 // DNS for those subdomains exists. Build every demo link from these constants so
 // the cutover is a two-line change.
-export const FRAME_DEMO_ORIGIN = 'https://gabrielghsoub.github.io/likwiid-frame-demo'
-export const DIRECT_DEMO_ORIGIN = 'https://gabrielghsoub.github.io/likwiid-direct-demo'
+export const FRAME_DEMO_ORIGIN = 'https://frame.likwiid.com'
+export const DIRECT_DEMO_ORIGIN = 'https://direct.likwiid.com'
 
 /** Appends from=likwiid (which makes the demo show its "Back to Likwiid" chip)
     and back=<path> (the likwiid.com page that chip returns the visitor to),
