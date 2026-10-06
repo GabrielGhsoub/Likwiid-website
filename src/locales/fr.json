@@ -184,7 +184,7 @@
     "frameImageAlt": "Aperçu d'un portfolio de démo Likwiid Frame"
   },
   "portfolio": {
-    "documentTitle": "Réalisations | Likwiid",
+    "documentTitle": "Projets | Likwiid",
     "title": "Des projets qui transforment des opérations chaotiques en logiciels que vous possédez",
     "subtitle": "Des applications et des sites que nous avons conçus, développés et lancés, pour des clients et pour notre propre studio.",
     "hospitalityBody": "Des sites de réservation où vos clients réservent et vous paient directement, sans commission. Le site, les réservations et votre fichier clients vous appartiennent.",
@@ -447,6 +447,7 @@
       }
     },
     "gcg-website": {
+      "liveLabel": "Voir le site",
       "title": "Site web de GCG",
       "subtitle": "Site web d'un cabinet de conseil scientifique, avec un parcours clair pour chaque public",
       "oneLiner": "Site web d'un cabinet de conseil scientifique, avec un parcours clair pour chaque public.",

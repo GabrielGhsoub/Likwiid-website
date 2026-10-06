@@ -390,7 +390,7 @@ for (const [path, meta] of Object.entries(routes)) {
 let notFound = replaceOrThrow(
   baseHtml,
   /<title>[^<]*<\/title>/,
-  () => '<title>Page not found (404) | Likwiid</title>',
+  () => '<title>Page Not Found | Likwiid</title>',
   '404 title'
 )
 notFound = replaceOrThrow(

@@ -447,6 +447,7 @@
       }
     },
     "gcg-website": {
+      "liveLabel": "Vedi il sito",
       "title": "Sito web di GCG",
       "subtitle": "Sito per una società di consulenza scientifica con un percorso chiaro per ogni pubblico",
       "oneLiner": "Sito per una società di consulenza scientifica, con un percorso chiaro per ogni pubblico.",

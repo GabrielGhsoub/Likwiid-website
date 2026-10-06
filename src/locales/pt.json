@@ -184,7 +184,7 @@
     "frameImageAlt": "Pré-visualização de um portfólio de demonstração do Likwiid Frame"
   },
   "portfolio": {
-    "documentTitle": "Trabalho | Likwiid",
+    "documentTitle": "Projetos | Likwiid",
     "title": "Projetos que transformam operações caóticas em software próprio",
     "subtitle": "Aplicações e sites que desenhámos, desenvolvemos e lançámos, para clientes e para o nosso próprio estúdio.",
     "hospitalityBody": "Sites de reservas onde os hóspedes reservam e lhe pagam diretamente, sem comissões. O site, as reservas e a lista de hóspedes são seus.",
@@ -447,6 +447,7 @@
       }
     },
     "gcg-website": {
+      "liveLabel": "Ver o site",
       "title": "Site da GCG",
       "subtitle": "Site para uma consultora científica, com um percurso claro para cada público",
       "oneLiner": "Site para uma consultora científica, com um percurso claro para cada público.",
