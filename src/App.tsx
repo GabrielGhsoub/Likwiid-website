@@ -15,11 +15,9 @@ import Home from './pages/Home'
 const Services = lazy(() => import('./pages/Services'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
 const CaseStudy = lazy(() => import('./pages/CaseStudy'))
-const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const BeitToureefPoc = lazy(() => import('./pages/BeitToureefPoc'))
-const BookingWebsites = lazy(() => import('./pages/BookingWebsites'))
 const Direct = lazy(() => import('./pages/Direct'))
 const Frame = lazy(() => import('./pages/Frame'))
 const Products = lazy(() => import('./pages/Products'))
@@ -32,13 +30,11 @@ function usePrefetchRoutes() {
 
     const prefetch = () => {
       import('./pages/Services')
-      import('./pages/BookingWebsites')
       import('./pages/Direct')
       import('./pages/Frame')
       import('./pages/Products')
       import('./pages/Portfolio')
       import('./pages/CaseStudy')
-      import('./pages/About')
       import('./pages/Contact')
     }
 
@@ -69,6 +65,30 @@ function LocaleWork({ lang }: { lang: Lang }) {
   return <Portfolio />
 }
 
+// Scrolls the element named by a URL hash into view. Tries right after render, then, because
+// a lazy route may not have rendered the target yet, retries every 50ms for ~2s. Timers rather
+// than requestAnimationFrame so it also works in background tabs. Returns a cleanup.
+function scrollToHash(hash: string): () => void {
+  let id: string
+  try {
+    id = decodeURIComponent(hash.slice(1))
+  } catch {
+    id = hash.slice(1)
+  }
+  let timer: ReturnType<typeof setTimeout> | undefined
+  let tries = 0
+  const attempt = () => {
+    const el = id ? document.getElementById(id) : null
+    if (el) {
+      el.scrollIntoView({ block: 'start' })
+    } else if (tries++ < 40) {
+      timer = setTimeout(attempt, 50)
+    }
+  }
+  attempt()
+  return () => clearTimeout(timer)
+}
+
 function LoadingFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Loading">
@@ -84,10 +104,13 @@ export default function App() {
 
   useEffect(() => {
     // Scroll to top on forward navigations to a new page, but leave the browser to restore
-    // position on back/forward (POP), and don't hijack in-page anchor (#hash) navigation.
-    if (navigationType !== 'POP' && !location.hash) {
+    // position on back/forward (POP). Hash URLs (e.g. /#founder, also the /about redirect)
+    // scroll their target into view once it has rendered.
+    if (location.hash) return scrollToHash(location.hash)
+    if (navigationType !== 'POP') {
       window.scrollTo(0, 0)
     }
+    return undefined
   }, [location.pathname, location.key, location.hash, navigationType])
 
   return (
@@ -105,11 +128,18 @@ export default function App() {
                 <Route path="/es/work" element={<LocaleWork lang="es" />} />
                 <Route path="/it/work" element={<LocaleWork lang="it" />} />
                 <Route path="/fr/work" element={<LocaleWork lang="fr" />} />
+                {/* Removed case studies: keep old links working */}
+                <Route path="/work/ai-fitness-coach" element={<Navigate to="/work" replace />} />
+                <Route path="/work/bully-ai" element={<Navigate to="/work" replace />} />
+                <Route path="/work/salsaflow" element={<Navigate to="/work" replace />} />
+                <Route path="/work/healthcare-pdf-api" element={<Navigate to="/work" replace />} />
+                <Route path="/work/linkedin-templates-extension" element={<Navigate to="/work" replace />} />
+                <Route path="/work/padel-admin-portal" element={<Navigate to="/work/padel-booking" replace />} />
                 <Route path="/work/:slug" element={<CaseStudy />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/about" element={<Navigate to="/#founder" replace />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
-                <Route path="/booking-websites" element={<BookingWebsites />} />
+                <Route path="/booking-websites" element={<Navigate to="/direct" replace />} />
                 <Route path="/direct" element={<Direct />} />
                 <Route path="/frame" element={<Frame />} />
                 <Route path="/products" element={<Products />} />
