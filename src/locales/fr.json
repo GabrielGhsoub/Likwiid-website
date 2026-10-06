@@ -1,11 +1,9 @@
 {
   "_TODO": "AI-translated, pending native review",
   "nav": {
-    "home": "Accueil",
     "services": "Services",
     "work": "Projets",
     "products": "Produits",
-    "about": "À propos",
     "contact": "Contact",
     "skipToContent": "Aller au contenu",
     "mainNav": "Navigation principale",
@@ -25,54 +23,55 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Fondé par Gabriel Ghoussoub.",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "tagline": "Beyrouth, Liban. Nous travaillons dans le monde entier. Réponse sous 24 heures."
   },
   "hero": {
-    "eyebrow": "Studio logiciel dirigé par son fondateur",
-    "title": "Des logiciels qui coulent de source.",
-    "description": "Likwiid est un studio logiciel dirigé par son fondateur. Nous commençons par la stratégie avant le code, puis nous concevons, développons et livrons des sites de réservation, des applications web et mobiles et des intégrations d'IA qui transforment des opérations désorganisées en logiciels qui vous appartiennent. Basés à Beirut, nous travaillons partout dans le monde.",
-    "ctaPrimary": "Nous contacter",
+    "title": "Des sites de réservation et des applications pour les hôtels indépendants et les fondateurs.",
+    "description": "Likwiid est dirigé par Gabriel Ghoussoub depuis Beyrouth, travaille avec des clients du monde entier et répond sous 24 heures.",
+    "ctaPrimary": "Démarrer un projet",
     "ctaSecondary": "Voir nos réalisations"
   },
-  "stats": {
-    "websitesDelivered": "Sites web livrés",
-    "productsShipped": "Produits lancés",
-    "replyTime": "Délai de réponse",
-    "industriesServed": "Secteurs servis",
-    "uptime": "Disponibilité système"
-  },
-  "serviceCards": {
-    "title": "Ce que nous faisons",
-    "subtitle": "Ingénierie logicielle de bout en bout, sur toute la stack.",
-    "viewAll": "Voir tous les services"
+  "whatWeBuild": {
+    "title": "Ce que nous construisons",
+    "appsTitle": "Applications web et mobiles",
+    "appsBody": "Des applications que vos clients et votre équipe utilisent vraiment, conçues, développées et lancées de bout en bout.",
+    "bookingTitle": "Sites de réservation",
+    "bookingBody": "Un site rapide où vos clients réservent et vous paient directement, sans commission de plateforme.",
+    "bookingPrice": "À partir de 1 500 $",
+    "aiTitle": "Intégration IA et sauvetage de code",
+    "aiBody": "Des fonctionnalités IA qui font gagner un temps réel à votre équipe, ou une remise en route claire pour un code qui n'avance plus.",
+    "linkServices": "Voir les services",
+    "linkDirect": "Voir comment ça marche"
   },
   "featuredWork": {
-    "title": "Travaux en vedette",
-    "subtitle": "Une sélection de projets que nous avons conçus, développés et livrés.",
-    "featuredBadge": "En vedette",
-    "viewAllProjects": "Voir tous les projets"
+    "title": "Réalisations choisies",
+    "subtitle": "Des projets récents pour des clients et pour notre propre studio.",
+    "viewAll": "Voir toutes les réalisations"
   },
-  "cta": {
-    "title": "Prêt à lancer votre prochain produit ?",
-    "subtitle": "De l'idée à la production en quelques semaines, pas en mois. Transformons votre vision en un logiciel qui tient ses promesses.",
-    "ctaPrimary": "Parlons-en"
+  "productsStrip": {
+    "title": "Produits",
+    "subtitle": "Deux moteurs maison, chacun avec une démo en direct à parcourir.",
+    "directBody": "Un moteur de réservation directe pour petits hébergements et expériences. Vos clients réservent et versent un acompte sur votre propre site, sans commission.",
+    "frameBody": "Un moteur de portfolio pour photographes, avec validation client, boutique de tirages et réservation. Le site fini vous appartient sous forme de fichiers.",
+    "seeProduct": "Voir {{name}}",
+    "tryDemo": "Essayer la démo en direct"
   },
-  "techStack": {
-    "title": "Stack technique",
-    "subtitle": "Les outils et technologies que nous utilisons au quotidien."
+  "founder": {
+    "photoAlt": "Gabriel Ghoussoub, fondateur de Likwiid",
+    "role": "Fondateur et ingénieur principal",
+    "bio1": "Gabriel est un ingénieur full-stack qui livre depuis plus de cinq ans des logiciels en production dans la fintech, l'insurtech, la surveillance par satellite et l'IoT.",
+    "bio2": "Il est diplômé en génie informatique et des communications de l'Université Antonine.",
+    "bio3": "Il est basé à Beyrouth et travaille avec des clients aux États-Unis, en Europe et dans la région MENA.",
+    "promise": "Chaque message reçoit une réponse de Gabriel, pas d'une équipe commerciale.",
+    "cta": "Parler à Gabriel"
   },
-  "about": {
-    "documentTitle": "À propos | Likwiid",
-    "title": "À propos",
-    "subtitle": "Un studio numérique fondé sur une véritable expérience d'ingénierie.",
-    "intro1": "Likwiid est un studio logiciel dirigé par son fondateur, Gabriel Ghoussoub, ingénieur logiciel full-stack avec plus de 5 ans d'expérience dans la livraison de logiciels en production dans la fintech, l'insurtech, la surveillance satellite, l'IoT et la VR.",
-    "intro2": "Nous construisons de bout en bout, de l'architecture au déploiement, pour les startups comme pour les grandes entreprises. Basés à Beirut, nous travaillons avec des clients aux États-Unis, en Europe et au Moyen-Orient.",
-    "founder": "Fondateur",
-    "journey": "Parcours",
-    "philosophy": "Philosophie",
-    "beyondCode": "Au-delà du code",
-    "photoAlt": "Gabriel Ghoussoub",
-    "loadingPhoto": "Chargement de la photo"
+  "contactBlock": {
+    "title": "Un projet en tête ?",
+    "body": "Dites-nous ce que vous construisez, et Gabriel vous répondra sous 24 heures avec une prochaine étape claire.",
+    "cta": "Démarrer un projet",
+    "whatsapp": "Écrire sur WhatsApp",
+    "emailPrefix": "Ou écrivez à"
   },
   "contact": {
     "documentTitle": "Contact | Likwiid",
@@ -80,8 +79,18 @@
     "subheading": "Lancez la conversation autour de votre prochain projet.",
     "introTitle": "Construisons quelque chose ensemble.",
     "introBody": "Dites-nous ce que vous construisez, ce que cela doit faire et pour quand. Gabriel lit chaque message et répond personnellement sous 24 heures.",
+    "locationNote": "Basés à Beyrouth, nous travaillons avec des clients sur les fuseaux horaires des États-Unis, de l'Europe et de la région MENA.",
+    "founderNote": "C'est Gabriel, le fondateur, qui vous répondra. Pas d'intermédiaires, pas d'équipe commerciale.",
+    "founderPhotoAlt": "Gabriel Ghoussoub, fondateur de Likwiid",
+    "stepsTitle": "La suite",
+    "step1": "Gabriel lit votre message et répond sous 24 heures.",
+    "step2": "Nous planifions un court appel pour cadrer votre projet.",
+    "step3": "Vous recevez une proposition claire à prix fixe, généralement sous quelques jours.",
+    "fastestReply": "réponse la plus rapide",
     "successTitle": "Message bien reçu.",
     "successBody": "Gabriel vous répondra depuis gabriel@likwiid.com sous 24 heures.",
+    "successHurry": "Pressé ? <whatsapp>Écrivez-nous sur WhatsApp</whatsapp>.",
+    "successBrowseWork": "Découvrez nos réalisations en attendant",
     "sendAnother": "Envoyer un autre message",
     "labelName": "Nom",
     "placeholderName": "Votre nom",
@@ -91,77 +100,73 @@
     "placeholderCompany": "Votre entreprise (facultatif)",
     "labelProjectType": "Type de projet",
     "labelBudget": "Fourchette de budget",
+    "budgetHint": "Une fourchette approximative suffit. Elle nous aide à proposer la bonne approche.",
     "labelMessage": "Message",
     "placeholderMessage": "Que construisez-vous, que doit-il faire, et pour quand ?",
     "selectPlaceholder": "Sélectionner...",
     "projectTypeWebApp": "Application web",
     "projectTypeMobileApp": "Application mobile",
-    "projectTypeCloudDevOps": "Cloud/DevOps",
+    "projectTypeBookingWebsite": "Site de réservation",
     "projectTypeAiIntegration": "Intégration IA",
-    "projectTypeVrDevelopment": "Développement VR",
     "projectTypeCodeAudit": "Audit de code",
     "projectTypeOther": "Autre",
-    "budget5to15k": "5 000 $ - 15 000 $",
-    "budget15to50k": "15 000 $ - 50 000 $",
+    "budget1to5k": "1 500 $ à 5 000 $",
+    "budget5to15k": "5 000 $ à 15 000 $",
+    "budget15to50k": "15 000 $ à 50 000 $",
     "budget50kPlus": "50 000 $+",
+    "budgetNotSure": "Pas encore sûr",
     "errorSubmit": "Une erreur est survenue. Veuillez réessayer.",
+    "errorFallback": "Ou écrivez directement à gabriel@likwiid.com.",
+    "privacyNote": "Vos informations vont à Gabriel et nulle part ailleurs.",
     "submitSending": "Envoi...",
     "submitSend": "Envoyer le message",
     "errorNameRequired": "Le nom est requis",
     "errorEmailRequired": "L'e-mail est requis",
     "errorEmailInvalid": "Adresse e-mail invalide",
-    "errorMessageRequired": "Le message est requis",
-    "locationNote": "Basés à Beirut, nous travaillons avec des clients sur les fuseaux horaires US, EU et MENA.",
-    "founderNote": "C'est Gabriel, le fondateur, qui vous répondra. Pas d'intermédiaires, pas d'équipe commerciale.",
-    "founderPhotoAlt": "Gabriel Ghoussoub, fondateur de Likwiid",
-    "stepsTitle": "La suite",
-    "step1": "Gabriel lit votre message et répond sous 24 heures.",
-    "step2": "Nous planifions un court appel pour cadrer votre projet.",
-    "step3": "Vous recevez une proposition claire à prix fixe, généralement sous quelques jours.",
-    "fastestReply": "réponse la plus rapide",
-    "successHurry": "Pressé ? <whatsapp>Écrivez-nous sur WhatsApp</whatsapp>.",
-    "successBrowseWork": "Découvrez nos réalisations en attendant",
-    "budgetNotSure": "Pas encore sûr",
-    "budgetHint": "Une fourchette approximative suffit. Elle nous aide à proposer la bonne approche.",
-    "errorFallback": "Ou écrivez directement à gabriel@likwiid.com.",
-    "privacyNote": "Vos informations vont à Gabriel et nulle part ailleurs."
+    "errorMessageRequired": "Le message est requis"
   },
   "services": {
     "documentTitle": "Services | Likwiid",
     "title": "Services",
-    "subtitle": "Ingénierie logicielle de bout en bout. De l'architecture au déploiement, nous gérons tout.",
-    "closeAriaLabel": "Fermer",
-    "deliverables": "Livrables",
-    "bookingTeaserTitle": "Sites de réservation pour salons, cliniques et petits hôtels",
-    "bookingTeaserBody": "Un forfait ciblé où vos clients réservent et paient en ligne, avec acomptes, rappels et un site qui vous appartient. À partir de 1 500 $ ; la plupart des projets entre 8 000 $ et 15 000 $, en 2 à 4 semaines.",
-    "bookingTeaserLink": "Voir les sites de réservation",
-    "directTeaserTitle": "Likwiid Direct : un moteur de réservation pour petits hébergements",
-    "directTeaserBody": "Un moteur de réservation directe sans commission qui s'intègre au site que vous avez déjà. Des options qui font varier le prix, des acomptes par carte et la langue du client bien faite. Essayez la démo en direct.",
-    "directTeaserLink": "Voir Likwiid Direct",
-    "frameTeaserTitle": "Likwiid Frame : un moteur de portfolios pour photographes",
-    "frameTeaserBody": "Un portfolio de photographe premium qui vous appartient, sous forme de fichiers : validation client, boutique de tirages, réservation et un pipeline d'images qui respecte vos photos. Payez une fois, sans abonnement. Essayez les démos en direct.",
-    "frameTeaserLink": "Voir Likwiid Frame"
+    "subtitle": "Quatre types de missions, chacune cadrée, conçue et développée par la personne à qui vous parlez.",
+    "bookingPrice": "À partir de 1 500 $. La plupart des projets se situent entre 8 000 $ et 15 000 $ et prennent 2 à 4 semaines.",
+    "bookingLink": "Voir Likwiid Direct",
+    "howTitle": "Notre façon de travailler",
+    "step1": "Vous envoyez un message, et Gabriel répond sous 24 heures.",
+    "step2": "Nous faisons un court appel pour cadrer le travail.",
+    "step3": "Vous recevez une proposition à prix fixe en quelques jours.",
+    "founderLine": "Dirigé par son fondateur. Deux à trois projets à la fois, pour que vous parliez toujours à la personne qui construit."
   },
   "carousel": {
     "previous": "Capture précédente",
     "next": "Capture suivante",
-    "loading": "Chargement de la capture",
     "regionLabel": "Captures d'écran de {{title}}",
     "slideAlt": "Capture d'écran {{index}} de {{title}}",
     "goToSlide": "Aller à la capture {{index}}"
   },
+  "hospitality": {
+    "heading": "Petits hôtels, maisons d'hôtes et voyagistes",
+    "body": "Nous créons des sites simples et rapides où vos clients réservent et vous paient directement, sans commission pour les plateformes de réservation. Disponibilités réelles, acomptes et rappels automatiques, dans les langues de vos clients. Le site, les réservations et votre fichier clients vous appartiennent.",
+    "cta": "Parlez-nous de votre établissement",
+    "directLink": "Voir Likwiid Direct, notre moteur de réservation, en action",
+    "csTitle": "Étude de cas à venir",
+    "csBody": "Un projet récent pour une petite entreprise d'hôtellerie. Les détails apparaîtront ici dès que le client aura approuvé leur partage.",
+    "csBeforeLabel": "Avant",
+    "csAfterLabel": "Après",
+    "csBeforeAlt": "Le site avant la refonte",
+    "csAfterAlt": "Le site après la refonte",
+    "csLinkLabel": "Visiter le site"
+  },
   "products": {
     "docTitle": "Produits | Likwiid",
-    "eyebrow": "Créés par Likwiid",
     "title": "Produits",
-    "intro": "En plus des projets clients, nous construisons nos propres produits. Ce sont des moteurs que nous configurons pour chaque projet, et chacun a une démo en direct que vous pouvez essayer.",
-    "demoNote": "Les marques des démos sont fictives. Elles existent pour que vous puissiez parcourir les vrais moteurs, et toute étape qui débiterait normalement une carte est simulée.",
+    "intro": "Deux moteurs que nous avons construits nous-mêmes et que nous configurons pour chaque client, tous deux avec des démos en direct.",
+    "demoNote": "Les marques des démos sont fictives et toute étape de paiement est simulée.",
     "directDesc": "Un moteur de réservation directe sans commission pour petits hébergements et expériences.",
     "directBody": "Likwiid Direct prend les réservations sur votre propre site : votre domaine, votre compte de paiement, votre liste de clients. Sans commission, sans intermédiaire, sans dépendance. Configuré pour chaque établissement, pas un simple modèle.",
     "directPoint1": "S'intègre au site que vous avez déjà",
     "directPoint2": "Acomptes par carte, options qui font varier le prix et la langue du client bien gérée",
     "directPoint3": "Synchronisation des calendriers par iCal : une réservation directe ferme la date partout ailleurs où vous êtes présent",
-    "directPoint4": "Fonctionne aussi en mode demande, sans étape de paiement, pour les propriétaires qui confirment chaque réservation",
     "directPageLink": "Voir Likwiid Direct",
     "directDemoLink": "Lancer la démo en direct",
     "directImageAlt": "Aperçu de la démo de réservation Likwiid Direct",
@@ -170,7 +175,6 @@
     "framePoint1": "Validation client, boutique de tirages et panneau propriétaire intégrés",
     "framePoint2": "Un pipeline d'images qui respecte vos photos",
     "framePoint3": "Payez une fois, sans abonnement : le site fini vous appartient sous forme de fichiers",
-    "framePoint4": "Le moteur porte la marque de chaque photographe : un moteur, deux marques de démo pour le prouver",
     "framePageLink": "Voir Likwiid Frame",
     "frameDemoLink": "Lancer la démo en direct",
     "frameImageAlt": "Aperçu d'un portfolio de démo Likwiid Frame"
@@ -178,91 +182,44 @@
   "portfolio": {
     "documentTitle": "Réalisations | Likwiid",
     "title": "Des projets qui transforment des opérations chaotiques en logiciels que vous possédez",
-    "subtitle": "Applications mobiles, tableaux de bord, backends et outils privés construits autour de vrais flux de travail. Chaque projet ici a été conçu, développé et livré par le fondateur.",
+    "subtitle": "Des applications et des sites que nous avons conçus, développés et lancés, pour des clients et pour notre propre studio.",
+    "hospitalityBody": "Des sites de réservation où vos clients réservent et vous paient directement, sans commission. Le site, les réservations et votre fichier clients vous appartiennent.",
     "previewAlt": "Aperçu du projet {{title}}",
     "viewCaseStudyAria": "Voir l'étude de cas {{title}}",
-    "featured": "À la une",
     "appStore": "App Store",
     "playStore": "Play Store",
     "viewCaseStudy": "Voir l'étude de cas",
     "clientWorkHeading": "Projets clients",
     "clientWorkLabel": "Projet client",
-    "studioHeading": "Produits studio et R&D",
+    "studioHeading": "Produits du studio",
     "studioProductLabel": "Produit studio",
-    "studioIntro": "Des produits que nous concevons, développons et livrons sous le nom Likwiid. Mêmes exigences, notre propre feuille de route.",
+    "studioIntro": "Des produits que nous concevons, développons et lançons sous le nom Likwiid. Les mêmes exigences, notre propre feuille de route.",
     "statusLive": "En production",
     "statusShipped": "Livré",
     "statusInDevelopment": "En développement",
-    "statLiveProducts": "produits en production",
-    "statBuiltEndToEnd": "produits construits de bout en bout",
-    "statPlatformsShipped": "plateformes livrées",
-    "showAllStudio": "Voir tous les projets studio",
     "filterAll": "Tous",
     "filterLabel": "Filtrer les projets"
-  },
-  "booking": {
-    "docTitle": "Sites de réservation pour salons, cliniques et petits hôtels | Likwiid",
-    "heroTitle": "Des sites web avec réservation en ligne pour les salons, les cliniques et les petits hôtels.",
-    "heroSubtitle": "Vos clients veulent réserver à 23h depuis leur téléphone. Si votre site ne peut pas prendre cette réservation, ils passent à un site qui le peut. Nous créons des sites simples et rapides où les clients réservent et paient en ligne, et vous gardez chaque réservation sans commission.",
-    "chatWhatsApp": "Discuter sur WhatsApp",
-    "sendMessage": "Envoyer un message",
-    "painPoint1": "Les clients ne peuvent réserver que par téléphone, donc les demandes du soir et du week-end vont à qui répond en premier.",
-    "painPoint2": "Les applications de marketplace prennent une commission sur chaque réservation qui aurait dû être la vôtre.",
-    "painPoint3": "Les absences vous coûtent des heures parce que rien ne prend d'acompte ni n'envoie de rappel.",
-    "painPoint4": "Votre seule présence en ligne est une page Instagram, donc vous ne possédez jamais votre liste de clients.",
-    "whatYouGetTitle": "Ce que vous obtenez",
-    "feature1Title": "Une vraie réservation en ligne",
-    "feature1Desc": "Les clients voient votre disponibilité réelle et choisissent eux-mêmes un créneau. Plus d'allers-retours au téléphone, plus d'attente d'un rappel.",
-    "feature2Title": "Acomptes et paiements",
-    "feature2Desc": "Encaissez un acompte par carte au moment de la réservation pour que les absences cessent de vous coûter de l'argent. Nous travaillons avec les prestataires de paiement disponibles dans votre pays.",
-    "feature3Title": "Rappels automatiques",
-    "feature3Desc": "Des rappels par WhatsApp ou e-mail partent avant chaque rendez-vous, sans que personne de votre équipe ne lève le petit doigt.",
-    "feature4Title": "Un site qui vous appartient",
-    "feature4Desc": "Votre propre domaine, votre propre liste de clients, votre propre marque. Pas de commissions à une marketplace, pas de dépendance à une plateforme.",
-    "proofTitle": "Nous l'avons déjà fait.",
-    "proofPara1": "Nous avons conçu et développé une plateforme complète de réservation de terrains : les clients consultent les créneaux disponibles, réservent et paient depuis leur téléphone, et les propriétaires gèrent tout depuis un tableau de bord. Les mêmes briques fonctionnent pour les rendez-vous en salon, les consultations en clinique et les réservations de chambres d'hôtel.",
-    "proofPara2": "Ce que cela signifie pour votre activité : les clients réservent et paient en ligne au lieu d'appeler ou d'envoyer un message en espérant que quelqu'un réponde.",
-    "caseStudyLink": "Voir l'étude de cas de la plateforme de réservation →",
-    "carouselTitle": "Plateforme de réservation Likwiid",
-    "pricingTitle": "Une tarification simple",
-    "pricingPara1a": "Les sites de réservation démarrent à partir de",
-    "pricingPara1b": "La plupart des projets se situent entre",
-    "pricingRange": "8 000 $ et 15 000 $",
-    "pricingPara1c": "selon les paiements, les intégrations et le contenu, et prennent 2 à 4 semaines.",
-    "pricingPara2": "Likwiid est dirigé par son fondateur et prend 2 à 3 projets à la fois, donc vous parlez toujours à la personne qui construit réellement votre site.",
-    "pricingItem1": "Conception et développement, mobile d'abord",
-    "pricingItem2": "Parcours de réservation ou de commande en ligne",
-    "pricingItem3": "Chat WhatsApp en un clic intégré",
-    "pricingItem4": "Hébergement et configuration du domaine",
-    "pricingItem5": "Formation pour que votre équipe puisse le gérer",
-    "pricingItem6": "Une vraie personne qui répond sous 24 heures",
-    "finalCtaTitle": "Vous voulez voir ce que cela donnerait pour votre activité ?",
-    "finalCtaSubtitle": "Envoyez-nous votre site actuel ou votre page Instagram et nous vous répondrons avec une courte liste gratuite de ce que nous corrigerions en premier. Sans engagement.",
-    "emailLabel": "E-mail"
   },
   "direct": {
     "docTitle": "Likwiid Direct, un moteur de réservation directe pour petits hébergements | Likwiid",
     "eyebrow": "Produit Likwiid",
     "heroTitle": "Des réservations qui arrivent directement chez vous.",
     "heroSubtitle": "Likwiid Direct est un moteur de réservation directe pour les petits hébergements et les expériences. Pas de commission, pas d'intermédiaire, pas de dépendance. Vous gardez votre domaine, votre compte de paiement et votre fichier clients.",
+    "audience": "Conçu pour les petits hôtels, maisons d'hôtes, organisateurs d'excursions, salons et cliniques.",
     "ctaDemo": "Essayer la démo en direct",
     "ctaTalk": "Parlons-en",
     "demoTitle": "Essayez par vous-même",
     "demoNote": "Quinta Likwiid et Atelier Likwiid sont fictifs. Ils existent pour que vous puissiez parcourir le moteur exact que nous construirions pour vous. Le paiement est simulé et aucun montant n'est débité.",
-    "demoIframeTitle": "Démo en direct de Likwiid Direct",
     "feature1Title": "Des options qui font varier le prix",
-    "feature1Desc": "Une dégustation pour deux, un transfert depuis l'aéroport, une nuit supplémentaire. Les clients cochent ce qu'ils veulent et voient le total et l'acompte se mettre à jour sous leurs yeux. C'est la partie qu'aucun petit widget de réservation ne fait bien, et c'est la partie que nous avons construite en premier.",
+    "feature1Desc": "Une dégustation pour deux, un transfert aéroport, une nuit supplémentaire. Vos clients cochent ce qu'ils veulent et voient le total et l'acompte se mettre à jour sous leurs yeux.",
     "feature2Title": "Un acompte, pas le montant total",
     "feature2Desc": "La plupart des petits établissements demandent déjà 20 ou 30 pour cent par virement bancaire. Likwiid Direct prend le même acompte par carte, au moment exact où le client se décide, et le solde reste payable à l'arrivée.",
     "feature3Title": "Il s'intègre au site que vous avez déjà",
     "feature3Desc": "Une balise script et une div sur n'importe quel site WordPress, Wix ou fait main. Pas de refonte, pas de migration. Votre site reste le vôtre et les réservations arrivent directement chez vous.",
     "feature4Title": "La langue de votre client, bien faite",
     "feature4Desc": "Chaque étape, chaque libellé et chaque prix dans la langue que le client choisit. Rien d'à moitié traduit et aucun libellé interne qui s'affiche par erreur.",
-    "ownership": "Les plateformes de réservation apportent de la visibilité, et elles la font payer : une commission sur chaque séjour, leur marque entre vous et votre client, leurs règles. Likwiid Direct est l'autre voie. Votre domaine, votre compte de paiement, votre fichier clients. Nous le construisons, il vous appartient.",
-    "scarcity": "Ce moteur ne gère encore les réservations de personne. Nous aimerions que les vôtres soient les premières, à un prix de référence en échange du droit de montrer le travail fini. Et si vous préférez garder des réservations personnelles et manuelles, c'est une très bonne façon de gérer une activité, et ce produit n'est pas fait pour vous.",
+    "scarcity": "Ce moteur ne gère encore les réservations de personne, donc le premier établissement bénéficie d'un prix de référence en échange de l'autorisation de montrer le résultat. Si vous préférez garder des réservations personnelles et manuelles, c'est une très bonne façon de gérer une entreprise, et ce produit n'est pas pour vous.",
     "demoLaunch": "Lancer la démo complète",
-    "demoOverlayNote": "Propriété fictive, paiement simulé, aucun montant n'est débité.",
-    "demoClose": "Fermer",
     "demoPreviewAlt": "Aperçu du parcours de réservation Likwiid Direct",
     "demoCard1Title": "Un séjour en maison d'hôtes",
     "demoCard1Property": "Quinta Likwiid",
@@ -294,21 +251,28 @@
     "ownerMockBlockLabel": "Bloquer des dates",
     "ownerMockLegendBooked": "Réservé",
     "ownerMockLegendBlocked": "Bloqué",
-    "ownerCaption": "Une illustration de la vue propriétaire."
+    "ownerCaption": "Une illustration de la vue propriétaire.",
+    "siteTitle": "Besoin du site complet ?",
+    "sitePricing": "Nous concevons et développons aussi le site complet autour. Les sites démarrent à <b>1 500 $</b>, la plupart des projets se situent entre <b>8 000 $ et 15 000 $</b>, et ils prennent 2 à 4 semaines.",
+    "siteItem1": "Conception et développement, mobile d'abord",
+    "siteItem2": "Parcours de réservation ou de commande en ligne",
+    "siteItem3": "Chat WhatsApp en un clic intégré",
+    "siteItem4": "Hébergement et configuration du domaine",
+    "siteItem5": "Formation pour que votre équipe puisse le gérer",
+    "siteItem6": "Une vraie personne qui répond sous 24 heures",
+    "proofBody": "Nous l'avons déjà fait : une plateforme de réservation de terrains où les joueurs réservent et paient depuis leur téléphone, et où les propriétaires gèrent tout depuis un seul tableau de bord.",
+    "proofLink": "Voir l'étude de cas de réservation de padel"
   },
   "frame": {
     "docTitle": "Likwiid Frame, un moteur de portfolios pour photographes | Likwiid",
     "eyebrow": "Produit Likwiid",
     "heroTitle": "Un portfolio qui vous appartient, jusqu'au dernier fichier.",
-    "heroSubtitle": "Likwiid Frame est un moteur de portfolios pour photographes, piloté par la configuration. Un dossier de configuration et vos dossiers de photos deviennent un site premium avec validation client, boutique de tirages et réservation. Vous payez une fois, vous gardez votre domaine et le site vous appartient, sous forme de fichiers. Pas d'abonnement, et aucune plateforme qui garde vos galeries en otage.",
+    "heroSubtitle": "Likwiid Frame est un moteur de portfolio pour photographes, avec validation client, boutique de tirages et réservation intégrées. Vous payez une fois, gardez votre propre domaine et possédez le site sous forme de fichiers, sans abonnement.",
     "ctaDemo": "Essayer les démos en direct",
     "ctaTalk": "Parlons-en",
     "demoTitle": "Essayez par vous-même",
-    "demoNote": "Ana Likwiid Photography et Studio Likwiid sont fictifs. Ils existent pour que vous puissiez parcourir le moteur exact que nous construirions pour vous : un moteur, deux dossiers de configuration, deux marques qui ressemblent à des studios différents. Les parcours de validation et de paiement sont simulés, les écrans le disent, et aucun montant n'est débité.",
-    "demoIframeTitle": "Démo en direct de Likwiid Frame",
+    "demoNote": "Ana Likwiid Photography et Studio Likwiid sont fictifs : un seul moteur, deux marques qui ressemblent à des studios différents. La validation et le paiement sont simulés et aucun paiement n'est encaissé.",
     "demoLaunch": "Lancer la démo complète",
-    "demoOverlayNote": "Photographes fictifs, parcours simulés, aucun montant n'est débité.",
-    "demoClose": "Fermer",
     "demoCard1Title": "Une photographe de mariage",
     "demoCard1Brand": "Ana Likwiid Photography",
     "demoCard1PreviewAlt": "Aperçu d'Ana Likwiid Photography, un portfolio de mariage créé avec Likwiid Frame",
@@ -316,27 +280,21 @@
     "demoCard2Brand": "Studio Likwiid",
     "demoCard2PreviewAlt": "Aperçu de Studio Likwiid, un portfolio d'art et de travail commercial créé avec Likwiid Frame",
     "adminTitle": "Et la partie que vous seul voyez",
-    "adminBody": "Chaque site Frame inclut un espace de gestion à vos couleurs : réordonner et renommer les galeries, publier ou retirer des photos, modifier textes et tarifs, suivre l'activité de validation, consulter les commandes de tirages. Dans la démo, les modifications ne persistent que dans votre navigateur, et l'espace de gestion le dit clairement.",
+    "adminBody": "Chaque site Frame est livré avec un panneau propriétaire à vos couleurs : réorganisez les galeries, publiez des photos, modifiez textes et prix, suivez les validations et consultez les commandes de tirages.",
     "adminLink": "Ouvrir la démo de l'espace de gestion",
     "painTitle": "Pourquoi pas simplement une plateforme ?",
-    "painBody": "Les plateformes de portfolios vous louent votre propre travail. L'abonnement grimpe un peu chaque année, pour toujours, et partir signifie repartir de zéro, parce que vos galeries, les sélections de vos clients et votre SEO restent sur leurs serveurs. Les créateurs de sites ne valent pas mieux : ils recompressent vos photos et jettent les métadonnées dont dépend la recherche d'images. Frame fait le pari inverse : un site livré sous forme de fichiers qui vous appartiennent, sur votre domaine, sans abonnement pour le maintenir en vie.",
-    "howTitle": "Des dossiers au site terminé",
-    "howBody": "Vous envoyez des photos et des réponses, nous faisons le reste. Un dossier de configuration décrit votre marque, les sections, les galeries, les langues et les tarifs, et vos originaux vont dans des dossiers de photos. Le build transforme le tout en site complet, avec chaque image traitée et chaque page préparée pour les moteurs de recherche. Une nouvelle galerie est un dossier, un nouveau tarif est une ligne, et la première version est prête en quelques jours, pas en quelques mois.",
-    "feature1Title": "Le pipeline d'images que les plateformes ratent",
-    "feature1Desc": "Chaque photo est traitée au build en déclinaisons AVIF, WebP et JPEG adaptées à chaque écran, avec un aperçu flouté et sa place déjà réservée avant le chargement, pour que la mise en page ne bouge jamais. L'EXIF est retiré de ce que les visiteurs téléchargent, puis vos métadonnées d'auteur, de droits et de licence sont réincorporées, pour que le badge de licence d'images de Google fonctionne dès le premier jour.",
-    "feature2Title": "Quatre studios, un moteur",
-    "feature2Desc": "Le mariage est chaleureux et éditorial. Le portrait ressemble à un commerce local soigné. Le commercial est une grille suisse, avec clients et crédits. L'art est une galerie épurée, avec CV, tirages et licences. Vous choisissez l'ambiance, et les sections s'adaptent à votre contenu.",
+    "painBody": "Les plateformes de portfolio vous louent votre propre travail. L'abonnement augmente chaque année, et partir signifie tout recommencer, car vos galeries, les sélections de vos clients et votre référencement restent sur leurs serveurs. Frame est livré sous forme de fichiers qui vous appartiennent, sur votre propre domaine, sans rien à renouveler.",
+    "pipelineNote": "Chaque photo est servie à la bonne taille dans des formats modernes, avec vos informations de copyright conservées, pour que les pages se chargent vite et que la recherche d'images vous crédite.",
     "feature3Title": "La validation client intégrée",
-    "feature3Desc": "Chaque client reçoit une galerie protégée par mot de passe : favoris, un compteur de sélection qui respecte les photos incluses dans son forfait, des notes par photo et une étape d'envoi. Dans la démo, le parcours est simulé dans le navigateur, et l'écran le dit.",
+    "feature3Desc": "Chaque client dispose d'une galerie privée pour choisir ses favorites, commenter des photos et envoyer une sélection qui respecte le nombre prévu dans sa formule.",
     "feature4Title": "Une boutique de tirages prête à brancher",
-    "feature4Desc": "Les images mises en vente tirent leurs produits, leurs formats et leurs tarifs de la configuration, avec un panier et un paiement qui se termine par une référence de commande. Dans la démo, le paiement est simulé et aucun argent ne circule ; sur un site réel, le même parcours se branche sur votre propre compte de paiement.",
+    "feature4Desc": "Marquez des images à vendre avec formats et prix, et vos clients commandent des tirages via un panier relié à votre propre compte de paiement.",
     "feature5Title": "La réservation, assurée par notre autre produit",
-    "feature5Desc": "Sur la page de contact d'Ana, le calendrier de réservation n'est pas une maquette. C'est Likwiid Direct, notre moteur de réservation directe, intégré en direct : les deux produits Likwiid qui travaillent ensemble, sans que l'un dépende de l'autre.",
+    "feature5Desc": "Sur la page contact d'Ana, le calendrier de réservation est Likwiid Direct, notre moteur de réservation, intégré en direct. Les deux produits fonctionnent ensemble, et aucun ne dépend de l'autre.",
     "synergyLink": "Voir Likwiid Direct",
     "feature6Title": "Les langues et le SEO, bien faits",
-    "feature6Desc": "Des sites multilingues, portugais européen compris, avec des titres par page et des données structurées Person, LocalBusiness et ImageObject, pour que votre nom, votre ville et vos images soient lisibles par les moteurs de recherche.",
-    "ownership": "Les plateformes de portfolios apportent du confort, et elles le font payer : un abonnement qui ne s'arrête jamais, leur compression sur vos photos, vos galeries derrière un export que vous n'obtiendrez peut-être jamais. Likwiid Frame est l'autre voie. Vous payez une fois, nous livrons un site premium qui vous appartient sous forme de fichiers, sur votre domaine, et il continue de fonctionner même si nous disparaissons demain.",
-    "scarcity": "Ce moteur ne fait encore tourner le portfolio d'aucun photographe. Ana et Studio Likwiid sont fictifs et leurs sites le disent. Nous aimerions que le vôtre soit le premier vrai portfolio à tourner dessus, à un prix de référence en échange du droit de montrer le travail fini. Et si un abonnement à une plateforme vous convient déjà, c'est une bonne façon de gérer un studio, et ce produit n'est pas fait pour vous."
+    "feature6Desc": "Des sites multilingues, portugais européen compris, avec titres de page et données structurées configurés pour que les moteurs de recherche comprennent votre nom, votre ville et vos images.",
+    "scarcity": "Ce moteur ne fait encore tourner le portfolio d'aucun photographe, donc le premier vrai bénéficie d'un prix de référence en échange de l'autorisation de montrer le résultat. Si un abonnement à une plateforme vous convient déjà, c'est une très bonne façon de gérer un studio, et ce produit n'est pas pour vous."
   },
   "privacy": {
     "documentTitle": "Politique de confidentialité | Likwiid",
@@ -371,13 +329,12 @@
     "stepApproach": "Approche",
     "stepOutcome": "Résultat",
     "factRole": "Rôle",
-    "factTimeline": "Calendrier",
     "factYear": "Année",
     "factClient": "Client",
+    "factType": "Type",
     "factPlatform": "Plateforme",
     "platformMobile": "Application mobile",
     "platformWeb": "Application web",
-    "docTitle": "{{title}} | Likwiid",
     "backToWork": "Retour aux projets",
     "appStore": "App Store",
     "playStore": "Play Store",
@@ -389,184 +346,112 @@
     "techStack": "Stack technique",
     "underTheHood": "Sous le capot",
     "notableEngineering": "Ingénierie remarquable",
+    "similarProject": "Un projet similaire ?",
+    "similarProjectBody": "Dites-nous ce dont vous avez besoin. Nous répondons sous 24 heures.",
+    "startProject": "Démarrer un projet",
+    "whatsapp": "Écrivez-nous sur WhatsApp",
     "nextProject": "Projet suivant"
   },
   "projectsData": {
     "padel-booking": {
       "title": "Plateforme de réservation de padel",
-      "subtitle": "Gestion de ligues, mise en relation des joueurs et réservation de terrains en temps réel",
-      "oneLiner": "Application de padel en production pour le Liban : moteur de ligues, mise en relation par niveau et réservation de terrains",
-      "description": "Application React Native (Expo) en production pour la communauté padel du Liban. Réservation de terrains, mise en relation par niveau et ligues compétitives complètes, disponibles sur l'App Store et Google Play.",
-      "challenge": "La scène padel du Liban fonctionnait sur WhatsApp et des tableurs, sans réelle disponibilité des terrains, sans mise en relation par niveau et sans ligues structurées, le tout sur une connexion internet peu fiable.",
-      "approach": "Application Expo SDK 54 / RN 0.81 New Architecture : Expo Router (42 écrans), Zustand avec TanStack Query et un cache hors ligne de 24h, et une API REST NestJS sur mesure (70+ endpoints) derrière un client Axios renforcé.",
-      "results": "Publiée sur les deux stores : réservation de terrains, 12 niveaux de classement, mise en relation, évaluations entre pairs et un cycle de vie de ligue complet jusqu'aux playoffs. Hors ligne d'abord, trilingue (EN/AR/FR avec RTL), avec liens profonds universels, tests E2E Playwright et supervision Sentry.",
-      "businessResult": "A remplacé la coordination par WhatsApp et tableurs par une plateforme publiée en store qui maîtrise la réservation, la mise en relation et le jeu en ligue.",
-      "role": "Conception produit en solo, intégration mobile + backend, build et publication en store",
-      "timeline": "Développement en 2025 ; publiée sur l'App Store et Google Play (v1.1.1)",
+      "subtitle": "Réservation de terrains, matchs et ligues pour les joueurs de padel au Liban",
+      "oneLiner": "Une application de réservation et de ligues pour les joueurs et les clubs de padel au Liban.",
+      "description": "Padel Lebanon permet aux joueurs de réserver des terrains, de trouver des matchs à leur niveau et de jouer dans des ligues organisées. Elle est disponible sur l'App Store et Google Play, avec un portail web pour les organisateurs de ligues.",
+      "challenge": "Au Liban, le padel fonctionnait avec des groupes WhatsApp et des tableurs. Les joueurs n'avaient aucun moyen simple de voir les terrains libres, de trouver des partenaires à leur niveau ou de suivre une ligue.",
+      "approach": "Nous avons conçu une application mobile pour les joueurs et un portail web pour les organisateurs, tous deux alimentés par les mêmes données. L'application continue de fonctionner avec une connexion faible, ce qui compte au Liban.",
+      "results": "L'application est en ligne sur les deux stores, en anglais, en arabe et en français. Les joueurs réservent, trouvent des matchs et jouent au même endroit, et les organisateurs gèrent chaque semaine de ligue en quelques clics.",
+      "businessResult": "Padel Inc a sorti la réservation de terrains et les ligues des groupes WhatsApp pour les faire passer dans sa propre application, publiée sur les deux stores.",
+      "role": "Conception, développement et lancement sur les stores",
       "metrics": [
         {
-          "value": "12",
-          "label": "Niveaux de jeu (D-A+)"
-        },
-        {
-          "value": "70+",
-          "label": "Endpoints backend"
+          "value": "2",
+          "label": "Stores d'applications, en ligne"
         },
         {
           "value": "3",
-          "label": "Langues, arabe RTL"
+          "label": "Langues, dont l'arabe"
         },
         {
-          "value": "2",
-          "label": "App stores en ligne"
+          "value": "12",
+          "label": "Niveaux de jeu, de D- à A+"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Moteur de ligue compétitive complet",
-          "description": "Check-in, quatre algorithmes d'appariement, score 2v2, classements et tableau de playoffs."
+          "title": "Réservation de terrains",
+          "description": "Trouvez un terrain, voyez le prix et réservez en quelques gestes."
         },
         {
-          "title": "Classement et mise en relation sur 12 niveaux",
-          "description": "Les niveaux de D- à A+ alimentent la découverte, les ligues par tranche de niveau et les évaluations entre pairs."
+          "title": "Des matchs à votre niveau",
+          "description": "Un classement sur 12 niveaux, de D- à A+, associe des joueurs de niveau proche."
         },
         {
-          "title": "Hors ligne d'abord pour réseaux peu fiables",
-          "description": "Cache TanStack Query de 24h avec détection de connectivité via AsyncStorage."
+          "title": "Des saisons de ligue complètes",
+          "description": "Les ligues vont de l'inscription aux appariements et scores hebdomadaires, jusqu'à la finale des playoffs."
         },
         {
-          "title": "Trilingue avec RTL arabe complet",
-          "description": "EN/AR/FR avec environ 1 494 clés chacune, changement à l'exécution, RTL complet pour l'arabe."
+          "title": "Classements en direct",
+          "description": "Les tableaux se mettent à jour dès la saisie des scores, avec des critères de départage équitables."
         },
         {
-          "title": "Découverte et réservation de terrains",
-          "description": "Filtrer les terrains, consulter les tarifs, réserver avec codes promo et options de paiement locales."
+          "title": "Outils web pour les organisateurs",
+          "description": "Gérez joueurs et staff par rôle, et ouvrez ou fermez le check-in hebdomadaire."
         },
         {
-          "title": "Invitations partageables via liens profonds",
-          "description": "Les liens universels sur padellb.club pilotent les codes d'accès, la vérification et les réinitialisations."
+          "title": "Trois langues",
+          "description": "Anglais, arabe et français, avec une mise en page entièrement de droite à gauche pour l'arabe."
         }
       ],
       "architecture": [
         {
+          "area": "Application mobile",
+          "detail": "React Native 0.81 sur Expo SDK 54 (New Architecture), Expo Router sur 42 écrans, NativeWind et Reanimated."
+        },
+        {
           "area": "Données et état",
-          "detail": "Zustand (24 stores) pour l'état client ; TanStack Query pour l'état serveur, cache de 24h"
+          "detail": "Zustand (24 stores) pour l'état client ; TanStack Query pour l'état serveur avec un cache hors ligne de 24h."
         },
         {
           "area": "Backend et authentification",
-          "detail": "API REST NestJS via 17 modules typés ; client Axios avec rafraîchissement JWT single-flight"
+          "detail": "API REST NestJS 11 (70+ endpoints, TypeORM, PostgreSQL) via 17 modules client typés ; Axios avec rafraîchissement JWT single-flight."
         },
         {
-          "area": "Domaine ligue",
-          "detail": "DTOs typés pour les semaines, le check-in, les matchs 2v2, les classements, les stats et le tableau de playoffs"
+          "area": "Portail d'administration",
+          "detail": "SPA React 19 et Vite avec TanStack Router et Query, Zustand, Radix UI et Tailwind CSS 4, sur la même API NestJS."
         },
         {
-          "area": "Navigation et liens profonds",
-          "detail": "Expo Router sur 42 écrans ; liens universels padellb.club pour les partages et l'authentification"
+          "area": "Moteur de ligue",
+          "detail": "Cinq modes d'appariement (aléatoire, par niveau, suisse, round robin équitable, manuel), départage aux sets et aux jeux, tableau de playoffs."
         },
         {
           "area": "Fiabilité et livraison",
-          "detail": "Sentry, error boundaries, tests E2E Playwright, EAS Build et mises à jour OTA (v1.1.1)"
+          "detail": "Sentry, error boundaries, tests E2E Playwright, EAS Build et mises à jour OTA ; Docker, GitHub Actions et une sauvegarde de la base avant chaque déploiement."
         }
       ],
       "highlights": [
-        "Rafraîchissement JWT proactif single-flight ~60s avant expiration pour éviter les conflits de rotation",
-        "Système de tournoi complet : Swiss, round-robin, appariement manuel, confirmation des scores, playoffs",
-        "Contournement d'un bug OkHttp 4.12 + nginx via des paramètres de cache-busting sur 90+ endpoints",
-        "Hors ligne d'abord : cache de 24h, online manager expo-network, hydratation synchrone en mémoire",
-        "Environ 1 494 clés i18n par langue sur EN/AR/FR avec RTL arabe complet",
-        "Échelle feature-first : 16+ modules, 259 composants, 24 stores, 17 services API typés"
-      ]
-    },
-    "padel-admin-portal": {
-      "title": "Portail d'administration Padel",
-      "subtitle": "Tableau de bord web pour la gestion des ligues et des joueurs",
-      "oneLiner": "Console d'administration pour gérer des ligues de padel par joueurs : appariements, scores, classements et phases finales",
-      "description": "Une console d'administration React pour piloter les ligues de padel depuis le navigateur plutôt que depuis la base de données. Les opérateurs gèrent les effectifs, génèrent les appariements 2v2 hebdomadaires, enregistrent les scores et organisent les phases finales sur la même API NestJS qui alimente l'application joueur.",
-      "challenge": "Faire tourner une saison de padel en direct implique des appariements équitables chaque semaine, des absences, des scores de sets et des classements départagés. Les tableurs ne tiennent pas la charge, et modifier directement la base de données de production est risqué.",
-      "approach": "Une SPA React 19 + Vite avec TanStack Router (protégé par authentification), TanStack Query, Zustand et Radix UI sur Tailwind v4. La logique d'appariement, de scoring, de classement et de phases finales réside dans un backend NestJS 11 + TypeORM + PostgreSQL.",
-      "results": "Un portail déployé qui orchestre tout le cycle de vie de la ligue sans toucher à la base de données : appariements hebdomadaires en un clic selon cinq modes, classements départagés recalculés automatiquement, statistiques par joueur et un tableau demi-finale/finale. Jest couvre la logique à haut risque ; le CI/CD sauvegarde la base avant chaque déploiement.",
-      "businessResult": "A transformé l'administration de ligue, passée des approximations sur tableur à quelques clics par semaine, avec appariements et classements équitables automatiques.",
-      "role": "Conception, développement et mise en production en solo (full-stack : portail d'administration React + backend NestJS)",
-      "timeline": "~jan.-mars 2025 (backend amorcé fin janvier, portail d'administration itéré jusqu'à mi-mars selon les dates git/fichiers)",
-      "metrics": [
-        {
-          "value": "5",
-          "label": "Méthodes d'appariement"
-        },
-        {
-          "value": "7",
-          "label": "Vues de l'espace de travail"
-        },
-        {
-          "value": "38",
-          "label": "Points de terminaison API"
-        },
-        {
-          "value": "1-click",
-          "label": "Appariements hebdomadaires"
-        }
+        "Rafraîchissement JWT proactif single-flight environ 60s avant expiration, pour éviter les conflits de rotation",
+        "L'appariement round robin utilise une vraie heuristique d'équité fondée sur l'historique des coéquipiers et des adversaires, pas un simple tirage au sort",
+        "Rotation des refresh tokens côté administration protégée par un verrou Redis contre les rafraîchissements concurrents",
+        "Contournement d'un bug OkHttp 4.12 + nginx grâce à des paramètres anti-cache sur plus de 90 endpoints",
+        "Hors ligne d'abord : cache de 24h, gestionnaire de connexion expo-network, hydratation synchrone en mémoire",
+        "Environ 1 494 clés i18n par langue en EN/AR/FR, avec RTL arabe complet"
       ],
-      "keyFeatures": [
-        {
-          "title": "Appariements hebdomadaires, cinq approches",
-          "description": "Aléatoire, basé sur le niveau, suisse, round-robin équitable ou manuel, avec gestion automatique des byes."
-        },
-        {
-          "title": "Round-robin optimisant l'équité",
-          "description": "Construit des matrices coéquipiers/adversaires à partir de l'historique des matchs pour maximiser les nouvelles confrontations."
-        },
-        {
-          "title": "Scoring avec classements en direct",
-          "description": "Les scores set par set recalculent le classement avec départages au set et au jeu."
-        },
-        {
-          "title": "Espace de travail de ligue à sept onglets",
-          "description": "Vue d'ensemble, Joueurs, Semaines, Matchs, Classements, Statistiques et Phase finale dans une seule vue."
-        },
-        {
-          "title": "Authentification par rôle avec rotation de jetons",
-          "description": "Accès réservé aux administrateurs ; les refresh tokens tournent en cas de 401, un verrou Redis évite les races."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Couche de données",
-          "detail": "TanStack Query avec des hooks par fonctionnalité ; un module de normalisation mappe le JSON brut vers des types stricts."
-        },
-        {
-          "area": "Domaine backend",
-          "detail": "NestJS 11 + TypeORM + PostgreSQL ; les ligues sont réparties en services d'appariement, de scoring, de classement, de statistiques et de phase finale."
-        },
-        {
-          "area": "Authentification",
-          "detail": "Passport JWT ; refresh tokens hachés avec bcrypt dans Redis, rotation protégée par verrou, contrôles de rôle côté serveur."
-        },
-        {
-          "area": "Livraison",
-          "detail": "Frontend nginx dockerisé ; GitHub Actions vers GHCR, déploiements Ansible avec sauvegarde Postgres avant déploiement."
-        }
-      ],
-      "highlights": [
-        "Le round-robin utilise une véritable heuristique combinatoire d'équité, et pas un simple brassage.",
-        "La rotation des refresh tokens est durcie contre les races de rafraîchissement concurrent grâce à un verrou Redis.",
-        "La couche API tolère les formats backend paginés, plats, imbriqués et aux orthographes multiples.",
-        "Le store d'authentification distingue les vrais échecs 401/403 des erreurs réseau transitoires pour maintenir les sessions actives.",
-        "Les routes lazy réessaient le chargement des chunks, puis rechargent entièrement, éliminant les écrans blancs de chunks périmés après déploiement.",
-        "Les points par ligue, limites de joueurs, bornes de niveau et codes d'accès sont modélisés, pas codés en dur."
-      ]
+      "companion": {
+        "title": "Le portail d'administration",
+        "summary": "Les organisateurs de ligues utilisent un portail web pour créer des ligues, gérer joueurs et staff, et ouvrir ou fermer le check-in hebdomadaire. Appariements, scores et classements se mettent à jour automatiquement, sans que personne ne modifie la base de données à la main."
+      }
     },
     "gcg-website": {
-      "title": "Site web GCG",
-      "subtitle": "Site web premium de conseil scientifique avec parcours clairs et flux de conversion",
-      "oneLiner": "Site de conseil scientifique avec parcours par audience, analytics respectueux de la vie privée et theming accessible",
-      "description": "Site marketing en production pour Ghoussoub Consulting Group, un cabinet à orientation scientifique couvrant le conseil, la R&D, le tutorat STEM et la due diligence d'investissement. Une SPA React 19 qui présente une offre large sous la forme de quatre points d'entrée par audience.",
-      "challenge": "Faire en sorte qu'un portefeuille vaste et très technique paraisse crédible auprès de cinq audiences très différentes au sein d'un même site cohérent, tout en restant honnête, rapide, accessible et déployable sur un hébergement statique gratuit avec des URL propres.",
-      "approach": "Création d'une SPA React 19 / TypeScript / Vite 8 avec React Router 7 et un système de tokens Tailwind CSS 4 résolvant les thèmes clair, sombre et système depuis une source unique. Une section « Choose Your Path » segmente quatre audiences vers des parcours sur mesure ; des visuels scientifiques SVG conçus à la main s'animent avec Framer Motion en prenant en charge le mode réduction des animations ; les analytics Umami, respectueux de la vie privée, mesurent l'intention.",
-      "results": "Plateforme en ligne de 9 routes avec segmentation par audience, pages R&D et tutorat axées sur la méthodologie, données structurées JSON-LD, navigation accessible avec piégeage du focus et flux de contact animé et validé. Sans backend, la capture de leads s'appuie sur des brouillons mailto préremplis et honnêtes. Une CI stricte verrouille chaque déploiement sur le lint, le typecheck et le build.",
-      "businessResult": "A transformé une offre scientifique large à cinq audiences en un site unique, crédible et prêt pour la conversion, qui reste honnête à mesure que le cabinet grandit.",
-      "role": "Conception, développement et livraison en solo",
-      "timeline": "~Avril à mai 2026 (31 commits, premier commit 2026-04-07, dernier 2026-05-15)",
+      "title": "Site web de GCG",
+      "subtitle": "Site web d'un cabinet de conseil scientifique, avec un parcours clair pour chaque public",
+      "oneLiner": "Site web d'un cabinet de conseil scientifique, avec un parcours clair pour chaque public.",
+      "description": "Ghoussoub Consulting Group propose un accompagnement en recherche, du soutien scolaire et du conseil en investissement à des clients très différents. Le nouveau site donne à chaque public son propre point de départ et un moyen simple de prendre contact.",
+      "challenge": "GCG s'adresse à des entreprises, des équipes de recherche, des étudiants, des familles et des investisseurs. Son offre était large et technique, et devait paraître claire et crédible pour tous.",
+      "approach": "Nous avons regroupé les services en quatre parcours, un par public, chacun avec sa propre page et des explications simples. Chaque page se termine par un moyen simple de demander une consultation.",
+      "results": "Le site est en ligne avec neuf pages, des modes clair et sombre, et une prise de contact sur chaque parcours. Il est rapide, accessible et peu coûteux à faire fonctionner.",
+      "businessResult": "GCG dispose désormais d'un site unique qui oriente chaque visiteur, d'une entreprise aux parents d'un étudiant, vers le bon service et une demande de consultation.",
+      "role": "Conception, développement et mise en ligne",
       "metrics": [
         {
           "value": "9",
@@ -574,166 +459,78 @@
         },
         {
           "value": "4",
-          "label": "Parcours par audience"
+          "label": "Parcours par public"
         },
         {
-          "value": "3",
-          "label": "Thèmes"
-        },
-        {
-          "value": "0",
-          "label": "Dépendances backend"
+          "value": "2",
+          "label": "Thèmes de couleur"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Routage par parcours d'audience",
-          "description": "Une section « Choose Your Path » oriente quatre audiences vers des pages de services sur mesure."
+          "title": "Un parcours pour chaque public",
+          "description": "Une section « Choisissez votre parcours » oriente quatre publics vers des pages écrites pour eux."
         },
         {
-          "title": "Pages de services scientifiques dédiées",
-          "description": "Pages R&D et tutorat avec pipelines méthodologiques, livrables et SEO propre à chaque page."
+          "title": "Des pages de services claires",
+          "description": "Les pages recherche et soutien scolaire expliquent la méthode, ce que reçoivent les clients et la suite."
         },
         {
-          "title": "Visuels scientifiques animés conçus à la main",
-          "description": "Réseaux moléculaires SVG personnalisés, hélice d'ADN et formes d'onde d'oscilloscope ; aucun visuel de stock."
+          "title": "Des illustrations scientifiques sur mesure",
+          "description": "Molécules, ADN et ondes dessinés à la main et animés, à la place d'images de banque."
         },
         {
-          "title": "Analytics respectueux de la vie privée, capture de leads honnête",
-          "description": "Umami respecte le Do-Not-Track ; les formulaires ouvrent des brouillons mailto, sans fausse persistance serveur."
+          "title": "Statistiques de visite respectueuses de la vie privée",
+          "description": "Une mesure d'audience qui respecte Do Not Track et ne collecte aucune donnée personnelle."
         },
         {
-          "title": "Theming clair/sombre/système sans flash",
-          "description": "Un seul jeu de tokens CSS pilote tous les thèmes via un script inline exécuté avant le rendu."
+          "title": "Modes clair et sombre",
+          "description": "Suit le réglage système du visiteur, sans flash au chargement de la page."
         },
         {
-          "title": "SPA sur GitHub Pages avec liens profonds propres",
-          "description": "Un schéma de redirection en quatre parties maintient les routes côté client fonctionnelles sur l'hébergement statique."
+          "title": "Une prise de contact sur chaque parcours",
+          "description": "Chaque page se termine par une demande de consultation prête à envoyer."
         }
       ],
       "architecture": [
         {
           "area": "Rendu et routage",
-          "detail": "SPA React 19, React Router 7 ; routes chargées en lazy et découpées en chunks vendor-react et vendor-motion."
+          "detail": "SPA React 19 sur Vite 8 avec React Router 7 ; routes chargées à la demande et découpées en chunks vendor-react et vendor-motion."
         },
         {
-          "area": "Theming",
-          "detail": "Un seul jeu de tokens CSS dans index.css ; ThemeContext persiste dans localStorage, un script inline définit data-theme avant le rendu."
+          "area": "Thèmes",
+          "detail": "Tailwind CSS 4 avec un seul jeu de tokens CSS ; ThemeContext persiste dans localStorage, un script inline définit data-theme avant le premier rendu."
         },
         {
           "area": "SEO et données structurées",
-          "detail": "Le hook useSEO met à jour titre, canonical, OG, Twitter et JSON-LD par route ; schémas Organization et WebSite, sitemap, robots."
+          "detail": "Le hook useSEO met à jour title, canonical, OG, Twitter et JSON-LD pour chaque route ; schémas Organization et WebSite, sitemap, robots."
         },
         {
-          "area": "Analytics",
-          "detail": "Umami désactivé par feature flag jusqu'à ce que VITE_UMAMI_WEBSITE_ID soit défini ; respecte le Do-Not-Track ; data-umami-event à travers les flux."
+          "area": "Mesure d'audience",
+          "detail": "Umami, activé par feature flag dès que VITE_UMAMI_WEBSITE_ID est défini ; respecte Do Not Track ; data-umami-event sur les parcours."
         },
         {
           "area": "Déploiement",
-          "detail": "GitHub Actions verrouille sur lint, typecheck et build ; les liens profonds survivent grâce à la capture 404.html et la restauration index.html."
+          "detail": "GitHub Actions bloque sur lint, typecheck et build ; les liens profonds sur GitHub Pages fonctionnent grâce à une capture via 404.html et une restauration dans index.html."
         }
       ],
       "highlights": [
-        "Art SVG génératif : un graphe moléculaire lie les atomes dans un rayon de 220px ; hélice d'ADN sinusoïdale, le tout mémoïsé et adapté à la réduction des animations",
-        "Accessibilité intégrée : contours focus-visible, media query de réduction des animations, piégeage du focus du menu mobile, cibles tactiles de 44px",
-        "L'honnêteté comme contrainte : ExpertiseStandards sépare les exemples représentatifs des résultats réels ; mailto plutôt qu'une fausse capture de leads",
-        "Hygiène stricte : TypeScript noUnusedLocals/Parameters, Husky, lint-staged, Prettier, la CI échoue à la moindre erreur de lint, type ou build",
-        "UX de contact animée et validée : labels flottants, indicateurs valide/invalide avec ressort, secousse en cas d'erreur, états idle/loading/success",
-        "Page 404 soignée (« Drifted Out Of Orbit ») avec trois chemins de récupération, noindex, intégrée au même système de redirection de la SPA"
-      ]
-    },
-    "sems-energy-management": {
-      "title": "SEMS : gestion intelligente de l'énergie",
-      "subtitle": "Visibilité énergétique multi-sources et maîtrise des coûts pour les foyers libanais",
-      "oneLiner": "Un seul tableau de bord pour les foyers libanais jonglant entre réseau EDL, générateurs, solaire et batteries",
-      "description": "Une plateforme énergétique pensée logiciel d'abord pour les foyers libanais alimentés simultanément par le réseau EDL, des générateurs diesel, le solaire et des batteries. Un tableau de bord en temps réel montre ce qui alimente le foyer, ce que cela coûte et l'impact des changements de source sur la facture.",
-      "challenge": "Les produits énergétiques grand public présument un réseau stable à source unique ; aucun ne gère un foyer libanais puisant le même jour dans le réseau, un générateur, le solaire et une batterie, et tout cela devait être prouvé sans aucun matériel de mesure.",
-      "approach": "Un Turborepo TypeScript (pnpm) construit de bout en bout : NestJS 10 + Prisma sur PostgreSQL 16/TimescaleDB et Redis, une application Expo SDK 54, et un simulateur déterministe modélisant les vrais cycles énergétiques libanais pour tout valider avant le matériel.",
-      "results": "La preuve de concept de la phase 1 a été vérifiée de bout en bout sur TimescaleDB et Redis en conditions réelles : environ 38 endpoints renvoyaient le statut attendu, les deux agrégats continus se sont matérialisés, et le simulateur a généré 7,205 relevés/jour en moins de 0,1 s. L'application embarque authentification, tableau de bord en temps réel, gestion des appareils, analytique et quatre scénarios de démonstration.",
-      "businessResult": "Unifie réseau, générateur, solaire et batterie dans un seul tableau de bord de coûts conscient de la source, validé de bout en bout avant toute dépense matérielle.",
-      "role": "Architecture, design, développement et vérification en solo (full-stack)",
-      "timeline": "Preuve de concept de la phase 1 réalisée en février 2026 (architecture figée, monorepo échafaudé, backend + mobile + moteur de simulation, vérifié de bout en bout sur conteneurs en conditions réelles le 2026-02-24)",
-      "metrics": [
-        {
-          "value": "4",
-          "label": "Sources d'énergie unifiées"
-        },
-        {
-          "value": "14",
-          "label": "Types d'appareils"
-        },
-        {
-          "value": "7,205",
-          "label": "Relevés/jour simulés"
-        },
-        {
-          "value": "38",
-          "label": "Endpoints API"
-        }
-      ],
-      "keyFeatures": [
-        {
-          "title": "Tableau de bord multi-sources en temps réel",
-          "description": "Source active, watts en temps réel, coût du jour et principaux consommateurs via WebSocket."
-        },
-        {
-          "title": "Moteur de coûts conscient de la source",
-          "description": "Tarifie chaque kWh selon les vrais paliers EDL du Liban, les frais d'ampérage des générateurs, le solaire et la batterie."
-        },
-        {
-          "title": "Simulateur d'énergie libanais",
-          "description": "Modèle paramétrable des horaires EDL, du démarrage automatique des générateurs, du solaire, de la batterie et de la climatisation avec bruit capteur."
-        },
-        {
-          "title": "Démos pilotées par scénarios",
-          "description": "Quatre scénarios intégrés montrent les coupures et les transitions de source sans matériel de mesure."
-        },
-        {
-          "title": "Gestion des appareils groupés par pièce",
-          "description": "CRUD sur 14 types d'appareils avec puissance, indicateurs et détail des coûts par appareil."
-        },
-        {
-          "title": "Analytique de séries temporelles TimescaleDB",
-          "description": "Une hypertable avec agrégats continus horaires et quotidiens accélère les ventilations de coûts et de sources."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Monorepo",
-          "detail": "Turborepo + pnpm : applications NestJS et Expo, package Zod/coûts partagé comme source unique de vérité, package data-generator."
-        },
-        {
-          "area": "Couche de données",
-          "detail": "PostgreSQL 16 + TimescaleDB ; hypertable energy_readings, agrégats horaires/quotidiens, compression, rétention ; 11 modèles Prisma."
-        },
-        {
-          "area": "Temps réel",
-          "detail": "Gateway Socket.io /energy authentifiée par JWT, salles par foyer, adaptateur Redis pour la mise à l'échelle, reconnexion automatique avec OfflineBanner."
-        },
-        {
-          "area": "Authentification",
-          "detail": "JWT sur mesure (Passport, bcrypt) : tokens d'accès de 15 min, tokens de rafraîchissement hachés et rotatifs avec détection de vol par famille, guards de routes."
-        }
-      ],
-      "highlights": [
-        "Une simulation déterministe et paramétrable avec physique modélisée (climatisation, solaire, état de charge de la batterie) rend les données de démo reproductibles sans compteurs",
-        "Des constantes métier libanaises encodent les paliers EDL, les frais de générateur, les seuils de tension et les heures d'ensoleillement saisonnières",
-        "Des schémas Zod comme source unique de vérité partagés par le backend et le mobile, éliminant les divergences client/serveur",
-        "Vérification de bout en bout réelle : un rapport e2e documente les bugs trouvés et corrigés sur conteneurs en conditions réelles",
-        "DevOps de production : Dockerfile multi-étapes non-root, CI GitHub Actions avec mise en cache, Husky + lint-staged"
+        "Art SVG génératif : graphe moléculaire reliant les atomes à moins de 220px, hélice d'ADN sinusoïdale, le tout mémoïsé et compatible avec reduced-motion",
+        "Accessibilité intégrée : contours focus-visible, requête reduced-motion, piégeage du focus dans le menu mobile, cibles tactiles de 44px",
+        "L'honnêteté comme contrainte : exemples représentatifs séparés des résultats réels ; brouillons mailto plutôt qu'une fausse capture de leads",
+        "Hygiène stricte : TypeScript 6 strict avec noUnusedLocals/Parameters, Husky, lint-staged, Prettier, CI en échec à la moindre erreur",
+        "UX de contact avec Framer Motion 12 : labels flottants, indicateurs valide et invalide, états repos, chargement et succès"
       ]
     },
     "voxflow": {
       "title": "VoxFlow",
-      "subtitle": "Rééducation vocale hors ligne avec pratique guidée, enregistrements et suivi de progression",
-      "oneLiner": "Rééducation vocale offline-first : une routine guidée de 10 minutes avec enregistrements privés et comparaison A/B",
-      "description": "VoxFlow est une application Android-first, entièrement hors ligne, qui réunit minuteur de pratique vocale, instructions, enregistreur et lecture de référence en une seule routine de 10 minutes, sereine et structurée cliniquement. Aucun compte, aucun serveur, aucune télémétrie.",
-      "challenge": "La pratique de la récupération vocale échoue parce qu'une séance implique de jongler entre minuteur, notes, enregistreur et articles, tandis que la plupart des applications ajoutent la culpabilité des séries et des comptes cloud. VoxFlow devait tout unifier hors ligne, sans compte, avec un ton clinique sans jugement.",
-      "approach": "Conçue avec Expo et React Native autour d'un moteur de routine déterministe : une seule chronologie de phases (six phases, 600s) dérive la phase, l'exercice, le repère respiratoire et la hauteur tonale à partir d'une horloge unique. expo-audio gère la capture avec un niveau en temps réel ; un lecteur A/B à jeton d'exécution s'annule proprement entre les modes.",
-      "results": "Une application Android complète et installable (com.likwiid.voxflow) : intégration avec une référence Day-Zero permanente, séance guidée en six phases, bibliothèque d'enregistrements, comparaison A/B en trois modes, calendrier de progression avec chronologie des jalons, bibliothèque d'apprentissage à déblocage progressif et export JSON local. Zéro appel réseau à l'exécution, toutes les données restent sur l'appareil.",
-      "businessResult": "Transforme une pratique vocale fragmentée en une seule routine privée de 10 minutes hors ligne, avec progression et comparaison intégrées.",
-      "role": "Conception, développement et mise en production en solo (Likwiid)",
-      "timeline": "Développement principal concentré sur un sprint dédié en mai 2026 (16 commits, des fondations au durcissement QA)",
+      "subtitle": "Une application d'exercices vocaux quotidiens qui fonctionne entièrement hors ligne",
+      "oneLiner": "Une application privée et hors ligne qui guide 10 minutes d'exercices vocaux par jour.",
+      "description": "VoxFlow réunit le minuteur, les consignes, l'enregistreur et les lectures de la rééducation vocale dans une routine calme de 10 minutes. Elle ne demande aucun compte et garde chaque enregistrement sur le téléphone.",
+      "challenge": "Les personnes qui font des exercices vocaux devaient jongler entre un minuteur, des notes, un enregistreur et des articles. La plupart des applications ajoutent aussi la pression des séries et des comptes cloud, ce que ce public ne veut pas.",
+      "approach": "Nous avons construit une routine guidée unique qui indique à l'utilisateur quoi faire à chaque instant. Les enregistrements restent privés, et l'on peut écouter un ancien enregistrement à côté d'un récent pour entendre ses progrès.",
+      "results": "Une application Android terminée avec accueil, séances guidées, bibliothèque d'enregistrements, comparaison côte à côte, calendrier de progression et une courte bibliothèque d'apprentissage. Elle fonctionne sans connexion internet.",
+      "role": "Conception, développement et publication",
       "metrics": [
         {
           "value": "10 min",
@@ -741,339 +538,156 @@
         },
         {
           "value": "6",
-          "label": "Phases de pratique"
+          "label": "Phases d'exercice"
         },
         {
           "value": "3",
-          "label": "Modes de comparaison"
-        },
-        {
-          "value": "0",
-          "label": "Appels réseau"
+          "label": "Façons de comparer les enregistrements"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Moteur de routine en six phases piloté par le temps",
-          "description": "Une horloge déterministe unique pilote la phase, l'instruction, le repère respiratoire et la hauteur tonale ; pause, saut et redémarrage pris en charge."
+          "title": "Une routine guidée de 10 minutes",
+          "description": "Six phases vous disent quoi faire, quand respirer et quelle note viser. Mettez en pause, passez ou recommencez à tout moment."
         },
         {
-          "title": "Comparaison vocale A/B en trois modes",
-          "description": "Référence contre enregistrement ultérieur, en mode simple, séquentiel ou entrelacé, avec annulation propre."
+          "title": "Entendez vos progrès",
+          "description": "Écoutez un ancien enregistrement face à un récent, l'un après l'autre ou en alternance."
         },
         {
-          "title": "Enregistrement privé sur l'appareil avec coaching en temps réel",
-          "description": "Capture haute qualité via expo-audio, indicateur trop faible/stable/trop fort, forme d'onde générée à partir des octets du fichier, jamais téléversée."
+          "title": "Retour en direct pendant l'enregistrement",
+          "description": "L'application vous signale si vous êtes trop bas ou trop fort. Les enregistrements ne quittent jamais le téléphone."
         },
         {
-          "title": "Confidentialité offline-first, sans compte",
-          "description": "Aucune connexion, serveur ni télémétrie ; toutes les données dans un stockage local cloisonné et validé par schéma."
+          "title": "Ni compte, ni internet",
+          "description": "Tout est stocké sur l'appareil et rien n'est envoyé nulle part."
         },
         {
-          "title": "Bibliothèque d'apprentissage clinique avec schémas sur mesure",
-          "description": "Dix articles à déblocage par jalon, avec sept schémas anatomiques dessinés à la main en react-native-svg, en markdown."
+          "title": "Une courte bibliothèque d'apprentissage",
+          "description": "Dix articles avec des schémas simples se débloquent au fil de vos progrès."
         },
         {
-          "title": "Progression privée sans gamification",
-          "description": "Calendrier mensuel, objectif hebdomadaire, logique de série et chronologie Jour 7/14/30/60/90, sans points ni classements."
+          "title": "Progresser sans pression",
+          "description": "Un calendrier et un objectif hebdomadaire, sans points ni classements."
         }
       ],
       "architecture": [
         {
           "area": "Moteur de routine",
-          "detail": "Chronologie pure indexée sur le temps (src/routine/) dérivant phase, instruction et hauteur tonale à partir des secondes écoulées."
+          "detail": "Timeline pure indexée sur le temps (six phases totalisant 600s) qui dérive phase, consigne, repère de respiration et hauteur d'une seule horloge."
+        },
+        {
+          "area": "Socle de l'application",
+          "detail": "React Native 0.81, Expo SDK 54 et Expo Router, React 19, TypeScript ; expo-haptics et expo-keep-awake pour les séances."
         },
         {
           "area": "Couche de données locale",
-          "detail": "AsyncStorage versionné et cloisonné avec validation de schéma à la lecture ; le contexte persiste chaque mutation."
+          "detail": "AsyncStorage versionné et cloisonné par espace de noms, avec validation du schéma à la lecture ; le contexte persiste chaque mutation."
         },
         {
           "area": "Capture et lecture audio",
-          "detail": "Enregistrement HIGH_QUALITY via expo-audio, niveau en temps réel et formes d'onde dérivées des octets du fichier."
+          "detail": "Enregistrement expo-audio HIGH_QUALITY avec mesure de niveau en direct ; formes d'onde dérivées des octets du fichier ; lecture A/B par jeton d'exécution."
         },
         {
-          "area": "Contenu hors ligne et i18n",
-          "detail": "10 articles à déblocage intégrés avec schémas SVG, plus 35 passages en EN, AR (RTL), FR, IT."
-        },
-        {
-          "area": "Portabilité des données",
-          "detail": "Export JSON abstrait du stockage capturant toutes les clés et les références audio file://, sans cloud."
+          "area": "Contenu hors ligne et export",
+          "detail": "Articles embarqués avec schémas react-native-svg, 35 textes en EN, AR (RTL), FR, IT ; export JSON via expo-file-system."
         }
       ],
       "highlights": [
-        "Routine de 10 minutes : six phases totalisant exactement 600 secondes",
         "Trois modes de comparaison A/B avec annulation de lecture par jeton d'exécution",
-        "Zéro appel réseau, chaque octet reste sur l'appareil",
-        "10 articles d'apprentissage, 35 passages de lecture en 4 langues dont l'arabe RTL",
-        "Formes d'onde rendues de façon déterministe à partir des octets réels du fichier audio"
+        "Zéro appel réseau à l'exécution, chaque octet reste sur l'appareil",
+        "Formes d'onde rendues de façon déterministe à partir des octets réels du fichier audio",
+        "Dix articles débloqués par étapes, avec sept schémas d'anatomie dessinés à la main"
       ]
     },
     "personal-fitness-tracker": {
-      "title": "Traqueur de fitness personnel",
-      "subtitle": "Entraînement d'endurance guidé par la fréquence cardiaque, avec score de forme et suivi du plan",
-      "oneLiner": "Coach d'endurance local-first avec guidage cardiaque BLE en direct et un copilote IA pendant la course",
-      "description": "StaminaForge est une application d'endurance React Native (Expo SDK 55) local-first qui se connecte en Bluetooth à une ceinture Garmin HRM-Dual pour coacher en direct un plan structuré de 12 wk basé sur les zones de fréquence cardiaque, puis analyse chaque course après coup. Fonctionne entièrement hors ligne.",
-      "challenge": "Lire un flux de fréquence cardiaque BLE en direct avec assez de fiabilité pour coacher dessus, exécuter un vrai plan de 12 wk, et transformer un GPS de téléphone bruité en allure et dénivelé fiables, le tout sur l'appareil, écran éteint, à une main.",
-      "approach": "Un moteur de coaching pur, sans effets de bord (une machine à états renvoyant des indications), est découplé d'un gestionnaire BLE singleton, d'un reducer GPS et de l'audio asynchrone. L'état tourne sur Zustand, l'historique sur SQLite. Une couche IA optionnelle diffuse en SSE via un proxy auto-hébergé, encadrée par un validateur d'actions strict.",
-      "results": "Un compagnon couvert par des tests réparti sur huit écrans. FC en direct à 1 Hz colorée par zone avec annonce vocale de la zone, des intervalles, de la cadence et du ravitaillement ; coach IA vocal optionnel. Après la course, il enregistre la trace complète, corrige le dénivelé via le cloud, et calcule l'allure MAF, le GAP, le découplage, le VDOT et la charge CTL/ATL/TSB. 16 modules d'analyse, 93 tests unitaires, synchronisation et export GPX optionnels.",
-      "businessResult": "Un coach unique embarqué qui guide un plan d'endurance de 12 wk en direct et l'explique ensuite.",
-      "role": "Conception, développement et livraison en solo",
-      "timeline": "~5 semaines (28 avr. - 3 juin 2026, d'après l'historique git)",
+      "title": "Suivi de fitness personnel",
+      "subtitle": "Un coach de course qui guide chaque sortie selon la fréquence cardiaque",
+      "oneLiner": "Une application de coaching de course qui guide chaque sortie selon la fréquence cardiaque, entièrement hors ligne.",
+      "description": "L'application se connecte à une ceinture cardiofréquencemètre et coache le coureur en direct tout au long d'un plan de 12 semaines. Après chaque sortie, elle explique ce qui s'est passé et où en est l'entraînement.",
+      "challenge": "La plupart des applications de fitness affichent des graphiques génériques et dépendent du cloud. Ce coureur avait besoin d'un coaching fiable et en direct à partir d'une ceinture cardio, téléphone en poche et écran éteint.",
+      "approach": "Nous avons construit un coach vocal qui réagit à la fréquence cardiaque chaque seconde et suit un plan structuré. Toutes les données restent sur le téléphone, et un assistant vocal optionnel répond aux questions pendant la course.",
+      "results": "Une application terminée avec huit écrans couvrant la forme du jour, les sorties en direct, l'historique et les tendances. Elle suit l'allure, l'effort et la charge d'entraînement sur l'ensemble du plan de 12 semaines.",
+      "role": "Conception, développement et tests",
       "metrics": [
         {
-          "value": "12 wk",
-          "label": "Protocole d'entraînement"
+          "value": "12 sem.",
+          "label": "Plan d'entraînement"
         },
         {
-          "value": "1 Hz",
-          "label": "Coaching FC en direct"
+          "value": "1 s",
+          "label": "Mises à jour de la fréquence cardiaque"
         },
         {
-          "value": "16",
-          "label": "Modules d'analyse"
-        },
-        {
-          "value": "93",
-          "label": "Tests unitaires"
+          "value": "8",
+          "label": "Écrans"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Coaching de fréquence cardiaque en direct via Bluetooth",
-          "description": "Se connecte à une Garmin HRM-Dual, diffuse la FC à 1 Hz, annonce des indications en temps réel et une alarme scream-mode au dépassement du plafond."
+          "title": "Coaching en direct depuis une ceinture cardio",
+          "description": "Se connecte en Bluetooth et vous prévient dès que vous sortez de votre zone cible."
         },
         {
-          "title": "Copilote IA vocal pendant la course",
-          "description": "L'IA optionnelle donne de brèves vérifications vocales et répond aux questions à la voix sans dupliquer les indications critiques pour la sécurité."
+          "title": "Assistant vocal optionnel",
+          "description": "Posez une question en pleine course et obtenez une courte réponse parlée."
         },
         {
-          "title": "Protocole d'endurance structuré sur 12 semaines",
-          "description": "Base Z2, intervalles norvégiens 4x4, lignes droites, finish en tempo, semaines de décharge et un contre-la-montre 5K final."
+          "title": "Un plan structuré de 12 semaines",
+          "description": "Footings, fractionnés, semaines de récupération et un contre-la-montre final sur 5 km."
         },
         {
-          "title": "Dénivelé corrigé par le cloud et allure ajustée à la pente",
-          "description": "Le DEM Open-Meteo corrige l'altitude GPS, alimentant le GAP, la segmentation du terrain et une bande de qualité des données."
+          "title": "Une allure juste en côte",
+          "description": "Corrige l'altitude GPS du téléphone pour mesurer équitablement l'effort en montée."
         },
         {
-          "title": "Analyse approfondie après la course",
-          "description": "Allure MAF, distribution des zones, découplage, VDOT, charge CTL/ATL/TSB, plus des alertes de risque de blessure et de surentraînement."
+          "title": "Un bilan clair après chaque sortie",
+          "description": "Effort, allure, charge d'entraînement et alertes précoces de surentraînement."
         },
         {
-          "title": "Local-first avec synchronisation et export optionnels",
-          "description": "SQLite sur l'appareil, entièrement hors ligne ; synchronisation multi-appareils auto-hébergée et export GPX optionnels."
+          "title": "Fonctionne hors ligne",
+          "description": "Tout est stocké sur le téléphone, avec synchronisation et export optionnels vers d'autres applications de course."
         }
       ],
       "architecture": [
         {
-          "area": "Pipeline FC temps réel",
-          "detail": "Trames GATT 0x180D de la Garmin HRM-Dual parsées par un gestionnaire BLE singleton, limitées à 1 Hz, distribuées via Zustand à l'UI, au reducer de course et au moteur de coaching ; source simulée activable en réglages pour le dev."
+          "area": "Pipeline FC en temps réel",
+          "detail": "Trames GATT 0x180D de la Garmin HRM-Dual analysées par un gestionnaire react-native-ble-plx singleton, limitées à 1Hz et diffusées via Zustand vers l'interface, le reducer de course et le moteur de coaching."
         },
         {
           "area": "Moteur de coaching pur",
-          "detail": "lib/coach/engine.ts : tick(sample, elapsedMs, cadence) sans effets de bord renvoyant des indications sur un temps de course monotone, gérant les plafonds Z2, le scream-mode, les intervalles, la cadence et le ravitaillement avec des temps de recharge par indication."
+          "detail": "tick(sample, elapsedMs, cadence) sans effet de bord, qui renvoie des consignes sur un temps de course monotone : plafonds Z2, fractionnés, cadence et ravitaillement, avec un délai propre à chaque consigne."
         },
         {
-          "area": "Couche de données local-first",
-          "detail": "SQLite sur l'appareil (WAL, clés étrangères, 12 tables) stocke les échantillons bruts sans agrégation à l'écriture ; les métriques sont calculées au moment de la requête. Préférences via Zustand + AsyncStorage. Aucun compte ni cloud."
+          "area": "Couche de données locale d'abord",
+          "detail": "React Native 0.83 sur Expo SDK 55 ; expo-sqlite (WAL, 12 tables) stocke les échantillons bruts, les métriques sont calculées à la requête."
         },
         {
           "area": "Couche IA encadrée",
-          "detail": "Proxy auto-hébergé avec streaming SSE et un parseur JSON équilibré ; un validateur strict (lib/ai/actions.ts) n'autorise que des actions bornées et non destructrices. Vérifications limitées, dédoublonnées, avec repli déterministe hors ligne."
+          "detail": "Proxy auto-hébergé avec streaming SSE ; un validateur strict n'autorise que des actions limitées et non destructrices, avec un repli hors ligne."
         },
         {
-          "area": "Dénivelé et cartographie",
-          "detail": "Altitude GPS corrigée via le cloud par le DEM Open-Meteo sans clé (par lots, avec relance, dégradation en valeurs nulles), affichée sur un fond de carte MapLibre + CARTO sans clé avec GAP et segmentation du terrain."
+          "area": "Altitude et cartographie",
+          "detail": "Altitude GPS corrigée avec le MNT Open-Meteo, affichée sur MapLibre + CARTO avec allure ajustée à la pente (GAP) et segments de terrain."
         }
       ],
       "highlights": [
-        "Le moteur de coaching est une machine à états pure (ADR-0004) : déterministe, découplée du BLE/audio/React, densément couverte par des tests unitaires.",
-        "Les indications audio ne bloquent jamais le pipeline FC ; un dispatcher asynchrone consomme les indications pour garder la latence vocale hors du chemin critique.",
-        "L'IA est additive : les invites en course ne répètent pas les indications locales, se limitent à environ une vérification toutes les 5 min et basculent hors ligne.",
-        "Défense en profondeur : un validateur borne chaque action de l'IA (par ex. MAF limité à +/-10 bpm) pour qu'une mauvaise réponse ne puisse pas nuire.",
-        "TypeScript strict, sans `any` ; Zod uniquement aux vraies frontières (octets BLE, lignes SQLite, GPS), avec les types comme contrat (ADR-0008).",
-        "Gestion honnête des capteurs : GPS lissé avant le calcul du dénivelé, DEM dégradé en valeurs nulles, bande de qualité des données signalant les traces erronées.",
-        "Huit ADR consignent les décisions structurantes (local uniquement, Zustand+SQLite, moteur de coaching pur, singleton BLE paresseux)."
-      ]
-    },
-    "ai-fitness-coach": {
-      "title": "Coach de fitness IA",
-      "subtitle": "Coaching sportif personnalise par IA avec programmation d'entrainement adaptative",
-      "oneLiner": "Coach de force agentique qui adapte les charges, les consignes et votre seance en temps reel a partir de votre historique d'entrainement",
-      "description": "Une application de force local-first en React Native (Expo) dont le coach IA agentique connait le programme complet de l'athlete, son historique serie par serie et sa forme avant la seance, et peut restructurer la seance en cours a partir d'une seule ligne de retour.",
-      "challenge": "Les applications du marche proposent des programmes statiques qui ignorent le deroulement de la derniere serie. La difficulte consiste a fournir au modele un contexte structure suffisant pour donner des conseils de charge surs et precis, puis a le laisser executer des actions reversibles sur la seance en cours sans corrompre l'etat de l'entrainement.",
-      "approach": "Construction d'une application Expo SDK 54 / RN 0.81 (New Architecture) sur un schema SQLite normalise (11 migrations). Un constructeur de contexte serialise le programme, les series recentes et la forme du jour en prompts compacts envoyes a un proxy Claude auto-heberge via SSE, sans aucune cle API embarquee. Un retour en texte libre ou vocal devient des actions typees et annulables, persistees comme des modifications auditables.",
-      "results": "Livraison d'un APK de release Android couvrant une boucle d'entrainement complete : explorateur de programme, evaluation de la forme, ecran de seance active avec charges pre-remplies par l'IA, consignes en streaming, retours apres serie limites, detection de PR en direct, saisie agentique et un chat Coach conscient du programme. Execute le programme Upper/Lower de 10 semaines de Jeff Nippard avec deload, substitutions, recherche FTS5, calcul des disques et un repli base sur l'historique quand le modele est indisponible.",
-      "businessResult": "Un modele de qualite production pour integrer un LLM agentique dans un flux mobile temps reel et offline-first, avec des actions sures et reversibles.",
-      "role": "Conception, developpement et livraison en solo",
-      "timeline": "~Fev 2026 a Mai 2026 (historique git actif ; APK de release Mai 2026)",
-      "metrics": [
-        {
-          "value": "7",
-          "label": "Types d'actions IA"
-        },
-        {
-          "value": "10 wk",
-          "label": "Programme periodise"
-        },
-        {
-          "value": "11",
-          "label": "Migrations de donnees"
-        },
-        {
-          "value": "0",
-          "label": "Secrets dans l'application"
-        }
-      ],
-      "keyFeatures": [
-        {
-          "title": "Coaching agentique pendant la seance",
-          "description": "Une ligne ecrite ou dictee devient des actions typees : ajuster la charge, substituer, sauter ou ajouter du repos, chacune annulable."
-        },
-        {
-          "title": "Charges et consignes contextuelles",
-          "description": "Lit le bloc du programme, les cibles de RPE, la forme et l'historique des series pour pre-remplir les charges avec le calcul des disques."
-        },
-        {
-          "title": "Conseils pilotes par la forme et surs en deload",
-          "description": "Une evaluation avant seance alimente chaque prompt ; les semaines de deload rendent le coach plus prudent."
-        },
-        {
-          "title": "Chat en streaming conscient du programme",
-          "description": "Un onglet Coach diffuse token par token avec le programme de 10 semaines et les 12 dernieres seances en contexte."
-        },
-        {
-          "title": "Detection de PR en direct et retours apres serie",
-          "description": "Les series de travail declenchent des verifications de PR et une breve reaction IA limitee sur la pertinence de la charge."
-        },
-        {
-          "title": "Offline-first avec synchronisation multi-appareils",
-          "description": "Toutes les donnees resident sur l'appareil dans SQLite ; un backend optionnel auto-heberge les sauvegarde et les restaure."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Couche de donnees",
-          "detail": "SQLite normalise : semaines, jours, series taguees RPE, evaluations, tables IA, recherche FTS5, 11 migrations transactionnelles."
-        },
-        {
-          "area": "Integration IA",
-          "detail": "Proxy Claude (opus) auto-heberge via SSE ; aucune cle de modele embarquee, avec streaming de tokens en direct et parsing JSON."
-        },
-        {
-          "area": "Boucle d'actions agentique",
-          "detail": "useWorkoutAI construit un contexte frais, applique chaque action a l'etat et ecrit une ligne ai_modifications annulable."
-        },
-        {
-          "area": "Ingenierie de contexte",
-          "detail": "aiContext.ts serialise le programme, l'historique multi-semaines, la forme et les substitutions en prompts au budget de tokens maitrise."
-        },
-        {
-          "area": "Offline-first + synchronisation",
-          "detail": "Les lectures/ecritures passent d'abord par le SQLite local ; la synchronisation optionnelle sauvegarde les tables et preferences avec une protection contre l'ecrasement au premier sync."
-        }
-      ],
-      "highlights": [
-        "Resilience d'abord : les charges basees sur l'historique se pre-remplissent instantanement, le modele les affine, et les nouvelles tentatives ainsi qu'une carte de repli visible gardent les seances utilisables.",
-        "Securite dans les prompts et les donnees : les contraintes de deload se propagent dans chaque prompt ; les substitutions sont limitees a des alternatives pre-validees.",
-        "IA auditable : chaque changement en seance est enregistre dans ai_modifications avec le JSON avant/apres et une commande d'annulation.",
-        "Streaming SSE fait main avec un repli non-streaming et un extracteur JSON a parentheses equilibrees qui resiste aux sorties bruitees.",
-        "TypeScript organise par fonctionnalite : pattern repository sur SQLite plus des stores Zustand pour l'etat de la seance, de l'evaluation, du minuteur et de l'IA.",
-        "Maitrise du domaine : un moteur de tempo de repetitions regle les minuteurs, les charges conservent leur unite a travers l'historique et le calcul des disques nourrit le raisonnement du modele."
-      ]
-    },
-    "bully-ai": {
-      "title": "Bully.ai",
-      "subtitle": "L'application qui vous culpabilise jusqu'à ce que vous passiez à l'action",
-      "oneLiner": "Une expérience de psychologie comportementale sur les rappels progressifs, pour ceux qui ignorent les rappels doux",
-      "description": "Une application de productivité React Native pensée pour les personnes sujettes à la procrastination et au TDAH, qui remplace les rappels enjoués par une cascade de notifications en cinq étapes, du petit coup de coude bienveillant au sermon dévastateur, associée à une véritable couche de soutien au TDAH et à un backend de preuve sociale anonyme.",
-      "challenge": "Les rappels en douceur sont ignorés sans effort par celles et ceux qui en ont le plus besoin. Les notifications sont déclenchées par le système d'exploitation alors que le JS de l'application ne tourne pas : tout le texte d'escalade personnalisé par l'IA doit donc exister avant la planification, et se dégrader proprement quand l'IA ou le réseau fait défaut.",
-      "approach": "Construite sur Expo SDK 54 / React Native 0.81 New Architecture, TypeScript, Zustand et NativeWind. Un moteur d'escalade en fonctions pures associe cinq niveaux à des seuils en minutes d'écart ; un unique appel groupé à Claude Opus pré-génère les cinq messages de personnalité à la création de la tâche, mis en cache et replanifiés, avec des modèles de repli. Les types de rappels forment un registre de plugins ; un backend NestJS + Prisma + Redis alimente la preuve sociale anonyme.",
-      "results": "Une application compilable avec des notifications à escalade IA, un onglet de chat IA en streaming, cinq personnalités, quatre types de rappels enfichables, un système d'apprentissage sur le TDAH, des statistiques avec comparaison communautaire et des widgets natifs iOS/Android pour l'écran d'accueil. Derrière, un backend NestJS calibré pour la production, avec neuf modules, une agrégation mise en cache via Redis, un cron de percentiles horaire et une authentification à temps constant. Chaque chemin IA dispose d'un modèle de repli.",
-      "businessResult": "A transformé un concept marquant, « l'appli qui vous bouscule », en un produit robuste doté d'un moteur de notifications IA et d'un backend de preuve sociale anonyme.",
-      "role": "Conception, développement et livraison en solo (application mobile + backend compagnon)",
-      "timeline": "Développement actif de 2025 à 2026 (commits mobiles jusqu'en avr. 2026, backend jusqu'en mars 2026)",
-      "metrics": [
-        {
-          "value": "5",
-          "label": "Étapes d'escalade"
-        },
-        {
-          "value": "5",
-          "label": "Personnalités"
-        },
-        {
-          "value": "4",
-          "label": "Types de rappels"
-        },
-        {
-          "value": "1",
-          "label": "Appel IA → 5 messages"
-        }
-      ],
-      "keyFeatures": [
-        {
-          "title": "Notifications à escalade personnalisées par l'IA",
-          "description": "Cascade en cinq étapes, générée par Claude selon la personnalité, pré-rendue en un seul appel groupé, avec modèle de repli."
-        },
-        {
-          "title": "Cinq personnalités de tyran",
-          "description": "Ami déçu, Sergent instructeur, Passif-agressif, Existentiel, Hype Beast, présents dans les notifications et le chat."
-        },
-        {
-          "title": "Types de rappels enfichables",
-          "description": "Réinitialisation de posture, drill de salsa en 5 phases, minuteur d'ennui sous forme de plugins de registre avec leur propre interface d'exécution."
-        },
-        {
-          "title": "Coach IA en chat en direct",
-          "description": "Streaming token par token depuis le proxy Claude dans la personnalité active, avec repli restant dans le ton."
-        },
-        {
-          "title": "Système d'apprentissage sur le TDAH",
-          "description": "Cinq cours, huit exercices interactifs avec badges, 42 conseils de psychologie quotidiens en rotation."
-        },
-        {
-          "title": "Backend de preuve sociale anonyme",
-          "description": "NestJS + Prisma + Redis suit les tâches accomplies par identifiant d'appareil, calculant classements et rangs en percentiles."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Notifications pré-générées",
-          "detail": "L'orchestrateur planifie instantanément des notifications modèles, puis les enrichit de façon asynchrone avec du texte IA et les replanifie."
-        },
-        {
-          "area": "Registre de plugins de types de rappels",
-          "detail": "Chaque expérience de tâche est un plugin avec exécuteur, formulaire de configuration et schéma de suivi, et non un switch."
-        },
-        {
-          "area": "Proxy Claude auto-hébergé",
-          "detail": "Toute l'IA passe par SSE sur Opus ; lectures bufferisées/en streaming, nettoyage des balises de code, bearer token dans l'env EXPO_PUBLIC."
-        },
-        {
-          "area": "Backend anonyme et résilient",
-          "detail": "Clés par UUID d'appareil, mise en cache Redis, cron de percentiles horaire sous verrou SET NX, garde d'API par timingSafeEqual."
-        }
-      ],
-      "highlights": [
-        "Le texte IA est contraint à des chaînes de 80 caractères sans emoji pour tenir dans de vraies notifications de téléphone",
-        "Chaque chemin IA se dégrade proprement : notifications modèles et repli de chat dans le ton, jamais un écran vide",
-        "Le report d'un rappel accélère l'escalade de 30 minutes à chaque report, punissant la procrastination",
-        "Widget multiplateforme via un plugin Expo personnalisé : SwiftUI sur iOS, Kotlin sur Android, pont App Group",
-        "Huit ADR documentent le registre de plugins, les sermons pré-générés, le store partitionné et la gestion du token du proxy",
-        "Backend calibré pour la production : Swagger, helmet, limites de débit, sondes de santé, Postgres + Redis dockerisés, 21 specs"
+        "Le moteur de coaching est une machine à états pure : déterministe, découplée du BLE, de l'audio et de React, et largement testée (93 tests Vitest)",
+        "Les consignes audio ne bloquent jamais le pipeline FC ; un répartiteur asynchrone garde la latence de la voix hors du chemin critique",
+        "Analyses après la course : allure MAF, découplage, VDOT et charge d'entraînement CTL/ATL/TSB sur 16 modules",
+        "Un validateur encadre chaque action de l'IA (par exemple MAF limité à +/-10 bpm) pour qu'une mauvaise réponse ne puisse pas nuire",
+        "TypeScript strict, aucun `any` ; Zod uniquement aux vraies frontières (octets BLE, lignes SQLite, GPS)"
       ]
     },
     "breathebreak": {
       "title": "BreatheBreak",
-      "subtitle": "Rappels de respiration dans la barre de menus Mac pour les journées passées devant l'écran",
-      "oneLiner": "Coach natif macOS dans la barre de menus qui transforme les journées chargées en écran en pauses respiratoires rythmées selon la méthode Buteyko",
-      "description": "BreatheBreak est un coach natif macOS dans la barre de menus qui maintient la respiration de récupération présente pendant le travail concentré, sans voler l'attention. Il s'exécute sans Dock en tant qu'agent LSUIElement, rythme des rappels inspirés de la méthode Buteyko et suit le Control Pause, votre tolérance au CO2, le tout en local sur l'appareil.",
-      "challenge": "Un outil de respiration ne fonctionne qu'en pleine tâche, mais ouvrir une application ou subir des animations imposées brise la concentration qu'il est censé protéger. L'objectif : inciter à respirer toute la journée tout en restant silencieux pendant les appels, le mode Concentration et en dehors des heures de travail.",
-      "approach": "Une application SwiftUI et AppKit basée sur MenuBarExtra, avec trois niveaux d'interruption (pulsation de l'icône, notification sur le bord, fenêtre NSPanel flottante). Un DispatchSourceTimer pilote la planification ; une machine à états TrainingPhase ajuste automatiquement le rythme des rappels ; les sessions sont conservées via SwiftData.",
-      "results": "Un compagnon macOS 14+ conforme au sandbox qui s'exécute de façon invisible : popover de compte à rebours avec report et pause, rappels contextuels respectant les appels et le mode Concentration, progression Buteyko complète, et suivi du Control Pause avec séries et une tendance sur 7 jours via Swift Charts.",
-      "businessResult": "Maintient la respiration de récupération présente toute la journée sans sortir l'utilisateur de son travail concentré, de ses appels ou du mode Concentration.",
-      "role": "Conception, développement et publication en solo",
-      "timeline": "Développé en mars 2026 (commits source du 12 au 31 mars 2026) ; publié en v1.0.0",
+      "subtitle": "Des rappels de respiration dans la barre des menus du Mac pour les longues journées sur écran",
+      "oneLiner": "Une application pour la barre des menus du Mac qui rappelle de faire de courtes pauses respiratoires pendant le travail sur écran.",
+      "description": "BreatheBreak s'installe dans la barre des menus du Mac et propose de courts exercices de respiration pendant la journée de travail. Elle reste silencieuse pendant les appels, en mode Concentration et en dehors des heures de travail.",
+      "challenge": "Les applications de respiration n'aident que si on les utilise en pleine tâche, mais en ouvrir une casse la concentration. Les rappels devaient être là toute la journée sans gêner.",
+      "approach": "Nous avons conçu trois niveaux de rappel, d'une petite pulsation de l'icône à un exercice plein écran qui n'apparaît que de temps en temps. Le rythme s'adapte à la fréquence à laquelle l'utilisateur termine réellement une séance.",
+      "results": "Une application Mac terminée avec compte à rebours, report, exercices de respiration guidés et un test simple d'apnée avec une tendance sur 7 jours. Toutes les données restent sur le Mac.",
+      "role": "Conception, développement et publication",
       "metrics": [
         {
           "value": "4",
@@ -1081,448 +695,181 @@
         },
         {
           "value": "3",
-          "label": "Phases adaptatives"
-        },
-        {
-          "value": "100%",
-          "label": "En local sur l'appareil"
-        },
-        {
-          "value": "0",
-          "label": "Distractions"
+          "label": "Niveaux de rappel"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Moteur de rappels contextuel",
-          "description": "Quatre garde-fous (heures actives, pause, en réunion, Concentration/NPD système) filtrent chaque signal."
+          "title": "Sait quand se taire",
+          "description": "Aucun rappel en dehors des heures de travail, pendant les appels ni en mode Concentration."
         },
         {
-          "title": "Progression adaptative Buteyko",
-          "description": "Un modèle à trois phases (7/15/30 min) ajuste automatiquement le niveau selon le taux de complétion hebdomadaire."
+          "title": "S'adapte à vos habitudes",
+          "description": "Propose plus ou moins de rappels selon le nombre de séances terminées chaque semaine."
         },
         {
-          "title": "Interruptions à trois niveaux",
-          "description": "Pulsation d'icône et notification sur le bord silencieuses ; seul un cycle sur quatre passe à une superposition complète."
+          "title": "Discret par défaut",
+          "description": "La plupart des rappels sont une petite pulsation de l'icône ou une note dans un coin. Seuls certains ouvrent un exercice complet."
         },
         {
-          "title": "Suivi du CO2 par Control Pause",
-          "description": "Contrôles guidés de rétention du souffle avec séries, moyennes et une tendance sur 7 jours via Swift Charts."
+          "title": "Suivi de l'apnée",
+          "description": "Un test d'apnée quotidien avec séries, moyennes et un graphique sur 7 jours."
         },
         {
-          "title": "Local d'abord avec export CSV",
-          "description": "Chaque session reste sur l'appareil via SwiftData ; export CSV en un clic."
+          "title": "Vos données restent sur votre Mac",
+          "description": "Chaque séance est stockée localement, avec export en un clic vers un tableur."
         },
         {
-          "title": "Intégration native au sandbox",
-          "description": "Agent LSUIElement sans Dock, lancement à l'ouverture de session via SMAppService, Concentration déduit depuis le sandbox."
+          "title": "Fonctionne en arrière-plan",
+          "description": "Aucune icône dans le Dock, et elle peut se lancer automatiquement à l'ouverture de session."
         }
       ],
       "architecture": [
         {
-          "area": "Coquille de l'application",
-          "detail": "Scène SwiftUI MenuBarExtra .window, agent LSUIElement ; AppState @MainActor comme source de vérité, OverlayCoordinator relie Combine à AppKit."
+          "area": "Socle de l'application",
+          "detail": "Scène de fenêtre SwiftUI MenuBarExtra en tant qu'agent LSUIElement sur macOS 14+ ; AppState @MainActor comme source de vérité, OverlayCoordinator relie Combine à AppKit."
         },
         {
           "area": "Planification",
-          "detail": "DispatchSourceTimer avec date de déclenchement persistée et schéma déclenchement unique puis répétition pour le report ; le Control Pause utilise UNCalendarNotificationTrigger."
+          "detail": "DispatchSourceTimer avec date de prochain déclenchement persistée, et un déclenchement unique puis répété pour le report ; Control Pause utilise UNCalendarNotificationTrigger."
         },
         {
-          "area": "Intégration au système",
-          "detail": "Concentration déduit de DoNotDisturb Assertions.json et de controlcenter/ncprefs ; réunions via sondage des bundle-ID NSWorkspace ; lancement via SMAppService."
+          "area": "Intégration système",
+          "detail": "Mode Concentration déduit de DoNotDisturb Assertions.json et de controlcenter/ncprefs ; réunions détectées par interrogation des bundle-ID via NSWorkspace ; lancement à la connexion via SMAppService."
         },
         {
           "area": "Couche de données",
-          "detail": "SwiftData @Model BreathSession avec requêtes #Predicate pour les séries, moyennes de CP, taux hebdomadaire ; tendance Swift Charts ; export CSV."
+          "detail": "SwiftData @Model BreathSession avec requêtes #Predicate pour les séries, les moyennes Control Pause et le taux hebdomadaire ; tendance Swift Charts ; export CSV."
         }
       ],
       "highlights": [
-        "Comblement de l'absence d'API publique du mode Concentration dans le sandbox en analysant DoNotDisturb Assertions.json, avec repli sur les domaines controlcenter/ncprefs et abonnement aux notifications NPD, limité et mis en cache pour les lectures à haute fréquence.",
-        "Conception d'interruptions à trois niveaux (pulsation d'icône, notification sur le bord, superposition complète) liée au nombre de cycles et à la phase d'entraînement, présente sans harceler.",
-        "La machine à états TrainingPhase lit le taux de complétion hebdomadaire : propose de monter de niveau à 80%+ ou de lever le pied en dessous de 50%, transformant un minuteur fixe en protocole d'habitude.",
-        "Moteur de respiration déclaratif : chaque exercice est un tableau de valeurs BreathPhase(instruction, durée, targetScale) que la superposition et la notification animent de façon identique.",
-        "Planification résiliente : un DispatchSourceTimer avec date de déclenchement persistée survit au relancement, avec un schéma déclenchement unique puis répétition pour une gestion propre du report.",
-        "Audio défensif avec un repli à trois approches (NSSound nommé, NSSound depuis fichier, AudioServices) et une référence forte conservée pour survivre à l'ARC en pleine lecture.",
-        "Séparation nette entre AppState, BreathReminderManager, ProcessMonitor, FocusModeObserver, SoundManager et OverlayCoordinator, reliés via Combine."
+        "Contournement de l'absence d'API publique pour le mode Concentration dans l'App Sandbox, en analysant DoNotDisturb Assertions.json avec replis, limitation et cache",
+        "Interruptions sur trois niveaux (pulsation de l'icône, toast en bord d'écran, overlay NSPanel) selon le nombre de cycles et une phase d'entraînement inspirée de Buteyko",
+        "La machine à états TrainingPhase propose de monter d'un niveau au-delà de 80 % de réussite hebdomadaire, ou de lever le pied en dessous de 50 %",
+        "Moteur de respiration déclaratif : chaque exercice est un tableau de valeurs BreathPhase que l'overlay et le toast animent de façon identique",
+        "Audio défensif avec trois solutions de repli (NSSound nommé, NSSound depuis un fichier, AudioServices)"
       ]
     },
-    "linkedin-templates-extension": {
-      "title": "Extension de modèles LinkedIn",
-      "subtitle": "Extension Chrome privacy-first pour une prospection LinkedIn plus rapide",
-      "oneLiner": "Gestionnaire de modèles LinkedIn privacy-first : une extension Manifest V3 avec un backend de synchronisation d'équipe optionnel",
-      "description": "Une extension Chrome Manifest V3 destinée aux recruteurs et aux SDR pour stocker des modèles de messages LinkedIn réutilisables et les insérer en un clic, avec remplissage automatique des variables de profil. Local-first et hors ligne ; un backend NestJS optionnel ajoute la synchronisation d'équipe.",
-      "challenge": "Les équipes de prospection réutilisent les mêmes extraits, éparpillés entre documents et boîtes de réception. Les outils d'automatisation règlent le problème mais font bannir les comptes, la personnalisation devait donc fonctionner via une injection manuelle au rendu natif dans les compositeurs React mouvants de LinkedIn.",
-      "approach": "Développée en React 18, TypeScript et Webpack sur Manifest V3. Un MutationObserver dans un content script injecte un bouton Templates dans les compositeurs LinkedIn ; un backend optionnel NestJS + PostgreSQL ajoute l'authentification JWT, la synchronisation cloud et les bibliothèques d'équipe.",
-      "results": "Une extension prête à compiler couvrant les trois surfaces de composition, avec une popup soignée, un tableau de bord d'options et l'import/export JSON. Les variables se détectent automatiquement sous forme de chips et se remplissent à partir des données de profil extraites. Validée de bout en bout avec Playwright ; le backend optionnel livre l'authentification, le CRUD et le partage d'équipe.",
-      "businessResult": "Transforme des extraits LinkedIn dispersés en une prospection personnalisée en un clic, sans le risque de bannissement des outils d'automatisation.",
-      "role": "Conception, développement et livraison en solo (extension + backend), via un pipeline de build multi-agents",
-      "timeline": "Développée en avril 2026 ; ~95% prête pour la soumission au Chrome Web Store (icônes et assets de la boutique présents, politique de confidentialité en attente)",
+    "sems-energy-management": {
+      "title": "SEMS : gestion intelligente de l'énergie",
+      "subtitle": "Une vue unique du réseau, du générateur, du solaire et de la batterie pour les foyers libanais",
+      "oneLiner": "Une application qui montre aux foyers libanais d'où vient leur électricité et ce qu'elle coûte.",
+      "description": "Beaucoup de foyers libanais passent du réseau au générateur, aux panneaux solaires et aux batteries au cours d'une même journée. SEMS montre en un seul endroit quelle source fonctionne, ce que consomme chaque appareil et ce que tout cela coûte.",
+      "challenge": "Les applications d'énergie supposent une alimentation unique et stable, ce qui ne correspond pas aux foyers libanais. Nous devions aussi valider l'idée avant d'acheter le moindre compteur.",
+      "approach": "Nous avons construit l'application mobile et son serveur, ainsi qu'un simulateur réaliste du cycle électrique quotidien d'un foyer libanais. Il permet de montrer coupures, recours au générateur et journées ensoleillées sans aucun matériel installé.",
+      "results": "La première version fonctionnelle est terminée : connexion, tableau de bord en direct, appareils par pièce, coût par source d'énergie et quatre scénarios de démonstration. Le raccordement de vrais compteurs est la prochaine étape.",
+      "role": "Architecture, conception et développement",
       "metrics": [
         {
-          "value": "3",
-          "label": "Compositeurs LinkedIn"
+          "value": "4",
+          "label": "Sources d'énergie en une vue"
         },
         {
-          "value": "7+",
-          "label": "Variables de profil"
-        },
-        {
-          "value": "0",
-          "label": "Appels réseau"
-        },
-        {
-          "value": "1-click",
-          "label": "Insertion de message"
-        }
-      ],
-      "keyFeatures": [
-        {
-          "title": "Insertion en un clic dans chaque compositeur",
-          "description": "Un MutationObserver injecte un bouton natif dans les éditeurs de messagerie, de demande de connexion et InMail."
-        },
-        {
-          "title": "Variables de profil intelligentes",
-          "description": "Extrait {{firstName}}, {{company}} et d'autres, avec substitution à l'insertion."
-        },
-        {
-          "title": "Détection des variables en temps réel",
-          "description": "L'éditeur analyse les tokens {{...}} pendant la saisie et les affiche sous forme de chips."
-        },
-        {
-          "title": "Recherche dans la page navigable au clavier",
-          "description": "Menu déroulant injecté avec recherche et navigation complète flèches/Entrée/Échap."
-        },
-        {
-          "title": "Local-first avec synchronisation d'équipe optionnelle",
-          "description": "Hors ligne via chrome.storage ; un backend NestJS optionnel ajoute le cloud et les bibliothèques d'équipe."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Content script + résilience du DOM",
-          "detail": "Un MutationObserver fait correspondre les sélecteurs d'éditeur et déduplique l'injection via un flag de données face aux re-rendus React."
-        },
-        {
-          "area": "Insertion respectueuse de l'état React",
-          "detail": "Définit le textContent et déclenche un événement input synthétique propagé pour que React détecte le changement."
-        },
-        {
-          "area": "Bus de messages typé",
-          "detail": "La popup et le content script échangent un protocole typé via un service worker qui gère le stockage."
-        },
-        {
-          "area": "Stockage conscient des quotas",
-          "detail": "Encapsule chrome.storage.sync, intercepte les erreurs de quota pour basculer en local et initialise les valeurs par défaut."
-        },
-        {
-          "area": "Backend NestJS optionnel",
-          "detail": "NestJS + PostgreSQL avec authentification JWT/bcrypt, CRUD de modèles, Swagger et partage d'équipe géré par le propriétaire."
-        }
-      ],
-      "highlights": [
-        "Protégé contre les XSS par construction : le contenu des modèles transite par textContent avant injection",
-        "L'insertion déclenche des événements input synthétiques pour que le compositeur React de LinkedIn enregistre le texte",
-        "Accès complet au clavier plus un raccourci Ctrl/Cmd+Shift+T et un menu contextuel au clic droit",
-        "Dégradation gracieuse : les valeurs manquantes conservent le token littéral ; un dépassement de quota de synchronisation bascule en local",
-        "Finition native LinkedIn : pulsation du bouton, menu déroulant ancré, toasts, états skeleton",
-        "Vérifiée avec des captures Playwright ; livrée avec des icônes 16/32/48/128px pour le Web Store"
-      ]
-    },
-    "healthcare-pdf-api": {
-      "title": "API PDF pour la santé",
-      "subtitle": "Génération sécurisée de documents médicaux avec chiffrement, audit et contrôles de rétention",
-      "oneLiner": "Une API de référence NestJS alignée HIPAA pour générer, chiffrer et auditer des PDF médicaux",
-      "description": "Un backend de référence NestJS de niveau production qui transforme des données cliniques structurées en PDF médicaux chiffrés et tracés par audit. Conçu pour les intégrateurs santé qui ont besoin d'une gestion des PHI alignée HIPAA dès le départ.",
-      "challenge": "Générer un PDF est simple ; le difficile, c'est le contrôle d'accès, le chiffrement des PHI au repos, leur exclusion des journaux, une piste d'audit de conformité immuable et une documentation en libre-service claire.",
-      "approach": "Une application NestJS 10 modulaire avec un module dédié par responsabilité. Puppeteer génère des modèles Handlebars via des chemins synchrones et asynchrones (Bull/Redis) ; un unique EncryptionService centralise AES-256-GCM et SHA-256, avec une persistance PostgreSQL/TypeORM.",
-      "results": "Une API déployable via Docker avec génération synchrone et asynchrone, cinq modèles préchargés, des clés API hachées et à portée limitée, le chiffrement AES-256-GCM des PHI et des PDF, une piste d'audit interrogeable, des webhooks avec relance, des sondes de santé et une expiration de rétention nocturne, le tout couvert par 96 tests unitaires.",
-      "businessResult": "Une profondeur de backend d'entreprise : chiffrement, auditabilité et opérations d'API propres sur lesquelles un intégrateur santé peut s'appuyer.",
-      "role": "Architecture, développement et documentation en solo",
-      "metrics": [
-        {
-          "value": "5",
-          "label": "Modèles de documents"
-        },
-        {
-          "value": "AES-256",
-          "label": "Chiffrement au repos"
-        },
-        {
-          "value": "96",
-          "label": "Tests unitaires"
-        },
-        {
-          "value": "3×",
-          "label": "Relances de webhook"
-        }
-      ],
-      "keyFeatures": [
-        {
-          "title": "PHI et PDF chiffrés au repos",
-          "description": "Un seul service AES-256-GCM chiffre la charge utile, le PDF et le chemin de fichier ; clés API hachées en SHA-256."
-        },
-        {
-          "title": "Génération synchrone et asynchrone avec webhooks",
-          "description": "Rendu en ligne ou via la file Bull, avec relance à backoff 3x et webhooks de réussite ou d'échec."
-        },
-        {
-          "title": "Cinq modèles médicaux préchargés",
-          "description": "Compte rendu, ordonnance, résultats de laboratoire, synthèse patient, CMS-1500, en Handlebars, préchargés via migration."
-        },
-        {
-          "title": "Piste d'audit de type HIPAA",
-          "description": "Chaque événement de génération, téléchargement, suppression ou authentification est journalisé avec l'acteur, l'IP et l'agent ; interrogeable et paginé."
-        },
-        {
-          "title": "Contrôle d'accès par clé API à portée limitée",
-          "description": "Permissions par clé, limites quotidiennes appliquées en base, liste blanche d'IP et expiration dans un seul guard."
-        },
-        {
-          "title": "Rétention et expiration automatisées",
-          "description": "Un cron nocturne supprime les PDF dépassant leur fenêtre de rétention et journalise la suppression."
-        }
-      ],
-      "architecture": [
-        {
-          "area": "Couche de données",
-          "detail": "PostgreSQL/TypeORM, quatre tables, cinq migrations ; audit_logs indexée pour des requêtes de conformité rapides"
-        },
-        {
-          "area": "Traitement asynchrone",
-          "detail": "La file Bull/Redis génère via Puppeteer, chiffre, persiste et déclenche les webhooks en cas de réussite ou d'échec"
-        },
-        {
-          "area": "Sécurité et authentification",
-          "detail": "ApiKeyGuard vérifie les clés hachées, la liste blanche d'IP et l'expiration ; Helmet, liste d'autorisation CORS, ValidationPipe globale"
-        },
-        {
-          "area": "Protection des PHI",
-          "detail": "Winston masque par regex ssn/dob/phone/email/diagnosis ; les PHI sont chiffrés avant persistance, jamais en clair"
-        },
-        {
-          "area": "Exploitabilité",
-          "detail": "/health et /health/ready sondent Postgres, Redis et le stockage ; Docker, Swagger et page d'accueil inclus"
-        }
-      ],
-      "highlights": [
-        "Source unique de vérité cryptographique : le tag d'authentification GCM est empaqueté avec l'IV pour que toute altération échoue au déchiffrement",
-        "Authentification en défense en profondeur : clés hachées, permissions limitées, quotas quotidiens, liste blanche d'IP, limitation de débit à deux niveaux",
-        "Journalisation d'audit à sûreté intégrée : renvoie null au lieu de lever une exception, sans jamais interrompre une requête clinique",
-        "Asynchrone réel : le processeur Bull reflète le rendu synchrone, plus relance, webhooks et suivi de livraison",
-        "La documentation comme produit : interface Swagger personnalisée et page d'accueil auto-hébergée servie par l'API",
-        "96 tests unitaires couvrant le chiffrement, l'authentification, l'audit, les modèles, les webhooks et la génération"
-      ]
-    },
-    "salsaflow": {
-      "title": "SalsaFlow",
-      "subtitle": "Coach de salsa WebXR immersif pour Meta Quest avec notation des mouvements en temps réel",
-      "oneLiner": "Un coach de salsa WebXR pour Meta Quest qui note votre danse temps par temps face à un partenaire en direct",
-      "description": "SalsaFlow est un professeur de salsa WebXR natif au navigateur pour Meta Quest. Les élèves dansent avec un partenaire virtuel articulé pendant que l'application note la précision rythmique et la qualité des mouvements à chaque temps.",
-      "challenge": "Reproduire les retours d'un professeur particulier dans un logiciel suppose un partenaire qui bouge en rythme, une notation précise au temps à partir des seules poses WebXR de la tête et des mains, et zéro image perdue à 72-90 FPS.",
-      "approach": "Une application WebXR en ECS strict sur IWSDK et Three.js. Un singleton BeatClock fait autorité unique sur le timing, tous les systèmes se synchronisent en phase via Preact Signals. Une BVH de salsa CMU est retargetée sur un danseur Mixamo, avec un solveur IK à deux os sur mesure et des chemins critiques sans allocation.",
-      "results": "Un prototype fonctionnel avec quatre modes d'entraînement, un cursus de 15 mouvements à déblocages enchaînés, cinq pistes audio spatial et trois couches de retour en direct. Un enregistreur intégré exporte des poses de main à 25 articulations à 30 Hz. S'installe en PWA hors ligne.",
-      "businessResult": "Démontre qu'un coaching de salsa objectif peut tourner dans le navigateur sur un casque VR grand public, sans store ni professeur.",
-      "role": "Conception, développement et mise en production en solo",
-      "timeline": "2025-2026 (documents de recherche datés d'avril 2026), en développement actif",
-      "metrics": [
-        {
-          "value": "15",
-          "label": "Mouvements de salsa"
+          "value": "14",
+          "label": "Types d'appareils"
         },
         {
           "value": "4",
-          "label": "Modes d'entraînement"
-        },
-        {
-          "value": "30 Hz",
-          "label": "Capture de mouvement"
-        },
-        {
-          "value": "90",
-          "label": "FPS cible (VR)"
+          "label": "Scénarios de démonstration"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Partenaire VR en direct issu d'une vraie mocap",
-          "description": "Un danseur Mixamo joue une BVH de salsa CMU et tend la main vers l'élève via une IK sur mesure."
+          "title": "Un tableau de bord en direct",
+          "description": "Affiche la source active, la consommation actuelle, le coût du jour et les plus gros consommateurs."
         },
         {
-          "title": "Notation des mouvements temps par temps",
-          "description": "Poses de la tête et des mains en repère tête, notées vert/jaune/rouge sur le rythme et la direction."
+          "title": "Coût par source d'énergie",
+          "description": "Chaque unité est tarifée selon les vrais tarifs du réseau, les frais de générateur, le solaire et la batterie."
         },
         {
-          "title": "Quatre modes d'entraînement",
-          "description": "Leçon, Pratique libre, Drill et un Tempo Trainer qui adapte le BPM à la performance."
+          "title": "Un simulateur de foyer réaliste",
+          "description": "Modélise les coupures, le démarrage du générateur, la production solaire et la climatisation."
         },
         {
-          "title": "Trois couches de retour en VR",
-          "description": "Barre de rythme, halos colorés sur les mains et empreintes au sol synchronisées au temps."
+          "title": "Des démos prêtes à l'emploi",
+          "description": "Quatre scénarios montrent coupures et changements de source sans aucun matériel."
         },
         {
-          "title": "Cursus de 15 mouvements",
-          "description": "Du débutant à l'avancé, avec déblocages enchaînés et scores conservés en local."
+          "title": "Appareils par pièce",
+          "description": "Ajoutez des appareils dans chaque pièce et voyez ce que chacun coûte à faire fonctionner."
         },
         {
-          "title": "Enregistreur de mocap intégré",
-          "description": "Exporte la tête plus 25 articulations par main à 30 Hz au format JSON."
+          "title": "Historique et tendances",
+          "description": "Détail horaire et quotidien du coût et de la source d'énergie."
         }
       ],
       "architecture": [
         {
-          "area": "Rendu et framework",
-          "detail": "WebXR navigateur via IWSDK au-dessus de Three.js, studio construit à partir d'entités de transformation ECS."
+          "area": "Monorepo",
+          "detail": "Turborepo + pnpm : API NestJS 10 et application Expo SDK 54, un package partagé Zod et calcul des coûts comme source unique de vérité, et un package générateur de données."
         },
         {
-          "area": "Pattern d'architecture",
-          "detail": "ECS elics strict, un système par fichier, état dans Preact Signals, sans polling."
+          "area": "Couche de données",
+          "detail": "PostgreSQL 16 + TimescaleDB via Prisma 6 ; hypertable energy_readings avec agrégats continus horaires et quotidiens, compression et rétention."
         },
         {
-          "area": "Timing",
-          "detail": "Le singleton BeatClock émet des ticks toutes les 60000/bpm ms, en rattrapant les temps manqués."
+          "area": "Temps réel",
+          "detail": "Passerelle Socket.io authentifiée par JWT avec une room par foyer et un adaptateur Redis 7 ; reconnexion automatique avec bandeau hors ligne."
         },
         {
-          "area": "Pipeline de mouvement",
-          "detail": "BVH CMU retargetée sur Mixamo via SkeletonUtils, l'IK à deux os surcharge le bras à chaque image."
-        },
-        {
-          "area": "Persistance et hors ligne",
-          "detail": "ProgressStore IndexedDB avec repli en mémoire, PWA installable hors ligne."
+          "area": "Authentification",
+          "detail": "Passport JWT avec bcrypt : jetons d'accès de 15 minutes, refresh tokens hachés et renouvelés avec détection de vol par famille."
         }
       ],
       "highlights": [
-        "Chemins critiques VR sans allocation : objets mathématiques par image préalloués, ring buffers à allocation nulle pour éviter les ralentissements liés au GC",
-        "IK à deux os en forme close codée à la main, avec pole-vector et limitation de portée maximale, sans bibliothèque externe",
-        "Retargeting CMU vers Mixamo robuste avec mapping explicite des os et suppression de la translation racine",
-        "Normalisation des mouvements en repère tête pour que la direction soit indépendante de l'orientation",
-        "Un seul BeatClock pilote tout le timing avec une logique de rattrapage après les à-coups du GC",
-        "Dégradation gracieuse : d'IndexedDB vers la mémoire, des os manquants vers la racine, erreurs d'écouteurs isolées"
+        "Simulation déterministe et paramétrable (climatisation, solaire, état de charge de la batterie) générant 7 205 relevés par jour en moins de 0,1s",
+        "Des constantes propres au Liban encodent les tranches du réseau, les frais de générateur, les seuils de tension et l'ensoleillement saisonnier",
+        "Schémas Zod partagés entre backend et mobile, ce qui élimine les écarts entre client et serveur",
+        "Vérifié de bout en bout sur des conteneurs TimescaleDB et Redis réels, sur environ 38 endpoints"
       ]
     }
   },
   "servicesData": {
-    "fullstack": {
-      "title": "Développement Full-Stack Web et Mobile",
-      "shortDescription": "Création d'applications de production, de la base de données à l'interface. Applications web, applications mobiles, API et solutions qui fonctionnent en parfaite cohérence à chaque couche.",
-      "longDescription": "Des portails d'assurance d'entreprise servant des milliers d'utilisateurs aux applications de coaching personnel, nous construisons toute la verticale. Notre stack est fluide : React et React Native pour le frontend, Java/Spring Boot ou Node.js/NestJS côté backend, avec PostgreSQL ou MongoDB pour les données. Nous nous adaptons aux besoins du projet.",
+    "products": {
+      "title": "Produits web et mobiles",
+      "shortDescription": "Applications web, applications mobiles et les backends qui les font tourner, construits de bout en bout.",
+      "longDescription": "Nous concevons et développons des applications web, des applications iOS et Android, des tableaux de bord et les systèmes qui les font fonctionner. Vous travaillez avec une seule équipe, du premier croquis au lancement, et le code vous appartient.",
       "deliverables": [
-        "Applications web",
-        "Applications mobiles (iOS/Android)",
-        "API REST/GraphQL",
-        "Architecture de base de données"
+        "Applications web et tableaux de bord",
+        "Applications iOS et Android",
+        "API, bases de données et intégrations",
+        "Lancement, hébergement et passation"
       ]
     },
-    "cloud": {
-      "title": "Conseil Cloud et DevOps",
-      "shortDescription": "Infrastructure as Code, pipelines CI/CD, conteneurisation et architecture cloud pour les équipes qui ont besoin de monter en charge avec fluidité.",
-      "longDescription": "Nous concevons et déployons une infrastructure cloud qui évolue avec la demande. De la mise en place de votre premier pipeline CI/CD à la migration de monolithes vers des microservices sur Kubernetes, nous aidons les équipes à livrer plus vite et en toute confiance.",
+    "booking": {
+      "title": "Sites de réservation pour l'hôtellerie et les rendez-vous",
+      "shortDescription": "Des sites où vos clients réservent et vous paient directement.",
+      "longDescription": "Pour les petits hôtels, maisons d'hôtes, organisateurs d'excursions, salons et cliniques qui veulent des réservations sans payer de commission à une plateforme. Vos clients voient les vraies disponibilités, versent un acompte et reçoivent des rappels, et vous gardez le site, les réservations et votre fichier clients.",
       "deliverables": [
-        "Plans de migration cloud",
-        "Mise en place d'Infrastructure as Code",
-        "Pipelines CI/CD",
-        "Tableaux de bord de monitoring",
-        "Audits d'optimisation des coûts"
+        "Conception et développement, mobile d'abord",
+        "Réservation en ligne avec acompte par carte",
+        "Rappels par e-mail ou WhatsApp",
+        "Synchronisation du calendrier avec les plateformes que vous utilisez déjà"
       ]
     },
     "ai": {
-      "title": "Intégration IA/ML et Automatisation",
-      "shortDescription": "Intégration de capacités d'IA dans des produits existants. Fonctionnalités propulsées par les LLM, automatisation intelligente et workflows d'agents qui s'adaptent à votre domaine.",
-      "longDescription": "L'IA n'a de valeur que lorsqu'elle résout de vrais problèmes. Nous intégrons des LLM, construisons des pipelines d'automatisation intelligente et concevons des systèmes multi-agents qui arrivent réellement en production, pas seulement des démos.",
+      "title": "Intégration IA et automatisation",
+      "shortDescription": "Des fonctionnalités IA et des automatisations qui font gagner un temps réel.",
+      "longDescription": "Nous ajoutons de l'IA là où elle se justifie : répondre aux questions des clients, lire des documents, rédiger des réponses ou faire circuler les données entre vos outils. Chaque fonctionnalité est livrée avec une solution de repli et des coûts de fonctionnement prévisibles.",
       "deliverables": [
-        "Fonctionnalités propulsées par l'IA",
-        "Chatbots",
-        "Pipelines de traitement de documents",
-        "Workflows d'automatisation",
-        "Agents de revue de code par IA"
+        "Fonctionnalités IA dans votre produit",
+        "Traitement de documents et d'e-mails",
+        "Automatisations entre les outils que vous utilisez",
+        "Assistants qui répondent à partir de vos propres contenus"
       ]
     },
-    "vr": {
-      "title": "Développement VR/XR",
-      "shortDescription": "Création d'expériences immersives pour Meta Quest et au-delà. Du concept à l'application VR déployée.",
-      "longDescription": "La technologie immersive est la prochaine interface. Nous développons des applications VR et des expériences 3D interactives pour Meta Quest, en nous concentrant sur des cas d'usage concrets, des simulations de formation aux outils créatifs.",
+    "architecture": {
+      "title": "Architecture, cloud et sauvetage de code",
+      "shortDescription": "Un audit senior, un cloud mieux organisé ou le sauvetage d'un code bloqué.",
+      "longDescription": "Certains projets ont besoin d'un audit clair avant d'avoir besoin de plus de code. Nous auditons l'architecture et le code, mettons en place l'hébergement cloud et les pipelines de déploiement, et assainissons les bases de code, y compris celles écrites vite avec des outils d'IA, pour que votre équipe puisse de nouveau livrer.",
       "deliverables": [
-        "Applications VR",
-        "Expériences 3D interactives",
-        "Prototypes XR"
-      ]
-    },
-    "consulting": {
-      "title": "Architecture Logicielle et Conseil",
-      "shortDescription": "Stratégie technique, revues d'architecture et conception de systèmes pour les équipes qui ont besoin d'un accompagnement de niveau senior pour naviguer dans la complexité.",
-      "longDescription": "Parfois, vous avez besoin d'un second regard expérimenté. Nous proposons des revues d'architecture, des consultations en conception de systèmes et une stratégie technique pour les équipes confrontées à des décisions complexes, en canalisant la complexité vers des systèmes propres et maîtrisables.",
-      "deliverables": [
-        "Architecture decision records",
-        "Documents de conception de systèmes",
-        "Recommandations de stack technique",
-        "Audits de code",
-        "Sessions de mentorat d'équipe"
-      ]
-    },
-    "ai-remediation": {
-      "title": "Maintenance et Remédiation de Code IA",
-      "shortDescription": "Livré rapidement avec du code généré par IA ? Nous le nettoyons. Refactoring, tests et dissolution de la dette technique.",
-      "longDescription": "Le code généré par IA vous met sur le marché rapidement, mais il accumule de la dette encore plus vite. Nous auditons, refactorisons, ajoutons une couverture de tests, optimisons les performances et documentons les bases de code construites avec l'aide de l'IA, pour que votre équipe puisse à nouveau avancer vite.",
-      "deliverables": [
-        "Audits de qualité de code",
-        "Plans de refactoring",
-        "Mise en place de suites de tests",
-        "Profilage des performances",
-        "Documentation"
+        "Audits d'architecture et de code",
+        "Mise en place du cloud et des pipelines de déploiement",
+        "Refactoring et couverture de tests",
+        "Un plan écrit avec des priorités claires"
       ]
     }
-  },
-  "aboutData": {
-    "personalBio": "Likwiid est un studio digital fondé par Gabriel Ghoussoub, ingénieur logiciel full-stack avec plus de 5 ans d'expérience dans la mise en production de logiciels dans la fintech, l'insurtech, la surveillance satellite, l'IoT et la VR. Nous construisons de bout en bout, de l'architecture au déploiement, aussi bien pour les startups que pour les grandes entreprises.",
-    "personalTitle": "Fondateur et Ingénieur Logiciel Full-Stack",
-    "founderRole": "Fondateur et Ingénieur Principal",
-    "founderBio": "Gabriel est un ingénieur logiciel full-stack avec plus de 5 ans d'expérience dans la création de systèmes en production dans la fintech, l'insurtech, la surveillance satellite, l'IoT et la VR. Il est titulaire d'un diplôme en génie informatique et des communications de l'Antonine University. Il a dirigé des équipes pluridisciplinaires comptant jusqu'à 5 ingénieurs, réduit les temps de déploiement de 93 % et atteint une disponibilité système de 99,95 % grâce au CI/CD et à l'optimisation des performances.",
-    "philosophy": "Le logiciel doit s'écouler. Comme l'eau qui s'adapte à n'importe quel contenant, l'excellence en ingénierie s'adapte à n'importe quel problème. Le nom Likwiid incarne cette conviction : fluidité et adaptabilité dans tout ce que nous construisons.",
-    "interests": [
-      "Danse salsa",
-      "Formule 1",
-      "Exploration spatiale",
-      "Architectures d'agents IA",
-      "Développement VR pour Meta Quest",
-      "Gestion énergétique IoT"
-    ],
-    "journey": [
-      {
-        "role": "Génie Informatique et des Communications",
-        "description": "Diplômé en génie informatique et des communications."
-      },
-      {
-        "role": "Stagiaire Développeur Java",
-        "description": "Amélioration d'un système de contrôle d'accès des employés basé sur Java Spring, avec l'intégration de plus de 20 nouvelles fonctionnalités."
-      },
-      {
-        "role": "Développeur Web",
-        "description": "Livraison de plus de 15 sites web orientés client avec PHP et WordPress. Création de scripts Python pour automatiser le web scraping de données de marché."
-      },
-      {
-        "role": "Ingénieur Logiciel Java",
-        "description": "Développement de microservices évolutifs avec Spring Boot et Kubernetes. Réduction des temps de déploiement de 4 heures à 15 minutes. Atteinte d'une couverture de tests de 90 % avec JUnit/Mockito."
-      },
-      {
-        "role": "Ingénieur Logiciel",
-        "description": "Conception d'un système automatisé de gestion énergétique IoT avec une interface Angular, permettant une réduction de 15 % des coûts énergétiques grâce à l'analyse prédictive."
-      },
-      {
-        "role": "Ingénieur Logiciel Intermédiaire",
-        "description": "Réarchitecture de l'outil de surveillance Inpulse avec une stack entièrement réactive (Java WebFlux, React). Amélioration de la réactivité du système de 40 % sous de fortes charges de données."
-      },
-      {
-        "role": "Ingénieur Logiciel Senior",
-        "description": "Direction d'une équipe de 5 ingénieurs pour la création d'une carte d'identité numérique nationale intégrant des fonctionnalités bancaires et le contrôle d'identité et d'accès."
-      },
-      {
-        "role": "Ingénieur Logiciel",
-        "description": "Conception de services backend et d'API évolutifs avec Node.js, TypeScript, Elixir et NestJS. Développement full-stack avec Java Spring Boot et React."
-      },
-      {
-        "role": "Fondateur",
-        "description": "Fondation de Likwiid en tant que studio digital. Développement full-stack, architecture cloud, intégration de l'IA et expériences VR pour des clients du monde entier."
-      }
-    ]
   },
   "categories": {
     "All": "Tous",
@@ -1530,18 +877,5 @@
     "Mobile": "Mobile",
     "IoT": "IoT",
     "AI": "IA"
-  },
-  "hospitality": {
-    "heading": "Petits hôtels, maisons d'hôtes et voyagistes",
-    "body": "Nous créons des sites simples et rapides où vos clients réservent et vous paient directement, sans commission pour les plateformes de réservation. Disponibilités réelles, acomptes et rappels automatiques, dans les langues de vos clients. Le site, les réservations et votre fichier clients vous appartiennent.",
-    "cta": "Parlez-nous de votre établissement",
-    "directLink": "Voir Likwiid Direct, notre moteur de réservation, en action",
-    "csTitle": "Étude de cas à venir",
-    "csBody": "Un projet récent pour une petite entreprise d'hôtellerie. Les détails apparaîtront ici dès que le client aura approuvé leur partage.",
-    "csBeforeLabel": "Avant",
-    "csAfterLabel": "Après",
-    "csBeforeAlt": "Le site avant la refonte",
-    "csAfterAlt": "Le site après la refonte",
-    "csLinkLabel": "Visiter le site"
   }
 }
