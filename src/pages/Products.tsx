@@ -58,7 +58,7 @@ export default function Products() {
                     aria-hidden="true"
                     className={`block no-underline ${index % 2 === 1 ? 'lg:order-last' : ''}`}
                   >
-                    <BrowserFrame image={product.image} alt={t(`products.${product.key}ImageAlt`)} />
+                    <BrowserFrame image={product.image} alt={t(`products.${product.key}ImageAlt`)} priority={index === 0} />
                   </Link>
 
                   <div>

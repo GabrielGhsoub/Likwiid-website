@@ -10,7 +10,7 @@ export default function NotFound() {
 
   return (
     <PageTransition>
-      <div className="pt-28 pb-16 px-6 min-h-[70vh] flex items-center justify-center">
+      <div className="pt-28 pb-16 px-6 min-h-[80vh] flex items-center justify-center">
         <div className="text-center max-w-md">
           <LogoMark className="h-12 mx-auto mb-6 text-text-primary" />
           <h1 className="text-6xl font-bold font-[family-name:var(--font-display)] text-text-primary mb-4">404</h1>
