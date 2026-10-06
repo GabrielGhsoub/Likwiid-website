@@ -3,7 +3,7 @@
 // block inside #root so email link scanners, social previews, and no-JS/AI crawlers
 // see real content. React replaces the #root contents on hydration, so the runtime
 // app is unchanged.
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -45,131 +45,85 @@ function replaceOrThrow(html, regex, replacer, label) {
   return out
 }
 
+// Titles match CaseStudy.tsx (`${project.title}: Case Study | Likwiid`) so document.title
+// does not change after hydration. Copy mirrors oneLiner/description in src/data/projects.ts.
 const caseStudies = {
   'padel-booking': {
     title: 'Padel Booking Platform: Case Study | Likwiid',
     description:
-      'A mobile platform for the Lebanese padel community: league management, skill-based matchmaking, player profiles, and real-time court booking. Live on iOS and Android.',
+      'A booking and league app for padel players and clubs in Lebanon, live on the App Store and Google Play, with a web admin portal for league organizers.',
     heading: 'Padel Booking Platform',
     summary:
-      'A full-featured React Native app that moved a padel community off WhatsApp DMs into owned booking and league workflows: matchmaking, standings, and court check-in. Live on the App Store and Google Play.',
+      'Padel Lebanon lets players book courts, find matches at their level and play in organized leagues. It is live on iOS and Android. A web admin portal lets organizers create leagues, manage players and staff, and open or close weekly check-in, while pairings, scores and standings update automatically.',
   },
   'gcg-website': {
-    title: 'GCG Consulting Website: Case Study | Likwiid',
+    title: 'GCG Website: Case Study | Likwiid',
     description:
-      'A premium consulting website for Ghoussoub Consulting Group with audience pathways, R&D and tutoring service pages, and conversion-ready consultation flows.',
+      'Website for a science consulting firm, with a clear path for every audience: companies, research teams, students, families and investors.',
     heading: 'GCG Website',
     summary:
-      'A polished React and Vite website that made a broad, technical consulting offer feel clear and credible across organizations, research teams, students, investors, and partners.',
+      'Ghoussoub Consulting Group offers research support, tutoring and investment advice to very different clients. The new website gives each audience its own clear starting point and an easy way to request a consultation.',
   },
-  'sems-energy-management': {
-    title: 'SEMS Smart Energy Management: Case Study | Likwiid',
+  voxflow: {
+    title: 'VoxFlow: Case Study | Likwiid',
     description:
-      'A software-first energy platform unifying EDL grid, generator, solar, and battery data into one real-time cost-control dashboard for Lebanese households.',
-    heading: 'SEMS: Smart Energy Management',
+      'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
+    heading: 'VoxFlow',
     summary:
-      'A TypeScript monorepo (Expo app, NestJS API, TimescaleDB telemetry) that turns fragmented grid, generator, solar, and battery data into one source-aware cost dashboard.',
+      'VoxFlow puts the timer, instructions, recorder and reading material for voice recovery into one calm 10 minute routine. It needs no account, keeps every recording on the phone, and lets users compare an early recording with a recent one.',
   },
   'personal-fitness-tracker': {
     title: 'Personal Fitness Tracker: Case Study | Likwiid',
     description:
-      'A local-first endurance training app: daily readiness scoring, heart-rate-zone guidance, run logging, and 12-week plan progress on one on-device dashboard.',
+      'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',
     heading: 'Personal Fitness Tracker',
     summary:
-      'An Expo React Native app with on-device SQLite storage, BLE heart-rate support, and a structured 12-week endurance plan: readiness, run history, and plan adherence in one view.',
-  },
-  voxflow: {
-    title: 'VoxFlow Vocal Re-education App: Case Study | Likwiid',
-    description:
-      'A calm, offline-first vocal re-education app with guided daily practice, private on-device recordings, A/B comparison, and progress tracking.',
-    heading: 'VoxFlow',
-    summary:
-      'A quiet, clinically grounded Expo app that packages daily vocal practice into a private, repeatable, offline-first routine: guided sessions, recordings, and a progress calendar.',
+      'The app connects to a chest heart rate strap and coaches the runner live through a 12 week plan. After each run it explains what happened and how training is going. All data stays on the phone.',
   },
   breathebreak: {
-    title: 'BreatheBreak macOS Menu-bar App: Case Study | Likwiid',
+    title: 'BreatheBreak: Case Study | Likwiid',
     description:
-      'A macOS menu-bar wellness utility that turns screen-heavy workdays into gentle breathing check-ins with phased reminders, quick resets, and Control Pause tracking.',
+      'A Mac menu bar app that reminds desk workers to take short breathing breaks, and stays quiet during calls and Focus mode.',
     heading: 'BreatheBreak',
     summary:
-      'A lightweight SwiftUI menu-bar app that keeps recovery cues present but unobtrusive during deep work: phased reminders, meeting-aware smart pause, and CP trends.',
+      'BreatheBreak sits in the Mac menu bar and prompts short breathing exercises during the workday. It stays quiet during calls, in Focus mode and outside working hours, and all data stays on the Mac.',
   },
-  'linkedin-templates-extension': {
-    title: 'LinkedIn Templates Chrome Extension: Case Study | Likwiid',
+  'sems-energy-management': {
+    title: 'SEMS: Smart Energy Management: Case Study | Likwiid',
     description:
-      'A privacy-first Manifest V3 Chrome extension that saves reusable LinkedIn message templates with smart variables and one-click insertion: no risky automation.',
-    heading: 'LinkedIn Templates Extension',
+      'An app showing Lebanese homes where their power comes from and what it costs: grid, generator, solar and batteries in one view.',
+    heading: 'SEMS: Smart Energy Management',
     summary:
-      'A React and TypeScript MV3 extension for outreach teams: searchable templates, smart variables like first name and company, synced settings, and local-first privacy.',
-  },
-  'healthcare-pdf-api': {
-    title: 'Healthcare PDF API: Case Study | Likwiid',
-    description:
-      'A compliance-focused NestJS backend for medical PDF generation: API-key auth, AES-256-GCM encryption, audit trails, webhooks, and retention policies.',
-    heading: 'Healthcare PDF API',
-    summary:
-      'A modular NestJS backend for controlled medical document workflows: scoped API keys, encrypted storage, traceable audit events, webhook retries, and automated expiry.',
-  },
-  'padel-admin-portal': {
-    title: 'Padel Admin Portal: Case Study | Likwiid',
-    description:
-      'A web admin dashboard for the Padel platform: league lifecycle management, role-based user administration, real-time standings, and check-in controls.',
-    heading: 'Padel Admin Portal',
-    summary:
-      'A React admin companion that gives league operators a dashboard to run leagues, manage players by role, and control check-in without touching the database.',
-  },
-  'ai-fitness-coach': {
-    title: 'AI Fitness Coach: Case Study | Likwiid',
-    description:
-      'A mobile fitness app with an AI coach that generates personalized 12-week programs, gives real-time form cues, and adapts training to performance history.',
-    heading: 'AI Fitness Coach',
-    summary:
-      'An Expo app with an LLM-powered coach that knows the user’s full program and history: form cues, RPE-based load recommendations, and weekly progress summaries.',
-  },
-  'bully-ai': {
-    title: 'Bully.ai Productivity App: Case Study | Likwiid',
-    description:
-      'A React Native productivity app that fights procrastination with escalating notifications, five bully personalities, and an ADHD toolbox.',
-    heading: 'Bully.ai',
-    summary:
-      'A behavioral-psychology productivity app with an escalating notification system, five personalities, commitment contracts, and an ADHD toolbox of courses and exercises.',
-  },
-  salsaflow: {
-    title: 'SalsaFlow Motion Trainer: Case Study | Likwiid',
-    description:
-      'An Expo mobile app using device sensors and AI for real-time salsa movement analysis, posture scoring, and personalized drill feedback.',
-    heading: 'SalsaFlow',
-    summary:
-      'An Expo app using accelerometer, gyroscope, and camera with a rule-based AI coach to give dancers affordable, objective feedback on posture, timing, and movement.',
+      'Many Lebanese homes switch between grid power, a generator, solar panels and batteries in a single day. SEMS shows in one place which source is running, what each device uses and what it all costs.',
   },
 }
 
 const routes = {
   '': {
-    title: 'Likwiid | Founder-Led Software Studio',
+    title: 'Likwiid | Software Studio',
     description:
-      'Likwiid is a founder-led software studio. We lead with strategy before code (landscape, audit, and blueprint), then architect, build, and evolve web and mobile products. Based in Beirut, shipping worldwide.',
+      'Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide.',
     content: block(
-      'Likwiid: Software that flows',
-      'A founder-led software studio in Beirut shipping web and mobile products worldwide. We lead with strategy before code: booking websites, full-stack development, cloud architecture, and AI integration. Replies within 24 hours.'
+      'Booking websites and apps for independent hotels and founders.',
+      'Likwiid is run by Gabriel Ghoussoub from Beirut, works with clients worldwide, and replies within 24 hours. We build booking websites, web and mobile products, AI integrations, and rescue stuck codebases.'
     ),
   },
   services: {
     title: 'Services | Likwiid',
     description:
-      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration and AI-code remediation, and software architecture consulting.',
+      'Four kinds of work: web and mobile products, booking websites for hospitality and appointments from $1,500, AI integration and automation, and architecture, cloud and code rescue.',
     content: block(
       'Services',
-      'Booking and ordering websites, full-stack web and mobile development, cloud and DevOps, AI integration, AI-code remediation, and software architecture consulting.'
+      'Web and mobile products built end to end. Booking websites for hospitality and appointments, from $1,500. AI integration and automation that saves real time. Architecture, cloud and code rescue for stuck codebases. Founder-led, two to three projects at a time, replies within 24 hours.'
     ),
   },
   work: {
     title: 'Work | Likwiid',
     description:
-      'Selected work: booking platforms, healthcare APIs, IoT energy management, and AI products built by Likwiid. We also build direct booking websites for small hotels, guesthouses, and tour operators.',
+      'Selected work by Likwiid: a padel booking platform live on iOS and Android, a consulting website, and studio products for voice practice, running, breathing breaks and home energy.',
     content: block(
       'Our Work',
-      'Selected projects: a court booking platform live on iOS and Android with an admin portal, a healthcare PDF API, IoT energy management, and productivity tools. We also build direct booking websites for small hotels, guesthouses, and tour operators.'
+      'Client work: a padel booking and league platform live on iOS and Android with a web admin portal, and a website for a science consulting firm. Studio products: VoxFlow, Personal Fitness Tracker, BreatheBreak and SEMS. We also build direct booking websites for small hotels, guesthouses, and tour operators.'
     ),
     hreflang: true,
   },
@@ -177,10 +131,10 @@ const routes = {
     lang: 'pt',
     title: 'Projetos | Likwiid',
     description:
-      'Projetos selecionados: plataformas de reservas, APIs de saúde, gestão de energia IoT e produtos com IA construídos pela Likwiid. Criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.',
+      'Projetos selecionados da Likwiid: uma plataforma de reservas de padel disponível para iOS e Android, um site de consultoria e produtos próprios para prática vocal, corrida, pausas de respiração e energia doméstica.',
     content: block(
       'Os nossos projetos',
-      'Projetos selecionados: uma plataforma de reservas de campos disponível para iOS e Android com portal de administração, uma API de documentos de saúde, gestão de energia IoT e ferramentas de produtividade. Também criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.'
+      'Trabalho para clientes: uma plataforma de reservas e ligas de padel disponível para iOS e Android com portal de administração web, e um site para uma consultora científica. Produtos próprios: VoxFlow, Personal Fitness Tracker, BreatheBreak e SEMS. Também criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.'
     ),
     hreflang: true,
   },
@@ -188,10 +142,10 @@ const routes = {
     lang: 'es',
     title: 'Proyectos | Likwiid',
     description:
-      'Proyectos seleccionados: plataformas de reservas, APIs sanitarias, gestión energética IoT y productos con IA creados por Likwiid. Creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.',
+      'Proyectos seleccionados de Likwiid: una plataforma de reservas de pádel disponible en iOS y Android, una web de consultoría y productos propios para práctica vocal, running, pausas de respiración y energía doméstica.',
     content: block(
       'Nuestro trabajo',
-      'Proyectos seleccionados: una plataforma de reservas de pistas disponible en iOS y Android con portal de administración, una API de documentos sanitarios, gestión energética IoT y herramientas de productividad. También creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.'
+      'Trabajo para clientes: una plataforma de reservas y ligas de pádel disponible en iOS y Android con portal de administración web, y una web para una consultora científica. Productos propios: VoxFlow, Personal Fitness Tracker, BreatheBreak y SEMS. También creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.'
     ),
     hreflang: true,
   },
@@ -199,10 +153,10 @@ const routes = {
     lang: 'it',
     title: 'Progetti | Likwiid',
     description:
-      'Progetti selezionati: piattaforme di prenotazione, API sanitarie, gestione energetica IoT e prodotti con IA realizzati da Likwiid. Creiamo siti con prenotazione diretta per piccoli hotel, guest house e tour operator.',
+      'Progetti selezionati di Likwiid: una piattaforma di prenotazione padel disponibile su iOS e Android, un sito di consulenza e prodotti propri per pratica vocale, corsa, pause di respirazione ed energia domestica.',
     content: block(
       'I nostri progetti',
-      'Progetti selezionati: una piattaforma di prenotazione campi disponibile su iOS e Android con portale di amministrazione, una API per documenti sanitari, gestione energetica IoT e strumenti di produttività. Creiamo anche siti con prenotazione diretta per piccoli hotel, guest house e tour operator.'
+      'Lavori per clienti: una piattaforma di prenotazione e campionati di padel disponibile su iOS e Android con portale di amministrazione web, e un sito per una società di consulenza scientifica. Prodotti propri: VoxFlow, Personal Fitness Tracker, BreatheBreak e SEMS. Creiamo anche siti con prenotazione diretta per piccoli hotel, guest house e tour operator.'
     ),
     hreflang: true,
   },
@@ -210,21 +164,12 @@ const routes = {
     lang: 'fr',
     title: 'Projets | Likwiid',
     description:
-      "Projets sélectionnés : plateformes de réservation, API santé, gestion d'énergie IoT et produits IA créés par Likwiid. Nous créons des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes.",
+      "Projets sélectionnés de Likwiid : une plateforme de réservation de padel disponible sur iOS et Android, un site de conseil et des produits maison pour la pratique vocale, la course, les pauses respiration et l'énergie domestique.",
     content: block(
       'Nos projets',
-      "Projets sélectionnés : une plateforme de réservation de terrains disponible sur iOS et Android avec portail d'administration, une API de documents de santé, la gestion d'énergie IoT et des outils de productivité. Nous créons aussi des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes."
+      "Projets clients : une plateforme de réservation et de ligues de padel disponible sur iOS et Android avec portail d'administration web, et un site pour un cabinet de conseil scientifique. Produits maison : VoxFlow, Personal Fitness Tracker, BreatheBreak et SEMS. Nous créons aussi des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes."
     ),
     hreflang: true,
-  },
-  about: {
-    title: 'About | Likwiid',
-    description:
-      'Likwiid is a founder-led software studio led by Gabriel Ghoussoub, a full-stack engineer with 5+ years across fintech, insurtech, satellite monitoring, IoT, and VR.',
-    content: block(
-      'About Likwiid',
-      'A founder-led studio led by Gabriel Ghoussoub, a full-stack engineer with 5+ years across fintech, insurtech, satellite monitoring, IoT, and VR. Based in Beirut, working worldwide.'
-    ),
   },
   contact: {
     title: 'Contact | Likwiid',
@@ -233,15 +178,6 @@ const routes = {
     content: block(
       'Contact',
       'Have a project in mind? Reach out on WhatsApp at +961 76 160 979 or email gabriel@likwiid.com. We reply within 24 hours.'
-    ),
-  },
-  'booking-websites': {
-    title: 'Booking Websites for Salons, Clinics & Small Hotels | Likwiid',
-    description:
-      'Simple, fast websites where your customers book and pay online. From $1,500, most projects $8,000 to $15,000, delivered in 2 to 4 weeks. Commission-free bookings you own.',
-    content: block(
-      'Websites with online booking for salons, clinics, and small hotels',
-      'Your customers want to book at 11pm from their phone. We build simple, fast websites where customers book and pay online: real availability, deposits, automatic reminders, and a site you own. From $1,500, most projects $8,000 to $15,000, in 2 to 4 weeks.'
     ),
   },
   direct: {
@@ -309,9 +245,7 @@ for (const slug of workSlugs) {
 const BREADCRUMB_LABELS = {
   services: 'Services',
   work: 'Work',
-  about: 'About',
   contact: 'Contact',
-  'booking-websites': 'Booking Websites',
   direct: 'Likwiid Direct',
   frame: 'Likwiid Frame',
   products: 'Products',
@@ -471,4 +405,39 @@ notFound = notFound.replace(
 )
 writeFileSync(join(dist, '404.html'), notFound)
 
-console.log(`prerender: wrote ${count} routes + 404.html`)
+// Removed pages: tiny standalone documents (not the app shell) so old links, bookmarks
+// and crawlers land on the replacement page. The client-side <Navigate replace> routes in
+// App.tsx cover in-app navigation; these cover direct hits on the static host.
+const redirects = {
+  about: { target: `${SITE_URL}/#founder`, canonical: canonicalUrl('') },
+  'booking-websites': { target: canonicalUrl('direct') },
+  'work/ai-fitness-coach': { target: canonicalUrl('work') },
+  'work/bully-ai': { target: canonicalUrl('work') },
+  'work/salsaflow': { target: canonicalUrl('work') },
+  'work/healthcare-pdf-api': { target: canonicalUrl('work') },
+  'work/linkedin-templates-extension': { target: canonicalUrl('work') },
+  'work/padel-admin-portal': { target: canonicalUrl('work/padel-booking') },
+}
+
+const redirectStub = (target, canonical) => `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Moved | Likwiid</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${escapeHtml(canonical)}" />
+    <meta http-equiv="refresh" content="0; url=${escapeHtml(target)}" />
+  </head>
+  <body>
+    <p>This page has moved. <a href="${escapeHtml(target)}">Continue to ${escapeHtml(target)}</a>.</p>
+  </body>
+</html>
+`
+
+for (const [path, { target, canonical }] of Object.entries(redirects)) {
+  if (routes[path]) throw new Error(`prerender: "${path}" is both a route and a redirect`)
+  mkdirSync(join(dist, path), { recursive: true })
+  writeFileSync(join(dist, path, 'index.html'), redirectStub(target, canonical ?? target))
+}
+
+console.log(`prerender: wrote ${count} routes, ${Object.keys(redirects).length} redirect stubs + 404.html`)
