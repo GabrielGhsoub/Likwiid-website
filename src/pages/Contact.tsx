@@ -308,12 +308,12 @@ export default function Contact() {
                     <div>
                       <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
                         {t('contact.labelBudget')}
-                        <span className="block text-xs text-text-tertiary font-normal mt-0.5">{t('contact.budgetHint')}</span>
                       </label>
                       <div className="relative">
                         <select
                           id="budget"
                           name="budget"
+                          aria-describedby="budget-hint"
                           className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
                           <option value="">{t('contact.selectPlaceholder')}</option>
@@ -325,6 +325,9 @@ export default function Contact() {
                         </select>
                         <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
                       </div>
+                      <p id="budget-hint" className="mt-1.5 text-xs text-text-tertiary">
+                        {t('contact.budgetHint')}
+                      </p>
                     </div>
                   </div>
 

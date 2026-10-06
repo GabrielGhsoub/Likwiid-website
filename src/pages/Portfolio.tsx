@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { m } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowUpRight, ExternalLink } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import type { TFunction } from 'i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
@@ -101,7 +101,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
             >
               {t('portfolio.viewCaseStudy')}
-              <ArrowUpRight size={15} />
+              <ArrowRight size={15} />
             </Link>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function Portfolio() {
                 className="inline-flex min-h-11 shrink-0 items-center gap-1.5 self-start rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 md:self-center"
               >
                 {t('hospitality.cta')}
-                <ArrowUpRight size={15} />
+                <ArrowRight size={15} />
               </Link>
             </div>
             <HospitalityCaseStudy />

@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import NotFound from './NotFound'
 import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, ChevronDown, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
@@ -378,7 +378,7 @@ export default function CaseStudy() {
                   className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90"
                 >
                   {t('caseStudy.startProject')}
-                  <ArrowUpRight size={15} />
+                  <ArrowRight size={15} />
                 </Link>
                 <a
                   href={SOCIAL.whatsapp}
