@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { SlidersHorizontal, CreditCard, Code2, Languages, Play, Check, ArrowRight } from 'lucide-react'
+import { SlidersHorizontal, CreditCard, Code2, Languages, Check, ArrowRight } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
+import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
 
@@ -101,41 +102,17 @@ export default function Direct() {
             </p>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {DEMO_CARDS.map((card) => (
-                <a
+                <DemoCard
                   key={card.slug}
                   href={directDemoHref(lang, BACK_PATH, card.slug)}
-                  className="group relative block w-full overflow-hidden rounded-xl border border-border text-left no-underline transition-colors hover:border-border-hover focus-visible:outline-2 focus-visible:outline-accent-gold"
-                >
-                  <span className="relative block aspect-[16/10] bg-bg-tertiary">
-                    <img
-                      src={card.image}
-                      alt={t('direct.demoPreviewAlt')}
-                      width={card.imageWidth}
-                      height={card.imageHeight}
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover object-top"
-                    />
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
-                    />
-                    <span className="absolute inset-x-0 bottom-0 p-5">
-                      <span className="block text-sm text-white/80">
-                        {t(`direct.${card.propertyKey}`)}
-                      </span>
-                      <span className="mt-1 block text-xl font-semibold font-[family-name:var(--font-display)] text-white">
-                        {t(`direct.${card.titleKey}`)}
-                      </span>
-                    </span>
-                    <span className="absolute inset-0 flex items-center justify-center">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#15181E] shadow-sm">
-                        <Play size={16} aria-hidden="true" />
-                        {t('direct.demoLaunch')}
-                      </span>
-                    </span>
-                  </span>
-                </a>
+                  image={card.image}
+                  imageWidth={card.imageWidth}
+                  imageHeight={card.imageHeight}
+                  alt={t('direct.demoPreviewAlt')}
+                  name={t(`direct.${card.propertyKey}`)}
+                  description={t(`direct.${card.titleKey}`)}
+                  launchLabel={t('direct.demoLaunch')}
+                />
               ))}
             </div>
           </section>
@@ -330,10 +307,10 @@ export default function Direct() {
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
                 <Link
                   to="/work/padel-booking"
-                  className="mt-4 inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
+                  className="mt-4 inline-block font-medium text-accent-gold no-underline hover:underline"
                 >
                   {t('direct.proofLink')}
-                  <ArrowRight size={16} aria-hidden="true" />
+                  <ArrowRight size={16} aria-hidden="true" className="ml-1.5 inline-block align-[-3px]" />
                 </Link>
               </div>
               <ul className="space-y-3">
