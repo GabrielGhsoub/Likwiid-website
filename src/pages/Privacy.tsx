@@ -18,7 +18,7 @@ export default function Privacy() {
 
   return (
     <PageTransition>
-      <div className="pt-20 pb-16 px-6">
+      <div className="pt-28 pb-16 px-6">
         <div className="mx-auto max-w-[800px]">
           <SectionHeading as="h1" title={t('privacy.title')} />
 

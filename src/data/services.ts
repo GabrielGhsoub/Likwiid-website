@@ -1,109 +1,71 @@
 import type { Service } from '../types'
 
+// English source copy. Other languages overlay it from `servicesData.<id>` in their
+// locale files (see i18n/localizedContent.ts). techStack is kept for the type shape
+// but no longer rendered.
 export const services: Service[] = [
   {
-    id: 'fullstack',
-    slug: 'full-stack-development',
-    title: 'Full-Stack Web & Mobile Development',
-    shortDescription:
-      'Building production applications from database to UI. Web apps, mobile apps, APIs, and solutions that work seamlessly across every layer.',
+    id: 'products',
+    slug: 'web-and-mobile-products',
+    title: 'Web and mobile products',
+    shortDescription: 'Web apps, mobile apps and the backends behind them, built end to end.',
     longDescription:
-      'From enterprise insurance portals serving thousands of users to personal training apps, we build the full vertical. Our stack is fluid: React and React Native for the frontend, Java/Spring Boot or Node.js/NestJS on the backend, with PostgreSQL or MongoDB for data. We adapt to what the project needs.',
+      'We design and build web apps, iOS and Android apps, dashboards and the systems behind them. You work with one team from the first sketch to the launch, and the code is yours.',
     icon: 'Code',
-    techStack: ['React', 'React Native', 'Expo', 'Java', 'Spring Boot', 'Node.js', 'NestJS', 'PostgreSQL', 'MongoDB'],
+    techStack: [],
     deliverables: [
-      'Web applications',
-      'Mobile apps (iOS/Android)',
-      'REST/GraphQL APIs',
-      'Database architecture',
+      'Web applications and dashboards',
+      'iOS and Android apps',
+      'APIs, databases and integrations',
+      'Launch, hosting and handover',
     ],
   },
   {
-    id: 'cloud',
-    slug: 'cloud-devops',
-    title: 'Cloud & DevOps Consulting',
-    shortDescription:
-      'Infrastructure as Code, CI/CD pipelines, containerization, and cloud architecture for teams that need to scale fluidly.',
+    id: 'booking',
+    slug: 'booking-websites',
+    title: 'Booking websites for hospitality and appointments',
+    shortDescription: 'Websites where guests and clients book and pay you directly.',
     longDescription:
-      'We design and implement cloud infrastructure that scales with demand. From setting up your first CI/CD pipeline to migrating monoliths to microservices on Kubernetes, we help teams ship faster with confidence.',
-    icon: 'Cloud',
-    techStack: ['AWS', 'Terraform', 'Kubernetes', 'Docker', 'Ansible', 'GitHub Actions', 'GitLab CI'],
+      'For small hotels, guesthouses, tour operators, salons and clinics that want bookings without paying a platform commission. Guests see real availability, pay a deposit and get reminders, and you keep the site, the bookings and the guest list.',
+    icon: 'CalendarCheck',
+    techStack: [],
     deliverables: [
-      'Cloud migration plans',
-      'Infrastructure as Code setup',
-      'CI/CD pipelines',
-      'Monitoring dashboards',
-      'Cost optimization audits',
+      'Mobile-first design and build',
+      'Online booking with card deposits',
+      'Reminders by email or WhatsApp',
+      'Calendar sync with the platforms you already use',
     ],
   },
   {
     id: 'ai',
     slug: 'ai-integration',
-    title: 'AI/ML Integration & Automation',
-    shortDescription:
-      'Integrating AI capabilities into existing products. LLM-powered features, intelligent automation, and agent workflows that adapt to your domain.',
+    title: 'AI integration and automation',
+    shortDescription: 'AI features and automations that save real time.',
     longDescription:
-      'AI is only valuable when it solves real problems. We integrate LLMs, build intelligent automation pipelines, and design multi-agent systems that actually ship to production, not just demos.',
+      'We add AI where it earns its place: answering customer questions, reading documents, drafting replies or moving data between tools. Every feature ships with a fallback and running costs you can predict.',
     icon: 'Brain',
-    techStack: ['Anthropic Claude API', 'OpenAI', 'LangChain', 'Python', 'Multi-agent Systems'],
+    techStack: [],
     deliverables: [
-      'AI-powered features',
-      'Chatbots',
-      'Document processing pipelines',
-      'Automation workflows',
-      'AI code review agents',
+      'AI features inside your product',
+      'Document and email processing',
+      'Automations between the tools you use',
+      'Assistants that answer from your own content',
     ],
   },
   {
-    id: 'vr',
-    slug: 'vr-development',
-    title: 'VR/XR Development',
-    shortDescription:
-      'Building immersive experiences for Meta Quest and beyond. From concept to deployed VR application.',
+    id: 'architecture',
+    slug: 'architecture-cloud-code-rescue',
+    title: 'Architecture, cloud and code rescue',
+    shortDescription: 'A senior review, a cleaner cloud setup, or a rescue for a stuck codebase.',
     longDescription:
-      'Immersive technology is the next interface. We build VR applications and interactive 3D experiences for Meta Quest, focusing on practical use cases, from training simulations to creative tools.',
-    icon: 'Glasses',
-    techStack: ['Unity', 'Godot', 'Meta Quest SDK', 'C#'],
-    deliverables: [
-      'VR applications',
-      '3D interactive experiences',
-      'XR prototypes',
-    ],
-  },
-  {
-    id: 'consulting',
-    slug: 'architecture-consulting',
-    title: 'Software Architecture & Consulting',
-    shortDescription:
-      'Technical strategy, architecture reviews, and system design for teams that need senior-level guidance to navigate complexity.',
-    longDescription:
-      'Sometimes you need a second pair of experienced eyes. We provide architecture reviews, system design consultations, and technical strategy for teams navigating complex decisions, channeling complexity into clean, manageable systems.',
-    icon: 'LayoutDashboard',
-    techStack: ['System Design', 'Microservices', 'Event-Driven Architecture', 'Domain-Driven Design'],
-    deliverables: [
-      'Architecture decision records',
-      'System design documents',
-      'Tech stack recommendations',
-      'Code audits',
-      'Team mentorship sessions',
-    ],
-  },
-  {
-    id: 'ai-remediation',
-    slug: 'ai-code-remediation',
-    title: 'AI Code Maintenance & Remediation',
-    shortDescription:
-      'Shipped fast with AI-generated code? We clean it up. Refactoring, testing, and dissolving technical debt.',
-    longDescription:
-      'AI-generated code gets you to market fast, but it accumulates debt faster. We audit, refactor, add test coverage, optimize performance, and document codebases that were built with AI assistance, so your team can move fast again.',
+      'Some projects need a clear review before they need more code. We audit architecture and code, set up cloud hosting and deployment pipelines, and clean up codebases, including ones written fast with AI tools, so your team can ship again.',
     icon: 'Wrench',
-    techStack: ['Code Quality', 'Testing', 'Performance Profiling', 'Refactoring', 'Documentation'],
+    techStack: [],
     deliverables: [
-      'Code quality audits',
-      'Refactoring plans',
-      'Test suite implementation',
-      'Performance profiling',
-      'Documentation',
+      'Architecture and code audits',
+      'Cloud setup and deployment pipelines',
+      'Refactoring and test coverage',
+      'A written plan with clear priorities',
     ],
   },
 ]

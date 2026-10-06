@@ -11,20 +11,20 @@ import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
 import type { ContactFormData } from '../types'
 
+// Values are sent to the inbox in English; labels are translated.
 const PROJECT_TYPES = [
-  { value: 'Web App', labelKey: 'contact.projectTypeWebApp' },
-  { value: 'Mobile App', labelKey: 'contact.projectTypeMobileApp' },
-  { value: 'Cloud/DevOps', labelKey: 'contact.projectTypeCloudDevOps' },
-  { value: 'AI Integration', labelKey: 'contact.projectTypeAiIntegration' },
-  { value: 'VR Development', labelKey: 'contact.projectTypeVrDevelopment' },
-  { value: 'Code Audit', labelKey: 'contact.projectTypeCodeAudit' },
+  { value: 'Web app', labelKey: 'contact.projectTypeWebApp' },
+  { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
+  { value: 'Booking website', labelKey: 'contact.projectTypeBookingWebsite' },
+  { value: 'AI integration', labelKey: 'contact.projectTypeAiIntegration' },
+  { value: 'Code audit', labelKey: 'contact.projectTypeCodeAudit' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
 ]
-// Deliberately floored at the studio's real minimum: an under-floor option anchors
-// low and invites projects we cannot take on.
+// Floored at the booking-website starting price ($1,500).
 const BUDGETS = [
-  { value: '$5k - $15k', labelKey: 'contact.budget5to15k' },
-  { value: '$15k - $50k', labelKey: 'contact.budget15to50k' },
+  { value: '$1.5k to $5k', labelKey: 'contact.budget1to5k' },
+  { value: '$5k to $15k', labelKey: 'contact.budget5to15k' },
+  { value: '$15k to $50k', labelKey: 'contact.budget15to50k' },
   { value: '$50k+', labelKey: 'contact.budget50kPlus' },
   { value: 'Not sure yet', labelKey: 'contact.budgetNotSure' },
 ]
@@ -85,7 +85,7 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <div className="pt-20 pb-16 px-6">
+      <div className="pt-28 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading as="h1" title={t('contact.heading')} subtitle={t('contact.subheading')} />
 

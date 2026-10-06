@@ -1,31 +1,14 @@
 import { useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
-import { m } from 'framer-motion'
-import { SlidersHorizontal, CreditCard, Code2, Languages, Play } from 'lucide-react'
+import { useTranslation, Trans } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { SlidersHorizontal, CreditCard, Code2, Languages, Play, Check, ArrowRight } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
-import { BUTTON_LINK_HOVER, BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_TAP } from '../components/ui/buttonLink'
-import { DIRECT_DEMO_ORIGIN, withLikwiidReturn } from '../config/demoOrigins'
-
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
-const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
-const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
+import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
+import { directDemoHref } from '../utils/demoLinks'
 
 // This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
 const BACK_PATH = '/direct'
-// Languages the embedded demo ships with; other site languages fall back to the demo default.
-const DEMO_LANGS = ['pt', 'en', 'es'] as const
-
-/** Full-page demo URL for a given property slug, in the visitor's language when
-    the demo supports it. Uses the /p/ pages (the full demo experience), not the
-    embed=1 widget view, which is reserved for the iframe loader. */
-function demoHrefFor(slug: string, lang: string) {
-  const base = `${DIRECT_DEMO_ORIGIN}/p/${slug}`
-  const short = (lang ?? '').slice(0, 2)
-  const localized = (DEMO_LANGS as readonly string[]).includes(short) ? `${base}?lang=${short}` : base
-  return withLikwiidReturn(localized, BACK_PATH)
-}
 
 const DEMO_CARDS = [
   {
@@ -33,12 +16,16 @@ const DEMO_CARDS = [
     titleKey: 'demoCard1Title',
     propertyKey: 'demoCard1Property',
     image: '/direct-demo-preview.jpg',
+    imageWidth: 1280,
+    imageHeight: 900,
   },
   {
     slug: 'atelier-likwiid',
     titleKey: 'demoCard2Title',
     propertyKey: 'demoCard2Property',
-    image: null,
+    image: '/direct-demo-atelier-preview.jpg',
+    imageWidth: 1200,
+    imageHeight: 844,
   },
 ] as const
 
@@ -66,8 +53,13 @@ const FEATURES = [
   { icon: Languages, titleKey: 'feature4Title', descKey: 'feature4Desc' },
 ] as const
 
+const SITE_ITEM_KEYS = ['siteItem1', 'siteItem2', 'siteItem3', 'siteItem4', 'siteItem5', 'siteItem6'] as const
+
+const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary'
+
 export default function Direct() {
   const { t, i18n } = useTranslation()
+  const lang = i18n.language ?? ''
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -75,52 +67,33 @@ export default function Direct() {
 
   return (
     <PageTransition>
-      <div className="pt-20 pb-16 px-6">
+      <div className="px-6 pt-28 pb-16">
         <div className="mx-auto max-w-[1200px]">
           {/* Hero */}
-          <m.div
-            initial={FADE_UP_INITIAL}
-            animate={FADE_UP_ANIMATE}
-            transition={TRANSITION_DELAY_01}
-            className="max-w-3xl"
-          >
-            <p className="text-sm font-medium text-accent-gold uppercase tracking-wider font-[family-name:var(--font-mono)] mb-4">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
               {t('direct.eyebrow')}
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary leading-tight">
               {t('direct.heroTitle')}
             </h1>
             <p className="mt-6 text-lg text-text-secondary leading-relaxed">
               {t('direct.heroSubtitle')}
             </p>
+            <p className="mt-4 text-text-primary">{t('direct.audience')}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <m.a
-                href={demoHrefFor('quinta-likwiid', i18n.language ?? '')}
-                className={BUTTON_LINK_PRIMARY_LG}
-                whileHover={BUTTON_LINK_HOVER}
-                whileTap={BUTTON_LINK_TAP}
-              >
+              <a href={directDemoHref(lang, BACK_PATH)} className={BUTTON_LINK_PRIMARY_LG}>
                 {t('direct.ctaDemo')}
-              </m.a>
+              </a>
               <Button variant="secondary" size="lg" href="/contact">
                 {t('direct.ctaTalk')}
               </Button>
             </div>
-          </m.div>
+          </div>
 
           {/* Live demo */}
-          <m.section
-            id="demo"
-            aria-labelledby="demo-heading"
-            initial={FADE_UP_INITIAL}
-            animate={FADE_UP_ANIMATE}
-            transition={TRANSITION_DELAY_02}
-            className="mt-20 scroll-mt-24"
-          >
-            <h2
-              id="demo-heading"
-              className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-            >
+          <section id="demo" aria-labelledby="demo-heading" className="mt-20 scroll-mt-24">
+            <h2 id="demo-heading" className={H2}>
               {t('direct.demoTitle')}
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
@@ -130,24 +103,19 @@ export default function Direct() {
               {DEMO_CARDS.map((card) => (
                 <a
                   key={card.slug}
-                  href={demoHrefFor(card.slug, i18n.language ?? '')}
-                  className="group relative block w-full overflow-hidden rounded-2xl border border-border text-left no-underline focus-visible:outline-2 focus-visible:outline-accent-gold"
+                  href={directDemoHref(lang, BACK_PATH, card.slug)}
+                  className="group relative block w-full overflow-hidden rounded-xl border border-border text-left no-underline transition-colors hover:border-border-hover focus-visible:outline-2 focus-visible:outline-accent-gold"
                 >
-                  <span className="relative block aspect-[16/10]">
-                    {card.image ? (
-                      <img
-                        src={card.image}
-                        alt={t('direct.demoPreviewAlt')}
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.015]"
-                      />
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 bg-bg-secondary transition-transform duration-500 ease-out group-hover:scale-[1.015]"
-                        style={{ backgroundImage: 'var(--gradient-liquid-subtle)' }}
-                      />
-                    )}
+                  <span className="relative block aspect-[16/10] bg-bg-tertiary">
+                    <img
+                      src={card.image}
+                      alt={t('direct.demoPreviewAlt')}
+                      width={card.imageWidth}
+                      height={card.imageHeight}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover object-top"
+                    />
                     <span
                       aria-hidden="true"
                       className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
@@ -161,7 +129,7 @@ export default function Direct() {
                       </span>
                     </span>
                     <span className="absolute inset-0 flex items-center justify-center">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-2.5 text-sm font-semibold text-[#1a1a2e] shadow-lg transition-transform duration-300 group-hover:scale-105">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#15181E] shadow-sm">
                         <Play size={16} aria-hidden="true" />
                         {t('direct.demoLaunch')}
                       </span>
@@ -170,13 +138,13 @@ export default function Direct() {
                 </a>
               ))}
             </div>
-          </m.section>
+          </section>
 
           {/* Features */}
-          <div className="mt-20 grid sm:grid-cols-2 gap-6">
+          <div className="mt-20 grid gap-6 sm:grid-cols-2">
             {FEATURES.map((feature) => (
-              <div key={feature.titleKey} className="rounded-lg border border-border p-6">
-                <feature.icon size={24} className="text-accent-gold" />
+              <div key={feature.titleKey} className="rounded-xl border border-border bg-bg-secondary p-6">
+                <feature.icon size={22} className="text-text-tertiary" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
                   {t(`direct.${feature.titleKey}`)}
                 </h3>
@@ -187,10 +155,7 @@ export default function Direct() {
 
           {/* Calendar sync */}
           <section aria-labelledby="sync-heading" className="mt-20">
-            <h2
-              id="sync-heading"
-              className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-            >
+            <h2 id="sync-heading" className={H2}>
               {t('direct.syncTitle')}
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
@@ -201,10 +166,7 @@ export default function Direct() {
           {/* Request mode: the engine also runs without a payment step, for
               owners who confirm every booking themselves. */}
           <section aria-labelledby="request-heading" className="mt-20">
-            <h2
-              id="request-heading"
-              className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-            >
+            <h2 id="request-heading" className={H2}>
               {t('direct.requestTitle')}
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
@@ -215,10 +177,7 @@ export default function Direct() {
           {/* Owner panel illustration */}
           <section aria-labelledby="owner-heading" className="mt-20">
             <div className="flex flex-wrap items-center gap-3">
-              <h2
-                id="owner-heading"
-                className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-              >
+              <h2 id="owner-heading" className={H2}>
                 {t('direct.ownerTitle')}
               </h2>
               <span className="rounded-full border border-border bg-bg-tertiary px-3 py-1 text-xs font-medium text-text-secondary font-[family-name:var(--font-mono)] uppercase tracking-wider">
@@ -232,7 +191,7 @@ export default function Direct() {
                 <h3 className="text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
                   {t('direct.ownerNotifTitle')}
                 </h3>
-                <div className="mt-3 overflow-hidden rounded-xl border border-border bg-bg-secondary/50">
+                <div className="mt-3 overflow-hidden rounded-xl border border-border bg-bg-secondary">
                   <div className="border-b border-border px-5 py-4">
                     <p className="text-xs uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
                       Likwiid Direct
@@ -293,7 +252,7 @@ export default function Direct() {
                 <h3 className="text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
                   {t('direct.ownerCalTitle')}
                 </h3>
-                <div className="mt-3 rounded-xl border border-border bg-bg-secondary/50 px-5 py-4">
+                <div className="mt-3 rounded-xl border border-border bg-bg-secondary px-5 py-4">
                   <p className="font-semibold font-[family-name:var(--font-display)] text-text-primary">
                     {t('direct.ownerMockMonth')}
                   </p>
@@ -351,20 +310,50 @@ export default function Direct() {
             <p className="mt-4 text-sm text-text-tertiary">{t('direct.ownerCaption')}</p>
           </section>
 
-          {/* Ownership */}
-          <div className="mt-20 rounded-lg border border-border bg-bg-secondary/50 p-8 md:p-12">
-            <p className="max-w-3xl text-lg text-text-secondary leading-relaxed">
-              {t('direct.ownership')}
-            </p>
-          </div>
+          {/* The whole website: the booking-websites package, absorbed from /booking-websites */}
+          <section
+            id="website"
+            aria-labelledby="website-heading"
+            className="mt-20 scroll-mt-24 rounded-xl border border-border bg-bg-secondary p-8 md:p-12"
+          >
+            <div className="grid gap-10 md:grid-cols-2">
+              <div>
+                <h2 id="website-heading" className={H2}>
+                  {t('direct.siteTitle')}
+                </h2>
+                <p className="mt-4 text-text-secondary leading-relaxed">
+                  <Trans
+                    i18nKey="direct.sitePricing"
+                    components={{ b: <span className="font-semibold text-text-primary" /> }}
+                  />
+                </p>
+                <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
+                <Link
+                  to="/work/padel-booking"
+                  className="mt-4 inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
+                >
+                  {t('direct.proofLink')}
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              </div>
+              <ul className="space-y-3">
+                {SITE_ITEM_KEYS.map((key) => (
+                  <li key={key} className="flex items-start gap-3 text-text-secondary">
+                    <Check size={18} className="mt-1 shrink-0 text-text-tertiary" aria-hidden="true" />
+                    {t(`direct.${key}`)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
 
           {/* Honest scarcity */}
-          <p className="mt-12 max-w-3xl text-text-secondary leading-relaxed">
+          <p className="mt-16 max-w-3xl text-text-secondary leading-relaxed">
             {t('direct.scarcity')}
           </p>
 
           {/* Final CTA */}
-          <div className="mt-20 text-center">
+          <div className="mt-16 text-center">
             <Button variant="primary" size="lg" href="/contact">
               {t('direct.ctaTalk')}
             </Button>
