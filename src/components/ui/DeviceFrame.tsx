@@ -10,11 +10,9 @@ interface FrameProps {
 
 export function PhoneFrame({ children, className }: FrameProps) {
   return (
-    <div className={cn('inline-flex flex-col items-center', className)}>
-      <div
-        className="rounded-[2rem] border border-border bg-bg-secondary p-1.5"
-        style={{ width: 'clamp(210px, 70vw, 320px)' }}
-      >
+    <div className={cn('flex w-full flex-col items-center', className)}>
+      {/* Fills the carousel viewport (220/280/320px by breakpoint) so it is never clipped. */}
+      <div className="w-full rounded-[2rem] border border-border bg-bg-secondary p-1.5">
         <div className="relative overflow-hidden rounded-[1.6rem] bg-bg-tertiary">{children}</div>
       </div>
     </div>
