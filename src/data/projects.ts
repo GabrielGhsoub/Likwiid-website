@@ -29,13 +29,11 @@ const projectCatalog: Project[] = [
       'Padel Inc moved court booking and league play out of WhatsApp groups and into its own app, published on both app stores.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'NestJS', 'TanStack Query', 'Zustand', 'NativeWind', 'i18next', 'Sentry', 'React', 'Radix UI', 'Tailwind CSS', 'PostgreSQL'],
     images: [
-      '/images/projects/padel/play.webp',
       '/images/projects/padel/league.webp',
-      '/images/projects/padel/profile.webp',
-      '/images/projects/padel/home.webp',
+      '/images/projects/padel/play.webp',
     ],
-    previewImage: '/images/projects/padel/play.webp',
-    previewAlt: 'Padel Lebanon app showing open matches to join',
+    previewImage: '/images/projects/padel/league.webp',
+    previewAlt: 'Padel Lebanon app showing a league with standings and players',
     companion: {
       title: 'The admin portal',
       summary:
