@@ -10,6 +10,29 @@ export function Founder() {
   return (
     <section id="founder" className="scroll-mt-24 px-6 py-16 md:py-24">
       <div className="mx-auto max-w-[1200px]">
+        <Reveal className="mb-12 md:mb-16">
+          <figure>
+            {/* Art directed: 5:1 strip from md up, 3:1 crop on phones */}
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcSet="/images/beirut-skyline.webp"
+                width={1600}
+                height={320}
+              />
+              <img
+                src="/images/beirut-skyline-800.webp"
+                alt={t('founder.imageAlt')}
+                width={800}
+                height={267}
+                loading="lazy"
+                decoding="async"
+                className="block w-full h-auto aspect-[3/1] md:aspect-[5/1] rounded-xl border border-border bg-bg-tertiary object-cover [.dark_&]:opacity-[0.88]"
+              />
+            </picture>
+            <figcaption className="mt-3 text-sm text-text-tertiary">{t('founder.imageCaption')}</figcaption>
+          </figure>
+        </Reveal>
         <Reveal className="grid items-center gap-10 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
           <img
             src={founder.photo}

@@ -9,7 +9,9 @@
     "mainNav": "Navegação principal",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
-    "menuLabel": "Menu de navegação"
+    "menuLabel": "Menu de navegação",
+    "beirutCity": "Beirute",
+    "beirutTime": "Hora atual em Beirute"
   },
   "theme": {
     "light": "Modo claro",
@@ -27,7 +29,7 @@
     "tagline": "Beirute, Líbano. Trabalhamos com todo o mundo. Respondemos em 24 horas."
   },
   "hero": {
-    "title": "Sites de reservas e aplicações para hotéis independentes e fundadores.",
+    "title": "Sites de reservas e aplicações para hotéis <em>independentes</em> e fundadores.",
     "description": "A Likwiid é dirigida por Gabriel Ghoussoub a partir de Beirute, trabalha com clientes de todo o mundo e responde em 24 horas.",
     "ctaPrimary": "Iniciar um projeto",
     "ctaSecondary": "Ver o trabalho"
@@ -64,7 +66,9 @@
     "bio2": "É licenciado em Engenharia Informática e de Comunicações pela Universidade Antonina.",
     "bio3": "Vive em Beirute e trabalha com clientes nos Estados Unidos, na Europa e na região MENA.",
     "promise": "Todas as mensagens são respondidas pelo Gabriel, não por uma equipa comercial.",
-    "cta": "Falar com o Gabriel"
+    "cta": "Falar com o Gabriel",
+    "imageAlt": "O horizonte de Beirute na neblina do fim de tarde, visto das colinas sobre a cidade",
+    "imageCaption": "Beirute, onde a Likwiid está sediada."
   },
   "contactBlock": {
     "title": "Tem um projeto em mente?",

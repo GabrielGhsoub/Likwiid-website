@@ -1,0 +1,20 @@
+Likwiid website: image credits
+==============================
+
+Photographs on this site are used under the Unsplash Licence
+(https://unsplash.com/license): free for commercial and non commercial use,
+copying and modification allowed. Unsplash does not require attribution,
+but we credit the photographers anyway because their work deserves it.
+
+1. Beirut skyline in evening haze
+   Photographer: Johel Espana
+   Source: https://unsplash.com/photos/city-skyline-at-sunset-with-hazy-orange-sky-KxKcUhip43Y
+   Licence: Unsplash Licence
+   Used: home page, founder section (cropped, converted to grayscale, softened)
+   Files: /images/beirut-skyline.webp, /images/beirut-skyline-800.webp
+
+2. Close up of a water ripple
+   Photographer: Julian Böck
+   Source: https://unsplash.com/photos/close-up-photo-of-water-ripple-UuAs_sR4frs
+   Licence: Unsplash Licence
+   Used: hero background, dark theme, if shipped

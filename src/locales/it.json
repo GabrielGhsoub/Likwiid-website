@@ -9,7 +9,9 @@
     "mainNav": "Navigazione principale",
     "openMenu": "Apri il menu",
     "closeMenu": "Chiudi il menu",
-    "menuLabel": "Menu di navigazione"
+    "menuLabel": "Menu di navigazione",
+    "beirutCity": "Beirut",
+    "beirutTime": "Ora attuale a Beirut"
   },
   "theme": {
     "light": "Tema chiaro",
@@ -27,7 +29,7 @@
     "tagline": "Beirut, Libano. Lavoriamo in tutto il mondo. Rispondiamo entro 24 ore."
   },
   "hero": {
-    "title": "Siti di prenotazione e app per hotel indipendenti e founder.",
+    "title": "Siti di prenotazione e app per hotel <em>indipendenti</em> e founder.",
     "description": "Likwiid è guidato da Gabriel Ghoussoub da Beirut, lavora con clienti in tutto il mondo e risponde entro 24 ore.",
     "ctaPrimary": "Avvia un progetto",
     "ctaSecondary": "Guarda i lavori"
@@ -64,7 +66,9 @@
     "bio2": "È laureato in Ingegneria Informatica e delle Comunicazioni all'Università Antonina.",
     "bio3": "Vive a Beirut e lavora con clienti negli Stati Uniti, in Europa e nell'area MENA.",
     "promise": "A ogni messaggio risponde Gabriel, non un team commerciale.",
-    "cta": "Parla con Gabriel"
+    "cta": "Parla con Gabriel",
+    "imageAlt": "Lo skyline di Beirut nella foschia della sera, visto dalle colline sopra la città",
+    "imageCaption": "Beirut, dove ha sede Likwiid."
   },
   "contactBlock": {
     "title": "Hai un progetto in mente?",

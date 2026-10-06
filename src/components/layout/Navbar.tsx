@@ -6,6 +6,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
+import { useBeirutTime } from '../../hooks/useBeirutTime'
 import { LanguageLinks } from '../ui/LanguageLinks'
 import { Logo } from '../ui/Logo'
 
@@ -34,6 +35,7 @@ export function Navbar() {
   const location = useLocation()
   const { t } = useTranslation()
   const { theme, toggleTheme } = useTheme()
+  const beirutTime = useBeirutTime()
   const isPrivateWalkthroughRoute =
     location.pathname === '/beit-toureef-walkthrough' || location.pathname === '/beit-toureef-poc'
   const isPocLight = isPrivateWalkthroughRoute && theme === 'light'
@@ -189,6 +191,19 @@ export function Navbar() {
                 )}
               </Link>
             ))}
+            <time
+              dateTime={beirutTime.iso}
+              aria-label={`${t('nav.beirutTime')} ${beirutTime.label}`}
+              title={t('nav.beirutTime')}
+              className={cn(
+                'inline-flex min-h-11 items-center font-mono text-xs tabular-nums whitespace-nowrap',
+                isPrivateWalkthroughRoute
+                  ? isPocLight ? 'text-[#6B6258]' : 'text-[#D9D0C4]'
+                  : 'text-text-tertiary',
+              )}
+            >
+              {t('nav.beirutCity')} {beirutTime.label}
+            </time>
             <LanguageLinks />
             <button
               onClick={toggleTheme}
