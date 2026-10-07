@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { Reveal } from '../ui/Reveal'
 import { founder, cofounder } from '../../data/personal'
 
+// The strip fills the 1200px container, so retina screens need the 2400px source
+const STRIP_SIZES = '(min-width: 1248px) 1200px, calc(100vw - 48px)'
+const STRIP_CLASS =
+  'block w-full h-auto aspect-[3/1] md:aspect-[5/1] rounded-xl border border-border bg-bg-tertiary object-cover'
+
 export function Founder() {
   const { t } = useTranslation()
 
@@ -12,22 +17,45 @@ export function Founder() {
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="mb-12 md:mb-16">
           <figure>
-            {/* Art directed: 5:1 strip from md up, 3:1 crop on phones */}
-            <picture>
+            {/* Art directed: 5:1 strip from md up, 3:1 crop on phones, one photograph per theme */}
+            <picture className="block [.dark_&]:hidden">
               <source
                 media="(min-width: 768px)"
-                srcSet="/images/beirut-skyline.webp"
-                width={1600}
-                height={320}
+                srcSet="/images/beirut-bay-1600.webp 1600w, /images/beirut-bay-2400.webp 2400w"
+                sizes={STRIP_SIZES}
+                width={2400}
+                height={480}
               />
               <img
-                src="/images/beirut-skyline-800.webp"
-                alt={t('founder.imageAlt')}
-                width={800}
-                height={267}
+                src="/images/beirut-bay-m800.webp"
+                srcSet="/images/beirut-bay-m800.webp 800w, /images/beirut-bay-m1600.webp 1600w"
+                sizes={STRIP_SIZES}
+                alt={t('founder.imageAltDay')}
+                width={1600}
+                height={533}
                 loading="lazy"
                 decoding="async"
-                className="block w-full h-auto aspect-[3/1] md:aspect-[5/1] rounded-xl border border-border bg-bg-tertiary object-cover [.dark_&]:opacity-[0.88]"
+                className={STRIP_CLASS}
+              />
+            </picture>
+            <picture className="hidden [.dark_&]:block">
+              <source
+                media="(min-width: 768px)"
+                srcSet="/images/beirut-night-1600.webp 1600w, /images/beirut-night-2400.webp 2400w"
+                sizes={STRIP_SIZES}
+                width={2400}
+                height={480}
+              />
+              <img
+                src="/images/beirut-night-m800.webp"
+                srcSet="/images/beirut-night-m800.webp 800w, /images/beirut-night-m1600.webp 1600w"
+                sizes={STRIP_SIZES}
+                alt={t('founder.imageAlt')}
+                width={1600}
+                height={533}
+                loading="lazy"
+                decoding="async"
+                className={`${STRIP_CLASS} opacity-[0.88]`}
               />
             </picture>
             <figcaption className="mt-3 text-sm text-text-tertiary">{t('founder.imageCaption')}</figcaption>
