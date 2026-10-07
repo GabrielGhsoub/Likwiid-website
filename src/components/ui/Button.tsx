@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../../utils/cn'
+import { umamiAttrs } from '../../utils/analytics'
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -12,6 +13,9 @@ interface ButtonProps {
   disabled?: boolean
   onClick?: () => void
   'aria-busy'?: boolean
+  // Umami event sent when the element is clicked (see utils/analytics.ts).
+  umamiEvent?: string
+  umamiData?: Record<string, string>
 }
 
 // Keep in sync with buttonLink.ts, which mirrors these classes for plain anchors.
@@ -42,6 +46,8 @@ export function Button({
   disabled,
   onClick,
   'aria-busy': ariaBusy,
+  umamiEvent,
+  umamiData,
 }: ButtonProps) {
   const classes = cn(
     'inline-flex items-center justify-center gap-2 min-h-11 font-medium rounded-full cursor-pointer no-underline font-[family-name:var(--font-display)]',
@@ -51,30 +57,32 @@ export function Button({
     className,
   )
 
+  const tracking = umamiEvent ? umamiAttrs(umamiEvent, umamiData) : undefined
+
   if (href) {
     if (isWebUrl(href)) {
       return (
-        <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+        <a href={href} className={classes} target="_blank" rel="noopener noreferrer" {...tracking}>
           {children}
         </a>
       )
     }
     if (isNativeScheme(href)) {
       return (
-        <a href={href} className={classes}>
+        <a href={href} className={classes} {...tracking}>
           {children}
         </a>
       )
     }
     return (
-      <Link to={href} className={classes}>
+      <Link to={href} className={classes} {...tracking}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button className={classes} type={type} disabled={disabled} onClick={onClick} aria-busy={ariaBusy}>
+    <button className={classes} type={type} disabled={disabled} onClick={onClick} aria-busy={ariaBusy} {...tracking}>
       {children}
     </button>
   )
