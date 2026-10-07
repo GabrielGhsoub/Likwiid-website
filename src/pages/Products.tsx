@@ -7,6 +7,7 @@ import { BrowserFrame } from '../components/ui/BrowserFrame'
 import { BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { Button } from '../components/ui/Button'
 import { directDemoHref, frameDemoHref } from '../utils/demoLinks'
+import { useTheme } from '../hooks/useTheme'
 import { umamiAttrs } from '../utils/analytics'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
@@ -21,6 +22,7 @@ const POINTS = [1, 2, 3] as const
 
 export default function Products() {
   const { t, i18n } = useTranslation()
+  const { theme } = useTheme()
   const localize = useLocalizedPath()
   // This page's own path, localized or not: the demos' "Back to Likwiid" chip returns here.
   const BACK_PATH = useLocation().pathname
@@ -30,8 +32,8 @@ export default function Products() {
   }, [t])
 
   const demoHrefs: Record<(typeof PRODUCT_BLOCKS)[number]['key'], string> = {
-    direct: directDemoHref(i18n.language ?? '', BACK_PATH),
-    frame: frameDemoHref(BACK_PATH),
+    direct: directDemoHref(i18n.language ?? '', BACK_PATH, 'quinta-likwiid', theme),
+    frame: frameDemoHref(BACK_PATH, 'ana-likwiid', 'p', theme),
   }
 
   return (

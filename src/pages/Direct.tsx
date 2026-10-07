@@ -18,6 +18,7 @@ import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
+import { useTheme } from '../hooks/useTheme'
 import { umamiAttrs } from '../utils/analytics'
 
 const DEMO_CARDS = [
@@ -77,6 +78,7 @@ export default function Direct() {
   const lang = i18n.language ?? ''
   // This page's own path, localized or not: the demo's "Back to Likwiid" chip returns here.
   const BACK_PATH = useLocation().pathname
+  const { theme } = useTheme()
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -100,7 +102,7 @@ export default function Direct() {
             <p className="mt-4 text-text-primary">{t('direct.audience')}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href={directDemoHref(lang, BACK_PATH)}
+                href={directDemoHref(lang, BACK_PATH, 'quinta-likwiid', theme)}
                 className={BUTTON_LINK_PRIMARY_LG}
                 {...umamiAttrs('demo-launch', { product: 'direct', demo: DEMO_CARDS[0].slug, location: 'direct-hero' })}
               >
@@ -138,7 +140,7 @@ export default function Direct() {
               {DEMO_CARDS.map((card) => (
                 <DemoCard
                   key={card.slug}
-                  href={directDemoHref(lang, BACK_PATH, card.slug)}
+                  href={directDemoHref(lang, BACK_PATH, card.slug, theme)}
                   image={card.image}
                   imageWidth={card.imageWidth}
                   imageHeight={card.imageHeight}
