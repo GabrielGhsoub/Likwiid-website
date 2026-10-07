@@ -17,6 +17,7 @@ const PROJECT_TYPES = [
   { value: 'Web app', labelKey: 'contact.projectTypeWebApp' },
   { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
   { value: 'Booking website', labelKey: 'contact.projectTypeBookingWebsite' },
+  { value: 'Portfolio (photographers)', labelKey: 'contact.projectTypePortfolio' },
   { value: 'AI integration', labelKey: 'contact.projectTypeAiIntegration' },
   { value: 'Code audit', labelKey: 'contact.projectTypeCodeAudit' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
@@ -39,7 +40,7 @@ const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1
 const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 14 }
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { status, submit, reset } = useFormSubmit()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
   // Timestamp of when the form became available, used for the anti-spam timing heuristic.
@@ -82,12 +83,13 @@ export default function Contact() {
       document.getElementById(firstInvalid)?.focus()
       return
     }
-    track('contact-submit', { projectType: data.projectType, budget: data.budget, ...attributionEventData() })
+    const locale = i18n.language ?? ''
+    track('contact-submit', { projectType: data.projectType, budget: data.budget, locale, ...attributionEventData() })
     submit({
       ...data,
       website: (formData.get('website') as string) ?? '',
       elapsedMs: Date.now() - mountedAtRef.current,
-      attribution: getAttribution(),
+      attribution: { ...getAttribution(), locale },
     })
   }
 
