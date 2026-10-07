@@ -118,11 +118,13 @@ export function captureAttribution(): Attribution {
   const stored = readStored()
   if (stored && Object.keys(fromUrl).length === 0) return stored
 
+  // A tagged URL is the real entry point, so it replaces whatever landing page a tagless
+  // earlier page in the same session recorded.
   const next: Attribution = {
     ...stored,
     ...fromUrl,
-    landingPage: stored?.landingPage ?? clean(window.location.pathname + window.location.search),
-    referrer: stored?.referrer ?? externalReferrer(),
+    landingPage: clean(window.location.pathname + window.location.search),
+    referrer: externalReferrer() ?? stored?.referrer,
   }
   writeStored(next)
   return next
