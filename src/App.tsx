@@ -3,6 +3,7 @@ import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-r
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
+import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, type LocalizedPage } from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
@@ -57,13 +58,21 @@ function LegacyBeitToureefRedirect() {
   return <Navigate to={`/beit-toureef-walkthrough${location.search}${location.hash}`} replace />
 }
 
-// Locale-prefixed /work routes: the URL is the source of truth for language. This runs on
-// client-side navigation too (the config.ts boot check only covers the initial page load).
-function LocaleWork({ lang }: { lang: Lang }) {
+const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
+  work: () => <Portfolio />,
+  direct: () => <Direct />,
+  frame: () => <Frame />,
+  products: () => <Products />,
+}
+
+// Locale-prefixed routes (/pt/work, /fr/direct, ...): the URL is the source of truth for
+// language. This runs on client-side navigation too (the config.ts boot check only covers
+// the initial page load).
+function LocalePage({ lang, page }: { lang: Lang; page: LocalizedPage }) {
   useEffect(() => {
     void setLanguage(lang)
   }, [lang])
-  return <Portfolio />
+  return LOCALIZED_ELEMENTS[page]()
 }
 
 // Scrolls the element named by a URL hash into view. Tries right after render, then, because
@@ -131,10 +140,11 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/work" element={<Portfolio />} />
-                <Route path="/pt/work" element={<LocaleWork lang="pt" />} />
-                <Route path="/es/work" element={<LocaleWork lang="es" />} />
-                <Route path="/it/work" element={<LocaleWork lang="it" />} />
-                <Route path="/fr/work" element={<LocaleWork lang="fr" />} />
+                {PREFIXED_LANGUAGES.flatMap((lang) =>
+                  LOCALIZED_PAGES.map((page) => (
+                    <Route key={`${lang}/${page}`} path={`/${lang}/${page}`} element={<LocalePage lang={lang} page={page} />} />
+                  )),
+                )}
                 {/* Removed case studies: keep old links working */}
                 <Route path="/work/ai-fitness-coach" element={<Navigate to="/work" replace />} />
                 <Route path="/work/bully-ai" element={<Navigate to="/work" replace />} />
