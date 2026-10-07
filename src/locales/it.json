@@ -1,5 +1,4 @@
 {
-  "_TODO": "AI-translated, pending native review",
   "nav": {
     "services": "Servizi",
     "work": "Progetti",
@@ -87,10 +86,10 @@
     "locationNote": "Con sede a Beirut, lavoriamo con clienti nei fusi orari di Stati Uniti, Europa e MENA.",
     "founderNote": "Ti risponderà Gabriel, il fondatore. Nessun passaggio di mano, nessun team commerciale.",
     "founderPhotoAlt": "Gabriel Ghoussoub, fondatore di Likwiid",
-    "stepsTitle": "Cosa succede dopo",
-    "step1": "Gabriel legge il tuo messaggio e risponde entro 24 ore.",
-    "step2": "Fissiamo una breve chiamata per definire il progetto.",
-    "step3": "Ricevi una proposta chiara con un prezzo fisso, di solito entro pochi giorni.",
+    "stepsTitle": "Dopo l'invio",
+    "step1": "Il tuo messaggio arriva direttamente nella casella di Gabriel, non in una coda di ticket, e lui risponde entro 24 ore.",
+    "step2": "Se il progetto è adatto, fissiamo una breve chiamata. Non devi preparare nulla.",
+    "step3": "Ricevi una proposta scritta con un prezzo fisso. Nessun obbligo, nessun sollecito.",
     "fastestReply": "risposta più rapida",
     "successTitle": "Messaggio ricevuto.",
     "successBody": "Gabriel ti risponderà da gabriel@likwiid.com entro 24 ore.",
