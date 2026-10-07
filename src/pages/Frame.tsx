@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { KeyRound, ShoppingBag, CalendarCheck, Languages, ArrowRight } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
@@ -9,15 +9,12 @@ import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/
 import { frameDemoHref } from '../utils/demoLinks'
 import { umamiAttrs } from '../utils/analytics'
 
-// This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
-const BACK_PATH = '/frame'
-
 // The two public demo portfolios plus the owner panel. Both brands are fictional;
 // the engine wears each photographer's brand, which is the product story.
 const DEMO_CARDS = [
   {
     id: 'ana',
-    src: frameDemoHref(BACK_PATH, 'ana-likwiid'),
+    slug: 'ana-likwiid',
     titleKey: 'demoCard1Title',
     brandKey: 'demoCard1Brand',
     image: '/frame-demo-ana-preview.jpg',
@@ -25,15 +22,13 @@ const DEMO_CARDS = [
   },
   {
     id: 'studio',
-    src: frameDemoHref(BACK_PATH, 'studio-likwiid'),
+    slug: 'studio-likwiid',
     titleKey: 'demoCard2Title',
     brandKey: 'demoCard2Brand',
     image: '/frame-demo-studio-preview.jpg',
     previewAltKey: 'demoCard2PreviewAlt',
   },
 ] as const
-
-const ADMIN_DEMO_SRC = frameDemoHref(BACK_PATH, 'ana-likwiid', 'admin')
 
 // feature5 is the Likwiid Direct booking synergy: its card carries an internal
 // cross-sell link to /direct.
@@ -48,6 +43,10 @@ const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(
 
 export default function Frame() {
   const { t } = useTranslation()
+  // This page's own path, localized or not: the demos' "Back to Likwiid" chip returns here.
+  const backPath = useLocation().pathname
+  const demoHref = (slug: string) => frameDemoHref(backPath, slug)
+  const adminDemoHref = frameDemoHref(backPath, 'ana-likwiid', 'admin')
 
   useEffect(() => {
     document.title = t('frame.docTitle')
@@ -70,7 +69,7 @@ export default function Frame() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href={DEMO_CARDS[0].src}
+                href={demoHref(DEMO_CARDS[0].slug)}
                 className={BUTTON_LINK_PRIMARY_LG}
                 {...umamiAttrs('demo-launch', { product: 'frame', demo: DEMO_CARDS[0].id, location: 'frame-hero' })}
               >
@@ -94,7 +93,7 @@ export default function Frame() {
               {DEMO_CARDS.map((card) => (
                 <DemoCard
                   key={card.id}
-                  href={card.src}
+                  href={demoHref(card.slug)}
                   image={card.image}
                   imageWidth={1280}
                   imageHeight={800}
@@ -119,7 +118,7 @@ export default function Frame() {
                 </p>
               </div>
               <a
-                href={ADMIN_DEMO_SRC}
+                href={adminDemoHref}
                 className={BUTTON_LINK_SECONDARY_MD}
                 {...umamiAttrs('demo-launch', { product: 'frame', demo: 'ana-admin', location: 'frame-demos' })}
               >

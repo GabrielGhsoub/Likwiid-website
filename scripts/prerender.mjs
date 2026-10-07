@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, '..', 'dist')
+const localesDir = join(__dirname, '..', 'src', 'locales')
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
 
 const SITE_URL = 'https://likwiid.com'
@@ -181,6 +182,7 @@ const routes = {
     ),
   },
   direct: {
+    hreflang: true,
     title: 'Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid',
     description:
       "A commission-free booking engine that lives inside your existing website. Options that change the price, card deposits, and the guest's language done properly. Try the live demo.",
@@ -190,6 +192,7 @@ const routes = {
     ),
   },
   products: {
+    hreflang: true,
     title: 'Products | Likwiid',
     description:
       'Likwiid builds two products: Likwiid Direct, a commission-free direct booking engine for small stays, and Likwiid Frame, a portfolio engine photographers own as files. Both have live demos you can try.',
@@ -199,6 +202,7 @@ const routes = {
     ),
   },
   frame: {
+    hreflang: true,
     title: 'Likwiid Frame, a Portfolio Engine for Photographers | Likwiid',
     description:
       'A premium photographer portfolio you own as files: client proofing, a print shop, booking, and an image pipeline that keeps your licence metadata. Pay once, no subscription. Try the live demos.',
@@ -225,6 +229,24 @@ const routes = {
     content: '',
     robots: 'noindex,nofollow',
   },
+}
+
+// Localized product pages (/pt/direct, /fr/frame, ...): titles and copy come straight from
+// the locale bundles so the prerendered head matches what the app sets after hydration.
+// Keep the page list in sync with src/i18n/localeRoutes.ts and public/sitemap.xml.
+const PREFIXED_LANGUAGES = ['pt', 'es', 'it', 'fr']
+const LOCALIZED_PRODUCT_PAGES = {
+  direct: (l) => ({ title: l.direct.docTitle, description: l.direct.heroSubtitle, heading: l.direct.heroTitle }),
+  frame: (l) => ({ title: l.frame.docTitle, description: l.frame.heroSubtitle, heading: l.frame.heroTitle }),
+  products: (l) => ({ title: l.products.docTitle, description: l.products.intro, heading: l.products.title }),
+}
+for (const lang of PREFIXED_LANGUAGES) {
+  const locale = JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))
+  for (const [page, pick] of Object.entries(LOCALIZED_PRODUCT_PAGES)) {
+    const { title, description, heading } = pick(locale)
+    if (!title || !description || !heading) throw new Error(`prerender: missing ${lang} copy for ${page}`)
+    routes[`${lang}/${page}`] = { lang, title, description, content: block(heading, description), hreflang: true }
+  }
 }
 
 const workSlugs = Object.keys(caseStudies)
@@ -283,18 +305,19 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
-// The /work cluster: every localized variant plus x-default pointing at English, per
-// Google's localized-pages guidance. Injected into each of the five work routes.
-const WORK_HREFLANG_LINKS = [
-  ['en', `${SITE_URL}/work/`],
-  ['pt', `${SITE_URL}/pt/work/`],
-  ['es', `${SITE_URL}/es/work/`],
-  ['it', `${SITE_URL}/it/work/`],
-  ['fr', `${SITE_URL}/fr/work/`],
-  ['x-default', `${SITE_URL}/work/`],
-]
-  .map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`)
-  .join('\n')
+// A localized cluster (work, direct, frame, products): every language variant plus
+// x-default pointing at English, per Google's localized-pages guidance. Injected into
+// each route of the cluster.
+function hreflangLinks(path) {
+  const page = path.replace(/^(?:pt|es|it|fr)\//, '')
+  return [
+    ['en', canonicalUrl(page)],
+    ...PREFIXED_LANGUAGES.map((lang) => [lang, canonicalUrl(`${lang}/${page}`)]),
+    ['x-default', canonicalUrl(page)],
+  ]
+    .map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`)
+    .join('\n')
+}
 
 function renderRoute(path, meta) {
   let html = baseHtml
@@ -358,7 +381,7 @@ function renderRoute(path, meta) {
   )
 
   if (meta.hreflang) {
-    html = html.replace('</head>', `${WORK_HREFLANG_LINKS}\n  </head>`)
+    html = html.replace('</head>', `${hreflangLinks(path)}\n  </head>`)
   }
 
   if (!noindex) {

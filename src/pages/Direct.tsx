@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { SlidersHorizontal, CreditCard, Code2, Languages, Check, ArrowRight } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
@@ -8,9 +8,6 @@ import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
 import { umamiAttrs } from '../utils/analytics'
-
-// This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
-const BACK_PATH = '/direct'
 
 const DEMO_CARDS = [
   {
@@ -62,6 +59,8 @@ const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(
 export default function Direct() {
   const { t, i18n } = useTranslation()
   const lang = i18n.language ?? ''
+  // This page's own path, localized or not: the demo's "Back to Likwiid" chip returns here.
+  const BACK_PATH = useLocation().pathname
 
   useEffect(() => {
     document.title = t('direct.docTitle')

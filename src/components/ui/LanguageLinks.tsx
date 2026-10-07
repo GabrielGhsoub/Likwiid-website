@@ -6,6 +6,7 @@ import { Check, ChevronDown } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { SUPPORTED_LANGUAGES, saveLanguage, isSupported, getRouteLanguage, type Lang } from '../../i18n/detectLanguage'
 import { setLanguage } from '../../i18n/config'
+import { localizedPageOf, localizedPath } from '../../i18n/localeRoutes'
 
 const LANG_CODES: Record<Lang, string> = { en: 'EN', pt: 'PT', es: 'ES', it: 'IT', fr: 'FR' }
 const LANG_NAMES: Record<Lang, string> = {
@@ -20,16 +21,6 @@ const MENU_TRANSITION = { duration: 0.16, ease: [0.22, 1, 0.36, 1] as const }
 // Slides in from the trigger side: downward for the header, upward for the drawer footer.
 const MENU_DOWN = { initial: { opacity: 0, y: -6, scale: 0.98 }, animate: { opacity: 1, y: 0, scale: 1 }, exit: { opacity: 0, y: -6, scale: 0.98 } }
 const MENU_UP = { initial: { opacity: 0, y: 6, scale: 0.98 }, animate: { opacity: 1, y: 0, scale: 1 }, exit: { opacity: 0, y: 6, scale: 0.98 } }
-
-// The /work page has real per-locale URLs; switching language there navigates to the
-// matching URL so the address bar, canonical, and content stay in agreement.
-function workPathFor(lang: Lang): string {
-  return lang === 'en' ? '/work' : `/${lang}/work`
-}
-
-function isWorkIndexPath(pathname: string): boolean {
-  return /^\/(?:(?:pt|es|it|fr)\/)?work\/?$/.test(pathname)
-}
 
 // Custom select-style language picker. A native <select> popup is OS-rendered: it
 // overlaps the control and ignores the site theme, so the options panel here is our
@@ -64,8 +55,11 @@ export function LanguageLinks({ variant = 'row' }: { variant?: 'row' | 'stack' }
     saveLanguage(lang)
     void setLanguage(lang)
     setOpen(false)
-    if (isWorkIndexPath(location.pathname)) {
-      navigate(workPathFor(lang))
+    // Pages with real per-locale URLs: switching language there navigates to the matching
+    // URL so the address bar, canonical, and content stay in agreement.
+    const page = localizedPageOf(location.pathname)
+    if (page) {
+      navigate(localizedPath(page, lang))
     }
   }
 
