@@ -22,12 +22,13 @@ const PROJECT_TYPES = [
   { value: 'Code audit', labelKey: 'contact.projectTypeCodeAudit' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
 ]
-// Floored at the booking-website starting price ($1,500).
+// Euro bands, open at the bottom so a small portfolio or booking job is not scared off.
 const BUDGETS = [
-  { value: '$1.5k to $5k', labelKey: 'contact.budget1to5k' },
-  { value: '$5k to $15k', labelKey: 'contact.budget5to15k' },
-  { value: '$15k to $50k', labelKey: 'contact.budget15to50k' },
-  { value: '$50k+', labelKey: 'contact.budget50kPlus' },
+  { value: 'Under EUR 1,000', labelKey: 'contact.budgetUnder1k' },
+  { value: 'EUR 1,000 to 5,000', labelKey: 'contact.budget1to5k' },
+  { value: 'EUR 5,000 to 15,000', labelKey: 'contact.budget5to15k' },
+  { value: 'EUR 15,000 to 50,000', labelKey: 'contact.budget15to50k' },
+  { value: 'EUR 50,000+', labelKey: 'contact.budget50kPlus' },
   { value: 'Not sure yet', labelKey: 'contact.budgetNotSure' },
 ]
 

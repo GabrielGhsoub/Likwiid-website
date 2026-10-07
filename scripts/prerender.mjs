@@ -34,7 +34,7 @@ const block = (heading, body) => `
 
 // Replace an attribute-carrying meta/link tag, asserting the pattern actually matched so a
 // future change to attribute order/quoting fails the build loudly instead of silently no-oping.
-// Uses a replacer FUNCTION so values containing "$" (e.g. "$1,500") are inserted literally
+// Uses a replacer FUNCTION so values containing "$" are inserted literally
 // and never interpreted as regex backreferences.
 function replaceOrThrow(html, regex, replacer, label) {
   let matched = false
@@ -112,10 +112,10 @@ const routes = {
   services: {
     title: 'Services | Likwiid',
     description:
-      'Four kinds of work: web and mobile products, booking websites for hospitality and appointments from $1,500, AI integration and automation, and architecture, cloud and code rescue.',
+      'Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.',
     content: block(
       'Services',
-      'Web and mobile products built end to end. Booking websites for hospitality and appointments, from $1,500. AI integration and automation that saves real time. Architecture, cloud and code rescue for stuck codebases. Founder-led, two to three projects at a time, replies within 24 hours.'
+      'Web and mobile products built end to end. Booking websites for hospitality and appointments, built in 2 to 4 weeks. AI integration and automation that saves real time. Architecture, cloud and code rescue for stuck codebases. Founder-led, two to three projects at a time, replies within 24 hours.'
     ),
   },
   work: {
