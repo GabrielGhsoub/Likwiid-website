@@ -7,6 +7,7 @@ import { cn } from '../../utils/cn'
 import { SUPPORTED_LANGUAGES, saveLanguage, isSupported, getRouteLanguage, type Lang } from '../../i18n/detectLanguage'
 import { setLanguage } from '../../i18n/config'
 import { localizedPageOf, localizedPath } from '../../i18n/localeRoutes'
+import { track } from '../../utils/analytics'
 
 const LANG_CODES: Record<Lang, string> = { en: 'EN', pt: 'PT', es: 'ES', it: 'IT', fr: 'FR' }
 const LANG_NAMES: Record<Lang, string> = {
@@ -52,6 +53,7 @@ export function LanguageLinks({ variant = 'row' }: { variant?: 'row' | 'stack' }
   }, [open])
 
   const choose = (lang: Lang) => {
+    if (lang !== current) track('language-switch', { from: current, to: lang })
     saveLanguage(lang)
     void setLanguage(lang)
     setOpen(false)
