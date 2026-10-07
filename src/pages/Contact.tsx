@@ -119,14 +119,24 @@ export default function Contact() {
               </p>
 
               <div className="mt-8 flex items-center gap-4 rounded-lg border border-border bg-bg-secondary/50 p-4">
-                <img
-                  src="/gabriel.webp"
-                  alt={t('contact.founderPhotoAlt')}
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  className="h-14 w-14 rounded-full object-cover"
-                />
+                <div className="flex shrink-0 -space-x-3">
+                  <img
+                    src="/gabriel.webp"
+                    alt={t('contact.founderPhotoAlt')}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    className="h-14 w-14 rounded-full border-2 border-border object-cover"
+                  />
+                  <img
+                    src="/emile.webp"
+                    alt={t('contact.cofounderPhotoAlt')}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    className="h-14 w-14 rounded-full border-2 border-border object-cover"
+                  />
+                </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {t('contact.founderNote')}
                 </p>
