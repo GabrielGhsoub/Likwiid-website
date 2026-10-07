@@ -28,7 +28,7 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <Button variant="primary" size="lg" href="/contact">
+          <Button variant="primary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'hero' }}>
             {t('hero.ctaPrimary')}
           </Button>
           <Link

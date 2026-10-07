@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { frameDemoHref } from '../utils/demoLinks'
+import { umamiAttrs } from '../utils/analytics'
 
 // This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
 const BACK_PATH = '/frame'
@@ -68,10 +69,14 @@ export default function Frame() {
               {t('frame.heroSubtitle')}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={DEMO_CARDS[0].src} className={BUTTON_LINK_PRIMARY_LG}>
+              <a
+                href={DEMO_CARDS[0].src}
+                className={BUTTON_LINK_PRIMARY_LG}
+                {...umamiAttrs('demo-launch', { product: 'frame', demo: DEMO_CARDS[0].id, location: 'frame-hero' })}
+              >
                 {t('frame.ctaDemo')}
               </a>
-              <Button variant="secondary" size="lg" href="/contact">
+              <Button variant="secondary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'frame-hero' }}>
                 {t('frame.ctaTalk')}
               </Button>
             </div>
@@ -97,6 +102,8 @@ export default function Frame() {
                   name={t(`frame.${card.brandKey}`)}
                   description={t(`frame.${card.titleKey}`)}
                   launchLabel={t('frame.demoLaunch')}
+                  umamiEvent="demo-launch"
+                  umamiData={{ product: 'frame', demo: card.id, location: 'frame-demos' }}
                 />
               ))}
             </div>
@@ -111,7 +118,11 @@ export default function Frame() {
                   {t('frame.adminBody')}
                 </p>
               </div>
-              <a href={ADMIN_DEMO_SRC} className={BUTTON_LINK_SECONDARY_MD}>
+              <a
+                href={ADMIN_DEMO_SRC}
+                className={BUTTON_LINK_SECONDARY_MD}
+                {...umamiAttrs('demo-launch', { product: 'frame', demo: 'ana-admin', location: 'frame-demos' })}
+              >
                 {t('frame.adminLink')}
               </a>
             </div>
@@ -159,7 +170,7 @@ export default function Frame() {
 
           {/* Final CTA */}
           <div className="mt-16 text-center">
-            <Button variant="primary" size="lg" href="/contact">
+            <Button variant="primary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'frame-footer' }}>
               {t('frame.ctaTalk')}
             </Button>
           </div>

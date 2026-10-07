@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { ExternalLink } from 'lucide-react'
 import { SHOW_HOSPITALITY_CASE_STUDY, HOSPITALITY_CASE_STUDY } from '../../utils/featureFlags'
+import { umamiAttrs } from '../../utils/analytics'
 
 // Case-study card for the hospitality section on /work. Renders nothing while the
 // feature flag is off; the copy lives in the `hospitality.cs*` i18n keys and the
@@ -40,6 +41,7 @@ export function HospitalityCaseStudy() {
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:border-accent-gold hover:text-accent-gold"
+          {...umamiAttrs('hospitality-live-site', { location: 'work' })}
         >
           <ExternalLink size={12} /> {t('hospitality.csLinkLabel')}
         </a>

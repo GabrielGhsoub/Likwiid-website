@@ -7,6 +7,7 @@ import { BrowserFrame } from '../components/ui/BrowserFrame'
 import { BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { Button } from '../components/ui/Button'
 import { directDemoHref, frameDemoHref } from '../utils/demoLinks'
+import { umamiAttrs } from '../utils/analytics'
 
 // This page's own path: the demos' "Back to Likwiid" chip returns visitors here.
 const BACK_PATH = '/products'
@@ -85,7 +86,11 @@ export default function Products() {
                         {t(`products.${product.key}PageLink`)}
                         <ArrowRight size={16} aria-hidden="true" />
                       </Button>
-                      <a href={demoHrefs[product.key]} className={BUTTON_LINK_SECONDARY_MD}>
+                      <a
+                        href={demoHrefs[product.key]}
+                        className={BUTTON_LINK_SECONDARY_MD}
+                        {...umamiAttrs('demo-launch', { product: product.key, demo: 'default', location: 'products' })}
+                      >
                         <Play size={16} aria-hidden="true" />
                         {t(`products.${product.key}DemoLink`)}
                       </a>

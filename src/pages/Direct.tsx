@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
+import { umamiAttrs } from '../utils/analytics'
 
 // This page's own path: the demo's "Back to Likwiid" chip returns visitors here.
 const BACK_PATH = '/direct'
@@ -83,10 +84,14 @@ export default function Direct() {
             </p>
             <p className="mt-4 text-text-primary">{t('direct.audience')}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={directDemoHref(lang, BACK_PATH)} className={BUTTON_LINK_PRIMARY_LG}>
+              <a
+                href={directDemoHref(lang, BACK_PATH)}
+                className={BUTTON_LINK_PRIMARY_LG}
+                {...umamiAttrs('demo-launch', { product: 'direct', demo: DEMO_CARDS[0].slug, location: 'direct-hero' })}
+              >
                 {t('direct.ctaDemo')}
               </a>
-              <Button variant="secondary" size="lg" href="/contact">
+              <Button variant="secondary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'direct-hero' }}>
                 {t('direct.ctaTalk')}
               </Button>
             </div>
@@ -112,6 +117,8 @@ export default function Direct() {
                   name={t(`direct.${card.propertyKey}`)}
                   description={t(`direct.${card.titleKey}`)}
                   launchLabel={t('direct.demoLaunch')}
+                  umamiEvent="demo-launch"
+                  umamiData={{ product: 'direct', demo: card.slug, location: 'direct-demos' }}
                 />
               ))}
             </div>
@@ -331,7 +338,7 @@ export default function Direct() {
 
           {/* Final CTA */}
           <div className="mt-16 text-center">
-            <Button variant="primary" size="lg" href="/contact">
+            <Button variant="primary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'direct-footer' }}>
               {t('direct.ctaTalk')}
             </Button>
           </div>
