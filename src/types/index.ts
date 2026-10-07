@@ -89,4 +89,17 @@ export interface ContactSubmitPayload extends ContactFormData {
   website?: string
   // Milliseconds from form render to submit - near-instant submits are almost always bots.
   elapsedMs?: number
+  // Campaign tags and landing page captured from the visit (see utils/analytics.ts).
+  attribution?: ContactAttribution
+}
+
+export interface ContactAttribution {
+  source?: string
+  medium?: string
+  campaign?: string
+  content?: string
+  term?: string
+  ref?: string
+  landingPage?: string
+  referrer?: string
 }
