@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 import { SOCIAL } from '../../utils/constants'
+import { umamiAttrs } from '../../utils/analytics'
 
 export function ContactBlock() {
   const { t } = useTranslation()
@@ -15,17 +16,21 @@ export function ContactBlock() {
           </h2>
           <p className="mt-4 max-w-xl text-lg text-text-secondary leading-relaxed">{t('contactBlock.body')}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button variant="primary" size="lg" href="/contact">
+            <Button variant="primary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'contact-block' }}>
               {t('contactBlock.cta')}
             </Button>
-            <Button variant="secondary" size="lg" href={SOCIAL.whatsapp}>
+            <Button variant="secondary" size="lg" href={SOCIAL.whatsapp} umamiEvent="cta-whatsapp" umamiData={{ location: 'contact-block' }}>
               <WhatsAppIcon size={18} />
               {t('contactBlock.whatsapp')}
             </Button>
           </div>
           <p className="mt-6 text-sm text-text-tertiary">
             {t('contactBlock.emailPrefix')}{' '}
-            <a href={`mailto:${SOCIAL.email}`} className="text-text-secondary underline-offset-4 hover:text-text-primary hover:underline">
+            <a
+              href={`mailto:${SOCIAL.email}`}
+              className="text-text-secondary underline-offset-4 hover:text-text-primary hover:underline"
+              {...umamiAttrs('cta-email', { location: 'contact-block' })}
+            >
               {SOCIAL.email}
             </a>
           </p>

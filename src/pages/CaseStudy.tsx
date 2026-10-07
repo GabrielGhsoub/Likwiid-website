@@ -11,6 +11,7 @@ import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import { SOCIAL } from '../utils/constants'
+import { umamiAttrs } from '../utils/analytics'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 16 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
@@ -158,12 +159,24 @@ export default function CaseStudy() {
                 <Badge key={tech}>{tech}</Badge>
               ))}
               {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={storeLinkClass}>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={storeLinkClass}
+                  {...umamiAttrs('store-link', { store: project.liveLabel ? 'web' : 'ios', project: project.slug, location: 'case-study' })}
+                >
                   <ExternalLink size={12} /> {project.liveLabel ?? t('caseStudy.appStore')}
                 </a>
               )}
               {project.androidUrl && (
-                <a href={project.androidUrl} target="_blank" rel="noopener noreferrer" className={storeLinkClass}>
+                <a
+                  href={project.androidUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={storeLinkClass}
+                  {...umamiAttrs('store-link', { store: 'android', project: project.slug, location: 'case-study' })}
+                >
                   <ExternalLink size={12} /> {t('caseStudy.playStore')}
                 </a>
               )}
@@ -376,6 +389,7 @@ export default function CaseStudy() {
                 <Link
                   to="/contact"
                   className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90"
+                  {...umamiAttrs('cta-start-project', { location: 'case-study', project: project.slug })}
                 >
                   {t('caseStudy.startProject')}
                   <ArrowRight size={15} />
@@ -385,6 +399,7 @@ export default function CaseStudy() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-text-primary no-underline transition-colors hover:border-border-hover"
+                  {...umamiAttrs('cta-whatsapp', { location: 'case-study', project: project.slug })}
                 >
                   <WhatsAppIcon size={16} />
                   {t('caseStudy.whatsapp')}

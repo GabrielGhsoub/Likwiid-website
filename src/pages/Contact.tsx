@@ -9,6 +9,7 @@ import { Button } from '../components/ui/Button'
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
+import { track, umamiAttrs, getAttribution, attributionEventData } from '../utils/analytics'
 import type { ContactFormData } from '../types'
 
 // Values are sent to the inbox in English; labels are translated.
@@ -48,6 +49,11 @@ export default function Contact() {
 
   useEffect(() => { document.title = t('contact.documentTitle') }, [t])
 
+  useEffect(() => {
+    if (status === 'success') track('contact-success')
+    if (status === 'error') track('contact-error')
+  }, [status])
+
   const validate = (data: ContactFormData): boolean => {
     const newErrors: Partial<Record<keyof ContactFormData, string>> = {}
     if (!data.name.trim()) newErrors.name = t('contact.errorNameRequired')
@@ -76,10 +82,12 @@ export default function Contact() {
       document.getElementById(firstInvalid)?.focus()
       return
     }
+    track('contact-submit', { projectType: data.projectType, budget: data.budget, ...attributionEventData() })
     submit({
       ...data,
       website: (formData.get('website') as string) ?? '',
       elapsedMs: Date.now() - mountedAtRef.current,
+      attribution: getAttribution(),
     })
   }
 
@@ -139,6 +147,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+                  {...umamiAttrs('cta-whatsapp', { location: 'contact' })}
                 >
                   <WhatsAppIcon size={20} className="text-accent-gold" />
                   <span>
@@ -149,6 +158,7 @@ export default function Contact() {
                 <a
                   href={`mailto:${SOCIAL.email}`}
                   className="flex items-center gap-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+                  {...umamiAttrs('cta-email', { location: 'contact' })}
                 >
                   <Mail size={20} className="text-accent-gold" />
                   {SOCIAL.email}
@@ -162,6 +172,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                   className="p-2 -m-2 text-text-tertiary hover:text-text-primary transition-colors"
+                  {...umamiAttrs('social-click', { network: 'github', location: 'contact' })}
                 >
                   <Github size={18} />
                 </a>
@@ -171,6 +182,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="p-2 -m-2 text-text-tertiary hover:text-text-primary transition-colors"
+                  {...umamiAttrs('social-click', { network: 'linkedin', location: 'contact' })}
                 >
                   <Linkedin size={18} />
                 </a>
@@ -207,6 +219,7 @@ export default function Contact() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-accent-gold hover:underline"
+                            {...umamiAttrs('cta-whatsapp', { location: 'contact-success' })}
                           />
                         ),
                       }}
