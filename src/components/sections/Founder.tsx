@@ -90,12 +90,15 @@ export function Founder() {
           </div>
         </Reveal>
         <Reveal className="mt-12 grid items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
-          <div
-            aria-hidden="true"
-            className="flex h-20 w-20 items-center justify-center rounded-xl border border-border bg-bg-tertiary text-2xl font-bold font-[family-name:var(--font-display)] text-text-tertiary"
-          >
-            {cofounder.monogram}
-          </div>
+          <img
+            src={cofounder.photo}
+            alt={t('founder.cofounderPhotoAlt')}
+            width={cofounder.photoWidth}
+            height={cofounder.photoHeight}
+            loading="lazy"
+            decoding="async"
+            className="w-full max-w-[280px] h-auto rounded-xl border border-border bg-bg-tertiary object-cover"
+          />
           <div className="max-w-2xl">
             <h3 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
               {cofounder.name}

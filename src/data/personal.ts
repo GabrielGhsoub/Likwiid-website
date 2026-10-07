@@ -8,9 +8,11 @@ export const founder = {
   photoHeight: 1308,
 } as const
 
-// Cofounder placeholder until his photo, title and bio arrive; the monogram
-// stands in for the photo.
+// Cofounder. Title and bio lines are still to come; the locale files carry
+// the current one-line description.
 export const cofounder = {
-  name: 'Emile',
-  monogram: 'E',
+  name: 'Emile Bechaalany',
+  photo: '/emile.webp',
+  photoWidth: 640,
+  photoHeight: 640,
 } as const
