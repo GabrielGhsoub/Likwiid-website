@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Reveal } from '../ui/Reveal'
-import { founder } from '../../data/personal'
+import { founder, cofounder } from '../../data/personal'
 
 export function Founder() {
   const { t } = useTranslation()
@@ -59,6 +59,21 @@ export function Founder() {
               {t('founder.cta')}
               <ArrowRight size={16} aria-hidden="true" />
             </Link>
+          </div>
+        </Reveal>
+        <Reveal className="mt-12 grid items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
+          <div
+            aria-hidden="true"
+            className="flex h-20 w-20 items-center justify-center rounded-xl border border-border bg-bg-tertiary text-2xl font-bold font-[family-name:var(--font-display)] text-text-tertiary"
+          >
+            {cofounder.monogram}
+          </div>
+          <div className="max-w-2xl">
+            <h3 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
+              {cofounder.name}
+            </h3>
+            <p className="mt-1 text-text-tertiary">{t('founder.cofounderRole')}</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">{t('founder.cofounderLine')}</p>
           </div>
         </Reveal>
       </div>
