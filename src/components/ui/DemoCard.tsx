@@ -1,4 +1,5 @@
 import { Play } from 'lucide-react'
+import { umamiAttrs } from '../../utils/analytics'
 
 interface DemoCardProps {
   href: string
@@ -9,13 +10,16 @@ interface DemoCardProps {
   name: string
   description: string
   launchLabel: string
+  umamiEvent?: string
+  umamiData?: Record<string, string>
 }
 
 // Live-demo card: screenshot on top with a centred launch button, caption below the image.
-export function DemoCard({ href, image, imageWidth, imageHeight, alt, name, description, launchLabel }: DemoCardProps) {
+export function DemoCard({ href, image, imageWidth, imageHeight, alt, name, description, launchLabel, umamiEvent, umamiData }: DemoCardProps) {
   return (
     <a
       href={href}
+      {...(umamiEvent ? umamiAttrs(umamiEvent, umamiData) : undefined)}
       className="group flex w-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary text-left no-underline transition-colors hover:border-border-hover focus-visible:outline-2 focus-visible:outline-accent-gold"
     >
       <span className="relative block aspect-[16/10] bg-bg-tertiary">

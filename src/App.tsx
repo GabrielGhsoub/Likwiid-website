@@ -3,6 +3,7 @@ import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-r
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
+import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
 // hero paints first and animation capabilities stream in right after.
@@ -101,6 +102,12 @@ export default function App() {
   const location = useLocation()
   const navigationType = useNavigationType()
   usePrefetchRoutes()
+
+  // Remember utm_* and ref tags from outreach links for the rest of the session so the
+  // contact form and events can say which campaign brought the visitor.
+  useEffect(() => {
+    captureAttribution()
+  }, [])
 
   useEffect(() => {
     // Scroll to top on forward navigations to a new page, but leave the browser to restore
