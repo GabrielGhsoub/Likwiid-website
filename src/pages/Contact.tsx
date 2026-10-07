@@ -11,20 +11,20 @@ import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
 import type { ContactFormData } from '../types'
 
+// Values are sent to the inbox in English; labels are translated.
 const PROJECT_TYPES = [
-  { value: 'Web App', labelKey: 'contact.projectTypeWebApp' },
-  { value: 'Mobile App', labelKey: 'contact.projectTypeMobileApp' },
-  { value: 'Cloud/DevOps', labelKey: 'contact.projectTypeCloudDevOps' },
-  { value: 'AI Integration', labelKey: 'contact.projectTypeAiIntegration' },
-  { value: 'VR Development', labelKey: 'contact.projectTypeVrDevelopment' },
-  { value: 'Code Audit', labelKey: 'contact.projectTypeCodeAudit' },
+  { value: 'Web app', labelKey: 'contact.projectTypeWebApp' },
+  { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
+  { value: 'Booking website', labelKey: 'contact.projectTypeBookingWebsite' },
+  { value: 'AI integration', labelKey: 'contact.projectTypeAiIntegration' },
+  { value: 'Code audit', labelKey: 'contact.projectTypeCodeAudit' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
 ]
-// Deliberately floored at the studio's real minimum: an under-floor option anchors
-// low and invites projects we cannot take on.
+// Floored at the booking-website starting price ($1,500).
 const BUDGETS = [
-  { value: '$5k - $15k', labelKey: 'contact.budget5to15k' },
-  { value: '$15k - $50k', labelKey: 'contact.budget15to50k' },
+  { value: '$1.5k to $5k', labelKey: 'contact.budget1to5k' },
+  { value: '$5k to $15k', labelKey: 'contact.budget5to15k' },
+  { value: '$15k to $50k', labelKey: 'contact.budget15to50k' },
   { value: '$50k+', labelKey: 'contact.budget50kPlus' },
   { value: 'Not sure yet', labelKey: 'contact.budgetNotSure' },
 ]
@@ -85,7 +85,7 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <div className="pt-20 pb-16 px-6">
+      <div className="pt-28 pb-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading as="h1" title={t('contact.heading')} subtitle={t('contact.subheading')} />
 
@@ -308,12 +308,12 @@ export default function Contact() {
                     <div>
                       <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
                         {t('contact.labelBudget')}
-                        <span className="block text-xs text-text-tertiary font-normal mt-0.5">{t('contact.budgetHint')}</span>
                       </label>
                       <div className="relative">
                         <select
                           id="budget"
                           name="budget"
+                          aria-describedby="budget-hint"
                           className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
                         >
                           <option value="">{t('contact.selectPlaceholder')}</option>
@@ -325,6 +325,9 @@ export default function Contact() {
                         </select>
                         <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
                       </div>
+                      <p id="budget-hint" className="mt-1.5 text-xs text-text-tertiary">
+                        {t('contact.budgetHint')}
+                      </p>
                     </div>
                   </div>
 

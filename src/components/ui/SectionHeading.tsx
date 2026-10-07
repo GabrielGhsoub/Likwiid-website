@@ -1,16 +1,4 @@
-import { m } from 'framer-motion'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { cn } from '../../utils/cn'
-
-const HIDDEN = {}
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const FADE_UP_SUBTLE_INITIAL = { opacity: 0, y: 20 }
-const LINE_INITIAL = { scaleX: 0 }
-const LINE_VISIBLE = { scaleX: 1 }
-const HEADING_TRANSITION = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
-const LINE_TRANSITION = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
-const SUBTITLE_TRANSITION = { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }
 
 interface SectionHeadingProps {
   title: string
@@ -20,35 +8,22 @@ interface SectionHeadingProps {
   as?: 'h1' | 'h2'
 }
 
+// Renders immediately (no scroll-gated animation) so headings are never invisible.
 export function SectionHeading({ title, subtitle, className, align = 'left', as: Tag = 'h2' }: SectionHeadingProps) {
-  const { ref, isVisible } = useScrollAnimation()
-  const MotionTag = Tag === 'h1' ? m.h1 : m.h2
-
   return (
-    <div ref={ref} className={cn('mb-12', align === 'center' && 'text-center', className)}>
-      <MotionTag
-        className="text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary"
-        initial={FADE_UP_INITIAL}
-        animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-        transition={HEADING_TRANSITION}
+    <div className={cn('mb-10', align === 'center' && 'text-center', className)}>
+      <Tag
+        className={cn(
+          'font-bold font-[family-name:var(--font-display)] text-text-primary tracking-tight',
+          Tag === 'h1' ? 'text-4xl md:text-5xl' : 'text-3xl md:text-4xl',
+        )}
       >
         {title}
-      </MotionTag>
-      <m.div
-        className={cn('h-[2px] bg-gradient-to-r from-accent-gold to-accent-blue mt-4 w-[60px] origin-left rounded-full', align === 'center' ? 'mx-auto origin-center' : '')}
-        initial={LINE_INITIAL}
-        animate={isVisible ? LINE_VISIBLE : HIDDEN}
-        transition={LINE_TRANSITION}
-      />
+      </Tag>
       {subtitle && (
-        <m.p
-          className="mt-4 text-text-secondary text-lg max-w-2xl"
-          initial={FADE_UP_SUBTLE_INITIAL}
-          animate={isVisible ? FADE_UP_VISIBLE : HIDDEN}
-          transition={SUBTITLE_TRANSITION}
-        >
+        <p className={cn('mt-4 text-text-secondary text-lg max-w-2xl', align === 'center' && 'mx-auto')}>
           {subtitle}
-        </m.p>
+        </p>
       )}
     </div>
   )

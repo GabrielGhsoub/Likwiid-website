@@ -5,11 +5,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PhoneFrame, BrowserFrame } from './DeviceFrame'
 
 const SLIDE_VARIANTS = {
-  enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? 40 : -40, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir > 0 ? -40 : 40, opacity: 0 }),
 }
-const SLIDE_TRANSITION = { type: 'spring' as const, stiffness: 300, damping: 30 }
+const SLIDE_TRANSITION = { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }
 const WHILE_DRAG = { cursor: 'grabbing' as const }
 
 interface ScreenshotCarouselProps {
@@ -22,10 +22,9 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
   const { t } = useTranslation()
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
   const Frame = platform === 'mobile' ? PhoneFrame : BrowserFrame
 
-  // Warm the adjacent slides so a swipe/click reveals the next image without a spinner.
+  // Warm the adjacent slides so a swipe or click reveals the next image immediately.
   useEffect(() => {
     if (images.length <= 1) return
     const neighbors = [(current + 1) % images.length, (current - 1 + images.length) % images.length]
@@ -37,7 +36,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
 
   const paginate = useCallback((dir: number) => {
     setDirection(dir)
-    setCurrent(prev => (prev + dir + images.length) % images.length)
+    setCurrent((prev) => (prev + dir + images.length) % images.length)
   }, [images.length])
 
   const handleDragEnd = useCallback((_: unknown, info: { offset: { x: number }; velocity: { x: number } }) => {
@@ -50,31 +49,33 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
     }
   }, [paginate])
 
-  const handleImageLoad = useCallback((index: number) => {
-    setLoadedImages(prev => new Set(prev).add(index))
-  }, [])
-
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (images.length <= 1) return
     if (e.key === 'ArrowLeft') paginate(-1)
     else if (e.key === 'ArrowRight') paginate(1)
   }, [images.length, paginate])
 
+  const navButtonClass =
+    'absolute z-10 rounded-full border border-border bg-bg-secondary p-3 text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary cursor-pointer'
+
   return (
-    <div className="flex flex-col items-center gap-4" role="region" aria-roledescription="carousel" aria-label={t('carousel.regionLabel', { title })} onKeyDown={handleKeyDown} tabIndex={0}>
-      <div className="relative w-full flex items-center justify-center" aria-live="polite">
+    <div
+      className="flex flex-col items-center gap-4"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={t('carousel.regionLabel', { title })}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+    >
+      <div className="relative flex w-full items-center justify-center" aria-live="polite">
         {images.length > 1 && (
-          <button
-            onClick={() => paginate(-1)}
-            className="absolute left-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
-            aria-label={t('carousel.previous')}
-          >
+          <button type="button" onClick={() => paginate(-1)} className={`${navButtonClass} left-0`} aria-label={t('carousel.previous')}>
             <ChevronLeft size={20} />
           </button>
         )}
 
-        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[220px] sm:w-[280px] md:w-[320px]' : 'w-full max-w-[600px]'}`}>
-          <AnimatePresence mode="wait" custom={direction}>
+        <div className={`overflow-hidden ${platform === 'mobile' ? 'w-[220px] sm:w-[280px] md:w-[320px]' : 'w-full max-w-[640px] px-12 sm:px-14'}`}>
+          <AnimatePresence mode="wait" initial={false} custom={direction}>
             <m.div
               key={current}
               custom={direction}
@@ -95,25 +96,15 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
                   className="relative bg-bg-tertiary"
                   style={platform === 'mobile'
                     ? { width: '100%', aspectRatio: '9 / 19.5' }
-                    : { width: '100%', aspectRatio: '16 / 10' }
-                  }
+                    : { width: '100%', aspectRatio: '16 / 10' }}
                 >
                   <img
                     src={images[current]}
                     alt={t('carousel.slideAlt', { title, index: current + 1 })}
-                    className="absolute inset-0 w-full h-full object-contain block"
-                    style={{
-                      opacity: loadedImages.has(current) ? 1 : 0,
-                      transition: 'opacity 0.3s ease',
-                    }}
+                    className={`absolute inset-0 block h-full w-full ${platform === 'mobile' ? 'object-contain' : 'object-cover object-top'}`}
                     draggable={false}
-                    onLoad={() => handleImageLoad(current)}
+                    decoding="async"
                   />
-                  {!loadedImages.has(current) && (
-                    <div className="absolute inset-0 flex items-center justify-center" role="status" aria-label={t('carousel.loading')}>
-                      <div className="w-6 h-6 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  )}
                 </div>
               </Frame>
             </m.div>
@@ -121,11 +112,7 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
         </div>
 
         {images.length > 1 && (
-          <button
-            onClick={() => paginate(1)}
-            className="absolute right-0 z-10 p-3 rounded-full bg-bg-secondary/80 border border-border text-text-secondary hover:text-text-primary hover:bg-bg-tertiary transition-colors cursor-pointer"
-            aria-label={t('carousel.next')}
-          >
+          <button type="button" onClick={() => paginate(1)} className={`${navButtonClass} right-0`} aria-label={t('carousel.next')}>
             <ChevronRight size={20} />
           </button>
         )}
@@ -136,12 +123,13 @@ export function ScreenshotCarousel({ images, title, platform }: ScreenshotCarous
           {images.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
-              className="p-3 sm:p-5 cursor-pointer"
+              className="p-3 cursor-pointer"
               aria-label={t('carousel.goToSlide', { index: i + 1 })}
               aria-current={i === current ? true : undefined}
             >
-              <div className={`h-2 rounded-full transition-[background-color,width] duration-300 ${i === current ? 'bg-accent-gold w-6' : 'bg-border hover:bg-text-tertiary w-2'}`} />
+              <div className={`h-2 rounded-full transition-[background-color,width] duration-300 ${i === current ? 'w-6 bg-accent-gold' : 'w-2 bg-border hover:bg-text-tertiary'}`} />
             </button>
           ))}
         </div>

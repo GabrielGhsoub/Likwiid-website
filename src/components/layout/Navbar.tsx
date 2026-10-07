@@ -6,7 +6,9 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
+import { useBeirutTime } from '../../hooks/useBeirutTime'
 import { LanguageLinks } from '../ui/LanguageLinks'
+import { Logo } from '../ui/Logo'
 
 const navKey = (path: string) => (path === '/' ? 'home' : path.replace(/^\//, ''))
 
@@ -33,9 +35,11 @@ export function Navbar() {
   const location = useLocation()
   const { t } = useTranslation()
   const { theme, toggleTheme } = useTheme()
+  const beirutTime = useBeirutTime()
   const isPrivateWalkthroughRoute =
     location.pathname === '/beit-toureef-walkthrough' || location.pathname === '/beit-toureef-poc'
   const isPocLight = isPrivateWalkthroughRoute && theme === 'light'
+  const logoAccent = isPrivateWalkthroughRoute ? (isPocLight ? '#7A5B22' : '#E9C56F') : undefined
 
   useEffect(() => {
     let ticking = false
@@ -153,13 +157,13 @@ export function Navbar() {
           <Link
             to="/"
             className={cn(
-              'font-[family-name:var(--font-display)] text-xl font-bold transition-colors no-underline',
+              'inline-flex min-h-11 items-center transition-opacity hover:opacity-75 no-underline',
               isPrivateWalkthroughRoute
-                ? isPocLight ? 'text-[#252017] hover:text-[#7A5B22]' : 'text-[#FFF8EA] hover:text-[#E9C56F]'
-                : 'text-text-primary hover:text-accent-gold',
+                ? isPocLight ? 'text-[#252017]' : 'text-[#FFF8EA]'
+                : 'text-text-primary',
             )}
           >
-            Likwiid
+            <Logo className="h-5 md:h-6" accent={logoAccent} />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -180,13 +184,26 @@ export function Navbar() {
                 {t(`nav.${navKey(link.path)}`)}
                 {location.pathname === link.path && (
                   <m.div
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-accent-gold to-accent-blue"
+                    className="absolute bottom-2 left-0 right-0 h-px bg-current"
                     layoutId="navbar-indicator"
                     transition={INDICATOR_TRANSITION}
                   />
                 )}
               </Link>
             ))}
+            <time
+              dateTime={beirutTime.iso}
+              aria-label={`${t('nav.beirutTime')} ${beirutTime.label}`}
+              title={t('nav.beirutTime')}
+              className={cn(
+                'inline-flex min-h-11 items-center font-mono text-xs tabular-nums whitespace-nowrap',
+                isPrivateWalkthroughRoute
+                  ? isPocLight ? 'text-[#6B6258]' : 'text-[#D9D0C4]'
+                  : 'text-text-tertiary',
+              )}
+            >
+              {t('nav.beirutCity')} {beirutTime.label}
+            </time>
             <LanguageLinks />
             <button
               onClick={toggleTheme}
@@ -266,13 +283,13 @@ export function Navbar() {
                     to="/"
                     onClick={closeMobile}
                     className={cn(
-                      'font-[family-name:var(--font-display)] text-lg font-bold transition-colors no-underline',
+                      'inline-flex min-h-11 items-center transition-opacity hover:opacity-75 no-underline',
                       isPrivateWalkthroughRoute
-                        ? isPocLight ? 'text-[#252017] hover:text-[#7A5B22]' : 'text-[#FFF8EA] hover:text-[#E9C56F]'
-                        : 'text-text-primary hover:text-accent-gold',
+                        ? isPocLight ? 'text-[#252017]' : 'text-[#FFF8EA]'
+                        : 'text-text-primary',
                     )}
                   >
-                    Likwiid
+                    <Logo className="h-5" accent={logoAccent} />
                   </Link>
                   <button
                     onClick={closeMobile}
@@ -318,12 +335,7 @@ export function Navbar() {
                                 : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',
                           )}
                         >
-                          <div className="flex items-center justify-between">
-                            <span>{t(`nav.${navKey(link.path)}`)}</span>
-                            {location.pathname === link.path && (
-                              <span className="text-accent-gold text-xs">●</span>
-                            )}
-                          </div>
+                          {t(`nav.${navKey(link.path)}`)}
                         </Link>
                       </m.div>
                     ))}

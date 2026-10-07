@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#0A0A0F"/>
-  <text x="16" y="22" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="14" fill="#22D3EE">L</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .s { fill: #1A1A2E; }
+    .d { fill: #0E7490; }
+    @media (prefers-color-scheme: dark) {
+      .s { fill: #E8EAF0; }
+      .d { fill: #06B6D4; }
+    }
+  </style>
+  <path class="s" d="M14 60V28H26V60ZM38 60V28H50V60Z"/>
+  <path class="d" d="M20 4.7C21.1 8.4 26 12.6 26 16.4A6 6 0 0 1 14 16.4C14 12.6 18.9 8.4 20 4.7ZM44 4.7C45.1 8.4 50 12.6 50 16.4A6 6 0 0 1 38 16.4C38 12.6 42.9 8.4 44 4.7Z"/>
 </svg>

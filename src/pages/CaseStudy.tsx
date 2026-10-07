@@ -8,145 +8,65 @@ import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check } from 'lucide-
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { useLocalizedProjects } from '../i18n/localizedContent'
-import type { ProjectMetric } from '../types'
+import { SOCIAL } from '../utils/constants'
 
-const FADE_UP_INITIAL = { opacity: 0, y: 20 }
-const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
-const TRANSITION_BASE = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
-const TRANSITION_DELAY_015 = { duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }
-
-const LIQUID_REVEAL = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      opacity: { duration: 0.5 },
-      y: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  },
-}
+const FADE_UP_INITIAL = { opacity: 0, y: 16 }
+const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
+const REVEAL_VIEWPORT = { once: true, amount: 0.1 } as const
+const TRANSITION_BASE = { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
 
 const METRIC_COLS: Record<number, string> = {
   2: 'sm:grid-cols-2',
   3: 'sm:grid-cols-3',
   4: 'sm:grid-cols-4',
-  5: 'sm:grid-cols-5',
 }
 
-const prefersReducedMotion = () =>
-  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-
-// Strip versions / noise so hero tags stay high-level
+// Strip versions and noise so hero tags stay high level
 // (e.g. "Expo SDK 54" -> "Expo", "TypeScript 6 (strict)" -> "TypeScript")
 const simplifyTech = (t: string) =>
   t
-    .replace(/\s*\([^)]*\)/g, '') // drop parentheticals like "(strict)"
+    .replace(/\s*\([^)]*\)/g, '')
     .replace(/\s+REST API$/i, '')
     .replace(/\s+API$/i, '')
     .replace(/\s+MV3$/i, '')
-    .replace(/\s+SDK\b/gi, '') // "Expo SDK 54" -> "Expo  54"
-    .replace(/\s+v?\d+(\.\d+)*\b/gi, '') // strip version tokens anywhere
+    .replace(/\s+SDK\b/gi, '')
+    .replace(/\s+v?\d+(\.\d+)*\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     .trim()
 
 // --- Shared building blocks -------------------------------------------------
 
-function Eyebrow({ children }: { children: ReactNode }) {
+function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-4 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
-      <span className="h-px w-6 bg-accent-gold/50" aria-hidden="true" />
+    <h2 className="mb-4 text-xl font-semibold text-text-primary font-[family-name:var(--font-display)] md:text-2xl">
       {children}
     </h2>
   )
 }
 
+function SubTitle({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
+      {children}
+    </h3>
+  )
+}
+
+// Fades in once when scrolled into view. whileInView (not an observer-gated state flag)
+// so content is never left invisible.
 function Reveal({ children, className }: { children: ReactNode; className?: string }) {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 })
   return (
-    <div ref={ref}>
-      <m.div
-        variants={LIQUID_REVEAL}
-        initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
-        className={className}
-      >
-        {children}
-      </m.div>
-    </div>
-  )
-}
-
-// --- Animated metric counter ------------------------------------------------
-
-function parseMetric(value: string) {
-  const match = /^(\d[\d,]*(?:\.\d+)?)(.*)$/.exec(value.trim())
-  if (!match) return { num: null as number | null, decimals: 0, hasComma: false, suffix: value }
-  const raw = match[1]
-  return {
-    num: parseFloat(raw.replace(/,/g, '')),
-    decimals: raw.includes('.') ? raw.split('.')[1].length : 0,
-    hasComma: raw.includes(','),
-    suffix: match[2],
-  }
-}
-
-function CountUpMetric({ metric, active }: { metric: ProjectMetric; active: boolean }) {
-  const parsed = useMemo(() => parseMetric(metric.value), [metric.value])
-  // Static for non-numeric / reduced-motion; otherwise animate up from 0 once visible.
-  const animates = parsed.num !== null && !prefersReducedMotion()
-  const [display, setDisplay] = useState(parsed.num === null ? 0 : animates ? 0 : parsed.num)
-
-  useEffect(() => {
-    if (!animates || !active || parsed.num === null) return
-    const target = parsed.num
-    const duration = 1100
-    let raf = 0
-    let startTs = 0
-    const step = (ts: number) => {
-      if (!startTs) startTs = ts
-      const t = Math.min((ts - startTs) / duration, 1)
-      const eased = 1 - Math.pow(1 - t, 3)
-      setDisplay(target * eased)
-      if (t < 1) raf = requestAnimationFrame(step)
-      else setDisplay(target)
-    }
-    raf = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(raf)
-  }, [parsed.num, active, animates])
-
-  let rendered: string
-  if (parsed.num === null) {
-    rendered = metric.value
-  } else {
-    const n = parsed.decimals > 0 ? display.toFixed(parsed.decimals) : Math.round(display).toString()
-    const withSep = parsed.hasComma ? Number(n).toLocaleString('en-US') : n
-    rendered = withSep + parsed.suffix
-  }
-
-  return (
-    <div className="text-center" title={metric.basis}>
-      <div className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-accent-gold leading-tight tabular-nums">
-        {rendered}
-      </div>
-      <div className="mt-2 text-xs md:text-sm leading-snug text-text-secondary">{metric.label}</div>
-    </div>
-  )
-}
-
-function MetricsBand({ metrics }: { metrics: ProjectMetric[] }) {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 })
-  const colClass = METRIC_COLS[Math.min(Math.max(metrics.length, 2), 5)] ?? 'sm:grid-cols-4'
-  return (
-    <div ref={ref} className="mt-10 border-y border-border py-8">
-      <div className={`grid grid-cols-2 gap-x-4 gap-y-8 ${colClass}`}>
-        {metrics.map((metric) => (
-          <CountUpMetric key={metric.label} metric={metric} active={isVisible} />
-        ))}
-      </div>
-    </div>
+    <m.div
+      className={className}
+      initial={FADE_UP_INITIAL}
+      whileInView={FADE_UP_VISIBLE}
+      viewport={REVEAL_VIEWPORT}
+      transition={TRANSITION_BASE}
+    >
+      {children}
+    </m.div>
   )
 }
 
@@ -158,7 +78,7 @@ export default function CaseStudy() {
   const project = projects[projectIndex]
   const nextProject = projects[(projectIndex + 1) % projects.length]
 
-  // Challenge → Approach → Outcome as a compact 3-step flow
+  // Challenge, Approach, Outcome as a compact 3 step flow
   const steps = useMemo(() => {
     if (!project) return []
     return [
@@ -170,38 +90,54 @@ export default function CaseStudy() {
 
   const facts = useMemo(() => {
     if (!project) return []
+    const isClientWork = project.client !== 'Likwiid'
     return [
+      isClientWork
+        ? { label: t('caseStudy.factClient'), value: project.client }
+        : { label: t('caseStudy.factType'), value: t('portfolio.studioProductLabel') },
       { label: t('caseStudy.factRole'), value: project.role },
-      { label: t('caseStudy.factTimeline'), value: project.timeline },
       { label: t('caseStudy.factYear'), value: project.year },
-      { label: t('caseStudy.factClient'), value: project.client },
-      { label: t('caseStudy.factPlatform'), value: project.platformLabel ?? (project.platform === 'mobile' ? t('caseStudy.platformMobile') : t('caseStudy.platformWeb')) },
+      {
+        label: t('caseStudy.factPlatform'),
+        value: project.platformLabel ?? (project.platform === 'mobile' ? t('caseStudy.platformMobile') : t('caseStudy.platformWeb')),
+      },
     ].filter((f): f is { label: string; value: string } => Boolean(f.value))
   }, [project, t])
 
   const [techOpen, setTechOpen] = useState(false)
 
   useEffect(() => {
-    document.title = project ? t('caseStudy.docTitle', { title: project.title }) : 'Likwiid'
-  }, [project, t])
-
-  // Scroll-to-top on navigation is handled globally in App; no per-page scroll needed here.
+    // Matches the prerendered <title> for case study routes.
+    document.title = project ? `${project.title}: Case Study | Likwiid` : 'Likwiid'
+  }, [project])
 
   if (!project) return <NotFound />
 
   const lead = project.oneLiner ?? project.subtitle
-  const metrics = (project.metrics ?? []).slice(0, 5)
+  const metrics = (project.metrics ?? []).slice(0, 4)
   const images = project.images.slice(0, 4)
-  const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 5)
+  const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 4)
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
   const highlights = project.highlights ?? []
   const hasTechDetails = project.techStack.length > 0 || architecture.length > 0 || highlights.length > 0
+  const isClientWork = project.client !== 'Likwiid'
+  const companion = project.companion
+  // Companion copy is translatable under projectsData.<slug>.companion; English is the source.
+  const companionTitle = companion
+    ? t(`projectsData.${project.slug}.companion.title`, { defaultValue: companion.title })
+    : ''
+  const companionSummary = companion
+    ? t(`projectsData.${project.slug}.companion.summary`, { defaultValue: companion.summary })
+    : ''
+
+  const storeLinkClass =
+    'inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-medium text-text-primary transition-colors hover:border-border-hover'
 
   return (
     <PageTransition key={slug}>
-      <div className="pt-20 pb-16 px-6">
-        <div className="mx-auto max-w-[820px] relative">
+      <div className="px-6 pb-16 pt-28">
+        <div className="relative mx-auto max-w-[820px]">
           {/* ---------- Back link ---------- */}
           <Link
             to="/work"
@@ -211,41 +147,23 @@ export default function CaseStudy() {
           </Link>
 
           {/* ---------- Hero ---------- */}
-          <m.div
-            initial={FADE_UP_INITIAL}
-            animate={FADE_UP_ANIMATE}
-            transition={TRANSITION_BASE}
-          >
-            <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] text-text-primary leading-[1.08] tracking-tight">
+          <m.div initial={FADE_UP_INITIAL} animate={FADE_UP_VISIBLE} transition={TRANSITION_BASE}>
+            <h1 className="text-3xl font-bold leading-[1.08] tracking-tight text-text-primary font-[family-name:var(--font-display)] md:text-5xl">
               {project.title}
             </h1>
-            {lead && (
-              <p className="mt-4 max-w-2xl text-lg md:text-xl leading-relaxed text-text-secondary">
-                {lead}
-              </p>
-            )}
+            {lead && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">{lead}</p>}
 
             <div className="mt-6 flex flex-wrap items-center gap-2">
               {heroTags.map((tech) => (
                 <Badge key={tech}>{tech}</Badge>
               ))}
               {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
-                >
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={storeLinkClass}>
                   <ExternalLink size={12} /> {project.liveLabel ?? t('caseStudy.appStore')}
                 </a>
               )}
               {project.androidUrl && (
-                <a
-                  href={project.androidUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-accent-gold text-accent-gold text-xs font-medium hover:bg-accent-gold-dim transition-colors"
-                >
+                <a href={project.androidUrl} target="_blank" rel="noopener noreferrer" className={storeLinkClass}>
                   <ExternalLink size={12} /> {t('caseStudy.playStore')}
                 </a>
               )}
@@ -264,18 +182,29 @@ export default function CaseStudy() {
                 ))}
               </dl>
             )}
-          </m.div>
 
-          {/* ---------- Metrics band (animated) ---------- */}
-          {metrics.length > 0 && <MetricsBand metrics={metrics} />}
+            {/* ---------- Metrics ---------- */}
+            {metrics.length > 0 && (
+              <dl className={`mt-8 grid grid-cols-2 gap-x-4 gap-y-6 ${METRIC_COLS[Math.max(metrics.length, 2)] ?? 'sm:grid-cols-4'}`}>
+                {metrics.map((metric) => (
+                  <div key={metric.label} title={metric.basis} className="flex flex-col-reverse">
+                    <dt className="mt-1 text-sm leading-snug text-text-secondary">{metric.label}</dt>
+                    <dd className="text-2xl font-bold leading-tight tabular-nums text-text-primary font-[family-name:var(--font-display)] md:text-3xl">
+                      {metric.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </m.div>
 
           {/* ---------- Screenshots ---------- */}
           {images.length > 0 && (
             <m.div
               className="mt-14"
               initial={FADE_UP_INITIAL}
-              animate={FADE_UP_ANIMATE}
-              transition={TRANSITION_DELAY_015}
+              animate={FADE_UP_VISIBLE}
+              transition={{ ...TRANSITION_BASE, delay: 0.1 }}
             >
               <ScreenshotCarousel images={images} title={project.title} platform={project.platform} />
             </m.div>
@@ -284,25 +213,18 @@ export default function CaseStudy() {
           {/* ---------- Overview ---------- */}
           {project.description && (
             <Reveal className="mt-16">
-              <Eyebrow>{t('caseStudy.overview')}</Eyebrow>
+              <SectionTitle>{t('caseStudy.overview')}</SectionTitle>
               <p className="max-w-2xl text-lg leading-relaxed text-text-secondary">{project.description}</p>
             </Reveal>
           )}
 
-          {/* ---------- Challenge → Approach → Outcome ---------- */}
+          {/* ---------- Challenge, Approach, Outcome ---------- */}
           {steps.length > 0 && (
-            <Reveal className="mt-14">
+            <Reveal className="mt-12">
               <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
-                {steps.map((step, i) => (
+                {steps.map((step) => (
                   <div key={step.label} className="flex flex-col bg-bg-secondary p-5">
-                    <div className="mb-3 flex items-center gap-2.5">
-                      <span className="font-[family-name:var(--font-mono)] text-sm font-semibold text-accent-gold">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <span className="text-xs font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
-                        {step.label}
-                      </span>
-                    </div>
+                    <SubTitle>{step.label}</SubTitle>
                     <p className="text-sm leading-relaxed text-text-secondary">{step.content}</p>
                   </div>
                 ))}
@@ -313,38 +235,46 @@ export default function CaseStudy() {
           {/* ---------- Key features ---------- */}
           {keyFeatures.length > 0 && (
             <Reveal className="mt-16">
-              <Eyebrow>{t('caseStudy.keyFeatures')}</Eyebrow>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <SectionTitle>{t('caseStudy.keyFeatures')}</SectionTitle>
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {keyFeatures.map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="flex items-start gap-3 rounded-lg border border-border bg-bg-secondary/50 p-4 transition-colors hover:border-border-hover"
-                  >
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-gold-dim text-accent-gold">
-                      <Check size={13} strokeWidth={2.5} />
-                    </span>
+                  <li key={feature.title} className="flex items-start gap-3 rounded-lg border border-border bg-bg-secondary p-4">
+                    <Check size={16} strokeWidth={2.5} className="mt-0.5 shrink-0 text-accent-gold" aria-hidden="true" />
                     <div className="min-w-0">
-                      <h3 className="text-sm font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
+                      <h3 className="text-sm font-semibold leading-snug text-text-primary font-[family-name:var(--font-display)]">
                         {feature.title}
                       </h3>
                       {feature.description && (
                         <p className="mt-1 text-sm leading-snug text-text-secondary">{feature.description}</p>
                       )}
                     </div>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </Reveal>
           )}
 
-          {/* ---------- Business impact ---------- */}
-          {project.businessResult && (
+          {/* ---------- Companion product (e.g. admin portal) ---------- */}
+          {companion && companion.images.length > 0 && (
             <Reveal className="mt-16">
-              <div className="rounded-xl border border-accent-gold/30 bg-accent-gold-dim px-6 py-7 md:px-8">
-                <span className="text-xs font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+              <SectionTitle>{companionTitle}</SectionTitle>
+              <p className="mb-8 max-w-2xl text-lg leading-relaxed text-text-secondary">{companionSummary}</p>
+              <ScreenshotCarousel
+                images={companion.images}
+                title={`${project.title}: ${companionTitle}`}
+                platform={companion.platform}
+              />
+            </Reveal>
+          )}
+
+          {/* ---------- Business impact (client work only) ---------- */}
+          {isClientWork && project.businessResult && (
+            <Reveal className="mt-16">
+              <div className="rounded-xl border border-border bg-bg-secondary px-6 py-7 md:px-8">
+                <h2 className="text-xs font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
                   {t('caseStudy.businessImpact')}
-                </span>
-                <p className="mt-3 text-xl md:text-2xl font-semibold font-[family-name:var(--font-display)] text-text-primary leading-snug">
+                </h2>
+                <p className="mt-3 text-xl font-semibold leading-snug text-text-primary font-[family-name:var(--font-display)] md:text-2xl">
                   {project.businessResult}
                 </p>
               </div>
@@ -358,10 +288,11 @@ export default function CaseStudy() {
                 type="button"
                 onClick={() => setTechOpen((o) => !o)}
                 aria-expanded={techOpen}
-                className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-bg-secondary/50 px-5 py-4 text-left transition-colors hover:border-border-hover"
+                aria-controls="technical-details"
+                className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-bg-secondary px-5 py-4 text-left transition-colors hover:border-border-hover"
               >
                 <span className="flex flex-col gap-0.5">
-                  <span className="font-[family-name:var(--font-mono)] text-xs font-medium uppercase tracking-wider text-accent-gold">
+                  <span className="font-semibold text-text-primary font-[family-name:var(--font-display)]">
                     {t('caseStudy.technicalDetails')}
                   </span>
                   <span className="text-sm text-text-tertiary">{t('caseStudy.technicalDetailsSub')}</span>
@@ -375,6 +306,7 @@ export default function CaseStudy() {
               <AnimatePresence initial={false}>
                 {techOpen && (
                   <m.div
+                    id="technical-details"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -384,7 +316,7 @@ export default function CaseStudy() {
                     <div className="space-y-10 px-1 pt-8">
                       {project.techStack.length > 0 && (
                         <div>
-                          <Eyebrow>{t('caseStudy.techStack')}</Eyebrow>
+                          <SubTitle>{t('caseStudy.techStack')}</SubTitle>
                           <div className="flex flex-wrap gap-2">
                             {project.techStack.map((tech) => (
                               <Badge key={tech}>{tech}</Badge>
@@ -395,19 +327,12 @@ export default function CaseStudy() {
 
                       {architecture.length > 0 && (
                         <div>
-                          <Eyebrow>{t('caseStudy.underTheHood')}</Eyebrow>
+                          <SubTitle>{t('caseStudy.underTheHood')}</SubTitle>
                           <dl className="divide-y divide-border border-y border-border">
-                            {architecture.map((note, i) => (
+                            {architecture.map((note) => (
                               <div key={note.area} className="grid gap-1 py-4 sm:grid-cols-[180px_1fr] sm:gap-6">
-                                <dt className="flex items-center gap-2.5 font-medium font-[family-name:var(--font-display)] text-text-primary">
-                                  <span className="font-[family-name:var(--font-mono)] text-xs text-accent-gold/70">
-                                    {String(i + 1).padStart(2, '0')}
-                                  </span>
-                                  {note.area}
-                                </dt>
-                                {note.detail && (
-                                  <dd className="text-sm leading-relaxed text-text-secondary">{note.detail}</dd>
-                                )}
+                                <dt className="font-medium text-text-primary font-[family-name:var(--font-display)]">{note.area}</dt>
+                                {note.detail && <dd className="text-sm leading-relaxed text-text-secondary">{note.detail}</dd>}
                               </div>
                             ))}
                           </dl>
@@ -416,11 +341,11 @@ export default function CaseStudy() {
 
                       {highlights.length > 0 && (
                         <div>
-                          <Eyebrow>{t('caseStudy.notableEngineering')}</Eyebrow>
+                          <SubTitle>{t('caseStudy.notableEngineering')}</SubTitle>
                           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                             {highlights.map((item, i) => (
                               <li key={i} className="flex items-start gap-3">
-                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold" aria-hidden="true" />
+                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-text-tertiary" aria-hidden="true" />
                                 <span className="text-sm leading-relaxed text-text-secondary">{item}</span>
                               </li>
                             ))}
@@ -434,21 +359,54 @@ export default function CaseStudy() {
             </Reveal>
           )}
 
-          {/* ---------- Next project ---------- */}
-          <m.div className="mt-20 pt-8 border-t border-border">
-            <Link
-              to={`/work/${nextProject.slug}`}
-              className="group flex items-center justify-between no-underline"
+          {/* ---------- Contact CTA ---------- */}
+          <Reveal className="mt-20">
+            <section
+              aria-labelledby="similar-project-heading"
+              className="rounded-xl border border-border bg-bg-secondary px-6 py-8 md:px-8"
             >
-              <div>
-                <span className="text-xs text-text-tertiary uppercase tracking-wider">{t('caseStudy.nextProject')}</span>
-                <h3 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary group-hover:text-accent-gold transition-colors">
-                  {nextProject.title}
-                </h3>
+              <h2
+                id="similar-project-heading"
+                className="text-2xl font-semibold text-text-primary font-[family-name:var(--font-display)]"
+              >
+                {t('caseStudy.similarProject')}
+              </h2>
+              <p className="mt-2 max-w-xl text-text-secondary">{t('caseStudy.similarProjectBody')}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90"
+                >
+                  {t('caseStudy.startProject')}
+                  <ArrowRight size={15} />
+                </Link>
+                <a
+                  href={SOCIAL.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-text-primary no-underline transition-colors hover:border-border-hover"
+                >
+                  <WhatsAppIcon size={16} />
+                  {t('caseStudy.whatsapp')}
+                </a>
               </div>
-              <ArrowRight className="text-text-tertiary group-hover:text-accent-gold transition-colors" size={24} />
-            </Link>
-          </m.div>
+            </section>
+          </Reveal>
+
+          {/* ---------- Next project ---------- */}
+          {nextProject && nextProject.slug !== project.slug && (
+            <div className="mt-16 border-t border-border pt-8">
+              <Link to={`/work/${nextProject.slug}`} className="group flex items-center justify-between no-underline">
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-text-tertiary">{t('caseStudy.nextProject')}</span>
+                  <h2 className="text-xl font-semibold text-text-primary transition-colors font-[family-name:var(--font-display)] group-hover:text-accent-gold">
+                    {nextProject.title}
+                  </h2>
+                </div>
+                <ArrowRight className="text-text-tertiary transition-colors group-hover:text-accent-gold" size={24} />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </PageTransition>

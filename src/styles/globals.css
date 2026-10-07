@@ -1,13 +1,42 @@
 @import "tailwindcss";
 
+/* Display: Mona Sans (OFL-1.1, see /fonts/LICENSE-MonaSans.txt), variable wght axis. */
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
-  font-weight: 300 900;
-  font-display: swap;
+  font-family: 'Mona Sans';
+  src: url('/fonts/MonaSans-Variable-latin-ext.woff2') format('woff2');
+  font-weight: 200 900;
   font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('/fonts/MonaSans-Variable-latin.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Accent: Instrument Serif Italic (OFL-1.1, see /fonts/LICENSE-InstrumentSerif.txt), one word per hero headline. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Italic-latin-ext.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Italic-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @font-face {
   font-family: 'Inter';
@@ -31,18 +60,18 @@
      ========================================================================== */
 
   /* Surface Colors */
-  --color-bg-primary: #0A0A0F;
-  --color-bg-secondary: #0D1117;
-  --color-bg-tertiary: #161B22;
-  --color-surface-base: #0A0A0F;
-  --color-surface-raised: #0D1117;
-  --color-surface-overlay: #161B22;
+  --color-bg-primary: #0F1115;
+  --color-bg-secondary: #15181E;
+  --color-bg-tertiary: #1C2027;
+  --color-surface-base: #0F1115;
+  --color-surface-raised: #15181E;
+  --color-surface-overlay: #1C2027;
 
   /* Text Colors */
-  --color-text-primary: #E6EDF3;
-  --color-text-secondary: #9BA4B0;
-  --color-text-tertiary: #8B949E;
-  --color-text-inverse: #1A1A2E;
+  --color-text-primary: #E8EAF0;
+  --color-text-secondary: #A3ABB8;
+  --color-text-tertiary: #8A93A3;
+  --color-text-inverse: #0F1115;
 
   /* Accent Colors: Primary brand palette (Cyan + Blue) */
   --color-accent-gold: #06B6D4;
@@ -53,11 +82,11 @@
   --color-accent-blue-dim: #0284C71A;
 
   /* Border Colors */
-  --color-border: #1B2332;
-  --color-border-hover: #2D3748;
-  --color-border-subtle: #1B2332;
-  --color-border-default: #2D3748;
-  --color-border-strong: #484F58;
+  --color-border: #242A33;
+  --color-border-hover: #343B47;
+  --color-border-subtle: #242A33;
+  --color-border-default: #343B47;
+  --color-border-strong: #4A5260;
 
   /* Semantic Colors */
   --color-success-base: #10B981;
@@ -75,9 +104,10 @@
      ========================================================================== */
 
   /* Font Families */
-  --font-display: 'Satoshi', system-ui, sans-serif;
+  --font-display: 'Mona Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
 
   /* Fluid Typography Scale - Responsive across viewports */
   --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);      /* 12-14px */
@@ -89,7 +119,7 @@
   --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);    /* 30-36px */
   --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);         /* 36-48px */
   --font-size-5xl: clamp(3rem, 2.4rem + 3vw, 4rem);               /* 48-64px */
-  --font-size-hero: clamp(3rem, 2rem + 5vw, 6rem);                /* 48-96px */
+  --font-size-hero: clamp(2.5rem, 1.6rem + 4vw, 4.75rem);         /* 40-76px */
 
   /* Line Heights */
   --leading-tight: 1.1;
@@ -123,15 +153,6 @@
   --space-24: clamp(6rem, 4.8rem + 6vw, 9rem);               /* 96-144px */
 
   /* ==========================================================================
-     GRADIENTS
-     ========================================================================== */
-
-  --gradient-liquid: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-blue));
-  --gradient-liquid-subtle: linear-gradient(135deg, var(--color-accent-gold-dim), var(--color-accent-blue-dim));
-  --gradient-liquid-vertical: linear-gradient(180deg, var(--color-accent-gold), var(--color-accent-blue));
-  --gradient-liquid-radial: radial-gradient(circle at 50% 50%, var(--color-accent-gold), var(--color-accent-blue));
-
-  /* ==========================================================================
      SHADOWS
      ========================================================================== */
 
@@ -139,8 +160,6 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-liquid: 0 8px 30px rgba(34, 211, 238, 0.15);
-  --shadow-liquid-strong: 0 12px 40px rgba(34, 211, 238, 0.25);
 
   /* ==========================================================================
      BORDER RADIUS
@@ -200,8 +219,6 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
-  --shadow-liquid: 0 8px 30px rgba(14, 116, 144, 0.2);
-  --shadow-liquid-strong: 0 12px 40px rgba(14, 116, 144, 0.3);
 }
 
 *,
@@ -215,10 +232,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeSpeed;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-accent-gold) transparent;
+  scrollbar-color: var(--color-border-hover) transparent;
 }
 
-/* Water-themed scrollbar */
+/* Thin, neutral scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -228,12 +245,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent-gold);
+  background: var(--color-border-hover);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-blue);
+  background: var(--color-text-tertiary);
 }
 
 body {
@@ -708,429 +725,41 @@ body {
 }
 
 a:not([class]) {
-  color: var(--color-accent-blue);
+  color: var(--color-accent-gold);
   text-decoration: none;
   transition: color 200ms ease;
 }
 
 a:not([class]):hover {
-  color: var(--color-accent-gold);
+  color: var(--color-accent-gold-hover);
 }
 
 /* ==========================================================================
-   Existing Keyframes
+   Hero texture: dark theme only, decorative. The photo is pre-graded to near-black
+   and kept at 10% opacity; the mask clears it before the headline column.
    ========================================================================== */
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-ripple {
+  display: none;
 }
 
-@keyframes ripple {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.04; }
-  50% { transform: translateY(-12px) scale(1.03); opacity: 0.08; }
-}
-
-@keyframes float-bubble {
-  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
-  25% { transform: translateY(-20px) translateX(8px) scale(1.05); }
-  50% { transform: translateY(-40px) translateX(-4px) scale(1.1); }
-  75% { transform: translateY(-20px) translateX(6px) scale(1.05); }
-}
-
-@keyframes drift {
-  0%, 100% { transform: translateX(0) translateY(0); }
-  33% { transform: translateX(30px) translateY(-15px); }
-  66% { transform: translateX(-20px) translateY(-8px); }
+.dark .hero-ripple {
+  display: block;
+  background: url('/images/hero-ripple.webp') 85% 50% / cover no-repeat;
+  opacity: 0.1;
+  mask-image: radial-gradient(ellipse 42% 75% at 88% 50%, #000 35%, transparent 100%);
 }
 
 /* ==========================================================================
-   Liquid / Fluid Animation Keyframes
+   Glass surface (navbar)
    ========================================================================== */
-
-/* Blob Morphing: organic shape-shifting for decorative background elements */
-@keyframes blob-morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-    transform: rotate(90deg) scale(1.05);
-  }
-  50% {
-    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
-    transform: rotate(180deg) scale(1);
-  }
-  75% {
-    border-radius: 40% 30% 60% 50% / 60% 70% 40% 30%;
-    transform: rotate(270deg) scale(1.03);
-  }
-}
-
-/* Blob Morph: subtle variant (no rotation, just shape change) */
-@keyframes blob-morph-subtle {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  33% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-  66% {
-    border-radius: 50% 30% 60% 40% / 40% 70% 30% 60%;
-  }
-}
-
-/* Wave: sinusoidal motion for section dividers and backgrounds */
-@keyframes wave {
-  0% {
-    transform: translateX(0) translateZ(0);
-  }
-  50% {
-    transform: translateX(-25%) translateZ(0);
-  }
-  100% {
-    transform: translateX(-50%) translateZ(0);
-  }
-}
-
-/* Wave vertical shift: for layered wave backgrounds */
-@keyframes wave-shift {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-/* Liquid Gradient Flow: slowly shifting gradient background position */
-@keyframes liquid-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Ripple Click: expanding ring effect for interactive elements */
-@keyframes ripple-click {
-  0% {
-    transform: scale(0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Ripple Pulse: continuous subtle pulse for hover states */
-@keyframes ripple-pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--color-accent-gold-dim);
-  }
-  70% {
-    box-shadow: 0 0 0 12px transparent;
-  }
-  100% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-}
-
-/* Fluid Text Reveal: clip-path wipe for text entrance */
-@keyframes fluid-text-reveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    clip-path: inset(0 0% 0 0);
-    opacity: 1;
-  }
-}
-
-/* Fluid Text Reveal from bottom */
-@keyframes fluid-text-reveal-up {
-  0% {
-    clip-path: inset(100% 0 0 0);
-    transform: translateY(12px);
-    opacity: 0;
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Enhanced Float: multi-axis organic float with rotation */
-@keyframes float-organic {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  20% {
-    transform: translateY(-15px) translateX(5px) rotate(1deg);
-  }
-  40% {
-    transform: translateY(-25px) translateX(-3px) rotate(-0.5deg);
-  }
-  60% {
-    transform: translateY(-10px) translateX(8px) rotate(0.5deg);
-  }
-  80% {
-    transform: translateY(-20px) translateX(-5px) rotate(-1deg);
-  }
-}
-
-/* Enhanced Drift: larger, slower multi-point drift path */
-@keyframes drift-wide {
-  0%, 100% { transform: translateX(0) translateY(0) scale(1); }
-  20% { transform: translateX(40px) translateY(-20px) scale(1.02); }
-  40% { transform: translateX(-15px) translateY(-35px) scale(0.98); }
-  60% { transform: translateX(25px) translateY(-10px) scale(1.03); }
-  80% { transform: translateX(-30px) translateY(-25px) scale(1); }
-}
-
-/* Liquid Shimmer: sweeping highlight effect */
-@keyframes liquid-shimmer {
-  0% {
-    transform: translateX(-100%) skewX(-15deg);
-  }
-  100% {
-    transform: translateX(200%) skewX(-15deg);
-  }
-}
-
-/* Shimmer pulse: subtle background shimmer */
-@keyframes shimmer-pulse {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-/* ==========================================================================
-   Liquid Utility Classes
-   ========================================================================== */
-
-/* --- Blob Morphing --- */
-.liquid-blob {
-  animation: blob-morph 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-.liquid-blob-subtle {
-  animation: blob-morph-subtle 10s ease-in-out infinite;
-}
-
-.liquid-blob-slow {
-  animation: blob-morph 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-/* --- Wave --- */
-.liquid-wave {
-  animation: wave 8s linear infinite;
-}
-
-.liquid-wave-slow {
-  animation: wave 15s linear infinite;
-}
-
-.liquid-wave-shift {
-  animation: wave-shift 4s ease-in-out infinite;
-}
-
-/* --- Liquid Gradient --- */
-.liquid-gradient {
-  background-size: 200% 200%;
-  animation: liquid-gradient 8s ease infinite;
-}
-
-.liquid-gradient-slow {
-  background-size: 300% 300%;
-  animation: liquid-gradient 15s ease infinite;
-}
-
-/* --- Ripple Effects --- */
-.liquid-ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-.liquid-ripple::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, var(--color-accent-gold) 10%, transparent 10.01%);
-  transform: scale(10);
-  opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
-}
-
-.liquid-ripple:active::after {
-  transform: scale(0);
-  opacity: 0.15;
-  transition: 0s;
-}
-
-.liquid-ripple-pulse:hover {
-  animation: ripple-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* --- Fluid Text Reveal --- */
-.liquid-text-reveal {
-  animation: fluid-text-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.liquid-text-reveal-up {
-  animation: fluid-text-reveal-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-/* --- Enhanced Floating / Drifting --- */
-.liquid-float {
-  animation: float-organic 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-.liquid-float-slow {
-  animation: float-organic 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-.liquid-drift {
-  animation: drift-wide 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-.liquid-drift-slow {
-  animation: drift-wide 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-
-/* --- Glassmorphism --- */
-.glass {
-  background: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-}
 
 .glass-strong {
   background: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent);
+  /* Standard property only: the build adds the -webkit- prefix. Writing both makes the
+     minifier keep just the prefixed one, which Chrome ignores. */
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
-}
-
-.glass-subtle {
-  background: color-mix(in srgb, var(--color-bg-secondary) 30%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
-}
-
-.glass-accent {
-  background: color-mix(in srgb, var(--color-accent-gold-dim) 40%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid color-mix(in srgb, var(--color-accent-gold) 20%, transparent);
-}
-
-/* --- Liquid Shimmer --- */
-.liquid-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.liquid-shimmer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--color-accent-gold) 10%, transparent),
-    transparent
-  );
-  animation: liquid-shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.liquid-shimmer-slow::before {
-  animation-duration: 5s;
-}
-
-.liquid-shimmer-once::before {
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-.liquid-shimmer-hover::before {
-  animation: none;
-}
-
-.liquid-shimmer-hover:hover::before {
-  animation: liquid-shimmer 0.8s ease-out forwards;
-}
-
-/* --- Animation Delay Utilities --- */
-.liquid-delay-100 { animation-delay: 100ms; }
-.liquid-delay-200 { animation-delay: 200ms; }
-.liquid-delay-300 { animation-delay: 300ms; }
-.liquid-delay-500 { animation-delay: 500ms; }
-.liquid-delay-700 { animation-delay: 700ms; }
-.liquid-delay-1000 { animation-delay: 1000ms; }
-
-/* --- Animation Play State Utilities --- */
-.liquid-paused,
-.liquid-paused *,
-.liquid-paused *::before,
-.liquid-paused *::after { animation-play-state: paused; }
-.liquid-running { animation-play-state: running; }
-
-/* --- Liquid Link Hover States --- */
-.liquid-link {
-  position: relative;
-  display: inline-block;
-}
-
-.liquid-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-accent-gold), var(--color-accent-blue));
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.liquid-link:hover::after {
-  width: 100%;
-}
-
-/* Animated underline variant - flows left to right then disappears */
-@keyframes liquid-underline-flow {
-  0% {
-    width: 0;
-    left: 0;
-  }
-  50% {
-    width: 100%;
-    left: 0;
-  }
-  100% {
-    width: 0;
-    left: 100%;
-  }
-}
-
-.liquid-link-animated::after {
-  animation: liquid-underline-flow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
@@ -1147,36 +776,9 @@ a:not([class]):hover {
     scroll-behavior: auto !important;
   }
 
-  .liquid-blob,
-  .liquid-blob-subtle,
-  .liquid-blob-slow,
-  .liquid-wave,
-  .liquid-wave-slow,
-  .liquid-wave-shift,
-  .liquid-gradient,
-  .liquid-gradient-slow,
-  .liquid-float,
-  .liquid-float-slow,
-  .liquid-drift,
-  .liquid-drift-slow,
-  .liquid-shimmer::before,
-  .liquid-shimmer-slow::before,
-  .liquid-shimmer-hover:hover::before,
-  .liquid-text-reveal,
-  .liquid-text-reveal-up,
-  .liquid-ripple-pulse {
-    animation: none !important;
-  }
-
-  .liquid-ripple::after {
-    display: none;
-  }
-
-  .glass,
-  .glass-strong,
-  .glass-subtle,
-  .glass-accent {
+  /* Without the blur, a translucent bar lets page text show through: go opaque. */
+  .glass-strong {
+    background: var(--color-bg-secondary);
     backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 }

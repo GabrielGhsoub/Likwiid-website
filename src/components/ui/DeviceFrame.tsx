@@ -1,54 +1,87 @@
 import { cn } from '../../utils/cn'
 
-interface PhoneFrameProps {
+// One screenshot treatment for the whole site: mobile screens sit in a plain rounded
+// phone frame, web screens in a minimal browser frame. Flat, theme-token colors only.
+
+interface FrameProps {
   children: React.ReactNode
   className?: string
 }
 
-export function PhoneFrame({ children, className }: PhoneFrameProps) {
+export function PhoneFrame({ children, className }: FrameProps) {
   return (
-    <div className={cn('inline-flex flex-col items-center', className)}>
-      <div className="relative bg-[#1a1a1a] rounded-[2rem] p-[4px] shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_8px_40px_rgba(0,0,0,0.2)]" style={{ width: 'clamp(210px, 70vw, 320px)' }}>
-        {/* Dynamic Island */}
-        <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[22%] h-[6px] bg-[#000] rounded-full z-20" />
-        {/* Screen */}
-        <div className="relative rounded-[1.8rem] overflow-hidden bg-black">
-          {children}
-        </div>
-        {/* Home indicator */}
-        <div className="absolute bottom-[3px] left-1/2 -translate-x-1/2 w-[28%] h-[3px] bg-[#444] rounded-full" />
+    <div className={cn('flex w-full flex-col items-center', className)}>
+      {/* Fills the carousel viewport (220/280/320px by breakpoint) so it is never clipped. */}
+      <div className="w-full rounded-[2rem] border border-border bg-bg-secondary p-1.5">
+        <div className="relative overflow-hidden rounded-[1.6rem] bg-bg-tertiary">{children}</div>
       </div>
     </div>
   )
 }
 
-interface BrowserFrameProps {
-  children: React.ReactNode
-  className?: string
+function BrowserChrome({ compact = false }: { compact?: boolean }) {
+  return (
+    <div
+      className={cn(
+        'flex items-center border-b border-border bg-bg-secondary',
+        compact ? 'gap-1 px-2 py-1.5' : 'gap-1.5 px-3 py-2.5',
+      )}
+      aria-hidden="true"
+    >
+      {[0, 1, 2].map((i) => (
+        <span key={i} className={cn('rounded-full bg-border', compact ? 'h-1.5 w-1.5' : 'h-2.5 w-2.5')} />
+      ))}
+    </div>
+  )
 }
 
-export function BrowserFrame({ children, className }: BrowserFrameProps) {
+export function BrowserFrame({ children, className }: FrameProps) {
   return (
     <div className={cn('flex flex-col', className)}>
-      <div className="rounded-lg overflow-hidden shadow-[0_0_0_1px_rgba(0,0,0,0.1),0_8px_40px_rgba(0,0,0,0.2)]">
-        {/* Browser chrome */}
-        <div className="bg-[#2d2d2d] px-4 py-2.5 flex items-center gap-3">
-          {/* Traffic lights */}
-          <div className="flex items-center gap-1.5">
-            <div className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]" />
-            <div className="w-[10px] h-[10px] rounded-full bg-[#febc2e]" />
-            <div className="w-[10px] h-[10px] rounded-full bg-[#28c840]" />
-          </div>
-          {/* URL bar */}
-          <div className="flex-1 bg-[#1a1a1a] rounded-md px-3 py-1 mx-8">
-            <div className="w-[60%] h-[8px] rounded bg-[#444]" />
-          </div>
-        </div>
-        {/* Content */}
-        <div className="bg-black">
-          {children}
-        </div>
+      <div className="overflow-hidden rounded-lg border border-border bg-bg-tertiary">
+        <BrowserChrome />
+        <div className="bg-bg-tertiary">{children}</div>
       </div>
+    </div>
+  )
+}
+
+interface ProjectPreviewProps {
+  src: string
+  alt: string
+  platform: 'mobile' | 'web'
+  priority?: boolean
+}
+
+// Card-sized preview used on /work and the Home "Selected work" block. It fills its parent,
+// which must be `relative` with a definite size (an aspect ratio or a stretched height).
+// Mobile screens sit in a phone frame about 88% of the box height; web screens fill the
+// width in a browser frame cropped to 16:10 from the top.
+export function ProjectPreview({ src, alt, platform, priority = false }: ProjectPreviewProps) {
+  const imgProps = {
+    src,
+    alt,
+    loading: priority ? ('eager' as const) : ('lazy' as const),
+    decoding: 'async' as const,
+    fetchPriority: priority ? ('high' as const) : ('auto' as const),
+  }
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center">
+      {platform === 'mobile' ? (
+        <div className="aspect-[9/19.5] h-[88%] rounded-[1.1rem] border border-border bg-bg-secondary p-1">
+          <div className="h-full overflow-hidden rounded-[0.85rem] bg-bg-tertiary">
+            <img {...imgProps} className="block h-full w-full object-cover object-top" />
+          </div>
+        </div>
+      ) : (
+        <div className="w-[90%] overflow-hidden rounded-md border border-border bg-bg-secondary">
+          <BrowserChrome compact />
+          <div className="aspect-[16/10] overflow-hidden bg-bg-tertiary">
+            <img {...imgProps} className="block h-full w-full object-cover object-top" />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

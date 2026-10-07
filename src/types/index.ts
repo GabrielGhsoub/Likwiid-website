@@ -18,7 +18,7 @@ export interface Project {
   subtitle: string
   client: string
   // Honest delivery state shown on the work index: 'live' = running in production or in
-  // app stores, 'shipped' = built end to end but not publicly released, 'inDevelopment'.
+  // app stores, 'shipped' = finished build not publicly released, 'inDevelopment'.
   status: ProjectStatus
   category: ProjectCategory
   year: string
@@ -31,22 +31,30 @@ export interface Project {
   images: string[]
   previewImage?: string
   previewAlt?: string
+  // Shown in the "Selected work" block on Home.
   featured: boolean
-  spotlight?: boolean
-  gradient: string
   platform: 'mobile' | 'web'
   platformLabel?: string
   liveUrl?: string
   liveLabel?: string
   androidUrl?: string
+  // A second product shipped as part of the same engagement (e.g. an admin portal),
+  // rendered as its own section with its own screenshots on the case study page.
+  companion?: ProjectCompanion
   // --- Rich case-study fields (optional; sections hide gracefully when absent) ---
   oneLiner?: string
   role?: string
-  timeline?: string
   metrics?: ProjectMetric[]
   keyFeatures?: ProjectFeature[]
   architecture?: ProjectArchitectureNote[]
   highlights?: string[]
+}
+
+export interface ProjectCompanion {
+  title: string
+  summary: string
+  platform: 'mobile' | 'web'
+  images: string[]
 }
 
 export interface ProjectMetric {
@@ -66,34 +74,6 @@ export interface ProjectArchitectureNote {
 }
 
 export type ProjectCategory = 'Enterprise' | 'Mobile' | 'IoT' | 'AI' | 'All'
-
-export interface Skill {
-  name: string
-  category: SkillCategory
-}
-
-export type SkillCategory = 'Frontend' | 'Backend' | 'Cloud & DevOps' | 'Mobile' | 'AI & Data' | 'Other'
-
-export interface Stat {
-  value: string
-  label: string
-  // Stable i18n key (under the `stats` namespace) so labels can be renamed without breaking
-  // translation lookups.
-  key: string
-}
-
-export interface PersonalInfo {
-  name: string
-  title: string
-  location: string
-  bio: string
-  stats: Stat[]
-}
-
-export interface NavLink {
-  label: string
-  path: string
-}
 
 export interface ContactFormData {
   name: string
