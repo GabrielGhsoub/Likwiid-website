@@ -102,4 +102,6 @@ export interface ContactAttribution {
   ref?: string
   landingPage?: string
   referrer?: string
+  // Site language the visitor was reading when they sent the form.
+  locale?: string
 }
