@@ -10,10 +10,19 @@ but we credit the photographers anyway because their work deserves it.
    Photographer: Sara Calado
    Source: https://unsplash.com/photos/city-skyline-during-night-time-sACdgzcdzEU
    Licence: Unsplash Licence
-   Used: home page, founder section (cropped, converted to grayscale, softened)
-   Files: /images/beirut-skyline.webp, /images/beirut-skyline-800.webp
+   Used: home page, founder section, dark theme (cropped, converted to grayscale)
+   Files: /images/beirut-night-1600.webp, /images/beirut-night-2400.webp,
+          /images/beirut-night-m800.webp, /images/beirut-night-m1600.webp
 
-2. Close up of a water ripple
+2. Zaitunay Bay, Beirut, at dusk, with the marina and the waterfront towers
+   Photographer: Rashid Khreiss
+   Source: https://unsplash.com/photos/a-city-skyline-with-boats-in-the-water-kTY3NDvhH4I
+   Licence: Unsplash Licence
+   Used: home page, founder section, light theme (cropped, converted to grayscale)
+   Files: /images/beirut-bay-1600.webp, /images/beirut-bay-2400.webp,
+          /images/beirut-bay-m800.webp, /images/beirut-bay-m1600.webp
+
+3. Close up of a water ripple
    Photographer: Julian Böck
    Source: https://unsplash.com/photos/close-up-photo-of-water-ripple-UuAs_sR4frs
    Licence: Unsplash Licence
