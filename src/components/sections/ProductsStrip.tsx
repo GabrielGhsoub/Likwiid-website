@@ -5,6 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { BrowserFrame } from '../ui/BrowserFrame'
 import { Reveal } from '../ui/Reveal'
 import { directDemoHref, frameDemoHref } from '../../utils/demoLinks'
+import { useTheme } from '../../hooks/useTheme'
 import { umamiAttrs } from '../../utils/analytics'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
@@ -13,6 +14,7 @@ const BACK_PATH = '/'
 
 export function ProductsStrip() {
   const { t, i18n } = useTranslation()
+  const { theme } = useTheme()
   const localize = useLocalizedPath()
 
   // Brand names are the same in every language, so they live here, not in the locale files.
@@ -22,14 +24,14 @@ export function ProductsStrip() {
       name: 'Likwiid Direct',
       to: '/direct',
       image: '/direct-demo-preview.jpg',
-      demoHref: directDemoHref(i18n.language ?? '', BACK_PATH),
+      demoHref: directDemoHref(i18n.language ?? '', BACK_PATH, 'quinta-likwiid', theme),
     },
     {
       key: 'frame',
       name: 'Likwiid Frame',
       to: '/frame',
       image: '/frame-demo-ana-preview.jpg',
-      demoHref: frameDemoHref(BACK_PATH),
+      demoHref: frameDemoHref(BACK_PATH, 'ana-likwiid', 'p', theme),
     },
   ] as const
 

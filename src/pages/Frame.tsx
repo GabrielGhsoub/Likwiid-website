@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { frameDemoHref } from '../utils/demoLinks'
+import { useTheme } from '../hooks/useTheme'
 import { umamiAttrs } from '../utils/analytics'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
@@ -52,8 +53,9 @@ export default function Frame() {
   const localize = useLocalizedPath()
   // This page's own path, localized or not: the demos' "Back to Likwiid" chip returns here.
   const backPath = useLocation().pathname
-  const demoHref = (slug: string) => frameDemoHref(backPath, slug)
-  const adminDemoHref = frameDemoHref(backPath, 'ana-likwiid', 'admin')
+  const { theme } = useTheme()
+  const demoHref = (slug: string) => frameDemoHref(backPath, slug, 'p', theme)
+  const adminDemoHref = frameDemoHref(backPath, 'ana-likwiid', 'admin', theme)
 
   useEffect(() => {
     document.title = t('frame.docTitle')
