@@ -39,6 +39,11 @@ const FEATURES = [
   { icon: Languages, titleKey: 'feature6Title', descKey: 'feature6Desc' },
 ] as const
 
+const TIERS = [
+  { nameKey: 'tier1Name', priceKey: 'tier1Price', descKey: 'tier1Desc' },
+  { nameKey: 'tier2Name', priceKey: 'tier2Price', descKey: 'tier2Desc' },
+] as const
+
 const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary'
 
 export default function Frame() {
@@ -161,6 +166,29 @@ export default function Frame() {
               </div>
             ))}
           </div>
+
+          {/* Price band: the same two figures the outreach emails quote */}
+          <section aria-labelledby="price-heading" className="mt-20">
+            <h2 id="price-heading" className={H2}>
+              {t('frame.priceTitle')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('frame.priceIntro')}
+            </p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {TIERS.map((tier) => (
+                <div key={tier.nameKey} className="rounded-xl border border-border bg-bg-secondary p-6">
+                  <h3 className="text-lg font-semibold font-[family-name:var(--font-display)] text-text-primary">
+                    {t(`frame.${tier.nameKey}`)}
+                  </h3>
+                  <p className="mt-1 text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
+                    {t(`frame.${tier.priceKey}`)}
+                  </p>
+                  <p className="mt-3 text-text-secondary leading-relaxed">{t(`frame.${tier.descKey}`)}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* Honest scarcity */}
           <p className="mt-16 max-w-3xl text-text-secondary leading-relaxed">

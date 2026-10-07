@@ -5,9 +5,9 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
 
 const ROWS = [
-  { key: 'apps', to: '/services', linkKey: 'linkServices', priceKey: null },
-  { key: 'booking', to: '/direct', linkKey: 'linkDirect', priceKey: 'bookingPrice' },
-  { key: 'ai', to: '/services', linkKey: 'linkServices', priceKey: null },
+  { key: 'apps', to: '/services', linkKey: 'linkServices' },
+  { key: 'booking', to: '/direct', linkKey: 'linkDirect' },
+  { key: 'ai', to: '/services', linkKey: 'linkServices' },
 ] as const
 
 export function WhatWeBuild() {
@@ -29,10 +29,7 @@ export function WhatWeBuild() {
               </h3>
               <div>
                 <p className="max-w-2xl text-text-secondary leading-relaxed">{t(`whatWeBuild.${row.key}Body`)}</p>
-                <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
-                  {row.priceKey && (
-                    <span className="font-medium text-text-primary">{t(`whatWeBuild.${row.priceKey}`)}</span>
-                  )}
+                <div className="mt-3">
                   <Link
                     to={row.to}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline hover:underline"

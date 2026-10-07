@@ -7,3 +7,10 @@ export const founder = {
   photoWidth: 1230,
   photoHeight: 1308,
 } as const
+
+// Cofounder placeholder until his photo, title and bio arrive; the monogram
+// stands in for the photo.
+export const cofounder = {
+  name: 'Emile',
+  monogram: 'E',
+} as const
