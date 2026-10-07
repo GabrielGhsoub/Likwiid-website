@@ -104,7 +104,9 @@ export function Founder() {
               {cofounder.name}
             </h3>
             <p className="mt-1 text-text-tertiary">{t('founder.cofounderRole')}</p>
-            <p className="mt-4 text-text-secondary leading-relaxed">{t('founder.cofounderLine')}</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              {t('founder.cofounderLine1')} {t('founder.cofounderLine2')}
+            </p>
           </div>
         </Reveal>
       </div>
