@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useLocalizedFeaturedProjects } from '../../i18n/localizedContent'
 import { ProjectPreview } from '../ui/DeviceFrame'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 const HOME_FEATURED_COUNT = 3
 
@@ -14,6 +15,7 @@ const itemTransition = (i: number) => ({ duration: 0.4, delay: i * 0.06, ease: [
 
 export function FeaturedWork() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   const homeProjects = useLocalizedFeaturedProjects().slice(0, HOME_FEATURED_COUNT)
 
   return (
@@ -78,7 +80,7 @@ export function FeaturedWork() {
 
         <div className="mt-8">
           <Link
-            to="/work"
+            to={localize('/work')}
             className="inline-flex items-center gap-2 py-3 text-sm font-medium text-accent-gold transition-colors hover:text-accent-gold-hover"
           >
             {t('featuredWork.viewAll')}

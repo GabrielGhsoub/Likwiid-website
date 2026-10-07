@@ -12,6 +12,7 @@ import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import { SOCIAL } from '../utils/constants'
 import { umamiAttrs } from '../utils/analytics'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 16 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
@@ -73,6 +74,7 @@ function Reveal({ children, className }: { children: ReactNode; className?: stri
 
 export default function CaseStudy() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   const { slug } = useParams<{ slug: string }>()
   const projects = useLocalizedProjects()
   const projectIndex = projects.findIndex((p) => p.slug === slug)
@@ -141,7 +143,7 @@ export default function CaseStudy() {
         <div className="relative mx-auto max-w-[820px]">
           {/* ---------- Back link ---------- */}
           <Link
-            to="/work"
+            to={localize('/work')}
             className="mb-8 inline-flex w-fit items-center gap-2 py-1 text-sm text-text-secondary transition-colors hover:text-text-primary"
           >
             <ArrowLeft size={14} /> {t('caseStudy.backToWork')}

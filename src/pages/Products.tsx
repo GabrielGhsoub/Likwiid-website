@@ -8,6 +8,7 @@ import { BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { Button } from '../components/ui/Button'
 import { directDemoHref, frameDemoHref } from '../utils/demoLinks'
 import { umamiAttrs } from '../utils/analytics'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 // Brand names are the same in every language, so they live here rather than in
 // the locale files. Copy lives under the "products" namespace.
@@ -20,6 +21,7 @@ const POINTS = [1, 2, 3] as const
 
 export default function Products() {
   const { t, i18n } = useTranslation()
+  const localize = useLocalizedPath()
   // This page's own path, localized or not: the demos' "Back to Likwiid" chip returns here.
   const BACK_PATH = useLocation().pathname
 
@@ -53,7 +55,7 @@ export default function Products() {
               >
                 <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
                   <Link
-                    to={product.to}
+                    to={localize(product.to)}
                     tabIndex={-1}
                     aria-hidden="true"
                     className={`block no-underline ${index % 2 === 1 ? 'lg:order-last' : ''}`}
