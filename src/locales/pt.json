@@ -26,29 +26,29 @@
   "footer": {
     "copyright": "© {{year}} Likwiid. Fundada por Gabriel Ghoussoub.",
     "privacy": "Política de privacidade",
-    "tagline": "Beirute, Líbano. Trabalhamos com todo o mundo. Respondemos em 24 horas."
+    "tagline": "Beirute, Líbano. Trabalhamos com clientes de todo o mundo. Respondemos em 24 horas."
   },
   "hero": {
     "title": "Sites de reservas e aplicações para hotéis <em>independentes</em> e fundadores.",
     "description": "A Likwiid é dirigida por Gabriel Ghoussoub a partir de Beirute, trabalha com clientes de todo o mundo e responde em 24 horas.",
     "ctaPrimary": "Iniciar um projeto",
-    "ctaSecondary": "Ver o trabalho"
+    "ctaSecondary": "Ver os projetos"
   },
   "whatWeBuild": {
     "title": "O que construímos",
     "appsTitle": "Aplicações web e móveis",
-    "appsBody": "Aplicações que os seus clientes e a sua equipa usam a sério, desenhadas, desenvolvidas e lançadas de ponta a ponta.",
+    "appsBody": "Aplicações que os seus clientes e a sua equipa usam mesmo, desenhadas, desenvolvidas e lançadas de ponta a ponta.",
     "bookingTitle": "Sites de reservas",
     "bookingBody": "Um site rápido onde hóspedes e clientes reservam e lhe pagam diretamente, sem comissões para plataformas.",
     "aiTitle": "Integração de IA e resgate de código",
-    "aiBody": "Funcionalidades de IA que poupam tempo real à sua equipa, ou uma solução clara para um código que deixou de avançar.",
+    "aiBody": "Funcionalidades de IA que poupam mesmo tempo à sua equipa, ou uma solução clara para um código que deixou de avançar.",
     "linkServices": "Ver serviços",
     "linkDirect": "Ver como funciona"
   },
   "featuredWork": {
     "title": "Trabalho selecionado",
     "subtitle": "Projetos recentes para clientes e para o nosso próprio estúdio.",
-    "viewAll": "Ver todo o trabalho"
+    "viewAll": "Ver todos os projetos"
   },
   "productsStrip": {
     "title": "Produtos",
@@ -170,7 +170,7 @@
     "intro": "Dois motores que construímos nós próprios e configuramos para cada cliente, ambos com demos ao vivo.",
     "demoNote": "As marcas das demos são fictícias e qualquer passo de pagamento é simulado.",
     "directDesc": "Um motor de reservas diretas sem comissões para pequenos alojamentos e experiências.",
-    "directBody": "O Likwiid Direct recebe reservas no seu próprio site: o seu domínio, a sua conta de pagamentos, a sua lista de hóspedes. Sem comissões, sem intermediários, sem dependências. Configurado para cada alojamento, não um simples modelo.",
+    "directBody": "O Likwiid Direct recebe reservas no seu próprio site: o seu domínio, a sua conta de pagamentos, a sua lista de hóspedes. Sem comissões, sem intermediários, sem amarras. Configurado para cada alojamento, não um simples modelo.",
     "directPoint1": "Vive dentro do site que já tem",
     "directPoint2": "Sinais por cartão, opções que alteram o preço e a língua do hóspede bem tratada",
     "directPoint3": "Sincronização de calendários por iCal: uma reserva direta fecha a data em todas as outras plataformas onde anuncia",
@@ -200,7 +200,7 @@
     "clientWorkLabel": "Trabalho para cliente",
     "studioHeading": "Produtos do estúdio",
     "studioProductLabel": "Produto do estúdio",
-    "studioIntro": "Produtos que desenhamos, desenvolvemos e lançamos com o nome Likwiid. Os mesmos padrões, o nosso próprio roteiro.",
+    "studioIntro": "Produtos que desenhamos, desenvolvemos e lançamos com o nome Likwiid. Os mesmos padrões, o nosso próprio roadmap.",
     "statusLive": "Em produção",
     "statusShipped": "Entregue",
     "statusInDevelopment": "Em desenvolvimento",
@@ -231,20 +231,20 @@
     "feature6Desc": "Estadia mínima e máxima, a antecedência de que precisa, dias livres entre reservas, preços por época e períodos de encerramento. O calendário só oferece o que aceitaria.",
     "feature7Title": "As suas condições, aceites antes de qualquer envio",
     "feature7Desc": "As suas condições de cancelamento e de pagamento aparecem no último passo, e ninguém consegue reservar nem enviar um pedido sem assinalar que as leu.",
-    "feature8Title": "Um painel de proprietário com a sua marca",
-    "feature8Desc": "Pedidos para aprovar ou recusar, uma lista de reservas com pesquisa e exportação, um calendário que bloqueia com um clique, os seus clientes e os respetivos créditos, e os seus textos e preços. Edita tudo sem precisar de nós.",
+    "feature8Title": "Um painel do proprietário com a sua marca",
+    "feature8Desc": "Pedidos para aprovar ou recusar, uma lista de reservas com pesquisa e exportação, um calendário que bloqueia com um clique, os seus clientes e os respetivos créditos, e os seus textos e preços. Edita tudo por si próprio.",
     "scarcity": "Este motor ainda não gere as reservas de ninguém, por isso o primeiro alojamento recebe um preço de referência em troca de nos deixar mostrar o trabalho final. Se uma plataforma já o serve bem e a comissão não o incomoda, este produto não é para si.",
-    "demoLaunch": "Abrir a demonstração completa",
+    "demoLaunch": "Abrir a demo completa",
     "demoPreviewAlt": "Pré-visualização do fluxo de reservas do Likwiid Direct",
     "demoCard1Title": "Uma estadia numa casa de hóspedes",
     "demoCard1Property": "Quinta Likwiid",
     "demoCard2Title": "Aulas e workshops",
     "demoCard2Property": "Atelier Likwiid",
     "syncTitle": "Sem reservas duplicadas",
-    "syncBody": "O Likwiid Direct importa as datas ocupadas dos calendários que já utiliza. Serve qualquer plataforma que exporte um feed iCal, e essas datas fecham aqui automaticamente. Também exporta um feed por unidade, por isso uma reserva direta fecha a data em todos os outros sítios onde anuncia. Na demo ao vivo, o calendário sincronizado contém dados de exemplo. A sincronização não é instantânea: os feeds atualizam-se segundo um horário, e o calendário mostra quando sincronizou pela última vez, para que saiba sempre quão recentes são as datas ocupadas.",
+    "syncBody": "O Likwiid Direct importa as datas ocupadas dos calendários que já utiliza. Funciona com qualquer plataforma que exporte um feed iCal, e essas datas fecham aqui automaticamente. Também exporta um feed por unidade, por isso uma reserva direta fecha a data em todos os outros sítios onde anuncia. Na demo ao vivo, o calendário sincronizado contém dados de exemplo. A sincronização não é instantânea: os feeds atualizam-se a intervalos regulares, e o calendário mostra quando sincronizou pela última vez, para que saiba sempre quão recentes são as datas ocupadas.",
     "requestTitle": "Nada se confirma sem si",
-    "requestBody": "O Likwiid Direct funciona em modo de pedido para os proprietários que confirmam cada reserva pessoalmente. O visitante escolhe as datas, o número de pessoas e os extras, vê um total estimado e envia-lho. Nada fica reservado e nada é cobrado. O pedido chega com tudo o que de outra forma teria de perguntar, e o proprietário confirma, sugere outra data ou recusa, tal como faz hoje.",
-    "requestNote": "Quando quiser que as reservas se confirmem sozinhas, passe para reserva imediata com sinal por cartão a partir do seu painel de proprietário. A mesma página, o mesmo calendário.",
+    "requestBody": "O Likwiid Direct funciona em modo de pedido para os proprietários que confirmam cada reserva pessoalmente. O visitante escolhe as datas, o número de pessoas e os extras, vê um total estimado e envia-lho. Nada fica reservado e nada é cobrado. O pedido chega com tudo o que de outra forma teria de perguntar, e confirma, sugere outra data ou recusa, tal como faz hoje.",
+    "requestNote": "Quando quiser que as reservas se confirmem sozinhas, passe para reserva imediata com sinal por cartão a partir do painel do proprietário. A mesma página, o mesmo calendário.",
     "ownerTitle": "O que recebe",
     "ownerBadge": "Ilustração",
     "ownerNotifTitle": "A notificação de reserva",
@@ -255,7 +255,7 @@
     "ownerMockRoomLabel": "Quarto",
     "ownerMockRoomName": "Quarto Vinha",
     "ownerMockDatesLabel": "Datas",
-    "ownerMockDatesValue": "20 ago a 23 ago de 2026",
+    "ownerMockDatesValue": "20 a 23 de agosto de 2026",
     "ownerMockGuestsLabel": "Hóspedes",
     "ownerMockExtra1": "Prova de vinhos",
     "ownerMockExtra2": "Cesto de pequeno-almoço",
@@ -272,10 +272,10 @@
     "siteBody": "Também desenhamos e desenvolvemos o site completo à volta do motor: design, desenvolvimento e lançamento, pensados primeiro para o telemóvel, em 2 a 4 semanas.",
     "siteItem1": "Design e desenvolvimento, mobile-first",
     "siteItem2": "Fluxo de reserva ou de pedido online",
-    "siteItem3": "Chat do WhatsApp com um clique integrado",
-    "siteItem4": "Alojamento e configuração do domínio",
+    "siteItem3": "Botão de conversa por WhatsApp integrado",
+    "siteItem4": "Alojamento web e configuração do domínio",
     "siteItem5": "Formação para que a sua equipa o possa gerir",
-    "siteItem6": "Uma pessoa real que responde em menos de 24 horas",
+    "siteItem6": "Uma pessoa real que responde em 24 horas",
     "proofBody": "Já fizemos isto antes: uma plataforma de reserva de campos onde os jogadores reservam e pagam no telemóvel, e os proprietários gerem tudo a partir de um único painel.",
     "proofLink": "Ver o caso de estudo de reservas de padel"
   },
@@ -288,16 +288,16 @@
     "ctaTalk": "Fale connosco",
     "demoTitle": "Experimente por si próprio",
     "demoNote": "A Ana Likwiid Photography e o Studio Likwiid são fictícios: um único motor, duas marcas que parecem estúdios diferentes. As provas e o pagamento são simulados e não é cobrado nenhum valor.",
-    "demoLaunch": "Abrir a demonstração completa",
+    "demoLaunch": "Abrir a demo completa",
     "demoCard1Title": "Uma fotógrafa de casamentos",
     "demoCard1Brand": "Ana Likwiid Photography",
-    "demoCard1PreviewAlt": "Pré-visualização da Ana Likwiid Photography, um portfólio de casamento criado com o Likwiid Frame",
+    "demoCard1PreviewAlt": "Pré-visualização da Ana Likwiid Photography, um portfólio de casamentos criado com o Likwiid Frame",
     "demoCard2Title": "Um estúdio de arte e trabalho comercial",
     "demoCard2Brand": "Studio Likwiid",
-    "demoCard2PreviewAlt": "Pré-visualização do Studio Likwiid, um portfólio de arte e comercial criado com o Likwiid Frame",
+    "demoCard2PreviewAlt": "Pré-visualização do Studio Likwiid, um portfólio de arte e trabalho comercial criado com o Likwiid Frame",
     "adminTitle": "E a parte que ninguém vê, além de si",
     "adminBody": "Cada site Frame inclui um painel do proprietário com a sua marca: reorganize galerias, publique fotografias, edite textos e preços, acompanhe as provas e reveja as encomendas de impressões.",
-    "adminLink": "Abrir a demo do painel de proprietário",
+    "adminLink": "Abrir a demo do painel do proprietário",
     "painTitle": "Porque não ficar numa plataforma?",
     "painBody": "As plataformas de portfólio alugam-lhe o seu próprio trabalho. A subscrição sobe todos os anos e sair significa recomeçar do zero, porque as suas galerias, as seleções dos clientes e o posicionamento nos motores de busca ficam nos servidores deles. O Frame é entregue em ficheiros que são seus, no seu próprio domínio, sem nada para renovar.",
     "pipelineNote": "Cada fotografia é servida no tamanho certo em formatos modernos, com os seus dados de direitos de autor preservados, para que as páginas carreguem depressa e a pesquisa de imagens lhe atribua o crédito.",
@@ -311,18 +311,18 @@
     "feature6Title": "Línguas e SEO, bem feitos",
     "feature6Desc": "Sites multilingues, português europeu incluído, com títulos de página e dados estruturados configurados para que os motores de busca percebam o seu nome, a sua cidade e as suas imagens.",
     "priceTitle": "Quanto custa",
-    "priceIntro": "Paga uma vez, sem subscrição, sem comissão e sem taxa por reserva. O valor exato depende do número de galerias e de línguas. O alojamento é seu e costuma ser gratuito ou quase.",
+    "priceIntro": "Paga uma vez, sem subscrição, sem comissão e sem taxa por reserva. O valor exato depende do número de galerias e de línguas. O alojamento web é seu e costuma ser gratuito ou quase.",
     "tier1Name": "Portfólio",
     "tier1Price": "cerca de 400 €",
-    "tier1Desc": "O portfólio público: galerias, sobre, serviços e contacto, no seu próprio domínio, entregue como ficheiros que são seus.",
+    "tier1Desc": "O portfólio público: galerias, página de apresentação, serviços e contacto, no seu próprio domínio, entregue em ficheiros que são seus.",
     "tier2Name": "Versão completa",
     "tier2Price": "cerca de 900 €",
-    "tier2Desc": "Todo o portfólio, mais a seleção de fotografias pelos clientes, a loja de impressões e as reservas integradas.",
+    "tier2Desc": "Tudo o que inclui o Portfólio, mais as provas para clientes, a loja de impressões e as reservas integradas.",
     "scarcity": "Este motor ainda não gere o portfólio de nenhum fotógrafo, por isso o primeiro a sério recebe o valor mais baixo dessa faixa em troca de nos deixar mostrar o trabalho final. Se uma subscrição de plataforma já o serve bem, é uma ótima forma de gerir um estúdio, e este produto não é para si."
   },
   "privacy": {
-    "documentTitle": "Política de Privacidade | Likwiid",
-    "title": "Política de Privacidade",
+    "documentTitle": "Política de privacidade | Likwiid",
+    "title": "Política de privacidade",
     "lastUpdated": "Última atualização: {{date}}",
     "collectTitle": "Informações que recolhemos",
     "collectBody": "Quando utiliza o nosso formulário de contacto, recolhemos as informações que nos fornece: o seu nome, endereço de e-mail, nome da empresa (se indicado) e o conteúdo da mensagem. Não recolhemos automaticamente nenhuma informação além do estritamente necessário para o funcionamento do site.",
@@ -331,9 +331,9 @@
     "sharingTitle": "Partilha de dados",
     "sharingBody": "Não vendemos, trocamos nem partilhamos as suas informações pessoais com terceiros. Os seus dados ficam connosco e são utilizados exclusivamente para a finalidade com que foram fornecidos.",
     "cookiesTitle": "Cookies e armazenamento local",
-    "cookiesBody": "Utilizamos apenas armazenamento essencial do navegador. Guardamos a sua preferência de tema, claro ou escuro, no localStorage e, durante uma única visita, as etiquetas de campanha da ligação que seguiu no sessionStorage. Não utilizamos cookies de rastreamento nem cookies de terceiros.",
+    "cookiesBody": "Utilizamos apenas armazenamento essencial do navegador. Guardamos a sua preferência de tema, claro ou escuro, no localStorage e, durante uma única visita, as etiquetas de campanha da ligação que seguiu no sessionStorage. Não utilizamos cookies de rastreio nem cookies de terceiros.",
     "analyticsTitle": "Estatísticas",
-    "analyticsBody": "Utilizamos uma ferramenta de estatísticas que respeita a privacidade, o Umami, alojada no nosso próprio servidor, que não utiliza cookies e não rastreia dados pessoais. Contamos visualizações de página e cliques em botões como o de contacto ou o de abrir uma demonstração, e respeitamos a definição Do Not Track do seu navegador. Se chegar através de uma ligação com etiquetas de campanha, guardamos essas etiquetas e a página de chegada no sessionStorage do seu navegador durante a visita, e enviamo-las com o formulário de contacto para sabermos como nos encontrou. Nada disto o identifica, e a sua navegação não é seguida entre sites.",
+    "analyticsBody": "Utilizamos uma ferramenta de estatísticas que respeita a privacidade, o Umami, alojada no nosso próprio servidor, que não utiliza cookies e não rastreia dados pessoais. Contamos visualizações de página e cliques em botões como o de contacto ou o de abrir uma demo, e respeitamos a definição Do Not Track do seu navegador. Se chegar através de uma ligação com etiquetas de campanha, guardamos essas etiquetas e a página de chegada no sessionStorage do seu navegador durante a visita, e enviamo-las com o formulário de contacto para sabermos como nos encontrou. Nada disto o identifica, e a sua navegação não é seguida entre sites.",
     "retentionTitle": "Conservação de dados",
     "retentionBody": "Os envios do formulário de contacto são conservados para fins comerciais legítimos, como manter registos das comunicações com clientes e das conversas sobre projetos. Guardamos estes dados apenas durante o tempo necessário para essas finalidades.",
     "rightsTitle": "Os seus direitos",
@@ -367,7 +367,7 @@
     "businessImpact": "Impacto no negócio",
     "technicalDetails": "Detalhes técnicos",
     "technicalDetailsSub": "Stack, arquitetura e notas de engenharia",
-    "techStack": "Stack tecnológico",
+    "techStack": "Stack tecnológica",
     "underTheHood": "Por dentro",
     "notableEngineering": "Engenharia em destaque",
     "similarProject": "Tem um projeto semelhante?",
@@ -390,7 +390,7 @@
       "metrics": [
         {
           "value": "2",
-          "label": "Lojas de aplicações, publicada"
+          "label": "Lojas de aplicações onde está publicada"
         },
         {
           "value": "3",
@@ -502,7 +502,7 @@
         },
         {
           "title": "Ilustrações científicas por medida",
-          "description": "Moléculas, ADN e ondas desenhadas à mão e animadas, em vez de imagens de banco."
+          "description": "Moléculas, ADN e ondas desenhadas à mão e animadas, em vez de imagens de stock."
         },
         {
           "title": "Estatísticas de visitas que respeitam a privacidade",
@@ -551,7 +551,7 @@
       "title": "VoxFlow",
       "subtitle": "Uma aplicação de prática vocal diária que funciona totalmente offline",
       "oneLiner": "Uma aplicação privada e offline que orienta 10 minutos diários de prática vocal.",
-      "description": "O VoxFlow junta o temporizador, as instruções, o gravador e as leituras da recuperação vocal numa rotina calma de 10 minutos. Não precisa de conta e guarda todas as gravações no telemóvel.",
+      "description": "O VoxFlow junta o temporizador, as instruções, o gravador e as leituras sobre recuperação vocal numa rotina calma de 10 minutos. Não precisa de conta e guarda todas as gravações no telemóvel.",
       "challenge": "Quem faz exercícios de voz tinha de conciliar um temporizador, notas, um gravador e artigos. A maioria das aplicações acrescenta ainda pressão com sequências de dias e contas na nuvem, algo que este público não quer.",
       "approach": "Criámos uma única rotina guiada que diz ao utilizador o que fazer a cada momento. As gravações ficam privadas, e é possível ouvir uma gravação antiga ao lado de uma recente para ouvir a evolução.",
       "results": "Uma aplicação Android concluída, com boas-vindas, sessões guiadas, biblioteca de gravações, comparação lado a lado, calendário de progresso e uma pequena biblioteca de aprendizagem. Funciona sem ligação à internet.",
@@ -859,7 +859,7 @@
         "Aplicações web e painéis",
         "Aplicações iOS e Android",
         "APIs, bases de dados e integrações",
-        "Lançamento, alojamento e passagem de testemunho"
+        "Lançamento, alojamento web e passagem de testemunho"
       ]
     },
     "booking": {
@@ -875,7 +875,7 @@
     },
     "ai": {
       "title": "Integração de IA e automação",
-      "shortDescription": "Funcionalidades de IA e automações que poupam tempo real.",
+      "shortDescription": "Funcionalidades de IA e automações que poupam mesmo tempo.",
       "longDescription": "Acrescentamos IA onde ela compensa: responder a perguntas de clientes, ler documentos, redigir respostas ou passar dados entre ferramentas. Cada funcionalidade é entregue com uma alternativa de recurso e custos de funcionamento previsíveis.",
       "deliverables": [
         "Funcionalidades de IA dentro do seu produto",
@@ -898,7 +898,7 @@
   },
   "categories": {
     "All": "Todos",
-    "Enterprise": "Empresa",
+    "Enterprise": "Empresarial",
     "Mobile": "Móvel",
     "IoT": "IoT",
     "AI": "IA"
