@@ -10,6 +10,7 @@ import { ProjectPreview } from '../components/ui/DeviceFrame'
 import { HospitalityCaseStudy } from '../components/sections/HospitalityCaseStudy'
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { Project, ProjectStatus } from '../types'
+import { umamiAttrs } from '../utils/analytics'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 16 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
@@ -86,12 +87,24 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
           <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
             <div className="flex flex-wrap items-center gap-2">
               {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={STORE_LINK_CLASS}>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={STORE_LINK_CLASS}
+                  {...umamiAttrs('store-link', { store: project.liveLabel ? 'web' : 'ios', project: project.slug, location: 'work' })}
+                >
                   <ExternalLink size={12} /> {project.liveLabel ?? t('portfolio.appStore')}
                 </a>
               )}
               {project.androidUrl && (
-                <a href={project.androidUrl} target="_blank" rel="noopener noreferrer" className={STORE_LINK_CLASS}>
+                <a
+                  href={project.androidUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={STORE_LINK_CLASS}
+                  {...umamiAttrs('store-link', { store: 'android', project: project.slug, location: 'work' })}
+                >
                   <ExternalLink size={12} /> {t('portfolio.playStore')}
                 </a>
               )}

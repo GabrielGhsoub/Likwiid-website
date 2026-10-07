@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { SOCIAL } from '../../utils/constants'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 import { Logo } from '../ui/Logo'
+import { umamiAttrs } from '../../utils/analytics'
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -48,6 +49,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-3 text-text-secondary hover:text-text-primary transition-colors"
               aria-label="WhatsApp"
+              {...umamiAttrs('cta-whatsapp', { location: 'footer' })}
             >
               <WhatsAppIcon size={20} />
             </a>
@@ -57,6 +59,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-3 text-text-secondary hover:text-text-primary transition-colors"
               aria-label="GitHub"
+              {...umamiAttrs('social-click', { network: 'github', location: 'footer' })}
             >
               <Github size={20} />
             </a>
@@ -66,6 +69,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-3 text-text-secondary hover:text-text-primary transition-colors"
               aria-label="LinkedIn"
+              {...umamiAttrs('social-click', { network: 'linkedin', location: 'footer' })}
             >
               <Linkedin size={20} />
             </a>
@@ -73,6 +77,7 @@ export function Footer() {
               href={`mailto:${SOCIAL.email}`}
               className="p-3 text-text-secondary hover:text-text-primary transition-colors"
               aria-label="Email"
+              {...umamiAttrs('cta-email', { location: 'footer' })}
             >
               <Mail size={20} />
             </a>

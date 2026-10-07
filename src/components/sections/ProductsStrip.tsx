@@ -5,6 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { BrowserFrame } from '../ui/BrowserFrame'
 import { Reveal } from '../ui/Reveal'
 import { directDemoHref, frameDemoHref } from '../../utils/demoLinks'
+import { umamiAttrs } from '../../utils/analytics'
 
 // The demos' "Back to Likwiid" chip returns visitors to the home page.
 const BACK_PATH = '/'
@@ -56,6 +57,7 @@ export function ProductsStrip() {
                 <a
                   href={product.demoHref}
                   className="inline-flex items-center gap-1.5 text-text-secondary no-underline hover:text-text-primary"
+                  {...umamiAttrs('demo-launch', { product: product.key, demo: 'default', location: 'home-products' })}
                 >
                   <Play size={14} aria-hidden="true" />
                   {t('productsStrip.tryDemo')}
