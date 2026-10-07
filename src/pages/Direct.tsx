@@ -1,7 +1,18 @@
 import { useEffect } from 'react'
-import { useTranslation, Trans } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
-import { SlidersHorizontal, CreditCard, Code2, Languages, Check, ArrowRight } from 'lucide-react'
+import {
+  SlidersHorizontal,
+  CreditCard,
+  Code2,
+  Languages,
+  Users,
+  ListChecks,
+  ShieldCheck,
+  LayoutDashboard,
+  Check,
+  ArrowRight,
+} from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
@@ -45,9 +56,14 @@ const CAL_DAYS = 31
 const CAL_BOOKED = [20, 21, 22]
 const CAL_BLOCKED = [7, 8, 28]
 
+// Every card describes something the public demos let a visitor try.
 const FEATURES = [
   { icon: SlidersHorizontal, titleKey: 'feature1Title', descKey: 'feature1Desc' },
   { icon: CreditCard, titleKey: 'feature2Title', descKey: 'feature2Desc' },
+  { icon: Users, titleKey: 'feature5Title', descKey: 'feature5Desc' },
+  { icon: ListChecks, titleKey: 'feature6Title', descKey: 'feature6Desc' },
+  { icon: ShieldCheck, titleKey: 'feature7Title', descKey: 'feature7Desc' },
+  { icon: LayoutDashboard, titleKey: 'feature8Title', descKey: 'feature8Desc' },
   { icon: Code2, titleKey: 'feature3Title', descKey: 'feature3Desc' },
   { icon: Languages, titleKey: 'feature4Title', descKey: 'feature4Desc' },
 ] as const
@@ -96,6 +112,20 @@ export default function Direct() {
             </div>
           </div>
 
+          {/* Request mode leads: nothing confirms and nothing is charged until
+              the owner says so. Instant booking with a deposit is the upgrade. */}
+          <section aria-labelledby="request-heading" className="mt-20">
+            <h2 id="request-heading" className={H2}>
+              {t('direct.requestTitle')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('direct.requestBody')}
+            </p>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('direct.requestNote')}
+            </p>
+          </section>
+
           {/* Live demo */}
           <section id="demo" aria-labelledby="demo-heading" className="mt-20 scroll-mt-24">
             <h2 id="demo-heading" className={H2}>
@@ -143,17 +173,6 @@ export default function Direct() {
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
               {t('direct.syncBody')}
-            </p>
-          </section>
-
-          {/* Request mode: the engine also runs without a payment step, for
-              owners who confirm every booking themselves. */}
-          <section aria-labelledby="request-heading" className="mt-20">
-            <h2 id="request-heading" className={H2}>
-              {t('direct.requestTitle')}
-            </h2>
-            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
-              {t('direct.requestBody')}
             </p>
           </section>
 
@@ -304,12 +323,7 @@ export default function Direct() {
                 <h2 id="website-heading" className={H2}>
                   {t('direct.siteTitle')}
                 </h2>
-                <p className="mt-4 text-text-secondary leading-relaxed">
-                  <Trans
-                    i18nKey="direct.sitePricing"
-                    components={{ b: <span className="font-semibold text-text-primary" /> }}
-                  />
-                </p>
+                <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.siteBody')}</p>
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
                 <Link
                   to="/work/padel-booking"
