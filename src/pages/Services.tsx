@@ -6,11 +6,13 @@ import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { ContactBlock } from '../components/sections/ContactBlock'
 import { useLocalizedServices } from '../i18n/localizedContent'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 const STEPS = ['step1', 'step2', 'step3'] as const
 
 export default function Services() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   const services = useLocalizedServices()
 
   useEffect(() => { document.title = t('services.documentTitle') }, [t])
@@ -49,7 +51,7 @@ export default function Services() {
                     <>
                       <p className="mt-6 text-text-primary">{t('services.bookingPrice')}</p>
                       <Link
-                        to="/direct"
+                        to={localize('/direct')}
                         className="mt-3 inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
                       >
                         {t('services.bookingLink')}

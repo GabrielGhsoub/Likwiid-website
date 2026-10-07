@@ -11,6 +11,7 @@ import { useFormSubmit } from '../hooks/useFormSubmit'
 import { SOCIAL } from '../utils/constants'
 import { track, umamiAttrs, getAttribution, attributionEventData } from '../utils/analytics'
 import type { ContactFormData } from '../types'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 // Values are sent to the inbox in English; labels are translated.
 const PROJECT_TYPES = [
@@ -42,6 +43,7 @@ const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 14
 
 export default function Contact() {
   const { t, i18n } = useTranslation()
+  const localize = useLocalizedPath()
   const { status, submit, reset } = useFormSubmit()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
   // Timestamp of when the form became available, used for the anti-spam timing heuristic.
@@ -228,7 +230,7 @@ export default function Contact() {
                       }}
                     />
                   </p>
-                  <Link to="/work" className="mt-5 text-accent-gold text-sm hover:underline">
+                  <Link to={localize('/work')} className="mt-5 text-accent-gold text-sm hover:underline">
                     {t('contact.successBrowseWork')}
                   </Link>
                   <button

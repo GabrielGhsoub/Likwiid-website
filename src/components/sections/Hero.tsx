@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 // Plain typographic hero. Nothing here is animated or opacity-gated: the H1 is the
 // largest contentful paint and must render on the first frame.
 export function Hero() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
 
   return (
     <section className="relative isolate flex min-h-[70vh] items-center overflow-hidden px-6 pt-28 pb-16">
@@ -32,7 +34,7 @@ export function Hero() {
             {t('hero.ctaPrimary')}
           </Button>
           <Link
-            to="/work"
+            to={localize('/work')}
             className="inline-flex min-h-11 items-center gap-2 font-medium text-text-primary no-underline transition-colors hover:text-accent-gold"
           >
             {t('hero.ctaSecondary')}

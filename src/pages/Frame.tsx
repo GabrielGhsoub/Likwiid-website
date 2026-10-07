@@ -8,6 +8,7 @@ import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { frameDemoHref } from '../utils/demoLinks'
 import { umamiAttrs } from '../utils/analytics'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 // The two public demo portfolios plus the owner panel. Both brands are fictional;
 // the engine wears each photographer's brand, which is the product story.
@@ -48,6 +49,7 @@ const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(
 
 export default function Frame() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   // This page's own path, localized or not: the demos' "Back to Likwiid" chip returns here.
   const backPath = useLocation().pathname
   const demoHref = (slug: string) => frameDemoHref(backPath, slug)
@@ -156,7 +158,7 @@ export default function Frame() {
                 <p className="mt-2 text-text-secondary leading-relaxed">{t(`frame.${feature.descKey}`)}</p>
                 {'linkTo' in feature ? (
                   <Link
-                    to={feature.linkTo}
+                    to={localize(feature.linkTo)}
                     className="mt-3 inline-flex items-center gap-1.5 text-accent-gold text-sm font-medium no-underline hover:underline"
                   >
                     {t(`frame.${feature.linkKey}`)}

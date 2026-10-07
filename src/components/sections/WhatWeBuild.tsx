@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 const ROWS = [
   { key: 'apps', to: '/services', linkKey: 'linkServices' },
@@ -12,6 +13,7 @@ const ROWS = [
 
 export function WhatWeBuild() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
 
   return (
     <section className="px-6 py-16 md:py-24">
@@ -31,7 +33,7 @@ export function WhatWeBuild() {
                 <p className="max-w-2xl text-text-secondary leading-relaxed">{t(`whatWeBuild.${row.key}Body`)}</p>
                 <div className="mt-3">
                   <Link
-                    to={row.to}
+                    to={localize(row.to)}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline hover:underline"
                   >
                     {t(`whatWeBuild.${row.linkKey}`)}

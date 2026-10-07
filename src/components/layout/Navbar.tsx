@@ -9,6 +9,7 @@ import { useTheme } from '../../hooks/useTheme'
 import { useBeirutTime } from '../../hooks/useBeirutTime'
 import { LanguageLinks } from '../ui/LanguageLinks'
 import { Logo } from '../ui/Logo'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 const navKey = (path: string) => (path === '/' ? 'home' : path.replace(/^\//, ''))
 
@@ -34,6 +35,8 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
+  const isActive = (path: string) => location.pathname.replace(/\/+$/, '') === localize(path)
   const { theme, toggleTheme } = useTheme()
   const beirutTime = useBeirutTime()
   const isPrivateWalkthroughRoute =
@@ -170,19 +173,19 @@ export function Navbar() {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
-                aria-current={location.pathname === link.path ? 'page' : undefined}
+                to={localize(link.path)}
+                aria-current={isActive(link.path) ? 'page' : undefined}
                 className={cn(
                   'inline-flex min-h-11 items-center text-sm font-medium transition-colors duration-200 no-underline relative',
                   isPrivateWalkthroughRoute
                     ? isPocLight
-                      ? location.pathname === link.path ? 'text-[#252017] font-semibold' : 'text-[#6B6258] hover:text-[#252017]'
-                      : location.pathname === link.path ? 'text-[#FFF8EA] font-semibold' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
-                    : location.pathname === link.path ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
+                      ? isActive(link.path) ? 'text-[#252017] font-semibold' : 'text-[#6B6258] hover:text-[#252017]'
+                      : isActive(link.path) ? 'text-[#FFF8EA] font-semibold' : 'text-[#D9D0C4] hover:text-[#FFF8EA]'
+                    : isActive(link.path) ? 'text-text-primary font-semibold' : 'text-text-secondary hover:text-text-primary',
                 )}
               >
                 {t(`nav.${navKey(link.path)}`)}
-                {location.pathname === link.path && (
+                {isActive(link.path) && (
                   <m.div
                     className="absolute bottom-2 left-0 right-0 h-px bg-current"
                     layoutId="navbar-indicator"
@@ -317,20 +320,20 @@ export function Navbar() {
                         transition={MOBILE_LINK_TRANSITIONS[i]}
                       >
                         <Link
-                          to={link.path}
+                          to={localize(link.path)}
                           onClick={closeMobile}
-                          aria-current={location.pathname === link.path ? 'page' : undefined}
+                          aria-current={isActive(link.path) ? 'page' : undefined}
                           className={cn(
                             'block px-4 py-3 rounded-lg font-[family-name:var(--font-display)] font-medium no-underline transition-[background-color,color] duration-200 text-base',
                             isPrivateWalkthroughRoute
                               ? isPocLight
-                                ? location.pathname === link.path
+                                ? isActive(link.path)
                                   ? 'bg-[#D7B56D]/18 text-[#7A5B22]'
                                   : 'text-[#252017] hover:bg-[#D8CAB5]/35 hover:text-[#7A5B22]'
-                                : location.pathname === link.path
+                                : isActive(link.path)
                                   ? 'bg-[#D7B56D]/12 text-[#E9C56F]'
                                   : 'text-[#FFF8EA] hover:bg-[#EEE1C6]/10 hover:text-[#E9C56F]'
-                              : location.pathname === link.path
+                              : isActive(link.path)
                                 ? 'bg-accent-gold/10 text-accent-gold'
                                 : 'text-text-primary hover:bg-bg-tertiary hover:text-accent-gold',
                           )}

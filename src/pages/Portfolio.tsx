@@ -11,6 +11,7 @@ import { HospitalityCaseStudy } from '../components/sections/HospitalityCaseStud
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { Project, ProjectStatus } from '../types'
 import { umamiAttrs } from '../utils/analytics'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 16 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
@@ -140,6 +141,7 @@ type WorkFilter = 'all' | 'client' | 'studio'
 
 export default function Portfolio() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   const [filter, setFilter] = useState<WorkFilter>('all')
 
   useEffect(() => { document.title = t('portfolio.documentTitle') }, [t])
@@ -179,7 +181,7 @@ export default function Portfolio() {
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary md:text-base">
                   {t('portfolio.hospitalityBody')}
                 </p>
-                <Link to="/direct" className="mt-2 inline-block text-sm font-medium text-accent-gold hover:underline">
+                <Link to={localize('/direct')} className="mt-2 inline-block text-sm font-medium text-accent-gold hover:underline">
                   {t('hospitality.directLink')}
                 </Link>
               </div>
