@@ -34,15 +34,15 @@ export function ClientQuote({ quote, className }: ClientQuoteProps) {
 
   return (
     <figure
-      className={`relative overflow-hidden rounded-xl border border-border bg-bg-secondary px-6 pb-7 pt-6 md:px-10 md:pb-9 md:pt-8 ${className ?? ''}`}
+      className={`relative overflow-hidden rounded-xl border border-border bg-bg-secondary px-6 pb-7 pt-6 md:px-10 md:pb-9 md:pt-8${className ? ` ${className}` : ''}`}
     >
       <span
         aria-hidden="true"
-        className="block select-none font-[family-name:var(--font-serif)] text-6xl leading-[0.8] text-accent-gold md:text-7xl"
+        className="block select-none font-[family-name:var(--font-serif)] h-8 text-7xl leading-none text-accent-gold md:h-10 md:text-8xl"
       >
         &ldquo;
       </span>
-      <blockquote lang={resolved.lang !== pageLang ? resolved.lang : undefined} className="mt-2">
+      <blockquote lang={resolved.lang !== pageLang ? resolved.lang : undefined} className="mt-3">
         <p className="max-w-2xl text-xl font-medium leading-snug text-text-primary font-[family-name:var(--font-display)] md:text-2xl">
           {resolved.text}
         </p>
