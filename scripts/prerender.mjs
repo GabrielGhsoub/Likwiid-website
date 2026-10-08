@@ -170,6 +170,31 @@ for (const slug of LOCALIZED_CASE_STUDIES) {
   }
 }
 
+// Free calculators at /tools/<slug>/ in every language. Titles and breadcrumb names come from
+// the tools.<copy> locale block (the page sets the same docTitle as document.title),
+// descriptions from seo.<seo>. Keep in sync with LOCALIZED_TOOLS in src/i18n/localeRoutes.ts
+// and public/sitemap.xml.
+const LOCALIZED_TOOLS = {
+  'ota-commission-calculator': { copy: 'ota', seo: 'otaCalculator' },
+  'portfolio-cost-calculator': { copy: 'portfolio', seo: 'portfolioCalculator' },
+}
+for (const [slug, keys] of Object.entries(LOCALIZED_TOOLS)) {
+  for (const lang of LANGUAGES) {
+    const copy = locales[lang].tools?.[keys.copy]
+    const description = locales[lang].seo?.[keys.seo]?.description
+    if (!copy?.docTitle || !copy?.name || !description) throw new Error(`prerender: missing ${lang} copy for tools/${slug}`)
+    const path = localizedRoute(lang, `tools/${slug}`)
+    routes[path] = {
+      lang,
+      title: copy.docTitle,
+      description,
+      hreflang: true,
+      breadcrumb: [{ name: copy.name, path }],
+      webApplication: { name: copy.name },
+    }
+  }
+}
+
 function jsonLdGraph(path, meta) {
   const graph = []
   const lang = meta.lang ?? 'en'
@@ -201,6 +226,22 @@ function jsonLdGraph(path, meta) {
       inLanguage: lang,
     })
   }
+  if (meta.webApplication) {
+    // A free tool that runs in the browser. No offers or prices, as for the Service above.
+    graph.push({
+      '@type': 'WebApplication',
+      '@id': `${canonicalUrl(path)}#app`,
+      name: meta.webApplication.name,
+      description: meta.description,
+      url: canonicalUrl(path),
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Any',
+      browserRequirements: 'Requires JavaScript',
+      isAccessibleForFree: true,
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: lang,
+    })
+  }
   if (meta.creativeWork) {
     graph.push({
       '@type': 'CreativeWork',
@@ -218,7 +259,7 @@ function jsonLdGraph(path, meta) {
 }
 
 // A localized cluster (home, services, contact, work, direct, frame, products, localized
-// case studies): every language variant plus x-default pointing at English, per Google's
+// case studies, tools): every language variant plus x-default pointing at English, per Google's
 // localized-pages guidance. Injected into each route of the cluster.
 function hreflangLinks(path) {
   const page = path.replace(/^(?:pt|es|it|fr)(?:\/|$)/, '')
