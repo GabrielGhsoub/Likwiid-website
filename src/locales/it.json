@@ -27,6 +27,10 @@
     "privacy": "Informativa sulla privacy",
     "tagline": "Beirut, Libano. Lavoriamo in tutto il mondo. Rispondiamo entro 24 ore."
   },
+  "home": {
+    "documentTitle": "Likwiid | Studio di software",
+    "metaDescription": "Likwiid è uno studio guidato dai fondatori, con sede a Beirut, che realizza siti di prenotazione, app web e app mobile per hotel indipendenti e founder in tutto il mondo."
+  },
   "hero": {
     "title": "Siti di prenotazione e app per hotel <em>indipendenti</em> e founder.",
     "description": "Likwiid è guidato da Gabriel Ghoussoub, con sede a Beirut: lavora con clienti in tutto il mondo e risponde entro 24 ore.",
@@ -82,6 +86,7 @@
   },
   "contact": {
     "documentTitle": "Contatti | Likwiid",
+    "metaDescription": "Inizia una conversazione sul tuo progetto. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Rispondiamo entro 24 ore.",
     "heading": "Contatti",
     "subheading": "Inizia una conversazione sul tuo prossimo progetto.",
     "introTitle": "Costruiamo qualcosa insieme.",
@@ -137,6 +142,7 @@
   },
   "services": {
     "documentTitle": "Servizi | Likwiid",
+    "metaDescription": "Quattro tipi di lavoro: prodotti web e mobile, siti di prenotazione per ospitalità e appuntamenti, integrazione IA e automazione, e architettura, cloud e recupero del codice.",
     "title": "Servizi",
     "subtitle": "Quattro tipi di lavoro, ognuno definito, progettato e sviluppato dalla persona con cui parli.",
     "bookingPrice": "La maggior parte dei siti di prenotazione richiede da 2 a 4 settimane.",

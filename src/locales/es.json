@@ -27,6 +27,10 @@
     "privacy": "Política de privacidad",
     "tagline": "Beirut, Líbano. Trabajamos en todo el mundo. Respondemos en menos de 24 horas."
   },
+  "home": {
+    "documentTitle": "Likwiid | Estudio de software",
+    "metaDescription": "Likwiid es un estudio dirigido por sus fundadores en Beirut que crea webs de reservas, aplicaciones web y apps móviles para hoteles independientes y fundadores de todo el mundo."
+  },
   "hero": {
     "title": "Webs de reservas y apps para hoteles <em>independientes</em> y fundadores.",
     "description": "Likwiid lo dirige Gabriel Ghoussoub desde Beirut, trabaja con clientes de todo el mundo y responde en menos de 24 horas.",
@@ -82,6 +86,7 @@
   },
   "contact": {
     "documentTitle": "Contacto | Likwiid",
+    "metaDescription": "Inicia una conversación sobre tu proyecto. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Respondemos en menos de 24 horas.",
     "heading": "Contacto",
     "subheading": "Inicia una conversación sobre tu próximo proyecto.",
     "introTitle": "Construyamos algo juntos.",
@@ -137,6 +142,7 @@
   },
   "services": {
     "documentTitle": "Servicios | Likwiid",
+    "metaDescription": "Cuatro tipos de trabajo: productos web y móviles, webs de reservas para hostelería y citas, integración de IA y automatización, y arquitectura, nube y rescate de código.",
     "title": "Servicios",
     "subtitle": "Cuatro tipos de trabajo, cada uno definido, diseñado y desarrollado por la persona con la que hablas.",
     "bookingPrice": "La mayoría de las webs de reservas tardan de 2 a 4 semanas.",
