@@ -144,6 +144,13 @@ export default function Frame() {
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
               {t('frame.painBody')}
             </p>
+            <Link
+              to={localize('/tools/portfolio-cost-calculator')}
+              className="mt-4 inline-block font-medium text-accent-gold no-underline hover:underline"
+            >
+              {t('tools.portfolio.crossLink')}
+              <ArrowRight size={16} aria-hidden="true" className="ml-1.5 inline-block align-[-3px]" />
+            </Link>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
               {t('frame.pipelineNote')}
             </p>
