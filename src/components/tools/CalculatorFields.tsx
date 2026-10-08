@@ -7,8 +7,7 @@ import { CURRENCIES, type Currency } from '../../utils/calculator'
 // numeric keyboard rather than type="number", so "1 500" or "149,90" type naturally in every
 // language (see parseNumber).
 
-const INPUT =
-  'w-full min-w-0 bg-transparent py-3 text-text-primary placeholder:text-text-tertiary focus:outline-none'
+const INPUT = 'w-full min-w-0 bg-transparent py-3 text-text-primary placeholder:text-text-tertiary'
 const FRAME =
   'flex items-center gap-2 rounded-lg border bg-bg-secondary px-4 transition-[border-color,box-shadow] duration-300 focus-within:border-accent-gold focus-within:shadow-[0_0_0_3px_var(--color-accent-gold-dim)]'
 
@@ -53,6 +52,9 @@ export function NumberField({ id, label, hint, value, onChange, prefix, suffix, 
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={INPUT}
+          // The frame around the input draws the focus ring (focus-within), so the global
+          // :focus-visible outline would only add a second box inside it.
+          style={{ outline: 'none' }}
         />
         {suffix ? (
           <span aria-hidden="true" className="shrink-0 text-sm text-text-tertiary font-[family-name:var(--font-mono)]">
