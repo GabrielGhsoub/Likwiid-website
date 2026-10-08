@@ -3,24 +3,20 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from './hooks/useTheme'
 import App from './App'
-import { AfterFirstCommit } from './components/layout/AfterFirstCommit'
+import { afterHydration } from './utils/afterHydration'
 import { preloadRoute } from './routes'
 import i18n, { loadLanguage, startupLanguages } from './i18n/config'
 import './styles/globals.css'
 
-function app(afterFirstCommit?: () => void) {
-  return (
-    <StrictMode>
-      <BrowserRouter>
-        <ThemeProvider>
-          <AfterFirstCommit run={afterFirstCommit}>
-            <App />
-          </AfterFirstCommit>
-        </ThemeProvider>
-      </BrowserRouter>
-    </StrictMode>
-  )
-}
+const app = (
+  <StrictMode>
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </StrictMode>
+)
 
 async function start() {
   const container = document.getElementById('root')!
@@ -43,16 +39,15 @@ async function start() {
     // language differs (unprefixed pages only) switches right after hydration: same flash of
     // English as a fresh render would give, but the static DOM is kept, not rebuilt.
     await i18n.changeLanguage(languages.html)
-    const switchLanguage =
-      languages.preferred !== languages.html && preferredReady
-        ? () => void i18n.changeLanguage(languages.preferred)
-        : undefined
-    hydrateRoot(container, app(switchLanguage))
+    if (languages.preferred !== languages.html && preferredReady) {
+      afterHydration(() => void i18n.changeLanguage(languages.preferred))
+    }
+    hydrateRoot(container, app)
     return
   }
 
   await i18n.changeLanguage(preferredReady ? languages.preferred : languages.html)
-  createRoot(container).render(app())
+  createRoot(container).render(app)
 }
 
 void start()
