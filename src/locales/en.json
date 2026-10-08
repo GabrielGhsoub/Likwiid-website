@@ -389,6 +389,7 @@
       "errorNumber": "Enter a number, such as 12 or 12.5.",
       "errorPercent": "Enter a percentage from 0 to 100.",
       "emptyResult": "Fill in the fields to see your figures. They update as you type.",
+      "fixErrors": "Check the highlighted field to see your figures.",
       "privacyNote": "The calculation runs in your browser. The numbers you type are not sent or saved anywhere.",
       "howTitle": "How it is calculated",
       "ctaContact": "Talk to us"

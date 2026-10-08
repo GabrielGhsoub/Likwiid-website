@@ -179,7 +179,9 @@ export default function OtaCommissionCalculator() {
                     />
                   </div>
                 ) : (
-                  <p className="text-text-secondary leading-relaxed">{t('tools.common.emptyResult')}</p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {t(Object.keys(errors).length ? 'tools.common.fixErrors' : 'tools.common.emptyResult')}
+                  </p>
                 )}
               </div>
               {ready ? (

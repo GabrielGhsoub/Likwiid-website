@@ -393,6 +393,7 @@
       "errorNumber": "Introduza um número, por exemplo 12 ou 12,5.",
       "errorPercent": "Introduza uma percentagem entre 0 e 100.",
       "emptyResult": "Preencha os campos para ver os seus resultados. Atualizam à medida que escreve.",
+      "fixErrors": "Verifique o campo assinalado para ver os seus resultados.",
       "privacyNote": "O cálculo é feito no seu navegador. Os números que introduz não são enviados nem guardados.",
       "howTitle": "Como é calculado",
       "ctaContact": "Fale connosco"

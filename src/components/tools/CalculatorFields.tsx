@@ -153,7 +153,7 @@ export function RangeField({ id, label, valueText, min, max, step, value, onChan
         <label htmlFor={id} className="text-sm text-text-secondary">
           {label}
         </label>
-        <span aria-hidden="true" className="text-sm font-medium text-text-primary font-[family-name:var(--font-mono)]">
+        <span aria-hidden="true" className="shrink-0 whitespace-nowrap text-sm font-medium text-text-primary font-[family-name:var(--font-mono)]">
           {valueText}
         </span>
       </div>

@@ -389,6 +389,7 @@
       "errorNumber": "Saisissez un nombre, par exemple 12 ou 12,5.",
       "errorPercent": "Saisissez un pourcentage entre 0 et 100.",
       "emptyResult": "Remplissez les champs pour voir vos résultats. Ils se mettent à jour pendant la saisie.",
+      "fixErrors": "Vérifiez le champ signalé pour voir vos résultats.",
       "privacyNote": "Le calcul se fait dans votre navigateur. Les chiffres saisis ne sont ni envoyés ni enregistrés.",
       "howTitle": "Comment le calcul est fait",
       "ctaContact": "Parlons-en"
