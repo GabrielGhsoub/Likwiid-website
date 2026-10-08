@@ -15,6 +15,19 @@ export const LOCALIZED_CASE_STUDIES: readonly string[] = ['padel-booking']
 
 export const isLocalizedCaseStudy = (slug: string | undefined): boolean => LOCALIZED_CASE_STUDIES.includes(slug ?? '')
 
+// Free calculators under /tools/<slug>, in every language (/pt/tools/<slug>, same English slug
+// like the rest of the site). Keep this list in sync with scripts/prerender.mjs and
+// public/sitemap.xml.
+export const LOCALIZED_TOOLS = ['ota-commission-calculator', 'portfolio-cost-calculator'] as const
+export type LocalizedTool = (typeof LOCALIZED_TOOLS)[number]
+
+const isLocalizedTool = (slug: string | undefined): slug is LocalizedTool =>
+  (LOCALIZED_TOOLS as readonly string[]).includes(slug ?? '')
+
+// The URL a tool is linked at: /tools/<slug>/ in English, /pt/tools/<slug>/ and so on.
+export const localizedToolHref = (tool: LocalizedTool, lang: Lang): string =>
+  lang === DEFAULT_LANGUAGE ? `/tools/${tool}/` : `/${lang}/tools/${tool}/`
+
 // URL segment of each page: the home page has none, so it lives at / and /pt.
 const pageSlug = (page: LocalizedPage): string => (page === 'home' ? '' : page)
 
@@ -58,11 +71,21 @@ function localizedCaseStudyOf(pathname: string): string | null {
   return segments.length === 2 && segments[0] === 'work' && isLocalizedCaseStudy(segments[1]) ? segments[1] : null
 }
 
-// The URL of the page at `pathname` in another language: a localized page (/pt/direct/) or a
-// localized case study (/pt/work/padel-booking/). Null for pages that only exist in English.
+// The tool a pathname points at (/tools/ota-commission-calculator, /fr/tools/<slug>/), or null.
+function localizedToolOf(pathname: string): LocalizedTool | null {
+  const segments = pathname.split('/').filter(Boolean)
+  if (isPrefixedLanguage(segments[0])) segments.shift()
+  return segments.length === 2 && segments[0] === 'tools' && isLocalizedTool(segments[1]) ? segments[1] : null
+}
+
+// The URL of the page at `pathname` in another language: a localized page (/pt/direct/), a
+// localized case study (/pt/work/padel-booking/) or a tool (/pt/tools/<slug>/). Null for pages
+// that only exist in English.
 export function localizedHrefOf(pathname: string, lang: Lang): string | null {
   const page = localizedPageOf(pathname)
   if (page) return localizedHref(page, lang)
+  const tool = localizedToolOf(pathname)
+  if (tool) return localizedToolHref(tool, lang)
   const slug = localizedCaseStudyOf(pathname)
   if (!slug) return null
   return lang === DEFAULT_LANGUAGE ? `/work/${slug}/` : `/${lang}/work/${slug}/`

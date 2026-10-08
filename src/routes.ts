@@ -1,5 +1,5 @@
 import { lazyRoute, type PreloadableRoute } from './utils/lazyRoute'
-import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, type LocalizedPage } from './i18n/localeRoutes'
+import { LOCALIZED_PAGES, LOCALIZED_TOOLS, PREFIXED_LANGUAGES, type LocalizedPage, type LocalizedTool } from './i18n/localeRoutes'
 
 // Code-split pages. Home is imported statically by App.tsx; everything else loads on demand.
 export const Services = lazyRoute(() => import('./pages/Services'))
@@ -12,6 +12,8 @@ export const Direct = lazyRoute(() => import('./pages/Direct'))
 export const Frame = lazyRoute(() => import('./pages/Frame'))
 export const Products = lazyRoute(() => import('./pages/Products'))
 export const NotFound = lazyRoute(() => import('./pages/NotFound'))
+export const OtaCommissionCalculator = lazyRoute(() => import('./pages/OtaCommissionCalculator'))
+export const PortfolioCostCalculator = lazyRoute(() => import('./pages/PortfolioCostCalculator'))
 
 // Home is bundled with the app shell, so it has no chunk to preload.
 type LazyLocalizedPage = Exclude<LocalizedPage, 'home'>
@@ -25,6 +27,11 @@ const LOCALIZED_ROUTES: Record<LazyLocalizedPage, PreloadableRoute> = {
   contact: Contact,
 }
 
+export const TOOL_ROUTES: Record<LocalizedTool, PreloadableRoute> = {
+  'ota-commission-calculator': OtaCommissionCalculator,
+  'portfolio-cost-calculator': PortfolioCostCalculator,
+}
+
 const STATIC_ROUTES: Record<string, PreloadableRoute> = {
   '/services': Services,
   '/contact': Contact,
@@ -34,6 +41,11 @@ const STATIC_ROUTES: Record<string, PreloadableRoute> = {
   ...Object.fromEntries(
     PREFIXED_LANGUAGES.flatMap((lang) =>
       LAZY_LOCALIZED_PAGES.map((page) => [`/${lang}/${page}`, LOCALIZED_ROUTES[page]]),
+    ),
+  ),
+  ...Object.fromEntries(
+    ['', ...PREFIXED_LANGUAGES.map((lang) => `/${lang}`)].flatMap((prefix) =>
+      LOCALIZED_TOOLS.map((tool) => [`${prefix}/tools/${tool}`, TOOL_ROUTES[tool]]),
     ),
   ),
 }

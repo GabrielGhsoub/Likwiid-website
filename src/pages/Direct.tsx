@@ -377,8 +377,17 @@ export default function Direct() {
             </div>
           </section>
 
+          {/* Free OTA commission calculator */}
+          <Link
+            to={localize('/tools/ota-commission-calculator')}
+            className="mt-16 inline-block font-medium text-accent-gold no-underline hover:underline"
+          >
+            {t('tools.ota.crossLink')}
+            <ArrowRight size={16} aria-hidden="true" className="ml-1.5 inline-block align-[-3px]" />
+          </Link>
+
           {/* Honest scarcity */}
-          <p className="mt-16 max-w-3xl text-text-secondary leading-relaxed">
+          <p className="mt-8 max-w-3xl text-text-secondary leading-relaxed">
             {t('direct.scarcity')}
           </p>
 
