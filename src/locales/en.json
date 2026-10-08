@@ -217,7 +217,7 @@
     "docTitle": "Likwiid Direct: Commission-Free Direct Booking Engine",
     "eyebrow": "Likwiid product",
     "heroTitle": "Bookings that flow straight to you.",
-    "heroSubtitle": "Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list.",
+    "heroSubtitle": "Likwiid Direct is a commission-free direct booking engine for small stays and experiences. No middleman, no lock-in. You keep your domain, your payment account and your guest list.",
     "audience": "Built for small hotels, guesthouses, tour operators, salons and clinics.",
     "ctaDemo": "Try the live demo",
     "ctaTalk": "Talk to us",
@@ -239,6 +239,26 @@
     "feature7Desc": "Your cancellation and payment terms sit at the last step, and nobody can book or send a request without ticking that they have read them.",
     "feature8Title": "An owner panel in your brand",
     "feature8Desc": "Requests to approve or decline, a reservation list with search and export, a calendar you block with one click, your guests and their credits, and your texts and prices. You edit all of it yourself.",
+    "segmentsTitle": "Who it is for",
+    "segmentsIntro": "Independent places that would rather take bookings themselves than pay a platform a commission on each one.",
+    "segments": [
+      {
+        "title": "Guesthouses and B&Bs",
+        "desc": "Guests pick their dates, add breakfast or a transfer, and pay a deposit or send you a request."
+      },
+      {
+        "title": "Small hotels",
+        "desc": "Every room on one calendar, with minimum stays, seasonal prices and your own cancellation terms."
+      },
+      {
+        "title": "Holiday rentals",
+        "desc": "The notice you need, free days between bookings, and busy dates imported from the other sites you list on."
+      },
+      {
+        "title": "Experiences like padel courts or dive trips",
+        "desc": "Time slots with a capacity each, places left on show, and a waitlist when a slot is full."
+      }
+    ],
     "scarcity": "This engine is not running anyone's bookings yet, so the first property gets a reference price in exchange for letting us show the finished work. If a platform already serves you well and the commission does not bother you, this product is not for you.",
     "demoLaunch": "Launch the full demo",
     "demoPreviewAlt": "Preview of the Likwiid Direct booking flow",
@@ -355,6 +375,7 @@
     "backHome": "Back to home"
   },
   "caseStudy": {
+    "docTitle": "{{title}}: Case Study | Likwiid",
     "stepChallenge": "Challenge",
     "stepApproach": "Approach",
     "stepOutcome": "Outcome",

@@ -109,8 +109,8 @@ export default function CaseStudy() {
 
   useEffect(() => {
     // Matches the prerendered <title> for case study routes.
-    document.title = project ? `${project.title}: Case Study | Likwiid` : 'Likwiid'
-  }, [project])
+    document.title = project ? t('caseStudy.docTitle', { title: project.title }) : 'Likwiid'
+  }, [project, t])
 
   if (!project) return <NotFound />
 
@@ -420,7 +420,7 @@ export default function CaseStudy() {
           {/* ---------- Next project ---------- */}
           {nextProject && nextProject.slug !== project.slug && (
             <div className="mt-16 border-t border-border pt-8">
-              <Link to={`/work/${nextProject.slug}/`} className="group flex items-center justify-between no-underline">
+              <Link to={localize(`/work/${nextProject.slug}`)} className="group flex items-center justify-between no-underline">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-text-tertiary">{t('caseStudy.nextProject')}</span>
                   <h2 className="text-xl font-semibold text-text-primary transition-colors font-[family-name:var(--font-display)] group-hover:text-accent-gold">

@@ -217,7 +217,7 @@
     "docTitle": "Likwiid Direct: prenotazioni dirette per B&B e agriturismi",
     "eyebrow": "Prodotto Likwiid",
     "heroTitle": "Prenotazioni che arrivano dritte a te.",
-    "heroSubtitle": "Likwiid Direct è un motore di prenotazione diretta per piccole strutture ed esperienze. Nessuna commissione, nessun intermediario, nessun vincolo. Il dominio, il conto per i pagamenti e la lista degli ospiti restano tuoi.",
+    "heroSubtitle": "Likwiid Direct è un motore di prenotazione diretta per B&B, agriturismi ed esperienze. Nessuna commissione, nessun intermediario, nessun vincolo. Il dominio, il conto per i pagamenti e la lista degli ospiti restano tuoi.",
     "audience": "Pensato per piccoli hotel, guesthouse, tour operator, saloni e cliniche.",
     "ctaDemo": "Prova la demo dal vivo",
     "ctaTalk": "Parla con noi",
@@ -239,6 +239,30 @@
     "feature7Desc": "Le tue condizioni di cancellazione e di pagamento compaiono nell'ultimo passaggio, e nessuno può prenotare o inviare una richiesta senza spuntare di averle lette.",
     "feature8Title": "Un pannello del proprietario con il tuo marchio",
     "feature8Desc": "Richieste da approvare o rifiutare, un elenco prenotazioni con ricerca ed esportazione, un calendario che blocchi con un clic, i tuoi ospiti e i loro crediti, i tuoi testi e i tuoi prezzi. Modifichi tutto tu stesso.",
+    "segmentsTitle": "Per chi è",
+    "segmentsIntro": "Per strutture e attività indipendenti che preferiscono ricevere le prenotazioni direttamente invece di pagare una commissione a una piattaforma su ognuna.",
+    "segments": [
+      {
+        "title": "B&B",
+        "desc": "Gli ospiti scelgono le date, aggiungono extra come la colazione o un transfer e pagano una caparra o ti inviano una richiesta."
+      },
+      {
+        "title": "Agriturismi",
+        "desc": "Extra come una degustazione, soggiorni minimi e prezzi stagionali, con le tue condizioni di cancellazione accettate prima di ogni prenotazione."
+      },
+      {
+        "title": "Case vacanza",
+        "desc": "Il preavviso che ti serve, giorni liberi tra una prenotazione e l'altra e le date occupate importate dagli altri portali su cui sei presente."
+      },
+      {
+        "title": "Piccoli hotel",
+        "desc": "Tutte le camere in un unico calendario e un pannello del proprietario con il tuo marchio per approvare richieste e bloccare date con un clic."
+      },
+      {
+        "title": "Esperienze, come padel o immersioni",
+        "desc": "Orari con un numero di posti, i posti rimasti in vista e una lista d'attesa quando un orario è pieno."
+      }
+    ],
     "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno, quindi la prima struttura ottiene un prezzo di riferimento in cambio del permesso di mostrare il lavoro finito. Se una piattaforma ti funziona già bene e la commissione non ti pesa, questo prodotto non fa per te.",
     "demoLaunch": "Apri la demo completa",
     "demoPreviewAlt": "Anteprima del flusso di prenotazione di Likwiid Direct",
@@ -355,6 +379,7 @@
     "backHome": "Torna alla home"
   },
   "caseStudy": {
+    "docTitle": "{{title}}: caso studio | Likwiid",
     "stepChallenge": "Sfida",
     "stepApproach": "Approccio",
     "stepOutcome": "Risultato",
@@ -388,6 +413,8 @@
       "subtitle": "Prenotazione campi, partite e campionati per i giocatori di padel in Libano",
       "oneLiner": "Un'app di prenotazione e campionati per giocatori e club di padel in Libano.",
       "description": "Padel Lebanon permette ai giocatori di prenotare i campi, trovare partite al proprio livello e giocare in campionati organizzati. È disponibile su App Store e Google Play, con un portale web per gli organizzatori dei campionati.",
+      "previewAlt": "L'app Padel Lebanon con un campionato, la classifica e i giocatori",
+      "seoDescription": "Un'app di prenotazione e campionati per giocatori e club di padel in Libano, su App Store e Google Play, con un portale web per chi organizza i campionati.",
       "challenge": "In Libano il padel si organizzava con gruppi WhatsApp e fogli di calcolo. I giocatori non avevano un modo semplice per vedere i campi liberi, trovare compagni del loro livello o seguire un campionato.",
       "approach": "Abbiamo progettato un'app mobile per i giocatori e un portale web per gli organizzatori, entrambi basati sugli stessi dati. L'app continua a funzionare anche con connessioni deboli, cosa importante in Libano.",
       "results": "L'app è pubblicata su entrambi gli store in inglese, arabo e francese. I giocatori prenotano, trovano partite e competono in un unico posto, e gli organizzatori gestiscono ogni settimana di campionato in pochi clic.",

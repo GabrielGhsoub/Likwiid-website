@@ -35,9 +35,11 @@ const REQUIRED_PAGES = {
       [lang, lang],
       [`${lang}/contact`, lang],
       [`${lang}/services`, lang],
+      [`${lang}/work/padel-booking`, lang],
     ])
   ),
   services: 'en',
+  'work/padel-booking': 'en',
 }
 
 // 2. Files the email signature loads from the live site. Must exist and be non-empty.

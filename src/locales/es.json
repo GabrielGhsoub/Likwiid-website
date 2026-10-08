@@ -217,7 +217,7 @@
     "docTitle": "Likwiid Direct: reservas directas para casas rurales",
     "eyebrow": "Producto Likwiid",
     "heroTitle": "Reservas que llegan directamente a ti.",
-    "heroSubtitle": "Likwiid Direct es un motor de reserva directa para pequeños alojamientos y experiencias. Sin comisiones, sin intermediarios, sin ataduras. Tú conservas tu dominio, tu cuenta de pagos y tu lista de huéspedes.",
+    "heroSubtitle": "Likwiid Direct es un motor de reserva directa para casas rurales y experiencias. Sin comisiones, sin intermediarios, sin ataduras. Tú conservas tu dominio, tu cuenta de pagos y tu lista de huéspedes.",
     "audience": "Pensado para pequeños hoteles, casas de huéspedes, operadores turísticos, salones de belleza y clínicas.",
     "ctaDemo": "Prueba la demo en vivo",
     "ctaTalk": "Habla con nosotros",
@@ -239,6 +239,30 @@
     "feature7Desc": "Tus condiciones de cancelación y de pago aparecen en el último paso, y nadie puede reservar ni enviar una solicitud sin marcar que las ha leído.",
     "feature8Title": "Un panel de propietario con tu marca",
     "feature8Desc": "Solicitudes para aprobar o rechazar, una lista de reservas con búsqueda y exportación, un calendario que bloqueas con un clic, tus huéspedes y sus créditos, y tus textos y precios. Lo editas todo tú.",
+    "segmentsTitle": "Para quién es",
+    "segmentsIntro": "Para negocios independientes que prefieren recibir sus reservas directamente en lugar de pagar una comisión a una plataforma por cada una.",
+    "segments": [
+      {
+        "title": "Casas rurales",
+        "desc": "Los huéspedes eligen sus fechas, añaden extras como el desayuno o una cata y pagan una señal o te envían una solicitud."
+      },
+      {
+        "title": "Hostales",
+        "desc": "Todas las habitaciones en un solo calendario, con estancias mínimas, precios por temporada y tus condiciones de cancelación."
+      },
+      {
+        "title": "Apartamentos turísticos",
+        "desc": "La antelación que necesitas, días libres entre reservas y las fechas ocupadas importadas de las otras plataformas donde te anuncias."
+      },
+      {
+        "title": "Pequeños hoteles",
+        "desc": "Un panel de propietario con tu marca para aprobar solicitudes, buscar y exportar reservas y bloquear fechas con un clic."
+      },
+      {
+        "title": "Experiencias, como pádel o buceo",
+        "desc": "Horarios con plazas limitadas, las plazas libres a la vista y lista de espera cuando un horario se llena."
+      }
+    ],
     "scarcity": "Este motor todavía no gestiona las reservas de nadie, así que el primer alojamiento obtiene un precio de referencia a cambio de dejarnos mostrar el resultado. Si una plataforma ya te funciona bien y la comisión no te molesta, este producto no es para ti.",
     "demoLaunch": "Abrir la demo completa",
     "demoPreviewAlt": "Vista previa del flujo de reservas de Likwiid Direct",
@@ -355,6 +379,7 @@
     "backHome": "Volver al inicio"
   },
   "caseStudy": {
+    "docTitle": "{{title}}: caso de estudio | Likwiid",
     "stepChallenge": "Reto",
     "stepApproach": "Enfoque",
     "stepOutcome": "Resultado",
@@ -388,6 +413,8 @@
       "subtitle": "Reserva de pistas, partidos y ligas para jugadores de pádel en el Líbano",
       "oneLiner": "Una app de reservas y ligas para jugadores y clubes de pádel en el Líbano.",
       "description": "Padel Lebanon permite a los jugadores reservar pistas, encontrar partidos de su nivel y jugar en ligas organizadas. Está disponible en el App Store y en Google Play, con un portal web para los organizadores de ligas.",
+      "previewAlt": "App de Padel Lebanon con una liga, su clasificación y sus jugadores",
+      "seoDescription": "Una app de reservas y ligas para jugadores y clubes de pádel en el Líbano, en el App Store y Google Play, con un portal web para los organizadores de ligas.",
       "challenge": "En el Líbano, el pádel funcionaba con grupos de WhatsApp y hojas de cálculo. Los jugadores no tenían una forma fácil de ver pistas libres, encontrar compañeros de su nivel o seguir una liga.",
       "approach": "Diseñamos una app móvil para los jugadores y un portal web para los organizadores, ambos con los mismos datos. La app sigue funcionando con conexiones débiles, algo importante en el Líbano.",
       "results": "La app está publicada en las dos tiendas, en inglés, árabe y francés. Los jugadores reservan, encuentran partido y compiten en un solo lugar, y los organizadores gestionan cada semana de liga en pocos clics.",

@@ -38,12 +38,15 @@ const STATIC_ROUTES: Record<string, PreloadableRoute> = {
   ),
 }
 
+const LOCALIZED_CASE_STUDY_PATH = new RegExp(`^/(?:${PREFIXED_LANGUAGES.join('|')})/work/[^/]+$`)
+
 // Page chunk for a landing URL, if it is one of the code-split pages. Anything not listed
 // here (home, redirects, unknown paths) simply renders through Suspense as before.
 function routeFor(pathname: string): PreloadableRoute | undefined {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
   if (STATIC_ROUTES[path]) return STATIC_ROUTES[path]
   if (/^\/work\/[^/]+$/.test(path)) return CaseStudy
+  if (LOCALIZED_CASE_STUDY_PATH.test(path)) return CaseStudy
   return undefined
 }
 
