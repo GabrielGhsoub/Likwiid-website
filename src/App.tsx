@@ -3,7 +3,7 @@ import { Navigate, Routes, Route, useLocation, useNavigationType, useParams } fr
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
-import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, isLocalizedCaseStudy, localizedPath, type LocalizedPage } from './i18n/localeRoutes'
+import { LOCALIZED_PAGES, LOCALIZED_TOOLS, PREFIXED_LANGUAGES, isLocalizedCaseStudy, localizedPath, type LocalizedPage, type LocalizedTool } from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
@@ -15,7 +15,7 @@ import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import { HydrationComplete } from './components/layout/HydrationComplete'
 import Home from './pages/Home'
 
-import { Services, Portfolio, CaseStudy, Contact, Privacy, BeitToureefPoc, Direct, Frame, Products, NotFound } from './routes'
+import { Services, Portfolio, CaseStudy, Contact, Privacy, BeitToureefPoc, Direct, Frame, Products, NotFound, TOOL_ROUTES } from './routes'
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -79,6 +79,13 @@ function LocaleCaseStudy({ lang }: { lang: Lang }) {
   useRouteLanguage(lang)
   const { slug } = useParams<{ slug: string }>()
   return isLocalizedCaseStudy(slug) ? <CaseStudy /> : <NotFound />
+}
+
+// Locale-prefixed tools (/pt/tools/ota-commission-calculator, ...).
+function LocaleTool({ lang, tool }: { lang: Lang; tool: LocalizedTool }) {
+  useRouteLanguage(lang)
+  const Tool = TOOL_ROUTES[tool]
+  return <Tool />
 }
 
 // Scrolls the element named by a URL hash into view. Tries right after render, then, because
@@ -154,6 +161,15 @@ export default function App() {
                 {PREFIXED_LANGUAGES.map((lang) => (
                   <Route key={`${lang}/work/:slug`} path={`/${lang}/work/:slug`} element={<LocaleCaseStudy lang={lang} />} />
                 ))}
+                {LOCALIZED_TOOLS.map((tool) => {
+                  const Tool = TOOL_ROUTES[tool]
+                  return <Route key={`tools/${tool}`} path={`/tools/${tool}`} element={<Tool />} />
+                })}
+                {PREFIXED_LANGUAGES.flatMap((lang) =>
+                  LOCALIZED_TOOLS.map((tool) => (
+                    <Route key={`${lang}/tools/${tool}`} path={`/${lang}/tools/${tool}`} element={<LocaleTool lang={lang} tool={tool} />} />
+                  )),
+                )}
                 {/* Removed case studies: keep old links working */}
                 <Route path="/work/ai-fitness-coach" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/bully-ai" element={<Navigate to="/work/" replace />} />
