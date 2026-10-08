@@ -8,7 +8,7 @@ const pt: DirectMarketContent = {
     'Motor de reservas sem comissões no site do seu alojamento local: sinal por cartão ou pedido, extras, estadia mínima e datas sincronizadas com as plataformas.',
   crumb: 'Alojamento local',
   eyebrow: 'Likwiid Direct para alojamento local',
-  h1: 'Reservas diretas para o seu alojamento local, sem comissão para ninguém.',
+  h1: 'Reservas diretas no site do seu alojamento local, sem comissões.',
   intro: [
     'Quem gere um alojamento local conhece o ciclo: o hóspede descobre a casa numa plataforma, a comissão sai da sua margem, e no ano seguinte o mesmo hóspede volta a reservar pelo mesmo intermediário. O site da casa, quando existe, fica-se por um formulário de contacto e um número de telemóvel.',
     'O Likwiid Direct transforma esse site num sítio onde se reserva de facto. O hóspede escolhe as datas, o quarto ou a casa inteira e os extras, e paga um sinal ou envia-lhe um pedido. Tudo com o seu nome, na sua conta de pagamentos e sem comissão por reserva.',
