@@ -76,7 +76,11 @@ function walk(dir) {
   })
 }
 
-const rel = (file) => relative(ROOT, file) || file
+// Repo-relative path for messages; absolute when the file lives outside the repo.
+const rel = (file) => {
+  const path = relative(ROOT, file)
+  return !path || path.startsWith('..') ? file : path
+}
 const lineOf = (text, index) => text.slice(0, index).split('\n').length
 
 // Text a reader sees: drop scripts, styles and comments, keep <title>, alt, title,
