@@ -13,11 +13,16 @@ export const Frame = lazyRoute(() => import('./pages/Frame'))
 export const Products = lazyRoute(() => import('./pages/Products'))
 export const NotFound = lazyRoute(() => import('./pages/NotFound'))
 
-const LOCALIZED_ROUTES: Record<LocalizedPage, PreloadableRoute> = {
+// Home is bundled with the app shell, so it has no chunk to preload.
+type LazyLocalizedPage = Exclude<LocalizedPage, 'home'>
+const LAZY_LOCALIZED_PAGES = LOCALIZED_PAGES.filter((page): page is LazyLocalizedPage => page !== 'home')
+const LOCALIZED_ROUTES: Record<LazyLocalizedPage, PreloadableRoute> = {
   work: Portfolio,
   direct: Direct,
   frame: Frame,
   products: Products,
+  services: Services,
+  contact: Contact,
 }
 
 const STATIC_ROUTES: Record<string, PreloadableRoute> = {
@@ -25,9 +30,11 @@ const STATIC_ROUTES: Record<string, PreloadableRoute> = {
   '/contact': Contact,
   '/privacy': Privacy,
   '/beit-toureef-walkthrough': BeitToureefPoc,
-  ...Object.fromEntries(LOCALIZED_PAGES.map((page) => [`/${page}`, LOCALIZED_ROUTES[page]])),
+  ...Object.fromEntries(LAZY_LOCALIZED_PAGES.map((page) => [`/${page}`, LOCALIZED_ROUTES[page]])),
   ...Object.fromEntries(
-    PREFIXED_LANGUAGES.flatMap((lang) => LOCALIZED_PAGES.map((page) => [`/${lang}/${page}`, LOCALIZED_ROUTES[page]])),
+    PREFIXED_LANGUAGES.flatMap((lang) =>
+      LAZY_LOCALIZED_PAGES.map((page) => [`/${lang}/${page}`, LOCALIZED_ROUTES[page]]),
+    ),
   ),
 }
 
