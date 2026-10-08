@@ -12,6 +12,7 @@ import { SOCIAL } from '../utils/constants'
 import { track, umamiAttrs, getAttribution, attributionEventData } from '../utils/analytics'
 import type { ContactFormData } from '../types'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
+import { useMountedFromHtml } from '../hooks/useHydrated'
 
 // Values are sent to the inbox in English; labels are translated.
 const PROJECT_TYPES = [
@@ -44,6 +45,7 @@ export default function Contact() {
   const { t, i18n } = useTranslation()
   const localize = useLocalizedPath()
   const { status, submit, reset } = useFormSubmit()
+  const fromHtml = useMountedFromHtml()
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
   // Timestamp of when the form became available, used for the anti-spam timing heuristic.
   // Set in an effect (not during render) to keep the render pure.
@@ -205,8 +207,10 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Entrance only on client-side navigation: in the prerendered HTML the form is
+                visible from the first paint. */}
             <m.div
-              initial={FADE_UP_INITIAL}
+              initial={fromHtml ? false : FADE_UP_INITIAL}
               animate={FADE_UP_ANIMATE}
               transition={TRANSITION_DELAY_02}
             >
