@@ -319,6 +319,12 @@ function hreflangLinks(path) {
     .join('\n')
 }
 
+// Share card per route: the product pages (and their localized variants) get their own
+// card so links pasted into WhatsApp or email preview the product; everything else keeps
+// the studio card. og:image and twitter:image always match.
+const OG_IMAGES = { direct: 'og-direct.png', frame: 'og-frame.png' }
+const ogImageUrl = (path) => `${SITE_URL}/${OG_IMAGES[path.replace(/^(?:pt|es|it|fr)\//, '')] ?? 'og-image.png'}`
+
 function renderRoute(path, meta) {
   let html = baseHtml
   const url = canonicalUrl(path)
@@ -366,6 +372,19 @@ function renderRoute(path, meta) {
     /<meta name="twitter:description" content="[^"]*"/,
     () => `<meta name="twitter:description" content="${escapeHtml(meta.description)}"`,
     'twitter:description'
+  )
+  const ogImage = ogImageUrl(path)
+  html = replaceOrThrow(
+    html,
+    /<meta property="og:image" content="[^"]*"/,
+    () => `<meta property="og:image" content="${ogImage}"`,
+    'og:image'
+  )
+  html = replaceOrThrow(
+    html,
+    /<meta name="twitter:image" content="[^"]*"/,
+    () => `<meta name="twitter:image" content="${ogImage}"`,
+    'twitter:image'
   )
 
   // Canonical: point to self for indexable pages; for noindex pages, swap the canonical
