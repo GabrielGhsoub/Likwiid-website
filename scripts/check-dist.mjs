@@ -40,6 +40,15 @@ const REQUIRED_PAGES = {
   ),
   services: 'en',
   'work/padel-booking': 'en',
+  // Free calculators, in every language.
+  ...Object.fromEntries(
+    ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>
+      ['ota-commission-calculator', 'portfolio-cost-calculator'].map((tool) => [
+        lang === 'en' ? `tools/${tool}` : `${lang}/tools/${tool}`,
+        lang,
+      ])
+    )
+  ),
 }
 
 // 2. Files the email signature loads from the live site. Must exist and be non-empty.
