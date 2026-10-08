@@ -749,6 +749,16 @@ a:not([class]):hover {
 }
 
 /* ==========================================================================
+   Theme toggle icon: picked by the class on <html>, which the inline script sets
+   before first paint, so the prerendered HTML already shows the right one.
+   ========================================================================== */
+
+.dark .theme-icon-light,
+:root:not(.dark) .theme-icon-dark {
+  display: none;
+}
+
+/* ==========================================================================
    Hero texture: dark theme only, decorative. The photo is pre-graded to near-black
    and kept at 10% opacity; the mask clears it before the headline column.
    ========================================================================== */

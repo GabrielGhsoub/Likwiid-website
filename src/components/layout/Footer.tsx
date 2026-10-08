@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from 'react'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -7,10 +8,15 @@ import { Logo } from '../ui/Logo'
 import { umamiAttrs } from '../../utils/analytics'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
-const CURRENT_YEAR = new Date().getFullYear()
+const subscribeNever = () => () => {}
+const currentYear = () => new Date().getFullYear()
+// The prerendered HTML carries the build year; hydration reuses it so the markup matches,
+// then the visitor's own year renders if it differs (a build from last December).
+const buildYear = () => __BUILD_YEAR__
 
 export function Footer() {
   const { t } = useTranslation()
+  const year = useSyncExternalStore(subscribeNever, currentYear, buildYear)
   const localize = useLocalizedPath()
   return (
     <footer className="mt-0 border-t border-border">
@@ -23,7 +29,7 @@ export function Footer() {
             <Logo className="h-5" />
           </Link>
           <span className="text-text-tertiary text-sm">
-            {t('footer.copyright', { year: CURRENT_YEAR })}
+            {t('footer.copyright', { year })}
           </span>
           <span className="hidden text-text-tertiary text-sm sm:inline" aria-hidden="true">&middot;</span>
           <Link
