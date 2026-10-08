@@ -27,6 +27,10 @@
     "privacy": "Politique de confidentialité",
     "tagline": "Beyrouth, Liban. Nous travaillons dans le monde entier. Réponse sous 24 heures."
   },
+  "home": {
+    "documentTitle": "Likwiid | Studio logiciel",
+    "metaDescription": "Likwiid est un studio dirigé par ses fondateurs à Beyrouth, qui conçoit des sites de réservation, des applications web et des applications mobiles pour les hôtels indépendants et les fondateurs du monde entier."
+  },
   "hero": {
     "title": "Des sites de réservation et des applications pour les hôtels <em>indépendants</em> et les fondateurs.",
     "description": "Likwiid est dirigé par Gabriel Ghoussoub depuis Beyrouth, travaille avec des clients du monde entier et répond sous 24 heures.",
@@ -82,6 +86,7 @@
   },
   "contact": {
     "documentTitle": "Contact | Likwiid",
+    "metaDescription": "Lancez la conversation autour de votre projet. WhatsApp +961 76 160 979 ou gabriel@likwiid.com. Nous répondons sous 24 heures.",
     "heading": "Contact",
     "subheading": "Lancez la conversation autour de votre prochain projet.",
     "introTitle": "Construisons quelque chose ensemble.",
@@ -137,6 +142,7 @@
   },
   "services": {
     "documentTitle": "Services | Likwiid",
+    "metaDescription": "Quatre types de missions : produits web et mobiles, sites de réservation pour l'hôtellerie et les rendez-vous, intégration IA et automatisation, et architecture, cloud et sauvetage de code.",
     "title": "Services",
     "subtitle": "Quatre types de missions, chacune cadrée, conçue et développée par la personne à qui vous parlez.",
     "bookingPrice": "La plupart des sites de réservation se font en 2 à 4 semaines.",

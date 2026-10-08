@@ -397,7 +397,7 @@ export default function CaseStudy() {
               <p className="mt-2 max-w-xl text-text-secondary">{t('caseStudy.similarProjectBody')}</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
-                  to="/contact"
+                  to={localize('/contact')}
                   className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90"
                   {...umamiAttrs('cta-start-project', { location: 'case-study', project: project.slug })}
                 >

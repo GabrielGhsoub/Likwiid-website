@@ -2,6 +2,7 @@ import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../../utils/cn'
 import { umamiAttrs } from '../../utils/analytics'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -49,6 +50,8 @@ export function Button({
   umamiEvent,
   umamiData,
 }: ButtonProps) {
+  // Internal links keep the reader in their language (/contact -> /pt/contact).
+  const localize = useLocalizedPath()
   const classes = cn(
     'inline-flex items-center justify-center gap-2 min-h-11 font-medium rounded-full cursor-pointer no-underline font-[family-name:var(--font-display)]',
     variants[variant],
@@ -75,7 +78,7 @@ export function Button({
       )
     }
     return (
-      <Link to={href} className={classes} {...tracking}>
+      <Link to={localize(href)} className={classes} {...tracking}>
         {children}
       </Link>
     )

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, Play } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -9,13 +9,12 @@ import { useTheme } from '../../hooks/useTheme'
 import { umamiAttrs } from '../../utils/analytics'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
-// The demos' "Back to Likwiid" chip returns visitors to the home page.
-const BACK_PATH = '/'
-
 export function ProductsStrip() {
   const { t, i18n } = useTranslation()
   const { theme } = useTheme()
   const localize = useLocalizedPath()
+  // The demos' "Back to Likwiid" chip returns visitors to the home page they came from (/ or /pt).
+  const BACK_PATH = useLocation().pathname
 
   // Brand names are the same in every language, so they live here, not in the locale files.
   const products = [

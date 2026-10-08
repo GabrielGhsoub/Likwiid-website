@@ -30,6 +30,14 @@ const REQUIRED_PAGES = {
   'es/work': 'es',
   'it/work': 'it',
   'fr/work': 'fr',
+  ...Object.fromEntries(
+    ['pt', 'es', 'it', 'fr'].flatMap((lang) => [
+      [lang, lang],
+      [`${lang}/contact`, lang],
+      [`${lang}/services`, lang],
+    ])
+  ),
+  services: 'en',
 }
 
 // 2. Files the email signature loads from the live site. Must exist and be non-empty.

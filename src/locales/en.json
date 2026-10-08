@@ -27,6 +27,10 @@
     "privacy": "Privacy Policy",
     "tagline": "Beirut, Lebanon. Working worldwide. Replies within 24 hours."
   },
+  "home": {
+    "documentTitle": "Likwiid | Software Studio",
+    "metaDescription": "Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide."
+  },
   "hero": {
     "title": "Booking websites and apps for <em>independent</em> hotels and founders.",
     "description": "Likwiid is run by Gabriel Ghoussoub from Beirut, works with clients worldwide, and replies within 24 hours.",
@@ -82,6 +86,7 @@
   },
   "contact": {
     "documentTitle": "Contact | Likwiid",
+    "metaDescription": "Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.",
     "heading": "Contact",
     "subheading": "Start a conversation about your next project.",
     "introTitle": "Let's build something together.",
@@ -137,6 +142,7 @@
   },
   "services": {
     "documentTitle": "Services | Likwiid",
+    "metaDescription": "Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.",
     "title": "Services",
     "subtitle": "Four kinds of work, each scoped, designed and built by the person you talk to.",
     "bookingPrice": "Most booking websites take 2 to 4 weeks.",

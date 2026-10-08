@@ -186,7 +186,7 @@ export default function Portfolio() {
                 </Link>
               </div>
               <Link
-                to="/contact"
+                to={localize('/contact')}
                 className="inline-flex min-h-11 shrink-0 items-center gap-1.5 self-start rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 md:self-center"
               >
                 {t('hospitality.cta')}

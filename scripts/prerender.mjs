@@ -101,6 +101,7 @@ const caseStudies = {
 
 const routes = {
   '': {
+    hreflang: true,
     title: 'Likwiid | Software Studio',
     description:
       'Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide.',
@@ -110,6 +111,7 @@ const routes = {
     ),
   },
   services: {
+    hreflang: true,
     title: 'Services | Likwiid',
     description:
       'Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.',
@@ -173,6 +175,7 @@ const routes = {
     hreflang: true,
   },
   contact: {
+    hreflang: true,
     title: 'Contact | Likwiid',
     description:
       'Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.',
@@ -231,21 +234,32 @@ const routes = {
   },
 }
 
-// Localized product pages (/pt/direct, /fr/frame, ...): titles and copy come straight from
+// Localized pages (/pt/, /pt/direct, /fr/contact, ...): titles and copy come straight from
 // the locale bundles so the prerendered head matches what the app sets after hydration.
-// Keep the page list in sync with src/i18n/localeRoutes.ts and public/sitemap.xml.
+// The '' key is the home page, served at /pt/. Keep the page list in sync with
+// src/i18n/localeRoutes.ts and public/sitemap.xml.
 const PREFIXED_LANGUAGES = ['pt', 'es', 'it', 'fr']
-const LOCALIZED_PRODUCT_PAGES = {
+const localizedRoute = (lang, page) => (page ? `${lang}/${page}` : lang)
+const stripTags = (s) => s.replace(/<[^>]*>/g, '')
+const LOCALIZED_PAGES = {
+  '': (l) => ({
+    title: l.home.documentTitle,
+    description: l.home.metaDescription,
+    heading: stripTags(l.hero.title),
+    body: l.hero.description,
+  }),
+  services: (l) => ({ title: l.services.documentTitle, description: l.services.metaDescription, heading: l.services.title }),
+  contact: (l) => ({ title: l.contact.documentTitle, description: l.contact.metaDescription, heading: l.contact.heading }),
   direct: (l) => ({ title: l.direct.docTitle, description: l.direct.heroSubtitle, heading: l.direct.heroTitle }),
   frame: (l) => ({ title: l.frame.docTitle, description: l.frame.heroSubtitle, heading: l.frame.heroTitle }),
   products: (l) => ({ title: l.products.docTitle, description: l.products.intro, heading: l.products.title }),
 }
 for (const lang of PREFIXED_LANGUAGES) {
   const locale = JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))
-  for (const [page, pick] of Object.entries(LOCALIZED_PRODUCT_PAGES)) {
-    const { title, description, heading } = pick(locale)
-    if (!title || !description || !heading) throw new Error(`prerender: missing ${lang} copy for ${page}`)
-    routes[`${lang}/${page}`] = { lang, title, description, content: block(heading, description), hreflang: true }
+  for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
+    const { title, description, heading, body = description } = pick(locale)
+    if (!title || !description || !heading || !body) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
+    routes[localizedRoute(lang, page)] = { lang, title, description, content: block(heading, body), hreflang: true }
   }
 }
 
@@ -305,14 +319,14 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
-// A localized cluster (work, direct, frame, products): every language variant plus
-// x-default pointing at English, per Google's localized-pages guidance. Injected into
-// each route of the cluster.
+// A localized cluster (home, services, contact, work, direct, frame, products): every
+// language variant plus x-default pointing at English, per Google's localized-pages
+// guidance. Injected into each route of the cluster.
 function hreflangLinks(path) {
-  const page = path.replace(/^(?:pt|es|it|fr)\//, '')
+  const page = path.replace(/^(?:pt|es|it|fr)(?:\/|$)/, '')
   return [
     ['en', canonicalUrl(page)],
-    ...PREFIXED_LANGUAGES.map((lang) => [lang, canonicalUrl(`${lang}/${page}`)]),
+    ...PREFIXED_LANGUAGES.map((lang) => [lang, canonicalUrl(localizedRoute(lang, page))]),
     ['x-default', canonicalUrl(page)],
   ]
     .map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`)

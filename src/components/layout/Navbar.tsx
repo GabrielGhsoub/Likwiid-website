@@ -158,7 +158,7 @@ export function Navbar() {
       >
         <div className="mx-auto max-w-[1200px] px-6 py-3 md:py-4 flex items-center justify-between">
           <Link
-            to="/"
+            to={localize('/')}
             className={cn(
               'inline-flex min-h-11 items-center transition-opacity hover:opacity-75 no-underline',
               isPrivateWalkthroughRoute
@@ -283,7 +283,7 @@ export function Navbar() {
                   )}
                 >
                   <Link
-                    to="/"
+                    to={localize('/')}
                     onClick={closeMobile}
                     className={cn(
                       'inline-flex min-h-11 items-center transition-opacity hover:opacity-75 no-underline',
