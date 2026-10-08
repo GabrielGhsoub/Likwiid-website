@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Reveal } from '../ui/Reveal'
 import { founder, cofounder } from '../../data/personal'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 // The strip fills the 1200px container, so retina screens need the 2400px source
 const STRIP_SIZES = '(min-width: 1248px) 1200px, calc(100vw - 48px)'
@@ -11,6 +12,7 @@ const STRIP_CLASS =
 
 export function Founder() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
 
   return (
     <section id="founder" className="scroll-mt-24 px-6 py-16 md:py-24">
@@ -81,7 +83,7 @@ export function Founder() {
             </p>
             <p className="mt-6 font-medium text-text-primary">{t('founder.promise')}</p>
             <Link
-              to="/contact"
+              to={localize('/contact')}
               className="mt-6 inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
             >
               {t('founder.cta')}

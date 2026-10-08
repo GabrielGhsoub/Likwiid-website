@@ -5,17 +5,19 @@ import { SOCIAL } from '../../utils/constants'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 import { Logo } from '../ui/Logo'
 import { umamiAttrs } from '../../utils/analytics'
+import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 const CURRENT_YEAR = new Date().getFullYear()
 
 export function Footer() {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
   return (
     <footer className="mt-0 border-t border-border">
       <div className="mx-auto max-w-[1200px] px-6 py-8 flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:justify-start">
           <Link
-            to="/"
+            to={localize('/')}
             className="inline-flex min-h-11 items-center text-text-primary transition-opacity hover:opacity-75 no-underline"
           >
             <Logo className="h-5" />
