@@ -49,6 +49,17 @@ const REQUIRED_PAGES = {
       ])
     )
   ),
+  // Likwiid Direct pages per market (one language each) and per kind of business (all five).
+  'pt/direct/alojamento-local': 'pt',
+  'es/direct/casa-rural': 'es',
+  'it/direct/agriturismo-bb': 'it',
+  'fr/direct/chambres-d-hotes': 'fr',
+  ...Object.fromEntries(
+    ['padel-clubs', 'dive-centres'].flatMap((page) => [
+      [`direct/${page}`, 'en'],
+      ...['pt', 'es', 'it', 'fr'].map((lang) => [`${lang}/direct/${page}`, lang]),
+    ])
+  ),
 }
 
 // 2. Files the email signature loads from the live site. Must exist and be non-empty.

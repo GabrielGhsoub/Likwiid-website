@@ -263,6 +263,12 @@
         "desc": "Horários com lotação própria, lugares disponíveis à vista e lista de espera quando um horário esgota."
       }
     ],
+    "marketLinksTitle": "Para o seu tipo de negócio",
+    "marketLinks": {
+      "alojamento-local": "Alojamento local",
+      "padel-clubs": "Clubes de padel",
+      "dive-centres": "Centros de mergulho"
+    },
     "scarcity": "Este motor ainda não gere as reservas de ninguém, por isso o primeiro alojamento recebe um preço de referência em troca de nos deixar mostrar o trabalho final. Se uma plataforma já o serve bem e a comissão não o incomoda, este produto não é para si.",
     "demoLaunch": "Abrir a demo completa",
     "demoPreviewAlt": "Pré-visualização do fluxo de reservas do Likwiid Direct",

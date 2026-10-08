@@ -263,6 +263,12 @@
         "desc": "Horarios con plazas limitadas, las plazas libres a la vista y lista de espera cuando un horario se llena."
       }
     ],
+    "marketLinksTitle": "Para tu tipo de negocio",
+    "marketLinks": {
+      "casa-rural": "Casas rurales",
+      "padel-clubs": "Clubes de pádel",
+      "dive-centres": "Centros de buceo"
+    },
     "scarcity": "Este motor todavía no gestiona las reservas de nadie, así que el primer alojamiento obtiene un precio de referencia a cambio de dejarnos mostrar el resultado. Si una plataforma ya te funciona bien y la comisión no te molesta, este producto no es para ti.",
     "demoLaunch": "Abrir la demo completa",
     "demoPreviewAlt": "Vista previa del flujo de reservas de Likwiid Direct",

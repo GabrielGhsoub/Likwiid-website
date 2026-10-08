@@ -263,6 +263,12 @@
         "desc": "Orari con un numero di posti, i posti rimasti in vista e una lista d'attesa quando un orario è pieno."
       }
     ],
+    "marketLinksTitle": "Per il tuo tipo di attività",
+    "marketLinks": {
+      "agriturismo-bb": "Agriturismi e B&B",
+      "padel-clubs": "Circoli di padel",
+      "dive-centres": "Diving center"
+    },
     "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno, quindi la prima struttura ottiene un prezzo di riferimento in cambio del permesso di mostrare il lavoro finito. Se una piattaforma ti funziona già bene e la commissione non ti pesa, questo prodotto non fa per te.",
     "demoLaunch": "Apri la demo completa",
     "demoPreviewAlt": "Anteprima del flusso di prenotazione di Likwiid Direct",

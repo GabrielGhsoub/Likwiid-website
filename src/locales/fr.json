@@ -259,6 +259,12 @@
         "desc": "Des créneaux avec un nombre de places, les places restantes affichées et une liste d'attente quand un créneau est complet."
       }
     ],
+    "marketLinksTitle": "Selon votre activité",
+    "marketLinks": {
+      "chambres-d-hotes": "Chambres d'hôtes et gîtes",
+      "padel-clubs": "Clubs de padel",
+      "dive-centres": "Centres de plongée"
+    },
     "scarcity": "Ce moteur ne gère encore les réservations de personne, donc le premier établissement bénéficie d'un prix de référence en échange de l'autorisation de montrer le résultat. Si une plateforme vous convient déjà et que la commission ne vous dérange pas, ce produit n'est pas pour vous.",
     "demoLaunch": "Lancer la démo complète",
     "demoPreviewAlt": "Aperçu du parcours de réservation Likwiid Direct",

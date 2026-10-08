@@ -1,5 +1,5 @@
 import { lazyRoute, type PreloadableRoute } from './utils/lazyRoute'
-import { LOCALIZED_PAGES, LOCALIZED_TOOLS, PREFIXED_LANGUAGES, type LocalizedPage, type LocalizedTool } from './i18n/localeRoutes'
+import { DIRECT_MARKET_ROUTES, LOCALIZED_PAGES, LOCALIZED_TOOLS, PREFIXED_LANGUAGES, type DirectMarket, type LocalizedPage, type LocalizedTool } from './i18n/localeRoutes'
 
 // Code-split pages. Home is imported statically by App.tsx; everything else loads on demand.
 export const Services = lazyRoute(() => import('./pages/Services'))
@@ -14,6 +14,17 @@ export const Products = lazyRoute(() => import('./pages/Products'))
 export const NotFound = lazyRoute(() => import('./pages/NotFound'))
 export const OtaCommissionCalculator = lazyRoute(() => import('./pages/OtaCommissionCalculator'))
 export const PortfolioCostCalculator = lazyRoute(() => import('./pages/PortfolioCostCalculator'))
+
+// Direct market pages (/pt/direct/alojamento-local, /direct/padel-clubs, ...): one chunk per
+// page, carrying its copy in every language it exists in.
+export const DIRECT_MARKET_PAGES: Record<DirectMarket, PreloadableRoute> = {
+  'alojamento-local': lazyRoute(() => import('./pages/directMarkets/AlojamentoLocal')),
+  'casa-rural': lazyRoute(() => import('./pages/directMarkets/CasaRural')),
+  'agriturismo-bb': lazyRoute(() => import('./pages/directMarkets/AgriturismoBb')),
+  'chambres-d-hotes': lazyRoute(() => import('./pages/directMarkets/ChambresDHotes')),
+  'padel-clubs': lazyRoute(() => import('./pages/directMarkets/PadelClubs')),
+  'dive-centres': lazyRoute(() => import('./pages/directMarkets/DiveCentres')),
+}
 
 // Home is bundled with the app shell, so it has no chunk to preload.
 type LazyLocalizedPage = Exclude<LocalizedPage, 'home'>
@@ -48,6 +59,7 @@ const STATIC_ROUTES: Record<string, PreloadableRoute> = {
       LOCALIZED_TOOLS.map((tool) => [`${prefix}/tools/${tool}`, TOOL_ROUTES[tool]]),
     ),
   ),
+  ...Object.fromEntries(DIRECT_MARKET_ROUTES.map(({ market, path }) => [path, DIRECT_MARKET_PAGES[market]])),
 }
 
 const LOCALIZED_CASE_STUDY_PATH = new RegExp(`^/(?:${PREFIXED_LANGUAGES.join('|')})/work/[^/]+$`)

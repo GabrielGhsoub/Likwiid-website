@@ -259,6 +259,11 @@
         "desc": "Time slots with a capacity each, places left on show, and a waitlist when a slot is full."
       }
     ],
+    "marketLinksTitle": "Pages for your kind of business",
+    "marketLinks": {
+      "padel-clubs": "Padel clubs",
+      "dive-centres": "Dive centres"
+    },
     "scarcity": "This engine is not running anyone's bookings yet, so the first property gets a reference price in exchange for letting us show the finished work. If a platform already serves you well and the commission does not bother you, this product is not for you.",
     "demoLaunch": "Launch the full demo",
     "demoPreviewAlt": "Preview of the Likwiid Direct booking flow",
