@@ -355,6 +355,7 @@
     "backHome": "Torna alla home"
   },
   "caseStudy": {
+    "docTitle": "{{title}}: caso studio | Likwiid",
     "stepChallenge": "Sfida",
     "stepApproach": "Approccio",
     "stepOutcome": "Risultato",
@@ -388,6 +389,8 @@
       "subtitle": "Prenotazione campi, partite e campionati per i giocatori di padel in Libano",
       "oneLiner": "Un'app di prenotazione e campionati per giocatori e club di padel in Libano.",
       "description": "Padel Lebanon permette ai giocatori di prenotare i campi, trovare partite al proprio livello e giocare in campionati organizzati. È disponibile su App Store e Google Play, con un portale web per gli organizzatori dei campionati.",
+      "previewAlt": "L'app Padel Lebanon con un campionato, la classifica e i giocatori",
+      "seoDescription": "Un'app di prenotazione e campionati per giocatori e club di padel in Libano, su App Store e Google Play, con un portale web per chi organizza i campionati.",
       "challenge": "In Libano il padel si organizzava con gruppi WhatsApp e fogli di calcolo. I giocatori non avevano un modo semplice per vedere i campi liberi, trovare compagni del loro livello o seguire un campionato.",
       "approach": "Abbiamo progettato un'app mobile per i giocatori e un portale web per gli organizzatori, entrambi basati sugli stessi dati. L'app continua a funzionare anche con connessioni deboli, cosa importante in Libano.",
       "results": "L'app è pubblicata su entrambi gli store in inglese, arabo e francese. I giocatori prenotano, trovano partite e competono in un unico posto, e gli organizzatori gestiscono ogni settimana di campionato in pochi clic.",

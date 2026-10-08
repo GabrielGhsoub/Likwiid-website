@@ -355,6 +355,7 @@
     "backHome": "Back to home"
   },
   "caseStudy": {
+    "docTitle": "{{title}}: Case Study | Likwiid",
     "stepChallenge": "Challenge",
     "stepApproach": "Approach",
     "stepOutcome": "Outcome",

@@ -355,6 +355,7 @@
     "backHome": "Retour à l'accueil"
   },
   "caseStudy": {
+    "docTitle": "{{title}} : étude de cas | Likwiid",
     "stepChallenge": "Défi",
     "stepApproach": "Approche",
     "stepOutcome": "Résultat",
@@ -388,6 +389,8 @@
       "subtitle": "Réservation de terrains, matchs et ligues pour les joueurs de padel au Liban",
       "oneLiner": "Une application de réservation et de ligues pour les joueurs et les clubs de padel au Liban.",
       "description": "Padel Lebanon permet aux joueurs de réserver des terrains, de trouver des matchs à leur niveau et de jouer dans des ligues organisées. Elle est disponible sur l'App Store et Google Play, avec un portail web pour les organisateurs de ligues.",
+      "previewAlt": "L'application Padel Lebanon affichant une ligue avec son classement et ses joueurs",
+      "seoDescription": "Application de réservation et de ligues pour les joueurs et clubs de padel au Liban, sur l'App Store et Google Play, avec un portail web pour les organisateurs.",
       "challenge": "Au Liban, le padel fonctionnait avec des groupes WhatsApp et des tableurs. Les joueurs n'avaient aucun moyen simple de voir les terrains libres, de trouver des partenaires à leur niveau ou de suivre une ligue.",
       "approach": "Nous avons conçu une application mobile pour les joueurs et un portail web pour les organisateurs, tous deux alimentés par les mêmes données. L'application continue de fonctionner avec une connexion faible, ce qui compte au Liban.",
       "results": "L'application est en ligne sur les deux stores, en anglais, en arabe et en français. Les joueurs réservent, trouvent des matchs et jouent au même endroit, et les organisateurs gèrent chaque semaine de ligue en quelques clics.",
