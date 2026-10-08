@@ -1,7 +1,7 @@
 // Post-build guard: inspects dist/ and src/locales and fails when a change breaks
 // something the cold-email pipeline or the brand depends on (landing pages linked
 // from outreach, email signature assets, copy style, hidden client names, prices,
-// retired fonts, the contact form endpoint).
+// retired fonts, the contact form endpoint, search snippets and internal link form).
 //
 // Usage: npm run build && npm run check:dist
 // Set DIST_DIR to inspect another build output (handy for testing the checks).
@@ -68,6 +68,11 @@ const BANNED_FONT_REFS = [/satoshi/i, /fontshare/i]
 
 // 7. Strings the source must still contain for the contact form to reach its handler.
 const REQUIRED_SOURCE_STRINGS = ['https://api.likwiid.com/submit']
+
+// 8. Search snippet limits for indexable pages (no robots meta). Longer titles and
+//    descriptions get cut off in results.
+const MAX_TITLE_LENGTH = 62
+const MAX_DESCRIPTION_LENGTH = 160
 
 // Files in dist/ read as text for the string checks (images and fonts are skipped).
 const TEXT_EXTENSIONS = new Set(['.html', '.js', '.mjs', '.css', '.txt', '.xml', '.json', '.svg', '.webmanifest'])
@@ -214,6 +219,31 @@ const sourceText = walk(SRC)
   .join('\n')
 for (const required of REQUIRED_SOURCE_STRINGS) {
   if (!sourceText.includes(required)) fail('7 contact form', `"${required}" not found anywhere in ${rel(SRC)}`)
+}
+
+// 8. Search snippets on every indexable page.
+for (const { file, text } of distHtml) {
+  const head = text.split('</head>')[0]
+  // Site pages only: verification files and the email signature are not search results.
+  if (!text.includes('<div id="root"') || /<meta name="robots"/.test(head)) continue
+  const title = decodeEntities(head.match(/<title>([^<]*)<\/title>/)?.[1] ?? '')
+  const description = decodeEntities(head.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '')
+  if (!title) fail('8 snippets', `no <title> in ${rel(file)}`)
+  else if (title.length > MAX_TITLE_LENGTH) fail('8 snippets', `title is ${title.length} chars (max ${MAX_TITLE_LENGTH}) in ${rel(file)}: ${JSON.stringify(title)}`)
+  if (!description) fail('8 snippets', `no meta description in ${rel(file)}`)
+  else if (description.length > MAX_DESCRIPTION_LENGTH) fail('8 snippets', `description is ${description.length} chars (max ${MAX_DESCRIPTION_LENGTH}) in ${rel(file)}`)
+}
+
+// 9. Internal links use the slash form GitHub Pages serves without a redirect (/direct/,
+//    not /direct). File links (an extension in the last segment) are exempt.
+for (const { file, text } of distHtml) {
+  for (const match of text.matchAll(/<a\b[^>]*\shref="(\/[^"#?]*)/g)) {
+    const path = match[1]
+    const last = path.slice(path.lastIndexOf('/') + 1)
+    if (!path.endsWith('/') && !last.includes('.')) {
+      fail('9 links', `link to "${path}" without a trailing slash in ${rel(file)} line ${lineOf(text, match.index)}`)
+    }
+  }
 }
 
 if (violations.length > 0) {

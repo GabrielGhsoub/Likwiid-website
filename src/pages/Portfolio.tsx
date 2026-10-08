@@ -47,7 +47,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
       <div className="flex flex-col md:flex-row">
         {/* Preview */}
         <Link
-          to={`/work/${project.slug}`}
+          to={`/work/${project.slug}/`}
           className="relative block aspect-[3/2] w-full shrink-0 border-b border-border bg-bg-tertiary no-underline md:aspect-auto md:min-h-[280px] md:w-[320px] md:border-b-0 md:border-r"
           aria-label={t('portfolio.viewCaseStudyAria', { title: project.title })}
           tabIndex={-1}
@@ -68,7 +68,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
             <StatusPill status={project.status} t={t} />
           </div>
 
-          <Link to={`/work/${project.slug}`} className="block no-underline" {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-title' })}>
+          <Link to={`/work/${project.slug}/`} className="block no-underline" {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-title' })}>
             <h3 className="text-lg font-semibold leading-snug text-text-primary font-[family-name:var(--font-display)] md:text-xl">
               {project.title}
             </h3>
@@ -107,7 +107,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
               )}
             </div>
             <Link
-              to={`/work/${project.slug}`}
+              to={`/work/${project.slug}/`}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
               {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-link' })}
             >

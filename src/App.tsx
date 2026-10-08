@@ -140,17 +140,17 @@ export default function App() {
                   )),
                 )}
                 {/* Removed case studies: keep old links working */}
-                <Route path="/work/ai-fitness-coach" element={<Navigate to="/work" replace />} />
-                <Route path="/work/bully-ai" element={<Navigate to="/work" replace />} />
-                <Route path="/work/salsaflow" element={<Navigate to="/work" replace />} />
-                <Route path="/work/healthcare-pdf-api" element={<Navigate to="/work" replace />} />
-                <Route path="/work/linkedin-templates-extension" element={<Navigate to="/work" replace />} />
-                <Route path="/work/padel-admin-portal" element={<Navigate to="/work/padel-booking" replace />} />
+                <Route path="/work/ai-fitness-coach" element={<Navigate to="/work/" replace />} />
+                <Route path="/work/bully-ai" element={<Navigate to="/work/" replace />} />
+                <Route path="/work/salsaflow" element={<Navigate to="/work/" replace />} />
+                <Route path="/work/healthcare-pdf-api" element={<Navigate to="/work/" replace />} />
+                <Route path="/work/linkedin-templates-extension" element={<Navigate to="/work/" replace />} />
+                <Route path="/work/padel-admin-portal" element={<Navigate to="/work/padel-booking/" replace />} />
                 <Route path="/work/:slug" element={<CaseStudy />} />
                 <Route path="/about" element={<Navigate to="/#founder" replace />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
-                <Route path="/booking-websites" element={<Navigate to="/direct" replace />} />
+                <Route path="/booking-websites" element={<Navigate to="/direct/" replace />} />
                 <Route path="/direct" element={<Direct />} />
                 <Route path="/frame" element={<Frame />} />
                 <Route path="/products" element={<Products />} />

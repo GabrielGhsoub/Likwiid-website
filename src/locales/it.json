@@ -28,8 +28,7 @@
     "tagline": "Beirut, Libano. Lavoriamo in tutto il mondo. Rispondiamo entro 24 ore."
   },
   "home": {
-    "documentTitle": "Likwiid | Studio di software",
-    "metaDescription": "Likwiid è uno studio guidato dai fondatori, con sede a Beirut, che realizza siti di prenotazione, app web e app mobile per hotel indipendenti e founder in tutto il mondo."
+    "documentTitle": "Siti di prenotazione per strutture indipendenti | Likwiid"
   },
   "hero": {
     "title": "Siti di prenotazione e app per hotel <em>indipendenti</em> e founder.",
@@ -85,8 +84,7 @@
     "emailPrefix": "Oppure scrivi a"
   },
   "contact": {
-    "documentTitle": "Contatti | Likwiid",
-    "metaDescription": "Inizia una conversazione sul tuo progetto. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Rispondiamo entro 24 ore.",
+    "documentTitle": "Contatti: il tuo sito di prenotazione o la tua app | Likwiid",
     "heading": "Contatti",
     "subheading": "Inizia una conversazione sul tuo prossimo progetto.",
     "introTitle": "Costruiamo qualcosa insieme.",
@@ -141,8 +139,7 @@
     "errorMessageRequired": "Il messaggio è obbligatorio"
   },
   "services": {
-    "documentTitle": "Servizi | Likwiid",
-    "metaDescription": "Quattro tipi di lavoro: prodotti web e mobile, siti di prenotazione per ospitalità e appuntamenti, integrazione IA e automazione, e architettura, cloud e recupero del codice.",
+    "documentTitle": "Servizi software web, mobile e prenotazioni | Likwiid",
     "title": "Servizi",
     "subtitle": "Quattro tipi di lavoro, ognuno definito, progettato e sviluppato dalla persona con cui parli.",
     "bookingPrice": "La maggior parte dei siti di prenotazione richiede da 2 a 4 settimane.",
@@ -174,7 +171,7 @@
     "csLinkLabel": "Visita il sito"
   },
   "products": {
-    "docTitle": "Prodotti | Likwiid",
+    "docTitle": "Motore di prenotazione diretta e portfolio | Likwiid",
     "title": "Prodotti",
     "intro": "Due motori che abbiamo costruito noi e che configuriamo per ogni cliente, entrambi con demo dal vivo.",
     "demoNote": "I marchi delle demo sono di fantasia e ogni passaggio di pagamento è simulato.",
@@ -196,7 +193,7 @@
     "frameImageAlt": "Anteprima di un portfolio demo di Likwiid Frame"
   },
   "portfolio": {
-    "documentTitle": "Progetti | Likwiid",
+    "documentTitle": "Progetti: piattaforme di prenotazione e app | Likwiid",
     "title": "Lavori che trasformano operazioni disordinate in software di tua proprietà",
     "subtitle": "App e siti che abbiamo progettato, sviluppato e lanciato, per i clienti e per il nostro studio.",
     "hospitalityBody": "Siti di prenotazione dove gli ospiti prenotano e ti pagano direttamente, senza commissioni. Il sito, le prenotazioni e la lista degli ospiti restano tuoi.",
@@ -217,7 +214,7 @@
     "filterLabel": "Filtra i progetti"
   },
   "direct": {
-    "docTitle": "Likwiid Direct, un motore di prenotazione diretta per piccole strutture | Likwiid",
+    "docTitle": "Likwiid Direct: prenotazioni dirette per B&B e agriturismi",
     "eyebrow": "Prodotto Likwiid",
     "heroTitle": "Prenotazioni che arrivano dritte a te.",
     "heroSubtitle": "Likwiid Direct è un motore di prenotazione diretta per piccole strutture ed esperienze. Nessuna commissione, nessun intermediario, nessun vincolo. Il dominio, il conto per i pagamenti e la lista degli ospiti restano tuoi.",
@@ -289,7 +286,7 @@
     "proofLink": "Guarda il caso studio della piattaforma di prenotazione padel"
   },
   "frame": {
-    "docTitle": "Likwiid Frame, un motore di portfolio per fotografi | Likwiid",
+    "docTitle": "Likwiid Frame: sito portfolio per fotografi senza abbonamento",
     "eyebrow": "Prodotto Likwiid",
     "heroTitle": "Un portfolio tuo, fino all'ultimo file.",
     "heroSubtitle": "Likwiid Frame è un motore di portfolio per fotografi, con selezione per i clienti, negozio di stampe e prenotazioni integrati. Paghi una volta, mantieni il tuo dominio e il sito è tuo sotto forma di file, senza abbonamento.",
@@ -911,5 +908,31 @@
     "Mobile": "Mobile",
     "IoT": "IoT",
     "AI": "IA"
+  },
+  "seo": {
+    "home": {
+      "description": "Siti di prenotazione, app web e mobile per strutture indipendenti e founder. Uno studio guidato dai fondatori che risponde entro 24 ore."
+    },
+    "services": {
+      "description": "App web e mobile, siti di prenotazione per ospitalità e appuntamenti, integrazione IA e automazione, architettura cloud e recupero del codice."
+    },
+    "work": {
+      "description": "Casi di studio: una piattaforma di prenotazione padel su iOS e Android, un sito di consulenza e app nostre per voce, corsa, respirazione ed energia."
+    },
+    "products": {
+      "description": "Likwiid Direct, un motore di prenotazione senza commissioni per piccole strutture, e Likwiid Frame, un portfolio tuo per fotografi. Entrambi con demo."
+    },
+    "contact": {
+      "description": "Raccontaci il tuo sito di prenotazione o la tua app. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Rispondiamo entro 24 ore."
+    },
+    "direct": {
+      "description": "Motore di prenotazione senza commissioni nel tuo sito, per B&B, agriturismi, piccoli hotel ed esperienze. Caparra, opzioni e lista d'attesa. Prova la demo.",
+      "serviceType": "Motore di prenotazione diretta"
+    },
+    "frame": {
+      "description": "Un sito portfolio per fotografi che è tuo, in file, con selezione per i clienti, negozio di stampe e prenotazioni. Paghi una volta, senza abbonamento.",
+      "serviceType": "Sito portfolio per fotografi"
+    },
+    "breadcrumbHome": "Home"
   }
 }

@@ -19,6 +19,18 @@ export function localizedPath(page: LocalizedPage, lang: Lang): string {
   return slug ? `/${lang}/${slug}` : `/${lang}`
 }
 
+// GitHub Pages serves every page as a directory index and 301s /direct to /direct/, so links
+// use the slash form that the canonical, sitemap and hreflang already point at. File paths
+// (anything with an extension in the last segment) are left alone.
+export function withTrailingSlash(pathname: string): string {
+  if (pathname.endsWith('/')) return pathname
+  const last = pathname.slice(pathname.lastIndexOf('/') + 1)
+  return last.includes('.') ? pathname : `${pathname}/`
+}
+
+// The URL a localized page is linked at: /direct/, /pt/direct/, /pt/.
+export const localizedHref = (page: LocalizedPage, lang: Lang): string => withTrailingSlash(localizedPath(page, lang))
+
 const isPrefixedLanguage = (segment: string | undefined): boolean =>
   (PREFIXED_LANGUAGES as readonly string[]).includes(segment ?? '')
 

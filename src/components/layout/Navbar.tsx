@@ -36,11 +36,13 @@ export function Navbar() {
   const location = useLocation()
   const { t } = useTranslation()
   const localize = useLocalizedPath()
-  const isActive = (path: string) => location.pathname.replace(/\/+$/, '') === localize(path)
+  const trimSlash = (path: string) => path.replace(/\/+$/, '')
+  const currentPath = trimSlash(location.pathname)
+  const isActive = (path: string) => currentPath === trimSlash(localize(path))
   const { theme, toggleTheme } = useTheme()
   const beirutTime = useBeirutTime()
   const isPrivateWalkthroughRoute =
-    location.pathname === '/beit-toureef-walkthrough' || location.pathname === '/beit-toureef-poc'
+    currentPath === '/beit-toureef-walkthrough' || currentPath === '/beit-toureef-poc'
   const isPocLight = isPrivateWalkthroughRoute && theme === 'light'
   const logoAccent = isPrivateWalkthroughRoute ? (isPocLight ? '#7A5B22' : '#E9C56F') : undefined
 

@@ -328,7 +328,7 @@ export default function Direct() {
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.siteBody')}</p>
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
                 <Link
-                  to="/work/padel-booking"
+                  to="/work/padel-booking/"
                   className="mt-4 inline-block font-medium text-accent-gold no-underline hover:underline"
                 >
                   {t('direct.proofLink')}
