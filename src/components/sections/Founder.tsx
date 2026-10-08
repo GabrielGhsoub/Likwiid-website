@@ -66,6 +66,8 @@ export function Founder() {
         <Reveal className="grid items-center gap-10 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
           <img
             src={founder.photo}
+            srcSet={`/gabriel-560.webp 560w, ${founder.photo} ${founder.photoWidth}w`}
+            sizes="280px"
             alt={t('founder.photoAlt')}
             width={founder.photoWidth}
             height={founder.photoHeight}

@@ -122,6 +122,8 @@ export default function Contact() {
                 <div className="flex shrink-0 -space-x-3">
                   <img
                     src="/gabriel.webp"
+                    srcSet="/gabriel-112.webp 112w, /gabriel-560.webp 560w"
+                    sizes="56px"
                     alt={t('contact.founderPhotoAlt')}
                     width={56}
                     height={56}
@@ -130,6 +132,8 @@ export default function Contact() {
                   />
                   <img
                     src="/emile.webp"
+                    srcSet="/emile-112.webp 112w, /emile.webp 640w"
+                    sizes="56px"
                     alt={t('contact.cofounderPhotoAlt')}
                     width={56}
                     height={56}
