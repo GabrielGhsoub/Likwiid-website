@@ -14,6 +14,9 @@ export default function Privacy() {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    // The ISO date is midnight UTC: format it in UTC so a visitor west of Greenwich does not
+    // see the day before (and the prerendered date matches every browser's).
+    timeZone: 'UTC',
   }).format(new Date(LAST_UPDATED_ISO))
 
   return (
