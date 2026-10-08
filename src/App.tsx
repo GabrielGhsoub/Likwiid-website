@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
@@ -14,15 +14,7 @@ import { Footer } from './components/layout/Footer'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import Home from './pages/Home'
 
-const Services = lazy(() => import('./pages/Services'))
-const Portfolio = lazy(() => import('./pages/Portfolio'))
-const CaseStudy = lazy(() => import('./pages/CaseStudy'))
-const Contact = lazy(() => import('./pages/Contact'))
-const Privacy = lazy(() => import('./pages/Privacy'))
-const BeitToureefPoc = lazy(() => import('./pages/BeitToureefPoc'))
-const Direct = lazy(() => import('./pages/Direct'))
-const Frame = lazy(() => import('./pages/Frame'))
-const Products = lazy(() => import('./pages/Products'))
+import { Services, Portfolio, CaseStudy, Contact, Privacy, BeitToureefPoc, Direct, Frame, Products, NotFound } from './routes'
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -49,8 +41,6 @@ function usePrefetchRoutes() {
     }
   }, [])
 }
-
-const NotFound = lazy(() => import('./pages/NotFound'))
 
 function LegacyBeitToureefRedirect() {
   const location = useLocation()
