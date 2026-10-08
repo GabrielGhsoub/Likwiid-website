@@ -1,3 +1,5 @@
+import type { Lang } from '../i18n/detectLanguage'
+
 export interface Service {
   id: string
   slug: string
@@ -48,7 +50,31 @@ export interface Project {
   keyFeatures?: ProjectFeature[]
   architecture?: ProjectArchitectureNote[]
   highlights?: string[]
+  // Client words for the case study. Only ever a real quote the client approved for
+  // publication; leave it out until then and the section does not render.
+  quote?: ProjectQuote
 }
+
+/**
+ * A client quote shown as a pull quote on a client case study page.
+ *
+ * - `text`: the quote per site language, e.g. `{ en: '...', fr: '...' }`. At least one
+ *   language is required. The page language is used when present, then English, then
+ *   whichever language the client wrote it in (marked with a `lang` attribute).
+ * - `name`: the person quoted, exactly as they agreed to be named.
+ * - `role`: their job title or relationship to the project.
+ * - `company`: optional organization, shown after the role.
+ * - `photo`: optional path under /public to a small square headshot.
+ */
+export interface ProjectQuote {
+  text: ProjectQuoteText
+  name: string
+  role: string
+  company?: string
+  photo?: string
+}
+
+export type ProjectQuoteText = Partial<Record<Lang, string>>
 
 export interface ProjectCompanion {
   title: string

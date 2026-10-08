@@ -9,6 +9,7 @@ import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon'
+import { ClientQuote } from '../components/sections/ClientQuote'
 import { useLocalizedProjects } from '../i18n/localizedContent'
 import { SOCIAL } from '../utils/constants'
 import { umamiAttrs } from '../utils/analytics'
@@ -293,6 +294,13 @@ export default function CaseStudy() {
                   {project.businessResult}
                 </p>
               </div>
+            </Reveal>
+          )}
+
+          {/* ---------- Client quote (client work only, real approved quotes only) ---------- */}
+          {isClientWork && project.quote && (
+            <Reveal className="mt-16">
+              <ClientQuote quote={project.quote} />
             </Reveal>
           )}
 
