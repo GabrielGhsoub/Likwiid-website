@@ -11,7 +11,8 @@
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "check:dist": "node scripts/check-dist.mjs"
+    "check:dist": "node scripts/check-dist.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
