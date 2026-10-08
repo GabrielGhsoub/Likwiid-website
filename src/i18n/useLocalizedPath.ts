@@ -12,14 +12,18 @@ export function useCurrentLanguage(): Lang {
   return getRouteLanguage(location.pathname) ?? (isSupported(i18n.language) ? i18n.language : DEFAULT_LANGUAGE)
 }
 
-// Rewrites an internal path to its localized form when one exists (/work -> /pt/work for a
-// Portuguese reader). Pages that only exist in English, and English itself, pass through.
+// Rewrites an internal path to its localized form when one exists (/contact -> /pt/contact,
+// / -> /pt, /#founder -> /pt#founder for a Portuguese reader). A query string or hash is kept
+// as is. Pages that only exist in English, and English itself, pass through.
 export function useLocalizedPath(): (path: string) => string {
   const lang = useCurrentLanguage()
   return useCallback(
     (path: string) => {
-      const page = localizedPageOf(path)
-      return page ? localizedPath(page, lang) : path
+      const split = path.search(/[?#]/)
+      const pathname = split === -1 ? path : path.slice(0, split)
+      const suffix = split === -1 ? '' : path.slice(split)
+      const page = localizedPageOf(pathname)
+      return page ? `${localizedPath(page, lang)}${suffix}` : path
     },
     [lang],
   )

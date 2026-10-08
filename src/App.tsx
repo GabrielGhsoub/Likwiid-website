@@ -3,7 +3,7 @@ import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-r
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
-import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, type LocalizedPage } from './i18n/localeRoutes'
+import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, localizedPath, type LocalizedPage } from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
@@ -59,13 +59,16 @@ function LegacyBeitToureefRedirect() {
 }
 
 const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
+  home: () => <Home />,
+  services: () => <Services />,
+  contact: () => <Contact />,
   work: () => <Portfolio />,
   direct: () => <Direct />,
   frame: () => <Frame />,
   products: () => <Products />,
 }
 
-// Locale-prefixed routes (/pt/work, /fr/direct, ...): the URL is the source of truth for
+// Locale-prefixed routes (/pt, /pt/work, /fr/contact, ...): the URL is the source of truth for
 // language. This runs on client-side navigation too (the config.ts boot check only covers
 // the initial page load).
 function LocalePage({ lang, page }: { lang: Lang; page: LocalizedPage }) {
@@ -142,7 +145,7 @@ export default function App() {
                 <Route path="/work" element={<Portfolio />} />
                 {PREFIXED_LANGUAGES.flatMap((lang) =>
                   LOCALIZED_PAGES.map((page) => (
-                    <Route key={`${lang}/${page}`} path={`/${lang}/${page}`} element={<LocalePage lang={lang} page={page} />} />
+                    <Route key={`${lang}/${page}`} path={localizedPath(page, lang)} element={<LocalePage lang={lang} page={page} />} />
                   )),
                 )}
                 {/* Removed case studies: keep old links working */}
