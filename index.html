@@ -61,15 +61,28 @@
             },
             "image": "https://likwiid.com/og-image.png",
             "email": "gabriel@likwiid.com",
-            "founder": {
-              "@type": "Person",
-              "name": "Gabriel Ghoussoub",
-              "jobTitle": "Founder & Lead Engineer",
-              "sameAs": [
-                "https://github.com/GabrielGhsoub",
-                "https://linkedin.com/in/gabriel-ghoussoub"
-              ]
-            },
+            "founder": [
+              {
+                "@type": "Person",
+                "@id": "https://likwiid.com/#gabriel",
+                "name": "Gabriel Ghoussoub",
+                "jobTitle": "Founder & Lead Engineer",
+                "image": "https://likwiid.com/gabriel.webp",
+                "worksFor": { "@id": "https://likwiid.com/#organization" },
+                "sameAs": [
+                  "https://linkedin.com/in/gabriel-ghoussoub",
+                  "https://github.com/GabrielGhsoub"
+                ]
+              },
+              {
+                "@type": "Person",
+                "@id": "https://likwiid.com/#emile",
+                "name": "Emile Bechaalany",
+                "jobTitle": "Cofounder",
+                "image": "https://likwiid.com/emile.webp",
+                "worksFor": { "@id": "https://likwiid.com/#organization" }
+              }
+            ],
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Beirut",
