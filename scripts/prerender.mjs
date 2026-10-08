@@ -79,76 +79,6 @@ const caseStudies = {
 }
 
 const routes = {
-  '': {
-    hreflang: true,
-    title: 'Likwiid | Software Studio',
-    description:
-      'Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide.',
-  },
-  services: {
-    hreflang: true,
-    title: 'Services | Likwiid',
-    description:
-      'Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.',
-  },
-  work: {
-    title: 'Work | Likwiid',
-    description:
-      'Selected work by Likwiid: a padel booking platform live on iOS and Android, a consulting website, and studio products for voice practice, running, breathing breaks and home energy.',
-    hreflang: true,
-  },
-  'pt/work': {
-    lang: 'pt',
-    title: 'Projetos | Likwiid',
-    description:
-      'Projetos selecionados da Likwiid: uma plataforma de reservas de padel disponível para iOS e Android, um site de consultoria e produtos próprios para prática vocal, corrida, pausas de respiração e energia doméstica.',
-    hreflang: true,
-  },
-  'es/work': {
-    lang: 'es',
-    title: 'Proyectos | Likwiid',
-    description:
-      'Proyectos seleccionados de Likwiid: una plataforma de reservas de pádel disponible en iOS y Android, una web de consultoría y productos propios para práctica vocal, running, pausas de respiración y energía doméstica.',
-    hreflang: true,
-  },
-  'it/work': {
-    lang: 'it',
-    title: 'Progetti | Likwiid',
-    description:
-      'Progetti selezionati di Likwiid: una piattaforma di prenotazione padel disponibile su iOS e Android, un sito di consulenza e prodotti propri per pratica vocale, corsa, pause di respirazione ed energia domestica.',
-    hreflang: true,
-  },
-  'fr/work': {
-    lang: 'fr',
-    title: 'Projets | Likwiid',
-    description:
-      "Projets sélectionnés de Likwiid : une plateforme de réservation de padel disponible sur iOS et Android, un site de conseil et des produits maison pour la pratique vocale, la course, les pauses respiration et l'énergie domestique.",
-    hreflang: true,
-  },
-  contact: {
-    hreflang: true,
-    title: 'Contact | Likwiid',
-    description:
-      'Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.',
-  },
-  direct: {
-    hreflang: true,
-    title: 'Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid',
-    description:
-      "A commission-free booking engine that lives inside your existing website. Options that change the price, card deposits, and the guest's language done properly. Try the live demo.",
-  },
-  products: {
-    hreflang: true,
-    title: 'Products | Likwiid',
-    description:
-      'Likwiid builds two products: Likwiid Direct, a commission-free direct booking engine for small stays, and Likwiid Frame, a portfolio engine photographers own as files. Both have live demos you can try.',
-  },
-  frame: {
-    hreflang: true,
-    title: 'Likwiid Frame, a Portfolio Engine for Photographers | Likwiid',
-    description:
-      'A premium photographer portfolio you own as files: client proofing, a print shop, booking, and an image pipeline that keeps your licence metadata. Pay once, no subscription. Try the live demos.',
-  },
   privacy: {
     title: 'Privacy Policy | Likwiid',
     description: 'Likwiid privacy policy.',
@@ -166,26 +96,50 @@ const routes = {
   },
 }
 
-// Localized pages (/pt/, /pt/direct, /fr/contact, ...): titles and copy come straight from
-// the locale bundles so the prerendered head matches what the app sets after hydration.
-// The '' key is the home page, served at /pt/. Keep the page list in sync with
+// Localized pages in every language (/, /pt/, /direct/, /fr/contact/, ...): titles come from
+// the same locale keys the pages set as document.title after hydration, descriptions and
+// structured data labels from the `seo` block. Keep the page list in sync with
 // src/i18n/localeRoutes.ts and public/sitemap.xml.
-const PREFIXED_LANGUAGES = ['pt', 'es', 'it', 'fr']
-const localizedRoute = (lang, page) => (page ? `${lang}/${page}` : lang)
+const LANGUAGES = ['en', 'pt', 'es', 'it', 'fr']
+const PREFIXED_LANGUAGES = LANGUAGES.slice(1)
+const OG_LOCALES = { en: 'en_GB', pt: 'pt_PT', es: 'es_ES', it: 'it_IT', fr: 'fr_FR' }
+const localizedRoute = (lang, page) => (lang === 'en' ? page : page ? `${lang}/${page}` : lang)
 const LOCALIZED_PAGES = {
-  '': (l) => ({ title: l.home.documentTitle, description: l.home.metaDescription }),
-  services: (l) => ({ title: l.services.documentTitle, description: l.services.metaDescription }),
-  contact: (l) => ({ title: l.contact.documentTitle, description: l.contact.metaDescription }),
-  direct: (l) => ({ title: l.direct.docTitle, description: l.direct.heroSubtitle }),
-  frame: (l) => ({ title: l.frame.docTitle, description: l.frame.heroSubtitle }),
-  products: (l) => ({ title: l.products.docTitle, description: l.products.intro }),
+  '': (l) => ({ title: l.home.documentTitle, description: l.seo.home.description }),
+  services: (l) => ({ title: l.services.documentTitle, description: l.seo.services.description, crumb: l.nav.services }),
+  work: (l) => ({ title: l.portfolio.documentTitle, description: l.seo.work.description, crumb: l.nav.work }),
+  contact: (l) => ({ title: l.contact.documentTitle, description: l.seo.contact.description, crumb: l.nav.contact }),
+  direct: (l) => ({
+    title: l.direct.docTitle,
+    description: l.seo.direct.description,
+    crumb: 'Likwiid Direct',
+    service: { name: 'Likwiid Direct', serviceType: l.seo.direct.serviceType },
+  }),
+  frame: (l) => ({
+    title: l.frame.docTitle,
+    description: l.seo.frame.description,
+    crumb: 'Likwiid Frame',
+    service: { name: 'Likwiid Frame', serviceType: l.seo.frame.serviceType },
+  }),
+  products: (l) => ({ title: l.products.docTitle, description: l.seo.products.description, crumb: l.nav.products }),
 }
-for (const lang of PREFIXED_LANGUAGES) {
-  const locale = JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))
+const locales = Object.fromEntries(
+  LANGUAGES.map((lang) => [lang, JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))])
+)
+for (const lang of LANGUAGES) {
+  const locale = locales[lang]
   for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
-    const { title, description } = pick(locale)
+    const { title, description, crumb, service } = pick(locale)
     if (!title || !description) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
-    routes[localizedRoute(lang, page)] = { lang, title, description, hreflang: true }
+    const path = localizedRoute(lang, page)
+    routes[path] = {
+      lang,
+      title,
+      description,
+      hreflang: true,
+      breadcrumb: crumb ? [{ name: crumb, path }] : undefined,
+      service,
+    }
   }
 }
 
@@ -203,21 +157,12 @@ for (const slug of workSlugs) {
   }
 }
 
-const BREADCRUMB_LABELS = {
-  services: 'Services',
-  work: 'Work',
-  contact: 'Contact',
-  direct: 'Likwiid Direct',
-  frame: 'Likwiid Frame',
-  products: 'Products',
-}
-
 function jsonLdGraph(path, meta) {
   const graph = []
-  const items = [{ name: 'Home', path: '' }]
-  const crumb = meta.breadcrumb ?? (BREADCRUMB_LABELS[path] ? [{ name: BREADCRUMB_LABELS[path], path }] : null)
-  if (crumb) {
-    items.push(...crumb)
+  const lang = meta.lang ?? 'en'
+  const items = [{ name: locales[lang].seo.breadcrumbHome, path: localizedRoute(lang, '') }]
+  if (meta.breadcrumb) {
+    items.push(...meta.breadcrumb)
     graph.push({
       '@type': 'BreadcrumbList',
       itemListElement: items.map((item, i) => ({
@@ -228,6 +173,21 @@ function jsonLdGraph(path, meta) {
       })),
     })
   }
+  if (meta.service) {
+    // No offers or prices: the site publishes none, and this is a description of the
+    // service, not a rich result request.
+    graph.push({
+      '@type': 'Service',
+      '@id': `${canonicalUrl(path)}#service`,
+      name: meta.service.name,
+      serviceType: meta.service.serviceType,
+      description: meta.description,
+      url: canonicalUrl(path),
+      provider: { '@id': `${SITE_URL}/#organization` },
+      areaServed: 'Worldwide',
+      inLanguage: lang,
+    })
+  }
   if (meta.creativeWork) {
     graph.push({
       '@type': 'CreativeWork',
@@ -235,7 +195,7 @@ function jsonLdGraph(path, meta) {
       headline: meta.creativeWork.heading,
       description: meta.creativeWork.description,
       url: canonicalUrl(path),
-      creator: { '@type': 'Organization', name: 'Likwiid', url: SITE_URL },
+      creator: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'en',
     })
   }
@@ -311,6 +271,19 @@ function renderRoute(path, meta) {
     /<meta name="twitter:description" content="[^"]*"/,
     () => `<meta name="twitter:description" content="${escapeHtml(meta.description)}"`,
     'twitter:description'
+  )
+  const lang = meta.lang ?? 'en'
+  const ogLocale = OG_LOCALES[lang]
+  const ogAlternates = meta.hreflang
+    ? LANGUAGES.filter((other) => other !== lang)
+        .map((other) => `\n    <meta property="og:locale:alternate" content="${OG_LOCALES[other]}" />`)
+        .join('')
+    : ''
+  html = replaceOrThrow(
+    html,
+    /<meta property="og:locale" content="[^"]*" \/>/,
+    () => `<meta property="og:locale" content="${ogLocale}" />${ogAlternates}`,
+    'og:locale'
   )
   const ogImage = ogImageUrl(path)
   html = replaceOrThrow(

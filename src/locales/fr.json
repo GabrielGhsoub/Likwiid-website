@@ -28,8 +28,7 @@
     "tagline": "Beyrouth, Liban. Nous travaillons dans le monde entier. Réponse sous 24 heures."
   },
   "home": {
-    "documentTitle": "Likwiid | Studio logiciel",
-    "metaDescription": "Likwiid est un studio dirigé par ses fondateurs à Beyrouth, qui conçoit des sites de réservation, des applications web et des applications mobiles pour les hôtels indépendants et les fondateurs du monde entier."
+    "documentTitle": "Sites de réservation pour hébergements indépendants | Likwiid"
   },
   "hero": {
     "title": "Des sites de réservation et des applications pour les hôtels <em>indépendants</em> et les fondateurs.",
@@ -85,8 +84,7 @@
     "emailPrefix": "Ou écrivez à"
   },
   "contact": {
-    "documentTitle": "Contact | Likwiid",
-    "metaDescription": "Lancez la conversation autour de votre projet. WhatsApp +961 76 160 979 ou gabriel@likwiid.com. Nous répondons sous 24 heures.",
+    "documentTitle": "Contact : votre site de réservation ou votre app | Likwiid",
     "heading": "Contact",
     "subheading": "Lancez la conversation autour de votre prochain projet.",
     "introTitle": "Construisons quelque chose ensemble.",
@@ -141,8 +139,7 @@
     "errorMessageRequired": "Le message est requis"
   },
   "services": {
-    "documentTitle": "Services | Likwiid",
-    "metaDescription": "Quatre types de missions : produits web et mobiles, sites de réservation pour l'hôtellerie et les rendez-vous, intégration IA et automatisation, et architecture, cloud et sauvetage de code.",
+    "documentTitle": "Services : logiciels web, mobile et réservation | Likwiid",
     "title": "Services",
     "subtitle": "Quatre types de missions, chacune cadrée, conçue et développée par la personne à qui vous parlez.",
     "bookingPrice": "La plupart des sites de réservation se font en 2 à 4 semaines.",
@@ -174,7 +171,7 @@
     "csLinkLabel": "Visiter le site"
   },
   "products": {
-    "docTitle": "Produits | Likwiid",
+    "docTitle": "Moteur de réservation directe et portfolios | Likwiid",
     "title": "Produits",
     "intro": "Deux moteurs que nous avons construits nous-mêmes et que nous configurons pour chaque client, tous deux avec des démos en ligne.",
     "demoNote": "Les marques des démos sont fictives et toute étape de paiement est simulée.",
@@ -196,7 +193,7 @@
     "frameImageAlt": "Aperçu d'un portfolio de démo Likwiid Frame"
   },
   "portfolio": {
-    "documentTitle": "Projets | Likwiid",
+    "documentTitle": "Projets : plateformes de réservation et apps | Likwiid",
     "title": "Des projets qui transforment des opérations chaotiques en logiciels qui vous appartiennent",
     "subtitle": "Des applications et des sites que nous avons conçus, développés et lancés, pour des clients et pour notre propre studio.",
     "hospitalityBody": "Des sites de réservation où vos clients réservent et vous paient directement, sans commission. Le site, les réservations et votre fichier clients vous appartiennent.",
@@ -217,7 +214,7 @@
     "filterLabel": "Filtrer les projets"
   },
   "direct": {
-    "docTitle": "Likwiid Direct, un moteur de réservation directe pour petits hébergements | Likwiid",
+    "docTitle": "Likwiid Direct : réservation directe pour chambres d'hôtes",
     "eyebrow": "Produit Likwiid",
     "heroTitle": "Des réservations qui arrivent directement chez vous.",
     "heroSubtitle": "Likwiid Direct est un moteur de réservation directe pour les petits hébergements et les expériences. Pas de commission, pas d'intermédiaire, pas de dépendance. Vous gardez votre domaine, votre compte de paiement et votre fichier clients.",
@@ -289,7 +286,7 @@
     "proofLink": "Voir l'étude de cas de réservation de padel"
   },
   "frame": {
-    "docTitle": "Likwiid Frame, un moteur de portfolio pour photographes | Likwiid",
+    "docTitle": "Likwiid Frame : site portfolio photographe sans abonnement",
     "eyebrow": "Produit Likwiid",
     "heroTitle": "Un portfolio qui vous appartient, jusqu'au dernier fichier.",
     "heroSubtitle": "Likwiid Frame est un moteur de portfolio pour photographes, avec validation client, boutique de tirages et réservation intégrées. Vous payez une fois, gardez votre propre domaine et possédez le site sous forme de fichiers, sans abonnement.",
@@ -911,5 +908,31 @@
     "Mobile": "Mobile",
     "IoT": "IoT",
     "AI": "IA"
+  },
+  "seo": {
+    "home": {
+      "description": "Sites de réservation, applications web et mobiles pour hébergements indépendants et fondateurs. Un studio dirigé par ses fondateurs, réponse sous 24 h."
+    },
+    "services": {
+      "description": "Applications web et mobiles, sites de réservation pour l'hôtellerie et les rendez-vous, intégration IA et automatisation, cloud et sauvetage de code."
+    },
+    "work": {
+      "description": "Études de cas : une plateforme de réservation de padel sur iOS et Android, un site de conseil et nos apps pour la voix, la course, la respiration et l'énergie."
+    },
+    "products": {
+      "description": "Likwiid Direct, un moteur de réservation sans commission pour petits hébergements, et Likwiid Frame, un portfolio à vous pour photographes. Avec démos."
+    },
+    "contact": {
+      "description": "Parlez-nous de votre site de réservation ou de votre app. WhatsApp +961 76 160 979 ou gabriel@likwiid.com. Réponse sous 24 heures."
+    },
+    "direct": {
+      "description": "Moteur de réservation sans commission dans votre site, pour chambres d'hôtes, gîtes et petits hôtels. Acompte, options et liste d'attente. Essayez la démo.",
+      "serviceType": "Moteur de réservation directe"
+    },
+    "frame": {
+      "description": "Un site portfolio de photographe qui vous appartient, en fichiers, avec validation client, boutique de tirages et réservation. Paiement unique, sans abonnement.",
+      "serviceType": "Site portfolio de photographe"
+    },
+    "breadcrumbHome": "Accueil"
   }
 }

@@ -28,8 +28,7 @@
     "tagline": "Beirut, Lebanon. Working worldwide. Replies within 24 hours."
   },
   "home": {
-    "documentTitle": "Likwiid | Software Studio",
-    "metaDescription": "Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide."
+    "documentTitle": "Booking Websites and Apps for Independent Hotels | Likwiid"
   },
   "hero": {
     "title": "Booking websites and apps for <em>independent</em> hotels and founders.",
@@ -85,8 +84,7 @@
     "emailPrefix": "Or email"
   },
   "contact": {
-    "documentTitle": "Contact | Likwiid",
-    "metaDescription": "Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.",
+    "documentTitle": "Contact Us About Your Booking Website or App | Likwiid",
     "heading": "Contact",
     "subheading": "Start a conversation about your next project.",
     "introTitle": "Let's build something together.",
@@ -141,8 +139,7 @@
     "errorMessageRequired": "Message is required"
   },
   "services": {
-    "documentTitle": "Services | Likwiid",
-    "metaDescription": "Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.",
+    "documentTitle": "Web, Mobile and Booking Software Services | Likwiid",
     "title": "Services",
     "subtitle": "Four kinds of work, each scoped, designed and built by the person you talk to.",
     "bookingPrice": "Most booking websites take 2 to 4 weeks.",
@@ -174,7 +171,7 @@
     "csLinkLabel": "Visit the live site"
   },
   "products": {
-    "docTitle": "Products | Likwiid",
+    "docTitle": "Direct Booking Engine and Photographer Portfolios | Likwiid",
     "title": "Products",
     "intro": "Two engines we built ourselves and set up for each client, both with live demos.",
     "demoNote": "The demo brands are fictional and any payment step is simulated.",
@@ -196,7 +193,7 @@
     "frameImageAlt": "Likwiid Frame demo portfolio preview"
   },
   "portfolio": {
-    "documentTitle": "Work | Likwiid",
+    "documentTitle": "Work: Booking Platforms and Apps We Built | Likwiid",
     "title": "Work that turns messy operations into owned software",
     "subtitle": "Apps and websites we designed, built and launched, for clients and for our own studio.",
     "hospitalityBody": "Booking websites where guests book and pay you directly, with no commission. You own the site, the bookings and your guest list.",
@@ -217,7 +214,7 @@
     "filterLabel": "Filter projects"
   },
   "direct": {
-    "docTitle": "Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid",
+    "docTitle": "Likwiid Direct: Commission-Free Direct Booking Engine",
     "eyebrow": "Likwiid product",
     "heroTitle": "Bookings that flow straight to you.",
     "heroSubtitle": "Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list.",
@@ -289,7 +286,7 @@
     "proofLink": "See the padel booking case study"
   },
   "frame": {
-    "docTitle": "Likwiid Frame, a Portfolio Engine for Photographers | Likwiid",
+    "docTitle": "Likwiid Frame: Photographer Portfolio Website You Own",
     "eyebrow": "Likwiid product",
     "heroTitle": "A portfolio you own, down to the files.",
     "heroSubtitle": "Likwiid Frame is a portfolio engine for photographers, with client proofing, a print shop and booking built in. You pay once, keep your own domain and own the site as files, with no subscription.",
@@ -384,5 +381,31 @@
     "startProject": "Start a project",
     "whatsapp": "Message us on WhatsApp",
     "nextProject": "Next project"
+  },
+  "seo": {
+    "home": {
+      "description": "Booking websites, web apps and mobile apps for independent hotels, guesthouses and founders. A founder-led studio in Beirut that replies within 24 hours."
+    },
+    "services": {
+      "description": "Web and mobile apps, booking websites for hospitality and appointments, AI integration and automation, cloud architecture and code rescue."
+    },
+    "work": {
+      "description": "Case studies: a padel booking platform live on iOS and Android, a consulting website, and our own apps for voice, running, breathing and home energy."
+    },
+    "products": {
+      "description": "Likwiid Direct, a commission-free booking engine for small stays and experiences, and Likwiid Frame, a portfolio photographers own. Both with live demos."
+    },
+    "contact": {
+      "description": "Tell us about your booking website or app. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours."
+    },
+    "direct": {
+      "description": "A commission-free booking engine inside your own website, for guesthouses, small hotels and experiences. Deposits, options and waitlists. Try the live demo.",
+      "serviceType": "Direct booking engine"
+    },
+    "frame": {
+      "description": "A photographer portfolio website you own as files, with client proofing, a print shop and booking. Pay once, no subscription. Try the live demos.",
+      "serviceType": "Photographer portfolio website"
+    },
+    "breadcrumbHome": "Home"
   }
 }
