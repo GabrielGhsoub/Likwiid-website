@@ -351,6 +351,23 @@
     "tier2Desc": "Everything in Portfolio, plus client proofing, the print shop and the booking embed.",
     "scarcity": "This engine is not running any photographer's portfolio yet, so the first real one gets the lower end of that band in exchange for letting us show the finished work. If a platform subscription already serves you well, that is a fine way to run a studio, and this product is not for you."
   },
+  "guides": {
+    "docTitle": "Guides for Small Stays and Photographers | Likwiid",
+    "crumb": "Guides",
+    "title": "Guides",
+    "intro": "Plain answers to the questions small hotels, guesthouses, activity businesses and photographers ask before taking bookings or clients directly. Written by the people who build Likwiid Direct and Likwiid Frame.",
+    "eyebrow": "Guide",
+    "byline": "By {{name}}",
+    "published": "Published {{date}}",
+    "updated": "Updated {{date}}",
+    "summaryTitle": "In short",
+    "sourcesTitle": "Sources",
+    "readGuide": "Read the guide",
+    "allGuides": "All guides",
+    "ctaTitle": "Want a second opinion on your setup?",
+    "ctaBody": "Tell us how you take bookings or clients today. We reply within 24 hours, and we will say so if what you already have works.",
+    "ctaButton": "Talk to us"
+  },
   "privacy": {
     "documentTitle": "Privacy Policy | Likwiid",
     "title": "Privacy Policy",
@@ -533,6 +550,9 @@
     "frame": {
       "description": "A photographer portfolio website you own as files, with client proofing, a print shop and booking. Pay once, no subscription. Try the live demos.",
       "serviceType": "Photographer portfolio website"
+    },
+    "guides": {
+      "description": "Practical guides for small hotels, guesthouses, activity businesses and photographers: deposits, booking modes, commissions and owning your website."
     },
     "breadcrumbHome": "Home"
   }

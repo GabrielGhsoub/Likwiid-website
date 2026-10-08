@@ -356,6 +356,23 @@
     "tier2Desc": "Tutto ciò che include Portfolio, più la selezione per i clienti, il negozio di stampe e la prenotazione integrata.",
     "scarcity": "Questo motore non gestisce ancora il portfolio di nessun fotografo, quindi il primo portfolio vero ottiene la parte bassa di quella fascia in cambio del permesso di mostrare il lavoro finito. Se un abbonamento a una piattaforma ti basta già, è un ottimo modo di gestire uno studio, e questo prodotto non fa per te."
   },
+  "guides": {
+    "docTitle": "Guide per strutture ricettive e fotografi | Likwiid",
+    "crumb": "Guide",
+    "title": "Guide",
+    "intro": "Risposte chiare alle domande che piccoli hotel, B&B, attività esperienziali e fotografi si pongono prima di ricevere prenotazioni o clienti in modo diretto. Scritte da chi costruisce Likwiid Direct e Likwiid Frame.",
+    "eyebrow": "Guida",
+    "byline": "Di {{name}}",
+    "published": "Pubblicato il {{date}}",
+    "updated": "Aggiornato il {{date}}",
+    "summaryTitle": "In breve",
+    "sourcesTitle": "Fonti",
+    "readGuide": "Leggi la guida",
+    "allGuides": "Tutte le guide",
+    "ctaTitle": "Vuoi un secondo parere sulla tua situazione?",
+    "ctaBody": "Raccontaci come ricevi oggi prenotazioni o clienti. Rispondiamo entro 24 ore e te lo diciamo con franchezza se quello che hai già funziona.",
+    "ctaButton": "Parla con noi"
+  },
   "privacy": {
     "documentTitle": "Informativa sulla privacy | Likwiid",
     "title": "Informativa sulla privacy",
@@ -1069,6 +1086,9 @@
     "frame": {
       "description": "Un sito portfolio per fotografi che è tuo, in file, con selezione per i clienti, negozio di stampe e prenotazioni. Paghi una volta, senza abbonamento.",
       "serviceType": "Sito portfolio per fotografi"
+    },
+    "guides": {
+      "description": "Guide pratiche per B&B, piccoli hotel, attività e fotografi: caparre, modalità di prenotazione, commissioni e un sito tutto tuo."
     },
     "breadcrumbHome": "Home"
   }
