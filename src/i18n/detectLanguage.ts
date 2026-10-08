@@ -2,26 +2,9 @@ export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es', 'pt', 'it'] as const
 export type Lang = (typeof SUPPORTED_LANGUAGES)[number]
 export const DEFAULT_LANGUAGE: Lang = 'en'
 const STORAGE_KEY = 'likwiid-language'
-// Marks that the one-time IP geolocation lookup has already run for this visitor, so we never
-// disclose their IP to the geo service on subsequent page loads.
-const DETECTED_KEY = 'likwiid-lang-detected'
-
-// Country (ISO 3166-1 alpha-2) → site language. Anything unmapped falls back to English.
-const COUNTRY_TO_LANG: Record<string, Lang> = {
-  // French
-  FR: 'fr', BE: 'fr', CH: 'fr', LU: 'fr', MC: 'fr',
-  // Spanish
-  ES: 'es', MX: 'es', AR: 'es', CO: 'es', CL: 'es', PE: 'es', VE: 'es', EC: 'es',
-  GT: 'es', CU: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es', NI: 'es',
-  CR: 'es', PA: 'es', UY: 'es', PR: 'es',
-  // Portuguese
-  BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt',
-  // Italian
-  IT: 'it', SM: 'it', VA: 'it',
-}
 
 // A pathname like /pt/work carries its own locale: the route always wins over any
-// saved, browser, or IP-detected language, and no automatic redirect ever happens.
+// saved or browser language, and no automatic redirect ever happens.
 export function getRouteLanguage(pathname: string): Lang | null {
   const first = pathname.split('/')[1]
   return first !== 'en' && isSupported(first) ? first : null
@@ -58,51 +41,9 @@ function getBrowserLanguage(): Lang | null {
   return null
 }
 
-// Synchronous best guess used as the initial language (no network) → no flash for
-// returning visitors or those whose browser language we support.
+// Initial language for unprefixed routes: the visitor's saved choice, else the first
+// supported language in their browser settings, else English. No network lookup, so the
+// visitor's IP is never sent anywhere to pick a language.
 export function getInitialLanguage(): Lang {
   return getSavedLanguage() ?? getBrowserLanguage() ?? DEFAULT_LANGUAGE
-}
-
-function hasDetected(): boolean {
-  try {
-    return localStorage.getItem(DETECTED_KEY) === '1'
-  } catch {
-    return false
-  }
-}
-
-function markDetected(): void {
-  try {
-    localStorage.setItem(DETECTED_KEY, '1')
-  } catch {
-    /* ignore (private mode / disabled storage) */
-  }
-}
-
-// First-visit only: refine by IP country so e.g. a visitor in France with an English
-// browser still gets French. Runs the geolocation lookup at most once per visitor (guarded by
-// a persisted marker) and never overrides a manual/saved choice. Fails silently.
-// `apply` loads the target language bundle (if needed) and switches to it.
-export async function refineLanguageByIP(apply: (lang: Lang) => Promise<void>): Promise<void> {
-  if (getSavedLanguage() || hasDetected()) return
-  try {
-    const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), 3500)
-    const res = await fetch('https://ipwho.is/?fields=country_code,success', { signal: controller.signal })
-    clearTimeout(timeout)
-    if (!res.ok) return
-    const data = await res.json()
-    const cc = String(data?.country_code ?? '').toUpperCase()
-    const lang = COUNTRY_TO_LANG[cc]
-    // Record that detection ran (regardless of outcome) so the next load skips the lookup.
-    markDetected()
-    if (lang && lang !== DEFAULT_LANGUAGE && !getSavedLanguage()) {
-      // Persist the detected language so it stays consistent on future visits without re-querying.
-      await apply(lang)
-      saveLanguage(lang)
-    }
-  } catch {
-    /* geo service unavailable / blocked - keep the synchronous guess, retry next load */
-  }
 }
