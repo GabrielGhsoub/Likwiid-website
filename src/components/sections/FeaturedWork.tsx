@@ -46,7 +46,7 @@ export function FeaturedWork() {
             const previewImage = project.previewImage ?? project.images[0]
             return (
               <RevealItem key={project.id} index={i}>
-                <Link to={`/work/${project.slug}`} className="group block h-full no-underline">
+                <Link to={`/work/${project.slug}/`} className="group block h-full no-underline">
                   <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 group-hover:border-border-hover">
                     <div className="relative aspect-[4/3] w-full border-b border-border bg-bg-tertiary">
                       {previewImage && (

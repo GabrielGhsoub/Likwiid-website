@@ -33,7 +33,7 @@ export function Footer() {
           </span>
           <span className="hidden text-text-tertiary text-sm sm:inline" aria-hidden="true">&middot;</span>
           <Link
-            to="/privacy"
+            to="/privacy/"
             className="inline-flex min-h-11 items-center text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
           >
             {t('footer.privacy')}

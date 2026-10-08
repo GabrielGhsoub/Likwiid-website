@@ -6,7 +6,7 @@ import { Check, ChevronDown } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { SUPPORTED_LANGUAGES, saveLanguage, isSupported, getRouteLanguage, type Lang } from '../../i18n/detectLanguage'
 import { setLanguage } from '../../i18n/config'
-import { localizedPageOf, localizedPath } from '../../i18n/localeRoutes'
+import { localizedHref, localizedPageOf } from '../../i18n/localeRoutes'
 import { track } from '../../utils/analytics'
 
 const LANG_CODES: Record<Lang, string> = { en: 'EN', pt: 'PT', es: 'ES', it: 'IT', fr: 'FR' }
@@ -61,7 +61,7 @@ export function LanguageLinks({ variant = 'row' }: { variant?: 'row' | 'stack' }
     // URL so the address bar, canonical, and content stay in agreement.
     const page = localizedPageOf(location.pathname)
     if (page) {
-      navigate(localizedPath(page, lang))
+      navigate(localizedHref(page, lang))
     }
   }
 
