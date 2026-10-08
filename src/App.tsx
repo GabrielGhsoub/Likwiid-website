@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense, createElement, useEffect } from 'react'
 import { Navigate, Routes, Route, useLocation, useNavigationType, useParams } from 'react-router-dom'
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
@@ -15,6 +15,7 @@ import {
   type LocalizedTool,
 } from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
+import { guidePage } from './content/guides/registry'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
 // hero paints first and animation capabilities stream in right after.
@@ -36,6 +37,7 @@ import {
   Frame,
   Products,
   NotFound,
+  Guides,
   TOOL_ROUTES,
   DIRECT_MARKET_PAGES,
 } from './routes'
@@ -80,6 +82,7 @@ const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
   direct: () => <Direct />,
   frame: () => <Frame />,
   products: () => <Products />,
+  guides: () => <Guides />,
 }
 
 // Locale-prefixed routes (/pt, /pt/work, /fr/contact, ...): the URL is the source of truth for
@@ -122,6 +125,19 @@ function DirectMarketRoute({ market, lang }: { market: DirectMarket; lang: Lang 
 function LocaleDirectMarket({ lang, Page }: { lang: Lang; Page: React.ComponentType }) {
   useRouteLanguage(lang)
   return <Page />
+}
+
+// Guide articles (/guides/<slug>, /pt/guides/<slug>): each language version is its own page,
+// and a guide only exists in the languages it is written in. Anything else is a 404.
+function GuideArticle({ lang }: { lang: Lang }) {
+  const { slug } = useParams<{ slug: string }>()
+  const page = guidePage(slug, lang)
+  return page ? createElement(page) : <NotFound />
+}
+
+function LocaleGuide({ lang }: { lang: Lang }) {
+  useRouteLanguage(lang)
+  return <GuideArticle lang={lang} />
 }
 
 // Scrolls the element named by a URL hash into view. Tries right after render, then, because
@@ -209,6 +225,11 @@ export default function App() {
                 {DIRECT_MARKET_ROUTES.map(({ market, lang, path }) => (
                   <Route key={path} path={path} element={<DirectMarketRoute market={market} lang={lang} />} />
                 ))}
+                {PREFIXED_LANGUAGES.map((lang) => (
+                  <Route key={`${lang}/guides/:slug`} path={`/${lang}/guides/:slug`} element={<LocaleGuide lang={lang} />} />
+                ))}
+                <Route path="/guides" element={<Guides />} />
+                <Route path="/guides/:slug" element={<GuideArticle lang="en" />} />
                 {/* Removed case studies: keep old links working */}
                 <Route path="/work/ai-fitness-coach" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/bully-ai" element={<Navigate to="/work/" replace />} />
