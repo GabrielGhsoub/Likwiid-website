@@ -7,7 +7,9 @@ import { createInstance } from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import App from './App'
 import { ThemeProvider } from './hooks/useTheme'
-import { DEFAULT_LANGUAGE, getRouteLanguage, type Lang } from './i18n/detectLanguage'
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, getRouteLanguage, type Lang } from './i18n/detectLanguage'
+import { DIRECT_MARKET_ROUTES, directMarketLanguages } from './i18n/localeRoutes'
+import { DIRECT_MARKET_CONTENT } from './data/directMarkets'
 import en from './locales/en.json'
 import es from './locales/es.json'
 import fr from './locales/fr.json'
@@ -69,4 +71,29 @@ export async function render(url: string): Promise<{ html: string; lang: Lang }>
   const html = await new Response(prelude).text()
   if (errors.length) throw new AggregateError(errors, `prerender of ${url} failed`)
   return { html, lang }
+}
+
+/**
+ * Every Direct market page (/pt/direct/alojamento-local/, /direct/padel-clubs/, ...) with the
+ * meta scripts/prerender.mjs writes into its head. `path` has no leading or trailing slash.
+ * `cluster` is true for a page that exists in every language, false for a one-language page.
+ */
+export function directMarketPages() {
+  return DIRECT_MARKET_ROUTES.map(({ market, lang, path }) => {
+    const content = DIRECT_MARKET_CONTENT[market][lang]
+    if (!content || content.market !== market || content.lang !== lang) {
+      throw new Error(`directMarketPages: no ${lang} copy for ${market}`)
+    }
+    const languages = directMarketLanguages(market)
+    return {
+      market,
+      lang,
+      path: path.slice(1),
+      title: content.docTitle,
+      description: content.description,
+      crumb: content.crumb,
+      faq: content.faq,
+      cluster: SUPPORTED_LANGUAGES.every((other) => languages.includes(other)),
+    }
+  })
 }

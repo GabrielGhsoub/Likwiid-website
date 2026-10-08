@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, '..', 'dist')
 const localesDir = join(__dirname, '..', 'src', 'locales')
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
-const { render } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
+const { render, directMarketPages } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
 
 const SITE_URL = 'https://likwiid.com'
 
@@ -195,6 +195,28 @@ for (const [slug, keys] of Object.entries(LOCALIZED_TOOLS)) {
   }
 }
 
+// Likwiid Direct pages per market or kind of business. The page list (DIRECT_MARKETS in
+// src/i18n/localeRoutes.ts) and the copy (src/data/directMarkets) come from the server bundle.
+// A page in every language joins an hreflang cluster; a market page that exists in its
+// market's language only gets a self-referencing hreflang and no alternates.
+for (const page of directMarketPages()) {
+  if (routes[page.path]) throw new Error(`prerender: "${page.path}" is defined twice`)
+  routes[page.path] = {
+    lang: page.lang,
+    title: page.title,
+    description: page.description,
+    hreflang: page.cluster ? true : 'self',
+    breadcrumb: [
+      { name: 'Likwiid Direct', path: localizedRoute(page.lang, 'direct') },
+      { name: page.crumb, path: page.path },
+    ],
+    faq: page.faq,
+    ogImage: 'og-direct.png',
+    // The rendered page must be the market page itself, not the 404 page.
+    marker: `data-direct-market="${page.market}"`,
+  }
+}
+
 function jsonLdGraph(path, meta) {
   const graph = []
   const lang = meta.lang ?? 'en'
@@ -253,6 +275,18 @@ function jsonLdGraph(path, meta) {
       inLanguage: lang,
     })
   }
+  if (meta.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${canonicalUrl(path)}#faq`,
+      inLanguage: lang,
+      mainEntity: meta.faq.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    })
+  }
   if (!graph.length) return ''
   const doc = { '@context': 'https://schema.org', '@graph': graph }
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
@@ -274,9 +308,10 @@ function hreflangLinks(path) {
 
 // Share card per route: the product pages (and their localized variants) get their own
 // card so links pasted into WhatsApp or email preview the product; everything else keeps
-// the studio card. og:image and twitter:image always match.
+// the studio card. og:image and twitter:image always match. meta.ogImage overrides.
 const OG_IMAGES = { direct: 'og-direct.png', frame: 'og-frame.png' }
-const ogImageUrl = (path) => `${SITE_URL}/${OG_IMAGES[path.replace(/^(?:pt|es|it|fr)\//, '')] ?? 'og-image.png'}`
+const ogImageUrl = (path, meta) =>
+  `${SITE_URL}/${meta.ogImage ?? OG_IMAGES[path.replace(/^(?:pt|es|it|fr)\//, '')] ?? 'og-image.png'}`
 
 function renderRoute(path, meta) {
   let html = baseHtml
@@ -328,7 +363,7 @@ function renderRoute(path, meta) {
   )
   const lang = meta.lang ?? 'en'
   const ogLocale = OG_LOCALES[lang]
-  const ogAlternates = meta.hreflang
+  const ogAlternates = meta.hreflang === true
     ? LANGUAGES.filter((other) => other !== lang)
         .map((other) => `\n    <meta property="og:locale:alternate" content="${OG_LOCALES[other]}" />`)
         .join('')
@@ -339,7 +374,7 @@ function renderRoute(path, meta) {
     () => `<meta property="og:locale" content="${ogLocale}" />${ogAlternates}`,
     'og:locale'
   )
-  const ogImage = ogImageUrl(path)
+  const ogImage = ogImageUrl(path, meta)
   html = replaceOrThrow(
     html,
     /<meta property="og:image" content="[^"]*"/,
@@ -365,8 +400,10 @@ function renderRoute(path, meta) {
     'canonical'
   )
 
-  if (meta.hreflang) {
+  if (meta.hreflang === true) {
     html = html.replace('</head>', `${hreflangLinks(path)}\n  </head>`)
+  } else if (meta.hreflang === 'self') {
+    html = html.replace('</head>', `    <link rel="alternate" hreflang="${lang}" href="${url}" />\n  </head>`)
   }
 
   if (!noindex) {
@@ -386,9 +423,10 @@ const servedPath = (path) => (path ? `/${path}/` : '/')
 const CLIENT_ONLY = new Set(['beit-toureef-poc'])
 
 // The rendered page goes into #root, stamped with the URL it was rendered for.
-async function withAppHtml(html, url, expectedLang) {
+async function withAppHtml(html, url, expectedLang, marker) {
   const app = await render(url)
   if (app.lang !== expectedLang) throw new Error(`prerender: ${url} rendered in "${app.lang}", expected "${expectedLang}"`)
+  if (marker && !app.html.includes(marker)) throw new Error(`prerender: ${url} did not render its page (no ${marker})`)
   if (app.html.includes('aria-label="Loading"')) throw new Error(`prerender: ${url} rendered its loading fallback`)
   return replaceOrThrow(
     html,
@@ -401,7 +439,7 @@ async function withAppHtml(html, url, expectedLang) {
 let count = 0
 for (const [path, meta] of Object.entries(routes)) {
   let html = renderRoute(path, meta)
-  if (!CLIENT_ONLY.has(path)) html = await withAppHtml(html, servedPath(path), meta.lang ?? 'en')
+  if (!CLIENT_ONLY.has(path)) html = await withAppHtml(html, servedPath(path), meta.lang ?? 'en', meta.marker)
   if (path === '') {
     writeFileSync(join(dist, 'index.html'), html)
   } else {
