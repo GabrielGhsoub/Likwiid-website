@@ -16,11 +16,12 @@ import {
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { DemoCard } from '../components/ui/DemoCard'
-import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
+import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
 import { useTheme } from '../hooks/useTheme'
 import { umamiAttrs } from '../utils/analytics'
-import { useLocalizedPath } from '../i18n/useLocalizedPath'
+import { useCurrentLanguage, useLocalizedPath } from '../i18n/useLocalizedPath'
+import { DIRECT_MARKET_SLUGS, directMarketLanguages, directMarketPath, withTrailingSlash } from '../i18n/localeRoutes'
 
 const DEMO_CARDS = [
   {
@@ -88,6 +89,9 @@ export default function Direct() {
   const localize = useLocalizedPath()
   const segmentList = t('direct.segments', { returnObjects: true })
   const segments: Segment[] = Array.isArray(segmentList) ? segmentList : []
+  // Pages for one market or kind of business that exist in the reader's language.
+  const readerLang = useCurrentLanguage()
+  const marketLinks = DIRECT_MARKET_SLUGS.filter((market) => directMarketLanguages(market).includes(readerLang))
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -197,6 +201,23 @@ export default function Direct() {
                 </li>
               ))}
             </ul>
+            {marketLinks.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
+                  {t('direct.marketLinksTitle')}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-3">
+                  {marketLinks.map((market) => (
+                    <li key={market}>
+                      <Link to={withTrailingSlash(directMarketPath(market, readerLang))} className={BUTTON_LINK_SECONDARY_MD}>
+                        {t(`direct.marketLinks.${market}`)}
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
 
           {/* Calendar sync */}
