@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -5,13 +6,21 @@ import { ArrowRight } from 'lucide-react'
 import { useLocalizedFeaturedProjects } from '../../i18n/localizedContent'
 import { ProjectPreview } from '../ui/DeviceFrame'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
+import { useRevealMotion } from '../../hooks/useRevealMotion'
 
 const HOME_FEATURED_COUNT = 3
 
-const FADE_UP_INITIAL = { opacity: 0, y: 16 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const VIEWPORT = { once: true, amount: 0.15 } as const
-const itemTransition = (i: number) => ({ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const })
+const VIEWPORT_AMOUNT = 0.15
+const STAGGER_S = 0.06
+
+function RevealItem({ index, className, children }: { index: number; className?: string; children: ReactNode }) {
+  const reveal = useRevealMotion({ delay: index * STAGGER_S, amount: VIEWPORT_AMOUNT })
+  return (
+    <m.div className={className} {...reveal}>
+      {children}
+    </m.div>
+  )
+}
 
 export function FeaturedWork() {
   const { t } = useTranslation()
@@ -21,13 +30,7 @@ export function FeaturedWork() {
   return (
     <section className="px-6 py-16" aria-labelledby="featured-work-heading">
       <div className="mx-auto max-w-[1200px]">
-        <m.div
-          className="mb-10 max-w-2xl"
-          initial={FADE_UP_INITIAL}
-          whileInView={FADE_UP_VISIBLE}
-          viewport={VIEWPORT}
-          transition={itemTransition(0)}
-        >
+        <RevealItem index={0} className="mb-10 max-w-2xl">
           <h2
             id="featured-work-heading"
             className="text-3xl font-bold text-text-primary font-[family-name:var(--font-display)] md:text-4xl"
@@ -35,20 +38,14 @@ export function FeaturedWork() {
             {t('featuredWork.title')}
           </h2>
           <p className="mt-3 text-lg text-text-secondary">{t('featuredWork.subtitle')}</p>
-        </m.div>
+        </RevealItem>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {homeProjects.map((project, i) => {
             const isClientWork = project.client !== 'Likwiid'
             const previewImage = project.previewImage ?? project.images[0]
             return (
-              <m.div
-                key={project.id}
-                initial={FADE_UP_INITIAL}
-                whileInView={FADE_UP_VISIBLE}
-                viewport={VIEWPORT}
-                transition={itemTransition(i)}
-              >
+              <RevealItem key={project.id} index={i}>
                 <Link to={`/work/${project.slug}`} className="group block h-full no-underline">
                   <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 group-hover:border-border-hover">
                     <div className="relative aspect-[4/3] w-full border-b border-border bg-bg-tertiary">
@@ -73,7 +70,7 @@ export function FeaturedWork() {
                     </div>
                   </article>
                 </Link>
-              </m.div>
+              </RevealItem>
             )
           })}
         </div>

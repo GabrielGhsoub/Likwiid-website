@@ -12,6 +12,7 @@ const loadFeatures = () => import('./motionFeatures').then((mod) => mod.domMax)
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
+import { HydrationComplete } from './components/layout/HydrationComplete'
 import Home from './pages/Home'
 
 import { Services, Portfolio, CaseStudy, Contact, Privacy, BeitToureefPoc, Direct, Frame, Products, NotFound } from './routes'
@@ -157,6 +158,7 @@ export default function App() {
                 <Route path="/beit-toureef-poc" element={<LegacyBeitToureefRedirect />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              <HydrationComplete />
             </Suspense>
           </ErrorBoundary>
         </main>

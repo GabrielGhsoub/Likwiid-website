@@ -14,10 +14,11 @@ import { useLocalizedProjects } from '../i18n/localizedContent'
 import { SOCIAL } from '../utils/constants'
 import { umamiAttrs } from '../utils/analytics'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
+import { useMountedFromHtml } from '../hooks/useHydrated'
+import { useRevealMotion } from '../hooks/useRevealMotion'
 
 const FADE_UP_INITIAL = { opacity: 0, y: 16 }
 const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const REVEAL_VIEWPORT = { once: true, amount: 0.1 } as const
 const TRANSITION_BASE = { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
 
 const METRIC_COLS: Record<number, string> = {
@@ -58,16 +59,11 @@ function SubTitle({ children }: { children: ReactNode }) {
 }
 
 // Fades in once when scrolled into view. whileInView (not an observer-gated state flag)
-// so content is never left invisible.
+// so content is never left invisible; prerendered blocks start visible (useRevealMotion).
 function Reveal({ children, className }: { children: ReactNode; className?: string }) {
+  const reveal = useRevealMotion()
   return (
-    <m.div
-      className={className}
-      initial={FADE_UP_INITIAL}
-      whileInView={FADE_UP_VISIBLE}
-      viewport={REVEAL_VIEWPORT}
-      transition={TRANSITION_BASE}
-    >
+    <m.div className={className} {...reveal}>
       {children}
     </m.div>
   )
@@ -109,6 +105,7 @@ export default function CaseStudy() {
   }, [project, t])
 
   const [techOpen, setTechOpen] = useState(false)
+  const fromHtml = useMountedFromHtml()
 
   useEffect(() => {
     // Matches the prerendered <title> for case study routes.
@@ -151,7 +148,9 @@ export default function CaseStudy() {
           </Link>
 
           {/* ---------- Hero ---------- */}
-          <m.div initial={FADE_UP_INITIAL} animate={FADE_UP_VISIBLE} transition={TRANSITION_BASE}>
+          {/* Above the fold: the entrance only plays on client-side navigation. In the
+              prerendered HTML it is visible from the first paint. */}
+          <m.div initial={fromHtml ? false : FADE_UP_INITIAL} animate={FADE_UP_VISIBLE} transition={TRANSITION_BASE}>
             <h1 className="text-3xl font-bold leading-[1.08] tracking-tight text-text-primary font-[family-name:var(--font-display)] md:text-5xl">
               {project.title}
             </h1>
@@ -218,7 +217,7 @@ export default function CaseStudy() {
           {images.length > 0 && (
             <m.div
               className="mt-14"
-              initial={FADE_UP_INITIAL}
+              initial={fromHtml ? false : FADE_UP_INITIAL}
               animate={FADE_UP_VISIBLE}
               transition={{ ...TRANSITION_BASE, delay: 0.1 }}
             >

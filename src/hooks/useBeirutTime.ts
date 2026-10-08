@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 const TIME_ZONE = 'Asia/Beirut'
 const TICK_MS = 30_000
@@ -17,27 +17,29 @@ export interface BeirutTime {
   iso: string
 }
 
+let cached: BeirutTime | null = null
+
+// Same object for as long as the minute label stays the same, as useSyncExternalStore needs.
 function read(): BeirutTime {
   const now = new Date()
   // Some engines render midnight as "24:00" with hour12 false
   const label = formatter.format(now).replace(/^24/, '00')
-  return { label, iso: now.toISOString() }
+  if (!cached || cached.label !== label) cached = { label, iso: now.toISOString() }
+  return cached
 }
 
-/** Current time in Beirut, refreshed every 30 seconds. */
-export function useBeirutTime(): BeirutTime {
-  const [time, setTime] = useState<BeirutTime>(read)
+function subscribe(onChange: () => void): () => void {
+  const id = window.setInterval(onChange, TICK_MS)
+  return () => window.clearInterval(id)
+}
 
-  useEffect(() => {
-    const update = () =>
-      setTime((prev) => {
-        const next = read()
-        return prev.label === next.label ? prev : next
-      })
-    update()
-    const id = window.setInterval(update, TICK_MS)
-    return () => window.clearInterval(id)
-  }, [])
+// The prerendered HTML cannot know the time a visitor opens it, so it carries no clock.
+const readOnServer = () => null
 
-  return time
+/**
+ * Current time in Beirut, refreshed every 30 seconds. Null in the prerendered HTML and during
+ * hydration; the real time renders in the commit right after.
+ */
+export function useBeirutTime(): BeirutTime | null {
+  return useSyncExternalStore(subscribe, read, readOnServer)
 }

@@ -28,6 +28,7 @@ import {
 import { PageTransition } from '../components/layout/PageTransition'
 import { Button } from '../components/ui/Button'
 import { cn } from '../utils/cn'
+import { useHydrated, useMountedFromHtml } from '../hooks/useHydrated'
 
 type FlowKey = 'event' | 'tour' | 'table' | 'products'
 type BookingStatus = 'new' | 'awaitingDeposit' | 'depositSubmitted' | 'confirmed'
@@ -516,7 +517,16 @@ function getSelectedFlow(selectedFlow: FlowKey) {
   return flowOptions.find((item) => item.id === selectedFlow) ?? flowOptions[0]
 }
 
+function readStoredAccess(): boolean {
+  try {
+    return sessionStorage.getItem(ACCESS_SESSION_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 function AccessGate({ onUnlock }: { onUnlock: () => void }) {
+  const fromHtml = useMountedFromHtml()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -553,7 +563,7 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
         <div className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-[520px] items-center">
           <m.div
             className="w-full rounded-lg border border-[#EEE1C6]/12 bg-[#1A1D17] p-5 shadow-2xl shadow-black/30 md:p-6"
-            initial={{ opacity: 0, y: 16 }}
+            initial={fromHtml ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-[#D7B56D] text-[#1E1A12]">
@@ -617,7 +627,11 @@ function AccessGate({ onUnlock }: { onUnlock: () => void }) {
 }
 
 export default function BeitToureefPoc() {
-  const [hasAccess, setHasAccess] = useState(() => sessionStorage.getItem(ACCESS_SESSION_KEY) === '1')
+  // The prerendered page is always the gate (the walkthrough itself never ships in static
+  // HTML). A session that already unlocked it skips the gate right after hydration.
+  const hydrated = useHydrated()
+  const [unlocked, setUnlocked] = useState(false)
+  const hasAccess = unlocked || (hydrated && readStoredAccess())
   const [selectedFlow, setSelectedFlow] = useState<FlowKey>('event')
   const [guestCount, setGuestCount] = useState(24)
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([
@@ -974,7 +988,7 @@ export default function BeitToureefPoc() {
   }
 
   if (!hasAccess) {
-    return <AccessGate onUnlock={() => setHasAccess(true)} />
+    return <AccessGate onUnlock={() => setUnlocked(true)} />
   }
 
   return (

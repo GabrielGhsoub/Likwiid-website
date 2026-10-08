@@ -12,11 +12,8 @@ import { useLocalizedProjects } from '../i18n/localizedContent'
 import type { Project, ProjectStatus } from '../types'
 import { umamiAttrs } from '../utils/analytics'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
+import { useRevealMotion } from '../hooks/useRevealMotion'
 
-const FADE_UP_INITIAL = { opacity: 0, y: 16 }
-const FADE_UP_VISIBLE = { opacity: 1, y: 0 }
-const CARD_VIEWPORT = { once: true, amount: 0.1 } as const
-const CARD_TRANSITION = { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
   live: 'border-accent-gold/40 text-accent-gold',
@@ -40,13 +37,11 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
   const previewImage = project.previewImage ?? project.images[0]
   const previewAlt = project.previewAlt ?? t('portfolio.previewAlt', { title: project.title })
   const isClientWork = project.client !== 'Likwiid'
+  const reveal = useRevealMotion<HTMLElement>()
 
   return (
     <m.article
-      initial={FADE_UP_INITIAL}
-      whileInView={FADE_UP_VISIBLE}
-      viewport={CARD_VIEWPORT}
-      transition={CARD_TRANSITION}
+      {...reveal}
       className="group overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 hover:border-border-hover"
     >
       <div className="flex flex-col md:flex-row">

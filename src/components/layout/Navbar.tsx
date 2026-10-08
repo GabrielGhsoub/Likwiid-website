@@ -194,9 +194,10 @@ export function Navbar() {
                 )}
               </Link>
             ))}
+            {/* The prerendered HTML has no clock: it shows a placeholder until hydration. */}
             <time
-              dateTime={beirutTime.iso}
-              aria-label={`${t('nav.beirutTime')} ${beirutTime.label}`}
+              dateTime={beirutTime?.iso}
+              aria-label={beirutTime ? `${t('nav.beirutTime')} ${beirutTime.label}` : t('nav.beirutTime')}
               title={t('nav.beirutTime')}
               className={cn(
                 'inline-flex min-h-11 items-center font-mono text-xs tabular-nums whitespace-nowrap',
@@ -205,7 +206,7 @@ export function Navbar() {
                   : 'text-text-tertiary',
               )}
             >
-              {t('nav.beirutCity')} {beirutTime.label}
+              {t('nav.beirutCity')} {beirutTime?.label ?? '--:--'}
             </time>
             <LanguageLinks />
             <button
@@ -220,7 +221,10 @@ export function Navbar() {
               )}
               aria-label={theme === 'dark' ? t('theme.toLight') : t('theme.toDark')}
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {/* Both icons ship in the HTML; the .dark/.light class on <html> shows the right
+                  one before hydration, so a dark-theme visitor never sees the light icon. */}
+              <Sun size={18} className="theme-icon-dark" aria-hidden="true" />
+              <Moon size={18} className="theme-icon-light" aria-hidden="true" />
             </button>
           </div>
 
