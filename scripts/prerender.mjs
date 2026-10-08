@@ -304,7 +304,7 @@ function jsonLdGraph(path, meta) {
       dateModified: meta.article.dateModified,
       url: canonicalUrl(path),
       mainEntityOfPage: canonicalUrl(path),
-      image: ogImageUrl(path),
+      image: ogImageUrl(path, meta),
       author: { '@type': 'Person', '@id': `${SITE_URL}/#gabriel`, name: 'Gabriel Ghoussoub' },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
