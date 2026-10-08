@@ -37,41 +37,36 @@ function replaceOrThrow(html, regex, replacer, label) {
   return out
 }
 
-// Titles match CaseStudy.tsx (`${project.title}: Case Study | Likwiid`) so document.title
-// does not change after hydration. Copy mirrors oneLiner/description in src/data/projects.ts.
+// English case study copy, mirroring oneLiner/description in src/data/projects.ts. Titles are
+// built from the caseStudy.docTitle locale key, the same one CaseStudy.tsx sets as
+// document.title, so the title does not change after hydration.
 const caseStudies = {
   'padel-booking': {
-    title: 'Padel Booking Platform: Case Study | Likwiid',
     description:
       'A booking and league app for padel players and clubs in Lebanon, live on the App Store and Google Play, with a web admin portal for league organizers.',
     heading: 'Padel Booking Platform',
   },
   'gcg-website': {
-    title: 'GCG Website: Case Study | Likwiid',
     description:
       'Website for a science consulting firm, with a clear path for every audience: companies, research teams, students, families and investors.',
     heading: 'GCG Website',
   },
   voxflow: {
-    title: 'VoxFlow: Case Study | Likwiid',
     description:
       'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
     heading: 'VoxFlow',
   },
   'personal-fitness-tracker': {
-    title: 'Personal Fitness Tracker: Case Study | Likwiid',
     description:
       'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',
     heading: 'Personal Fitness Tracker',
   },
   breathebreak: {
-    title: 'BreatheBreak: Case Study | Likwiid',
     description:
       'A Mac menu bar app that reminds desk workers to take short breathing breaks, and stays quiet during calls and Focus mode.',
     heading: 'BreatheBreak',
   },
   'sems-energy-management': {
-    title: 'SEMS: Smart Energy Management: Case Study | Likwiid',
     description:
       'An app showing Lebanese homes where their power comes from and what it costs: grid, generator, solar and batteries in one view.',
     heading: 'SEMS: Smart Energy Management',
@@ -143,17 +138,35 @@ for (const lang of LANGUAGES) {
   }
 }
 
-const workSlugs = Object.keys(caseStudies)
-for (const slug of workSlugs) {
-  const cs = caseStudies[slug]
-  routes[`work/${slug}`] = {
-    title: cs.title,
-    description: cs.description,
+// Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
+// are English only. Their translated title and description come from projectsData.<slug>.
+// Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
+const LOCALIZED_CASE_STUDIES = ['padel-booking']
+const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
+
+function caseStudyRoute(lang, slug, { heading, description }) {
+  const path = localizedRoute(lang, `work/${slug}`)
+  return {
+    lang,
+    title: caseStudyTitle(lang, heading),
+    description,
+    hreflang: LOCALIZED_CASE_STUDIES.includes(slug),
     breadcrumb: [
-      { name: 'Work', path: 'work' },
-      { name: cs.heading, path: `work/${slug}` },
+      { name: locales[lang].nav.work, path: localizedRoute(lang, 'work') },
+      { name: heading, path },
     ],
-    creativeWork: cs,
+    creativeWork: { heading, description },
+  }
+}
+
+for (const [slug, cs] of Object.entries(caseStudies)) {
+  routes[`work/${slug}`] = caseStudyRoute('en', slug, cs)
+}
+for (const slug of LOCALIZED_CASE_STUDIES) {
+  for (const lang of PREFIXED_LANGUAGES) {
+    const data = locales[lang].projectsData?.[slug]
+    if (!data?.title || !data?.seoDescription) throw new Error(`prerender: missing ${lang} copy for work/${slug}`)
+    routes[localizedRoute(lang, `work/${slug}`)] = caseStudyRoute(lang, slug, { heading: data.title, description: data.seoDescription })
   }
 }
 
@@ -196,7 +209,7 @@ function jsonLdGraph(path, meta) {
       description: meta.creativeWork.description,
       url: canonicalUrl(path),
       creator: { '@id': `${SITE_URL}/#organization` },
-      inLanguage: 'en',
+      inLanguage: lang,
     })
   }
   if (!graph.length) return ''
@@ -204,9 +217,9 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
-// A localized cluster (home, services, contact, work, direct, frame, products): every
-// language variant plus x-default pointing at English, per Google's localized-pages
-// guidance. Injected into each route of the cluster.
+// A localized cluster (home, services, contact, work, direct, frame, products, localized
+// case studies): every language variant plus x-default pointing at English, per Google's
+// localized-pages guidance. Injected into each route of the cluster.
 function hreflangLinks(path) {
   const page = path.replace(/^(?:pt|es|it|fr)(?:\/|$)/, '')
   return [
