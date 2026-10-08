@@ -37,7 +37,6 @@ const FADE_UP_INITIAL = { opacity: 0, y: 20 }
 const FADE_UP_ANIMATE = { opacity: 1, y: 0 }
 const SCALE_INITIAL = { scale: 0 }
 const SCALE_ANIMATE = { scale: 1 }
-const TRANSITION_DELAY_01 = { duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_DELAY_02 = { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }
 const TRANSITION_SPRING = { type: 'spring' as const, stiffness: 200, damping: 14 }
 
@@ -103,11 +102,9 @@ export default function Contact() {
           <SectionHeading as="h1" title={t('contact.heading')} subtitle={t('contact.subheading')} />
 
           <div className="grid md:grid-cols-2 gap-16">
-            <m.div
-              initial={FADE_UP_INITIAL}
-              animate={FADE_UP_ANIMATE}
-              transition={TRANSITION_DELAY_01}
-            >
+            {/* Not opacity-gated: this column holds the page's largest contentful paint, so it
+                must show on the first frame rather than wait for the animation bundle. */}
+            <div>
               <h2 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-text-primary">
                 {t('contact.introTitle')}
               </h2>
@@ -206,7 +203,7 @@ export default function Contact() {
                   <Linkedin size={18} />
                 </a>
               </div>
-            </m.div>
+            </div>
 
             <m.div
               initial={FADE_UP_INITIAL}
