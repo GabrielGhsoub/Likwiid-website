@@ -113,8 +113,10 @@
       }
     </script>
 
+    <!-- async, not defer: deferred scripts run in document order, so a deferred tracker would
+         hold back the app's module script (and the first render) until analytics responds. -->
     <script
-      defer
+      async
       src="https://analytics.likwiid.com/script.js"
       data-website-id="85306839-3302-4404-a06d-88a0d6ef5599"
       data-domains="likwiid.com,www.likwiid.com"

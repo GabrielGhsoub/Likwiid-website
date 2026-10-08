@@ -1,5 +1,6 @@
 import { Play } from 'lucide-react'
 import { umamiAttrs } from '../../utils/analytics'
+import { demoPreviewSrcSet, TWO_COLUMN_SIZES } from '../../utils/responsiveImages'
 
 interface DemoCardProps {
   href: string
@@ -25,6 +26,8 @@ export function DemoCard({ href, image, imageWidth, imageHeight, alt, name, desc
       <span className="relative block aspect-[16/10] bg-bg-tertiary">
         <img
           src={image}
+          srcSet={demoPreviewSrcSet(image)}
+          sizes={TWO_COLUMN_SIZES}
           alt={alt}
           width={imageWidth}
           height={imageHeight}

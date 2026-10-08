@@ -74,13 +74,15 @@ export function LanguageLinks({ variant = 'row' }: { variant?: 'row' | 'stack' }
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={t('language.label')}
         className={cn(
           'flex cursor-pointer items-center justify-between rounded-lg border border-border bg-bg-secondary text-text-primary transition-[border-color,box-shadow] duration-300',
           'hover:border-border-hover focus:outline-none focus-visible:border-accent-gold focus-visible:shadow-[0_0_0_3px_var(--color-accent-gold-dim)]',
           compact ? 'min-h-9 gap-1.5 py-1.5 pl-2.5 pr-2' : 'w-full min-h-11 gap-2 py-3 pl-4 pr-3',
         )}
       >
+        {/* Accessible name reads "Language: EN": it must contain the visible text, so the
+            label is visually hidden text rather than an aria-label that would replace it. */}
+        <span className="sr-only">{`${t('language.label')}: `}</span>
         <span className={cn(compact ? 'text-xs font-medium font-[family-name:var(--font-mono)]' : 'text-sm font-medium')}>
           {compact ? LANG_CODES[current] : LANG_NAMES[current]}
         </span>
