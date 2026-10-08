@@ -239,6 +239,30 @@
     "feature7Desc": "Le tue condizioni di cancellazione e di pagamento compaiono nell'ultimo passaggio, e nessuno può prenotare o inviare una richiesta senza spuntare di averle lette.",
     "feature8Title": "Un pannello del proprietario con il tuo marchio",
     "feature8Desc": "Richieste da approvare o rifiutare, un elenco prenotazioni con ricerca ed esportazione, un calendario che blocchi con un clic, i tuoi ospiti e i loro crediti, i tuoi testi e i tuoi prezzi. Modifichi tutto tu stesso.",
+    "segmentsTitle": "Per chi è",
+    "segmentsIntro": "Per strutture e attività indipendenti che preferiscono ricevere le prenotazioni direttamente invece di pagare una commissione a una piattaforma su ognuna.",
+    "segments": [
+      {
+        "title": "B&B",
+        "desc": "Gli ospiti scelgono le date, aggiungono extra come la colazione o un transfer e pagano una caparra o ti inviano una richiesta."
+      },
+      {
+        "title": "Agriturismi",
+        "desc": "Extra come una degustazione, soggiorni minimi e prezzi stagionali, con le tue condizioni di cancellazione accettate prima di ogni prenotazione."
+      },
+      {
+        "title": "Case vacanza",
+        "desc": "Il preavviso che ti serve, giorni liberi tra una prenotazione e l'altra e le date occupate importate dagli altri portali su cui sei presente."
+      },
+      {
+        "title": "Piccoli hotel",
+        "desc": "Tutte le camere in un unico calendario e un pannello del proprietario con il tuo marchio per approvare richieste e bloccare date con un clic."
+      },
+      {
+        "title": "Esperienze, come padel o immersioni",
+        "desc": "Orari con un numero di posti, i posti rimasti in vista e una lista d'attesa quando un orario è pieno."
+      }
+    ],
     "scarcity": "Questo motore non gestisce ancora le prenotazioni di nessuno, quindi la prima struttura ottiene un prezzo di riferimento in cambio del permesso di mostrare il lavoro finito. Se una piattaforma ti funziona già bene e la commissione non ti pesa, questo prodotto non fa per te.",
     "demoLaunch": "Apri la demo completa",
     "demoPreviewAlt": "Anteprima del flusso di prenotazione di Likwiid Direct",

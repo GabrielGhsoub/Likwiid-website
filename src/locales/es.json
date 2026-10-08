@@ -239,6 +239,30 @@
     "feature7Desc": "Tus condiciones de cancelación y de pago aparecen en el último paso, y nadie puede reservar ni enviar una solicitud sin marcar que las ha leído.",
     "feature8Title": "Un panel de propietario con tu marca",
     "feature8Desc": "Solicitudes para aprobar o rechazar, una lista de reservas con búsqueda y exportación, un calendario que bloqueas con un clic, tus huéspedes y sus créditos, y tus textos y precios. Lo editas todo tú.",
+    "segmentsTitle": "Para quién es",
+    "segmentsIntro": "Para negocios independientes que prefieren recibir sus reservas directamente en lugar de pagar una comisión a una plataforma por cada una.",
+    "segments": [
+      {
+        "title": "Casas rurales",
+        "desc": "Los huéspedes eligen sus fechas, añaden extras como el desayuno o una cata y pagan una señal o te envían una solicitud."
+      },
+      {
+        "title": "Hostales",
+        "desc": "Todas las habitaciones en un solo calendario, con estancias mínimas, precios por temporada y tus condiciones de cancelación."
+      },
+      {
+        "title": "Apartamentos turísticos",
+        "desc": "La antelación que necesitas, días libres entre reservas y las fechas ocupadas importadas de las otras plataformas donde te anuncias."
+      },
+      {
+        "title": "Pequeños hoteles",
+        "desc": "Un panel de propietario con tu marca para aprobar solicitudes, buscar y exportar reservas y bloquear fechas con un clic."
+      },
+      {
+        "title": "Experiencias, como pádel o buceo",
+        "desc": "Horarios con plazas limitadas, las plazas libres a la vista y lista de espera cuando un horario se llena."
+      }
+    ],
     "scarcity": "Este motor todavía no gestiona las reservas de nadie, así que el primer alojamiento obtiene un precio de referencia a cambio de dejarnos mostrar el resultado. Si una plataforma ya te funciona bien y la comisión no te molesta, este producto no es para ti.",
     "demoLaunch": "Abrir la demo completa",
     "demoPreviewAlt": "Vista previa del flujo de reservas de Likwiid Direct",

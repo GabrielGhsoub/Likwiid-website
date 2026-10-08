@@ -72,6 +72,11 @@ const FEATURES = [
 
 const SITE_ITEM_KEYS = ['siteItem1', 'siteItem2', 'siteItem3', 'siteItem4', 'siteItem5', 'siteItem6'] as const
 
+interface Segment {
+  title: string
+  desc: string
+}
+
 const H2 = 'text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary'
 
 export default function Direct() {
@@ -81,6 +86,8 @@ export default function Direct() {
   const BACK_PATH = useLocation().pathname
   const { theme } = useTheme()
   const localize = useLocalizedPath()
+  const segmentList = t('direct.segments', { returnObjects: true })
+  const segments: Segment[] = Array.isArray(segmentList) ? segmentList : []
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -169,6 +176,28 @@ export default function Direct() {
               </div>
             ))}
           </div>
+
+          {/* Who it is for: the kinds of business each language's visitors search for. The
+              list length varies per language, so it comes from the locale as an array. */}
+          <section aria-labelledby="segments-heading" className="mt-20">
+            <h2 id="segments-heading" className={H2}>
+              {t('direct.segmentsTitle')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('direct.segmentsIntro')}
+            </p>
+            <ul className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+              {segments.map((segment) => (
+                <li key={segment.title} className="flex items-start gap-3">
+                  <Check size={18} className="mt-1 shrink-0 text-text-tertiary" aria-hidden="true" />
+                  <div>
+                    <h3 className="font-semibold font-[family-name:var(--font-display)] text-text-primary">{segment.title}</h3>
+                    <p className="mt-1 text-text-secondary leading-relaxed">{segment.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
 
           {/* Calendar sync */}
           <section aria-labelledby="sync-heading" className="mt-20">

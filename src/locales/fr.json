@@ -239,6 +239,26 @@
     "feature7Desc": "Vos conditions d'annulation et de paiement figurent à la dernière étape, et personne ne peut réserver ni envoyer une demande sans cocher la case confirmant qu'il les a lues.",
     "feature8Title": "Un espace propriétaire à vos couleurs",
     "feature8Desc": "Des demandes à accepter ou refuser, une liste de réservations avec recherche et export, un calendrier que vous bloquez en un clic, vos clients et leurs avoirs, vos textes et vos prix. Vous modifiez tout vous-même.",
+    "segmentsTitle": "Pour qui",
+    "segmentsIntro": "Pour les établissements indépendants qui préfèrent recevoir leurs réservations en direct plutôt que de verser une commission à une plateforme sur chacune.",
+    "segments": [
+      {
+        "title": "Chambres d'hôtes",
+        "desc": "Vos hôtes choisissent leurs dates, ajoutent le petit-déjeuner ou un transfert, puis versent un acompte ou vous envoient une demande."
+      },
+      {
+        "title": "Gîtes",
+        "desc": "Une durée minimale de séjour, le préavis dont vous avez besoin et les dates occupées importées des autres plateformes où vous êtes présent."
+      },
+      {
+        "title": "Petits hôtels",
+        "desc": "Toutes les chambres dans un seul calendrier, des prix par saison et vos conditions d'annulation acceptées avant chaque réservation."
+      },
+      {
+        "title": "Activités, comme le padel ou la plongée",
+        "desc": "Des créneaux avec un nombre de places, les places restantes affichées et une liste d'attente quand un créneau est complet."
+      }
+    ],
     "scarcity": "Ce moteur ne gère encore les réservations de personne, donc le premier établissement bénéficie d'un prix de référence en échange de l'autorisation de montrer le résultat. Si une plateforme vous convient déjà et que la commission ne vous dérange pas, ce produit n'est pas pour vous.",
     "demoLaunch": "Lancer la démo complète",
     "demoPreviewAlt": "Aperçu du parcours de réservation Likwiid Direct",
