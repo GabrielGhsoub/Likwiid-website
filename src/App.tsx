@@ -3,7 +3,17 @@ import { Navigate, Routes, Route, useLocation, useNavigationType, useParams } fr
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
-import { LOCALIZED_PAGES, LOCALIZED_TOOLS, PREFIXED_LANGUAGES, isLocalizedCaseStudy, localizedPath, type LocalizedPage, type LocalizedTool } from './i18n/localeRoutes'
+import {
+  DIRECT_MARKET_ROUTES,
+  LOCALIZED_PAGES,
+  LOCALIZED_TOOLS,
+  PREFIXED_LANGUAGES,
+  isLocalizedCaseStudy,
+  localizedPath,
+  type DirectMarket,
+  type LocalizedPage,
+  type LocalizedTool,
+} from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
@@ -15,7 +25,20 @@ import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import { HydrationComplete } from './components/layout/HydrationComplete'
 import Home from './pages/Home'
 
-import { Services, Portfolio, CaseStudy, Contact, Privacy, BeitToureefPoc, Direct, Frame, Products, NotFound, TOOL_ROUTES } from './routes'
+import {
+  Services,
+  Portfolio,
+  CaseStudy,
+  Contact,
+  Privacy,
+  BeitToureefPoc,
+  Direct,
+  Frame,
+  Products,
+  NotFound,
+  TOOL_ROUTES,
+  DIRECT_MARKET_PAGES,
+} from './routes'
 
 function usePrefetchRoutes() {
   useEffect(() => {
@@ -86,6 +109,19 @@ function LocaleTool({ lang, tool }: { lang: Lang; tool: LocalizedTool }) {
   useRouteLanguage(lang)
   const Tool = TOOL_ROUTES[tool]
   return <Tool />
+}
+
+// Direct market pages (/direct/padel-clubs, /pt/direct/alojamento-local, ...). A prefixed URL
+// sets the language like any localized route; the English URL keeps the visitor's language,
+// and the page shows its copy in that language when it exists in it.
+function DirectMarketRoute({ market, lang }: { market: DirectMarket; lang: Lang }) {
+  const Page = DIRECT_MARKET_PAGES[market]
+  return lang === 'en' ? <Page /> : <LocaleDirectMarket lang={lang} Page={Page} />
+}
+
+function LocaleDirectMarket({ lang, Page }: { lang: Lang; Page: React.ComponentType }) {
+  useRouteLanguage(lang)
+  return <Page />
 }
 
 // Scrolls the element named by a URL hash into view. Tries right after render, then, because
@@ -170,6 +206,9 @@ export default function App() {
                     <Route key={`${lang}/tools/${tool}`} path={`/${lang}/tools/${tool}`} element={<LocaleTool lang={lang} tool={tool} />} />
                   )),
                 )}
+                {DIRECT_MARKET_ROUTES.map(({ market, lang, path }) => (
+                  <Route key={path} path={path} element={<DirectMarketRoute market={market} lang={lang} />} />
+                ))}
                 {/* Removed case studies: keep old links working */}
                 <Route path="/work/ai-fitness-coach" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/bully-ai" element={<Navigate to="/work/" replace />} />
