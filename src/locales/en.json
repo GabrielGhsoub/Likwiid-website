@@ -340,7 +340,7 @@
     "sharingTitle": "Data sharing",
     "sharingBody": "We do not sell, trade, or share your personal information with third parties. Your data stays with us and is used exclusively for the purpose it was provided.",
     "cookiesTitle": "Cookies and local storage",
-    "cookiesBody": "We only use essential browser storage. We keep your theme preference, light or dark, in localStorage, and during a single visit we keep any campaign tags from the link you followed in sessionStorage. We do not use any tracking cookies or third-party cookies.",
+    "cookiesBody": "We only use essential browser storage. We keep your theme preference, light or dark, and your language choice in localStorage, and during a single visit we keep any campaign tags from the link you followed in sessionStorage. We do not use any tracking cookies or third-party cookies.",
     "analyticsTitle": "Analytics",
     "analyticsBody": "We use privacy-friendly analytics, Umami, hosted on our own server, that do not use cookies and do not track personal data. We count page views and clicks on buttons such as the contact button or a demo launch, and we honour your browser's Do Not Track setting. If you arrive through a link with campaign tags, we keep those tags and the page you landed on in your browser's sessionStorage for the length of your visit, and send them with the contact form so we know how you found us. Nothing in this identifies you, and your browsing is not tracked across websites.",
     "retentionTitle": "Data retention",

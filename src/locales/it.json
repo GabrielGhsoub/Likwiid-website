@@ -340,7 +340,7 @@
     "sharingTitle": "Condivisione dei dati",
     "sharingBody": "Non vendiamo, scambiamo né condividiamo i tuoi dati personali con terze parti. I tuoi dati restano con noi e vengono usati solo per lo scopo per cui li hai forniti.",
     "cookiesTitle": "Cookie e archiviazione locale",
-    "cookiesBody": "Usiamo solo lo storage essenziale del browser. Salviamo la tua preferenza di tema, chiaro o scuro, nel localStorage e, per la durata di una singola visita, gli eventuali tag di campagna del link che hai seguito nel sessionStorage. Non usiamo cookie di tracciamento né cookie di terze parti.",
+    "cookiesBody": "Usiamo solo lo storage essenziale del browser. Salviamo la tua preferenza di tema, chiaro o scuro, e la tua scelta di lingua nel localStorage e, per la durata di una singola visita, gli eventuali tag di campagna del link che hai seguito nel sessionStorage. Non usiamo cookie di tracciamento né cookie di terze parti.",
     "analyticsTitle": "Analytics",
     "analyticsBody": "Usiamo uno strumento di analytics rispettoso della privacy, Umami, ospitato sul nostro server, che non usa cookie e non traccia dati personali. Contiamo le pagine viste e i clic su pulsanti come quello di contatto o l'avvio di una demo, e rispettiamo l'impostazione Do Not Track del tuo browser. Se arrivi da un link con tag di campagna, li conserviamo insieme alla pagina di arrivo nel sessionStorage del tuo browser per la durata della visita e li inviamo con il modulo di contatto per sapere come ci hai trovato. Nulla di tutto questo ti identifica e la tua navigazione non viene tracciata tra siti diversi.",
     "retentionTitle": "Conservazione dei dati",

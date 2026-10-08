@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import en from '../locales/en.json'
-import { getInitialLanguage, getRouteLanguage, refineLanguageByIP, DEFAULT_LANGUAGE, type Lang } from './detectLanguage'
+import { getInitialLanguage, getRouteLanguage, DEFAULT_LANGUAGE, type Lang } from './detectLanguage'
 
 // English is bundled statically: it is the default language, the i18next fallback, and the
 // source the static prerender renders. Other languages are code-split via dynamic
@@ -58,9 +58,6 @@ if (typeof document !== 'undefined') {
     // Apply the synchronous best guess (saved choice or browser language), loading its bundle first.
     const initial = getInitialLanguage()
     if (initial !== 'en') void setLanguage(initial)
-
-    // First-visit IP refinement (async, non-blocking, respects saved choice).
-    void refineLanguageByIP(setLanguage)
   }
 }
 
