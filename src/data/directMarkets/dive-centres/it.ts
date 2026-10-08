@@ -5,7 +5,7 @@ const it: DirectMarketContent = {
   lang: 'it',
   docTitle: 'Prenotazioni per diving center senza commissioni | Likwiid',
   description:
-    'Prenotazioni di immersioni e corsi sul sito del tuo diving: posti per uscita, corsi su più giorni, noleggio attrezzatura e brevetti raccolti prima di immergersi.',
+    'Prenotazioni di immersioni e corsi sul sito del tuo diving: posti per uscita, corsi su più giorni, noleggio attrezzatura e brevetti raccolti in anticipo.',
   crumb: 'Diving center',
   eyebrow: 'Likwiid Direct per diving center',
   h1: 'Prenotazioni di immersioni e corsi, con le carte in regola prima che parta la barca.',

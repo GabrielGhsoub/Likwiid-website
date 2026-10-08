@@ -5,7 +5,7 @@ const pt: DirectMarketContent = {
   lang: 'pt',
   docTitle: 'Reservas para centros de mergulho sem comissões | Likwiid',
   description:
-    'Reservas de mergulhos e cursos no site do seu centro: lugares por saída, cursos de vários dias, aluguer de equipamento e certificações pedidas antes de mergulhar.',
+    'Reserva de mergulhos e cursos no site do seu centro: lugares por saída, cursos de vários dias, aluguer de equipamento e certificações pedidas antes do mergulho.',
   crumb: 'Centros de mergulho',
   eyebrow: 'Likwiid Direct para centros de mergulho',
   h1: 'Reservas de mergulhos e cursos, com a papelada tratada antes de o barco sair.',
