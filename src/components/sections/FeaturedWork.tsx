@@ -11,10 +11,10 @@ import { useRevealMotion } from '../../hooks/useRevealMotion'
 const HOME_FEATURED_COUNT = 3
 
 const VIEWPORT_AMOUNT = 0.15
-const itemTransition = (i: number) => ({ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const })
+const STAGGER_S = 0.06
 
 function RevealItem({ index, className, children }: { index: number; className?: string; children: ReactNode }) {
-  const reveal = useRevealMotion({ transition: itemTransition(index), amount: VIEWPORT_AMOUNT })
+  const reveal = useRevealMotion({ delay: index * STAGGER_S, amount: VIEWPORT_AMOUNT })
   return (
     <m.div className={className} {...reveal}>
       {children}

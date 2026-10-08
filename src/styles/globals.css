@@ -759,6 +759,30 @@ a:not([class]):hover {
 }
 
 /* ==========================================================================
+   Reveal for prerendered blocks (src/hooks/useRevealMotion.ts): after hydration a
+   block still below the fold is armed (hidden off screen) and fades up on view.
+   Same timing as the framer-motion reveal used after client-side navigation.
+   ========================================================================== */
+
+[data-reveal] {
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal='armed'] {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Like MotionConfig reducedMotion="user": keep the fade, drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal='armed'] {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
    Hero texture: dark theme only, decorative. The photo is pre-graded to near-black
    and kept at 10% opacity; the mask clears it before the headline column.
    ========================================================================== */

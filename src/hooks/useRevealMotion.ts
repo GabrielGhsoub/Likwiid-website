@@ -1,48 +1,63 @@
 import { useEffect, useRef } from 'react'
-import { useMotionValue, type Transition } from 'framer-motion'
 import { useMountedFromHtml } from './useHydrated'
 
 const HIDDEN = { opacity: 0, y: 16 }
-const DEFAULT_VIEWPORT = { once: true, amount: 0.1 } as const
-const DEFAULT_TRANSITION: Transition = { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+const VISIBLE = { opacity: 1, y: 0 }
+const DURATION = 0.4
+const EASE = [0.22, 1, 0.36, 1] as const
+const DEFAULT_AMOUNT = 0.1
 
 interface RevealOptions {
-  transition?: Transition
+  /** Seconds before the fade starts, for staggered items. */
+  delay?: number
+  /** Share of the element that must be in view before it reveals. */
   amount?: number
 }
 
 /**
- * Motion props for the site's fade-up-on-view pattern, spread onto an `m.*` element.
+ * Props for the site's fade-up-on-view pattern, spread onto an `m.*` element.
  *
- * Mounted after hydration (client-side navigation): starts hidden and fades up when 10% of
- * it scrolls into view, as before.
+ * Mounted after hydration (client-side navigation): framer-motion starts it hidden and fades
+ * it up when `amount` of it scrolls into view, as before.
  *
- * Already in the prerendered HTML: renders fully visible, so the static page shows every
+ * Already in the prerendered HTML: it renders fully visible, so the static page shows every
  * section before (and without) JavaScript. After hydration, a block that is still below the
- * fold is hidden while off screen and fades up on view like the rest; one already on screen
- * stays put instead of blinking out.
+ * fold gets data-reveal="armed" (hidden by globals.css while it is off screen) and fades up
+ * through a CSS transition when it scrolls into view. One already on screen stays put instead
+ * of blinking out. This path does not go through framer-motion: its lazily loaded feature
+ * bundle resets motion values to their first-render state when it arrives.
  */
-export function useRevealMotion<T extends Element = HTMLDivElement>({
-  transition = DEFAULT_TRANSITION,
-  amount = DEFAULT_VIEWPORT.amount,
+export function useRevealMotion<T extends HTMLElement = HTMLDivElement>({
+  delay = 0,
+  amount = DEFAULT_AMOUNT,
 }: RevealOptions = {}) {
   const fromHtml = useMountedFromHtml()
   const ref = useRef<T>(null)
-  const opacity = useMotionValue(1)
-  const y = useMotionValue(0)
 
   useEffect(() => {
-    if (!fromHtml) return
     const el = ref.current
-    if (el && el.getBoundingClientRect().top > window.innerHeight) {
-      opacity.set(HIDDEN.opacity)
-      y.set(HIDDEN.y)
-    }
-  }, [fromHtml, opacity, y])
+    if (!fromHtml || !el || typeof IntersectionObserver === 'undefined') return
+    if (el.getBoundingClientRect().top <= window.innerHeight) return
+    el.style.transitionDelay = delay ? `${delay}s` : ''
+    el.dataset.reveal = 'armed'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        el.dataset.reveal = 'shown'
+        observer.disconnect()
+      },
+      { threshold: amount },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [fromHtml, delay, amount])
 
-  const visible = { opacity: 1, y: 0 }
-  const viewport = { once: true, amount }
-  return fromHtml
-    ? { ref, initial: false as const, style: { opacity, y }, whileInView: visible, viewport, transition }
-    : { ref, initial: HIDDEN, whileInView: visible, viewport, transition }
+  if (fromHtml) return { ref, initial: false as const }
+  return {
+    ref,
+    initial: HIDDEN,
+    whileInView: VISIBLE,
+    viewport: { once: true, amount },
+    transition: { duration: DURATION, delay, ease: EASE },
+  }
 }

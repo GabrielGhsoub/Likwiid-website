@@ -61,7 +61,7 @@ function SubTitle({ children }: { children: ReactNode }) {
 // Fades in once when scrolled into view. whileInView (not an observer-gated state flag)
 // so content is never left invisible; prerendered blocks start visible (useRevealMotion).
 function Reveal({ children, className }: { children: ReactNode; className?: string }) {
-  const reveal = useRevealMotion({ transition: TRANSITION_BASE })
+  const reveal = useRevealMotion()
   return (
     <m.div className={className} {...reveal}>
       {children}
