@@ -1,16 +1,17 @@
 // Post-build prerender: generate per-route HTML files from dist/index.html with
-// route-specific title/description/OG meta, per-route JSON-LD, and a static content
-// block inside #root so email link scanners, social previews, and no-JS/AI crawlers
-// see real content. React replaces the #root contents on hydration, so the runtime
-// app is unchanged.
+// route-specific title/description/OG meta, per-route JSON-LD, and the page itself rendered
+// into #root by the server bundle (src/entry-server.tsx, built to dist-ssr/ by
+// `vite build --ssr`). The browser hydrates that HTML (src/main.tsx), so visitors, email link
+// scanners, social previews and no-JS crawlers all get the real page before any JavaScript.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, '..', 'dist')
 const localesDir = join(__dirname, '..', 'src', 'locales')
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
+const { render } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
 
 const SITE_URL = 'https://likwiid.com'
 
@@ -21,16 +22,6 @@ const escapeHtml = (s) =>
 // index.html files (a non-slash request 301s to the slash form). Keeping canonical,
 // og:url, and sitemap consistent with the served URL avoids redirect chains.
 const canonicalUrl = (path) => (path ? `${SITE_URL}/${path}/` : `${SITE_URL}/`)
-
-// Visually hidden (sr-only) via INLINE styles so it applies before any CSS loads: crawlers,
-// link scanners, and no-JS parsers still read it in the DOM, but it never flashes for users
-// during the gap between first paint and React hydration. React replaces #root on mount.
-const block = (heading, body) => `
-    <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
-      <h1>${escapeHtml(heading)}</h1>
-      <p>${escapeHtml(body)}</p>
-      <p><a href="${SITE_URL}/contact/">Contact Likwiid</a> &middot; <a href="https://wa.me/96176160979">WhatsApp +961 76 160 979</a> &middot; <a href="mailto:gabriel@likwiid.com">gabriel@likwiid.com</a></p>
-    </div>`
 
 // Replace an attribute-carrying meta/link tag, asserting the pattern actually matched so a
 // future change to attribute order/quoting fails the build loudly instead of silently no-oping.
@@ -54,48 +45,36 @@ const caseStudies = {
     description:
       'A booking and league app for padel players and clubs in Lebanon, live on the App Store and Google Play, with a web admin portal for league organizers.',
     heading: 'Padel Booking Platform',
-    summary:
-      'Padel Lebanon lets players book courts, find matches at their level and play in organized leagues. It is live on iOS and Android. A web admin portal lets organizers create leagues, manage players and staff, and open or close weekly check-in, while pairings, scores and standings update automatically.',
   },
   'gcg-website': {
     title: 'GCG Website: Case Study | Likwiid',
     description:
       'Website for a science consulting firm, with a clear path for every audience: companies, research teams, students, families and investors.',
     heading: 'GCG Website',
-    summary:
-      'Ghoussoub Consulting Group offers research support, tutoring and investment advice to very different clients. The new website gives each audience its own clear starting point and an easy way to request a consultation.',
   },
   voxflow: {
     title: 'VoxFlow: Case Study | Likwiid',
     description:
       'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
     heading: 'VoxFlow',
-    summary:
-      'VoxFlow puts the timer, instructions, recorder and reading material for voice recovery into one calm 10 minute routine. It needs no account, keeps every recording on the phone, and lets users compare an early recording with a recent one.',
   },
   'personal-fitness-tracker': {
     title: 'Personal Fitness Tracker: Case Study | Likwiid',
     description:
       'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',
     heading: 'Personal Fitness Tracker',
-    summary:
-      'The app connects to a chest heart rate strap and coaches the runner live through a 12 week plan. After each run it explains what happened and how training is going. All data stays on the phone.',
   },
   breathebreak: {
     title: 'BreatheBreak: Case Study | Likwiid',
     description:
       'A Mac menu bar app that reminds desk workers to take short breathing breaks, and stays quiet during calls and Focus mode.',
     heading: 'BreatheBreak',
-    summary:
-      'BreatheBreak sits in the Mac menu bar and prompts short breathing exercises during the workday. It stays quiet during calls, in Focus mode and outside working hours, and all data stays on the Mac.',
   },
   'sems-energy-management': {
     title: 'SEMS: Smart Energy Management: Case Study | Likwiid',
     description:
       'An app showing Lebanese homes where their power comes from and what it costs: grid, generator, solar and batteries in one view.',
     heading: 'SEMS: Smart Energy Management',
-    summary:
-      'Many Lebanese homes switch between grid power, a generator, solar panels and batteries in a single day. SEMS shows in one place which source is running, what each device uses and what it all costs.',
   },
 }
 
@@ -105,29 +84,17 @@ const routes = {
     title: 'Likwiid | Software Studio',
     description:
       'Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide.',
-    content: block(
-      'Booking websites and apps for independent hotels and founders.',
-      'Likwiid is run by Gabriel Ghoussoub from Beirut, works with clients worldwide, and replies within 24 hours. We build booking websites, web and mobile products, AI integrations, and rescue stuck codebases.'
-    ),
   },
   services: {
     hreflang: true,
     title: 'Services | Likwiid',
     description:
       'Four kinds of work: web and mobile products, booking websites for hospitality and appointments, AI integration and automation, and architecture, cloud and code rescue.',
-    content: block(
-      'Services',
-      'Web and mobile products built end to end. Booking websites for hospitality and appointments, built in 2 to 4 weeks. AI integration and automation that saves real time. Architecture, cloud and code rescue for stuck codebases. Founder-led, two to three projects at a time, replies within 24 hours.'
-    ),
   },
   work: {
     title: 'Work | Likwiid',
     description:
       'Selected work by Likwiid: a padel booking platform live on iOS and Android, a consulting website, and studio products for voice practice, running, breathing breaks and home energy.',
-    content: block(
-      'Our Work',
-      'Client work: a padel booking and league platform live on iOS and Android with a web admin portal, and a website for a science consulting firm. Studio products: VoxFlow, Personal Fitness Tracker, BreatheBreak and SEMS. We also build direct booking websites for small hotels, guesthouses, and tour operators.'
-    ),
     hreflang: true,
   },
   'pt/work': {
@@ -135,10 +102,6 @@ const routes = {
     title: 'Projetos | Likwiid',
     description:
       'Projetos selecionados da Likwiid: uma plataforma de reservas de padel disponível para iOS e Android, um site de consultoria e produtos próprios para prática vocal, corrida, pausas de respiração e energia doméstica.',
-    content: block(
-      'Os nossos projetos',
-      'Trabalho para clientes: uma plataforma de reservas e ligas de padel disponível para iOS e Android com portal de administração web, e um site para uma consultora científica. Produtos próprios: VoxFlow, Personal Fitness Tracker, BreatheBreak e SEMS. Também criamos sites com reservas diretas para pequenos hotéis, casas de hóspedes e operadores turísticos.'
-    ),
     hreflang: true,
   },
   'es/work': {
@@ -146,10 +109,6 @@ const routes = {
     title: 'Proyectos | Likwiid',
     description:
       'Proyectos seleccionados de Likwiid: una plataforma de reservas de pádel disponible en iOS y Android, una web de consultoría y productos propios para práctica vocal, running, pausas de respiración y energía doméstica.',
-    content: block(
-      'Nuestro trabajo',
-      'Trabajo para clientes: una plataforma de reservas y ligas de pádel disponible en iOS y Android con portal de administración web, y una web para una consultora científica. Productos propios: VoxFlow, Personal Fitness Tracker, BreatheBreak y SEMS. También creamos webs con reserva directa para hoteles pequeños, casas de huéspedes y operadores turísticos.'
-    ),
     hreflang: true,
   },
   'it/work': {
@@ -157,10 +116,6 @@ const routes = {
     title: 'Progetti | Likwiid',
     description:
       'Progetti selezionati di Likwiid: una piattaforma di prenotazione padel disponibile su iOS e Android, un sito di consulenza e prodotti propri per pratica vocale, corsa, pause di respirazione ed energia domestica.',
-    content: block(
-      'I nostri progetti',
-      'Lavori per clienti: una piattaforma di prenotazione e campionati di padel disponibile su iOS e Android con portale di amministrazione web, e un sito per una società di consulenza scientifica. Prodotti propri: VoxFlow, Personal Fitness Tracker, BreatheBreak e SEMS. Creiamo anche siti con prenotazione diretta per piccoli hotel, guest house e tour operator.'
-    ),
     hreflang: true,
   },
   'fr/work': {
@@ -168,10 +123,6 @@ const routes = {
     title: 'Projets | Likwiid',
     description:
       "Projets sélectionnés de Likwiid : une plateforme de réservation de padel disponible sur iOS et Android, un site de conseil et des produits maison pour la pratique vocale, la course, les pauses respiration et l'énergie domestique.",
-    content: block(
-      'Nos projets',
-      "Projets clients : une plateforme de réservation et de ligues de padel disponible sur iOS et Android avec portail d'administration web, et un site pour un cabinet de conseil scientifique. Produits maison : VoxFlow, Personal Fitness Tracker, BreatheBreak et SEMS. Nous créons aussi des sites avec réservation directe pour petits hôtels, maisons d'hôtes et voyagistes."
-    ),
     hreflang: true,
   },
   contact: {
@@ -179,57 +130,38 @@ const routes = {
     title: 'Contact | Likwiid',
     description:
       'Start a conversation about your project. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours.',
-    content: block(
-      'Contact',
-      'Have a project in mind? Reach out on WhatsApp at +961 76 160 979 or email gabriel@likwiid.com. We reply within 24 hours.'
-    ),
   },
   direct: {
     hreflang: true,
     title: 'Likwiid Direct, a Direct Booking Engine for Small Stays | Likwiid',
     description:
       "A commission-free booking engine that lives inside your existing website. Options that change the price, card deposits, and the guest's language done properly. Try the live demo.",
-    content: block(
-      'Likwiid Direct: bookings that flow straight to you',
-      'Likwiid Direct is a direct booking engine for small stays and experiences. No commission, no middleman, no lock-in. You keep your domain, your payment account and your guest list. Try the live demo: Quinta Likwiid is a fictional guesthouse built so you can click through the exact engine we would build for you, with options that change the price, card deposits, and every step in the language the guest picks.'
-    ),
   },
   products: {
     hreflang: true,
     title: 'Products | Likwiid',
     description:
       'Likwiid builds two products: Likwiid Direct, a commission-free direct booking engine for small stays, and Likwiid Frame, a portfolio engine photographers own as files. Both have live demos you can try.',
-    content: block(
-      'Products built by Likwiid',
-      'Beyond client work, Likwiid builds two products. Likwiid Direct is a commission-free direct booking engine for small stays and experiences that lives inside the website you already have. Likwiid Frame is a premium portfolio engine for photographers, with client proofing, a print shop and booking, owned as files with no subscription. Both have live demos with fictional brands and simulated payment steps.'
-    ),
   },
   frame: {
     hreflang: true,
     title: 'Likwiid Frame, a Portfolio Engine for Photographers | Likwiid',
     description:
       'A premium photographer portfolio you own as files: client proofing, a print shop, booking, and an image pipeline that keeps your licence metadata. Pay once, no subscription. Try the live demos.',
-    content: block(
-      'Likwiid Frame: a portfolio you own, down to the files',
-      'Likwiid Frame is a config-driven portfolio engine for photographers. One config folder plus your photo folders becomes a premium site with client proofing, a print shop and booking. You pay once, keep your own domain, and own the site as files. Try the live demos: Ana Likwiid Photography and Studio Likwiid are fictional brands built so you can click through the exact engine we would build for you, including the owner panel.'
-    ),
   },
   privacy: {
     title: 'Privacy Policy | Likwiid',
     description: 'Likwiid privacy policy.',
-    content: '',
     robots: 'noindex,follow',
   },
   'beit-toureef-walkthrough': {
     title: 'Beit Toureef Walkthrough | Likwiid',
     description: 'Private website walkthrough prepared for Beit Toureef.',
-    content: '',
     robots: 'noindex,nofollow',
   },
   'beit-toureef-poc': {
     title: 'Beit Toureef Walkthrough | Likwiid',
     description: 'Private website walkthrough prepared for Beit Toureef.',
-    content: '',
     robots: 'noindex,nofollow',
   },
 }
@@ -240,26 +172,20 @@ const routes = {
 // src/i18n/localeRoutes.ts and public/sitemap.xml.
 const PREFIXED_LANGUAGES = ['pt', 'es', 'it', 'fr']
 const localizedRoute = (lang, page) => (page ? `${lang}/${page}` : lang)
-const stripTags = (s) => s.replace(/<[^>]*>/g, '')
 const LOCALIZED_PAGES = {
-  '': (l) => ({
-    title: l.home.documentTitle,
-    description: l.home.metaDescription,
-    heading: stripTags(l.hero.title),
-    body: l.hero.description,
-  }),
-  services: (l) => ({ title: l.services.documentTitle, description: l.services.metaDescription, heading: l.services.title }),
-  contact: (l) => ({ title: l.contact.documentTitle, description: l.contact.metaDescription, heading: l.contact.heading }),
-  direct: (l) => ({ title: l.direct.docTitle, description: l.direct.heroSubtitle, heading: l.direct.heroTitle }),
-  frame: (l) => ({ title: l.frame.docTitle, description: l.frame.heroSubtitle, heading: l.frame.heroTitle }),
-  products: (l) => ({ title: l.products.docTitle, description: l.products.intro, heading: l.products.title }),
+  '': (l) => ({ title: l.home.documentTitle, description: l.home.metaDescription }),
+  services: (l) => ({ title: l.services.documentTitle, description: l.services.metaDescription }),
+  contact: (l) => ({ title: l.contact.documentTitle, description: l.contact.metaDescription }),
+  direct: (l) => ({ title: l.direct.docTitle, description: l.direct.heroSubtitle }),
+  frame: (l) => ({ title: l.frame.docTitle, description: l.frame.heroSubtitle }),
+  products: (l) => ({ title: l.products.docTitle, description: l.products.intro }),
 }
 for (const lang of PREFIXED_LANGUAGES) {
   const locale = JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))
   for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
-    const { title, description, heading, body = description } = pick(locale)
-    if (!title || !description || !heading || !body) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
-    routes[localizedRoute(lang, page)] = { lang, title, description, content: block(heading, body), hreflang: true }
+    const { title, description } = pick(locale)
+    if (!title || !description) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
+    routes[localizedRoute(lang, page)] = { lang, title, description, hreflang: true }
   }
 }
 
@@ -269,7 +195,6 @@ for (const slug of workSlugs) {
   routes[`work/${slug}`] = {
     title: cs.title,
     description: cs.description,
-    content: block(cs.heading, cs.summary),
     breadcrumb: [
       { name: 'Work', path: 'work' },
       { name: cs.heading, path: `work/${slug}` },
@@ -422,15 +347,34 @@ function renderRoute(path, meta) {
     if (graph) html = html.replace('</head>', `${graph}\n  </head>`)
   }
 
-  if (meta.content) {
-    html = html.replace('<div id="root"></div>', `<div id="root">${meta.content}</div>`)
-  }
   return html
+}
+
+// URL the static host serves a route at (GitHub Pages redirects /direct to /direct/). The
+// client only hydrates when its location.pathname is exactly this (see src/main.tsx).
+const servedPath = (path) => (path ? `/${path}/` : '/')
+
+// Routes that render a client-side redirect: there is no page to prerender, so #root stays
+// empty and the browser renders (and redirects) as before.
+const CLIENT_ONLY = new Set(['beit-toureef-poc'])
+
+// The rendered page goes into #root, stamped with the URL it was rendered for.
+async function withAppHtml(html, url, expectedLang) {
+  const app = await render(url)
+  if (app.lang !== expectedLang) throw new Error(`prerender: ${url} rendered in "${app.lang}", expected "${expectedLang}"`)
+  if (app.html.includes('aria-label="Loading"')) throw new Error(`prerender: ${url} rendered its loading fallback`)
+  return replaceOrThrow(
+    html,
+    /<div id="root"><\/div>/,
+    () => `<div id="root" data-prerendered="${escapeHtml(url)}">${app.html}</div>`,
+    `#root for ${url}`
+  )
 }
 
 let count = 0
 for (const [path, meta] of Object.entries(routes)) {
-  const html = renderRoute(path, meta)
+  let html = renderRoute(path, meta)
+  if (!CLIENT_ONLY.has(path)) html = await withAppHtml(html, servedPath(path), meta.lang ?? 'en')
   if (path === '') {
     writeFileSync(join(dist, 'index.html'), html)
   } else {
@@ -440,9 +384,12 @@ for (const [path, meta] of Object.entries(routes)) {
   count++
 }
 
-// SPA fallback for unknown routes: built from the ORIGINAL base HTML (empty #root), with a
-// 404-specific title, noindex, and no canonical so GitHub Pages serves a proper 404 status
-// without indexing the shell as a duplicate of the homepage.
+// SPA fallback for unknown routes: built from the ORIGINAL base HTML, with a 404-specific
+// title, noindex, and no canonical so GitHub Pages serves a proper 404 status without
+// indexing the shell as a duplicate of the homepage. #root holds the rendered not-found page
+// so it shows before JavaScript; it is served for every unknown URL, so the client renders
+// it afresh (or routes to the real page) instead of hydrating.
+const NOT_FOUND_URL = '/404/'
 let notFound = replaceOrThrow(
   baseHtml,
   /<title>[^<]*<\/title>/,
@@ -455,10 +402,8 @@ notFound = replaceOrThrow(
   () => '<meta name="robots" content="noindex,follow" />',
   '404 canonical'
 )
-notFound = notFound.replace(
-  '<div id="root"></div>',
-  `<div id="root">${block('Page not found', 'The page you are looking for does not exist. Return to the Likwiid home page or get in touch.')}</div>`
-)
+const notFoundApp = await render(NOT_FOUND_URL)
+notFound = replaceOrThrow(notFound, /<div id="root"><\/div>/, () => `<div id="root">${notFoundApp.html}</div>`, '404 #root')
 writeFileSync(join(dist, '404.html'), notFound)
 
 // Removed pages: tiny standalone documents (not the app shell) so old links, bookmarks
