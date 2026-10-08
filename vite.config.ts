@@ -20,7 +20,9 @@ export default defineConfig({
             return 'vendor'
           }
           if (/[\\/]node_modules[\\/](i18next|react-i18next)[\\/]/.test(id)) return 'i18n'
-          if (id.includes('framer-motion')) return 'motion'
+          // framer-motion is deliberately not pinned to one chunk: the small `m` runtime rides
+          // in the entry, and the domMax feature bundle (src/motionFeatures.ts) splits into its
+          // own lazy chunk instead of being modulepreloaded ahead of the first render.
         },
       },
     },

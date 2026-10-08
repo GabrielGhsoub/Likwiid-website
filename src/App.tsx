@@ -8,7 +8,7 @@ import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
 // hero paints first and animation capabilities stream in right after.
-const loadFeatures = () => import('framer-motion').then((mod) => mod.domMax)
+const loadFeatures = () => import('./motionFeatures').then((mod) => mod.domMax)
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
