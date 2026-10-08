@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react'
-import { Navigate, Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation, useNavigationType, useParams } from 'react-router-dom'
 import { LazyMotion, MotionConfig } from 'framer-motion'
 import { setLanguage } from './i18n/config'
 import type { Lang } from './i18n/detectLanguage'
-import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, localizedPath, type LocalizedPage } from './i18n/localeRoutes'
+import { LOCALIZED_PAGES, PREFIXED_LANGUAGES, isLocalizedCaseStudy, localizedPath, type LocalizedPage } from './i18n/localeRoutes'
 import { captureAttribution } from './utils/analytics'
 
 // Lazy-load the animation feature bundle so its weight stays off the critical path; the static
@@ -62,11 +62,23 @@ const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
 // Locale-prefixed routes (/pt, /pt/work, /fr/contact, ...): the URL is the source of truth for
 // language. This runs on client-side navigation too (the config.ts boot check only covers
 // the initial page load).
-function LocalePage({ lang, page }: { lang: Lang; page: LocalizedPage }) {
+function useRouteLanguage(lang: Lang) {
   useEffect(() => {
     void setLanguage(lang)
   }, [lang])
+}
+
+function LocalePage({ lang, page }: { lang: Lang; page: LocalizedPage }) {
+  useRouteLanguage(lang)
   return LOCALIZED_ELEMENTS[page]()
+}
+
+// Locale-prefixed case studies (/pt/work/padel-booking, ...). Only the slugs listed in
+// LOCALIZED_CASE_STUDIES have a localized URL; any other slug under a language prefix is a 404.
+function LocaleCaseStudy({ lang }: { lang: Lang }) {
+  useRouteLanguage(lang)
+  const { slug } = useParams<{ slug: string }>()
+  return isLocalizedCaseStudy(slug) ? <CaseStudy /> : <NotFound />
 }
 
 // Scrolls the element named by a URL hash into view. Tries right after render, then, because
@@ -139,6 +151,9 @@ export default function App() {
                     <Route key={`${lang}/${page}`} path={localizedPath(page, lang)} element={<LocalePage lang={lang} page={page} />} />
                   )),
                 )}
+                {PREFIXED_LANGUAGES.map((lang) => (
+                  <Route key={`${lang}/work/:slug`} path={`/${lang}/work/:slug`} element={<LocaleCaseStudy lang={lang} />} />
+                ))}
                 {/* Removed case studies: keep old links working */}
                 <Route path="/work/ai-fitness-coach" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/bully-ai" element={<Navigate to="/work/" replace />} />

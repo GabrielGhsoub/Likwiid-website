@@ -8,6 +8,13 @@ export type LocalizedPage = (typeof LOCALIZED_PAGES)[number]
 
 export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter((lang) => lang !== DEFAULT_LANGUAGE)
 
+// Case studies that also exist at a locale-prefixed URL (/pt/work/padel-booking). The others
+// are English only and keep their /work/<slug> URL in every language. Keep this list in sync
+// with scripts/prerender.mjs and public/sitemap.xml.
+export const LOCALIZED_CASE_STUDIES: readonly string[] = ['padel-booking']
+
+export const isLocalizedCaseStudy = (slug: string | undefined): boolean => LOCALIZED_CASE_STUDIES.includes(slug ?? '')
+
 // URL segment of each page: the home page has none, so it lives at / and /pt.
 const pageSlug = (page: LocalizedPage): string => (page === 'home' ? '' : page)
 
@@ -41,4 +48,22 @@ export function localizedPageOf(pathname: string): LocalizedPage | null {
   if (isPrefixedLanguage(segments[0])) segments.shift()
   if (segments.length > 1) return null
   return PAGE_BY_SLUG.get(segments[0] ?? '') ?? null
+}
+
+// The localized case study a pathname points at (/work/padel-booking, /fr/work/padel-booking/),
+// or null for any other path.
+function localizedCaseStudyOf(pathname: string): string | null {
+  const segments = pathname.split('/').filter(Boolean)
+  if (isPrefixedLanguage(segments[0])) segments.shift()
+  return segments.length === 2 && segments[0] === 'work' && isLocalizedCaseStudy(segments[1]) ? segments[1] : null
+}
+
+// The URL of the page at `pathname` in another language: a localized page (/pt/direct/) or a
+// localized case study (/pt/work/padel-booking/). Null for pages that only exist in English.
+export function localizedHrefOf(pathname: string, lang: Lang): string | null {
+  const page = localizedPageOf(pathname)
+  if (page) return localizedHref(page, lang)
+  const slug = localizedCaseStudyOf(pathname)
+  if (!slug) return null
+  return lang === DEFAULT_LANGUAGE ? `/work/${slug}/` : `/${lang}/work/${slug}/`
 }
