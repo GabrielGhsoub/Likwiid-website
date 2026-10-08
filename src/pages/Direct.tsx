@@ -20,6 +20,7 @@ import { BUTTON_LINK_PRIMARY_LG } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
 import { useTheme } from '../hooks/useTheme'
 import { umamiAttrs } from '../utils/analytics'
+import { useLocalizedPath } from '../i18n/useLocalizedPath'
 
 const DEMO_CARDS = [
   {
@@ -79,6 +80,7 @@ export default function Direct() {
   // This page's own path, localized or not: the demo's "Back to Likwiid" chip returns here.
   const BACK_PATH = useLocation().pathname
   const { theme } = useTheme()
+  const localize = useLocalizedPath()
 
   useEffect(() => {
     document.title = t('direct.docTitle')
@@ -328,7 +330,7 @@ export default function Direct() {
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.siteBody')}</p>
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
                 <Link
-                  to="/work/padel-booking/"
+                  to={localize('/work/padel-booking')}
                   className="mt-4 inline-block font-medium text-accent-gold no-underline hover:underline"
                 >
                   {t('direct.proofLink')}
