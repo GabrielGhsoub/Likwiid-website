@@ -352,6 +352,23 @@
     "tier2Desc": "Tout ce que comprend Portfolio, plus la validation client, la boutique de tirages et la réservation intégrée.",
     "scarcity": "Ce moteur ne fait encore tourner le portfolio d'aucun photographe, donc le premier vrai portfolio bénéficie du bas de cette fourchette en échange de l'autorisation de montrer le résultat. Si un abonnement à une plateforme vous convient déjà, c'est une très bonne façon de gérer un studio, et ce produit n'est pas pour vous."
   },
+  "guides": {
+    "docTitle": "Guides pour hébergements et photographes | Likwiid",
+    "crumb": "Guides",
+    "title": "Guides",
+    "intro": "Des réponses claires aux questions que se posent les petits hôtels, chambres d'hôtes, prestataires d'activités et photographes avant de prendre des réservations ou des clients en direct. Écrits par ceux qui construisent Likwiid Direct et Likwiid Frame.",
+    "eyebrow": "Guide",
+    "byline": "Par {{name}}",
+    "published": "Publié le {{date}}",
+    "updated": "Mis à jour le {{date}}",
+    "summaryTitle": "En bref",
+    "sourcesTitle": "Sources",
+    "readGuide": "Lire le guide",
+    "allGuides": "Tous les guides",
+    "ctaTitle": "Un deuxième avis sur votre organisation ?",
+    "ctaBody": "Dites-nous comment vous prenez vos réservations ou vos clients aujourd'hui. Nous répondons sous 24 heures, et nous vous le dirons franchement si ce que vous avez déjà fonctionne.",
+    "ctaButton": "Parlons-en"
+  },
   "privacy": {
     "documentTitle": "Politique de confidentialité | Likwiid",
     "title": "Politique de confidentialité",
@@ -1065,6 +1082,9 @@
     "frame": {
       "description": "Un site portfolio de photographe qui vous appartient, en fichiers, avec validation client, boutique de tirages et réservation. Paiement unique, sans abonnement.",
       "serviceType": "Site portfolio de photographe"
+    },
+    "guides": {
+      "description": "Guides pratiques pour chambres d'hôtes, petits hôtels, activités et photographes : acomptes, modes de réservation, commissions et site à vous."
     },
     "breadcrumbHome": "Accueil"
   }

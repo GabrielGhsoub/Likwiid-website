@@ -15,6 +15,9 @@ import es from './locales/es.json'
 import fr from './locales/fr.json'
 import it from './locales/it.json'
 import pt from './locales/pt.json'
+import { GUIDE_META } from './content/guides/meta'
+import { GUIDE_PAGES, guideLanguages } from './content/guides/registry'
+import type { GuideCopy } from './content/guides/types'
 
 const RESOURCES: Record<Lang, { translation: Record<string, unknown> }> = {
   en: { translation: en },
@@ -95,5 +98,36 @@ export function directMarketPages() {
       faq: content.faq,
       cluster: SUPPORTED_LANGUAGES.every((other) => languages.includes(other)),
     }
+  })
+}
+
+export interface GuideRoute extends GuideCopy {
+  slug: string
+  lang: Lang
+  // Every language this guide exists in, for hreflang.
+  langs: Lang[]
+  datePublished: string
+  dateModified: string
+}
+
+/**
+ * Every language version of every guide, for the prerender: one page per
+ * src/content/guides/<slug>/<lang>.tsx, with its copy from the meta.ts next to it. Throws when a
+ * page has no copy or copy has no page, so a half-added guide fails the build.
+ */
+export function guideRoutes(): GuideRoute[] {
+  for (const slug of Object.keys(GUIDE_PAGES)) {
+    if (!GUIDE_META[slug]) throw new Error(`guide "${slug}" has pages but no meta.ts`)
+  }
+  return Object.entries(GUIDE_META).flatMap(([slug, meta]) => {
+    const langs = guideLanguages(slug)
+    for (const lang of Object.keys(meta.copy)) {
+      if (!langs.includes(lang as Lang)) throw new Error(`guide "${slug}" has ${lang} copy but no ${lang}.tsx`)
+    }
+    return langs.map((lang) => {
+      const copy = meta.copy[lang]
+      if (!copy) throw new Error(`guide "${slug}" has ${lang}.tsx but no ${lang} copy in meta.ts`)
+      return { slug, lang, langs, datePublished: meta.datePublished, dateModified: meta.dateModified, ...copy }
+    })
   })
 }

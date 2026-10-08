@@ -356,6 +356,23 @@
     "tier2Desc": "Tudo o que inclui o Portfólio, mais as provas para clientes, a loja de impressões e as reservas integradas.",
     "scarcity": "Este motor ainda não gere o portfólio de nenhum fotógrafo, por isso o primeiro a sério recebe o valor mais baixo dessa faixa em troca de nos deixar mostrar o trabalho final. Se uma subscrição de plataforma já o serve bem, é uma ótima forma de gerir um estúdio, e este produto não é para si."
   },
+  "guides": {
+    "docTitle": "Guias para alojamentos e fotógrafos | Likwiid",
+    "crumb": "Guias",
+    "title": "Guias",
+    "intro": "Respostas claras às perguntas que pequenos hotéis, alojamentos locais, empresas de atividades e fotógrafos fazem antes de receber reservas ou clientes diretamente. Escritas por quem constrói o Likwiid Direct e o Likwiid Frame.",
+    "eyebrow": "Guia",
+    "byline": "Por {{name}}",
+    "published": "Publicado a {{date}}",
+    "updated": "Atualizado a {{date}}",
+    "summaryTitle": "Em resumo",
+    "sourcesTitle": "Fontes",
+    "readGuide": "Ler o guia",
+    "allGuides": "Todos os guias",
+    "ctaTitle": "Quer uma segunda opinião sobre a sua configuração?",
+    "ctaBody": "Conte-nos como recebe reservas ou clientes hoje. Respondemos em 24 horas e dizemos-lhe com franqueza se o que já tem funciona.",
+    "ctaButton": "Fale connosco"
+  },
   "privacy": {
     "documentTitle": "Política de privacidade | Likwiid",
     "title": "Política de privacidade",
@@ -1069,6 +1086,9 @@
     "frame": {
       "description": "Um site de portfólio para fotógrafos que é seu, em ficheiros, com provas para clientes, loja de impressões e reservas. Paga uma vez, sem mensalidade.",
       "serviceType": "Site de portfólio para fotógrafos"
+    },
+    "guides": {
+      "description": "Guias práticos para alojamento local, pequenos hotéis, atividades e fotógrafos: sinais, modos de reserva, comissões e ser dono do seu site."
     },
     "breadcrumbHome": "Início"
   }

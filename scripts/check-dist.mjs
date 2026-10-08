@@ -36,8 +36,10 @@ const REQUIRED_PAGES = {
       [`${lang}/contact`, lang],
       [`${lang}/services`, lang],
       [`${lang}/work/padel-booking`, lang],
+      [`${lang}/guides`, lang],
     ])
   ),
+  guides: 'en',
   services: 'en',
   'work/padel-booking': 'en',
   // Free calculators, in every language.

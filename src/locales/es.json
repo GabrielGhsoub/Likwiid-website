@@ -356,6 +356,23 @@
     "tier2Desc": "Todo lo de Portfolio, más las pruebas para clientes, la tienda de impresiones y la reserva integrada.",
     "scarcity": "Este motor todavía no gestiona el portfolio de ningún fotógrafo, así que el primer portfolio real obtiene la parte baja de esa franja a cambio de dejarnos mostrar el resultado. Si una suscripción a una plataforma ya te funciona bien, es una forma perfectamente válida de llevar un estudio, y este producto no es para ti."
   },
+  "guides": {
+    "docTitle": "Guías para alojamientos y fotógrafos | Likwiid",
+    "crumb": "Guías",
+    "title": "Guías",
+    "intro": "Respuestas claras a las preguntas que se hacen los pequeños hoteles, casas rurales, empresas de actividades y fotógrafos antes de recibir reservas o clientes directamente. Escritas por quienes construyen Likwiid Direct y Likwiid Frame.",
+    "eyebrow": "Guía",
+    "byline": "Por {{name}}",
+    "published": "Publicado el {{date}}",
+    "updated": "Actualizado el {{date}}",
+    "summaryTitle": "En resumen",
+    "sourcesTitle": "Fuentes",
+    "readGuide": "Leer la guía",
+    "allGuides": "Todas las guías",
+    "ctaTitle": "¿Quieres una segunda opinión sobre tu caso?",
+    "ctaBody": "Cuéntanos cómo recibes hoy las reservas o los clientes. Respondemos en 24 horas y te lo diremos con franqueza si lo que ya tienes funciona.",
+    "ctaButton": "Habla con nosotros"
+  },
   "privacy": {
     "documentTitle": "Política de privacidad | Likwiid",
     "title": "Política de privacidad",
@@ -1069,6 +1086,9 @@
     "frame": {
       "description": "Una web de portfolio para fotógrafos que es tuya en archivos, con pruebas para clientes, tienda de copias y reservas. Pagas una vez, sin cuotas.",
       "serviceType": "Web de portfolio para fotógrafos"
+    },
+    "guides": {
+      "description": "Guías prácticas para alojamientos pequeños, actividades y fotógrafos: señales, modos de reserva, comisiones y ser dueño de tu web."
     },
     "breadcrumbHome": "Inicio"
   }

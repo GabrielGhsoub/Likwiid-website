@@ -1,9 +1,10 @@
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, type Lang } from './detectLanguage'
+import { guideLanguages } from '../content/guides/registry'
 
 // Pages that exist at a locale-prefixed URL (/pt/, /pt/direct, /fr/contact, ...). The prefix is
 // the source of truth for the language on those routes; English stays unprefixed. Keep this
 // list in sync with scripts/prerender.mjs and public/sitemap.xml.
-export const LOCALIZED_PAGES = ['home', 'work', 'direct', 'frame', 'products', 'services', 'contact'] as const
+export const LOCALIZED_PAGES = ['home', 'work', 'direct', 'frame', 'products', 'services', 'contact', 'guides'] as const
 export type LocalizedPage = (typeof LOCALIZED_PAGES)[number]
 
 export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter((lang) => lang !== DEFAULT_LANGUAGE)
@@ -118,10 +119,22 @@ function directMarketOf(pathname: string): DirectMarket | null {
   return directMarketLanguages(segments[1]).includes(lang) ? segments[1] : null
 }
 
+// URL of a guide article in one language: /guides/<slug>/, /pt/guides/<slug>/.
+export const guideHref = (slug: string, lang: Lang): string =>
+  lang === DEFAULT_LANGUAGE ? `/guides/${slug}/` : `/${lang}/guides/${slug}/`
+
+// The guide article a pathname points at (/guides/<slug>, /fr/guides/<slug>/), or null.
+function guideOf(pathname: string): string | null {
+  const segments = pathname.split('/').filter(Boolean)
+  if (isPrefixedLanguage(segments[0])) segments.shift()
+  return segments.length === 2 && segments[0] === 'guides' ? segments[1] : null
+}
+
 // The URL of the page at `pathname` in another language: a localized page (/pt/direct/), a
-// localized case study (/pt/work/padel-booking/) or a tool (/pt/tools/<slug>/). A Direct market
-// page maps to itself in that language when it exists there, else to the Direct page in that
-// language. Null for pages that only exist in English.
+// localized case study (/pt/work/padel-booking/), a tool (/pt/tools/<slug>/) or a guide
+// (/pt/guides/<slug>/, or the guides index of that language when the guide is not written in
+// it). A Direct market page maps to itself in that language when it exists there, else to the
+// Direct page in that language. Null for pages that only exist in English.
 export function localizedHrefOf(pathname: string, lang: Lang): string | null {
   const page = localizedPageOf(pathname)
   if (page) return localizedHref(page, lang)
@@ -133,6 +146,8 @@ export function localizedHrefOf(pathname: string, lang: Lang): string | null {
   }
   const tool = localizedToolOf(pathname)
   if (tool) return localizedToolHref(tool, lang)
+  const guide = guideOf(pathname)
+  if (guide) return guideLanguages(guide).includes(lang) ? guideHref(guide, lang) : localizedHref('guides', lang)
   const slug = localizedCaseStudyOf(pathname)
   if (!slug) return null
   return lang === DEFAULT_LANGUAGE ? `/work/${slug}/` : `/${lang}/work/${slug}/`

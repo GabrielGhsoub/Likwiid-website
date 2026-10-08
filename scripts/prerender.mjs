@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, '..', 'dist')
 const localesDir = join(__dirname, '..', 'src', 'locales')
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
-const { render, directMarketPages } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
+const { render, directMarketPages, guideRoutes } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
 
 const SITE_URL = 'https://likwiid.com'
 
@@ -117,6 +117,7 @@ const LOCALIZED_PAGES = {
     service: { name: 'Likwiid Frame', serviceType: l.seo.frame.serviceType },
   }),
   products: (l) => ({ title: l.products.docTitle, description: l.seo.products.description, crumb: l.nav.products }),
+  guides: (l) => ({ title: l.guides.docTitle, description: l.seo.guides.description, crumb: l.guides.crumb }),
 }
 const locales = Object.fromEntries(
   LANGUAGES.map((lang) => [lang, JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))])
@@ -217,6 +218,34 @@ for (const page of directMarketPages()) {
   }
 }
 
+// Guide articles (/guides/<slug>/, /pt/guides/<slug>/, ...), one route per language version.
+// Copy comes from src/content/guides/<slug>/meta.ts through the server bundle; hreflang only
+// links the languages the guide is written in.
+for (const guide of guideRoutes()) {
+  const path = localizedRoute(guide.lang, `guides/${guide.slug}`)
+  if (routes[path]) throw new Error(`prerender: guide route "${path}" clashes with another route`)
+  routes[path] = {
+    lang: guide.lang,
+    title: guide.docTitle,
+    description: guide.description,
+    hreflang: guide.langs.length > 1 ? guide.langs : false,
+    breadcrumb: [
+      { name: locales[guide.lang].guides.crumb, path: localizedRoute(guide.lang, 'guides') },
+      { name: guide.title, path },
+    ],
+    article: { headline: guide.title, datePublished: guide.datePublished, dateModified: guide.dateModified },
+  }
+}
+
+// Languages a route links with hreflang: every language for the localized pages, the listed
+// ones for a guide, only its own for a one-language Direct market page ('self'), none for
+// English-only pages.
+const hreflangLanguages = (meta) => {
+  if (meta.hreflang === true) return LANGUAGES
+  if (meta.hreflang === 'self') return [meta.lang ?? 'en']
+  return Array.isArray(meta.hreflang) ? meta.hreflang : []
+}
+
 function jsonLdGraph(path, meta) {
   const graph = []
   const lang = meta.lang ?? 'en'
@@ -264,6 +293,23 @@ function jsonLdGraph(path, meta) {
       inLanguage: lang,
     })
   }
+  if (meta.article) {
+    graph.push({
+      '@type': 'Article',
+      '@id': `${canonicalUrl(path)}#article`,
+      headline: meta.article.headline,
+      description: meta.description,
+      inLanguage: lang,
+      datePublished: meta.article.datePublished,
+      dateModified: meta.article.dateModified,
+      url: canonicalUrl(path),
+      mainEntityOfPage: canonicalUrl(path),
+      image: ogImageUrl(path, meta),
+      author: { '@type': 'Person', '@id': `${SITE_URL}/#gabriel`, name: 'Gabriel Ghoussoub' },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+    })
+  }
   if (meta.creativeWork) {
     graph.push({
       '@type': 'CreativeWork',
@@ -292,18 +338,15 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
-// A localized cluster (home, services, contact, work, direct, frame, products, localized
-// case studies, tools): every language variant plus x-default pointing at English, per Google's
-// localized-pages guidance. Injected into each route of the cluster.
-function hreflangLinks(path) {
+// A localized cluster (home, services, contact, work, direct, frame, products, guides, tools,
+// localized case studies): every language variant plus x-default pointing at English, per
+// Google's localized-pages guidance. Injected into each route of the cluster. A guide that is
+// not written in English has no x-default.
+function hreflangLinks(path, langs) {
   const page = path.replace(/^(?:pt|es|it|fr)(?:\/|$)/, '')
-  return [
-    ['en', canonicalUrl(page)],
-    ...PREFIXED_LANGUAGES.map((lang) => [lang, canonicalUrl(localizedRoute(lang, page))]),
-    ['x-default', canonicalUrl(page)],
-  ]
-    .map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`)
-    .join('\n')
+  const links = langs.map((lang) => [lang, canonicalUrl(localizedRoute(lang, page))])
+  if (langs.includes('en')) links.push(['x-default', canonicalUrl(page)])
+  return links.map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`).join('\n')
 }
 
 // Share card per route: the product pages (and their localized variants) get their own
@@ -363,11 +406,10 @@ function renderRoute(path, meta) {
   )
   const lang = meta.lang ?? 'en'
   const ogLocale = OG_LOCALES[lang]
-  const ogAlternates = meta.hreflang === true
-    ? LANGUAGES.filter((other) => other !== lang)
-        .map((other) => `\n    <meta property="og:locale:alternate" content="${OG_LOCALES[other]}" />`)
-        .join('')
-    : ''
+  const ogAlternates = hreflangLanguages(meta)
+    .filter((other) => other !== lang)
+    .map((other) => `\n    <meta property="og:locale:alternate" content="${OG_LOCALES[other]}" />`)
+    .join('')
   html = replaceOrThrow(
     html,
     /<meta property="og:locale" content="[^"]*" \/>/,
@@ -400,10 +442,21 @@ function renderRoute(path, meta) {
     'canonical'
   )
 
-  if (meta.hreflang === true) {
-    html = html.replace('</head>', `${hreflangLinks(path)}\n  </head>`)
-  } else if (meta.hreflang === 'self') {
-    html = html.replace('</head>', `    <link rel="alternate" hreflang="${lang}" href="${url}" />\n  </head>`)
+  if (meta.article) {
+    html = replaceOrThrow(
+      html,
+      /<meta property="og:type" content="website" \/>/,
+      () =>
+        `<meta property="og:type" content="article" />` +
+        `\n    <meta property="article:published_time" content="${meta.article.datePublished}" />` +
+        `\n    <meta property="article:modified_time" content="${meta.article.dateModified}" />`,
+      'og:type'
+    )
+  }
+
+  const hreflang = hreflangLanguages(meta)
+  if (hreflang.length) {
+    html = html.replace('</head>', `${hreflangLinks(path, hreflang)}\n  </head>`)
   }
 
   if (!noindex) {

@@ -38,6 +38,13 @@ export function Footer() {
           >
             {t('footer.privacy')}
           </Link>
+          <span className="hidden text-text-tertiary text-sm sm:inline" aria-hidden="true">&middot;</span>
+          <Link
+            to={localize('/guides')}
+            className="inline-flex min-h-11 items-center text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
+          >
+            {t('guides.crumb')}
+          </Link>
         </div>
 
         {/* Tagline and contact icons share one row on desktop; they stack, centred, on mobile.
