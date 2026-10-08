@@ -78,12 +78,59 @@ function localizedToolOf(pathname: string): LocalizedTool | null {
   return segments.length === 2 && segments[0] === 'tools' && isLocalizedTool(segments[1]) ? segments[1] : null
 }
 
+// Likwiid Direct pages for one market or one kind of business, under /direct/. A market page
+// exists only in its market's language (/pt/direct/alojamento-local/); a business type page
+// exists in every language (/direct/padel-clubs/, /fr/direct/padel-clubs/). Any other slug
+// under /direct/ is a 404. Keep in sync with src/data/directMarkets, public/sitemap.xml and
+// REQUIRED_PAGES in scripts/check-dist.mjs (prerender reads this list via the server bundle).
+export const DIRECT_MARKETS = {
+  'alojamento-local': ['pt'],
+  'casa-rural': ['es'],
+  'agriturismo-bb': ['it'],
+  'chambres-d-hotes': ['fr'],
+  'padel-clubs': SUPPORTED_LANGUAGES,
+  'dive-centres': SUPPORTED_LANGUAGES,
+} as const satisfies Record<string, readonly Lang[]>
+export type DirectMarket = keyof typeof DIRECT_MARKETS
+
+export const DIRECT_MARKET_SLUGS = Object.keys(DIRECT_MARKETS) as DirectMarket[]
+
+export const directMarketLanguages = (market: DirectMarket): readonly Lang[] => DIRECT_MARKETS[market]
+
+// Route path of a Direct market page: /direct/padel-clubs, /pt/direct/alojamento-local.
+export const directMarketPath = (market: DirectMarket, lang: Lang): string =>
+  lang === DEFAULT_LANGUAGE ? `/direct/${market}` : `/${lang}/direct/${market}`
+
+// Every (market, language) pair that has a page.
+export const DIRECT_MARKET_ROUTES = DIRECT_MARKET_SLUGS.flatMap((market) =>
+  directMarketLanguages(market).map((lang) => ({ market, lang, path: directMarketPath(market, lang) })),
+)
+
+const isDirectMarket = (slug: string | undefined): slug is DirectMarket =>
+  Object.prototype.hasOwnProperty.call(DIRECT_MARKETS, slug ?? '')
+
+// The Direct market page a pathname points at, or null. The language prefix must be one the
+// page exists in: /es/direct/alojamento-local is not a page.
+function directMarketOf(pathname: string): DirectMarket | null {
+  const segments = pathname.split('/').filter(Boolean)
+  const lang = isPrefixedLanguage(segments[0]) ? (segments.shift() as Lang) : DEFAULT_LANGUAGE
+  if (segments.length !== 2 || segments[0] !== 'direct' || !isDirectMarket(segments[1])) return null
+  return directMarketLanguages(segments[1]).includes(lang) ? segments[1] : null
+}
+
 // The URL of the page at `pathname` in another language: a localized page (/pt/direct/), a
-// localized case study (/pt/work/padel-booking/) or a tool (/pt/tools/<slug>/). Null for pages
-// that only exist in English.
+// localized case study (/pt/work/padel-booking/) or a tool (/pt/tools/<slug>/). A Direct market
+// page maps to itself in that language when it exists there, else to the Direct page in that
+// language. Null for pages that only exist in English.
 export function localizedHrefOf(pathname: string, lang: Lang): string | null {
   const page = localizedPageOf(pathname)
   if (page) return localizedHref(page, lang)
+  const market = directMarketOf(pathname)
+  if (market) {
+    return directMarketLanguages(market).includes(lang)
+      ? withTrailingSlash(directMarketPath(market, lang))
+      : localizedHref('direct', lang)
+  }
   const tool = localizedToolOf(pathname)
   if (tool) return localizedToolHref(tool, lang)
   const slug = localizedCaseStudyOf(pathname)
