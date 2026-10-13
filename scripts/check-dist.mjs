@@ -36,12 +36,14 @@ const REQUIRED_PAGES = {
       [`${lang}/contact`, lang],
       [`${lang}/services`, lang],
       [`${lang}/work/padel-booking`, lang],
+      [`${lang}/work/escuela-nautica-valencia`, lang],
       [`${lang}/guides`, lang],
     ])
   ),
   guides: 'en',
   services: 'en',
   'work/padel-booking': 'en',
+  'work/escuela-nautica-valencia': 'en',
   // Free calculators, in every language.
   ...Object.fromEntries(
     ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>

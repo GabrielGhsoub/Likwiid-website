@@ -46,6 +46,11 @@ const caseStudies = {
       'A booking and league app for padel players and clubs in Lebanon, live on the App Store and Google Play, with a web admin portal for league organizers.',
     heading: 'Padel Booking Platform',
   },
+  'escuela-nautica-valencia': {
+    description:
+      'A booking page for a boat licence school in Valencia: students pick a course day, enter their details and pay a seat deposit by card or Bizum.',
+    heading: 'Boat Licence Course Booking',
+  },
   'gcg-website': {
     description:
       'Website for a science consulting firm, with a clear path for every audience: companies, research teams, students, families and investors.',
@@ -142,7 +147,7 @@ for (const lang of LANGUAGES) {
 // Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
 // are English only. Their translated title and description come from projectsData.<slug>.
 // Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
-const LOCALIZED_CASE_STUDIES = ['padel-booking']
+const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
 function caseStudyRoute(lang, slug, { heading, description }) {
