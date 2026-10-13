@@ -53,6 +53,46 @@ const projectCatalog: Project[] = [
     androidUrl: 'https://play.google.com/store/apps/details?id=com.padellebanon.app',
   },
   {
+    id: 'escuela-nautica-valencia',
+    status: 'live',
+    slug: 'escuela-nautica-valencia',
+    title: 'Boat Licence Course Booking',
+    subtitle: 'Online booking and seat deposits for a boat licence school in Valencia',
+    client: 'Escuela Náutica de Valencia',
+    category: 'Enterprise',
+    year: '2026',
+    oneLiner: 'A booking page where students pick a course day and pay a seat deposit online.',
+    description:
+      "Escuela Náutica de Valencia teaches the Licencia de Navegación, with practical sessions on the school's own boat and five seats per day. Students now pick a day, enter their details and pay a deposit to hold their seat, on a page under the school's own domain.",
+    challenge:
+      'Each course day has five seats on the boat. The school wanted students to choose a day and secure a seat online, under its own domain and its own Stripe account, on the hosting it already had.',
+    approach:
+      'We built a booking page in three steps: pick a day, enter your details, pay the deposit by card or Bizum. A seat is held for 30 minutes while the student pays and released if the payment does not go through. The main school website stays as it is.',
+    results:
+      'The page is live in Spanish with an English toggle, five days after the first prototype. Each payment sends the student a receipt and the school a notice, and the school manages days and seats from its own panel.',
+    businessResult:
+      'Escuela Náutica de Valencia now takes course bookings and seat deposits online, on its own domain and its own Stripe account.',
+    techStack: ['React', 'Vite', 'PHP', 'SQLite', 'Stripe Checkout'],
+    images: [
+      '/images/projects/escuela-nautica/booking.webp',
+      '/images/projects/escuela-nautica/calendar.webp',
+      '/images/projects/escuela-nautica/details.webp',
+      '/images/projects/escuela-nautica/phone.webp',
+    ],
+    previewAlt: 'Escuela Náutica de Valencia booking page for the Licencia de Navegación course',
+    companion: {
+      title: 'The school panel',
+      summary:
+        'Behind a password, the school sees the bookings for each day, exports them as a spreadsheet, cancels a booking and opens or closes days with their number of seats. The public calendar updates from the same data, and ID numbers are deleted 30 days after the course.',
+      platform: 'web',
+      images: ['/images/projects/escuela-nautica-panel/login.webp'],
+    },
+    featured: true,
+    platform: 'web',
+    liveUrl: 'https://reservas.escuelanauticadevalencia.es/',
+    liveLabel: 'Live Site',
+  },
+  {
     id: 'gcg-website',
     status: 'live',
     slug: 'gcg-website',
@@ -207,6 +247,7 @@ const projectCatalog: Project[] = [
 // Display order on /work and for "Next project" navigation.
 const leadProjectIds = [
   'padel-booking',
+  'escuela-nautica-valencia',
   'gcg-website',
   'voxflow',
   'personal-fitness-tracker',

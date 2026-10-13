@@ -76,6 +76,69 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'About 1,494 i18n keys per language across EN/AR/FR with full Arabic RTL',
     ],
   },
+  'escuela-nautica-valencia': {
+    role: 'Design, development and launch',
+    metrics: [
+      { value: '3', label: 'Steps to book a seat' },
+      { value: '30 min', label: 'Seat hold while paying' },
+      { value: '0', label: 'Third party requests on the page' },
+    ],
+    keyFeatures: [
+      {
+        title: 'Open days at a glance',
+        description: 'A calendar shows the days the school has opened and how many seats are left.',
+      },
+      {
+        title: 'ID checked before payment',
+        description: 'DNI, NIE and passport numbers are validated, so typos are caught before anyone pays.',
+      },
+      {
+        title: 'Deposit by card or Bizum',
+        description: 'Students pay the seat deposit through Stripe Checkout, with a card or with Bizum.',
+      },
+      {
+        title: 'Seats held while paying',
+        description: 'A seat is held for 30 minutes during payment and released if it is not paid.',
+      },
+      {
+        title: 'An email for both sides',
+        description: 'The student gets a receipt and the school gets a notice, both in Spanish.',
+      },
+      {
+        title: 'Only the data it needs',
+        description: 'ID numbers are deleted 30 days after the course date.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'Front end',
+        detail: 'React and Vite single page app, Spanish with an English toggle, self hosted fonts and zero third party requests.',
+      },
+      {
+        area: 'Backend',
+        detail: "A small PHP 8 API with no framework and SQLite, deployed on the school's existing IONOS shared hosting.",
+      },
+      {
+        area: 'Payments',
+        detail: "Stripe Checkout (card and Bizum) on the school's own Stripe account; webhooks confirm paid bookings, unpaid holds expire after 30 minutes.",
+      },
+      {
+        area: 'School panel',
+        detail: 'Password protected: bookings per day, CSV export, cancellations, and the open days and seats that drive the public calendar.',
+      },
+      {
+        area: 'Security & privacy',
+        detail: 'CSP and HSTS headers, rate limiting, and ID numbers purged 30 days after the course date.',
+      },
+    ],
+    highlights: [
+      "Runs on the school's existing shared hosting, with no new services to pay for",
+      "Everything lives under the school's own domain and Stripe account, so it owns the payments and the data",
+      'Seat holds keep a five seat boat from being overbooked while students are on the payment page',
+      'Checksum validation of DNI and NIE numbers before payment',
+      'From static prototype to a Stripe connected page in five days',
+    ],
+  },
   'gcg-website': {
     role: 'Design, development and launch',
     metrics: [
