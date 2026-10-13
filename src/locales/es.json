@@ -620,6 +620,93 @@
         "summary": "Los organizadores de ligas usan un portal web para crear ligas, gestionar jugadores y personal, y abrir o cerrar el check-in semanal. Los emparejamientos, resultados y clasificaciones se actualizan solos, así que nadie edita la base de datos a mano."
       }
     },
+    "escuela-nautica-valencia": {
+      "title": "Reservas para una escuela náutica",
+      "subtitle": "Reservas online y señal de plaza para una escuela náutica de Valencia",
+      "oneLiner": "Una página de reservas donde el alumno elige el día del curso y paga online la señal de su plaza.",
+      "description": "La Escuela Náutica de Valencia imparte la Licencia de Navegación, con prácticas en su propio barco y cinco plazas por día. Ahora el alumno elige un día, rellena sus datos y paga una señal para reservar su plaza, en una página dentro del dominio de la escuela.",
+      "previewAlt": "Página de reservas de la Escuela Náutica de Valencia para el curso de Licencia de Navegación",
+      "seoDescription": "Página de reservas para una escuela náutica de Valencia: el alumno elige el día del curso, rellena sus datos y paga la señal de su plaza con tarjeta o Bizum.",
+      "challenge": "Cada día de curso tiene cinco plazas en el barco. La escuela quería que los alumnos pudieran elegir día y asegurar su plaza online, con su propio dominio y su propia cuenta de Stripe, en el alojamiento que ya tenía.",
+      "approach": "Creamos una página de reservas en tres pasos: elegir el día, rellenar los datos y pagar la señal con tarjeta o Bizum. La plaza queda retenida 30 minutos mientras el alumno paga y se libera si el pago no se completa. La web principal de la escuela sigue como estaba.",
+      "results": "La página está en marcha en español, con opción de inglés, cinco días después del primer prototipo. Cada pago envía al alumno un justificante y a la escuela un aviso, y la escuela gestiona días y plazas desde su propio panel.",
+      "businessResult": "La Escuela Náutica de Valencia ya acepta reservas y señales de plaza online, en su propio dominio y con su propia cuenta de Stripe.",
+      "liveLabel": "Ver la web",
+      "role": "Diseño, desarrollo y puesta en marcha",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "Pasos para reservar una plaza"
+        },
+        {
+          "value": "30 min",
+          "label": "De plaza retenida mientras se paga"
+        },
+        {
+          "value": "0",
+          "label": "Peticiones a terceros en la página"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Días abiertos de un vistazo",
+          "description": "Un calendario muestra los días que la escuela ha abierto y cuántas plazas quedan."
+        },
+        {
+          "title": "Documento comprobado antes de pagar",
+          "description": "Se validan DNI, NIE y pasaporte, así que los errores se detectan antes de que nadie pague."
+        },
+        {
+          "title": "Señal con tarjeta o Bizum",
+          "description": "El alumno paga la señal de su plaza con Stripe Checkout, con tarjeta o con Bizum."
+        },
+        {
+          "title": "Plaza retenida durante el pago",
+          "description": "La plaza se reserva 30 minutos durante el pago y se libera si no se paga."
+        },
+        {
+          "title": "Un correo para cada parte",
+          "description": "El alumno recibe un justificante y la escuela un aviso, los dos en español."
+        },
+        {
+          "title": "Solo los datos necesarios",
+          "description": "Los números de documento se borran 30 días después de la fecha del curso."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Front end",
+          "detail": "Aplicación de una sola página con React y Vite, en español con opción de inglés, fuentes alojadas en el propio servidor y cero peticiones a terceros."
+        },
+        {
+          "area": "Backend",
+          "detail": "Una pequeña API en PHP 8 sin framework y con SQLite, desplegada en el alojamiento compartido de IONOS que la escuela ya tenía."
+        },
+        {
+          "area": "Pagos",
+          "detail": "Stripe Checkout (tarjeta y Bizum) en la cuenta de Stripe de la propia escuela; los webhooks confirman las reservas pagadas y las retenciones sin pagar caducan a los 30 minutos."
+        },
+        {
+          "area": "Panel de la escuela",
+          "detail": "Protegido con contraseña: reservas por día, exportación a CSV, cancelaciones, y los días abiertos y plazas que alimentan el calendario público."
+        },
+        {
+          "area": "Seguridad y privacidad",
+          "detail": "Cabeceras CSP y HSTS, límite de peticiones, y números de documento borrados 30 días después del curso."
+        }
+      ],
+      "highlights": [
+        "Funciona en el alojamiento compartido que la escuela ya tenía, sin servicios nuevos que pagar",
+        "Todo está en el dominio y la cuenta de Stripe de la escuela, así que los pagos y los datos son suyos",
+        "La retención de plazas evita vender de más en un barco de cinco plazas mientras los alumnos están en la página de pago",
+        "Validación de la letra de control del DNI y el NIE antes del pago",
+        "Del prototipo estático a una página conectada con Stripe en cinco días"
+      ],
+      "companion": {
+        "title": "El panel de la escuela",
+        "summary": "Con una contraseña, la escuela ve las reservas de cada día, las exporta a una hoja de cálculo, cancela una reserva y abre o cierra días con su número de plazas. El calendario público se actualiza con esos mismos datos, y los números de documento se borran 30 días después del curso."
+      }
+    },
     "gcg-website": {
       "liveLabel": "Ver la web",
       "title": "Web de GCG",

@@ -620,6 +620,93 @@
         "summary": "Os organizadores das ligas usam um portal web para criar ligas, gerir jogadores e equipa, e abrir ou fechar o check-in semanal. Os emparelhamentos, resultados e classificações atualizam-se automaticamente, por isso ninguém edita a base de dados à mão."
       }
     },
+    "escuela-nautica-valencia": {
+      "title": "Reservas para uma escola náutica",
+      "subtitle": "Reservas online e sinal de lugar para uma escola náutica em Valência",
+      "oneLiner": "Uma página de reservas onde o aluno escolhe o dia do curso e paga online o sinal do seu lugar.",
+      "description": "A Escuela Náutica de Valencia dá o curso de Licencia de Navegación, com aulas práticas no seu próprio barco e cinco lugares por dia. Agora o aluno escolhe um dia, preenche os seus dados e paga um sinal para reservar o lugar, numa página dentro do domínio da escola.",
+      "previewAlt": "Página de reservas da Escuela Náutica de Valencia para o curso de Licencia de Navegación",
+      "seoDescription": "Página de reservas para uma escola náutica em Valência: o aluno escolhe o dia do curso, preenche os dados e paga o sinal do lugar com cartão ou Bizum.",
+      "challenge": "Cada dia de curso tem cinco lugares no barco. A escola queria que os alunos pudessem escolher o dia e garantir o lugar online, com o seu próprio domínio e a sua própria conta Stripe, no alojamento que já tinha.",
+      "approach": "Criámos uma página de reservas em três passos: escolher o dia, preencher os dados e pagar o sinal com cartão ou Bizum. O lugar fica reservado durante 30 minutos enquanto o aluno paga e é libertado se o pagamento não for concluído. O site principal da escola fica como estava.",
+      "results": "A página está no ar em espanhol, com opção de inglês, cinco dias depois do primeiro protótipo. Cada pagamento envia ao aluno um recibo e à escola um aviso, e a escola gere dias e lugares a partir do seu próprio painel.",
+      "businessResult": "A Escuela Náutica de Valencia já aceita reservas e sinais de lugar online, no seu próprio domínio e com a sua própria conta Stripe.",
+      "liveLabel": "Ver o site",
+      "role": "Design, desenvolvimento e lançamento",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "Passos para reservar um lugar"
+        },
+        {
+          "value": "30 min",
+          "label": "De lugar reservado durante o pagamento"
+        },
+        {
+          "value": "0",
+          "label": "Pedidos a terceiros na página"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Dias abertos num relance",
+          "description": "Um calendário mostra os dias que a escola abriu e quantos lugares restam."
+        },
+        {
+          "title": "Documento verificado antes de pagar",
+          "description": "DNI, NIE e passaporte são validados, por isso os erros são detetados antes de alguém pagar."
+        },
+        {
+          "title": "Sinal com cartão ou Bizum",
+          "description": "O aluno paga o sinal do lugar através do Stripe Checkout, com cartão ou com Bizum."
+        },
+        {
+          "title": "Lugar reservado durante o pagamento",
+          "description": "O lugar fica reservado 30 minutos durante o pagamento e é libertado se não for pago."
+        },
+        {
+          "title": "Um email para cada lado",
+          "description": "O aluno recebe um recibo e a escola um aviso, ambos em espanhol."
+        },
+        {
+          "title": "Só os dados necessários",
+          "description": "Os números de documento são apagados 30 dias depois da data do curso."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Front end",
+          "detail": "Aplicação de página única em React e Vite, em espanhol com opção de inglês, tipos de letra alojados no próprio servidor e zero pedidos a terceiros."
+        },
+        {
+          "area": "Backend",
+          "detail": "Uma pequena API em PHP 8 sem framework e com SQLite, instalada no alojamento partilhado IONOS que a escola já tinha."
+        },
+        {
+          "area": "Pagamentos",
+          "detail": "Stripe Checkout (cartão e Bizum) na conta Stripe da própria escola; os webhooks confirmam as reservas pagas e as reservas por pagar expiram ao fim de 30 minutos."
+        },
+        {
+          "area": "Painel da escola",
+          "detail": "Protegido por palavra-passe: reservas por dia, exportação para CSV, cancelamentos, e os dias abertos e lugares que alimentam o calendário público."
+        },
+        {
+          "area": "Segurança e privacidade",
+          "detail": "Cabeçalhos CSP e HSTS, limite de pedidos, e números de documento apagados 30 dias depois do curso."
+        }
+      ],
+      "highlights": [
+        "Funciona no alojamento partilhado que a escola já tinha, sem novos serviços para pagar",
+        "Tudo fica no domínio e na conta Stripe da escola, por isso os pagamentos e os dados são dela",
+        "A reserva temporária de lugares evita vender a mais num barco de cinco lugares enquanto os alunos estão na página de pagamento",
+        "Validação da letra de controlo do DNI e do NIE antes do pagamento",
+        "Do protótipo estático a uma página ligada ao Stripe em cinco dias"
+      ],
+      "companion": {
+        "title": "O painel da escola",
+        "summary": "Com uma palavra-passe, a escola vê as reservas de cada dia, exporta-as para uma folha de cálculo, cancela uma reserva e abre ou fecha dias com o respetivo número de lugares. O calendário público é atualizado com esses mesmos dados, e os números de documento são apagados 30 dias depois do curso."
+      }
+    },
     "gcg-website": {
       "liveLabel": "Ver o site",
       "title": "Site da GCG",

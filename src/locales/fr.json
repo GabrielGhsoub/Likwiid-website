@@ -616,6 +616,93 @@
         "summary": "Les organisateurs de ligues utilisent un portail web pour créer des ligues, gérer joueurs et staff, et ouvrir ou fermer le check-in hebdomadaire. Appariements, scores et classements se mettent à jour automatiquement, sans que personne ne modifie la base de données à la main."
       }
     },
+    "escuela-nautica-valencia": {
+      "title": "Réservations pour une école nautique",
+      "subtitle": "Réservation en ligne et acompte par place pour une école nautique à Valence",
+      "oneLiner": "Une page de réservation où l'élève choisit le jour du cours et paie en ligne l'acompte de sa place.",
+      "description": "La Escuela Náutica de Valencia prépare à la Licencia de Navegación, avec des sorties pratiques sur son propre bateau et cinq places par jour. L'élève choisit désormais un jour, saisit ses informations et paie un acompte pour réserver sa place, sur une page hébergée sous le domaine de l'école.",
+      "previewAlt": "Page de réservation de la Escuela Náutica de Valencia pour le cours de Licencia de Navegación",
+      "seoDescription": "Page de réservation pour une école nautique à Valence : l'élève choisit le jour, saisit ses informations et paie l'acompte de sa place par carte ou Bizum.",
+      "challenge": "Chaque jour de cours compte cinq places sur le bateau. L'école voulait que les élèves puissent choisir un jour et garantir leur place en ligne, sous son propre domaine et avec son propre compte Stripe, sur l'hébergement qu'elle avait déjà.",
+      "approach": "Nous avons créé une page de réservation en trois étapes : choisir le jour, saisir ses informations et payer l'acompte par carte ou Bizum. La place est bloquée 30 minutes pendant le paiement et libérée si celui-ci n'aboutit pas. Le site principal de l'école reste inchangé.",
+      "results": "La page est en ligne en espagnol, avec une option en anglais, cinq jours après le premier prototype. Chaque paiement envoie un reçu à l'élève et une notification à l'école, qui gère les jours et les places depuis son propre panneau.",
+      "businessResult": "La Escuela Náutica de Valencia prend désormais les réservations et les acomptes en ligne, sous son propre domaine et avec son propre compte Stripe.",
+      "liveLabel": "Voir le site",
+      "role": "Design, développement et mise en ligne",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "Étapes pour réserver une place"
+        },
+        {
+          "value": "30 min",
+          "label": "De place bloquée pendant le paiement"
+        },
+        {
+          "value": "0",
+          "label": "Requête vers des tiers sur la page"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Les jours ouverts en un coup d'œil",
+          "description": "Un calendrier montre les jours ouverts par l'école et le nombre de places restantes."
+        },
+        {
+          "title": "Pièce d'identité vérifiée avant paiement",
+          "description": "DNI, NIE et passeport sont validés, les erreurs sont donc repérées avant tout paiement."
+        },
+        {
+          "title": "Acompte par carte ou Bizum",
+          "description": "L'élève paie l'acompte de sa place via Stripe Checkout, par carte ou avec Bizum."
+        },
+        {
+          "title": "Place bloquée pendant le paiement",
+          "description": "La place est bloquée 30 minutes pendant le paiement et libérée si elle n'est pas payée."
+        },
+        {
+          "title": "Un email pour chacun",
+          "description": "L'élève reçoit un reçu et l'école une notification, tous deux en espagnol."
+        },
+        {
+          "title": "Seulement les données utiles",
+          "description": "Les numéros de pièce d'identité sont supprimés 30 jours après la date du cours."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Front end",
+          "detail": "Application monopage en React et Vite, en espagnol avec une option en anglais, polices hébergées sur le serveur et aucune requête vers des tiers."
+        },
+        {
+          "area": "Backend",
+          "detail": "Une petite API en PHP 8 sans framework, avec SQLite, déployée sur l'hébergement mutualisé IONOS que l'école avait déjà."
+        },
+        {
+          "area": "Paiements",
+          "detail": "Stripe Checkout (carte et Bizum) sur le compte Stripe de l'école ; les webhooks confirment les réservations payées et les blocages non payés expirent au bout de 30 minutes."
+        },
+        {
+          "area": "Panneau de l'école",
+          "detail": "Protégé par mot de passe : réservations par jour, export CSV, annulations, et les jours ouverts et places qui alimentent le calendrier public."
+        },
+        {
+          "area": "Sécurité et confidentialité",
+          "detail": "En-têtes CSP et HSTS, limitation des requêtes, et numéros de pièce d'identité supprimés 30 jours après le cours."
+        }
+      ],
+      "highlights": [
+        "Fonctionne sur l'hébergement mutualisé que l'école avait déjà, sans nouveau service à payer",
+        "Tout est sous le domaine et le compte Stripe de l'école, les paiements et les données lui appartiennent donc",
+        "Le blocage des places évite de surréserver un bateau de cinq places pendant que les élèves sont sur la page de paiement",
+        "Validation de la lettre de contrôle du DNI et du NIE avant paiement",
+        "Du prototype statique à une page connectée à Stripe en cinq jours"
+      ],
+      "companion": {
+        "title": "Le panneau de l'école",
+        "summary": "Avec un mot de passe, l'école voit les réservations de chaque jour, les exporte dans un tableur, annule une réservation et ouvre ou ferme des jours avec leur nombre de places. Le calendrier public se met à jour à partir des mêmes données, et les numéros de pièce d'identité sont supprimés 30 jours après le cours."
+      }
+    },
     "gcg-website": {
       "liveLabel": "Voir le site",
       "title": "Site web de GCG",
