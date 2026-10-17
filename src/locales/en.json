@@ -543,11 +543,11 @@
     "appsHeading": "The apps",
     "basemile": {
       "pitch": "A Zone 2 running coach that builds your aerobic base, one easy run at a time.",
-      "body": "BaseMile follows a 12 week cardio plan and coaches every run by heart rate, so easy days stay easy and your aerobic base grows week by week.",
-      "feature1": "A 12 week Zone 2 plan, with a MAF heart rate ceiling for each run",
-      "feature2": "Live heart rate from a Bluetooth chest strap such as the Garmin HRM-Dual",
+      "body": "BaseMile coaches every run by heart rate, so easy days stay easy, then turns your runs into trends that show your aerobic base growing week by week.",
+      "feature1": "Long, Medium and Brief runs, with targets from your own heart rate and a MAF ceiling on easy days",
+      "feature2": "Live heart rate from any standard Bluetooth strap, tested with the Garmin HRM-Dual",
       "feature3": "A voice coach that runs on the phone and speaks up when you drift out of zone",
-      "feature4": "Route maps, pace and training load after every run, with no account and no connection needed"
+      "feature4": "Route maps, pace, MAF trends and training load after every run, with no account and your data kept on the phone"
     },
     "plateclimb": {
       "pitch": "A strength training app that runs proven free programs and tells you what to lift next.",
