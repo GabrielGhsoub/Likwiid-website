@@ -86,7 +86,8 @@ function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) 
       className="scroll-mt-24 rounded-xl border border-border bg-bg-secondary p-6 md:p-10"
     >
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-        <div className={reverse ? 'lg:order-last' : undefined}>
+        {/* min-w-0 lets the screenshot row scroll inside the cell instead of widening the page. */}
+        <div className={reverse ? 'min-w-0 lg:order-last' : 'min-w-0'}>
           <Screenshots app={app} />
         </div>
 
