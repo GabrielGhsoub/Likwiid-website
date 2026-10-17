@@ -43,7 +43,11 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
     license: 'GPL-3.0-or-later',
     licenseLabel: 'GPL-3.0',
     stack: ['React Native', 'Expo', 'SQLite', 'TypeScript'],
-    screenshots: [],
+    screenshots: [
+      '/images/open-source/plateclimb/programs.webp',
+      '/images/open-source/plateclimb/workout.webp',
+      '/images/open-source/plateclimb/summary.webp',
+    ],
   },
 ]
 
