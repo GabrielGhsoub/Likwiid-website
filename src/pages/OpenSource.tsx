@@ -26,7 +26,7 @@ function ScreenPlaceholder({ name }: { name: string }) {
   return (
     <div className="mx-auto w-[160px] sm:w-[220px]" aria-hidden="true">
       <div className="rounded-[2rem] border border-border bg-bg-secondary p-1.5">
-        <div className="relative flex aspect-[9/19.5] flex-col items-center justify-center gap-3 overflow-hidden rounded-[1.6rem] bg-bg-tertiary">
+        <div className="relative flex aspect-[9/20] flex-col items-center justify-center gap-3 overflow-hidden rounded-[1.6rem] bg-bg-tertiary">
           <div className="absolute inset-x-0 top-0 h-1/2 bg-linear-to-b from-accent-gold-dim to-transparent" />
           <span className="relative text-2xl font-bold tracking-tight text-text-primary font-[family-name:var(--font-display)]">
             {name}
@@ -57,10 +57,10 @@ function Screenshots({ app }: { app: OpenSourceApp }) {
                   src={src}
                   alt={t('openSource.screenshotAlt', { name: app.name, n: i + 1 })}
                   width={1080}
-                  height={2340}
+                  height={2400}
                   loading="lazy"
                   decoding="async"
-                  className="block aspect-[9/19.5] h-auto w-full object-cover object-top"
+                  className="block aspect-[9/20] h-auto w-full object-cover object-top"
                 />
               </div>
             </div>
