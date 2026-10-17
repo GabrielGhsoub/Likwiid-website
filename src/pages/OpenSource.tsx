@@ -24,7 +24,7 @@ const SECONDARY_BUTTON_CLASS =
 // Shown when an app has no screenshots yet: a phone-shaped frame carrying the app name.
 function ScreenPlaceholder({ name }: { name: string }) {
   return (
-    <div className="mx-auto w-[200px] sm:w-[220px]" aria-hidden="true">
+    <div className="mx-auto w-[160px] sm:w-[220px]" aria-hidden="true">
       <div className="rounded-[2rem] border border-border bg-bg-secondary p-1.5">
         <div className="relative flex aspect-[9/19.5] flex-col items-center justify-center gap-3 overflow-hidden rounded-[1.6rem] bg-bg-tertiary">
           <div className="absolute inset-x-0 top-0 h-1/2 bg-linear-to-b from-accent-gold-dim to-transparent" />
