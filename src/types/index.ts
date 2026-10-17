@@ -50,6 +50,9 @@ export interface Project {
   keyFeatures?: ProjectFeature[]
   architecture?: ProjectArchitectureNote[]
   highlights?: string[]
+  // The app is now published as open source under another name: the case study links to its
+  // section on /open-source/ (anchor = the app's key in src/data/openSource.ts).
+  openSource?: ProjectOpenSource
   // Client words for the case study. Only ever a real quote the client approved for
   // publication; leave it out until then and the section does not render.
   quote?: ProjectQuote
@@ -75,6 +78,11 @@ export interface ProjectQuote {
 }
 
 export type ProjectQuoteText = Partial<Record<Lang, string>>
+
+export interface ProjectOpenSource {
+  name: string
+  anchor: string
+}
 
 export interface ProjectCompanion {
   title: string

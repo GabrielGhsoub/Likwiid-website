@@ -526,7 +526,10 @@
     "similarProjectBody": "Cuéntanos qué necesitas. Respondemos en menos de 24 horas.",
     "startProject": "Empieza un proyecto",
     "whatsapp": "Escríbenos por WhatsApp",
-    "nextProject": "Siguiente proyecto"
+    "nextProject": "Siguiente proyecto",
+    "openSourceLabel": "Ahora de código abierto",
+    "openSourceBody": "Esta app ahora es libre y de código abierto con el nombre {{name}}, con licencia GPL.",
+    "openSourceLink": "Ver {{name}} en la página de código abierto"
   },
   "projectsData": {
     "padel-booking": {
@@ -1182,7 +1185,8 @@
     "contributeTitle": "Contribuir",
     "contributeBody": "Las dos apps están en GitHub. Los informes de errores, las traducciones y los pull requests son bienvenidos, y los forks también. Si usas alguna, cuéntanos qué funciona y qué no.",
     "repoButton": "{{name}} en GitHub",
-    "contactLink": "Escríbenos"
+    "contactLink": "Escríbenos",
+    "caseStudyLink": "Cómo empezó: el caso de estudio {{title}}"
   },
   "seo": {
     "home": {

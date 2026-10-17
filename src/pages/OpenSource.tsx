@@ -5,6 +5,7 @@ import { ArrowRight, Check, Github, Scale } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { OPEN_SOURCE_APPS, OPEN_SOURCE_FEATURE_COUNT, OPEN_SOURCE_LICENSE_URL, type OpenSourceApp } from '../data/openSource'
+import { useLocalizedProjects } from '../i18n/localizedContent'
 import { useLocalizedPath } from '../i18n/useLocalizedPath'
 import { umamiAttrs } from '../utils/analytics'
 
@@ -72,7 +73,11 @@ function Screenshots({ app }: { app: OpenSourceApp }) {
 
 function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) {
   const { t } = useTranslation()
+  const localize = useLocalizedPath()
+  const projects = useLocalizedProjects()
   const note = t(`openSource.${app.key}.note`, { defaultValue: '' })
+  // The /work/ case study about the app, when there is one (BaseMile started as one).
+  const caseStudy = app.caseStudy ? projects.find((project) => project.slug === app.caseStudy) : undefined
 
   return (
     <section
@@ -139,6 +144,16 @@ function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) 
               <Github size={16} aria-hidden="true" />
               {t('openSource.githubLink')}
             </a>
+            {caseStudy && (
+              <Link
+                to={localize(`/work/${caseStudy.slug}`)}
+                className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
+                {...umamiAttrs('case-study-open', { project: caseStudy.slug, location: 'open-source' })}
+              >
+                {t('openSource.caseStudyLink', { title: caseStudy.title })}
+                <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

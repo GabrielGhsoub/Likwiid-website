@@ -519,7 +519,10 @@
     "similarProjectBody": "Tell us what you need. We reply within 24 hours.",
     "startProject": "Start a project",
     "whatsapp": "Message us on WhatsApp",
-    "nextProject": "Next project"
+    "nextProject": "Next project",
+    "openSourceLabel": "Now open source",
+    "openSourceBody": "This app is now free and open source as {{name}}, under the GPL.",
+    "openSourceLink": "See {{name}} on the open source page"
   },
   "openSource": {
     "docTitle": "Open Source Apps: BaseMile and PlateClimb | Likwiid",
@@ -559,7 +562,8 @@
     "contributeTitle": "Contribute",
     "contributeBody": "Both apps are on GitHub. Bug reports, translations and pull requests are welcome, and so are forks. If you use one of them, tell us what works and what does not.",
     "repoButton": "{{name}} on GitHub",
-    "contactLink": "Write to us"
+    "contactLink": "Write to us",
+    "caseStudyLink": "How it started: the {{title}} case study"
   },
   "seo": {
     "home": {

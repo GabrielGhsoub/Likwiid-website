@@ -30,6 +30,7 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
     licenseLabel: 'GPL-3.0',
     stack: ['React Native', 'Expo', 'SQLite', 'Bluetooth LE'],
     screenshots: [],
+    caseStudy: 'personal-fitness-tracker',
   },
   {
     key: 'plateclimb',
