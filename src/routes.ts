@@ -28,6 +28,7 @@ export const DIRECT_MARKET_PAGES: Record<DirectMarket, PreloadableRoute> = {
   'dive-centres': lazyRoute(() => import('./pages/directMarkets/DiveCentres')),
 }
 export const Guides = lazyRoute(() => import('./pages/Guides'))
+export const OpenSource = lazyRoute(() => import('./pages/OpenSource'))
 
 // Home is bundled with the app shell, so it has no chunk to preload.
 type LazyLocalizedPage = Exclude<LocalizedPage, 'home'>
@@ -40,6 +41,7 @@ const LOCALIZED_ROUTES: Record<LazyLocalizedPage, PreloadableRoute> = {
   services: Services,
   contact: Contact,
   guides: Guides,
+  'open-source': OpenSource,
 }
 
 export const TOOL_ROUTES: Record<LocalizedTool, PreloadableRoute> = {

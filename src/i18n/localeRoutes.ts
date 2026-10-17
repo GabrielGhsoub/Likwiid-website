@@ -4,7 +4,7 @@ import { guideLanguages } from '../content/guides/registry'
 // Pages that exist at a locale-prefixed URL (/pt/, /pt/direct, /fr/contact, ...). The prefix is
 // the source of truth for the language on those routes; English stays unprefixed. Keep this
 // list in sync with scripts/prerender.mjs and public/sitemap.xml.
-export const LOCALIZED_PAGES = ['home', 'work', 'direct', 'frame', 'products', 'services', 'contact', 'guides'] as const
+export const LOCALIZED_PAGES = ['home', 'work', 'direct', 'frame', 'products', 'services', 'contact', 'guides', 'open-source'] as const
 export type LocalizedPage = (typeof LOCALIZED_PAGES)[number]
 
 export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter((lang) => lang !== DEFAULT_LANGUAGE)
