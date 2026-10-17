@@ -547,7 +547,8 @@
       "feature1": "Long, Medium and Brief runs, with targets from your own heart rate and a MAF ceiling on easy days",
       "feature2": "Live heart rate from any standard Bluetooth strap, tested with the Garmin HRM-Dual",
       "feature3": "A voice coach that runs on the phone and speaks up when you drift out of zone",
-      "feature4": "Route maps, pace, MAF trends and training load after every run, with no account and your data kept on the phone"
+      "feature4": "Route maps, pace, MAF trends and training load after every run, with no account and your data kept on the phone",
+      "note": "BaseMile is an independent project. It is not affiliated with or endorsed by Andrew Huberman or Huberman Lab."
     },
     "plateclimb": {
       "pitch": "The Foundational Fitness week from Huberman's Protocols, as a free workout app that runs offline.",

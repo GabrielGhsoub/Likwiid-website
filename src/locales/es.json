@@ -1170,7 +1170,8 @@
       "feature1": "Carreras Long, Medium y Brief, con objetivos según tu propia frecuencia cardíaca y un techo MAF en los días suaves",
       "feature2": "Frecuencia cardíaca en directo desde cualquier banda Bluetooth estándar, probada con la Garmin HRM-Dual",
       "feature3": "Un entrenador por voz que funciona en el móvil y te avisa cuando te sales de la zona",
-      "feature4": "Mapas del recorrido, ritmo, tendencias MAF y carga de entrenamiento después de cada carrera, sin cuenta y con tus datos en el móvil"
+      "feature4": "Mapas del recorrido, ritmo, tendencias MAF y carga de entrenamiento después de cada carrera, sin cuenta y con tus datos en el móvil",
+      "note": "BaseMile es un proyecto independiente. No tiene relación con Andrew Huberman ni con Huberman Lab, ni cuenta con su respaldo."
     },
     "plateclimb": {
       "pitch": "La semana Foundational Fitness de Protocols de Huberman, como una app de entrenamiento gratuita que funciona sin conexión.",
