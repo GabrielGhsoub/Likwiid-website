@@ -1166,20 +1166,20 @@
     "appsHeading": "Las apps",
     "basemile": {
       "pitch": "Un entrenador de carrera en Zona 2 que construye tu base aeróbica, una carrera suave cada vez.",
-      "body": "BaseMile guía cada carrera por frecuencia cardíaca, para que los días suaves sean de verdad suaves, y convierte tus carreras en tendencias que muestran cómo crece tu base aeróbica semana a semana.",
+      "body": "BaseMile cubre los días de cardio de la semana Foundational Fitness: carreras Long, Medium y Brief guiadas por frecuencia cardíaca, para que los días suaves sean de verdad suaves, y convierte tus carreras en tendencias que muestran cómo crece tu base aeróbica semana a semana.",
       "feature1": "Carreras Long, Medium y Brief, con objetivos según tu propia frecuencia cardíaca y un techo MAF en los días suaves",
       "feature2": "Frecuencia cardíaca en directo desde cualquier banda Bluetooth estándar, probada con la Garmin HRM-Dual",
       "feature3": "Un entrenador por voz que funciona en el móvil y te avisa cuando te sales de la zona",
       "feature4": "Mapas del recorrido, ritmo, tendencias MAF y carga de entrenamiento después de cada carrera, sin cuenta y con tus datos en el móvil"
     },
     "plateclimb": {
-      "pitch": "Una app de entrenamiento de fuerza que sigue programas gratuitos probados y te dice qué levantar después.",
-      "body": "Elige un programa, registra tus series y PlateClimb calcula el siguiente peso para cada ejercicio. Todo se guarda en el móvil.",
-      "feature1": "Programas gratuitos de la comunidad incluidos: GZCLP, nSuns, el PPL de r/Fitness, 5x5 y más",
-      "feature2": "Progresión y descargas automáticas: más peso cuando completas tus repeticiones, menos tras fallos repetidos",
-      "feature3": "Series de calentamiento y récords personales incluidos, y funciona totalmente sin conexión",
-      "feature4": "Sin cuenta: tus entrenamientos se quedan en tu móvil",
-      "note": "Los programas citan a sus autores en el código. PlateClimb no tiene ninguna relación con ellos."
+      "pitch": "La semana Foundational Fitness de Protocols de Huberman, como una app de entrenamiento gratuita que funciona sin conexión.",
+      "body": "PlateClimb sigue un plan de 12 semanas basado en la estructura semanal que Andrew Huberman describe en Protocols: días de piernas, torso y hombros y brazos entre cardio largo, medio e intenso. Registra tus series y te prepara los pesos para la próxima vez. Tus entrenamientos se quedan en el móvil.",
+      "feature1": "Dos bloques de seis y cinco semanas, primero más peso y luego más repeticiones, y una semana de descanso al final",
+      "feature2": "Series, repeticiones, descanso y esfuerzo objetivo para cada ejercicio, con alternativas cuando una máquina está ocupada",
+      "feature3": "Pesos rellenados a partir de tu última sesión, con foto y enlace a vídeo para cada ejercicio",
+      "feature4": "Sin cuenta y sin servidor: tus entrenamientos se quedan en tu móvil",
+      "note": "PlateClimb es un proyecto independiente. No tiene relación con Andrew Huberman ni con Huberman Lab, ni cuenta con su respaldo."
     },
     "disclaimer": "Esto no es consejo médico. Consulta a un profesional antes de empezar un nuevo programa de entrenamiento.",
     "contributeTitle": "Contribuir",
@@ -1223,7 +1223,7 @@
     },
     "breadcrumbHome": "Inicio",
     "openSource": {
-      "description": "BaseMile y PlateClimb, dos apps de fitness libres y de código abierto de Likwiid: carrera en Zona 2 y entrenamiento de fuerza. Sin cuentas, licencia GPL."
+      "description": "BaseMile y PlateClimb, dos apps libres y de código abierto de Likwiid para la semana Foundational Fitness de Protocols de Huberman: un entrenador de carrera en Zona 2 y un registro de entrenamientos sin conexión. Sin cuentas, licencia GPL."
     }
   }
 }
