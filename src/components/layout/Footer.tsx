@@ -45,6 +45,13 @@ export function Footer() {
           >
             {t('guides.crumb')}
           </Link>
+          <span className="hidden text-text-tertiary text-sm sm:inline" aria-hidden="true">&middot;</span>
+          <Link
+            to={localize('/open-source')}
+            className="inline-flex min-h-11 items-center text-text-tertiary text-sm hover:text-text-primary transition-colors no-underline"
+          >
+            {t('openSource.crumb')}
+          </Link>
         </div>
 
         {/* Tagline and contact icons share one row on desktop; they stack, centred, on mobile.
