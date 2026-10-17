@@ -521,6 +521,46 @@
     "whatsapp": "Message us on WhatsApp",
     "nextProject": "Next project"
   },
+  "openSource": {
+    "docTitle": "Open Source Apps: BaseMile and PlateClimb | Likwiid",
+    "crumb": "Open source",
+    "eyebrow": "Open source",
+    "title": "Free apps you can read, change and keep",
+    "intro": "We think software should be free: free to use, to read, to change and to share. Plenty of paid apps and suites can be replaced by open tools that do the same job without a subscription. These two apps started as tools for our own training. They are now open source under the GPL, for anyone to use.",
+    "principle1Title": "Free to use and change",
+    "principle1Body": "GPL licensed. Read the code, fork it and ship your own version, as long as it stays open.",
+    "principle2Title": "Local first",
+    "principle2Body": "Your training data stays on your phone, and both apps work offline.",
+    "principle3Title": "No accounts, no tracking",
+    "principle3Body": "No sign up, no analytics, no ads.",
+    "freeLabel": "Free and open source",
+    "licenseAria": "Licence: {{license}}",
+    "githubLink": "View on GitHub",
+    "screenshotAlt": "{{name}} screenshot {{n}}",
+    "appsHeading": "The apps",
+    "basemile": {
+      "pitch": "A Zone 2 running coach that builds your aerobic base, one easy run at a time.",
+      "body": "BaseMile follows a 12 week cardio plan and coaches every run by heart rate, so easy days stay easy and your aerobic base grows week by week.",
+      "feature1": "A 12 week Zone 2 plan, with a MAF heart rate ceiling for each run",
+      "feature2": "Live heart rate from a Bluetooth chest strap such as the Garmin HRM-Dual",
+      "feature3": "A voice coach that runs on the phone and speaks up when you drift out of zone",
+      "feature4": "Route maps, pace and training load after every run, with no account and no connection needed"
+    },
+    "plateclimb": {
+      "pitch": "A strength training app that runs proven free programs and tells you what to lift next.",
+      "body": "Pick a program, log your sets, and PlateClimb works out the next weight for each lift. Everything is stored on the phone.",
+      "feature1": "Free community programs built in: GZCLP, nSuns, the r/Fitness PPL, 5x5 and more",
+      "feature2": "Automatic progression and deloads: more weight when you hit your reps, less after repeated misses",
+      "feature3": "An optional AI coach that uses your own API key and stays off until you add one",
+      "feature4": "No account: your workouts stay on your phone",
+      "note": "Programs are credited to their authors in the code. PlateClimb is not affiliated with them."
+    },
+    "disclaimer": "Not medical advice. Check with a professional before you start a new training program.",
+    "contributeTitle": "Contribute",
+    "contributeBody": "Both apps are on GitHub. Bug reports, translations and pull requests are welcome, and so are forks. If you use one of them, tell us what works and what does not.",
+    "repoButton": "{{name}} on GitHub",
+    "contactLink": "Write to us"
+  },
   "seo": {
     "home": {
       "description": "Booking websites, web apps and mobile apps for independent hotels, guesthouses and founders. A founder-led studio in Beirut that replies within 24 hours."
@@ -554,6 +594,9 @@
     "guides": {
       "description": "Practical guides for small hotels, guesthouses, activity businesses and photographers: deposits, booking modes, commissions and owning your website."
     },
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "openSource": {
+      "description": "BaseMile and PlateClimb, two free and open source fitness apps by Likwiid: a Zone 2 running coach and a strength trainer. No accounts, GPL licensed."
+    }
   }
 }

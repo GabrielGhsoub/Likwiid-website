@@ -1144,6 +1144,46 @@
     "IoT": "IoT",
     "AI": "IA"
   },
+  "openSource": {
+    "docTitle": "App open source: BaseMile e PlateClimb | Likwiid",
+    "crumb": "Open source",
+    "eyebrow": "Open source",
+    "title": "App libere che puoi leggere, modificare e tenere",
+    "intro": "Pensiamo che il software debba essere libero: libero da usare, leggere, modificare e condividere. Molte app e suite a pagamento si possono sostituire con strumenti aperti che fanno lo stesso lavoro senza abbonamento. Queste due app sono nate come strumenti per il nostro allenamento. Ora sono open source, con licenza GPL, per chiunque voglia usarle.",
+    "principle1Title": "Libere da usare e modificare",
+    "principle1Body": "Licenza GPL. Leggi il codice, fai un fork e pubblica la tua versione, purché resti aperta.",
+    "principle2Title": "I dati restano sul telefono",
+    "principle2Body": "I tuoi dati di allenamento restano sul telefono e entrambe le app funzionano offline.",
+    "principle3Title": "Niente account, niente tracciamento",
+    "principle3Body": "Nessuna registrazione, nessuna analitica, nessuna pubblicità.",
+    "freeLabel": "Libero e open source",
+    "licenseAria": "Licenza: {{license}}",
+    "githubLink": "Vedi su GitHub",
+    "screenshotAlt": "Schermata {{n}} di {{name}}",
+    "appsHeading": "Le app",
+    "basemile": {
+      "pitch": "Un coach di corsa in Zona 2 che costruisce la tua base aerobica, una corsa facile alla volta.",
+      "body": "BaseMile segue un piano cardio di 12 settimane e guida ogni corsa in base alla frequenza cardiaca, così i giorni facili restano facili e la tua base aerobica cresce settimana dopo settimana.",
+      "feature1": "Un piano in Zona 2 di 12 settimane, con un tetto di frequenza cardiaca MAF per ogni corsa",
+      "feature2": "Frequenza cardiaca in tempo reale da una fascia toracica Bluetooth, come la Garmin HRM-Dual",
+      "feature3": "Un coach vocale che funziona sul telefono e ti avvisa quando esci dalla zona",
+      "feature4": "Mappe del percorso, passo e carico di allenamento dopo ogni corsa, senza account e senza connessione"
+    },
+    "plateclimb": {
+      "pitch": "Un'app di allenamento della forza che segue programmi gratuiti collaudati e ti dice cosa sollevare dopo.",
+      "body": "Scegli un programma, registra le tue serie e PlateClimb calcola il prossimo carico per ogni esercizio. Tutto resta salvato sul telefono.",
+      "feature1": "Programmi gratuiti della community inclusi: GZCLP, nSuns, il PPL di r/Fitness, 5x5 e altri",
+      "feature2": "Progressione e scarichi automatici: più peso quando completi le ripetizioni, meno dopo mancate ripetute",
+      "feature3": "Un coach con IA opzionale che usa la tua chiave API e resta spento finché non la aggiungi",
+      "feature4": "Nessun account: i tuoi allenamenti restano sul telefono",
+      "note": "Il codice cita gli autori dei programmi. PlateClimb non è affiliato a loro."
+    },
+    "disclaimer": "Non è un consiglio medico. Senti un professionista prima di iniziare un nuovo programma di allenamento.",
+    "contributeTitle": "Contribuisci",
+    "contributeBody": "Entrambe le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
+    "repoButton": "{{name}} su GitHub",
+    "contactLink": "Scrivici"
+  },
   "seo": {
     "home": {
       "description": "Siti di prenotazione, app web e mobile per strutture indipendenti e founder. Uno studio guidato dai fondatori che risponde entro 24 ore."
@@ -1177,6 +1217,9 @@
     "guides": {
       "description": "Guide pratiche per B&B, piccoli hotel, attività e fotografi: caparre, modalità di prenotazione, commissioni e un sito tutto tuo."
     },
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "openSource": {
+      "description": "BaseMile e PlateClimb, due app di fitness libere e open source di Likwiid: corsa in Zona 2 e allenamento della forza. Senza account, licenza GPL."
+    }
   }
 }

@@ -1144,6 +1144,46 @@
     "IoT": "IoT",
     "AI": "IA"
   },
+  "openSource": {
+    "docTitle": "Aplicações de código aberto: BaseMile e PlateClimb | Likwiid",
+    "crumb": "Código aberto",
+    "eyebrow": "Código aberto",
+    "title": "Aplicações livres que pode ler, alterar e guardar",
+    "intro": "Acreditamos que o software deve ser livre: livre para usar, ler, alterar e partilhar. Muitas aplicações e suites pagas podem ser substituídas por ferramentas abertas que fazem o mesmo trabalho sem subscrição. Estas duas aplicações nasceram como ferramentas para o nosso próprio treino. Agora são de código aberto, sob a licença GPL, para quem as quiser usar.",
+    "principle1Title": "Livres para usar e alterar",
+    "principle1Body": "Licença GPL. Leia o código, faça um fork e publique a sua própria versão, desde que continue aberta.",
+    "principle2Title": "Os dados ficam consigo",
+    "principle2Body": "Os seus dados de treino ficam no telemóvel e as duas aplicações funcionam sem internet.",
+    "principle3Title": "Sem contas nem rastreio",
+    "principle3Body": "Sem registo, sem analítica, sem anúncios.",
+    "freeLabel": "Livre e de código aberto",
+    "licenseAria": "Licença: {{license}}",
+    "githubLink": "Ver no GitHub",
+    "screenshotAlt": "Captura de ecrã {{n}} do {{name}}",
+    "appsHeading": "As aplicações",
+    "basemile": {
+      "pitch": "Um treinador de corrida em Zona 2 que constrói a sua base aeróbica, uma corrida fácil de cada vez.",
+      "body": "O BaseMile segue um plano de cardio de 12 semanas e orienta cada corrida pela frequência cardíaca, para que os dias fáceis sejam mesmo fáceis e a base aeróbica cresça semana a semana.",
+      "feature1": "Um plano de Zona 2 de 12 semanas, com um teto de frequência cardíaca MAF para cada corrida",
+      "feature2": "Frequência cardíaca ao vivo de uma cinta peitoral Bluetooth, como a Garmin HRM-Dual",
+      "feature3": "Um treinador por voz que funciona no telemóvel e avisa quando sai da zona",
+      "feature4": "Mapas do percurso, ritmo e carga de treino depois de cada corrida, sem conta e sem ligação à internet"
+    },
+    "plateclimb": {
+      "pitch": "Uma aplicação de treino de força que segue programas gratuitos comprovados e lhe diz o que levantar a seguir.",
+      "body": "Escolha um programa, registe as séries e o PlateClimb calcula o próximo peso para cada exercício. Tudo fica guardado no telemóvel.",
+      "feature1": "Programas gratuitos da comunidade incluídos: GZCLP, nSuns, o PPL do r/Fitness, 5x5 e outros",
+      "feature2": "Progressão e descargas automáticas: mais peso quando cumpre as repetições, menos depois de falhas repetidas",
+      "feature3": "Um treinador com IA opcional que usa a sua própria chave de API e fica desligado até a adicionar",
+      "feature4": "Sem conta: os seus treinos ficam no telemóvel",
+      "note": "Os programas estão creditados aos seus autores no código. O PlateClimb não tem qualquer ligação a eles."
+    },
+    "disclaimer": "Isto não é aconselhamento médico. Fale com um profissional antes de começar um novo programa de treino.",
+    "contributeTitle": "Contribuir",
+    "contributeBody": "As duas aplicações estão no GitHub. Relatórios de erros, traduções e pull requests são bem-vindos, tal como forks. Se usar uma delas, diga-nos o que funciona e o que não funciona.",
+    "repoButton": "{{name}} no GitHub",
+    "contactLink": "Escreva-nos"
+  },
   "seo": {
     "home": {
       "description": "Sites de reservas, aplicações web e móveis para alojamentos independentes e fundadores. Um estúdio dirigido pelos fundadores que responde em 24 horas."
@@ -1177,6 +1217,9 @@
     "guides": {
       "description": "Guias práticos para alojamento local, pequenos hotéis, atividades e fotógrafos: sinais, modos de reserva, comissões e ser dono do seu site."
     },
-    "breadcrumbHome": "Início"
+    "breadcrumbHome": "Início",
+    "openSource": {
+      "description": "BaseMile e PlateClimb, duas aplicações de fitness livres e de código aberto da Likwiid: corrida em Zona 2 e treino de força. Sem contas, licença GPL."
+    }
   }
 }
