@@ -18,6 +18,7 @@ import pt from './locales/pt.json'
 import { GUIDE_META } from './content/guides/meta'
 import { GUIDE_PAGES, guideLanguages } from './content/guides/registry'
 import type { GuideCopy } from './content/guides/types'
+import { OPEN_SOURCE_APPS } from './data/openSource'
 
 const RESOURCES: Record<Lang, { translation: Record<string, unknown> }> = {
   en: { translation: en },
@@ -130,4 +131,12 @@ export function guideRoutes(): GuideRoute[] {
       return { slug, lang, langs, datePublished: meta.datePublished, dateModified: meta.dateModified, ...copy }
     })
   })
+}
+
+/**
+ * The apps on /open-source/ (name, repository, licence, anchor), for the page's structured data
+ * in scripts/prerender.mjs. Descriptions come from the locale files there.
+ */
+export function openSourceApps() {
+  return OPEN_SOURCE_APPS.map(({ key, name, repoUrl, license }) => ({ key, name, repoUrl, license }))
 }
