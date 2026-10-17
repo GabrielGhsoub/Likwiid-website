@@ -29,7 +29,11 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
     license: 'GPL-3.0-or-later',
     licenseLabel: 'GPL-3.0',
     stack: ['React Native', 'Expo', 'SQLite', 'Bluetooth LE'],
-    screenshots: [],
+    screenshots: [
+      '/images/open-source/basemile/run-picker.webp',
+      '/images/open-source/basemile/voice-mode.webp',
+      '/images/open-source/basemile/settings.webp',
+    ],
     caseStudy: 'personal-fitness-tracker',
   },
   {
