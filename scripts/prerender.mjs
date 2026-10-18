@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, '..', 'dist')
 const localesDir = join(__dirname, '..', 'src', 'locales')
 const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
-const { render, directMarketPages, guideRoutes } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
+const { render, directMarketPages, guideRoutes, openSourceApps } = await import(pathToFileURL(join(__dirname, '..', 'dist-ssr', 'entry-server.js')).href)
 
 const SITE_URL = 'https://likwiid.com'
 
@@ -123,6 +123,15 @@ const LOCALIZED_PAGES = {
   }),
   products: (l) => ({ title: l.products.docTitle, description: l.seo.products.description, crumb: l.nav.products }),
   guides: (l) => ({ title: l.guides.docTitle, description: l.seo.guides.description, crumb: l.guides.crumb }),
+  'open-source': (l) => ({
+    title: l.openSource.docTitle,
+    description: l.seo.openSource.description,
+    crumb: l.openSource.crumb,
+    openSource: {
+      name: l.openSource.title,
+      apps: openSourceApps().map((app) => ({ ...app, description: l.openSource[app.key]?.pitch })),
+    },
+  }),
 }
 const locales = Object.fromEntries(
   LANGUAGES.map((lang) => [lang, JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))])
@@ -130,8 +139,9 @@ const locales = Object.fromEntries(
 for (const lang of LANGUAGES) {
   const locale = locales[lang]
   for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
-    const { title, description, crumb, service } = pick(locale)
+    const { title, description, crumb, service, openSource } = pick(locale)
     if (!title || !description) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
+    if (openSource?.apps.some((app) => !app.description)) throw new Error(`prerender: missing ${lang} pitch for an open source app`)
     const path = localizedRoute(lang, page)
     routes[path] = {
       lang,
@@ -140,6 +150,7 @@ for (const lang of LANGUAGES) {
       hreflang: true,
       breadcrumb: crumb ? [{ name: crumb, path }] : undefined,
       service,
+      openSource,
     }
   }
 }
@@ -298,6 +309,42 @@ function jsonLdGraph(path, meta) {
       inLanguage: lang,
     })
   }
+  if (meta.openSource) {
+    // The apps' source code, as published on GitHub. No ratings, downloads or offers: the site
+    // publishes none, and these are descriptions, not rich result requests.
+    const page = canonicalUrl(path)
+    graph.push({
+      '@type': 'CollectionPage',
+      '@id': `${page}#page`,
+      name: meta.openSource.name,
+      description: meta.description,
+      url: page,
+      inLanguage: lang,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: meta.openSource.apps.map((app, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          item: {
+            '@type': 'SoftwareSourceCode',
+            '@id': `${page}#${app.key}`,
+            name: app.name,
+            description: app.description,
+            url: `${page}#${app.key}`,
+            codeRepository: app.repoUrl,
+            license: `https://spdx.org/licenses/${app.license}.html`,
+            programmingLanguage: 'TypeScript',
+            runtimePlatform: 'React Native',
+            isAccessibleForFree: true,
+            author: { '@id': `${SITE_URL}/#organization` },
+            publisher: { '@id': `${SITE_URL}/#organization` },
+          },
+        })),
+      },
+    })
+  }
   if (meta.article) {
     graph.push({
       '@type': 'Article',
@@ -343,7 +390,7 @@ function jsonLdGraph(path, meta) {
   return `\n    <script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n    </script>`
 }
 
-// A localized cluster (home, services, contact, work, direct, frame, products, guides, tools,
+// A localized cluster (home, services, contact, work, direct, frame, products, guides, open source, tools,
 // localized case studies): every language variant plus x-default pointing at English, per
 // Google's localized-pages guidance. Injected into each route of the cluster. A guide that is
 // not written in English has no x-default.

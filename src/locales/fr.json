@@ -522,7 +522,10 @@
     "similarProjectBody": "Dites-nous ce dont vous avez besoin. Nous répondons sous 24 heures.",
     "startProject": "Démarrer un projet",
     "whatsapp": "Écrivez-nous sur WhatsApp",
-    "nextProject": "Projet suivant"
+    "nextProject": "Projet suivant",
+    "openSourceLabel": "Désormais open source",
+    "openSourceBody": "Cette application est désormais libre et open source sous le nom {{name}}, avec la licence GPL.",
+    "openSourceLink": "Voir {{name}} sur la page open source"
   },
   "projectsData": {
     "padel-booking": {
@@ -1140,6 +1143,48 @@
     "IoT": "IoT",
     "AI": "IA"
   },
+  "openSource": {
+    "docTitle": "Applications open source : BaseMile et PlateClimb | Likwiid",
+    "crumb": "Open source",
+    "eyebrow": "Open source",
+    "title": "Des applications libres à lire, modifier et garder",
+    "intro": "Nous pensons que le logiciel doit être libre : libre de l'utiliser, de le lire, de le modifier et de le partager. Beaucoup d'applications et de suites payantes peuvent être remplacées par des outils ouverts qui font le même travail sans abonnement. Ces deux applications sont nées comme outils pour notre propre entraînement. Elles sont maintenant open source, sous licence GPL, pour qui veut s'en servir.",
+    "principle1Title": "Libres d'utilisation et de modification",
+    "principle1Body": "Licence GPL. Lisez le code, forkez-le et publiez votre propre version, tant qu'elle reste ouverte.",
+    "principle2Title": "Vos données restent chez vous",
+    "principle2Body": "Vos données d'entraînement restent sur votre téléphone et les deux applications fonctionnent hors ligne.",
+    "principle3Title": "Sans compte ni pistage",
+    "principle3Body": "Pas d'inscription, pas d'analytics, pas de publicité.",
+    "freeLabel": "Libre et open source",
+    "licenseAria": "Licence : {{license}}",
+    "githubLink": "Voir sur GitHub",
+    "screenshotAlt": "Capture d'écran {{n}} de {{name}}",
+    "appsHeading": "Les applications",
+    "basemile": {
+      "pitch": "Un coach de course en Zone 2 qui construit votre base aérobie, une sortie facile à la fois.",
+      "body": "BaseMile couvre les jours de cardio de la semaine Foundational Fitness : des sorties Long, Medium et Brief guidées à la fréquence cardiaque, pour que les jours faciles restent faciles, puis transformées en tendances qui montrent votre base aérobie progresser semaine après semaine.",
+      "feature1": "Des sorties Long, Medium et Brief, avec des cibles tirées de votre propre fréquence cardiaque et un plafond MAF les jours faciles",
+      "feature2": "La fréquence cardiaque en direct depuis n'importe quelle ceinture Bluetooth standard, testée avec la Garmin HRM-Dual",
+      "feature3": "Un coach vocal qui fonctionne sur le téléphone et vous prévient quand vous sortez de la zone",
+      "feature4": "Carte du parcours, allure, tendances MAF et charge d'entraînement après chaque sortie, sans compte et avec vos données sur le téléphone",
+      "note": "BaseMile est un projet indépendant. Il n'est ni affilié à Andrew Huberman ou à Huberman Lab, ni approuvé par eux."
+    },
+    "plateclimb": {
+      "pitch": "La semaine Foundational Fitness du livre Protocols de Huberman, dans une application d'entraînement gratuite qui fonctionne hors ligne.",
+      "body": "PlateClimb suit un plan de 12 semaines fondé sur la structure hebdomadaire qu'Andrew Huberman décrit dans Protocols : des jours jambes, buste, et épaules et bras entre du cardio long, moyen et intense. Notez vos séries et il prépare les charges pour la prochaine fois. Vos séances restent sur le téléphone.",
+      "feature1": "Deux blocs de six et cinq semaines, d'abord plus lourd puis plus de répétitions, suivis d'une semaine de repos",
+      "feature2": "Séries, répétitions, repos et effort cible pour chaque exercice, avec des alternatives quand une machine est prise",
+      "feature3": "Les charges reprises de votre dernière séance, avec une photo et un lien vidéo pour chaque exercice",
+      "feature4": "Sans compte ni serveur : vos séances restent sur votre téléphone",
+      "note": "PlateClimb est un projet indépendant. Il n'est ni affilié à Andrew Huberman ou à Huberman Lab, ni approuvé par eux."
+    },
+    "disclaimer": "Ceci n'est pas un avis médical. Consultez un professionnel avant de commencer un nouveau programme d'entraînement.",
+    "contributeTitle": "Contribuer",
+    "contributeBody": "Les deux applications sont sur GitHub. Les rapports de bugs, les traductions et les pull requests sont les bienvenus, les forks aussi. Si vous utilisez l'une d'elles, dites-nous ce qui marche et ce qui ne marche pas.",
+    "repoButton": "{{name}} sur GitHub",
+    "contactLink": "Écrivez-nous",
+    "caseStudyLink": "Comment tout a commencé : l'étude de cas {{title}}"
+  },
   "seo": {
     "home": {
       "description": "Sites de réservation, applications web et mobiles pour hébergements indépendants et fondateurs. Un studio dirigé par ses fondateurs, réponse sous 24 h."
@@ -1173,6 +1218,9 @@
     "guides": {
       "description": "Guides pratiques pour chambres d'hôtes, petits hôtels, activités et photographes : acomptes, modes de réservation, commissions et site à vous."
     },
-    "breadcrumbHome": "Accueil"
+    "breadcrumbHome": "Accueil",
+    "openSource": {
+      "description": "BaseMile et PlateClimb : applis libres pour la semaine Foundational Fitness de Protocols de Huberman. Course en Zone 2, séances hors ligne, sans compte."
+    }
   }
 }

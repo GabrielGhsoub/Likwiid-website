@@ -38,6 +38,7 @@ import {
   Products,
   NotFound,
   Guides,
+  OpenSource,
   TOOL_ROUTES,
   DIRECT_MARKET_PAGES,
 } from './routes'
@@ -83,6 +84,7 @@ const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
   frame: () => <Frame />,
   products: () => <Products />,
   guides: () => <Guides />,
+  'open-source': () => <OpenSource />,
 }
 
 // Locale-prefixed routes (/pt, /pt/work, /fr/contact, ...): the URL is the source of truth for
@@ -245,6 +247,7 @@ export default function App() {
                 <Route path="/direct" element={<Direct />} />
                 <Route path="/frame" element={<Frame />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/open-source" element={<OpenSource />} />
                 <Route path="/beit-toureef-walkthrough" element={<BeitToureefPoc />} />
                 <Route path="/beit-toureef-poc" element={<LegacyBeitToureefRedirect />} />
                 <Route path="*" element={<NotFound />} />

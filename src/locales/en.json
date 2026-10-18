@@ -519,7 +519,52 @@
     "similarProjectBody": "Tell us what you need. We reply within 24 hours.",
     "startProject": "Start a project",
     "whatsapp": "Message us on WhatsApp",
-    "nextProject": "Next project"
+    "nextProject": "Next project",
+    "openSourceLabel": "Now open source",
+    "openSourceBody": "This app is now free and open source as {{name}}, under the GPL.",
+    "openSourceLink": "See {{name}} on the open source page"
+  },
+  "openSource": {
+    "docTitle": "Open Source Apps: BaseMile and PlateClimb | Likwiid",
+    "crumb": "Open source",
+    "eyebrow": "Open source",
+    "title": "Free apps you can read, change and keep",
+    "intro": "We think software should be free: free to use, to read, to change and to share. Plenty of paid apps and suites can be replaced by open tools that do the same job without a subscription. These two apps started as tools for our own training. They are now open source under the GPL, for anyone to use.",
+    "principle1Title": "Free to use and change",
+    "principle1Body": "GPL licensed. Read the code, fork it and ship your own version, as long as it stays open.",
+    "principle2Title": "Local first",
+    "principle2Body": "Your training data stays on your phone, and both apps work offline.",
+    "principle3Title": "No accounts, no tracking",
+    "principle3Body": "No sign up, no analytics, no ads.",
+    "freeLabel": "Free and open source",
+    "licenseAria": "Licence: {{license}}",
+    "githubLink": "View on GitHub",
+    "screenshotAlt": "{{name}} screenshot {{n}}",
+    "appsHeading": "The apps",
+    "basemile": {
+      "pitch": "A Zone 2 running coach that builds your aerobic base, one easy run at a time.",
+      "body": "BaseMile covers the cardio days of the Foundational Fitness week: Long, Medium and Brief runs, coached by heart rate so easy days stay easy, then turned into trends that show your aerobic base growing week by week.",
+      "feature1": "Long, Medium and Brief runs, with targets from your own heart rate and a MAF ceiling on easy days",
+      "feature2": "Live heart rate from any standard Bluetooth strap, tested with the Garmin HRM-Dual",
+      "feature3": "A voice coach that runs on the phone and speaks up when you drift out of zone",
+      "feature4": "Route maps, pace, MAF trends and training load after every run, with no account and your data kept on the phone",
+      "note": "BaseMile is an independent project. It is not affiliated with or endorsed by Andrew Huberman or Huberman Lab."
+    },
+    "plateclimb": {
+      "pitch": "The Foundational Fitness week from Huberman's Protocols, as a free workout app that runs offline.",
+      "body": "PlateClimb runs one 12 week plan built on the weekly structure Andrew Huberman describes in Protocols: legs, torso, and shoulders and arms days between long, medium and intense cardio. Log your sets and it fills in the weights for next time. Your workouts stay on the phone.",
+      "feature1": "Two six and five week blocks, heavier then higher reps, followed by a week off",
+      "feature2": "Sets, reps, rest and effort targets for every lift, with swaps when a machine is taken",
+      "feature3": "Weights filled in from your last session, with a photo and a video link for each exercise",
+      "feature4": "No account and no server: your workouts stay on your phone",
+      "note": "PlateClimb is an independent project. It is not affiliated with or endorsed by Andrew Huberman or Huberman Lab."
+    },
+    "disclaimer": "Not medical advice. Check with a professional before you start a new training program.",
+    "contributeTitle": "Contribute",
+    "contributeBody": "Both apps are on GitHub. Bug reports, translations and pull requests are welcome, and so are forks. If you use one of them, tell us what works and what does not.",
+    "repoButton": "{{name}} on GitHub",
+    "contactLink": "Write to us",
+    "caseStudyLink": "How it started: the {{title}} case study"
   },
   "seo": {
     "home": {
@@ -554,6 +599,9 @@
     "guides": {
       "description": "Practical guides for small hotels, guesthouses, activity businesses and photographers: deposits, booking modes, commissions and owning your website."
     },
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "openSource": {
+      "description": "BaseMile and PlateClimb: free, open source apps for the Foundational Fitness week from Huberman's Protocols. Zone 2 runs and offline workouts, no account."
+    }
   }
 }

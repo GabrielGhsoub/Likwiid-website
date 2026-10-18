@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import NotFound from './NotFound'
 import { useTranslation } from 'react-i18next'
 import { m, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Check, Github } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
@@ -210,6 +210,32 @@ export default function CaseStudy() {
                   </div>
                 ))}
               </dl>
+            )}
+
+            {/* ---------- Now open source (links to the app's section on /open-source/) ---------- */}
+            {project.openSource && (
+              <aside
+                aria-label={t('caseStudy.openSourceLabel')}
+                className="mt-8 flex items-start gap-3 rounded-xl border border-accent-gold/40 bg-accent-gold-dim px-5 py-4"
+              >
+                <Github size={18} className="mt-0.5 shrink-0 text-accent-gold" aria-hidden="true" />
+                <div className="min-w-0">
+                  <p className="text-[11px] font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
+                    {t('caseStudy.openSourceLabel')}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-text-primary">
+                    {t('caseStudy.openSourceBody', { name: project.openSource.name })}
+                  </p>
+                  <Link
+                    to={localize(`/open-source#${project.openSource.anchor}`)}
+                    className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
+                    {...umamiAttrs('open-source-page', { project: project.slug, location: 'case-study' })}
+                  >
+                    {t('caseStudy.openSourceLink', { name: project.openSource.name })}
+                    <ArrowRight size={15} aria-hidden="true" />
+                  </Link>
+                </div>
+              </aside>
             )}
           </m.div>
 

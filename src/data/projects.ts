@@ -182,6 +182,7 @@ const projectCatalog: Project[] = [
     previewAlt: 'Personal Fitness Tracker readiness screen',
     featured: false,
     platform: 'mobile',
+    openSource: { name: 'BaseMile', anchor: 'basemile' },
   },
   {
     id: 'breathebreak',

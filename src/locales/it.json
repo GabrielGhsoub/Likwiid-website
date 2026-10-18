@@ -526,7 +526,10 @@
     "similarProjectBody": "Raccontaci di cosa hai bisogno. Rispondiamo entro 24 ore.",
     "startProject": "Avvia un progetto",
     "whatsapp": "Scrivici su WhatsApp",
-    "nextProject": "Prossimo progetto"
+    "nextProject": "Prossimo progetto",
+    "openSourceLabel": "Ora open source",
+    "openSourceBody": "Questa app ora è libera e open source con il nome {{name}}, con licenza GPL.",
+    "openSourceLink": "Vedi {{name}} nella pagina open source"
   },
   "projectsData": {
     "padel-booking": {
@@ -1144,6 +1147,48 @@
     "IoT": "IoT",
     "AI": "IA"
   },
+  "openSource": {
+    "docTitle": "App open source: BaseMile e PlateClimb | Likwiid",
+    "crumb": "Open source",
+    "eyebrow": "Open source",
+    "title": "App libere che puoi leggere, modificare e tenere",
+    "intro": "Pensiamo che il software debba essere libero: libero da usare, leggere, modificare e condividere. Molte app e suite a pagamento si possono sostituire con strumenti aperti che fanno lo stesso lavoro senza abbonamento. Queste due app sono nate come strumenti per il nostro allenamento. Ora sono open source, con licenza GPL, per chiunque voglia usarle.",
+    "principle1Title": "Libere da usare e modificare",
+    "principle1Body": "Licenza GPL. Leggi il codice, fai un fork e pubblica la tua versione, purché resti aperta.",
+    "principle2Title": "I dati restano sul telefono",
+    "principle2Body": "I tuoi dati di allenamento restano sul telefono e entrambe le app funzionano offline.",
+    "principle3Title": "Niente account, niente tracciamento",
+    "principle3Body": "Nessuna registrazione, nessuna analitica, nessuna pubblicità.",
+    "freeLabel": "Libero e open source",
+    "licenseAria": "Licenza: {{license}}",
+    "githubLink": "Vedi su GitHub",
+    "screenshotAlt": "Schermata {{n}} di {{name}}",
+    "appsHeading": "Le app",
+    "basemile": {
+      "pitch": "Un coach di corsa in Zona 2 che costruisce la tua base aerobica, una corsa facile alla volta.",
+      "body": "BaseMile copre i giorni di cardio della settimana Foundational Fitness: corse Long, Medium e Brief guidate dalla frequenza cardiaca, così i giorni facili restano facili, poi trasformate in tendenze che mostrano la tua base aerobica crescere settimana dopo settimana.",
+      "feature1": "Corse Long, Medium e Brief, con obiettivi basati sulla tua frequenza cardiaca e un tetto MAF nei giorni facili",
+      "feature2": "Frequenza cardiaca in tempo reale da qualsiasi fascia Bluetooth standard, testata con la Garmin HRM-Dual",
+      "feature3": "Un coach vocale che funziona sul telefono e ti avvisa quando esci dalla zona",
+      "feature4": "Mappe del percorso, passo, tendenze MAF e carico di allenamento dopo ogni corsa, senza account e con i tuoi dati sul telefono",
+      "note": "BaseMile è un progetto indipendente. Non è affiliato ad Andrew Huberman o a Huberman Lab, né approvato da loro."
+    },
+    "plateclimb": {
+      "pitch": "La settimana Foundational Fitness del libro Protocols di Huberman, in un'app di allenamento gratuita che funziona offline.",
+      "body": "PlateClimb segue un piano di 12 settimane basato sulla struttura settimanale che Andrew Huberman descrive in Protocols: giorni di gambe, busto, e spalle e braccia tra cardio lungo, medio e intenso. Registra le tue serie e prepara i carichi per la volta successiva. I tuoi allenamenti restano sul telefono.",
+      "feature1": "Due blocchi di sei e cinque settimane, prima più carico poi più ripetizioni, seguiti da una settimana di pausa",
+      "feature2": "Serie, ripetizioni, recupero e sforzo obiettivo per ogni esercizio, con alternative quando una macchina è occupata",
+      "feature3": "Carichi ripresi dall'ultima sessione, con foto e link al video per ogni esercizio",
+      "feature4": "Nessun account e nessun server: i tuoi allenamenti restano sul telefono",
+      "note": "PlateClimb è un progetto indipendente. Non è affiliato ad Andrew Huberman o a Huberman Lab, né approvato da loro."
+    },
+    "disclaimer": "Non è un consiglio medico. Senti un professionista prima di iniziare un nuovo programma di allenamento.",
+    "contributeTitle": "Contribuisci",
+    "contributeBody": "Entrambe le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
+    "repoButton": "{{name}} su GitHub",
+    "contactLink": "Scrivici",
+    "caseStudyLink": "Com'è nato: il caso studio {{title}}"
+  },
   "seo": {
     "home": {
       "description": "Siti di prenotazione, app web e mobile per strutture indipendenti e founder. Uno studio guidato dai fondatori che risponde entro 24 ore."
@@ -1177,6 +1222,9 @@
     "guides": {
       "description": "Guide pratiche per B&B, piccoli hotel, attività e fotografi: caparre, modalità di prenotazione, commissioni e un sito tutto tuo."
     },
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "openSource": {
+      "description": "BaseMile e PlateClimb: app libere per la settimana Foundational Fitness di Protocols di Huberman. Corsa in Zona 2 e allenamenti offline, senza account."
+    }
   }
 }
