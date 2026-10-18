@@ -61,6 +61,11 @@ const caseStudies = {
       'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
     heading: 'VoxFlow',
   },
+  basemile: {
+    description:
+      'BaseMile is a free, open source running coach that guides each run by heart rate from a Bluetooth chest strap. No account, no server, data on the phone.',
+    heading: 'BaseMile',
+  },
   'personal-fitness-tracker': {
     description:
       'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',

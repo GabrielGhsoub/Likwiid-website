@@ -264,6 +264,73 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'Ten milestone-gated articles with seven hand-drawn anatomy diagrams',
     ],
   },
+  basemile: {
+    role: 'Design, development and open source release',
+    metrics: [
+      { value: '3', label: 'Run types' },
+      { value: '4', label: 'Trends tracked over time' },
+      { value: '0', label: 'Accounts, servers or sync' },
+    ],
+    keyFeatures: [
+      {
+        title: 'Three run types',
+        description: 'Long runs in Zone 2 under a MAF ceiling, Medium runs at 75 to 85% of max, and Brief runs as 30/60 repeats or a 4x4.',
+      },
+      {
+        title: 'Live heart rate from a chest strap',
+        description: 'Pairs with any standard Bluetooth heart rate strap. The Garmin HRM-Dual is the tested one.',
+      },
+      {
+        title: 'Spoken cues that work offline',
+        description: "Cues use the phone's own voice, so the coach keeps talking with no signal and, on Android, with the screen off.",
+      },
+      {
+        title: 'Voice Mode',
+        description: 'A hands free screen that holds a strict heart rate band and tells you when you drift out of it.',
+      },
+      {
+        title: 'Trends, routes and tests',
+        description: 'MAF pace, decoupling, training load and weekly Zone 2 minutes, a heat map of your routes, and tests such as resting and max heart rate.',
+      },
+      {
+        title: 'Your runs stay on the phone',
+        description: 'No account, server or sync. The only network use is weather, elevation and map tiles, and weather and elevation can be switched off.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'App shell',
+        detail: 'Expo SDK 55 and React Native 0.83 with Expo Router and TypeScript. Android is the main tested platform; iPhone builds come from source.',
+      },
+      {
+        area: 'Heart rate over BLE',
+        detail: 'react-native-ble-plx scans for the 0x180D service and parses 0x2A37 frames (uint8 or uint16 heart rate, energy expended, RR intervals), throttled into a Zustand store at most once a second.',
+      },
+      {
+        area: 'Screen off on Android',
+        detail: 'A small local Expo module runs a foreground service and keeps a headless JS task pending until the run ends, so cues keep coming with the screen off.',
+      },
+      {
+        area: 'Voice',
+        detail: "expo-speech with the phone's own text to speech engine, so every cue works offline.",
+      },
+      {
+        area: 'Maps',
+        detail: 'MapLibre with an inline, trimmed OpenFreeMap vector style. The style ships in the app, so the run track still draws with no signal.',
+      },
+      {
+        area: 'Data',
+        detail: 'Runs and samples in SQLite on the device. Open-Meteo provides weather and terrain elevation, behind a switch in Settings.',
+      },
+    ],
+    highlights: [
+      'Fully local: no account, no server, no sync, no AI, and Android cloud backup turned off for the app',
+      'The only network calls are Open-Meteo (weather and elevation, optional) and OpenFreeMap map tiles, with no key',
+      'A mock heart rate source writes to the same store as the strap, so the run screen is testable without one',
+      'More than 400 Vitest tests, from the 0x2A37 parser to the coach cues',
+      'GPL-3.0-or-later, with SPDX licence headers on the source files',
+    ],
+  },
   'personal-fitness-tracker': {
     role: 'Design, development and testing',
     metrics: [
