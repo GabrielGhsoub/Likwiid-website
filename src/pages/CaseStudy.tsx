@@ -179,7 +179,7 @@ export default function CaseStudy() {
                   className={storeLinkClass}
                   {...umamiAttrs('store-link', { store: 'android', project: project.slug, location: 'case-study' })}
                 >
-                  <ExternalLink size={12} /> {t('caseStudy.playStore')}
+                  <ExternalLink size={12} /> {project.androidLabel ?? t('caseStudy.playStore')}
                 </a>
               )}
             </div>

@@ -45,6 +45,7 @@ function localizeProject(t: AnyT, p: Project): Project {
   if (p.oneLiner !== undefined) out.oneLiner = txString(t, `${ns}.oneLiner`, p.oneLiner)
   if (p.businessResult !== undefined) out.businessResult = txString(t, `${ns}.businessResult`, p.businessResult)
   if (p.liveLabel !== undefined) out.liveLabel = txString(t, `${ns}.liveLabel`, p.liveLabel)
+  if (p.androidLabel !== undefined) out.androidLabel = txString(t, `${ns}.androidLabel`, p.androidLabel)
   if (p.role !== undefined) out.role = txString(t, `${ns}.role`, p.role)
   if (p.previewAlt !== undefined) out.previewAlt = txString(t, `${ns}.previewAlt`, p.previewAlt)
   if (p.metrics !== undefined) out.metrics = txArray(t, `${ns}.metrics`, p.metrics)

@@ -40,6 +40,8 @@ export interface Project {
   liveUrl?: string
   liveLabel?: string
   androidUrl?: string
+  // Label for androidUrl when it is not a Play Store listing (e.g. an APK on GitHub Releases).
+  androidLabel?: string
   // A second product shipped as part of the same engagement (e.g. an admin portal),
   // rendered as its own section with its own screenshots on the case study page.
   companion?: ProjectCompanion
@@ -50,7 +52,7 @@ export interface Project {
   keyFeatures?: ProjectFeature[]
   architecture?: ProjectArchitectureNote[]
   highlights?: string[]
-  // The app is now published as open source under another name: the case study links to its
+  // The app is published as free and open source software: the case study links to its
   // section on /open-source/ (anchor = the app's key in src/data/openSource.ts).
   openSource?: ProjectOpenSource
   // Client words for the case study. Only ever a real quote the client approved for
