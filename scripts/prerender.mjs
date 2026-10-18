@@ -66,6 +66,11 @@ const caseStudies = {
       'BaseMile is a free, open source running coach that guides each run by heart rate from a Bluetooth chest strap. No account, no server, data on the phone.',
     heading: 'BaseMile',
   },
+  plateclimb: {
+    description:
+      'PlateClimb is a free, open source workout app for the 12 week Foundational Fitness program. Every lift prescribed, fully offline, no account.',
+    heading: 'PlateClimb',
+  },
   'personal-fitness-tracker': {
     description:
       'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',

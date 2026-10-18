@@ -331,6 +331,64 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'GPL-3.0-or-later, with SPDX licence headers on the source files',
     ],
   },
+  plateclimb: {
+    role: 'Design, development and open source release',
+    metrics: [
+      { value: '12', label: 'Weeks in the program' },
+      { value: '2', label: 'Swaps for each exercise' },
+      { value: '0', label: 'Accounts, servers or sync' },
+    ],
+    keyFeatures: [
+      {
+        title: 'One 12 week program',
+        description: 'Block 1 is heavier, Block 2 uses higher reps, and week 12 is off.',
+      },
+      {
+        title: 'A clear weekly rhythm',
+        description: 'Three lifting days, three cardio days, and a rest and mobility day.',
+      },
+      {
+        title: 'Every lift prescribed',
+        description: 'Sets, rep range, RPE target, rest and a starting weight for each exercise.',
+      },
+      {
+        title: 'Fast set logging',
+        description: 'Your last weights are filled in, with a rest timer between sets. You decide when to add weight.',
+      },
+      {
+        title: 'Swaps and form help',
+        description: 'Two swaps per exercise when a machine is taken, plus exercise photos and links to free form videos.',
+      },
+      {
+        title: 'Your workouts stay on the phone',
+        description: 'No account, server or sync. The only network use is loading exercise photos.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'App shell',
+        detail: 'Expo SDK 54 and React Native with Expo Router and TypeScript. Android is the main tested platform; iPhone builds come from source.',
+      },
+      {
+        area: 'Program as data',
+        detail: 'The 12 week Foundational Fitness program ships inside the app as local data: blocks, weeks, days, exercises, prescriptions and two substitutions per lift.',
+      },
+      {
+        area: 'Workout log',
+        detail: 'Sets, weights and reps are stored in SQLite on the device. The next session pre-fills from the last one, and no weight goes up on its own.',
+      },
+      {
+        area: 'Exercise photos',
+        detail: 'Loaded from the public free-exercise-db on GitHub, with a bundled placeholder when the phone is offline.',
+      },
+    ],
+    highlights: [
+      'Fully local: no account, no server, no sync and no AI',
+      'Weights pre-filled from the program the first time, then from the last session',
+      'A rest timer with local notifications, warm-up ramps, and kg or lb with plate sized steps',
+      'GPL-3.0-or-later, with SPDX licence headers on the source files',
+    ],
+  },
   'personal-fitness-tracker': {
     role: 'Design, development and testing',
     metrics: [
