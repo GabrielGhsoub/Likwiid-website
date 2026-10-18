@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 
-const LAST_UPDATED_ISO = '2026-03-31'
+const LAST_UPDATED_ISO = '2026-10-18'
 
 export default function Privacy() {
   const { t, i18n } = useTranslation()
@@ -73,6 +73,24 @@ export default function Privacy() {
               <p className="text-text-secondary leading-relaxed">
                 {t('privacy.analyticsBody')}
               </p>
+            </section>
+
+            {/* BaseMile and PlateClimb: the App Store privacy policy URL points at #apps. */}
+            <section id="apps" className="scroll-mt-28">
+              <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
+                {t('privacy.appsTitle')}
+              </h2>
+              <div className="space-y-3 text-text-secondary leading-relaxed">
+                <p>{t('privacy.appsBody')}</p>
+                <p>{t('privacy.appsBasemile')}</p>
+                <p>{t('privacy.appsPlateclimb')}</p>
+                <p>
+                  {t('privacy.appsSource')}{' '}
+                  <a href="https://github.com/likwiid/basemile" className="text-accent-gold hover:underline">BaseMile</a>
+                  {', '}
+                  <a href="https://github.com/likwiid/plateclimb" className="text-accent-gold hover:underline">PlateClimb</a>.
+                </p>
+              </div>
             </section>
 
             <section>
