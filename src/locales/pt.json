@@ -1030,7 +1030,7 @@
       "highlights": [
         "Totalmente local: sem conta, sem servidor, sem sincronização e sem IA",
         "Pesos preenchidos a partir do programa na primeira vez e depois a partir da última sessão",
-        "Um temporizador de descanso com notificações locais, séries de aquecimento progressivas, e kg ou lb com incrementos do tamanho dos discos",
+        "Um temporizador de descanso entre séries, séries de aquecimento progressivas, e kg ou lb com incrementos do tamanho dos discos",
         "GPL-3.0 ou posterior, com cabeçalhos de licença SPDX nos ficheiros de código"
       ]
     },

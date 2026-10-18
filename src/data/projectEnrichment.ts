@@ -385,7 +385,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     highlights: [
       'Fully local: no account, no server, no sync and no AI',
       'Weights pre-filled from the program the first time, then from the last session',
-      'A rest timer with local notifications, warm-up ramps, and kg or lb with plate sized steps',
+      'A rest timer between sets, warm-up ramps, and kg or lb with plate sized steps',
       'GPL-3.0-or-later, with SPDX licence headers on the source files',
     ],
   },

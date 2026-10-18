@@ -1030,7 +1030,7 @@
       "highlights": [
         "Completamente locale: niente account, server, sincronizzazione o IA",
         "Pesi compilati dal programma la prima volta, poi dall'ultima sessione",
-        "Un timer di recupero con notifiche locali, serie di riscaldamento progressive, e kg o lb con incrementi della misura dei dischi",
+        "Un timer di recupero tra le serie, serie di riscaldamento progressive, e kg o lb con incrementi della misura dei dischi",
         "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
       ]
     },

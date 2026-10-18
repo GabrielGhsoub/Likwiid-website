@@ -1026,7 +1026,7 @@
       "highlights": [
         "Entièrement local : ni compte, ni serveur, ni synchronisation, ni IA",
         "Poids préremplis depuis le programme la première fois, puis depuis la dernière séance",
-        "Un minuteur de repos avec notifications locales, des séries d'échauffement progressives, et kg ou lb avec des paliers à la taille des disques",
+        "Un minuteur de repos entre les séries, des séries d'échauffement progressives, et kg ou lb avec des paliers à la taille des disques",
         "GPL-3.0 ou ultérieure, avec des en-têtes de licence SPDX dans les fichiers source"
       ]
     },
