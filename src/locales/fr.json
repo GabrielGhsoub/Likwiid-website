@@ -523,8 +523,8 @@
     "startProject": "Démarrer un projet",
     "whatsapp": "Écrivez-nous sur WhatsApp",
     "nextProject": "Projet suivant",
-    "openSourceLabel": "Désormais open source",
-    "openSourceBody": "Cette application est désormais libre et open source sous le nom {{name}}, avec la licence GPL.",
+    "openSourceLabel": "Open source",
+    "openSourceBody": "{{name}} est libre et open source, sous licence GPL-3.0 ou ultérieure.",
     "openSourceLink": "Voir {{name}} sur la page open source"
   },
   "projectsData": {
@@ -1104,7 +1104,7 @@
     "contributeBody": "Les deux applications sont sur GitHub. Les rapports de bugs, les traductions et les pull requests sont les bienvenus, les forks aussi. Si vous utilisez l'une d'elles, dites-nous ce qui marche et ce qui ne marche pas.",
     "repoButton": "{{name}} sur GitHub",
     "contactLink": "Écrivez-nous",
-    "caseStudyLink": "Comment tout a commencé : l'étude de cas {{title}}"
+    "caseStudyLink": "Lire l'étude de cas {{title}}"
   },
   "seo": {
     "home": {

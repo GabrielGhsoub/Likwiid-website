@@ -527,8 +527,8 @@
     "startProject": "Avvia un progetto",
     "whatsapp": "Scrivici su WhatsApp",
     "nextProject": "Prossimo progetto",
-    "openSourceLabel": "Ora open source",
-    "openSourceBody": "Questa app ora è libera e open source con il nome {{name}}, con licenza GPL.",
+    "openSourceLabel": "Open source",
+    "openSourceBody": "{{name}} è libero e open source, con licenza GPL-3.0 o successiva.",
     "openSourceLink": "Vedi {{name}} nella pagina open source"
   },
   "projectsData": {
@@ -1108,7 +1108,7 @@
     "contributeBody": "Entrambe le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
     "repoButton": "{{name}} su GitHub",
     "contactLink": "Scrivici",
-    "caseStudyLink": "Com'è nato: il caso studio {{title}}"
+    "caseStudyLink": "Leggi il caso studio di {{title}}"
   },
   "seo": {
     "home": {

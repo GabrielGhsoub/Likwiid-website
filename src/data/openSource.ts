@@ -34,7 +34,7 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
       '/images/open-source/basemile/voice-mode.webp',
       '/images/open-source/basemile/trends.webp',
     ],
-    caseStudy: 'personal-fitness-tracker',
+    caseStudy: 'basemile',
   },
   {
     key: 'plateclimb',
@@ -48,6 +48,7 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
       '/images/open-source/plateclimb/day.webp',
       '/images/open-source/plateclimb/workout.webp',
     ],
+    caseStudy: 'plateclimb',
   },
 ]
 
