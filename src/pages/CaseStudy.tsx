@@ -116,7 +116,7 @@ export default function CaseStudy() {
 
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 4)
-  const images = project.images.slice(0, 4)
+  const images = project.images.slice(0, 5)
   const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 4)
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
