@@ -71,11 +71,6 @@ const caseStudies = {
       'PlateClimb is a free, open source workout app for the 12 week Foundational Fitness program. Every lift prescribed, fully offline, no account.',
     heading: 'PlateClimb',
   },
-  'personal-fitness-tracker': {
-    description:
-      'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',
-    heading: 'Personal Fitness Tracker',
-  },
   breathebreak: {
     description:
       'A Mac menu bar app that reminds desk workers to take short breathing breaks, and stays quiet during calls and Focus mode.',
@@ -598,6 +593,7 @@ const redirects = {
   'work/healthcare-pdf-api': { target: canonicalUrl('work') },
   'work/linkedin-templates-extension': { target: canonicalUrl('work') },
   'work/padel-admin-portal': { target: canonicalUrl('work/padel-booking') },
+  'work/personal-fitness-tracker': { target: canonicalUrl('work/basemile') },
 }
 
 const redirectStub = (target, canonical) => `<!doctype html>

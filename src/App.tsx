@@ -239,6 +239,7 @@ export default function App() {
                 <Route path="/work/healthcare-pdf-api" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/linkedin-templates-extension" element={<Navigate to="/work/" replace />} />
                 <Route path="/work/padel-admin-portal" element={<Navigate to="/work/padel-booking/" replace />} />
+                <Route path="/work/personal-fitness-tracker" element={<Navigate to="/work/basemile/" replace />} />
                 <Route path="/work/:slug" element={<CaseStudy />} />
                 <Route path="/about" element={<Navigate to="/#founder" replace />} />
                 <Route path="/contact" element={<Contact />} />

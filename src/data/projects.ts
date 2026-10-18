@@ -227,36 +227,6 @@ const projectCatalog: Project[] = [
     openSource: { name: 'PlateClimb', anchor: 'plateclimb' },
   },
   {
-    id: 'personal-fitness-tracker',
-    status: 'shipped',
-    slug: 'personal-fitness-tracker',
-    title: 'Personal Fitness Tracker',
-    subtitle: 'A running coach that guides each run by heart rate',
-    client: 'Likwiid',
-    category: 'Mobile',
-    year: '2026',
-    oneLiner: 'A running coach app that guides each run by heart rate, fully offline.',
-    description:
-      'The app connects to a chest heart rate strap and coaches the runner live through a 12 week plan. After each run it explains what happened and how training is going.',
-    challenge:
-      'Most fitness apps show generic charts and need the cloud. This runner needed live, reliable coaching from a heart rate strap, with the phone in a pocket and the screen off.',
-    approach:
-      'We built a spoken coach that reacts to heart rate every second and follows a structured plan. All data stays on the phone, and an optional voice assistant answers questions during the run.',
-    results:
-      "A finished app with eight screens covering today's readiness, live runs, history and trends. It tracks pace, effort and training load across the full 12 week plan.",
-    techStack: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'SQLite', 'Bluetooth LE', 'NativeWind', 'MapLibre', 'Reanimated', 'Zod', 'Vitest'],
-    images: [
-      '/images/projects/personal-fitness-tracker/today.webp',
-      '/images/projects/personal-fitness-tracker/run.webp',
-      '/images/projects/personal-fitness-tracker/history.webp',
-      '/images/projects/personal-fitness-tracker/trends.webp',
-    ],
-    previewAlt: 'Personal Fitness Tracker readiness screen',
-    featured: false,
-    platform: 'mobile',
-    openSource: { name: 'BaseMile', anchor: 'basemile' },
-  },
-  {
     id: 'breathebreak',
     status: 'shipped',
     slug: 'breathebreak',
@@ -325,7 +295,6 @@ const leadProjectIds = [
   'voxflow',
   'basemile',
   'plateclimb',
-  'personal-fitness-tracker',
   'breathebreak',
   'sems',
 ]

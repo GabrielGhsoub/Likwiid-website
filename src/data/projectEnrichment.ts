@@ -389,69 +389,6 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'GPL-3.0-or-later, with SPDX licence headers on the source files',
     ],
   },
-  'personal-fitness-tracker': {
-    role: 'Design, development and testing',
-    metrics: [
-      { value: '12 wk', label: 'Training plan' },
-      { value: '1 s', label: 'Heart rate updates' },
-      { value: '8', label: 'Screens' },
-    ],
-    keyFeatures: [
-      {
-        title: 'Live coaching from a heart rate strap',
-        description: 'Connects over Bluetooth and speaks up when you drift out of your target zone.',
-      },
-      {
-        title: 'Optional voice assistant',
-        description: 'Ask a question mid run and get a short spoken answer.',
-      },
-      {
-        title: 'A structured 12 week plan',
-        description: 'Easy runs, intervals, recovery weeks and a final 5K time trial.',
-      },
-      {
-        title: 'Fair pace on hills',
-        description: 'Corrects phone GPS height data so effort on climbs is measured fairly.',
-      },
-      {
-        title: 'A clear review after every run',
-        description: 'Effort, pace, training load and early warnings about overtraining.',
-      },
-      {
-        title: 'Works offline',
-        description: 'Everything is stored on the phone, with optional sync and export to other running apps.',
-      },
-    ],
-    architecture: [
-      {
-        area: 'Real-time HR pipeline',
-        detail: 'Garmin HRM-Dual GATT 0x180D frames parsed by a singleton react-native-ble-plx manager, throttled to 1Hz, fanned out via Zustand to UI, run reducer and coach engine.',
-      },
-      {
-        area: 'Pure coach engine',
-        detail: 'Side-effect-free tick(sample, elapsedMs, cadence) returning cues on monotonic run time: Z2 ceilings, intervals, cadence and fueling with per-cue cooldowns.',
-      },
-      {
-        area: 'Local-first data layer',
-        detail: 'React Native 0.83 on Expo SDK 55; expo-sqlite (WAL, 12 tables) stores raw samples, metrics computed at query time.',
-      },
-      {
-        area: 'Bounded AI layer',
-        detail: 'Self-hosted proxy with SSE streaming; a strict validator permits only bounded, non-destructive actions, with an offline fallback.',
-      },
-      {
-        area: 'Elevation and mapping',
-        detail: 'GPS altitude corrected against the Open-Meteo DEM, rendered on MapLibre + CARTO with grade-adjusted pace (GAP) and terrain segments.',
-      },
-    ],
-    highlights: [
-      'Coach engine is a pure state machine: deterministic, decoupled from BLE, audio and React, densely unit tested (93 Vitest tests)',
-      'Audio cues never block the HR pipeline; an async dispatcher keeps speech latency off the hot path',
-      'Post-run analytics: MAF pace, decoupling, VDOT and CTL/ATL/TSB training load across 16 modules',
-      'A validator bounds every AI action (for example MAF clamped to +/-10 bpm) so a bad response cannot do harm',
-      'TypeScript strict, no `any`; Zod only at real boundaries (BLE bytes, SQLite rows, GPS)',
-    ],
-  },
   breathebreak: {
     role: 'Design, development and release',
     metrics: [
