@@ -406,10 +406,16 @@ function hreflangLinks(path, langs) {
   return links.map(([lang, href]) => `    <link rel="alternate" hreflang="${lang}" href="${href}" />`).join('\n')
 }
 
-// Share card per route: the product pages (and their localized variants) get their own
+// Share card per route: the product and open source pages (and their localized variants) get their own
 // card so links pasted into WhatsApp or email preview the product; everything else keeps
 // the studio card. og:image and twitter:image always match. meta.ogImage overrides.
-const OG_IMAGES = { direct: 'og-direct.png', frame: 'og-frame.png' }
+const OG_IMAGES = {
+  direct: 'og-direct.png',
+  frame: 'og-frame.png',
+  'open-source': 'og-open-source.png',
+  'work/basemile': 'og-basemile.png',
+  'work/plateclimb': 'og-plateclimb.png',
+}
 const ogImageUrl = (path, meta) =>
   `${SITE_URL}/${meta.ogImage ?? OG_IMAGES[path.replace(/^(?:pt|es|it|fr)\//, '')] ?? 'og-image.png'}`
 
