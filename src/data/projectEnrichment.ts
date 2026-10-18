@@ -264,67 +264,129 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'Ten milestone-gated articles with seven hand-drawn anatomy diagrams',
     ],
   },
-  'personal-fitness-tracker': {
-    role: 'Design, development and testing',
+  basemile: {
+    role: 'Design, development and open source release',
     metrics: [
-      { value: '12 wk', label: 'Training plan' },
-      { value: '1 s', label: 'Heart rate updates' },
-      { value: '8', label: 'Screens' },
+      { value: '3', label: 'Run types' },
+      { value: '4', label: 'Trends tracked over time' },
+      { value: '0', label: 'Accounts, servers or sync' },
     ],
     keyFeatures: [
       {
-        title: 'Live coaching from a heart rate strap',
-        description: 'Connects over Bluetooth and speaks up when you drift out of your target zone.',
+        title: 'Three run types',
+        description: 'Long runs in Zone 2 under a MAF ceiling, Medium runs at 75 to 85% of max, and Brief runs as 30/60 repeats or a 4x4.',
       },
       {
-        title: 'Optional voice assistant',
-        description: 'Ask a question mid run and get a short spoken answer.',
+        title: 'Live heart rate from a chest strap',
+        description: 'Pairs with any standard Bluetooth heart rate strap. The Garmin HRM-Dual is the tested one.',
       },
       {
-        title: 'A structured 12 week plan',
-        description: 'Easy runs, intervals, recovery weeks and a final 5K time trial.',
+        title: 'Spoken cues that work offline',
+        description: "Cues use the phone's own voice, so the coach keeps talking with no signal and, on Android, with the screen off.",
       },
       {
-        title: 'Fair pace on hills',
-        description: 'Corrects phone GPS height data so effort on climbs is measured fairly.',
+        title: 'Voice Mode',
+        description: 'A hands free screen that holds a strict heart rate band and tells you when you drift out of it.',
       },
       {
-        title: 'A clear review after every run',
-        description: 'Effort, pace, training load and early warnings about overtraining.',
+        title: 'Trends, routes and tests',
+        description: 'MAF pace, decoupling, training load and weekly Zone 2 minutes, a heat map of your routes, and tests such as resting and max heart rate.',
       },
       {
-        title: 'Works offline',
-        description: 'Everything is stored on the phone, with optional sync and export to other running apps.',
+        title: 'Your runs stay on the phone',
+        description: 'No account, server or sync. The only network use is weather, elevation and map tiles, and weather and elevation can be switched off.',
       },
     ],
     architecture: [
       {
-        area: 'Real-time HR pipeline',
-        detail: 'Garmin HRM-Dual GATT 0x180D frames parsed by a singleton react-native-ble-plx manager, throttled to 1Hz, fanned out via Zustand to UI, run reducer and coach engine.',
+        area: 'App shell',
+        detail: 'Expo SDK 55 and React Native 0.83 with Expo Router and TypeScript. Android is the main tested platform; iPhone builds come from source.',
       },
       {
-        area: 'Pure coach engine',
-        detail: 'Side-effect-free tick(sample, elapsedMs, cadence) returning cues on monotonic run time: Z2 ceilings, intervals, cadence and fueling with per-cue cooldowns.',
+        area: 'Heart rate over BLE',
+        detail: 'react-native-ble-plx scans for the 0x180D service and parses 0x2A37 frames (uint8 or uint16 heart rate, energy expended, RR intervals), throttled into a Zustand store at most once a second.',
       },
       {
-        area: 'Local-first data layer',
-        detail: 'React Native 0.83 on Expo SDK 55; expo-sqlite (WAL, 12 tables) stores raw samples, metrics computed at query time.',
+        area: 'Screen off on Android',
+        detail: 'A small local Expo module runs a foreground service and keeps a headless JS task pending until the run ends, so cues keep coming with the screen off.',
       },
       {
-        area: 'Bounded AI layer',
-        detail: 'Self-hosted proxy with SSE streaming; a strict validator permits only bounded, non-destructive actions, with an offline fallback.',
+        area: 'Voice',
+        detail: "expo-speech with the phone's own text to speech engine, so every cue works offline.",
       },
       {
-        area: 'Elevation and mapping',
-        detail: 'GPS altitude corrected against the Open-Meteo DEM, rendered on MapLibre + CARTO with grade-adjusted pace (GAP) and terrain segments.',
+        area: 'Maps',
+        detail: 'MapLibre with an inline, trimmed OpenFreeMap vector style. The style ships in the app, so the run track still draws with no signal.',
+      },
+      {
+        area: 'Data',
+        detail: 'Runs and samples in SQLite on the device. Open-Meteo provides weather and terrain elevation, behind a switch in Settings.',
       },
     ],
     highlights: [
-      'Coach engine is a pure state machine: deterministic, decoupled from BLE, audio and React, densely unit tested (93 Vitest tests)',
-      'Audio cues never block the HR pipeline; an async dispatcher keeps speech latency off the hot path',
-      'Post-run analytics: MAF pace, decoupling, VDOT and CTL/ATL/TSB training load across 16 modules',
-      'A validator bounds every AI action (for example MAF clamped to +/-10 bpm) so a bad response cannot do harm',
-      'TypeScript strict, no `any`; Zod only at real boundaries (BLE bytes, SQLite rows, GPS)',
+      'Fully local: no account, no server, no sync, no AI, and Android cloud backup turned off for the app',
+      'The only network calls are Open-Meteo (weather and elevation, optional) and OpenFreeMap map tiles, with no key',
+      'A mock heart rate source writes to the same store as the strap, so the run screen is testable without one',
+      'More than 400 Vitest tests, from the 0x2A37 parser to the coach cues',
+      'GPL-3.0-or-later, with SPDX licence headers on the source files',
+    ],
+  },
+  plateclimb: {
+    role: 'Design, development and open source release',
+    metrics: [
+      { value: '12', label: 'Weeks in the program' },
+      { value: '2', label: 'Swaps for each exercise' },
+      { value: '0', label: 'Accounts, servers or sync' },
+    ],
+    keyFeatures: [
+      {
+        title: 'One 12 week program',
+        description: 'Block 1 is heavier, Block 2 uses higher reps, and week 12 is off.',
+      },
+      {
+        title: 'A clear weekly rhythm',
+        description: 'Three lifting days, three cardio days, and a rest and mobility day.',
+      },
+      {
+        title: 'Every lift prescribed',
+        description: 'Sets, rep range, RPE target, rest and a starting weight for each exercise.',
+      },
+      {
+        title: 'Fast set logging',
+        description: 'Your last weights are filled in, with a rest timer between sets. You decide when to add weight.',
+      },
+      {
+        title: 'Swaps and form help',
+        description: 'Two swaps per exercise when a machine is taken, plus exercise photos and links to free form videos.',
+      },
+      {
+        title: 'Your workouts stay on the phone',
+        description: 'No account, server or sync. The only network use is loading exercise photos.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'App shell',
+        detail: 'Expo SDK 54 and React Native with Expo Router and TypeScript. Android is the main tested platform; iPhone builds come from source.',
+      },
+      {
+        area: 'Program as data',
+        detail: 'The 12 week Foundational Fitness program ships inside the app as local data: blocks, weeks, days, exercises, prescriptions and two substitutions per lift.',
+      },
+      {
+        area: 'Workout log',
+        detail: 'Sets, weights and reps are stored in SQLite on the device. The next session pre-fills from the last one, and no weight goes up on its own.',
+      },
+      {
+        area: 'Exercise photos',
+        detail: 'Loaded from the public free-exercise-db on GitHub, with a bundled placeholder when the phone is offline.',
+      },
+    ],
+    highlights: [
+      'Fully local: no account, no server, no sync and no AI',
+      'Weights pre-filled from the program the first time, then from the last session',
+      'A rest timer between sets, warm-up ramps, and kg or lb with plate sized steps',
+      'GPL-3.0-or-later, with SPDX licence headers on the source files',
     ],
   },
   breathebreak: {

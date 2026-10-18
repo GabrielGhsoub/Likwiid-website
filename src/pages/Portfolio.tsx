@@ -104,7 +104,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
                   className={STORE_LINK_CLASS}
                   {...umamiAttrs('store-link', { store: 'android', project: project.slug, location: 'work' })}
                 >
-                  <ExternalLink size={12} /> {t('portfolio.playStore')}
+                  <ExternalLink size={12} /> {project.androidLabel ?? t('portfolio.playStore')}
                 </a>
               )}
             </div>

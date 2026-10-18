@@ -37,6 +37,8 @@ const REQUIRED_PAGES = {
       [`${lang}/services`, lang],
       [`${lang}/work/padel-booking`, lang],
       [`${lang}/work/escuela-nautica-valencia`, lang],
+      [`${lang}/work/basemile`, lang],
+      [`${lang}/work/plateclimb`, lang],
       [`${lang}/guides`, lang],
     ])
   ),
@@ -44,8 +46,9 @@ const REQUIRED_PAGES = {
   services: 'en',
   'work/padel-booking': 'en',
   'work/escuela-nautica-valencia': 'en',
-  // Linked both ways with the open source page (BaseMile started as this app).
-  'work/personal-fitness-tracker': 'en',
+  // Open source app case studies, linked both ways with the open source page.
+  'work/basemile': 'en',
+  'work/plateclimb': 'en',
   // Open source apps page, in every language.
   ...Object.fromEntries(['en', 'pt', 'es', 'it', 'fr'].map((lang) => [lang === 'en' ? 'open-source' : `${lang}/open-source`, lang])),
   // Free calculators, in every language.

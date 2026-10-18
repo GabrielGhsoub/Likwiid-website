@@ -116,7 +116,7 @@ export default function CaseStudy() {
 
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 4)
-  const images = project.images.slice(0, 4)
+  const images = project.images.slice(0, 5)
   const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 4)
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
@@ -179,7 +179,7 @@ export default function CaseStudy() {
                   className={storeLinkClass}
                   {...umamiAttrs('store-link', { store: 'android', project: project.slug, location: 'case-study' })}
                 >
-                  <ExternalLink size={12} /> {t('caseStudy.playStore')}
+                  <ExternalLink size={12} /> {project.androidLabel ?? t('caseStudy.playStore')}
                 </a>
               )}
             </div>

@@ -61,10 +61,15 @@ const caseStudies = {
       'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
     heading: 'VoxFlow',
   },
-  'personal-fitness-tracker': {
+  basemile: {
     description:
-      'A running coach app that guides each run by heart rate through a 12 week plan, fully offline.',
-    heading: 'Personal Fitness Tracker',
+      'BaseMile is a free, open source running coach that guides each run by heart rate from a Bluetooth chest strap. No account, no server, data on the phone.',
+    heading: 'BaseMile',
+  },
+  plateclimb: {
+    description:
+      'PlateClimb is a free, open source workout app for the 12 week Foundational Fitness program. Every lift prescribed, fully offline, no account.',
+    heading: 'PlateClimb',
   },
   breathebreak: {
     description:
@@ -158,7 +163,7 @@ for (const lang of LANGUAGES) {
 // Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
 // are English only. Their translated title and description come from projectsData.<slug>.
 // Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
-const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia']
+const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
 function caseStudyRoute(lang, slug, { heading, description }) {
@@ -588,6 +593,7 @@ const redirects = {
   'work/healthcare-pdf-api': { target: canonicalUrl('work') },
   'work/linkedin-templates-extension': { target: canonicalUrl('work') },
   'work/padel-admin-portal': { target: canonicalUrl('work/padel-booking') },
+  'work/personal-fitness-tracker': { target: canonicalUrl('work/basemile') },
 }
 
 const redirectStub = (target, canonical) => `<!doctype html>

@@ -527,8 +527,8 @@
     "startProject": "Avvia un progetto",
     "whatsapp": "Scrivici su WhatsApp",
     "nextProject": "Prossimo progetto",
-    "openSourceLabel": "Ora open source",
-    "openSourceBody": "Questa app ora è libera e open source con il nome {{name}}, con licenza GPL.",
+    "openSourceLabel": "Open source",
+    "openSourceBody": "{{name}} è libero e open source, con licenza GPL-3.0 o successiva.",
     "openSourceLink": "Vedi {{name}} nella pagina open source"
   },
   "projectsData": {
@@ -869,83 +869,169 @@
         "Dieci articoli sbloccati a tappe, con sette schemi anatomici disegnati a mano"
       ]
     },
-    "personal-fitness-tracker": {
-      "title": "Fitness tracker personale",
-      "subtitle": "Un coach di corsa che guida ogni uscita in base alla frequenza cardiaca",
-      "oneLiner": "Un'app di coaching per la corsa che guida ogni uscita in base alla frequenza cardiaca, completamente offline.",
-      "description": "L'app si collega a una fascia cardio da petto e allena il runner dal vivo lungo un piano di 12 settimane. Dopo ogni uscita spiega cosa è successo e come procede l'allenamento.",
-      "challenge": "La maggior parte delle app di fitness mostra grafici generici e dipende dal cloud. Questo runner aveva bisogno di un coaching dal vivo e affidabile da una fascia cardio, con il telefono in tasca e lo schermo spento.",
-      "approach": "Abbiamo creato un coach vocale che reagisce alla frequenza cardiaca ogni secondo e segue un piano strutturato. Tutti i dati restano sul telefono, e un assistente vocale opzionale risponde alle domande durante la corsa.",
-      "results": "Un'app completa con otto schermate che coprono la forma del giorno, le corse dal vivo, lo storico e le tendenze. Tiene traccia di ritmo, sforzo e carico di allenamento lungo tutto il piano di 12 settimane.",
-      "role": "Progettazione, sviluppo e test",
+    "basemile": {
+      "title": "BaseMile",
+      "subtitle": "Un coach di corsa libero e open source che guida ogni uscita in base alla frequenza cardiaca",
+      "oneLiner": "Un coach di corsa basato sulla frequenza cardiaca, libero e open source, che funziona interamente sul telefono.",
+      "description": "BaseMile è un coach di corsa per i giorni di cardio della settimana Foundational Fitness descritta nel libro Protocols di Andrew Huberman. Si collega a una fascia cardio Bluetooth, dà indicazioni con la voce del telefono e trasforma ogni uscita in tendenze chiare. È un progetto indipendente, non affiliato ad Andrew Huberman o a Huberman Lab, né approvato da loro.",
+      "previewAlt": "La schermata di corsa dal vivo di BaseMile con la frequenza cardiaca in zona 2 e il coach attivo",
+      "seoDescription": "BaseMile è un coach di corsa libero e open source che guida ogni uscita in base alla frequenza cardiaca. Nessun account né server, dati sul telefono.",
+      "challenge": "La maggior parte delle app di fitness chiede un account, un abbonamento e il cloud. Un coach basato sulla frequenza cardiaca deve anche continuare a parlare con il telefono in tasca, lo schermo spento e senza campo.",
+      "approach": "Abbiamo creato tre tipi di uscita: Long, in zona 2 sotto un tetto MAF; Medium, tra il 75 e l'85 % della frequenza cardiaca massima; e Brief, con ripetute 30/60 o un 4x4. Tutto gira sul telefono, senza account, senza server, senza sincronizzazione e senza IA.",
+      "results": "Pubblicato come open source il 18 ottobre 2026 con licenza GPL-3.0, con un APK Android firmato su GitHub. È testato su Android, e le versioni per iPhone si compilano dal codice sorgente.",
+      "role": "Design, sviluppo e pubblicazione open source",
+      "liveLabel": "Codice su GitHub",
+      "androidLabel": "APK Android",
       "metrics": [
         {
-          "value": "12 sett.",
-          "label": "Piano di allenamento"
+          "value": "3",
+          "label": "Tipi di uscita"
         },
         {
-          "value": "1 s",
-          "label": "Aggiornamenti della frequenza cardiaca"
+          "value": "4",
+          "label": "Tendenze nel tempo"
         },
         {
-          "value": "8",
-          "label": "Schermate"
+          "value": "0",
+          "label": "Account, server o sincronizzazione"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Coaching dal vivo con fascia cardio",
-          "description": "Si collega via Bluetooth e ti avvisa a voce quando esci dalla tua zona obiettivo."
+          "title": "Tre tipi di uscita",
+          "description": "Long in zona 2 sotto un tetto MAF, Medium tra il 75 e l'85 % del massimo, e Brief con ripetute 30/60 o un 4x4."
         },
         {
-          "title": "Assistente vocale opzionale",
-          "description": "Fai una domanda durante la corsa e ricevi una breve risposta a voce."
+          "title": "Frequenza cardiaca dal vivo da una fascia",
+          "description": "Si collega a qualsiasi fascia cardio Bluetooth standard. La Garmin HRM-Dual è quella testata."
         },
         {
-          "title": "Un piano strutturato di 12 settimane",
-          "description": "Corse facili, ripetute, settimane di recupero e una prova a tempo finale sui 5 km."
+          "title": "Indicazioni vocali offline",
+          "description": "Le indicazioni usano la voce del telefono, quindi il coach continua a parlare senza campo e, su Android, con lo schermo spento."
         },
         {
-          "title": "Ritmo corretto in salita",
-          "description": "Corregge l'altitudine del GPS del telefono per misurare correttamente lo sforzo in salita."
+          "title": "Voice Mode",
+          "description": "Una schermata a mani libere che mantiene una fascia di frequenza cardiaca rigorosa e avvisa quando ne esci."
         },
         {
-          "title": "Un riepilogo chiaro dopo ogni corsa",
-          "description": "Sforzo, ritmo, carico di allenamento e avvisi precoci di sovrallenamento."
+          "title": "Tendenze, percorsi e test",
+          "description": "Passo MAF, disaccoppiamento, carico di allenamento e minuti settimanali in zona 2, una mappa di calore dei tuoi percorsi, e test come la frequenza cardiaca a riposo e massima."
         },
         {
-          "title": "Funziona offline",
-          "description": "Tutto è salvato sul telefono, con sincronizzazione ed esportazione opzionali verso altre app di corsa."
+          "title": "Le tue uscite restano sul telefono",
+          "description": "Niente account, server o sincronizzazione. La rete serve solo per meteo, altitudine e tile della mappa, e meteo e altitudine si possono disattivare."
         }
       ],
       "architecture": [
         {
-          "area": "Pipeline FC in tempo reale",
-          "detail": "Frame GATT 0x180D della Garmin HRM-Dual analizzati da un manager singleton react-native-ble-plx, limitati a 1Hz e distribuiti via Zustand a interfaccia, reducer della corsa e motore del coach."
+          "area": "Base dell'app",
+          "detail": "Expo SDK 55 e React Native 0.83 con Expo Router e TypeScript. Android è la piattaforma principale di test; le versioni per iPhone si compilano dal codice sorgente."
         },
         {
-          "area": "Motore del coach puro",
-          "detail": "tick(sample, elapsedMs, cadence) senza effetti collaterali che restituisce indicazioni su un tempo di corsa monotono: tetti Z2, ripetute, cadenza e rifornimento, con un tempo di attesa per ogni indicazione."
+          "area": "Frequenza cardiaca via BLE",
+          "detail": "react-native-ble-plx cerca il servizio 0x180D e interpreta i frame 0x2A37 (frequenza in uint8 o uint16, energia spesa, intervalli RR), limitati a un aggiornamento al secondo in uno store Zustand."
         },
         {
-          "area": "Livello dati local-first",
-          "detail": "React Native 0.83 su Expo SDK 55; expo-sqlite (WAL, 12 tabelle) conserva i campioni grezzi, le metriche sono calcolate al momento della query."
+          "area": "Schermo spento su Android",
+          "detail": "Un piccolo modulo Expo locale avvia un servizio in primo piano e tiene in sospeso un task JS headless fino alla fine dell'uscita, così le indicazioni continuano a schermo spento."
         },
         {
-          "area": "Livello IA vincolato",
-          "detail": "Proxy self-hosted con streaming SSE; un validatore rigoroso consente solo azioni limitate e non distruttive, con un fallback offline."
+          "area": "Voce",
+          "detail": "expo-speech con il motore di sintesi vocale del telefono, così ogni indicazione funziona offline."
         },
         {
-          "area": "Altitudine e mappe",
-          "detail": "Altitudine GPS corretta con il DEM di Open-Meteo, visualizzata su MapLibre + CARTO con ritmo corretto per la pendenza (GAP) e segmenti di terreno."
+          "area": "Mappe",
+          "detail": "MapLibre con uno stile vettoriale OpenFreeMap ridotto e incorporato. Lo stile è dentro l'app, quindi il tracciato si disegna anche senza campo."
+        },
+        {
+          "area": "Dati",
+          "detail": "Uscite e campioni in SQLite sul dispositivo. Open-Meteo fornisce meteo e altitudine del terreno, con un interruttore nelle Impostazioni."
         }
       ],
       "highlights": [
-        "Il motore del coach è una macchina a stati pura: deterministica, separata da BLE, audio e React, e ampiamente testata (93 test Vitest)",
-        "Le indicazioni audio non bloccano mai la pipeline FC; un dispatcher asincrono tiene la latenza della voce fuori dal percorso critico",
-        "Analisi dopo la corsa: ritmo MAF, decoupling, VDOT e carico di allenamento CTL/ATL/TSB su 16 moduli",
-        "Un validatore limita ogni azione dell'IA (per esempio MAF bloccato a +/-10 bpm) così una risposta sbagliata non può fare danni",
-        "TypeScript strict, nessun `any`; Zod solo ai veri confini (byte BLE, righe SQLite, GPS)"
+        "Completamente locale: niente account, server, sincronizzazione o IA, e backup cloud di Android disattivato per l'app",
+        "Le uniche chiamate di rete sono Open-Meteo (meteo e altitudine, opzionali) e i tile di OpenFreeMap, senza chiave",
+        "Una sorgente simulata di frequenza cardiaca scrive nello stesso store della fascia, così la schermata di corsa si può testare senza",
+        "Oltre 400 test Vitest, dal parser 0x2A37 alle indicazioni del coach",
+        "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
+      ]
+    },
+    "plateclimb": {
+      "title": "PlateClimb",
+      "subtitle": "Un'app di allenamento libera e open source per il programma Foundational Fitness di 12 settimane",
+      "oneLiner": "Un'app di allenamento libera e open source che segue un solo programma di 12 settimane, completamente offline.",
+      "description": "PlateClimb include un solo programma, Foundational Fitness, di 12 settimane. Ogni settimana ha tre giorni di pesi, tre giorni di cardio e un giorno di riposo e mobilità, secondo la struttura che Andrew Huberman descrive in Protocols. È un progetto indipendente, non affiliato ad Andrew Huberman o a Huberman Lab, né approvato da loro.",
+      "previewAlt": "Il giorno gambe di PlateClimb con serie, ripetizioni, peso e recupero di ogni esercizio",
+      "seoDescription": "PlateClimb è un'app di allenamento libera e open source per il programma Foundational Fitness di 12 settimane. Funziona offline, senza account.",
+      "challenge": "La maggior parte delle app di fitness chiede un account, un abbonamento e il cloud, poi ti lascia costruire il programma da solo. Seguire un piano preciso in palestra dovrebbe richiedere pochi tocchi e nessun campo.",
+      "approach": "Abbiamo messo l'intero programma nell'app come dati locali. Il blocco 1, settimane da 1 a 6, è più pesante. Il blocco 2, settimane da 7 a 11, usa più ripetizioni. La settimana 12 è di riposo. Ogni esercizio indica serie, un intervallo di ripetizioni, un obiettivo RPE, il recupero e un peso di partenza.",
+      "results": "Pubblicato come open source il 18 ottobre 2026 con licenza GPL-3.0, con un APK Android firmato su GitHub. È testato su Android, e le versioni per iPhone si compilano dal codice sorgente.",
+      "role": "Design, sviluppo e pubblicazione open source",
+      "liveLabel": "Codice su GitHub",
+      "androidLabel": "APK Android",
+      "metrics": [
+        {
+          "value": "12",
+          "label": "Settimane di programma"
+        },
+        {
+          "value": "2",
+          "label": "Alternative per ogni esercizio"
+        },
+        {
+          "value": "0",
+          "label": "Account, server o sincronizzazione"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Un programma di 12 settimane",
+          "description": "Il blocco 1 è più pesante, il blocco 2 usa più ripetizioni e la settimana 12 è di riposo."
+        },
+        {
+          "title": "Un ritmo settimanale chiaro",
+          "description": "Tre giorni di pesi, tre giorni di cardio e un giorno di riposo e mobilità."
+        },
+        {
+          "title": "Ogni esercizio prescritto",
+          "description": "Serie, intervallo di ripetizioni, obiettivo RPE, recupero e peso di partenza per ogni esercizio."
+        },
+        {
+          "title": "Registrazione rapida delle serie",
+          "description": "Gli ultimi pesi sono già compilati, con un timer di recupero tra le serie. Sei tu a decidere quando aumentare il peso."
+        },
+        {
+          "title": "Alternative e aiuto sulla tecnica",
+          "description": "Due alternative per esercizio quando una macchina è occupata, più foto degli esercizi e link a video gratuiti sulla tecnica."
+        },
+        {
+          "title": "I tuoi allenamenti restano sul telefono",
+          "description": "Niente account, server o sincronizzazione. La rete serve solo a caricare le foto degli esercizi."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Base dell'app",
+          "detail": "Expo SDK 54 e React Native con Expo Router e TypeScript. Android è la piattaforma principale di test; le versioni per iPhone si compilano dal codice sorgente."
+        },
+        {
+          "area": "Il programma come dati",
+          "detail": "Il programma Foundational Fitness di 12 settimane è incluso nell'app come dati locali: blocchi, settimane, giorni, esercizi, prescrizioni e due alternative per esercizio."
+        },
+        {
+          "area": "Registro degli allenamenti",
+          "detail": "Serie, pesi e ripetizioni sono salvati in SQLite sul dispositivo. La sessione successiva parte dai valori dell'ultima, e nessun peso aumenta da solo."
+        },
+        {
+          "area": "Foto degli esercizi",
+          "detail": "Caricate dal database pubblico free-exercise-db su GitHub, con un'immagine sostitutiva inclusa quando il telefono è offline."
+        }
+      ],
+      "highlights": [
+        "Completamente locale: niente account, server, sincronizzazione o IA",
+        "Pesi compilati dal programma la prima volta, poi dall'ultima sessione",
+        "Un timer di recupero tra le serie, serie di riscaldamento progressive, e kg o lb con incrementi della misura dei dischi",
+        "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
       ]
     },
     "breathebreak": {
@@ -1187,7 +1273,7 @@
     "contributeBody": "Entrambe le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
     "repoButton": "{{name}} su GitHub",
     "contactLink": "Scrivici",
-    "caseStudyLink": "Com'è nato: il caso studio {{title}}"
+    "caseStudyLink": "Leggi il caso studio di {{title}}"
   },
   "seo": {
     "home": {

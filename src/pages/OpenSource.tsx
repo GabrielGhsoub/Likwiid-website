@@ -76,7 +76,7 @@ function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) 
   const localize = useLocalizedPath()
   const projects = useLocalizedProjects()
   const note = t(`openSource.${app.key}.note`, { defaultValue: '' })
-  // The /work/ case study about the app, when there is one (BaseMile started as one).
+  // The /work/ case study about the app, when there is one.
   const caseStudy = app.caseStudy ? projects.find((project) => project.slug === app.caseStudy) : undefined
 
   return (
