@@ -163,7 +163,7 @@ for (const lang of LANGUAGES) {
 // Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
 // are English only. Their translated title and description come from projectsData.<slug>.
 // Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
-const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia']
+const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
 function caseStudyRoute(lang, slug, { heading, description }) {

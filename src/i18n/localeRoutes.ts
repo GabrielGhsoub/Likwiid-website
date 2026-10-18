@@ -12,7 +12,7 @@ export const PREFIXED_LANGUAGES = SUPPORTED_LANGUAGES.filter((lang) => lang !== 
 // Case studies that also exist at a locale-prefixed URL (/pt/work/padel-booking). The others
 // are English only and keep their /work/<slug> URL in every language. Keep this list in sync
 // with scripts/prerender.mjs and public/sitemap.xml.
-export const LOCALIZED_CASE_STUDIES: readonly string[] = ['padel-booking', 'escuela-nautica-valencia']
+export const LOCALIZED_CASE_STUDIES: readonly string[] = ['padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb']
 
 export const isLocalizedCaseStudy = (slug: string | undefined): boolean => LOCALIZED_CASE_STUDIES.includes(slug ?? '')
 

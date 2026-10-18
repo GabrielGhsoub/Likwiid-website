@@ -37,6 +37,8 @@ const REQUIRED_PAGES = {
       [`${lang}/services`, lang],
       [`${lang}/work/padel-booking`, lang],
       [`${lang}/work/escuela-nautica-valencia`, lang],
+      [`${lang}/work/basemile`, lang],
+      [`${lang}/work/plateclimb`, lang],
       [`${lang}/guides`, lang],
     ])
   ),
