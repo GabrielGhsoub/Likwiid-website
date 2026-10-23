@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Reveal } from '../ui/Reveal'
-import { founder, cofounder } from '../../data/personal'
+import { founder, cofounder, relationsManager } from '../../data/personal'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 // The strip fills the 1200px container, so retina screens need the 2400px source
@@ -93,27 +93,49 @@ export function Founder() {
             </Link>
           </div>
         </Reveal>
-        <Reveal className="mt-12 grid items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
-          <img
-            src={cofounder.photo}
-            alt={t('founder.cofounderPhotoAlt')}
-            width={cofounder.photoWidth}
-            height={cofounder.photoHeight}
-            loading="lazy"
-            decoding="async"
-            className="w-full max-w-[280px] h-auto rounded-xl border border-border bg-bg-tertiary object-cover"
-          />
-          <div className="max-w-2xl">
-            <h3 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
-              {cofounder.name}
-            </h3>
-            <p className="mt-1 text-text-tertiary">{t('founder.cofounderRole')}</p>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              {t('founder.cofounderLine1')} {t('founder.cofounderLine2')}
-            </p>
-          </div>
-        </Reveal>
+        <TeamMember
+          person={cofounder}
+          photoAlt={t('founder.cofounderPhotoAlt')}
+          role={t('founder.cofounderRole')}
+          bio={`${t('founder.cofounderLine1')} ${t('founder.cofounderLine2')}`}
+        />
+        <TeamMember
+          person={relationsManager}
+          photoAlt={t('founder.relationsManagerPhotoAlt')}
+          role={t('founder.relationsManagerRole')}
+          bio={t('founder.relationsManagerLine1')}
+        />
       </div>
     </section>
+  )
+}
+
+type TeamMemberProps = {
+  person: { name: string; photo: string; photoWidth: number; photoHeight: number }
+  photoAlt: string
+  role: string
+  bio: string
+}
+
+function TeamMember({ person, photoAlt, role, bio }: TeamMemberProps) {
+  return (
+    <Reveal className="mt-12 grid items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
+      <img
+        src={person.photo}
+        alt={photoAlt}
+        width={person.photoWidth}
+        height={person.photoHeight}
+        loading="lazy"
+        decoding="async"
+        className="w-full max-w-[280px] h-auto rounded-xl border border-border bg-bg-tertiary object-cover"
+      />
+      <div className="max-w-2xl">
+        <h3 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
+          {person.name}
+        </h3>
+        <p className="mt-1 text-text-tertiary">{role}</p>
+        <p className="mt-4 text-text-secondary leading-relaxed">{bio}</p>
+      </div>
+    </Reveal>
   )
 }

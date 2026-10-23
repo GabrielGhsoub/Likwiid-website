@@ -139,6 +139,16 @@ export default function Contact() {
                     loading="lazy"
                     className="h-14 w-14 rounded-full border-2 border-border object-cover"
                   />
+                  <img
+                    src="/grace.webp"
+                    srcSet="/grace-112.webp 112w, /grace.webp 640w"
+                    sizes="56px"
+                    alt={t('contact.relationsManagerPhotoAlt')}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    className="h-14 w-14 rounded-full border-2 border-border object-cover"
+                  />
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {t('contact.founderNote')}

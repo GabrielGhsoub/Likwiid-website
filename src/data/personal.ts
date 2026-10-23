@@ -16,3 +16,10 @@ export const cofounder = {
   photoWidth: 640,
   photoHeight: 640,
 } as const
+
+export const relationsManager = {
+  name: 'Grace Boutros',
+  photo: '/grace.webp',
+  photoWidth: 640,
+  photoHeight: 640,
+} as const
