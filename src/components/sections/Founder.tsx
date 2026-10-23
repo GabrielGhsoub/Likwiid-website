@@ -94,12 +94,14 @@ export function Founder() {
           </div>
         </Reveal>
         <TeamMember
+          id="emile"
           person={cofounder}
           photoAlt={t('founder.cofounderPhotoAlt')}
           role={t('founder.cofounderRole')}
           bio={`${t('founder.cofounderLine1')} ${t('founder.cofounderLine2')}`}
         />
         <TeamMember
+          id="grace"
           person={relationsManager}
           photoAlt={t('founder.relationsManagerPhotoAlt')}
           role={t('founder.relationsManagerRole')}
@@ -111,15 +113,20 @@ export function Founder() {
 }
 
 type TeamMemberProps = {
+  // Anchor for direct links such as likwiid.com/#grace
+  id: string
   person: { name: string; photo: string; photoWidth: number; photoHeight: number }
   photoAlt: string
   role: string
   bio: string
 }
 
-function TeamMember({ person, photoAlt, role, bio }: TeamMemberProps) {
+function TeamMember({ id, person, photoAlt, role, bio }: TeamMemberProps) {
   return (
-    <Reveal className="mt-12 grid items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
+    <Reveal
+      id={id}
+      className="mt-12 grid scroll-mt-24 items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16"
+    >
       <img
         src={person.photo}
         alt={photoAlt}
