@@ -227,6 +227,42 @@ const projectCatalog: Project[] = [
     openSource: { name: 'PlateClimb', anchor: 'plateclimb' },
   },
   {
+    id: 'woop',
+    status: 'live',
+    slug: 'woop',
+    title: 'WOOP',
+    subtitle: 'A calm Android planner for WOOP goal setting, with if-then plans and short check-ins',
+    client: 'Likwiid',
+    category: 'Mobile',
+    year: '2026',
+    oneLiner: 'A free, open source Android planner for WOOP goal setting that never goes online.',
+    description:
+      "WOOP walks you through the four steps of mental contrasting, Wish, Outcome, Obstacle and Plan, the method from Gabriele Oettingen's research that Andrew Huberman covers in Protocols. It turns each obstacle into an if-then plan and brings you back for short check-ins. It is an independent project, not affiliated with or endorsed by Gabriele Oettingen, WOOP My Life, Andrew Huberman or Huberman Lab.",
+    challenge:
+      'WOOP works best when you write it down and re-read it when motivation dips. Paper gets lost, and most productivity apps add streaks, scores and accounts that make a hard day worse. The plan has to stay in view without asking for attention.',
+    approach:
+      'We gave every step its own screen, with one question, autosave and examples on tap. Each obstacle gets its own if-then plan, the plan you focus on sits in a home screen widget, and reminders bring you back for a one minute check-in that tunes the plan when it did not work.',
+    results:
+      'Released as open source on 25 October 2026 under the GPL-3.0, with a signed Android APK on GitHub. The app has no internet permission, so nothing you write can leave the phone.',
+    techStack: ['Kotlin', 'Jetpack Compose', 'Room', 'Glance'],
+    images: [
+      '/images/projects/woop/today.webp',
+      '/images/projects/woop/plan.webp',
+      '/images/projects/woop/check-in.webp',
+      '/images/projects/woop/science.webp',
+      '/images/projects/woop/widget.webp',
+    ],
+    previewImage: '/images/projects/woop/today.webp',
+    previewAlt: 'WOOP Today screen with the wish in focus and its if-then plan',
+    featured: false,
+    platform: 'mobile',
+    liveUrl: 'https://github.com/likwiid/woop',
+    liveLabel: 'Source on GitHub',
+    androidUrl: 'https://github.com/likwiid/woop/releases/latest',
+    androidLabel: 'Android APK',
+    openSource: { name: 'WOOP', anchor: 'woop' },
+  },
+  {
     id: 'breathebreak',
     status: 'shipped',
     slug: 'breathebreak',

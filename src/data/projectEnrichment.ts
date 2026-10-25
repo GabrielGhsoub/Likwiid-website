@@ -389,6 +389,65 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'GPL-3.0-or-later, with SPDX licence headers on the source files',
     ],
   },
+  woop: {
+    role: 'Design, development and open source release',
+    metrics: [
+      { value: '4', label: 'Steps, one question per screen' },
+      { value: '13', label: 'Findings in the Science tab' },
+      { value: '0', label: 'Internet permissions, accounts or streaks' },
+    ],
+    keyFeatures: [
+      {
+        title: 'One question per screen',
+        description: 'Wish, Outcome, Obstacle and Plan each get a screen, with autosave, voice input and examples one tap away.',
+      },
+      {
+        title: 'An if-then plan for each obstacle',
+        description: 'Up to three obstacles, each with its own "If…, then I will…" plan, the "if" filled in from the obstacle.',
+      },
+      {
+        title: 'One minute check-ins',
+        description: 'Re-read the WOOP, say whether the obstacle showed up, then tune the plan, keep going or let the wish go.',
+      },
+      {
+        title: 'Reminders that bring you back',
+        description: 'Prompts to write a new WOOP on the days you choose, and a check-in schedule for each WOOP.',
+      },
+      {
+        title: 'A home screen widget',
+        description: 'The if-then plan you focus on, one glance away, with a check-in button when one is due.',
+      },
+      {
+        title: 'The science, rated',
+        description: 'Each finding the app relies on, labelled Strong, Good, Early, Hypothesis or Practitioner.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'App shell',
+        detail: 'Kotlin and Jetpack Compose (Material 3) in a single activity with Navigation Compose. Android 8 and up, target SDK 36.',
+      },
+      {
+        area: 'Data',
+        detail: 'Room (SQLite) on the device for WOOPs, obstacles, check-ins and reminders. No internet permission, no account, and Android backup turned off.',
+      },
+      {
+        area: 'Reminders',
+        detail: 'AlarmManager with exact alarms, rescheduled after a reboot, a time change or an app update. Notifications open straight into the new WOOP or the right check-in.',
+      },
+      {
+        area: 'Widget',
+        detail: 'Jetpack Glance draws the focus plan as one sentence and sizes the text so the "then" part is never cut off. It redraws when a WOOP changes or a check-in falls due.',
+      },
+    ],
+    highlights: [
+      'No internet permission: the app cannot send anything anywhere',
+      'Atkinson Hyperlegible typeface, large touch targets, dark mode, tested at 200% font size',
+      'No streaks or scores: "Let it go" counts as an outcome, next to "Achieved"',
+      '15 unit tests for reminder timing and 11 database tests on the emulator',
+      'GPL-3.0-or-later, with SPDX licence headers on the source files',
+    ],
+  },
   breathebreak: {
     role: 'Design, development and release',
     metrics: [
