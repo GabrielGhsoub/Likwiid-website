@@ -202,7 +202,7 @@ export default function CaseStudy() {
             {metrics.length > 0 && (
               <dl className={`mt-8 grid grid-cols-2 gap-x-4 gap-y-6 ${METRIC_COLS[Math.max(metrics.length, 2)] ?? 'sm:grid-cols-4'}`}>
                 {metrics.map((metric) => (
-                  <div key={metric.label} title={metric.basis} className="flex flex-col-reverse">
+                  <div key={metric.label} title={metric.basis} className="flex flex-col-reverse justify-end">
                     <dt className="mt-1 text-sm leading-snug text-text-secondary">{metric.label}</dt>
                     <dd className="text-2xl font-bold leading-tight tabular-nums text-text-primary font-[family-name:var(--font-display)] md:text-3xl">
                       {metric.value}
