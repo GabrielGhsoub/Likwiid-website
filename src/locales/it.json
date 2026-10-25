@@ -1043,6 +1043,85 @@
         "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
       ]
     },
+    "woop": {
+      "title": "WOOP",
+      "subtitle": "Un pianificatore Android tranquillo per il metodo WOOP, con piani se-allora e brevi check-in",
+      "oneLiner": "Un pianificatore Android libero e open source per il metodo WOOP, che non va mai online.",
+      "description": "WOOP ti guida nei quattro passi del contrasto mentale, Wish (desiderio), Outcome (risultato), Obstacle (ostacolo) e Plan (piano), il metodo nato dalle ricerche di Gabriele Oettingen di cui Andrew Huberman parla in Protocols. Trasforma ogni ostacolo in un piano se-allora e ti riporta all'app per brevi check-in. È un progetto indipendente, non affiliato a Gabriele Oettingen, WOOP My Life, Andrew Huberman o Huberman Lab, né approvato da loro.",
+      "previewAlt": "La schermata Today di WOOP con il desiderio in primo piano e il suo piano se-allora",
+      "seoDescription": "WOOP è un pianificatore Android libero e open source per il metodo WOOP: piani se-allora, check-in e promemoria. Nessun permesso internet, nessun account.",
+      "challenge": "WOOP funziona meglio quando lo scrivi e lo rileggi quando la motivazione cala. La carta si perde, e la maggior parte delle app di produttività aggiunge serie di giorni, punteggi e account che rendono più pesante una giornata difficile. Il piano deve restare in vista senza chiedere attenzione.",
+      "approach": "Abbiamo dato a ogni passo la sua schermata, con una domanda, il salvataggio automatico ed esempi a portata di tocco. Ogni ostacolo ha il suo piano se-allora, il piano su cui ti concentri sta in un widget della schermata Home, e i promemoria ti riportano a un check-in di un minuto che regola il piano quando non ha funzionato.",
+      "results": "Pubblicato come open source il 25 ottobre 2026 con licenza GPL-3.0, con un APK Android firmato su GitHub. L'app non ha il permesso di accesso a internet, quindi niente di ciò che scrivi può lasciare il telefono.",
+      "role": "Design, sviluppo e pubblicazione open source",
+      "liveLabel": "Codice su GitHub",
+      "androidLabel": "APK Android",
+      "metrics": [
+        {
+          "value": "4",
+          "label": "Passi, una domanda per schermata"
+        },
+        {
+          "value": "13",
+          "label": "Risultati scientifici nella scheda Science"
+        },
+        {
+          "value": "0",
+          "label": "Permessi internet, account o serie di giorni"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Una domanda per schermata",
+          "description": "Desiderio, risultato, ostacolo e piano hanno ciascuno la sua schermata, con salvataggio automatico, input vocale ed esempi a portata di tocco."
+        },
+        {
+          "title": "Un piano se-allora per ogni ostacolo",
+          "description": "Fino a tre ostacoli, ognuno con il suo piano \"Se…, allora…\", con il \"se\" ricavato dall'ostacolo."
+        },
+        {
+          "title": "Check-in di un minuto",
+          "description": "Rileggi il WOOP, indica se l'ostacolo si è presentato, poi regola il piano, vai avanti o lascia andare il desiderio."
+        },
+        {
+          "title": "Promemoria che ti riportano all'app",
+          "description": "Avvisi per scrivere un nuovo WOOP nei giorni che scegli, e un calendario di check-in per ogni WOOP."
+        },
+        {
+          "title": "Un widget nella schermata Home",
+          "description": "Il piano se-allora su cui ti concentri, a colpo d'occhio, con un pulsante per il check-in quando ne è previsto uno."
+        },
+        {
+          "title": "La scienza, valutata",
+          "description": "Ogni risultato su cui si basa l'app, classificato come Strong, Good, Early, Hypothesis o Practitioner."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Base dell'app",
+          "detail": "Kotlin e Jetpack Compose (Material 3) in una sola activity con Navigation Compose. Android 8 e successivi, target SDK 36."
+        },
+        {
+          "area": "Dati",
+          "detail": "Room (SQLite) sul dispositivo per WOOP, ostacoli, check-in e promemoria. Nessun permesso internet, nessun account e backup di Android disattivato."
+        },
+        {
+          "area": "Promemoria",
+          "detail": "AlarmManager con allarmi esatti, riprogrammati dopo un riavvio, un cambio d'ora o un aggiornamento dell'app. Le notifiche aprono direttamente il nuovo WOOP o il check-in giusto."
+        },
+        {
+          "area": "Widget",
+          "detail": "Jetpack Glance mostra il piano su cui ti concentri come una sola frase e adatta la dimensione del testo perché la parte \"allora\" non venga mai tagliata. Si ridisegna quando un WOOP cambia o quando è il momento di un check-in."
+        }
+      ],
+      "highlights": [
+        "Nessun permesso internet: l'app non può inviare nulla da nessuna parte",
+        "Carattere Atkinson Hyperlegible, aree di tocco ampie, tema scuro, testato con il testo al 200%",
+        "Niente serie di giorni o punteggi: \"Let it go\" conta come esito, accanto ad \"Achieved\"",
+        "15 test unitari per i tempi dei promemoria e 11 test del database sull'emulatore",
+        "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
+      ]
+    },
     "breathebreak": {
       "title": "BreatheBreak",
       "subtitle": "Promemoria per respirare nella barra dei menu del Mac, per le lunghe giornate davanti allo schermo",
@@ -1243,15 +1322,15 @@
     "AI": "IA"
   },
   "openSource": {
-    "docTitle": "App open source: BaseMile e PlateClimb | Likwiid",
+    "docTitle": "App open source: BaseMile, PlateClimb e WOOP | Likwiid",
     "crumb": "Open source",
     "eyebrow": "Open source",
     "title": "App libere che puoi leggere, modificare e tenere",
-    "intro": "Pensiamo che il software debba essere libero: libero da usare, leggere, modificare e condividere. Molte app e suite a pagamento si possono sostituire con strumenti aperti che fanno lo stesso lavoro senza abbonamento. Queste due app sono nate come strumenti per il nostro allenamento. Ora sono open source, con licenza GPL, per chiunque voglia usarle.",
+    "intro": "Pensiamo che il software debba essere libero: libero da usare, leggere, modificare e condividere. Molte app e suite a pagamento si possono sostituire con strumenti aperti che fanno lo stesso lavoro senza abbonamento. Queste app sono nate come strumenti per il nostro allenamento e la nostra pianificazione. Ora sono open source, con licenza GPL, per chiunque voglia usarle.",
     "principle1Title": "Libere da usare e modificare",
     "principle1Body": "Licenza GPL. Leggi il codice, fai un fork e pubblica la tua versione, purché resti aperta.",
     "principle2Title": "I dati restano sul telefono",
-    "principle2Body": "I tuoi dati di allenamento restano sul telefono e entrambe le app funzionano offline.",
+    "principle2Body": "I tuoi dati restano sul telefono e ogni app funziona offline.",
     "principle3Title": "Niente account, niente tracciamento",
     "principle3Body": "Nessuna registrazione, nessuna analitica, nessuna pubblicità.",
     "freeLabel": "Libero e open source",
@@ -1277,9 +1356,18 @@
       "feature4": "Nessun account e nessun server: i tuoi allenamenti restano sul telefono",
       "note": "PlateClimb è un progetto indipendente. Non è affiliato ad Andrew Huberman o a Huberman Lab, né approvato da loro."
     },
+    "woop": {
+      "pitch": "Un pianificatore tranquillo per WOOP, il metodo in quattro passi che trasforma un desiderio in un piano se-allora.",
+      "body": "WOOP ti guida attraverso Wish (desiderio), Outcome (risultato), Obstacle (ostacolo) e Plan (piano), il metodo del contrasto mentale nato dalle ricerche di Gabriele Oettingen di cui Andrew Huberman parla in Protocols. Ogni ostacolo ha un piano se-allora, e brevi check-in ti aiutano a regolarlo quando non funziona. L'app non ha il permesso di accesso a internet, quindi i tuoi WOOP non lasciano mai il telefono.",
+      "feature1": "Una domanda per schermata, con salvataggio automatico, input vocale ed esempi a portata di tocco",
+      "feature2": "Un piano se-allora per ogni ostacolo, con quello su cui ti concentri in un widget della schermata Home",
+      "feature3": "Promemoria per scrivere un WOOP, e check-in di un minuto che regolano il piano",
+      "feature4": "Una scheda Science che valuta le prove dietro ogni passo, senza serie di giorni né punteggi",
+      "note": "WOOP è un progetto indipendente. Non è affiliato a Gabriele Oettingen, WOOP My Life, Andrew Huberman o Huberman Lab, né approvato da loro. È uno strumento di auto-aiuto, non un trattamento."
+    },
     "disclaimer": "Non è un consiglio medico. Senti un professionista prima di iniziare un nuovo programma di allenamento.",
     "contributeTitle": "Contribuisci",
-    "contributeBody": "Entrambe le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
+    "contributeBody": "Tutte e tre le app sono su GitHub. Segnalazioni di bug, traduzioni e pull request sono benvenute, e anche i fork. Se ne usi una, dicci cosa funziona e cosa no.",
     "repoButton": "{{name}} su GitHub",
     "contactLink": "Scrivici",
     "caseStudyLink": "Leggi il caso studio di {{title}}"
@@ -1319,7 +1407,7 @@
     },
     "breadcrumbHome": "Home",
     "openSource": {
-      "description": "BaseMile e PlateClimb: app libere per la settimana Foundational Fitness di Protocols di Huberman. Corsa in Zona 2 e allenamenti offline, senza account."
+      "description": "BaseMile, PlateClimb e WOOP: app libere per la corsa in Zona 2, gli allenamenti offline e i piani WOOP. Senza account né tracciamento, dati sul tuo telefono."
     }
   }
 }

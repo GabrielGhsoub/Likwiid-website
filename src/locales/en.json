@@ -534,15 +534,15 @@
     "openSourceLink": "See {{name}} on the open source page"
   },
   "openSource": {
-    "docTitle": "Open Source Apps: BaseMile and PlateClimb | Likwiid",
+    "docTitle": "Open Source Apps: BaseMile, PlateClimb and WOOP | Likwiid",
     "crumb": "Open source",
     "eyebrow": "Open source",
     "title": "Free apps you can read, change and keep",
-    "intro": "We think software should be free: free to use, to read, to change and to share. Plenty of paid apps and suites can be replaced by open tools that do the same job without a subscription. These two apps started as tools for our own training. They are now open source under the GPL, for anyone to use.",
+    "intro": "We think software should be free: free to use, to read, to change and to share. Plenty of paid apps and suites can be replaced by open tools that do the same job without a subscription. These apps started as tools for our own training and planning. They are now open source under the GPL, for anyone to use.",
     "principle1Title": "Free to use and change",
     "principle1Body": "GPL licensed. Read the code, fork it and ship your own version, as long as it stays open.",
     "principle2Title": "Local first",
-    "principle2Body": "Your training data stays on your phone, and both apps work offline.",
+    "principle2Body": "Your data stays on your phone, and every app works offline.",
     "principle3Title": "No accounts, no tracking",
     "principle3Body": "No sign up, no analytics, no ads.",
     "freeLabel": "Free and open source",
@@ -568,9 +568,18 @@
       "feature4": "No account and no server: your workouts stay on your phone",
       "note": "PlateClimb is an independent project. It is not affiliated with or endorsed by Andrew Huberman or Huberman Lab."
     },
+    "woop": {
+      "pitch": "A calm planner for WOOP, the four step method that turns a wish into an if-then plan.",
+      "body": "WOOP walks you through Wish, Outcome, Obstacle and Plan, the mental contrasting method from Gabriele Oettingen's research that Andrew Huberman covers in Protocols. Each obstacle gets an if-then plan, and short check-ins help you tune it when it does not work. The app has no internet permission, so your WOOPs never leave the phone.",
+      "feature1": "One question per screen, with autosave, voice input and examples on tap",
+      "feature2": "An if-then plan for each obstacle, with the one you focus on in a home screen widget",
+      "feature3": "Reminders to write a WOOP, and one minute check-ins that tune the plan",
+      "feature4": "A Science tab that rates the evidence behind each step, and no streaks or scores",
+      "note": "WOOP is an independent project. It is not affiliated with or endorsed by Gabriele Oettingen, WOOP My Life, Andrew Huberman or Huberman Lab. It is a self-help tool, not treatment."
+    },
     "disclaimer": "Not medical advice. Check with a professional before you start a new training program.",
     "contributeTitle": "Contribute",
-    "contributeBody": "Both apps are on GitHub. Bug reports, translations and pull requests are welcome, and so are forks. If you use one of them, tell us what works and what does not.",
+    "contributeBody": "All three apps are on GitHub. Bug reports, translations and pull requests are welcome, and so are forks. If you use one of them, tell us what works and what does not.",
     "repoButton": "{{name}} on GitHub",
     "contactLink": "Write to us",
     "caseStudyLink": "Read the {{title}} case study"
@@ -610,7 +619,7 @@
     },
     "breadcrumbHome": "Home",
     "openSource": {
-      "description": "BaseMile and PlateClimb: free, open source apps for the Foundational Fitness week from Huberman's Protocols. Zone 2 runs and offline workouts, no account."
+      "description": "BaseMile, PlateClimb and WOOP: free, open source apps for Zone 2 runs, offline workouts and WOOP goal plans. No account, no tracking, data on your phone."
     }
   }
 }
