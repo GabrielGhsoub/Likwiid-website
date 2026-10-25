@@ -138,5 +138,12 @@ export function guideRoutes(): GuideRoute[] {
  * in scripts/prerender.mjs. Descriptions come from the locale files there.
  */
 export function openSourceApps() {
-  return OPEN_SOURCE_APPS.map(({ key, name, repoUrl, license }) => ({ key, name, repoUrl, license }))
+  return OPEN_SOURCE_APPS.map(({ key, name, repoUrl, license, programmingLanguage, runtimePlatform }) => ({
+    key,
+    name,
+    repoUrl,
+    license,
+    programmingLanguage,
+    runtimePlatform,
+  }))
 }

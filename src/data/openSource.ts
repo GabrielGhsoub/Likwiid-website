@@ -7,9 +7,12 @@
 // caseStudy: slug of the /work/ case study about the app, when there is one.
 
 export interface OpenSourceApp {
-  key: 'basemile' | 'plateclimb'
+  key: 'basemile' | 'plateclimb' | 'woop'
   name: string
   repoUrl: string
+  // Main language and platform of the source, for the SoftwareSourceCode structured data.
+  programmingLanguage: string
+  runtimePlatform: string
   // SPDX identifier of the licence, and the short label shown on the badge.
   license: 'GPL-3.0-or-later'
   licenseLabel: string
@@ -26,6 +29,8 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
     key: 'basemile',
     name: 'BaseMile',
     repoUrl: 'https://github.com/likwiid/basemile',
+    programmingLanguage: 'TypeScript',
+    runtimePlatform: 'React Native',
     license: 'GPL-3.0-or-later',
     licenseLabel: 'GPL-3.0',
     stack: ['React Native', 'Expo', 'SQLite', 'Bluetooth LE'],
@@ -40,6 +45,8 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
     key: 'plateclimb',
     name: 'PlateClimb',
     repoUrl: 'https://github.com/likwiid/plateclimb',
+    programmingLanguage: 'TypeScript',
+    runtimePlatform: 'React Native',
     license: 'GPL-3.0-or-later',
     licenseLabel: 'GPL-3.0',
     stack: ['React Native', 'Expo', 'SQLite', 'TypeScript'],
@@ -49,6 +56,22 @@ export const OPEN_SOURCE_APPS: OpenSourceApp[] = [
       '/images/open-source/plateclimb/workout.webp',
     ],
     caseStudy: 'plateclimb',
+  },
+  {
+    key: 'woop',
+    name: 'WOOP',
+    repoUrl: 'https://github.com/likwiid/woop',
+    programmingLanguage: 'Kotlin',
+    runtimePlatform: 'Android',
+    license: 'GPL-3.0-or-later',
+    licenseLabel: 'GPL-3.0',
+    stack: ['Kotlin', 'Jetpack Compose', 'Room', 'Glance'],
+    screenshots: [
+      '/images/open-source/woop/today.webp',
+      '/images/open-source/woop/plan.webp',
+      '/images/open-source/woop/science.webp',
+    ],
+    caseStudy: 'woop',
   },
 ]
 
