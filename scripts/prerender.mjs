@@ -71,6 +71,11 @@ const caseStudies = {
       'PlateClimb is a free, open source workout app for the 12 week Foundational Fitness program. Every lift prescribed, fully offline, no account.',
     heading: 'PlateClimb',
   },
+  woop: {
+    description:
+      'WOOP is a free, open source Android planner for WOOP goal setting: if-then plans, check-ins and reminders. No internet permission, no account.',
+    heading: 'WOOP',
+  },
   breathebreak: {
     description:
       'A Mac menu bar app that reminds desk workers to take short breathing breaks, and stays quiet during calls and Focus mode.',
@@ -163,7 +168,7 @@ for (const lang of LANGUAGES) {
 // Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
 // are English only. Their translated title and description come from projectsData.<slug>.
 // Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
-const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb']
+const LOCALIZED_CASE_STUDIES = ['padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb', 'woop']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
 function caseStudyRoute(lang, slug, { heading, description }) {
@@ -340,8 +345,8 @@ function jsonLdGraph(path, meta) {
             url: `${page}#${app.key}`,
             codeRepository: app.repoUrl,
             license: `https://spdx.org/licenses/${app.license}.html`,
-            programmingLanguage: 'TypeScript',
-            runtimePlatform: 'React Native',
+            programmingLanguage: app.programmingLanguage,
+            runtimePlatform: app.runtimePlatform,
             isAccessibleForFree: true,
             author: { '@id': `${SITE_URL}/#organization` },
             publisher: { '@id': `${SITE_URL}/#organization` },
@@ -415,6 +420,7 @@ const OG_IMAGES = {
   'open-source': 'og-open-source.png',
   'work/basemile': 'og-basemile.png',
   'work/plateclimb': 'og-plateclimb.png',
+  'work/woop': 'og-woop.png',
 }
 const ogImageUrl = (path, meta) =>
   `${SITE_URL}/${meta.ogImage ?? OG_IMAGES[path.replace(/^(?:pt|es|it|fr)\//, '')] ?? 'og-image.png'}`

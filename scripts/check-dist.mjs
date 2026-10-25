@@ -39,6 +39,7 @@ const REQUIRED_PAGES = {
       [`${lang}/work/escuela-nautica-valencia`, lang],
       [`${lang}/work/basemile`, lang],
       [`${lang}/work/plateclimb`, lang],
+      [`${lang}/work/woop`, lang],
       [`${lang}/guides`, lang],
     ])
   ),
@@ -49,6 +50,7 @@ const REQUIRED_PAGES = {
   // Open source app case studies, linked both ways with the open source page.
   'work/basemile': 'en',
   'work/plateclimb': 'en',
+  'work/woop': 'en',
   // Open source apps page, in every language.
   ...Object.fromEntries(['en', 'pt', 'es', 'it', 'fr'].map((lang) => [lang === 'en' ? 'open-source' : `${lang}/open-source`, lang])),
   // Free calculators, in every language.
