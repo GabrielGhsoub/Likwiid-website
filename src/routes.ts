@@ -89,8 +89,8 @@ function routeFor(pathname: string): PreloadableRoute | undefined {
   return guideRouteFor(path)
 }
 
-/** Loads the landing page's chunk before the first render. Never rejects. */
-export function preloadRoute(pathname: string): Promise<void> {
+/** Loads the landing page's chunk before the first render. Never rejects: resolves false when the chunk failed to load. */
+export function preloadRoute(pathname: string): Promise<boolean> {
   const route = routeFor(pathname)
-  return route ? route.preload().catch(() => undefined) : Promise.resolve()
+  return route ? route.preload().then(() => true, () => false) : Promise.resolve(true)
 }

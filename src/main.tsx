@@ -25,16 +25,22 @@ async function start() {
 
   // Landing on a code-split page: fetch its chunk first so the first render already shows the
   // page instead of suspending. The language bundles load alongside.
-  const [, htmlLangReady, preferredReady] = await Promise.all([
+  const [routeReady, htmlLangReady, preferredReady] = await Promise.all([
     preloadRoute(pathname),
     loadLanguage(languages.html),
     loadLanguage(languages.preferred),
   ])
+  const prerendered = container.dataset.prerendered === pathname
+
+  // A chunk that failed to load (usually a cached page asking for files an older deploy built)
+  // would render the error screen, or English over a translated page. The prerendered HTML is
+  // the full page already, so keep it static: links still work as plain page loads.
+  if (prerendered && (!routeReady || !htmlLangReady)) return
 
   // scripts/prerender.mjs stamps #root with the URL it rendered. Only that exact page can be
   // hydrated: 404.html is served for every unknown URL, and the static host redirects the
   // slashless form of a page, so anything else gets a fresh client render.
-  if (container.dataset.prerendered === pathname && htmlLangReady) {
+  if (prerendered) {
     // Hydrate in the language the HTML was rendered in. A visitor whose saved or browser
     // language differs (unprefixed pages only) switches right after hydration: same flash of
     // English as a fresh render would give, but the static DOM is kept, not rebuilt.
