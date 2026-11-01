@@ -300,7 +300,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     architecture: [
       {
         area: 'App shell',
-        detail: 'Expo SDK 55 and React Native 0.83 with Expo Router and TypeScript. Android is the main tested platform; iPhone builds come from source.',
+        detail: 'Expo SDK 55 and React Native 0.83 with Expo Router and TypeScript. Android is the main tested platform; the iPhone build is on the App Store.',
       },
       {
         area: 'Heart rate over BLE',

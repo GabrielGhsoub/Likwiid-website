@@ -883,7 +883,7 @@
       "seoDescription": "BaseMile est un coach de course libre et open source qui guide chaque sortie selon la fréquence cardiaque. Sans compte ni serveur, données sur le téléphone.",
       "challenge": "La plupart des applications de fitness veulent un compte, un abonnement et le cloud. Un coach cardio doit aussi continuer à parler téléphone en poche, écran éteint et sans réseau.",
       "approach": "Nous avons construit trois types de sortie : Long, en zone 2 sous un plafond MAF ; Medium, entre 75 et 85 % de la fréquence cardiaque maximale ; et Brief, en répétitions 30/60 ou en 4x4. Tout tourne sur le téléphone, sans compte, sans serveur, sans synchronisation et sans IA.",
-      "results": "Publié en open source le 18 octobre 2026 sous licence GPL-3.0, avec un APK Android signé sur GitHub. Il est testé sur Android, et les versions iPhone se compilent à partir du code source.",
+      "results": "Publié en open source le 18 octobre 2026 sous licence GPL-3.0, avec un APK Android signé sur GitHub. Depuis le 31 octobre 2026, il est aussi disponible gratuitement sur l'App Store pour iPhone.",
       "role": "Conception, développement et publication en open source",
       "liveLabel": "Code sur GitHub",
       "androidLabel": "APK Android",
@@ -930,7 +930,7 @@
       "architecture": [
         {
           "area": "Base de l'application",
-          "detail": "Expo SDK 55 et React Native 0.83 avec Expo Router et TypeScript. Android est la plateforme principale de test ; les versions iPhone se compilent depuis le code source."
+          "detail": "Expo SDK 55 et React Native 0.83 avec Expo Router et TypeScript. Android est la plateforme principale de test ; la version iPhone est sur l'App Store."
         },
         {
           "area": "Fréquence cardiaque en BLE",

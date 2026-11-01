@@ -171,7 +171,7 @@ const projectCatalog: Project[] = [
     approach:
       'We built three run types: Long runs in Zone 2 under a MAF ceiling, Medium runs at 75 to 85% of max heart rate, and Brief runs as 30/60 repeats or a 4x4. Everything runs on the phone, with no account, no server, no sync and no AI.',
     results:
-      'Released as open source on 18 October 2026 under the GPL-3.0, with a signed Android APK on GitHub. It is tested on Android, and iPhone builds can be made from the source.',
+      'Released as open source on 18 October 2026 under the GPL-3.0, with a signed Android APK on GitHub. Since 31 October 2026 it is also free on the App Store for iPhone.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'SQLite', 'Bluetooth LE', 'MapLibre', 'Vitest'],
     images: [
       '/images/projects/basemile/live-run.webp',
@@ -186,6 +186,7 @@ const projectCatalog: Project[] = [
     platform: 'mobile',
     liveUrl: 'https://github.com/likwiid/basemile',
     liveLabel: 'Source on GitHub',
+    iosUrl: 'https://apps.apple.com/app/basemile/id6824560584',
     androidUrl: 'https://github.com/likwiid/basemile/releases/latest',
     androidLabel: 'Android APK',
     openSource: { name: 'BaseMile', anchor: 'basemile' },
