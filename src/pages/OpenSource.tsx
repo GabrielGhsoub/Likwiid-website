@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Check, Github, Scale } from 'lucide-react'
+import { ArrowRight, Check, Github, Scale, Smartphone } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { Badge } from '../components/ui/Badge'
 import { OPEN_SOURCE_APPS, OPEN_SOURCE_FEATURE_COUNT, OPEN_SOURCE_LICENSE_URL, type OpenSourceApp } from '../data/openSource'
@@ -76,7 +76,7 @@ function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) 
   const localize = useLocalizedPath()
   const projects = useLocalizedProjects()
   const note = t(`openSource.${app.key}.note`, { defaultValue: '' })
-  // The /work/ case study about the app, when there is one.
+  // The /work/ case study about the app, when there is one. Its iosUrl is the App Store listing.
   const caseStudy = app.caseStudy ? projects.find((project) => project.slug === app.caseStudy) : undefined
 
   return (
@@ -145,6 +145,18 @@ function AppSection({ app, reverse }: { app: OpenSourceApp; reverse: boolean }) 
               <Github size={16} aria-hidden="true" />
               {t('openSource.githubLink')}
             </a>
+            {caseStudy?.iosUrl && (
+              <a
+                href={caseStudy.iosUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={SECONDARY_BUTTON_CLASS}
+                {...umamiAttrs('store-link', { store: 'ios', project: caseStudy.slug, location: 'open-source' })}
+              >
+                <Smartphone size={16} aria-hidden="true" />
+                {t('openSource.appStoreLink')}
+              </a>
+            )}
             {caseStudy && (
               <Link
                 to={localize(`/work/${caseStudy.slug}`)}

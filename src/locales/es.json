@@ -1336,6 +1336,7 @@
     "freeLabel": "Libre y de código abierto",
     "licenseAria": "Licencia: {{license}}",
     "githubLink": "Ver en GitHub",
+    "appStoreLink": "Descargar en el App Store",
     "screenshotAlt": "Captura {{n}} de {{name}}",
     "appsHeading": "Las apps",
     "basemile": {
