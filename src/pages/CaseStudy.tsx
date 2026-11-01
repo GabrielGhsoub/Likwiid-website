@@ -171,6 +171,17 @@ export default function CaseStudy() {
                   <ExternalLink size={12} /> {project.liveLabel ?? t('caseStudy.appStore')}
                 </a>
               )}
+              {project.iosUrl && (
+                <a
+                  href={project.iosUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={storeLinkClass}
+                  {...umamiAttrs('store-link', { store: 'ios', project: project.slug, location: 'case-study' })}
+                >
+                  <ExternalLink size={12} /> {t('caseStudy.appStore')}
+                </a>
+              )}
               {project.androidUrl && (
                 <a
                   href={project.androidUrl}

@@ -39,6 +39,9 @@ export interface Project {
   platformLabel?: string
   liveUrl?: string
   liveLabel?: string
+  // App Store listing for an app whose liveUrl already points elsewhere (e.g. its source on
+  // GitHub). Shown with the same "App Store" label as a liveUrl that has no liveLabel.
+  iosUrl?: string
   androidUrl?: string
   // Label for androidUrl when it is not a Play Store listing (e.g. an APK on GitHub Releases).
   androidLabel?: string

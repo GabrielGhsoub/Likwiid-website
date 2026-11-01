@@ -96,6 +96,17 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
                   <ExternalLink size={12} /> {project.liveLabel ?? t('portfolio.appStore')}
                 </a>
               )}
+              {project.iosUrl && (
+                <a
+                  href={project.iosUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={STORE_LINK_CLASS}
+                  {...umamiAttrs('store-link', { store: 'ios', project: project.slug, location: 'work' })}
+                >
+                  <ExternalLink size={12} /> {t('portfolio.appStore')}
+                </a>
+              )}
               {project.androidUrl && (
                 <a
                   href={project.androidUrl}
