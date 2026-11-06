@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Reveal } from '../ui/Reveal'
-import { founder, cofounder, relationsManager } from '../../data/personal'
+import { founder, cofounder } from '../../data/personal'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
 // The strip fills the 1200px container, so retina screens need the 2400px source
@@ -100,20 +100,13 @@ export function Founder() {
           role={t('founder.cofounderRole')}
           bio={`${t('founder.cofounderLine1')} ${t('founder.cofounderLine2')}`}
         />
-        <TeamMember
-          id="grace"
-          person={relationsManager}
-          photoAlt={t('founder.relationsManagerPhotoAlt')}
-          role={t('founder.relationsManagerRole')}
-          bio={t('founder.relationsManagerLine1')}
-        />
       </div>
     </section>
   )
 }
 
 type TeamMemberProps = {
-  // Anchor for direct links such as likwiid.com/#grace
+  // Anchor for direct links such as likwiid.com/#emile
   id: string
   person: { name: string; photo: string; photoWidth: number; photoHeight: number }
   photoAlt: string
