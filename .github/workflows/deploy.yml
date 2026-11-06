@@ -56,7 +56,6 @@ jobs:
         run: |
           mkdir -p previous-assets
           find previous-assets -type f -mtime +30 -delete
-          grep -rlE '\bGrace\b|Boutros|grace@likwiid|/grace(-112)?\.webp|relationsManager|"grace"' previous-assets | xargs -r rm -fv
           rsync -a --ignore-existing dist/assets/ previous-assets/
           rsync -a --ignore-existing previous-assets/ dist/assets/
           echo "dist/assets now holds $(find dist/assets -type f | wc -l) files"
