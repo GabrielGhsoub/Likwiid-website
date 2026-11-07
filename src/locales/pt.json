@@ -537,6 +537,87 @@
     "openSourceLink": "Ver o {{name}} na página de código aberto"
   },
   "projectsData": {
+    "parallel": {
+      "title": "Parallel Ski App",
+      "subtitle": "Uma app de esqui e snowboard para o Líbano, com previsões de neve e um mapa em direto dos seus amigos",
+      "oneLiner": "Uma app de esqui e snowboard para as seis estâncias do Líbano, com um mapa de grupo em direto e previsões de neve.",
+      "description": "O Parallel reúne as seis estâncias de esqui do Líbano numa só app: Mzaar, Cedars, Laqlouq, Faqra, Zaarour e Qanat Bakish. Os esquiadores têm uma previsão para cada montanha, mapas 3D das estâncias, um mapa em direto dos amigos e contacto direto com instrutores e escolas, em árabe, inglês e francês. Gabriel Ghoussoub dirige a engenharia para a Parallel Inc.",
+      "previewAlt": "Mapa de Mzaar no Parallel, com pistas, teleféricos e três amigos desenhados como esquiadores",
+      "seoDescription": "O Parallel é uma app de esqui e snowboard para as seis estâncias do Líbano: previsão de neve, mapas 3D e mapa de grupo em direto, em iOS e Android.",
+      "challenge": "Um dia na neve significa saber o tempo naquela montanha, encontrar os amigos na estância e contactar um instrutor. A app tem de mostrar posições em direto num mapa 3D em telemóveis comuns, continuar a funcionar com pouca rede e deixar bateria para a viagem de regresso.",
+      "approach": "Criámos uma só app para iOS e Android, com o seu servidor, painel de administração e site público, para que uma alteração chegue rapidamente a todos. O mapa desenha as pistas, os teleféricos e cada amigo como um esquiador sobre o relevo. A partilha fica nas mãos do esquiador: o seu grupo só o vê depois de fazer check-in, apenas numa estância, e cada check-in termina sozinho ao fim de 8 horas.",
+      "results": "O Parallel está a preparar-se para a App Store e o Google Play antes da época de esqui 2026 a 2027, e o seu site já está no ar. Num Galaxy S10+, a app abre agora em 1,3 segundos em vez de 2,4, e um telemóvel em repouso não pede GPS nenhum, quando antes o usava 19 minutos por hora.",
+      "role": "Responsável técnico, Gabriel Ghoussoub: arquitetura, app móvel, backend, infraestrutura e publicação nas lojas",
+      "liveLabel": "parallel-leb.com",
+      "metrics": [
+        {
+          "value": "6",
+          "label": "Estâncias libanesas, com 30 pontos de referência no mapa"
+        },
+        {
+          "value": "46%",
+          "label": "Mais rápida do toque ao ecrã inicial num Galaxy S10+"
+        },
+        {
+          "value": "0 s",
+          "label": "De GPS por hora num Galaxy S10+ em repouso, antes 1128 s"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Um mapa do seu grupo em direto",
+          "description": "Os amigos aparecem como esquiadores num mapa 3D da estância, com a distância a que estão e um toque para os encontrar."
+        },
+        {
+          "title": "Partilha sob o seu controlo",
+          "description": "O seu grupo só o vê depois de fazer check-in, apenas numa estância de esqui, e cada check-in termina sozinho ao fim de 8 horas."
+        },
+        {
+          "title": "Uma previsão para cada montanha",
+          "description": "Vento, altura de neve, nível de congelação e visibilidade à altura das pistas, com um sinal que mostra quando os modelos meteorológicos concordam."
+        },
+        {
+          "title": "Mapas das estâncias e pontos de referência",
+          "description": "Pistas e teleféricos sobre o relevo, e 30 pontos de referência nas seis estâncias com a sua altitude, história e dicas."
+        },
+        {
+          "title": "Instrutores e escolas",
+          "description": "Instrutores e escolas de esqui e snowboard por estância, com o seu perfil e contacto direto por WhatsApp."
+        },
+        {
+          "title": "Árabe, inglês e francês",
+          "description": "Toda a app em três línguas, com disposição completa da direita para a esquerda em árabe."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "App",
+          "detail": "React Native e Expo com um só código para iOS e Android, expo-router, TanStack Query, Zustand e i18next. As alterações de JavaScript são publicadas remotamente com EAS Update. Com pouca rede na montanha, as leituras desistem cedo e a app continua utilizável."
+        },
+        {
+          "area": "Mapa",
+          "detail": "MapLibre GL numa WebView, com mosaicos do OpenFreeMap, relevo do Mapterhorn e pistas do OpenSkiMap. Os teleféricos, as árvores, a neve e os esquiadores 3D são desenhados numa camada three.js, e as posições GPS de cada esquiador são reproduzidas com um ligeiro atraso, como o buffer de um vídeo, para que atualizações espaçadas se vejam fluidas."
+        },
+        {
+          "area": "Backend",
+          "detail": "NestJS 11, Postgres 17 com PostGIS e pg_cron, e Redis. O painel de administração em React e o site público são criados e servidos a partir da mesma base."
+        },
+        {
+          "area": "Meteorologia",
+          "detail": "Um serviço Open-Meteo próprio lê os dados abertos dos modelos meteorológicos, e a API atualiza-os em segundo plano para que as previsões continuem rápidas."
+        },
+        {
+          "area": "Bateria",
+          "detail": "No Android, o GPS passa para potência equilibrada quando o telemóvel fica em repouso ou sai das pistas, o que na prática o desliga. Uma tarefa de 60 segundos mantém o grupo atualizado mesmo quando os telemóveis Samsung congelam a app depois de o ecrã se desligar."
+        }
+      ],
+      "highlights": [
+        "Do toque ao ecrã inicial: de 2442 ms para 1315 ms num Galaxy S10+, em 12 aberturas de cada versão",
+        "GPS em repouso com o ecrã desligado: de 1128 s por hora para 0 no mesmo telemóvel, e o grupo continua a receber uma posição por minuto",
+        "Mais de 1100 testes automáticos na app",
+        "Denúncia e bloqueio nos grupos, e eliminação da conta dentro da app"
+      ]
+    },
     "padel-booking": {
       "title": "Plataforma de reservas de padel",
       "subtitle": "Reserva de campos, jogos e ligas para jogadores de padel no Líbano",

@@ -533,6 +533,87 @@
     "openSourceLink": "Voir {{name}} sur la page open source"
   },
   "projectsData": {
+    "parallel": {
+      "title": "Parallel Ski App",
+      "subtitle": "Une application de ski et de snowboard pour le Liban, avec des prévisions d'enneigement et une carte en direct de vos amis",
+      "oneLiner": "Une application de ski et de snowboard pour les six stations du Liban, avec une carte d'équipe en direct et des prévisions d'enneigement.",
+      "description": "Parallel réunit les six stations de ski du Liban dans une seule application : Mzaar, Cedars, Laqlouq, Faqra, Zaarour et Qanat Bakish. Les skieurs y trouvent une prévision pour chaque montagne, des cartes 3D des stations, une carte en direct de leurs amis et un contact direct avec les moniteurs et les écoles, en arabe, en anglais et en français. Gabriel Ghoussoub dirige l'ingénierie pour Parallel Inc.",
+      "previewAlt": "Carte de Mzaar dans Parallel, avec les pistes, les remontées et trois amis représentés en skieurs",
+      "seoDescription": "Parallel, l'application de ski et de snowboard pour les six stations du Liban : enneigement, cartes 3D et carte d'équipe en direct, sur iOS et Android.",
+      "challenge": "Une journée sur les pistes, c'est connaître la météo de cette montagne, retrouver ses amis dans la station et joindre un moniteur. L'application doit afficher des positions en direct sur une carte 3D avec des téléphones ordinaires, continuer à fonctionner avec un réseau mobile faible et laisser assez de batterie pour le retour.",
+      "approach": "Nous avons créé une seule application pour iOS et Android, avec son serveur, son tableau de bord d'administration et son site public, pour qu'une modification les atteigne tous rapidement. La carte dessine les pistes, les remontées et chaque ami en skieur sur le relief. Le partage reste entre les mains du skieur : votre équipe vous voit seulement après votre arrivée signalée, seulement dans une station, et chaque signalement prend fin de lui-même après 8 heures.",
+      "results": "Parallel se prépare pour l'App Store et Google Play avant la saison de ski 2026 à 2027, et son site est en ligne. Sur un Galaxy S10+, l'application s'ouvre maintenant en 1,3 seconde au lieu de 2,4, et un téléphone au repos ne demande plus aucun GPS, alors qu'il le faisait tourner 19 minutes par heure.",
+      "role": "Responsable technique, Gabriel Ghoussoub : architecture, application mobile, backend, infrastructure et publication sur les stores",
+      "liveLabel": "parallel-leb.com",
+      "metrics": [
+        {
+          "value": "6",
+          "label": "Stations libanaises, avec 30 lieux repères sur la carte"
+        },
+        {
+          "value": "46%",
+          "label": "Plus rapide de l'appui à l'accueil sur un Galaxy S10+"
+        },
+        {
+          "value": "0 s",
+          "label": "De GPS par heure sur un Galaxy S10+ au repos, contre 1128 s"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Une carte de votre équipe en direct",
+          "description": "Vos amis apparaissent en skieurs sur une carte 3D de la station, avec leur distance et un seul geste pour les retrouver."
+        },
+        {
+          "title": "Un partage que vous contrôlez",
+          "description": "Votre équipe vous voit seulement après votre arrivée signalée, seulement dans une station, et chaque signalement prend fin de lui-même après 8 heures."
+        },
+        {
+          "title": "Une prévision pour chaque montagne",
+          "description": "Vent, épaisseur de neige, isotherme zéro et visibilité à hauteur des pistes, avec un signe qui indique quand les modèles météo concordent."
+        },
+        {
+          "title": "Cartes des stations et lieux repères",
+          "description": "Les pistes et les remontées sur le relief, et 30 lieux repères dans les six stations, avec leur altitude, leur histoire et des conseils."
+        },
+        {
+          "title": "Moniteurs et écoles",
+          "description": "Des moniteurs et des écoles de ski et de snowboard classés par station, avec leur profil et un contact direct sur WhatsApp."
+        },
+        {
+          "title": "Arabe, anglais et français",
+          "description": "Toute l'application en trois langues, avec une mise en page entièrement de droite à gauche en arabe."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Application",
+          "detail": "React Native et Expo, avec un seul code pour iOS et Android, expo-router, TanStack Query, Zustand et i18next. Les changements JavaScript sont publiés à distance avec EAS Update. Avec un réseau faible en montagne, les lectures abandonnent vite et l'application reste utilisable."
+        },
+        {
+          "area": "Carte",
+          "detail": "MapLibre GL dans une WebView, avec les tuiles OpenFreeMap, le relief Mapterhorn et les pistes d'OpenSkiMap. Les remontées, les arbres, la neige et les skieurs 3D sont dessinés dans une couche three.js, et les positions GPS de chaque skieur sont lues avec un léger retard, comme le tampon d'une vidéo, pour que des mises à jour espacées restent fluides."
+        },
+        {
+          "area": "Backend",
+          "detail": "NestJS 11, Postgres 17 avec PostGIS et pg_cron, et Redis. Le tableau de bord React et le site public sont construits et servis depuis la même base."
+        },
+        {
+          "area": "Météo",
+          "detail": "Un service Open-Meteo auto-hébergé lit les données ouvertes des modèles météo, et l'API les actualise en arrière-plan pour que les prévisions restent rapides."
+        },
+        {
+          "area": "Batterie",
+          "detail": "Sur Android, le GPS passe en puissance équilibrée dès que le téléphone est au repos ou quitte les pistes, ce qui l'éteint en pratique. Une tâche de 60 secondes maintient l'équipe à jour même quand les téléphones Samsung gèlent l'application après l'extinction de l'écran."
+        }
+      ],
+      "highlights": [
+        "De l'appui à l'accueil : de 2442 ms à 1315 ms sur un Galaxy S10+, sur 12 lancements de chaque version",
+        "GPS à l'arrêt, écran éteint : de 1128 s par heure à 0 sur le même téléphone, l'équipe recevant toujours une position par minute",
+        "Plus de 1 100 tests automatisés dans l'application",
+        "Signalement et blocage dans les équipes, et suppression du compte dans l'application"
+      ]
+    },
     "padel-booking": {
       "title": "Plateforme de réservation de padel",
       "subtitle": "Réservation de terrains, matchs et ligues pour les joueurs de padel au Liban",
