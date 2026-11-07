@@ -8,6 +8,38 @@ import { projectEnrichment } from './projectEnrichment'
 
 const projectCatalog: Project[] = [
   {
+    id: 'parallel',
+    status: 'inDevelopment',
+    slug: 'parallel',
+    title: 'Parallel Ski App',
+    subtitle: 'A ski and snowboard companion for Lebanon, with snow forecasts and a live map of your friends',
+    client: 'Parallel Inc',
+    category: 'Mobile',
+    year: '2026',
+    oneLiner: "A ski and snowboard app for Lebanon's six resorts, with a live squad map and snow forecasts.",
+    description:
+      "Parallel brings Lebanon's six ski resorts into one app: Mzaar, Cedars, Laqlouq, Faqra, Zaarour and Qanat Bakish. Riders get a forecast for each mountain, 3D resort maps, a live map of their friends and a direct line to monitors and schools, in Arabic, English and French. Gabriel Ghoussoub leads the engineering for Parallel Inc.",
+    challenge:
+      'A day on the slopes means knowing the weather on that mountain, finding your friends across a resort and reaching an instructor. The app has to draw live positions on a 3D map on ordinary phones, keep working on a weak mobile signal and leave enough battery for the drive home.',
+    approach:
+      'We built one app for iOS and Android, with its own server, admin dashboard and public website, so a change reaches all of them quickly. The map draws pistes, lifts and each friend as a skier over the terrain. Sharing stays in the rider\'s hands: your squad sees you only after you check in, only at a ski resort, and each check in ends by itself after 8 hours.',
+    results:
+      'Parallel is getting ready for the App Store and Google Play ahead of the 2026 to 2027 ski season, and its website is live. On a Galaxy S10+, opening the app now takes 1.3 seconds instead of 2.4, and a phone at rest asks for no GPS at all, where it used to run GPS for 19 minutes an hour.',
+    techStack: ['React Native', 'Expo', 'TypeScript', 'NestJS', 'PostgreSQL', 'PostGIS', 'Redis', 'MapLibre', 'three.js', 'TanStack Query', 'Zustand', 'i18next'],
+    images: [
+      '/images/projects/parallel/home.webp',
+      '/images/projects/parallel/map.webp',
+      '/images/projects/parallel/squad.webp',
+      '/images/projects/parallel/forecast.webp',
+    ],
+    previewImage: '/images/projects/parallel/map.webp',
+    previewAlt: 'Parallel map of Mzaar with pistes, lifts and three friends drawn as skiers',
+    featured: true,
+    platform: 'mobile',
+    liveUrl: 'https://parallel-leb.com',
+    liveLabel: 'parallel-leb.com',
+  },
+  {
     id: 'padel-booking',
     status: 'live',
     slug: 'padel-booking',
@@ -326,6 +358,7 @@ const projectCatalog: Project[] = [
 
 // Display order on /work and for "Next project" navigation.
 const leadProjectIds = [
+  'parallel',
   'padel-booking',
   'escuela-nautica-valencia',
   'gcg-website',

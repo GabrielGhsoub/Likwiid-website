@@ -8,6 +8,68 @@ import type { Project } from '../types'
 type ProjectEnrichment = Partial<Pick<Project, 'role' | 'metrics' | 'keyFeatures' | 'architecture' | 'highlights'>>
 
 export const projectEnrichment: Record<string, ProjectEnrichment> = {
+  parallel: {
+    role: 'Technical lead, Gabriel Ghoussoub: architecture, mobile app, backend, infrastructure and store releases',
+    metrics: [
+      { value: '6', label: 'Lebanese resorts, with 30 landmarks on the map' },
+      { value: '46%', label: 'Faster from tap to Home on a Galaxy S10+' },
+      { value: '0 s', label: 'Of GPS an hour on a resting Galaxy S10+, down from 1128 s' },
+    ],
+    keyFeatures: [
+      {
+        title: 'A live map of your squad',
+        description: 'Friends appear as skiers on a 3D map of the resort, with how far away they are and one tap to find them.',
+      },
+      {
+        title: 'Sharing you control',
+        description: 'Your squad sees you only after you check in, only at a ski resort, and each check in ends by itself after 8 hours.',
+      },
+      {
+        title: 'A forecast for each mountain',
+        description: 'Wind, snow depth, freezing level and visibility at slope height, with a sign that shows when the weather models agree.',
+      },
+      {
+        title: 'Resort maps and landmarks',
+        description: 'Pistes and lifts over the terrain, and 30 landmarks across the six resorts with their height, history and tips.',
+      },
+      {
+        title: 'Monitors and schools',
+        description: 'Ski and snowboard monitors and schools listed by resort, with their profile and a direct line on WhatsApp.',
+      },
+      {
+        title: 'Arabic, English and French',
+        description: 'The whole app in three languages, with a full right to left layout in Arabic.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'App',
+        detail: 'React Native and Expo from one codebase for iOS and Android, with expo-router, TanStack Query, Zustand and i18next. JavaScript changes ship over the air with EAS Update. On a weak mountain signal, reads give up early and the app stays usable.',
+      },
+      {
+        area: 'Map',
+        detail: "MapLibre GL in a WebView, with OpenFreeMap tiles, Mapterhorn terrain and OpenSkiMap pistes. Lifts, trees, snowfall and 3D riders are drawn in a three.js layer, and each rider's GPS fixes play back slightly late, like a video buffer, so sparse updates still move smoothly.",
+      },
+      {
+        area: 'Backend',
+        detail: 'NestJS 11, Postgres 17 with PostGIS and pg_cron, and Redis. The React admin dashboard and the public website are built and served from the same stack.',
+      },
+      {
+        area: 'Weather',
+        detail: 'A self hosted Open-Meteo service reads open weather model data, and the API refreshes it in the background so forecasts stay quick.',
+      },
+      {
+        area: 'Battery',
+        detail: 'On Android, GPS drops to balanced power once the phone rests or leaves the slopes, which turns it off in practice. A 60 second task keeps squads updated even when Samsung phones freeze the app after the screen goes off.',
+      },
+    ],
+    highlights: [
+      'Tap to Home from 2442 ms to 1315 ms on a Galaxy S10+, over 12 launches of each build',
+      'GPS standing still with the screen off, from 1128 s an hour to 0 on the same phone, with the squad still getting a position every minute',
+      'Over 1,100 automated tests in the app',
+      'Report and block in squads, and account deletion inside the app',
+    ],
+  },
   'padel-booking': {
     role: 'Design, development and app store launch',
     metrics: [
