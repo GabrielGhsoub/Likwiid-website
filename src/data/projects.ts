@@ -240,7 +240,7 @@ const projectCatalog: Project[] = [
     approach:
       'We put the whole program in the app as local data. Block 1, weeks 1 to 6, is heavier. Block 2, weeks 7 to 11, uses higher reps. Week 12 is off. Every lift comes with sets, a rep range, an RPE target, rest and a starting weight.',
     results:
-      'Released as open source on 18 October 2026 under the GPL-3.0, with a signed Android APK on GitHub. It is tested on Android, and iPhone builds can be made from the source.',
+      'Released as open source on 18 October 2026 under the GPL-3.0, with a signed Android APK on GitHub. Since 2 November 2026 it is also free on the App Store for iPhone.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'SQLite'],
     images: [
       '/images/projects/plateclimb/program.webp',
@@ -255,6 +255,7 @@ const projectCatalog: Project[] = [
     platform: 'mobile',
     liveUrl: 'https://github.com/likwiid/plateclimb',
     liveLabel: 'Source on GitHub',
+    iosUrl: 'https://apps.apple.com/app/plateclimb/id6824561382',
     androidUrl: 'https://github.com/likwiid/plateclimb/releases/latest',
     androidLabel: 'Android APK',
     openSource: { name: 'PlateClimb', anchor: 'plateclimb' },

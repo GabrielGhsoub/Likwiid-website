@@ -1047,7 +1047,7 @@
       "seoDescription": "PlateClimb est une application d'entraînement libre et open source pour le programme Foundational Fitness de 12 semaines. Hors ligne, sans compte.",
       "challenge": "La plupart des applications de fitness veulent un compte, un abonnement et le cloud, puis vous laissent construire le programme vous-même. Suivre un plan précis à la salle devrait demander quelques gestes et aucun réseau.",
       "approach": "Nous avons intégré tout le programme à l'application, sous forme de données locales. Le bloc 1, semaines 1 à 6, est plus lourd. Le bloc 2, semaines 7 à 11, passe à plus de répétitions. La semaine 12 est une semaine de repos. Chaque exercice indique les séries, une fourchette de répétitions, un objectif RPE, le repos et un poids de départ.",
-      "results": "Publié en open source le 18 octobre 2026 sous licence GPL-3.0, avec un APK Android signé sur GitHub. Il est testé sur Android, et les versions iPhone se compilent à partir du code source.",
+      "results": "Publié en open source le 18 octobre 2026 sous licence GPL-3.0, avec un APK Android signé sur GitHub. Depuis le 2 novembre 2026, il est aussi disponible gratuitement sur l'App Store pour iPhone.",
       "role": "Conception, développement et publication en open source",
       "liveLabel": "Code sur GitHub",
       "androidLabel": "APK Android",
@@ -1094,7 +1094,7 @@
       "architecture": [
         {
           "area": "Base de l'application",
-          "detail": "Expo SDK 54 et React Native avec Expo Router et TypeScript. Android est la plateforme principale de test ; les versions iPhone se compilent depuis le code source."
+          "detail": "Expo SDK 54 et React Native avec Expo Router et TypeScript. Android est la plateforme principale de test ; la version iPhone est sur l'App Store."
         },
         {
           "area": "Le programme comme données",
