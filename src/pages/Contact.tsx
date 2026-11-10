@@ -16,22 +16,10 @@ import { useMountedFromHtml } from '../hooks/useHydrated'
 
 // Values are sent to the inbox in English; labels are translated.
 const PROJECT_TYPES = [
-  { value: 'Web app', labelKey: 'contact.projectTypeWebApp' },
-  { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
   { value: 'Booking website', labelKey: 'contact.projectTypeBookingWebsite' },
   { value: 'Portfolio (photographers)', labelKey: 'contact.projectTypePortfolio' },
-  { value: 'AI integration', labelKey: 'contact.projectTypeAiIntegration' },
-  { value: 'Code audit', labelKey: 'contact.projectTypeCodeAudit' },
+  { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
-]
-// Euro bands, open at the bottom so a small portfolio or booking job is not scared off.
-const BUDGETS = [
-  { value: 'Under EUR 1,000', labelKey: 'contact.budgetUnder1k' },
-  { value: 'EUR 1,000 to 5,000', labelKey: 'contact.budget1to5k' },
-  { value: 'EUR 5,000 to 15,000', labelKey: 'contact.budget5to15k' },
-  { value: 'EUR 15,000 to 50,000', labelKey: 'contact.budget15to50k' },
-  { value: 'EUR 50,000+', labelKey: 'contact.budget50kPlus' },
-  { value: 'Not sure yet', labelKey: 'contact.budgetNotSure' },
 ]
 
 const FADE_UP_INITIAL = { opacity: 0, y: 20 }
@@ -77,7 +65,8 @@ export default function Contact() {
       email: ((formData.get('email') as string) ?? '').trim().slice(0, 200),
       company: ((formData.get('company') as string) ?? '').trim().slice(0, 200),
       projectType: (formData.get('projectType') as string) ?? '',
-      budget: (formData.get('budget') as string) ?? '',
+      // The form no longer asks for a budget; the field stays in the payload, empty.
+      budget: '',
       message: ((formData.get('message') as string) ?? '').trim().slice(0, 5000),
     }
     if (!validate(data)) {
@@ -88,7 +77,7 @@ export default function Contact() {
       return
     }
     const locale = i18n.language ?? ''
-    track('contact-submit', { projectType: data.projectType, budget: data.budget, locale, ...attributionEventData() })
+    track('contact-submit', { projectType: data.projectType, locale, ...attributionEventData() })
     submit({
       ...data,
       website: (formData.get('website') as string) ?? '',
@@ -116,28 +105,29 @@ export default function Contact() {
               <p className="mt-3 text-text-tertiary text-sm">
                 {t('contact.locationNote')}
               </p>
+              <p className="mt-2 text-text-tertiary text-sm">{t('contact.callNote')}</p>
 
               <div className="mt-8 flex items-center gap-4 rounded-lg border border-border bg-bg-secondary/50 p-4">
                 <div className="flex shrink-0 -space-x-3">
                   <img
                     src="/gabriel.webp"
                     srcSet="/gabriel-112.webp 112w, /gabriel-560.webp 560w"
-                    sizes="56px"
+                    sizes="72px"
                     alt={t('contact.founderPhotoAlt')}
-                    width={56}
-                    height={56}
+                    width={72}
+                    height={72}
                     loading="lazy"
-                    className="h-14 w-14 rounded-full border-2 border-border object-cover"
+                    className="h-[72px] w-[72px] rounded-full border-2 border-border object-cover"
                   />
                   <img
                     src="/emile.webp"
                     srcSet="/emile-112.webp 112w, /emile.webp 640w"
-                    sizes="56px"
+                    sizes="72px"
                     alt={t('contact.cofounderPhotoAlt')}
-                    width={56}
-                    height={56}
+                    width={72}
+                    height={72}
                     loading="lazy"
-                    className="h-14 w-14 rounded-full border-2 border-border object-cover"
+                    className="h-[72px] w-[72px] rounded-full border-2 border-border object-cover"
                   />
                 </div>
                 <p className="text-text-secondary text-sm leading-relaxed">
@@ -170,7 +160,7 @@ export default function Contact() {
                   <WhatsAppIcon size={20} className="text-accent-gold" />
                   <span>
                     WhatsApp: {SOCIAL.phone}{' '}
-                    <span className="text-text-tertiary text-sm">({t('contact.fastestReply')})</span>
+                    <span className="text-text-tertiary text-sm">({t('contact.fastestReply')}. {t('contact.whatsappNote')})</span>
                   </span>
                 </a>
                 <a
@@ -310,57 +300,31 @@ export default function Contact() {
                       id="company"
                       name="company"
                       type="text"
-                      autoComplete="organization"
+                      autoComplete="url"
+                      inputMode="url"
                       className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300"
                       placeholder={t('contact.placeholderCompany')}
                     />
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="projectType" className="block text-sm text-text-secondary mb-1.5">
-                        {t('contact.labelProjectType')}
-                      </label>
-                      <div className="relative">
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
-                        >
-                          <option value="">{t('contact.selectPlaceholder')}</option>
-                          {PROJECT_TYPES.map((pt) => (
-                            <option key={pt.value} value={pt.value}>
-                              {t(pt.labelKey)}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="budget" className="block text-sm text-text-secondary mb-1.5">
-                        {t('contact.labelBudget')}
-                      </label>
-                      <div className="relative">
-                        <select
-                          id="budget"
-                          name="budget"
-                          aria-describedby="budget-hint"
-                          className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
-                        >
-                          <option value="">{t('contact.selectPlaceholder')}</option>
-                          {BUDGETS.map((b) => (
-                            <option key={b.value} value={b.value}>
-                              {t(b.labelKey)}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
-                      </div>
-                      <p id="budget-hint" className="mt-1.5 text-xs text-text-tertiary">
-                        {t('contact.budgetHint')}
-                      </p>
+                  <div>
+                    <label htmlFor="projectType" className="block text-sm text-text-secondary mb-1.5">
+                      {t('contact.labelProjectType')}
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="projectType"
+                        name="projectType"
+                        className="w-full px-4 py-3 rounded-lg bg-bg-secondary border border-border text-text-primary focus:outline-none focus:border-accent-gold focus:shadow-[0_0_0_3px_var(--color-accent-gold-dim)] transition-[border-color,box-shadow] duration-300 appearance-none"
+                      >
+                        <option value="">{t('contact.selectPlaceholder')}</option>
+                        {PROJECT_TYPES.map((pt) => (
+                          <option key={pt.value} value={pt.value}>
+                            {t(pt.labelKey)}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary pointer-events-none" />
                     </div>
                   </div>
 

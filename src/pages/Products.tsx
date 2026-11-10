@@ -89,6 +89,8 @@ export default function Products() {
                       ))}
                     </ul>
 
+                    <p className="mt-6 font-medium text-text-primary">{t(`products.${product.key}Price`)}</p>
+
                     <div className="mt-8 flex flex-wrap items-center gap-4">
                       <Button variant="primary" size="md" href={product.to}>
                         {t(`products.${product.key}PageLink`)}
