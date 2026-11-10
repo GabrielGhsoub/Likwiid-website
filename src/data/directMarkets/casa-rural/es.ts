@@ -15,7 +15,7 @@ const es: DirectMarketContent = {
   ],
   demo: 'quinta-likwiid',
   ctaDemo: 'Prueba la demo en vivo',
-  ctaTalk: 'Habla con nosotros',
+  ctaTalk: 'Haz una pregunta',
   demoNote:
     'Quinta Likwiid es una casa de huéspedes ficticia en el valle del Duero. Existe para que puedas recorrer el motor exacto que construiríamos para ti. El pago es simulado y no se cobra nada.',
   sections: [
@@ -38,7 +38,7 @@ const es: DirectMarketContent = {
         { title: 'Completa o por habitaciones', desc: 'Si alquilas la casa entera, es una sola unidad con su capacidad. Si alquilas por habitaciones, cada una tiene su calendario, su precio y su número de plazas.' },
         { title: 'Puentes y temporadas', desc: 'Un precio por noche para el puente de diciembre y otro para noviembre, una estancia mínima, días libres entre reservas y los periodos en que cierras.' },
         { title: 'Señal con tarjeta', desc: 'La misma señal que hoy pides por transferencia, cobrada en el momento en que el huésped se decide, sin justificantes que cuadrar.' },
-        { title: 'Calendario sincronizado', desc: 'Importa las fechas ocupadas de cualquier portal que exporte un feed iCal y exporta las tuyas. No es instantáneo, y el calendario muestra cuándo se sincronizó por última vez.' },
+        { title: 'Calendario sincronizado', desc: 'Recoge las fechas ocupadas de cualquier portal que deje compartir su calendario y les envía las tuyas. No es instantáneo, y el calendario muestra cuándo se sincronizó por última vez.' },
         { title: 'Modo solicitud', desc: 'Para quien prefiere hablar antes con cada grupo: la solicitud llega con fechas, personas y extras, y tú confirmas, propones otra fecha o la rechazas.' },
         { title: 'Tus normas, aceptadas antes', desc: 'Mascotas, horarios de entrada y condiciones de cancelación en el último paso, y nadie reserva sin marcar que las ha leído.' },
       ],
@@ -53,6 +53,14 @@ const es: DirectMarketContent = {
       ],
       note: 'Esto es un resumen, no asesoramiento jurídico. Las normas cambian y varían de una comunidad a otra: confírmalo con el registro de turismo de tu comunidad autónoma.',
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Una página de reservas que ya recibe reservas reales',
+      body: 'Nuestra primera página de reservas en funcionamiento es la que hicimos para la Escuela Náutica de Valencia. Los alumnos reservan y pagan en la web de la propia escuela. Likwiid Direct es la misma idea preparada para alojamientos, y todavía no tiene ningún alojamiento como cliente de pago.',
+      linkLabel: 'Leer cómo funciona la página de reservas de la escuela',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Lo que preguntan los propietarios de casas rurales',
   faq: [
@@ -62,15 +70,15 @@ const es: DirectMarketContent = {
     },
     {
       q: '¿Puedo seguir en los portales donde me anuncio?',
-      a: 'Sí. Likwiid Direct importa por iCal las fechas ocupadas en los portales y exporta las suyas, para que una reserva directa cierre la fecha en los demás. Como la sincronización no es instantánea, puedes dejar días libres de margen.',
+      a: 'Sí. Likwiid Direct recoge las fechas ocupadas en los portales y les envía las suyas, para que una reserva directa cierre la fecha en los demás. Como la sincronización no es instantánea, puedes dejar días libres de margen.',
     },
     {
       q: '¿Cómo cobro la señal?',
       a: 'Con tarjeta, en tu propia cuenta de pagos, en el momento de reservar. El resto se paga a la llegada, como ahora. Si prefieres no cobrar nada por internet, usa el modo solicitud.',
     },
     {
-      q: '¿Cobráis comisión por las reservas?',
-      a: 'No. No hay comisión sobre ninguna reserva. Cuéntanos cómo es tu casa y te explicamos qué supone ponerlo en marcha.',
+      q: '¿Cuánto cuesta, y cobráis comisión?',
+      a: 'No hay comisión sobre ninguna reserva ni cuota mensual para Likwiid. Una página de reservas en la web que ya tienes cuesta de 300 a 600 €, una sola vez. Una web nueva completa con reservas cuesta de 900 a 1.700 €, una sola vez.',
     },
   ],
   closingTitle: 'Cuéntanos cómo es tu casa',

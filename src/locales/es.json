@@ -9,8 +9,7 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "menuLabel": "Menú de navegación",
-    "beirutCity": "Beirut",
-    "beirutTime": "Hora actual en Beirut"
+    "guides": "Guías"
   },
   "theme": {
     "light": "Modo claro",
@@ -25,16 +24,46 @@
   "footer": {
     "copyright": "© {{year}} Likwiid. Fundado por Gabriel Ghoussoub.",
     "privacy": "Política de privacidad",
-    "tagline": "Beirut, Líbano. Trabajamos en todo el mundo. Respondemos en menos de 24 horas."
+    "tagline": "Dos personas, en Beirut y en Francia. Respondemos en menos de 24 horas.",
+    "byTrade": "Por tipo de negocio",
+    "calculators": "Calculadoras",
+    "otaCalculator": "Calculadora de comisiones de plataformas",
+    "portfolioCalculator": "Calculadora de costes de portfolio",
+    "otherSoftware": "Otro software que hemos hecho",
+    "direct": "Likwiid Direct",
+    "work": "Lo que hemos hecho"
   },
   "home": {
-    "documentTitle": "Webs de reservas para alojamientos independientes | Likwiid"
+    "documentTitle": "Reservas para alojamientos, actividades y escuelas | Likwiid",
+    "proofEyebrow": "Un cliente real",
+    "proofTitle": "Hecho para una escuela náutica de Valencia",
+    "proofBody": "En la Escuela Náutica de Valencia, los alumnos eligen un día de curso y pagan online la señal de su plaza, en el dominio de la escuela y en su propia cuenta de pagos. La página recibe reservas reales desde el 15 de octubre de 2026, y la escuela organiza desde ella sus días de curso.",
+    "proofLive": "Abrir la página real",
+    "proofCase": "Leer cómo se hizo",
+    "proofImageAlt": "La página de reservas de la Escuela Náutica de Valencia en un móvil",
+    "changesTitle": "Qué cambia para ti",
+    "change1": "Tus huéspedes ven tu disponibilidad y tus precios reales.",
+    "change2": "Confirmas tú cada solicitud, o dejas que el huésped pague una señal con tarjeta.",
+    "change3": "El dinero va a tu cuenta, y la lista de huéspedes sigue siendo tuya.",
+    "howTitle": "Tres pasos, de dos a cuatro semanas",
+    "how1": "Nos envías la dirección de tu web.",
+    "how2": "Te enseñamos un borrador que ya funciona, con tus propias habitaciones o actividades.",
+    "how3": "Si te gusta, lo ponemos en marcha y te enseñamos a manejarlo.",
+    "howAfter": "Después del lanzamiento, escribes a la misma persona que lo hizo.",
+    "faqTitle": "Antes de escribirnos",
+    "appsTitle": "También hacemos apps móviles",
+    "appsBody": "Tres apps que diseñamos y desarrollamos. Son pantallas reales de las versiones para iPhone.",
+    "appsParallelLine": "Una app de esquí para las seis estaciones del Líbano, hecha para Parallel Inc. Enviada a Apple para su revisión.",
+    "appsBasemileLine": "Un entrenador gratuito para carreras suaves guiadas por la frecuencia cardíaca. En el App Store.",
+    "appsPlateclimbLine": "Un diario de entrenamiento gratuito que funciona sin internet. En el App Store.",
+    "appsCase": "Leer más",
+    "appsAll": "Ver el otro software que hemos hecho"
   },
   "hero": {
-    "title": "Webs de reservas y apps para hoteles <em>independientes</em> y fundadores.",
-    "description": "Likwiid lo dirige Gabriel Ghoussoub desde Beirut, trabaja con clientes de todo el mundo y responde en menos de 24 horas.",
-    "ctaPrimary": "Empieza un proyecto",
-    "ctaSecondary": "Ver los proyectos"
+    "title": "Una página de reservas en tu <em>propia</em> web. Tus huéspedes reservan y te pagan directamente.",
+    "description": "Para pequeños hoteles, casas de huéspedes, casas rurales, operadores turísticos, escuelas y estudios. Sin comisiones.",
+    "ctaPrimary": "Ver un ejemplo en vivo",
+    "ctaWhatsapp": "Escribir por WhatsApp"
   },
   "whatWeBuild": {
     "title": "Lo que construimos",
@@ -56,78 +85,66 @@
     "title": "Productos",
     "subtitle": "Dos motores propios, cada uno con una demo en vivo que puedes recorrer.",
     "directBody": "Un motor de reserva directa para pequeños alojamientos y experiencias. Tus huéspedes reservan y pagan una señal en tu propia web, sin comisiones.",
-    "frameBody": "Un motor de portfolios para fotógrafos, con pruebas para clientes, tienda de impresiones y reservas. La web terminada es tuya, en archivos.",
+    "frameBody": "Un motor de portfolios para fotógrafos, con selección de fotos para clientes, tienda de copias y reservas. La web terminada es tuya, en archivos.",
     "seeProduct": "Ver {{name}}",
     "tryDemo": "Prueba la demo en vivo"
   },
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, fundador de Likwiid",
-    "role": "Fundador e ingeniero principal",
-    "bio1": "Gabriel es ingeniero full-stack con más de cinco años lanzando software en producción en fintech, insurtech, monitorización por satélite e IoT.",
-    "bio2": "Es graduado en Ingeniería Informática y de Comunicaciones por la Universidad Antonina.",
-    "bio3": "Vive en Beirut y trabaja con clientes de Estados Unidos, Europa y la región MENA.",
+    "role": "Fundador. Lo hace todo él.",
+    "bio1": "Gabriel es ingeniero y lleva más de cinco años haciendo software. Hace cada página él mismo y es quien te responde.",
+    "bio3": "Vive en Beirut.",
     "promise": "Cada mensaje lo responde Gabriel o Emile, no un equipo de ventas.",
-    "cta": "Habla con Gabriel",
+    "cta": "Escribe a Gabriel",
     "cofounderRole": "Cofundador",
     "cofounderPhotoAlt": "Emile Bechaalany, cofundador de Likwiid",
     "cofounderLine1": "Emile es cofundador de Likwiid y lleva la relación con los clientes: las primeras conversaciones, las propuestas y el seguimiento de cada proyecto desde el arranque hasta el lanzamiento.",
     "cofounderLine2": "Vive en Francia y trabaja con clientes de Europa y el Mediterráneo, en inglés y en francés.",
-    "imageAlt": "El horizonte de Beirut de noche, visto desde las colinas sobre la ciudad, con el mar y el puerto al fondo",
-    "imageAltDay": "La bahía de Zaitunay en Beirut al atardecer, con el puerto deportivo y las torres del paseo marítimo iluminadas",
-    "imageCaption": "Beirut, donde tiene su sede Likwiid."
+    "title": "Dos personas, sin equipo de ventas",
+    "languages": "Escríbenos en inglés, español, portugués, italiano o francés. Te respondemos en tu idioma."
   },
   "contactBlock": {
-    "title": "¿Tienes un proyecto en mente?",
-    "body": "Cuéntanos qué estás construyendo y Gabriel o Emile te responderá en menos de 24 horas con un siguiente paso claro.",
-    "cta": "Empieza un proyecto",
+    "title": "Envíanos la dirección de tu web. Te diremos con sinceridad si merece la pena.",
+    "body": "Con una línea basta. Gabriel o Emile te responderá en menos de 24 horas.",
+    "cta": "Escribe a Gabriel",
     "whatsapp": "Escribir por WhatsApp",
-    "emailPrefix": "O escribe a"
+    "emailPrefix": "O escribe a",
+    "whatsappNote": "WhatsApp funciona desde cualquier país y sin coste."
   },
   "contact": {
-    "documentTitle": "Contacto: tu web de reservas o tu app | Likwiid",
-    "heading": "Contacto",
-    "subheading": "Inicia una conversación sobre tu próximo proyecto.",
-    "introTitle": "Construyamos algo juntos.",
-    "introBody": "Cuéntanos qué estás construyendo, qué debe hacer y para cuándo lo necesitas. Gabriel y Emile leen cada mensaje y responden personalmente en menos de 24 horas.",
-    "locationNote": "Con base en Beirut y Francia, trabajamos con clientes en los husos horarios de Estados Unidos, Europa y MENA.",
-    "founderNote": "Te responderá Gabriel o Emile, los fundadores. Sin cola de tickets, sin equipo de ventas.",
+    "documentTitle": "Pregunta por tu página de reservas o tu web | Likwiid",
+    "heading": "Pregúntanos lo que quieras",
+    "subheading": "Con una línea basta.",
+    "introTitle": "Escribes a dos personas, no al buzón de una empresa.",
+    "introBody": "Cuéntanos qué negocio llevas y qué te gustaría cambiar. Gabriel o Emile lee tu mensaje y responde en menos de 24 horas.",
+    "locationNote": "Escribe en inglés, español, portugués, italiano o francés. Te respondemos en tu idioma.",
+    "founderNote": "Te responde Gabriel o Emile. No hay cola de espera ni equipo de ventas.",
     "founderPhotoAlt": "Gabriel Ghoussoub, fundador de Likwiid",
     "cofounderPhotoAlt": "Emile Bechaalany, cofundador de Likwiid",
     "stepsTitle": "Después de enviar",
-    "step1": "Tu mensaje llega directamente a Gabriel y Emile, no a una cola de tickets, y uno de los dos responde en menos de 24 horas.",
-    "step2": "Si encaja, concertamos una llamada corta. No necesitas preparar nada.",
-    "step3": "Recibes una propuesta por escrito con un precio fijo. Sin compromiso y sin insistencias.",
+    "step1": "Tu mensaje llega a Gabriel y a Emile, y uno de los dos responde en menos de 24 horas.",
+    "step2": "Te hacemos unas pocas preguntas, por mensaje o en una llamada corta. No necesitas preparar nada.",
+    "step3": "Recibes un precio fijo por escrito. Eres libre de decir que no.",
     "fastestReply": "respuesta más rápida",
     "successTitle": "Mensaje recibido.",
     "successBody": "Gabriel o Emile te responderá desde una dirección likwiid.com en menos de 24 horas.",
     "successHurry": "¿Tienes prisa? <whatsapp>Escríbenos por WhatsApp</whatsapp>.",
-    "successBrowseWork": "Echa un vistazo a nuestros proyectos mientras esperas",
+    "successBrowseWork": "Mira lo que hemos hecho mientras esperas",
     "sendAnother": "Enviar otro mensaje",
     "labelName": "Nombre",
     "placeholderName": "Tu nombre",
     "labelEmail": "Correo electrónico",
-    "placeholderEmail": "tu@empresa.com",
-    "labelCompany": "Empresa",
-    "placeholderCompany": "Tu empresa (opcional)",
-    "labelProjectType": "Tipo de proyecto",
-    "labelBudget": "Rango de presupuesto",
-    "budgetHint": "Un rango aproximado basta. Nos ayuda a sugerir el enfoque adecuado.",
+    "placeholderEmail": "nombre@ejemplo.com",
+    "labelCompany": "Tu web",
+    "placeholderCompany": "La dirección de tu web, si tienes una",
+    "labelProjectType": "¿De qué se trata?",
     "labelMessage": "Mensaje",
-    "placeholderMessage": "¿Qué estás construyendo, qué debe hacer y para cuándo lo necesitas?",
+    "placeholderMessage": "Por ejemplo: tengo una casa de huéspedes de 4 habitaciones y recibo las reservas por WhatsApp.",
     "selectPlaceholder": "Seleccionar...",
-    "projectTypeWebApp": "App web",
-    "projectTypeMobileApp": "App móvil",
-    "projectTypeBookingWebsite": "Web de reservas",
-    "projectTypeAiIntegration": "Integración de IA",
-    "projectTypeCodeAudit": "Auditoría de código",
-    "projectTypePortfolio": "Portfolio (fotógrafos)",
-    "projectTypeOther": "Otro",
-    "budgetUnder1k": "Menos de 1000 €",
-    "budget1to5k": "De 1000 € a 5000 €",
-    "budget5to15k": "De 5000 € a 15 000 €",
-    "budget15to50k": "De 15 000 € a 50 000 €",
-    "budget50kPlus": "Más de 50 000 €",
-    "budgetNotSure": "Aún no lo sé",
+    "projectTypeMobileApp": "Una app",
+    "projectTypeBookingWebsite": "Una página de reservas o una web",
+    "projectTypePortfolio": "Un portfolio para un fotógrafo",
+    "projectTypeOther": "Otra cosa",
     "errorSubmit": "Algo ha salido mal. Inténtalo de nuevo.",
     "errorFallback": "O escribe directamente a gabriel@likwiid.com.",
     "privacyNote": "Tus datos les llegan a Gabriel y Emile y a nadie más.",
@@ -136,19 +153,39 @@
     "errorNameRequired": "El nombre es obligatorio",
     "errorEmailRequired": "El correo electrónico es obligatorio",
     "errorEmailInvalid": "Dirección de correo electrónico no válida",
-    "errorMessageRequired": "El mensaje es obligatorio"
+    "errorMessageRequired": "El mensaje es obligatorio",
+    "callNote": "¿Prefieres una llamada? Dinos cuándo y te llamamos.",
+    "whatsappNote": "WhatsApp funciona desde cualquier país."
   },
   "services": {
-    "documentTitle": "Servicios de software web, móvil y de reservas | Likwiid",
-    "title": "Servicios",
-    "subtitle": "Cuatro tipos de trabajo, cada uno definido, diseñado y desarrollado por la persona con la que hablas.",
-    "bookingPrice": "La mayoría de las webs de reservas tardan de 2 a 4 semanas.",
-    "bookingLink": "Ver Likwiid Direct",
+    "documentTitle": "Páginas de reservas y webs para pequeños negocios | Likwiid",
+    "title": "Qué hacemos",
+    "subtitle": "Dos tipos de trabajo para pequeños hoteles, casas de huéspedes, operadores turísticos y escuelas. Cada uno lo hace la persona con la que hablas.",
+    "bookingLink": "Ver cómo funciona la página de reservas",
     "howTitle": "Cómo trabajamos",
     "step1": "Nos envías un mensaje y Gabriel o Emile responde en menos de 24 horas.",
-    "step2": "Hacemos una llamada corta para definir el alcance del trabajo.",
-    "step3": "Recibes una propuesta con precio fijo en pocos días.",
-    "founderLine": "Dirigido por su fundador. De dos a tres proyectos a la vez, así que siempre hablas con la persona que lo construye."
+    "step2": "Hacemos una llamada corta, o seguimos por escrito si lo prefieres.",
+    "step3": "Recibes un precio fijo por escrito en pocos días.",
+    "founderLine": "Dos personas, sin equipo de ventas. Siempre hablas con la persona que hace tu página.",
+    "kind1Title": "Una página de reservas en la web que ya tienes",
+    "kind1Body": "Tu web se queda como está. Añadimos una página donde tus huéspedes eligen las fechas, ven el precio y reservan o envían una solicitud. Te la instalamos nosotros.",
+    "kind1Item1": "Tus huéspedes reservan y pagan una señal con tarjeta, o envían una solicitud que confirmas tú",
+    "kind1Item2": "El dinero va a una cuenta de pagos a tu nombre",
+    "kind1Item3": "Tu calendario en las plataformas de reservas cierra las mismas fechas",
+    "kind2Title": "Una web nueva completa con reservas incluidas",
+    "kind2Body": "Para un negocio que no tiene web, o que tiene una que ya no funciona bien en el móvil. La escribimos en los idiomas que hablan tus huéspedes y le incorporamos las reservas.",
+    "kind2Item1": "Tus fotos, tus precios y tus condiciones, fáciles de leer en el móvil",
+    "kind2Item2": "Reservas con señal por tarjeta, o por solicitud",
+    "kind2Item3": "Tu dominio y tu web siguen a tu nombre",
+    "kindTime": "La mayoría de los trabajos tardan de 2 a 4 semanas.",
+    "exampleLink": "Ver la que ya funciona para una escuela náutica",
+    "afterTitle": "Después del lanzamiento",
+    "afterBody1": "La persona que hizo tu página sigue ocupándose de ella. Escribes a Gabriel por WhatsApp o por correo y recibes respuesta en menos de 24 horas.",
+    "afterBody2": "Si algo que hicimos deja de funcionar, lo arreglamos. Si más adelante quieres algo nuevo, recibes el precio por escrito antes de que empiece el trabajo.",
+    "afterBody3": "La página, las reservas y la lista de huéspedes son tuyas. Si dejas de trabajar con nosotros, se quedan contigo.",
+    "softwareTitle": "Apps y otro software",
+    "softwareBody": "También hacemos apps móviles y otro software. Ese trabajo tiene su propia página.",
+    "softwareLink": "Otro software que hemos hecho"
   },
   "carousel": {
     "previous": "Captura anterior",
@@ -173,29 +210,31 @@
   "products": {
     "docTitle": "Motor de reservas directas y portfolios | Likwiid",
     "title": "Productos",
-    "intro": "Dos motores que construimos nosotros mismos y configuramos para cada cliente, ambos con demos en vivo.",
+    "intro": "Dos productos que hicimos nosotros mismos y preparamos para cada cliente. Puedes probar los dos en una demo en vivo.",
     "demoNote": "Las marcas de las demos son ficticias y cualquier paso de pago es simulado.",
-    "directDesc": "Un motor de reserva directa sin comisiones para pequeños alojamientos y experiencias.",
-    "directBody": "Likwiid Direct recibe reservas en tu propia web: tu dominio, tu cuenta de pagos, tu lista de huéspedes. Sin comisiones, sin intermediarios, sin ataduras. Configurado para cada alojamiento, no una plantilla genérica.",
+    "directDesc": "Una página de reservas para pequeños alojamientos y actividades, sin comisiones.",
+    "directBody": "Likwiid Direct recibe reservas en tu propia web: tu dominio, tu cuenta de pagos, tu lista de huéspedes. Sin comisiones y sin intermediarios. Lo preparamos para tu alojamiento.",
     "directPoint1": "Vive dentro de la web que ya tienes",
     "directPoint2": "Señales con tarjeta, opciones que cambian el precio y el idioma del huésped bien resuelto",
-    "directPoint3": "Sincronización de calendarios por iCal: una reserva directa cierra la fecha en las demás plataformas donde anuncias",
+    "directPoint3": "Tu calendario en las plataformas de reservas cierra las mismas fechas",
     "directPageLink": "Ver Likwiid Direct",
     "directDemoLink": "Abrir la demo en vivo",
     "directImageAlt": "Vista previa de la demo de reservas de Likwiid Direct",
-    "frameDesc": "Un motor de portfolios premium para fotógrafos que quieren una web propia.",
-    "frameBody": "Likwiid Frame convierte una carpeta de configuración y tus carpetas de fotos en una web de portfolio premium con pruebas para clientes, tienda de impresiones y reservas. Mantienes tu dominio y la web terminada es tuya, en archivos.",
-    "framePoint1": "Pruebas para clientes, tienda de impresiones y panel de propietario incluidos",
-    "framePoint2": "Un pipeline de imágenes que respeta tus fotos",
-    "framePoint3": "Pagas una vez, sin suscripción: la web terminada es tuya, en archivos",
+    "frameDesc": "Una web de portfolio para fotógrafos que quieren una web propia.",
+    "frameBody": "Nos envías tus fotos y te entregamos un portfolio terminado que es tuyo. Puede incluir galerías privadas donde tus clientes eligen sus fotos, una tienda de copias y reservas. Conservas tu propio dominio.",
+    "framePoint1": "Galerías privadas para clientes, tienda de copias y panel de propietario",
+    "framePoint2": "Tus fotos se ven nítidas y cargan rápido",
+    "framePoint3": "Pagas una vez, sin suscripción, y la web terminada es tuya",
     "framePageLink": "Ver Likwiid Frame",
     "frameDemoLink": "Abrir la demo en vivo",
-    "frameImageAlt": "Vista previa de un portfolio de demo de Likwiid Frame"
+    "frameImageAlt": "Vista previa de un portfolio de demo de Likwiid Frame",
+    "directPrice": "De 300 a 600 €, una sola vez, en la web que ya tienes. De 900 a 1.700 €, una sola vez, por una web nueva completa con reservas.",
+    "framePrice": "Unos 400 €, una sola vez, o unos 900 €, una sola vez, con galerías para clientes, tienda de copias y reservas."
   },
   "portfolio": {
-    "documentTitle": "Proyectos: plataformas de reservas y apps | Likwiid",
-    "title": "Proyectos que convierten operaciones caóticas en software propio",
-    "subtitle": "Apps y webs que diseñamos, desarrollamos y lanzamos, para clientes y para nuestro propio estudio.",
+    "documentTitle": "Lo que hemos hecho: página de reservas real y demos | Likwiid",
+    "title": "Lo que hemos hecho",
+    "subtitle": "Empieza por la página de reservas que hicimos para una escuela náutica de Valencia. Después prueba tú mismo dos demos.",
     "hospitalityBody": "Webs de reservas donde tus huéspedes reservan y te pagan directamente, sin comisiones. La web, las reservas y tu lista de huéspedes son tuyas.",
     "previewAlt": "Vista previa del proyecto {{title}}",
     "viewCaseStudyAria": "Ver el caso de estudio de {{title}}",
@@ -208,10 +247,15 @@
     "studioProductLabel": "Producto del estudio",
     "studioIntro": "Productos que diseñamos, desarrollamos y lanzamos con el nombre Likwiid. Los mismos estándares, nuestra propia hoja de ruta.",
     "statusLive": "En producción",
-    "statusShipped": "Entregado",
+    "statusShipped": "Disponible",
     "statusInDevelopment": "En desarrollo",
     "filterAll": "Todos",
-    "filterLabel": "Filtrar proyectos"
+    "filterLabel": "Filtrar proyectos",
+    "demosTitle": "Dos demos que puedes probar",
+    "demoLabel": "Demo",
+    "otherTitle": "Otro software que hemos hecho",
+    "otherBody": "Apps móviles para clientes y para nosotros, y el trabajo de ingeniería que hay detrás.",
+    "otherLink": "Ver el otro software"
   },
   "direct": {
     "docTitle": "Likwiid Direct: reservas directas para casas rurales",
@@ -220,7 +264,7 @@
     "heroSubtitle": "Likwiid Direct es un motor de reserva directa para casas rurales y experiencias. Sin comisiones, sin intermediarios, sin ataduras. Tú conservas tu dominio, tu cuenta de pagos y tu lista de huéspedes.",
     "audience": "Pensado para pequeños hoteles, casas de huéspedes, operadores turísticos, salones de belleza y clínicas.",
     "ctaDemo": "Prueba la demo en vivo",
-    "ctaTalk": "Habla con nosotros",
+    "ctaTalk": "Pregunta por tu alojamiento",
     "demoTitle": "Pruébalo tú mismo",
     "demoNote": "Quinta Likwiid y Atelier Likwiid son ficticios. Existen para que puedas recorrer el motor exacto que construiríamos para ti. El pago es simulado y no se cobra nada.",
     "feature1Title": "Opciones que cambian el precio",
@@ -228,7 +272,7 @@
     "feature2Title": "Una señal, no el importe total",
     "feature2Desc": "La mayoría de los alojamientos pequeños ya piden un 20 o un 30 por ciento por transferencia bancaria. Likwiid Direct cobra esa misma señal con tarjeta, en el momento exacto en que el huésped se decide, y el resto queda pendiente para pagar a la llegada.",
     "feature3Title": "Vive dentro de la web que ya tienes",
-    "feature3Desc": "Una etiqueta de script y un div en cualquier web hecha con WordPress, Wix o a mano. Sin rehacer nada, sin migraciones. Tu web sigue siendo tuya y las reservas llegan directamente a ti.",
+    "feature3Desc": "Va en la web que ya tienes, sea de WordPress, de Wix o hecha a mano, y te lo instalamos nosotros. Sin rehacer nada y sin trasladar tu web. Tu web sigue siendo tuya y las reservas llegan directamente a ti.",
     "feature4Title": "El idioma de tu huésped, bien hecho",
     "feature4Desc": "Cada paso, cada etiqueta y cada precio en el idioma que elige el huésped. Nada a medio traducir y ninguna etiqueta interna a la vista.",
     "feature5Title": "Plazas libres, y lista de espera cuando se llena",
@@ -269,7 +313,7 @@
       "padel-clubs": "Clubes de pádel",
       "dive-centres": "Centros de buceo"
     },
-    "scarcity": "Este motor todavía no gestiona las reservas de nadie, así que el primer alojamiento obtiene un precio de referencia a cambio de dejarnos mostrar el resultado. Si una plataforma ya te funciona bien y la comisión no te molesta, este producto no es para ti.",
+    "scarcity": "Nuestra primera página de reservas en funcionamiento es la que hicimos para la Escuela Náutica de Valencia. Likwiid Direct es la misma idea preparada para alojamientos, y todavía no tiene ningún alojamiento como cliente de pago. Por eso el primero paga la parte baja del precio, a cambio de dejarnos mostrar el resultado. Si una plataforma ya te funciona bien y la comisión no te molesta, este producto no es para ti.",
     "demoLaunch": "Abrir la demo completa",
     "demoPreviewAlt": "Vista previa del flujo de reservas de Likwiid Direct",
     "demoCard1Title": "Una estancia en casa de huéspedes",
@@ -277,7 +321,7 @@
     "demoCard2Title": "Clases y talleres",
     "demoCard2Property": "Atelier Likwiid",
     "syncTitle": "Sin dobles reservas",
-    "syncBody": "Likwiid Direct importa las fechas ocupadas desde los calendarios que ya usas. Sirve cualquier plataforma que exporte un feed iCal, y esas fechas se cierran aquí automáticamente. También exporta un feed por unidad, así que una reserva directa cierra la fecha en todos los demás sitios donde anuncias. En la demo en vivo, el calendario sincronizado contiene datos de ejemplo. La sincronización no es instantánea: los feeds se actualizan a intervalos programados, y el calendario muestra cuándo se sincronizó por última vez, así que siempre sabes lo actualizadas que están las fechas ocupadas.",
+    "syncBody": "Likwiid Direct recoge las fechas ocupadas de los calendarios que ya usas. Sirve cualquier plataforma que deje compartir su calendario, y esas fechas se cierran aquí automáticamente. También comparte un calendario por cada unidad, así que una reserva directa cierra la fecha en todos los demás sitios donde anuncias. En la demo en vivo, el calendario sincronizado contiene datos de ejemplo. La sincronización no es instantánea: los calendarios se actualizan cada cierto tiempo, y el calendario muestra cuándo se sincronizó por última vez, así que siempre sabes lo actualizadas que están las fechas ocupadas.",
     "requestTitle": "Nada se confirma sin ti",
     "requestBody": "Likwiid Direct funciona en modo solicitud para los propietarios que confirman cada reserva ellos mismos. El visitante elige fechas, número de personas y extras, ve un total estimado y te lo envía. No se reserva nada y no se cobra nada. La solicitud llega con todo lo que de otro modo tendrías que preguntar, y tú confirmas, propones otra fecha o la rechazas, igual que hoy.",
     "requestNote": "Cuando quieras que las reservas se confirmen solas, pasa a reserva instantánea con señal por tarjeta desde tu panel de propietario. La misma página, el mismo calendario.",
@@ -305,25 +349,26 @@
     "ownerMockLegendBlocked": "Bloqueado",
     "ownerCaption": "Una ilustración de la vista del propietario.",
     "siteTitle": "¿Necesitas la web completa?",
-    "siteBody": "También diseñamos y desarrollamos la web completa alrededor del motor: diseño, desarrollo y lanzamiento, mobile-first, en 2 a 4 semanas.",
-    "siteItem1": "Diseño y desarrollo, mobile-first",
+    "siteBody": "También diseñamos y desarrollamos la web completa alrededor, pensada para leerse bien en el móvil, en 2 a 4 semanas.",
+    "siteItem1": "Diseño y desarrollo que se lee bien en el móvil",
     "siteItem2": "Flujo de reserva o de pedido en línea",
     "siteItem3": "Enlace directo a WhatsApp integrado",
     "siteItem4": "Alojamiento y configuración del dominio",
     "siteItem5": "Formación para que tu equipo pueda gestionarlo",
     "siteItem6": "Una persona real que responde en menos de 24 horas",
-    "proofBody": "Ya lo hemos hecho antes: una plataforma de reserva de pistas donde los jugadores reservan y pagan desde el móvil, y los propietarios lo gestionan todo desde un solo panel.",
-    "proofLink": "Ver el caso de estudio de reservas de pádel"
+    "proofBody": "Nuestra primera página de reservas en funcionamiento es la que hicimos para la Escuela Náutica de Valencia. Los alumnos eligen un día de curso y pagan la señal de su plaza en el dominio de la propia escuela.",
+    "proofLink": "Ver el caso de la escuela náutica",
+    "faqTitle": "Preguntas que hacen los propietarios"
   },
   "frame": {
     "docTitle": "Likwiid Frame: web de portfolio para fotógrafos sin cuotas",
     "eyebrow": "Producto Likwiid",
     "heroTitle": "Un portfolio que es tuyo hasta el último archivo.",
-    "heroSubtitle": "Likwiid Frame es un motor de portfolios para fotógrafos, con pruebas para clientes, tienda de impresiones y reservas integradas. Pagas una vez, conservas tu propio dominio y la web es tuya en archivos, sin suscripción.",
+    "heroSubtitle": "Likwiid Frame es un motor de portfolios para fotógrafos, con selección de fotos para clientes, tienda de copias y reservas integradas. Pagas una vez, conservas tu propio dominio y la web es tuya en archivos, sin suscripción.",
     "ctaDemo": "Prueba las demos en vivo",
-    "ctaTalk": "Habla con nosotros",
+    "ctaTalk": "Haz una pregunta",
     "demoTitle": "Pruébalo tú mismo",
-    "demoNote": "Ana Likwiid Photography y Studio Likwiid son ficticios: un solo motor, dos marcas que parecen estudios distintos. Las pruebas y el pago son simulados y no se cobra nada.",
+    "demoNote": "Ana Likwiid Photography y Studio Likwiid son ficticios: un solo motor, dos marcas que parecen estudios distintos. La selección de fotos y el pago son simulados y no se cobra nada.",
     "demoLaunch": "Abrir la demo completa",
     "demoCard1Title": "Una fotógrafa de bodas",
     "demoCard1Brand": "Ana Likwiid Photography",
@@ -332,15 +377,15 @@
     "demoCard2Brand": "Studio Likwiid",
     "demoCard2PreviewAlt": "Vista previa de Studio Likwiid, un portfolio artístico y comercial creado con Likwiid Frame",
     "adminTitle": "Y la parte que solo tú ves",
-    "adminBody": "Cada web Frame incluye un panel de propietario con tu marca: reordena galerías, publica fotos, edita textos y precios, sigue las pruebas y revisa los pedidos de impresiones.",
+    "adminBody": "Cada web Frame incluye un panel de propietario con tu marca: reordena galerías, publica fotos, edita textos y precios, sigue la selección de fotos de tus clientes y revisa los pedidos de copias.",
     "adminLink": "Abrir la demo del panel de propietario",
     "painTitle": "¿Por qué no simplemente una plataforma?",
     "painBody": "Las plataformas de portfolio te alquilan tu propio trabajo. La suscripción sube cada año, e irte significa empezar de cero, porque tus galerías, las selecciones de tus clientes y tu posicionamiento en buscadores se quedan en sus servidores. Frame se entrega como archivos que son tuyos, en tu propio dominio, sin nada que renovar.",
     "pipelineNote": "Cada foto se sirve al tamaño adecuado en formatos modernos, con tus datos de copyright conservados, para que las páginas carguen rápido y la búsqueda de imágenes te atribuya la autoría.",
-    "feature3Title": "Pruebas para clientes incluidas",
+    "feature3Title": "Selección de fotos para clientes incluida",
     "feature3Desc": "Cada cliente tiene una galería privada para elegir sus favoritas, dejar notas en las fotos y enviar una selección que respeta el número incluido en su paquete.",
-    "feature4Title": "Una tienda de impresiones lista para conectar",
-    "feature4Desc": "Pon imágenes a la venta con tamaños y precios, y tus clientes encargan impresiones a través de un carrito conectado a tu propia cuenta de pagos.",
+    "feature4Title": "Una tienda de copias lista para conectar",
+    "feature4Desc": "Pon imágenes a la venta con tamaños y precios, y tus clientes encargan copias a través de un carrito conectado a tu propia cuenta de pagos.",
     "feature5Title": "Reservas, con nuestro otro producto",
     "feature5Desc": "En la página de contacto de Ana, el calendario de reservas es Likwiid Direct, nuestro motor de reservas, integrado en vivo. Los dos productos funcionan juntos y ninguno depende del otro.",
     "synergyLink": "Ver Likwiid Direct",
@@ -353,7 +398,7 @@
     "tier1Desc": "El portfolio público: galerías, sobre mí, servicios y contacto, en tu propio dominio, entregado como archivos que son tuyos.",
     "tier2Name": "Versión completa",
     "tier2Price": "unos 900 €",
-    "tier2Desc": "Todo lo de Portfolio, más las pruebas para clientes, la tienda de impresiones y la reserva integrada.",
+    "tier2Desc": "Todo lo de Portfolio, más la selección de fotos para clientes, la tienda de copias y la reserva integrada.",
     "scarcity": "Este motor todavía no gestiona el portfolio de ningún fotógrafo, así que el primer portfolio real obtiene la parte baja de esa franja a cambio de dejarnos mostrar el resultado. Si una suscripción a una plataforma ya te funciona bien, es una forma perfectamente válida de llevar un estudio, y este producto no es para ti."
   },
   "guides": {
@@ -371,14 +416,15 @@
     "allGuides": "Todas las guías",
     "ctaTitle": "¿Quieres una segunda opinión sobre tu caso?",
     "ctaBody": "Cuéntanos cómo recibes hoy las reservas o los clientes. Respondemos en 24 horas y te lo diremos con franqueza si lo que ya tienes funciona.",
-    "ctaButton": "Habla con nosotros"
+    "ctaButton": "Haz una pregunta",
+    "readMoreTitle": "Guías que conviene leer primero"
   },
   "privacy": {
     "documentTitle": "Política de privacidad | Likwiid",
     "title": "Política de privacidad",
     "lastUpdated": "Última actualización: {{date}}",
     "collectTitle": "Información que recopilamos",
-    "collectBody": "Cuando utilizas nuestro formulario de contacto, recopilamos la información que proporcionas: tu nombre, dirección de correo electrónico, nombre de la empresa (si lo indicas) y el contenido del mensaje. No recopilamos ninguna información de forma automática más allá de lo estrictamente necesario para el funcionamiento del sitio web.",
+    "collectBody": "Cuando utilizas nuestro formulario de contacto, recopilamos la información que proporcionas: tu nombre, dirección de correo electrónico, dirección de tu web (si la indicas) y el contenido del mensaje. No recopilamos ninguna información de forma automática más allá de lo estrictamente necesario para el funcionamiento del sitio web.",
     "useTitle": "Cómo usamos tu información",
     "useBody": "Usamos la información que envías a través de nuestro formulario de contacto únicamente para responder a tu consulta y conversar sobre posibles proyectos. No te enviaremos comunicaciones de marketing a menos que hayas dado tu consentimiento expreso para recibirlas.",
     "sharingTitle": "Cesión de datos",
@@ -399,7 +445,10 @@
     "updatesTitle": "Actualizaciones de esta política",
     "updatesBody": "Podemos actualizar esta política de privacidad de vez en cuando. Cualquier cambio se reflejará en esta página con una fecha de revisión actualizada. Te animamos a revisar esta política periódicamente.",
     "contactTitle": "Contacto",
-    "contactBody": "Si tienes alguna pregunta sobre esta política de privacidad o sobre cómo gestionamos tus datos, escríbenos a"
+    "contactBody": "Si tienes alguna pregunta sobre esta política de privacidad o sobre cómo gestionamos tus datos, escríbenos a",
+    "emailTitle": "Si has recibido un correo nuestro",
+    "emailBody1": "A veces escribimos a pequeños negocios turísticos sobre su web. Tomamos la dirección de correo de la propia web pública del negocio o de un directorio público de empresas. No compramos listas.",
+    "emailBody2": "Escribimos porque creemos que nuestro trabajo puede ser útil para el negocio. Este es nuestro interés legítimo según la normativa de protección de datos. Para que dejemos de escribirte, responde con la palabra stop o escribe a gabriel@likwiid.com. Entonces borramos tu dirección y guardamos solo una nota para no volver a escribirte."
   },
   "notFound": {
     "documentTitle": "Página no encontrada | Likwiid",
@@ -424,7 +473,7 @@
       "fixErrors": "Revisa el campo marcado para ver tus resultados.",
       "privacyNote": "El cálculo se hace en tu navegador. Los números que escribes no se envían ni se guardan.",
       "howTitle": "Cómo se calcula",
-      "ctaContact": "Habla con nosotros"
+      "ctaContact": "Haz una pregunta"
     },
     "ota": {
       "name": "Calculadora de comisiones de OTA",
@@ -499,7 +548,7 @@
       "howBody2": "Total del pago único = presupuesto de la web + alojamiento y dominio al año × años.",
       "howBody3": "El punto de equilibrio es el primer mes en que el total de la suscripción supera al del pago único. Todas las cifras se mantienen fijas en el tiempo; si esperas que la cuota suba, pon una media.",
       "ctaTitle": "Un portfolio que pagas una vez",
-      "ctaBody": "Likwiid Frame es un portfolio para fotógrafos que es tuyo en archivos, con pruebas para clientes, tienda de copias y reservas. Sin cuotas.",
+      "ctaBody": "Likwiid Frame es un portfolio para fotógrafos que es tuyo en archivos, con selección de fotos para clientes, tienda de copias y reservas. Sin cuotas.",
       "ctaFrame": "Ver Likwiid Frame",
       "crossLink": "Compara una suscripción con una web pagada una vez en la calculadora gratuita"
     }
@@ -527,23 +576,26 @@
     "techStack": "Stack tecnológico",
     "underTheHood": "Bajo el capó",
     "notableEngineering": "Ingeniería destacada",
-    "similarProject": "¿Tienes un proyecto similar?",
-    "similarProjectBody": "Cuéntanos qué necesitas. Respondemos en menos de 24 horas.",
-    "startProject": "Empieza un proyecto",
+    "similarProject": "¿Quieres algo así?",
+    "similarProjectBody": "Cuéntanos qué negocio llevas. Con una línea basta, y respondemos en menos de 24 horas.",
+    "startProject": "Escribe a Gabriel",
     "whatsapp": "Escríbenos por WhatsApp",
     "nextProject": "Siguiente proyecto",
     "openSourceLabel": "Código abierto",
     "openSourceBody": "{{name}} es libre y de código abierto, con licencia GPL-3.0 o posterior.",
-    "openSourceLink": "Ver {{name}} en la página de código abierto"
+    "openSourceLink": "Ver {{name}} en la página de código abierto",
+    "quoteTranslatedEs": "Traducido del español.",
+    "nextDirectLabel": "Siguiente",
+    "nextDirect": "La misma idea para alojamientos: Likwiid Direct"
   },
   "projectsData": {
     "parallel": {
       "title": "Parallel Ski App",
-      "subtitle": "Una app de esquí y snowboard para Líbano, con previsiones de nieve y un mapa en directo de tus amigos",
-      "oneLiner": "Una app de esquí y snowboard para las seis estaciones de Líbano, con un mapa de grupo en directo y previsiones de nieve.",
-      "description": "Parallel reúne las seis estaciones de esquí de Líbano en una sola app: Mzaar, Cedars, Laqlouq, Faqra, Zaarour y Qanat Bakish. Los esquiadores tienen una previsión para cada montaña, mapas 3D de las estaciones, un mapa en directo de sus amigos y contacto directo con instructores y escuelas, en árabe, inglés y francés. Gabriel Ghoussoub dirige la ingeniería para Parallel Inc.",
+      "subtitle": "Una app de esquí y snowboard para el Líbano, con previsiones de nieve y un mapa en directo de tus amigos",
+      "oneLiner": "Una app de esquí y snowboard para las seis estaciones del Líbano, con un mapa de grupo en directo y previsiones de nieve.",
+      "description": "Parallel reúne las seis estaciones de esquí del Líbano en una sola app: Mzaar, Cedars, Laqlouq, Faqra, Zaarour y Qanat Bakish. Los esquiadores tienen una previsión para cada montaña, mapas 3D de las estaciones, un mapa en directo de sus amigos y contacto directo con instructores y escuelas, en árabe, inglés y francés. Gabriel Ghoussoub dirige la ingeniería para Parallel Inc.",
       "previewAlt": "Mapa de Mzaar en Parallel, con pistas, remontes y tres amigos dibujados como esquiadores",
-      "seoDescription": "Parallel es una app de esquí y snowboard para las seis estaciones de Líbano: previsión de nieve, mapas 3D y un mapa de grupo en directo, en iOS y Android.",
+      "seoDescription": "Parallel es una app de esquí y snowboard para las seis estaciones del Líbano: previsión de nieve, mapas 3D y un mapa de grupo en directo, en iOS y Android.",
       "challenge": "Un día en la nieve significa saber qué tiempo hace en esa montaña, encontrar a tus amigos en la estación y contactar con un instructor. La app tiene que mostrar posiciones en directo en un mapa 3D con teléfonos normales, seguir funcionando con poca cobertura y dejar batería para el viaje de vuelta.",
       "approach": "Creamos una sola app para iOS y Android, con su servidor, su panel de administración y su web pública, para que un cambio llegue a todos rápidamente. El mapa dibuja las pistas, los remontes y a cada amigo como un esquiador sobre el relieve. Compartir depende del esquiador: tu grupo te ve solo después de hacer check-in, solo en una estación, y cada check-in termina solo a las 8 horas.",
       "results": "Parallel se prepara para el App Store y Google Play antes de la temporada de esquí 2026 a 2027, y su web ya está activa. En un Galaxy S10+, la app ahora se abre en 1,3 segundos en lugar de 2,4, y un teléfono en reposo no pide nada de GPS, cuando antes lo usaba 19 minutos por hora.",
@@ -693,7 +745,7 @@
         },
         {
           "area": "Fiabilidad y entrega",
-          "detail": "Sentry, error boundaries, tests E2E con Playwright, EAS Build y actualizaciones OTA; Docker, GitHub Actions y una copia de seguridad de la base de datos antes de cada despliegue."
+          "detail": "Sentry, error boundaries, pruebas de extremo a extremo con Playwright, EAS Build y actualizaciones OTA; Docker, GitHub Actions y una copia de seguridad de la base de datos antes de cada despliegue."
         }
       ],
       "highlights": [
@@ -715,10 +767,10 @@
       "oneLiner": "Una página de reservas donde el alumno elige el día del curso y paga online la señal de su plaza.",
       "description": "La Escuela Náutica de Valencia imparte la Licencia de Navegación, con prácticas en su propio barco y cinco plazas por día. Ahora el alumno elige un día, rellena sus datos y paga una señal para reservar su plaza, en una página dentro del dominio de la escuela.",
       "previewAlt": "Página de reservas de la Escuela Náutica de Valencia para el curso de Licencia de Navegación",
-      "seoDescription": "Página de reservas para una escuela náutica de Valencia: el alumno elige el día del curso, rellena sus datos y paga la señal de su plaza con tarjeta o Bizum.",
+      "seoDescription": "Página de reservas para una escuela náutica de Valencia: el alumno elige el día del curso, rellena sus datos y paga la señal de su plaza con tarjeta.",
       "challenge": "Cada día de curso tiene cinco plazas en el barco. La escuela quería que los alumnos pudieran elegir día y asegurar su plaza online, con su propio dominio y su propia cuenta de Stripe, en el alojamiento que ya tenía.",
-      "approach": "Creamos una página de reservas en tres pasos: elegir el día, rellenar los datos y pagar la señal con tarjeta o Bizum. La plaza queda retenida 30 minutos mientras el alumno paga y se libera si el pago no se completa. La web principal de la escuela sigue como estaba.",
-      "results": "La página está en marcha en español, con opción de inglés, cinco días después del primer prototipo. Cada pago envía al alumno un justificante y a la escuela un aviso, y la escuela gestiona días y plazas desde su propio panel.",
+      "approach": "Creamos una página de reservas en tres pasos: elegir el día, rellenar los datos y pagar la señal con tarjeta. Bizum también está activado en la cuenta de pagos de la escuela. La plaza queda retenida 30 minutos mientras el alumno paga y se libera si el pago no se completa. La web principal de la escuela sigue como estaba.",
+      "results": "La página se puso en marcha con pagos reales el 15 de octubre de 2026, y desde entonces la escuela lleva en ella sus días de curso reales. Está en español, con opción de inglés. Cada pago envía al alumno un justificante y a la escuela un aviso, los alumnos reciben un correo de recordatorio el día anterior, y la escuela gestiona días y plazas desde su propio panel.",
       "businessResult": "La Escuela Náutica de Valencia ya acepta reservas y señales de plaza online, en su propio dominio y con su propia cuenta de Stripe.",
       "liveLabel": "Ver la web",
       "role": "Diseño, desarrollo y puesta en marcha",
@@ -732,8 +784,8 @@
           "label": "De plaza retenida mientras se paga"
         },
         {
-          "value": "0",
-          "label": "Peticiones a terceros en la página"
+          "value": "15 oct 2026",
+          "label": "En marcha con pagos reales desde"
         }
       ],
       "keyFeatures": [
@@ -746,8 +798,8 @@
           "description": "Se validan DNI, NIE y pasaporte, así que los errores se detectan antes de que nadie pague."
         },
         {
-          "title": "Señal con tarjeta o Bizum",
-          "description": "El alumno paga la señal de su plaza con Stripe Checkout, con tarjeta o con Bizum."
+          "title": "Señal con tarjeta",
+          "description": "El alumno paga la señal de su plaza con tarjeta, en la cuenta de pagos de la propia escuela. Bizum está activado en la misma cuenta."
         },
         {
           "title": "Plaza retenida durante el pago",
@@ -755,7 +807,15 @@
         },
         {
           "title": "Un correo para cada parte",
-          "description": "El alumno recibe un justificante y la escuela un aviso, los dos en español."
+          "description": "El alumno recibe un justificante y la escuela un aviso, los dos en español. El alumno recibe además un recordatorio el día anterior."
+        },
+        {
+          "title": "La reserva se cierra sola",
+          "description": "Un día sin alumnos se cierra 48 horas antes. Un día que ya tiene alumnos se cierra a las 14:00 del día anterior."
+        },
+        {
+          "title": "Las reservas por teléfono en la misma lista",
+          "description": "La escuela añade a mano a los alumnos que reservaron por teléfono, así cada día muestra todas sus plazas en un solo lugar."
         },
         {
           "title": "Solo los datos necesarios",
@@ -765,7 +825,7 @@
       "architecture": [
         {
           "area": "Front end",
-          "detail": "Aplicación de una sola página con React y Vite, en español con opción de inglés, fuentes alojadas en el propio servidor y cero peticiones a terceros."
+          "detail": "Aplicación de una sola página con React y Vite, en español con opción de inglés, y fuentes alojadas en el propio servidor."
         },
         {
           "area": "Backend",
@@ -773,11 +833,11 @@
         },
         {
           "area": "Pagos",
-          "detail": "Stripe Checkout (tarjeta y Bizum) en la cuenta de Stripe de la propia escuela; los webhooks confirman las reservas pagadas y las retenciones sin pagar caducan a los 30 minutos."
+          "detail": "Stripe Checkout (tarjeta, con Bizum activado) en la cuenta de Stripe de la propia escuela; los webhooks confirman las reservas pagadas y las retenciones sin pagar caducan a los 30 minutos."
         },
         {
           "area": "Panel de la escuela",
-          "detail": "Protegido con contraseña: reservas por día, exportación a CSV, cancelaciones, y los días abiertos y plazas que alimentan el calendario público."
+          "detail": "Protegido con contraseña: reservas por día, altas a mano de las reservas por teléfono, impresión y exportación a CSV por día, cancelación de un día entero con aviso a los alumnos, devoluciones, cambio de contraseña, el formulario oficial de la licencia rellenado en PDF, y los días abiertos y plazas que alimentan el calendario público."
         },
         {
           "area": "Seguridad y privacidad",
@@ -793,7 +853,7 @@
       ],
       "companion": {
         "title": "El panel de la escuela",
-        "summary": "Con una contraseña, la escuela ve las reservas de cada día, las exporta a una hoja de cálculo, cancela una reserva y abre o cierra días con su número de plazas. El calendario público se actualiza con esos mismos datos, y los números de documento se borran 30 días después del curso."
+        "summary": "Con una contraseña, la escuela ve las reservas de cada día y añade a mano a los alumnos que reservaron por teléfono, para que las plazas vendidas fuera de la web también cuenten. Imprime o exporta la lista de un día, cancela un día entero y avisa a los alumnos, y devuelve un pago desde el panel. El formulario oficial de la licencia se rellena con los datos de la reserva y sale en PDF. Los números de documento se borran 30 días después del curso."
       }
     },
     "gcg-website": {
@@ -957,12 +1017,12 @@
     },
     "basemile": {
       "title": "BaseMile",
-      "subtitle": "Un coach de running libre y de código abierto que guía cada salida según la frecuencia cardíaca",
-      "oneLiner": "Un coach de running por frecuencia cardíaca, libre y de código abierto, que funciona por completo en el teléfono.",
-      "description": "BaseMile es un coach de running para los días de cardio de la semana Foundational Fitness del libro Protocols de Andrew Huberman. Se conecta a una banda pectoral Bluetooth, da indicaciones con la propia voz del teléfono y convierte cada salida en tendencias claras. Es un proyecto independiente, sin relación con Andrew Huberman ni con Huberman Lab, ni con su respaldo.",
-      "previewAlt": "Pantalla de carrera en directo de BaseMile con la frecuencia cardíaca en zona 2 y el coach activado",
-      "seoDescription": "BaseMile es un coach de running libre y de código abierto que guía cada salida según la frecuencia cardíaca. Sin cuenta ni servidor, datos en el teléfono.",
-      "challenge": "La mayoría de las apps de fitness piden una cuenta, una suscripción y la nube. Un coach por frecuencia cardíaca, además, tiene que seguir hablando con el teléfono en el bolsillo, la pantalla apagada y sin cobertura.",
+      "subtitle": "Un entrenador de running libre y de código abierto que guía cada salida según la frecuencia cardíaca",
+      "oneLiner": "Un entrenador de running por frecuencia cardíaca, libre y de código abierto, que funciona por completo en el teléfono.",
+      "description": "BaseMile es un entrenador de running para los días de cardio de la semana Foundational Fitness del libro Protocols de Andrew Huberman. Se conecta a una banda pectoral Bluetooth, da indicaciones con la propia voz del teléfono y convierte cada salida en tendencias claras. Es un proyecto independiente, sin relación con Andrew Huberman ni con Huberman Lab, ni con su respaldo.",
+      "previewAlt": "Pantalla de carrera en directo de BaseMile con la frecuencia cardíaca en zona 2 y el entrenador activado",
+      "seoDescription": "BaseMile es un entrenador de running libre y de código abierto que guía cada salida según la frecuencia cardíaca. Sin cuenta ni servidor, datos en el teléfono.",
+      "challenge": "La mayoría de las apps de fitness piden una cuenta, una suscripción y la nube. Un entrenador por frecuencia cardíaca, además, tiene que seguir hablando con el teléfono en el bolsillo, la pantalla apagada y sin cobertura.",
       "approach": "Creamos tres tipos de salida: Long, en zona 2 por debajo de un techo MAF; Medium, entre el 75 y el 85 % de la frecuencia cardíaca máxima; y Brief, con repeticiones 30/60 o un 4x4. Todo funciona en el teléfono, sin cuenta, sin servidor, sin sincronización y sin IA.",
       "results": "Publicado como código abierto el 18 de octubre de 2026 con licencia GPL-3.0, con un APK de Android firmado en GitHub. Desde el 31 de octubre de 2026 también está gratis en el App Store para iPhone.",
       "role": "Diseño, desarrollo y publicación como código abierto",
@@ -993,15 +1053,15 @@
         },
         {
           "title": "Indicaciones habladas sin conexión",
-          "description": "Las indicaciones usan la voz del teléfono, así que el coach sigue hablando sin cobertura y, en Android, con la pantalla apagada."
+          "description": "Las indicaciones usan la voz del teléfono, así que el entrenador sigue hablando sin cobertura y, en Android, con la pantalla apagada."
         },
         {
           "title": "Voice Mode",
           "description": "Una pantalla manos libres que mantiene una banda de frecuencia cardíaca estricta y avisa cuando te sales de ella."
         },
         {
-          "title": "Tendencias, rutas y tests",
-          "description": "Ritmo MAF, desacoplamiento, carga de entrenamiento y minutos semanales en zona 2, un mapa de calor de tus rutas, y tests como la frecuencia cardíaca en reposo y la máxima."
+          "title": "Tendencias, rutas y pruebas",
+          "description": "Ritmo MAF, desacoplamiento, carga de entrenamiento y minutos semanales en zona 2, un mapa de calor de tus rutas, y pruebas como la frecuencia cardíaca en reposo y la máxima."
         },
         {
           "title": "Tus salidas se quedan en el teléfono",
@@ -1038,7 +1098,7 @@
         "Totalmente local: sin cuenta, sin servidor, sin sincronización, sin IA, y con la copia de seguridad en la nube de Android desactivada para la app",
         "Las únicas llamadas de red son Open-Meteo (tiempo y altitud, opcionales) y las teselas de OpenFreeMap, sin clave",
         "Una fuente simulada de frecuencia cardíaca escribe en el mismo store que la banda, así que la pantalla de carrera se puede probar sin ella",
-        "Más de 400 tests de Vitest, desde el parser de 0x2A37 hasta las indicaciones del coach",
+        "Más de 400 pruebas automáticas con Vitest, desde el parser de 0x2A37 hasta las indicaciones del entrenador",
         "GPL-3.0 o posterior, con cabeceras de licencia SPDX en los archivos fuente"
       ]
     },
@@ -1195,7 +1255,7 @@
         "Sin permiso de internet: la app no puede enviar nada a ningún sitio",
         "Tipografía Atkinson Hyperlegible, zonas táctiles grandes, modo oscuro, probada con la letra al 200%",
         "Sin rachas ni puntuaciones: \"Let it go\" cuenta como resultado, junto a \"Achieved\"",
-        "15 tests unitarios para la programación de recordatorios y 11 tests de base de datos en el emulador",
+        "15 pruebas unitarias para la programación de recordatorios y 11 pruebas de base de datos en el emulador",
         "GPL-3.0 o posterior, con cabeceras de licencia SPDX en los archivos fuente"
       ]
     },
@@ -1358,11 +1418,11 @@
       ]
     },
     "booking": {
-      "title": "Webs de reservas para hostelería y citas",
+      "title": "Webs de reservas para alojamientos y negocios con cita previa",
       "shortDescription": "Webs donde tus huéspedes y clientes reservan y te pagan directamente.",
       "longDescription": "Para pequeños hoteles, casas de huéspedes, operadores turísticos, salones de belleza y clínicas que quieren reservas sin pagar comisión a una plataforma. Los huéspedes ven la disponibilidad real, pagan una señal y reciben recordatorios, y tú conservas la web, las reservas y la lista de huéspedes.",
       "deliverables": [
-        "Diseño y desarrollo mobile-first",
+        "Diseñada primero para el móvil",
         "Reservas en línea con señal por tarjeta",
         "Recordatorios por email o WhatsApp",
         "Sincronización de calendario con las plataformas que ya usas"
@@ -1382,11 +1442,11 @@
     "architecture": {
       "title": "Arquitectura, nube y rescate de código",
       "shortDescription": "Una revisión sénior, una configuración de nube más limpia o el rescate de un código atascado.",
-      "longDescription": "Algunos proyectos necesitan una revisión clara antes que más código. Auditamos la arquitectura y el código, configuramos el alojamiento en la nube y los pipelines de despliegue, y saneamos bases de código, incluidas las escritas deprisa con herramientas de IA, para que tu equipo vuelva a avanzar.",
+      "longDescription": "Algunos proyectos necesitan una revisión clara antes que más código. Auditamos la arquitectura y el código, configuramos el alojamiento en la nube y el despliegue automático, y saneamos bases de código, incluidas las escritas deprisa con herramientas de IA, para que tu equipo vuelva a avanzar.",
       "deliverables": [
         "Auditorías de arquitectura y código",
-        "Configuración de nube y pipelines de despliegue",
-        "Refactorización y cobertura de tests",
+        "Configuración de nube y despliegue automático",
+        "Refactorización y pruebas automáticas",
         "Un plan escrito con prioridades claras"
       ]
     }
@@ -1452,13 +1512,13 @@
   },
   "seo": {
     "home": {
-      "description": "Webs de reservas, aplicaciones web y apps móviles para alojamientos independientes y fundadores. Un estudio dirigido por sus fundadores que responde en 24 h."
+      "description": "Una página de reservas en tu propia web para alojamientos, operadores turísticos y escuelas. Reservan y te pagan directamente. De 300 a 1.700 €, una sola vez."
     },
     "services": {
-      "description": "Apps web y móviles, webs de reservas para hostelería y citas, integración de IA y automatización, arquitectura cloud y rescate de código."
+      "description": "Una página de reservas añadida a tu web por 300 a 600 €, o una web completa con reservas por 900 a 1.700 €. Se paga una sola vez, sin comisiones."
     },
     "work": {
-      "description": "Casos de estudio: una plataforma de reservas de pádel en iOS y Android, una web de consultoría y apps propias de voz, running, respiración y energía."
+      "description": "La página de reservas que hicimos para la Escuela Náutica de Valencia, en marcha con pagos reales, y dos demos de Likwiid Direct que puedes recorrer."
     },
     "products": {
       "description": "Likwiid Direct, un motor de reservas sin comisiones para pequeños alojamientos, y Likwiid Frame, un portfolio propio para fotógrafos. Ambos con demo."
@@ -1470,14 +1530,14 @@
       "description": "Calculadora gratuita para fotógrafos: compara la suscripción a un creador de webs con un portfolio pagado una vez y encuentra el punto de equilibrio."
     },
     "contact": {
-      "description": "Cuéntanos tu web de reservas o tu app. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Respondemos en menos de 24 horas."
+      "description": "Pregunta por una página de reservas o una web. WhatsApp +961 76 160 979 o gabriel@likwiid.com. Respondemos en menos de 24 horas, en tu idioma."
     },
     "direct": {
       "description": "Motor de reservas sin comisiones en tu propia web, para casas rurales, pequeños hoteles y experiencias. Señal, opciones y lista de espera. Prueba la demo.",
       "serviceType": "Motor de reservas directas"
     },
     "frame": {
-      "description": "Una web de portfolio para fotógrafos que es tuya en archivos, con pruebas para clientes, tienda de copias y reservas. Pagas una vez, sin cuotas.",
+      "description": "Una web de portfolio para fotógrafos que es tuya en archivos, con selección de fotos para clientes, tienda de copias y reservas. Pagas una vez, sin cuotas.",
       "serviceType": "Web de portfolio para fotógrafos"
     },
     "guides": {
@@ -1486,6 +1546,60 @@
     "breadcrumbHome": "Inicio",
     "openSource": {
       "description": "BaseMile, PlateClimb y WOOP: apps libres para correr en Zona 2, entrenar sin conexión y planificar objetivos con WOOP. Sin cuenta ni rastreo, datos en tu móvil."
+    },
+    "software": {
+      "description": "Apps hechas para clientes y para nosotros: esquí, reservas de pádel, running y entrenamiento. Y servicios de ingeniería web, móvil y de IA."
     }
+  },
+  "founderLine": {
+    "text": "Soy Gabriel Ghoussoub. Lo hago yo y te respondo yo mismo, en menos de 24 horas.",
+    "photoAlt": "Gabriel Ghoussoub"
+  },
+  "sticky": {
+    "whatsapp": "WhatsApp con Gabriel"
+  },
+  "price": {
+    "title": "Cuánto cuesta",
+    "band1Name": "Una página de reservas añadida a la web que ya tienes",
+    "band1Price": "De 300 a 600 €, una sola vez",
+    "band2Name": "Una web nueva completa con reservas incluidas",
+    "band2Price": "De 900 a 1.700 €, una sola vez",
+    "band3Name": "Un portfolio para fotógrafos (Likwiid Frame)",
+    "band3Price": "unos 400 €, o unos 900 € con selección de fotos para clientes, tienda de copias y reservas",
+    "noFee": "Sin comisión por las reservas y sin cuota mensual para Likwiid.",
+    "running": "Los costes habituales de cualquier web los pagas directamente a los proveedores: tu dominio, el hosting de tu web y las comisiones de tarjeta de tu propia cuenta de pagos.",
+    "written": "Recibes el precio exacto por escrito antes de empezar nada.",
+    "terms": "Pagas una parte cuando nos ponemos de acuerdo, y el resto solo cuando tu página está en marcha. Si no llega a ponerse en marcha, no pagas el resto.",
+    "firstProperty": "Likwiid Direct todavía no tiene ningún alojamiento como cliente de pago. El primero paga la parte baja del precio, a cambio de dejarnos mostrar el resultado.",
+    "short": "Una página de reservas en la web que ya tienes cuesta de 300 a 600 €, una sola vez. Una web nueva completa con reservas cuesta de 900 a 1.700 €, una sola vez."
+  },
+  "faq": {
+    "costQ": "¿Cuánto cuesta?",
+    "costA": "Una página de reservas añadida a la web que ya tienes cuesta de 300 a 600 €, una sola vez. Una web nueva completa con reservas incluidas cuesta de 900 a 1.700 €, una sola vez. No hay comisión ni cuota mensual para Likwiid. Recibes el precio exacto por escrito antes de empezar nada.",
+    "siteQ": "¿Necesito una web nueva?",
+    "siteA": "No. La página de reservas va en la web que ya tienes, y te la instalamos nosotros. Si no tienes web, o quieres una nueva, también la hacemos.",
+    "afterQ": "¿Quién se ocupa de ella después del lanzamiento?",
+    "afterA": "La misma persona que la hizo. Escribes a Gabriel por WhatsApp o por correo y recibes respuesta en menos de 24 horas. Cualquier cambio que pidas más adelante tiene su precio por escrito antes de que empiece el trabajo.",
+    "payQ": "¿Cómo y cuándo pago?",
+    "payA": "Pagas una parte cuando nos ponemos de acuerdo, y el resto solo cuando tu página está en marcha. Si no llega a ponerse en marcha, no pagas el resto.",
+    "platformQ": "Una plataforma de reservas ya me funciona. ¿Necesito esto?",
+    "platformA": "Si una plataforma ya te funciona bien y la comisión no te molesta, esto no es para ti. Una página de reservas en tu propia web es para los huéspedes que ya te buscan directamente.",
+    "moneyQ": "¿Cómo llega el dinero a mi cuenta?",
+    "moneyA": "Los pagos con tarjeta entran en una cuenta de pagos abierta a tu nombre, por ejemplo Stripe. El dinero va del huésped a ti. Likwiid nunca lo tiene en sus manos.",
+    "stopQ": "¿Qué pasa si dejo de trabajar con vosotros?",
+    "stopA": "La página, las reservas y la lista de huéspedes son tuyas y se quedan contigo. Tu dominio y tu cuenta de pagos están a tu nombre desde el primer día.",
+    "termsQ": "¿Ven los huéspedes mis condiciones de cancelación antes de reservar?",
+    "termsA": "Sí. Tus condiciones de cancelación y de pago están en el último paso, y nadie puede reservar ni enviar una solicitud sin marcar que las ha leído.",
+    "languageQ": "¿Funciona en el idioma de mis huéspedes?",
+    "languageA": "Hoy los pasos de la reserva están en inglés, francés, español, portugués y polaco. Cada paso, cada texto y cada precio se muestran en el idioma que elige el huésped, sin nada a medio traducir. ¿Necesitas otro idioma? Pregunta y te decimos qué hace falta."
+  },
+  "software": {
+    "documentTitle": "Otro software que hemos hecho: apps e ingeniería | Likwiid",
+    "crumb": "Otro software",
+    "title": "Otro software que hemos hecho",
+    "subtitle": "Apps móviles y web para clientes y para nuestro propio estudio, y los servicios de ingeniería que hay detrás. Si llevas un hotel, una casa de huéspedes o una escuela, empieza por el trabajo de reservas.",
+    "backToWork": "Ver el trabajo de reservas",
+    "servicesHeading": "Servicios de ingeniería",
+    "cta": "Pregunta por un proyecto de software"
   }
 }

@@ -15,7 +15,7 @@ const es: DirectMarketContent = {
   ],
   demo: 'escuela-likwiid',
   ctaDemo: 'Prueba la demo más parecida',
-  ctaTalk: 'Habla con nosotros',
+  ctaTalk: 'Haz una pregunta',
   demoNote:
     'Todavía no hay una demo de buceo. La más parecida es Escuela Likwiid, una escuela náutica ficticia con cursos de varios días, plazas por sesión y un paso de documentos. Los archivos no salen de tu navegador y el pago es simulado.',
   sections: [
@@ -65,6 +65,14 @@ const es: DirectMarketContent = {
         'Para las inmersiones que piden más atención, usa el modo solicitud: el buceador envía la reserva con sus documentos, tú los revisas y solo entonces la confirmas. La decisión sigue siendo tuya y de tus instructores.',
       ],
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Ya funciona para una escuela náutica',
+      body: 'La página de reservas que hicimos para la Escuela Náutica de Valencia funciona igual: cursos con un número de plazas, el número de documento comprobado con la reserva y pago en la web de la propia escuela. Recibe reservas reales desde octubre de 2026.',
+      linkLabel: 'Leer cómo funciona la página de reservas de la escuela',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Lo que nos preguntan los centros de buceo',
   faq: [
@@ -85,8 +93,8 @@ const es: DirectMarketContent = {
       a: 'Lo decides tú: cuántos días después de la actividad se borran. El paso de subida se lo indica al buceador antes de que envíe nada.',
     },
     {
-      q: '¿Cobráis comisión por las reservas?',
-      a: 'No. No hay comisión sobre ninguna inmersión ni ningún curso. Cuéntanos cómo es tu centro y te explicamos qué supone ponerlo en marcha.',
+      q: '¿Cuánto cuesta, y cobráis comisión?',
+      a: 'No hay comisión sobre ninguna inmersión ni ningún curso, ni cuota mensual para Likwiid. Una página de reservas en la web que ya tienes cuesta de 300 a 600 €, una sola vez. Una web nueva completa con reservas cuesta de 900 a 1.700 €, una sola vez.',
     },
   ],
   closingTitle: 'Cuéntanos cómo reserva hoy tu centro',
