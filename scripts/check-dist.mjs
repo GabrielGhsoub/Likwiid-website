@@ -75,6 +75,7 @@ const REQUIRED_PAGES = {
   'es/direct/casa-rural': 'es',
   'it/direct/agriturismo-bb': 'it',
   'fr/direct/chambres-d-hotes': 'fr',
+  'direct/guesthouses': 'en',
   ...Object.fromEntries(
     ['padel-clubs', 'dive-centres'].flatMap((page) => [
       [`direct/${page}`, 'en'],

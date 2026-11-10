@@ -15,7 +15,7 @@ const en: DirectMarketContent = {
   ],
   demo: 'escuela-likwiid',
   ctaDemo: 'Try the closest demo',
-  ctaTalk: 'Talk to us',
+  ctaTalk: 'Ask a question',
   demoNote:
     'There is no dive demo yet. The closest one is Escuela Likwiid, a fictional sailing school in Spanish and English with courses over several days, places per session and a documents step. Uploads stay in your browser and the checkout is simulated.',
   sections: [
@@ -65,6 +65,14 @@ const en: DirectMarketContent = {
         'For dives that need a closer look, use request mode: the diver sends the booking with their documents, you check them, and only then do you confirm. The decision stays with you and your instructors.',
       ],
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Already live for a sailing school',
+      body: 'The booking page we built for Escuela Náutica de Valencia works the same way: courses with a number of places, documents collected with the booking, and payment on the school\'s own website. It has taken real bookings since October 2026.',
+      linkLabel: 'Read how the school\'s booking page works',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Questions dive centres ask',
   faq: [
@@ -85,8 +93,8 @@ const en: DirectMarketContent = {
       a: 'You set how many days after the activity they are deleted, and the upload step tells divers so before they send anything.',
     },
     {
-      q: 'Do you take a commission on bookings?',
-      a: 'No. There is no commission on any dive or course. Tell us about your centre and we will explain what setting it up involves.',
+      q: 'What does it cost, and do you take a commission?',
+      a: 'There is no commission on any dive or course and no monthly fee to Likwiid. A booking page on the website you already have costs EUR 300 to 600, once. A complete new website with booking costs EUR 900 to 1,700, once.',
     },
   ],
   closingTitle: 'Tell us how your centre books today',

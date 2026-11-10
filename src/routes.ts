@@ -25,6 +25,7 @@ export const DIRECT_MARKET_PAGES: Record<DirectMarket, PreloadableRoute> = {
   'casa-rural': lazyRoute(() => import('./pages/directMarkets/CasaRural')),
   'agriturismo-bb': lazyRoute(() => import('./pages/directMarkets/AgriturismoBb')),
   'chambres-d-hotes': lazyRoute(() => import('./pages/directMarkets/ChambresDHotes')),
+  guesthouses: lazyRoute(() => import('./pages/directMarkets/Guesthouses')),
   'padel-clubs': lazyRoute(() => import('./pages/directMarkets/PadelClubs')),
   'dive-centres': lazyRoute(() => import('./pages/directMarkets/DiveCentres')),
 }

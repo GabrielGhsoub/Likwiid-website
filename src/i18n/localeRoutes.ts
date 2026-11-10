@@ -89,6 +89,7 @@ export const DIRECT_MARKETS = {
   'casa-rural': ['es'],
   'agriturismo-bb': ['it'],
   'chambres-d-hotes': ['fr'],
+  guesthouses: ['en'],
   'padel-clubs': SUPPORTED_LANGUAGES,
   'dive-centres': SUPPORTED_LANGUAGES,
 } as const satisfies Record<string, readonly Lang[]>
