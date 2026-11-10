@@ -10,7 +10,7 @@ import { umamiAttrs } from '../../utils/analytics'
 
 const ESCUELA_SLUG = 'escuela-nautica-valencia'
 const escuela = projects.find((p) => p.slug === ESCUELA_SLUG)
-export const ESCUELA_PHONE_IMAGE = '/images/projects/escuela-nautica/phone.webp'
+export const ESCUELA_PHONE_IMAGE = '/images/projects/escuela-nautica/phone-top.webp'
 
 // The one named tourism client, shown as the lead proof on Home, Work and Direct.
 export function EscuelaProof({ flush = false }: { flush?: boolean }) {
