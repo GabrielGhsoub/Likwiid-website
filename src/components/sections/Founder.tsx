@@ -5,101 +5,52 @@ import { Reveal } from '../ui/Reveal'
 import { founder, cofounder } from '../../data/personal'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 
-// The strip fills the 1200px container, so retina screens need the 2400px source
-const STRIP_SIZES = '(min-width: 1248px) 1200px, calc(100vw - 48px)'
-const STRIP_CLASS =
-  'block w-full h-auto aspect-[3/1] md:aspect-[5/1] rounded-xl border border-border bg-bg-tertiary object-cover'
+type Person = { name: string; photo: string; photoWidth: number; photoHeight: number }
 
 export function Founder() {
   const { t } = useTranslation()
   const localize = useLocalizedPath()
 
   return (
-    <section id="founder" className="scroll-mt-24 px-6 py-16 md:py-24">
+    <section id="founder" className="scroll-mt-24 px-6 py-12 md:py-16" aria-labelledby="founder-heading">
       <div className="mx-auto max-w-[1200px]">
-        <Reveal className="mb-12 md:mb-16">
-          <figure>
-            {/* Art directed: 5:1 strip from md up, 3:1 crop on phones, one photograph per theme */}
-            <picture className="block [.dark_&]:hidden">
-              <source
-                media="(min-width: 768px)"
-                srcSet="/images/beirut-bay-1600.webp 1600w, /images/beirut-bay-2400.webp 2400w"
-                sizes={STRIP_SIZES}
-                width={2400}
-                height={480}
-              />
-              <img
-                src="/images/beirut-bay-m800.webp"
-                srcSet="/images/beirut-bay-m800.webp 800w, /images/beirut-bay-m1600.webp 1600w"
-                sizes={STRIP_SIZES}
-                alt={t('founder.imageAltDay')}
-                width={1600}
-                height={533}
-                loading="lazy"
-                decoding="async"
-                className={STRIP_CLASS}
-              />
-            </picture>
-            <picture className="hidden [.dark_&]:block">
-              <source
-                media="(min-width: 768px)"
-                srcSet="/images/beirut-night-1600.webp 1600w, /images/beirut-night-2400.webp 2400w"
-                sizes={STRIP_SIZES}
-                width={2400}
-                height={480}
-              />
-              <img
-                src="/images/beirut-night-m800.webp"
-                srcSet="/images/beirut-night-m800.webp 800w, /images/beirut-night-m1600.webp 1600w"
-                sizes={STRIP_SIZES}
-                alt={t('founder.imageAlt')}
-                width={1600}
-                height={533}
-                loading="lazy"
-                decoding="async"
-                className={`${STRIP_CLASS} opacity-[0.88]`}
-              />
-            </picture>
-            <figcaption className="mt-3 text-sm text-text-tertiary">{t('founder.imageCaption')}</figcaption>
-          </figure>
+        <Reveal>
+          <h2
+            id="founder-heading"
+            className="text-3xl font-bold tracking-tight text-text-primary font-[family-name:var(--font-display)] md:text-4xl"
+          >
+            {t('founder.title')}
+          </h2>
         </Reveal>
-        <Reveal className="grid items-center gap-10 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16">
-          <img
-            src={founder.photo}
-            srcSet={`/gabriel-560.webp 560w, ${founder.photo} ${founder.photoWidth}w`}
-            sizes="280px"
-            alt={t('founder.photoAlt')}
-            width={founder.photoWidth}
-            height={founder.photoHeight}
-            loading="lazy"
-            decoding="async"
-            className="w-full max-w-[280px] h-auto rounded-xl border border-border bg-bg-tertiary object-cover"
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <TeamMember
+            id="gabriel"
+            person={founder}
+            srcSet={`/gabriel-112.webp 112w, /gabriel-560.webp 560w`}
+            photoAlt={t('founder.photoAlt')}
+            role={t('founder.role')}
+            bio={`${t('founder.bio1')} ${t('founder.bio3')}`}
           />
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
-              {founder.name}
-            </h2>
-            <p className="mt-2 text-text-tertiary">{t('founder.role')}</p>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed">
-              {t('founder.bio1')} {t('founder.bio2')} {t('founder.bio3')}
-            </p>
-            <p className="mt-6 font-medium text-text-primary">{t('founder.promise')}</p>
-            <Link
-              to={localize('/contact')}
-              className="mt-6 inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
-            >
-              {t('founder.cta')}
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
+          <TeamMember
+            id="emile"
+            person={cofounder}
+            srcSet={`/emile-112.webp 112w, ${cofounder.photo} ${cofounder.photoWidth}w`}
+            photoAlt={t('founder.cofounderPhotoAlt')}
+            role={t('founder.cofounderRole')}
+            bio={`${t('founder.cofounderLine1')} ${t('founder.cofounderLine2')}`}
+          />
+        </div>
+        <Reveal className="mt-8 max-w-3xl">
+          <p className="m-0 font-medium text-text-primary">{t('founder.promise')}</p>
+          <p className="mt-2 text-text-secondary">{t('founder.languages')}</p>
+          <Link
+            to={localize('/contact')}
+            className="mt-4 inline-flex min-h-11 items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline"
+          >
+            {t('founder.cta')}
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </Reveal>
-        <TeamMember
-          id="emile"
-          person={cofounder}
-          photoAlt={t('founder.cofounderPhotoAlt')}
-          role={t('founder.cofounderRole')}
-          bio={`${t('founder.cofounderLine1')} ${t('founder.cofounderLine2')}`}
-        />
       </div>
     </section>
   )
@@ -108,33 +59,33 @@ export function Founder() {
 type TeamMemberProps = {
   // Anchor for direct links such as likwiid.com/#emile
   id: string
-  person: { name: string; photo: string; photoWidth: number; photoHeight: number }
+  person: Person
+  srcSet: string
   photoAlt: string
   role: string
   bio: string
 }
 
-function TeamMember({ id, person, photoAlt, role, bio }: TeamMemberProps) {
+function TeamMember({ id, person, srcSet, photoAlt, role, bio }: TeamMemberProps) {
   return (
-    <Reveal
-      id={id}
-      className="mt-12 grid scroll-mt-24 items-center gap-6 border-t border-border pt-10 md:mt-16 md:grid-cols-[280px_minmax(0,1fr)] md:gap-16"
-    >
+    <Reveal id={id} className="flex scroll-mt-24 gap-5 rounded-xl border border-border bg-bg-secondary p-5">
       <img
         src={person.photo}
+        srcSet={srcSet}
+        sizes="112px"
         alt={photoAlt}
-        width={person.photoWidth}
-        height={person.photoHeight}
+        width={112}
+        height={112}
         loading="lazy"
         decoding="async"
-        className="w-full max-w-[280px] h-auto rounded-xl border border-border bg-bg-tertiary object-cover"
+        className="h-24 w-24 shrink-0 rounded-full border border-border bg-bg-tertiary object-cover object-top md:h-28 md:w-28"
       />
-      <div className="max-w-2xl">
-        <h3 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary">
+      <div>
+        <h3 className="text-xl font-bold tracking-tight text-text-primary font-[family-name:var(--font-display)]">
           {person.name}
         </h3>
-        <p className="mt-1 text-text-tertiary">{role}</p>
-        <p className="mt-4 text-text-secondary leading-relaxed">{bio}</p>
+        <p className="mt-1 text-sm text-text-tertiary">{role}</p>
+        <p className="mt-3 leading-relaxed text-text-secondary">{bio}</p>
       </div>
     </Reveal>
   )

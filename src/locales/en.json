@@ -9,8 +9,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "menuLabel": "Navigation menu",
-    "beirutCity": "Beirut",
-    "beirutTime": "Current time in Beirut"
+    "guides": "Guides"
   },
   "theme": {
     "light": "Light mode",
@@ -25,16 +24,46 @@
   "footer": {
     "copyright": "© {{year}} Likwiid. Founded by Gabriel Ghoussoub.",
     "privacy": "Privacy Policy",
-    "tagline": "Beirut, Lebanon. Working worldwide. Replies within 24 hours."
+    "tagline": "Two people, based in Beirut and France. Replies within 24 hours.",
+    "byTrade": "By trade",
+    "calculators": "Calculators",
+    "otaCalculator": "Platform commission calculator",
+    "portfolioCalculator": "Portfolio cost calculator",
+    "otherSoftware": "Other software we have built",
+    "direct": "Likwiid Direct",
+    "work": "What we have built"
   },
   "home": {
-    "documentTitle": "Booking Websites and Apps for Independent Hotels | Likwiid"
+    "documentTitle": "Booking pages for small hotels, guesthouses, tours and schools | Likwiid",
+    "proofEyebrow": "A real client",
+    "proofTitle": "Built for a sailing school in Valencia",
+    "proofBody": "At Escuela Náutica de Valencia, students pick a course day and pay a seat deposit online, on the school's own domain and its own payment account. The page has taken real bookings since 15 October 2026, and the school runs its course days from it.",
+    "proofLive": "Open the live page",
+    "proofCase": "Read how it was done",
+    "proofImageAlt": "The booking page of Escuela Náutica de Valencia on a phone",
+    "changesTitle": "What changes for you",
+    "change1": "Guests see your real availability and prices.",
+    "change2": "You confirm each request yourself, or let guests pay a deposit by card.",
+    "change3": "The money goes to your account, and the guest list stays yours.",
+    "howTitle": "Three steps, two to four weeks",
+    "how1": "You send your website address.",
+    "how2": "We show you a working draft with your own rooms or activities.",
+    "how3": "If you like it, we put it live and show you how to run it.",
+    "howAfter": "After launch, you write to the same person who built it.",
+    "faqTitle": "Before you write",
+    "appsTitle": "We also build mobile apps",
+    "appsBody": "Three apps we designed and built. These are real screens from the iPhone versions.",
+    "appsParallelLine": "A ski app for Lebanon's six resorts, built for Parallel Inc. With Apple for review.",
+    "appsBasemileLine": "A free running coach for easy heart rate runs. On the App Store.",
+    "appsPlateclimbLine": "A free workout log that works without internet. On the App Store.",
+    "appsCase": "Read more",
+    "appsAll": "See the other software we have built"
   },
   "hero": {
-    "title": "Booking websites and apps for <em>independent</em> hotels and founders.",
-    "description": "Likwiid is run by Gabriel Ghoussoub from Beirut, works with clients worldwide, and replies within 24 hours.",
-    "ctaPrimary": "Start a project",
-    "ctaSecondary": "See the work"
+    "title": "A booking page on your <em>own</em> website. Guests book and pay you directly.",
+    "description": "For small hotels, guesthouses, rural houses, tour operators, schools and studios. No commission.",
+    "ctaPrimary": "See a live example",
+    "ctaWhatsapp": "Message on WhatsApp"
   },
   "whatWeBuild": {
     "title": "What we build",
@@ -62,26 +91,25 @@
   },
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, founder of Likwiid",
-    "role": "Founder and lead engineer",
-    "bio1": "Gabriel is a full-stack engineer with more than five years of shipping production software in fintech, insurtech, satellite monitoring and IoT.",
-    "bio2": "He holds a degree in Computer and Communications Engineering from Antonine University.",
-    "bio3": "He is based in Beirut and works with clients in the US, Europe and MENA.",
+    "role": "Founder. Builds everything.",
+    "bio1": "Gabriel is an engineer who has built software for more than five years. He builds every page himself and he is the one who answers you.",
+    "bio3": "He is based in Beirut.",
     "promise": "Every message is answered by Gabriel or Emile, not a sales team.",
-    "cta": "Talk to Gabriel",
+    "cta": "Write to Gabriel",
     "cofounderRole": "Cofounder",
     "cofounderPhotoAlt": "Emile Bechaalany, cofounder of Likwiid",
     "cofounderLine1": "Emile is Likwiid's cofounder and runs the client side of the studio: first conversations, proposals, and keeping every project on track from kickoff to launch.",
     "cofounderLine2": "He is based in France and works with clients across Europe and the Mediterranean, in English and French.",
-    "imageAlt": "The Beirut skyline at night, seen from the hills above the city, with the sea and the port in the distance",
-    "imageAltDay": "Beirut's Zaitunay Bay at dusk, with the marina and the waterfront towers lit up",
-    "imageCaption": "Beirut, where Likwiid is based."
+    "title": "Two people, no sales team",
+    "languages": "Write to us in English, Spanish, Portuguese, Italian or French. We answer in your language."
   },
   "contactBlock": {
-    "title": "Have a project in mind?",
-    "body": "Tell us what you are building, and Gabriel or Emile will reply within 24 hours with a clear next step.",
-    "cta": "Start a project",
+    "title": "Send your website address. We will tell you honestly if it is worth doing.",
+    "body": "One line is enough. Gabriel or Emile will reply within 24 hours.",
+    "cta": "Write to Gabriel",
     "whatsapp": "Message on WhatsApp",
-    "emailPrefix": "Or email"
+    "emailPrefix": "Or email",
+    "whatsappNote": "WhatsApp works from any country at no cost."
   },
   "contact": {
     "documentTitle": "Contact Us About Your Booking Website or App | Likwiid",
@@ -527,7 +555,8 @@
     "nextProject": "Next project",
     "openSourceLabel": "Open source",
     "openSourceBody": "{{name}} is free and open source, licensed under GPL-3.0 or later.",
-    "openSourceLink": "See {{name}} on the open source page"
+    "openSourceLink": "See {{name}} on the open source page",
+    "quoteTranslatedEs": "Translated from Spanish."
   },
   "openSource": {
     "docTitle": "Open Source Apps: BaseMile, PlateClimb and WOOP | Likwiid",
@@ -618,5 +647,43 @@
     "openSource": {
       "description": "BaseMile, PlateClimb and WOOP: free, open source apps for Zone 2 runs, offline workouts and WOOP goal plans. No account, no tracking, data on your phone."
     }
+  },
+  "founderLine": {
+    "text": "I'm Gabriel Ghoussoub. I build it and I answer you myself, within 24 hours.",
+    "photoAlt": "Gabriel Ghoussoub"
+  },
+  "sticky": {
+    "whatsapp": "WhatsApp Gabriel"
+  },
+  "price": {
+    "title": "What it costs",
+    "band1Name": "A booking page added to the website you already have",
+    "band1Price": "EUR 300 to 600, once",
+    "band2Name": "A complete new website with booking built in",
+    "band2Price": "EUR 900 to 1,700, once",
+    "band3Name": "A portfolio for photographers (Likwiid Frame)",
+    "band3Price": "around EUR 400, or around EUR 900 with client proofing, print shop and booking",
+    "noFee": "No commission on bookings and no monthly fee to Likwiid.",
+    "running": "You pay the usual costs of any website directly to the providers: your domain, your hosting, and card fees to your own payment account.",
+    "written": "You get the exact price in writing before anything starts.",
+    "terms": "You pay a share when we agree, and the balance only when your page is live. If it does not go live, you do not pay the balance.",
+    "firstProperty": "Likwiid Direct has no paying property yet. The first one gets the lower end of the price, in exchange for letting us show the result.",
+    "short": "A booking page on the website you already have costs EUR 300 to 600, once. A complete new website with booking costs EUR 900 to 1,700, once."
+  },
+  "faq": {
+    "costQ": "What does it cost?",
+    "costA": "A booking page added to the website you already have costs EUR 300 to 600, once. A complete new website with booking built in costs EUR 900 to 1,700, once. There is no commission and no monthly fee to Likwiid. You get the exact price in writing before anything starts.",
+    "siteQ": "Do I need a new website?",
+    "siteA": "No. The booking page goes on the website you already have, and we install it for you. If you have no website, or you want a new one, we build that too.",
+    "afterQ": "Who looks after it after launch?",
+    "afterA": "The same person who built it. You write to Gabriel by WhatsApp or email and get an answer within 24 hours. Any change you ask for later is priced in writing before the work starts.",
+    "payQ": "How and when do I pay?",
+    "payA": "You pay a share when we agree, and the balance only when your page is live. If it does not go live, you do not pay the balance.",
+    "platformQ": "A booking platform already works for me. Do I need this?",
+    "platformA": "If a platform already serves you well and the commission does not bother you, this is not for you. A booking page on your own website is for the guests who already look for you directly.",
+    "moneyQ": "How does the money reach my account?",
+    "moneyA": "Card payments go into a payment account opened in your own name, for example Stripe. The money goes from the guest to you. Likwiid never holds it.",
+    "stopQ": "What happens if I stop working with you?",
+    "stopA": "The page, the bookings and the guest list are yours and they stay with you. Your domain and your payment account are in your name from the first day."
   }
 }
