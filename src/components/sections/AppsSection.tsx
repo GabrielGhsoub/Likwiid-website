@@ -31,13 +31,14 @@ export function AppsSection() {
           </h2>
           <p className="mt-3 text-lg text-text-secondary">{t('home.appsBody')}</p>
         </Reveal>
-        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {/* One swipeable row on a phone, so three apps do not push the contact block three screens down. */}
+        <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
           {APPS.map(({ slug, lineKey }) => {
             const project = projects.find((p) => p.slug === slug)
             if (!project) return null
             const preview = project.previewImage ?? project.images[0]
             return (
-              <Reveal key={slug}>
+              <Reveal key={slug} className="w-[78%] shrink-0 snap-start md:w-auto">
                 <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary">
                   <div className="relative aspect-[4/3] w-full border-b border-border bg-bg-tertiary">
                     {preview && <ProjectPreview src={preview} alt={project.previewAlt ?? project.title} platform="mobile" />}

@@ -21,7 +21,7 @@ export function EscuelaProof({ flush = false }: { flush?: boolean }) {
   return (
     <section className={`py-12 md:py-16${flush ? '' : ' px-6'}`} aria-labelledby="escuela-proof-heading">
       <Reveal className="mx-auto grid max-w-[1200px] items-center gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:gap-14">
-        <div className="mx-auto w-[200px] md:w-full">
+        <div className="mx-auto w-[150px] md:w-full">
           <PhoneFrame>
             <img
               src={ESCUELA_PHONE_IMAGE}
