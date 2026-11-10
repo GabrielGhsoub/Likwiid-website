@@ -94,11 +94,6 @@ const caseStudies = {
 }
 
 const routes = {
-  privacy: {
-    title: 'Privacy Policy | Likwiid',
-    description: 'Likwiid privacy policy.',
-    robots: 'noindex,follow',
-  },
   'beit-toureef-walkthrough': {
     title: 'Beit Toureef Walkthrough | Likwiid',
     description: 'Private website walkthrough prepared for Beit Toureef.',
@@ -147,6 +142,9 @@ const LOCALIZED_PAGES = {
       apps: openSourceApps().map((app) => ({ ...app, description: l.openSource[app.key]?.pitch })),
     },
   }),
+  software: (l) => ({ title: l.software.documentTitle, description: l.seo.software.description, crumb: l.software.crumb }),
+  // In every language, but kept out of search results as before.
+  privacy: (l) => ({ title: l.privacy.documentTitle, description: l.privacy.title, robots: 'noindex,follow' }),
 }
 const locales = Object.fromEntries(
   LANGUAGES.map((lang) => [lang, JSON.parse(readFileSync(join(localesDir, `${lang}.json`), 'utf8'))])
@@ -154,7 +152,7 @@ const locales = Object.fromEntries(
 for (const lang of LANGUAGES) {
   const locale = locales[lang]
   for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
-    const { title, description, crumb, service, openSource } = pick(locale)
+    const { title, description, crumb, service, openSource, robots } = pick(locale)
     if (!title || !description) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
     if (openSource?.apps.some((app) => !app.description)) throw new Error(`prerender: missing ${lang} pitch for an open source app`)
     const path = localizedRoute(lang, page)
@@ -166,6 +164,7 @@ for (const lang of LANGUAGES) {
       breadcrumb: crumb ? [{ name: crumb, path }] : undefined,
       service,
       openSource,
+      robots,
     }
   }
 }

@@ -55,6 +55,12 @@ const REQUIRED_PAGES = {
   'work/parallel': 'en',
   // Open source apps page, in every language.
   ...Object.fromEntries(['en', 'pt', 'es', 'it', 'fr'].map((lang) => [lang === 'en' ? 'open-source' : `${lang}/open-source`, lang])),
+  // The apps and other software page, and the privacy policy, in every language.
+  ...Object.fromEntries(
+    ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>
+      ['software', 'privacy'].map((page) => [lang === 'en' ? page : `${lang}/${page}`, lang])
+    )
+  ),
   // Free calculators, in every language.
   ...Object.fromEntries(
     ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>

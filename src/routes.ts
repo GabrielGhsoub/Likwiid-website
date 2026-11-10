@@ -6,6 +6,7 @@ import { guidePage } from './content/guides/registry'
 // Code-split pages. Home is imported statically by App.tsx; everything else loads on demand.
 export const Services = lazyRoute(() => import('./pages/Services'))
 export const Portfolio = lazyRoute(() => import('./pages/Portfolio'))
+export const Software = lazyRoute(() => import('./pages/Software'))
 export const CaseStudy = lazyRoute(() => import('./pages/CaseStudy'))
 export const Contact = lazyRoute(() => import('./pages/Contact'))
 export const Privacy = lazyRoute(() => import('./pages/Privacy'))
@@ -42,6 +43,8 @@ const LOCALIZED_ROUTES: Record<LazyLocalizedPage, PreloadableRoute> = {
   contact: Contact,
   guides: Guides,
   'open-source': OpenSource,
+  software: Software,
+  privacy: Privacy,
 }
 
 export const TOOL_ROUTES: Record<LocalizedTool, PreloadableRoute> = {
