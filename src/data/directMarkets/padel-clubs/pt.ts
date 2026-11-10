@@ -15,7 +15,7 @@ const pt: DirectMarketContent = {
   ],
   demo: 'atelier-likwiid',
   ctaDemo: 'Experimente a demo mais próxima',
-  ctaTalk: 'Fale connosco',
+  ctaTalk: 'Faça uma pergunta',
   demoNote:
     'Ainda não existe uma demo de padel. A mais próxima é o Atelier Likwiid, um estúdio fictício que marca sessões por horário, com lugares disponíveis e lista de espera. O pagamento é simulado e não é cobrado nenhum valor.',
   sections: [
@@ -71,7 +71,7 @@ const pt: DirectMarketContent = {
     },
     {
       q: 'Podemos manter o site que temos?',
-      a: 'Sim. O Likwiid Direct entra no site atual com uma tag de script e uma div, seja em WordPress, Wix ou feito à mão. Se também precisar de um site novo, também o fazemos.',
+      a: 'Sim. A página de reservas fica no site que já tem, e somos nós que a instalamos. Se também precisar de um site novo, também o fazemos.',
     },
     {
       q: 'Os jogadores podem pagar quando reservam?',
@@ -82,8 +82,8 @@ const pt: DirectMarketContent = {
       a: 'Não. O Likwiid Direct serve para reservar campos. As ligas e a procura de jogadores do mesmo nível são o que construímos na plataforma de padel acima, e isso é um projeto à parte, de que falamos com todo o gosto.',
     },
     {
-      q: 'Cobram comissão sobre as reservas?',
-      a: 'Não. Não há comissão sobre nenhuma reserva. Fale-nos do seu clube e explicamos o que implica pô-lo a funcionar.',
+      q: 'Quanto custa, e cobram comissão?',
+      a: 'Não há comissão sobre nenhuma reserva nem mensalidade paga à Likwiid. Uma página de reservas no site que já tem custa de 300 a 600 €, uma única vez. Um site novo completo com reservas custa de 900 a 1700 €, uma única vez.',
     },
   ],
   closingTitle: 'Conte-nos como o seu clube reserva hoje',

@@ -15,7 +15,7 @@ const pt: DirectMarketContent = {
   ],
   demo: 'escuela-likwiid',
   ctaDemo: 'Experimente a demo mais próxima',
-  ctaTalk: 'Fale connosco',
+  ctaTalk: 'Faça uma pergunta',
   demoNote:
     'Ainda não existe uma demo de mergulho. A mais próxima é a Escuela Likwiid, uma escola de vela fictícia, em espanhol e inglês, com cursos de vários dias, lugares por sessão e um passo de documentos. Os ficheiros ficam no seu browser e o pagamento é simulado.',
   sections: [
@@ -65,6 +65,14 @@ const pt: DirectMarketContent = {
         'Para os mergulhos que pedem mais atenção, use o modo de pedido: o mergulhador envia a reserva com os documentos, o centro verifica-os e só depois a confirma. A decisão fica consigo e com os seus instrutores.',
       ],
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Já em funcionamento numa escola náutica',
+      body: 'A página de reservas que construímos para a Escuela Náutica de Valencia funciona da mesma forma: cursos com um número de lugares, o número do documento verificado com a reserva e pagamento no site da própria escola. Recebe reservas reais desde outubro de 2026.',
+      linkLabel: 'Veja como funciona a página de reservas da escola',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Perguntas que os centros de mergulho nos fazem',
   faq: [
@@ -85,8 +93,8 @@ const pt: DirectMarketContent = {
       a: 'É o centro que define quantos dias depois da atividade são apagados, e o passo de envio informa o mergulhador antes de enviar o que quer que seja.',
     },
     {
-      q: 'Cobram comissão sobre as reservas?',
-      a: 'Não. Não há comissão sobre nenhum mergulho nem curso. Fale-nos do seu centro e explicamos o que implica pô-lo a funcionar.',
+      q: 'Quanto custa, e cobram comissão?',
+      a: 'Não há comissão sobre nenhum mergulho nem curso, nem mensalidade paga à Likwiid. Uma página de reservas no site que já tem custa de 300 a 600 €, uma única vez. Um site novo completo com reservas custa de 900 a 1700 €, uma única vez.',
     },
   ],
   closingTitle: 'Conte-nos como o seu centro reserva hoje',
