@@ -6,7 +6,6 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { NAV_LINKS } from '../../utils/constants'
 import { cn } from '../../utils/cn'
 import { useTheme } from '../../hooks/useTheme'
-import { useBeirutTime } from '../../hooks/useBeirutTime'
 import { LanguageLinks } from '../ui/LanguageLinks'
 import { Logo } from '../ui/Logo'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
@@ -40,7 +39,6 @@ export function Navbar() {
   const currentPath = trimSlash(location.pathname)
   const isActive = (path: string) => currentPath === trimSlash(localize(path))
   const { theme, toggleTheme } = useTheme()
-  const beirutTime = useBeirutTime()
   const isPrivateWalkthroughRoute =
     currentPath === '/beit-toureef-walkthrough' || currentPath === '/beit-toureef-poc'
   const isPocLight = isPrivateWalkthroughRoute && theme === 'light'
@@ -196,20 +194,6 @@ export function Navbar() {
                 )}
               </Link>
             ))}
-            {/* The prerendered HTML has no clock: it shows a placeholder until hydration. */}
-            <time
-              dateTime={beirutTime?.iso}
-              aria-label={beirutTime ? `${t('nav.beirutTime')} ${beirutTime.label}` : t('nav.beirutTime')}
-              title={t('nav.beirutTime')}
-              className={cn(
-                'inline-flex min-h-11 items-center font-mono text-xs tabular-nums whitespace-nowrap',
-                isPrivateWalkthroughRoute
-                  ? isPocLight ? 'text-[#6B6258]' : 'text-[#D9D0C4]'
-                  : 'text-text-tertiary',
-              )}
-            >
-              {t('nav.beirutCity')} {beirutTime?.label ?? '--:--'}
-            </time>
             <LanguageLinks />
             <button
               onClick={toggleTheme}
