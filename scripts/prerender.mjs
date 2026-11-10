@@ -114,8 +114,19 @@ const LANGUAGES = ['en', 'pt', 'es', 'it', 'fr']
 const PREFIXED_LANGUAGES = LANGUAGES.slice(1)
 const OG_LOCALES = { en: 'en_GB', pt: 'pt_PT', es: 'es_ES', it: 'it_IT', fr: 'fr_FR' }
 const localizedRoute = (lang, page) => (lang === 'en' ? page : page ? `${lang}/${page}` : lang)
+// The questions shown on Home and Direct, for their FAQPage data. Keep in sync with HOME_FAQ
+// in src/pages/Home.tsx and DIRECT_FAQ in src/pages/Direct.tsx.
+const HOME_FAQ = ['cost', 'site', 'after', 'pay', 'platform']
+const DIRECT_FAQ = ['cost', 'site', 'after', 'money', 'pay', 'stop', 'terms', 'language']
+const faqItems = (l, keys) =>
+  keys.map((key) => {
+    const q = l.faq?.[`${key}Q`]
+    const a = l.faq?.[`${key}A`]
+    if (!q || !a) throw new Error(`prerender: missing faq.${key} copy`)
+    return { q, a }
+  })
 const LOCALIZED_PAGES = {
-  '': (l) => ({ title: l.home.documentTitle, description: l.seo.home.description }),
+  '': (l) => ({ title: l.home.documentTitle, description: l.seo.home.description, faq: faqItems(l, HOME_FAQ) }),
   services: (l) => ({ title: l.services.documentTitle, description: l.seo.services.description, crumb: l.nav.services }),
   work: (l) => ({ title: l.portfolio.documentTitle, description: l.seo.work.description, crumb: l.nav.work }),
   contact: (l) => ({ title: l.contact.documentTitle, description: l.seo.contact.description, crumb: l.nav.contact }),
@@ -124,6 +135,7 @@ const LOCALIZED_PAGES = {
     description: l.seo.direct.description,
     crumb: 'Likwiid Direct',
     service: { name: 'Likwiid Direct', serviceType: l.seo.direct.serviceType },
+    faq: faqItems(l, DIRECT_FAQ),
   }),
   frame: (l) => ({
     title: l.frame.docTitle,
@@ -152,7 +164,7 @@ const locales = Object.fromEntries(
 for (const lang of LANGUAGES) {
   const locale = locales[lang]
   for (const [page, pick] of Object.entries(LOCALIZED_PAGES)) {
-    const { title, description, crumb, service, openSource, robots } = pick(locale)
+    const { title, description, crumb, service, openSource, robots, faq } = pick(locale)
     if (!title || !description) throw new Error(`prerender: missing ${lang} copy for ${page || 'home'}`)
     if (openSource?.apps.some((app) => !app.description)) throw new Error(`prerender: missing ${lang} pitch for an open source app`)
     const path = localizedRoute(lang, page)
@@ -165,6 +177,7 @@ for (const lang of LANGUAGES) {
       service,
       openSource,
       robots,
+      faq,
     }
   }
 }
