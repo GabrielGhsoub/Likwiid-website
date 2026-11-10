@@ -220,6 +220,9 @@ export default function OtaCommissionCalculator() {
               {t('tools.ota.ctaTitle')}
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">{t('tools.ota.ctaBody')}</p>
+            <p className="mt-4 max-w-3xl font-medium text-text-primary leading-relaxed">
+              {t('price.short')} {t('price.noFee')}
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button variant="primary" size="lg" href="/direct" umamiEvent="tool-cta" umamiData={{ tool: 'ota-commission-calculator', target: 'direct' }}>
                 {t('tools.ota.ctaDirect')}
