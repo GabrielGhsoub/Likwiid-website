@@ -4,6 +4,7 @@ import alojamentoLocal from './alojamento-local'
 import casaRural from './casa-rural'
 import agriturismoBb from './agriturismo-bb'
 import chambresDHotes from './chambres-d-hotes'
+import guesthouses from './guesthouses'
 import padelClubs from './padel-clubs'
 import diveCentres from './dive-centres'
 
@@ -14,6 +15,7 @@ export const DIRECT_MARKET_CONTENT: Record<DirectMarket, DirectMarketContents> =
   'casa-rural': casaRural,
   'agriturismo-bb': agriturismoBb,
   'chambres-d-hotes': chambresDHotes,
+  guesthouses,
   'padel-clubs': padelClubs,
   'dive-centres': diveCentres,
 }

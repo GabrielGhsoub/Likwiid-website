@@ -61,6 +61,11 @@ export interface Project {
   // Client words for the case study. Only ever a real quote the client approved for
   // publication; leave it out until then and the section does not render.
   quote?: ProjectQuote
+  // A second, shorter quote from the same client, under the same rule.
+  secondQuote?: ProjectQuote
+  // Written for business owners: the case study leaves the tech tags out of its header and
+  // ends on the booking product instead of the next project.
+  forOwners?: boolean
 }
 
 /**
@@ -73,6 +78,8 @@ export interface Project {
  * - `role`: their job title or relationship to the project.
  * - `company`: optional organization, shown after the role.
  * - `photo`: optional path under /public to a small square headshot.
+ * - `originalLang`: the language the client wrote in. Other languages are shown with a
+ *   "translated" note.
  */
 export interface ProjectQuote {
   text: ProjectQuoteText
@@ -80,6 +87,7 @@ export interface ProjectQuote {
   role: string
   company?: string
   photo?: string
+  originalLang?: Lang
 }
 
 export type ProjectQuoteText = Partial<Record<Lang, string>>

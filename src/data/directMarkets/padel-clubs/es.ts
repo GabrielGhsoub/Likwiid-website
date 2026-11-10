@@ -15,7 +15,7 @@ const es: DirectMarketContent = {
   ],
   demo: 'atelier-likwiid',
   ctaDemo: 'Prueba la demo más parecida',
-  ctaTalk: 'Habla con nosotros',
+  ctaTalk: 'Haz una pregunta',
   demoNote:
     'Todavía no hay una demo de pádel. La más parecida es Atelier Likwiid, un estudio ficticio que reserva sesiones por horario, con plazas libres y lista de espera. El pago es simulado y no se cobra nada.',
   sections: [
@@ -71,7 +71,7 @@ const es: DirectMarketContent = {
     },
     {
       q: '¿Podemos mantener nuestra web actual?',
-      a: 'Sí. Likwiid Direct se integra en la web que ya tienes con una etiqueta de script y un div, ya sea WordPress, Wix o una web hecha a mano. Si además necesitas una web nueva, también la hacemos.',
+      a: 'Sí. La página de reservas va en la web que ya tienes, y te la instalamos nosotros. Si además necesitas una web nueva, también la hacemos.',
     },
     {
       q: '¿Pueden pagar los jugadores al reservar?',
@@ -82,8 +82,8 @@ const es: DirectMarketContent = {
       a: 'No. Likwiid Direct sirve para reservar pistas. Las ligas y encontrar jugadores del mismo nivel son lo que construimos en la plataforma de pádel de arriba, y eso es un proyecto aparte del que hablamos encantados.',
     },
     {
-      q: '¿Cobráis comisión por las reservas?',
-      a: 'No. No hay comisión sobre ninguna reserva. Cuéntanos cómo es tu club y te explicamos qué supone ponerlo en marcha.',
+      q: '¿Cuánto cuesta, y cobráis comisión?',
+      a: 'No hay comisión sobre ninguna reserva ni cuota mensual para Likwiid. Una página de reservas en la web que ya tienes cuesta de 300 a 600 €, una sola vez. Una web nueva completa con reservas cuesta de 900 a 1.700 €, una sola vez.',
     },
   ],
   closingTitle: 'Cuéntanos cómo reserva hoy tu club',

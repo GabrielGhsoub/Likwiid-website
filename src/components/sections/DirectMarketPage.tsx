@@ -3,6 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, Check, Minus } from 'lucide-react'
 import { PageTransition } from '../layout/PageTransition'
 import { Button } from '../ui/Button'
+import { FounderLine } from '../ui/FounderLine'
+import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { PriceBlock } from './PriceBlock'
+import { GuideLinks } from './GuideLinks'
 import { BUTTON_LINK_PRIMARY_LG } from '../ui/buttonLink'
 import { directDemoHref } from '../../utils/demoLinks'
 import { useTheme } from '../../hooks/useTheme'
@@ -145,7 +149,10 @@ export function DirectMarketPage({ contents }: { contents: Partial<Record<Lang, 
                 {paragraph}
               </p>
             ))}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6">
+              <FounderLine />
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <a
                 href={directDemoHref(content.lang, backPath, content.demo, theme)}
                 className={BUTTON_LINK_PRIMARY_LG}
@@ -153,15 +160,11 @@ export function DirectMarketPage({ contents }: { contents: Partial<Record<Lang, 
               >
                 {content.ctaDemo}
               </a>
-              <Button
-                variant="secondary"
-                size="lg"
-                href="/contact"
-                umamiEvent="cta-start-project"
-                umamiData={{ location: `direct-${content.market}-hero` }}
-              >
+              <WhatsAppButton location={`direct-${content.market}-hero`} />
+              <Link to={localize('/contact')} className={LINK}>
                 {content.ctaTalk}
-              </Button>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
             <p className="mt-4 text-sm text-text-tertiary leading-relaxed">{content.demoNote}</p>
           </div>
@@ -170,8 +173,12 @@ export function DirectMarketPage({ contents }: { contents: Partial<Record<Lang, 
             <Section key={section.id} section={section} localize={localize} />
           ))}
 
+          <div className="mt-8">
+            <PriceBlock flush showFrame={false} showFirstProperty={false} />
+          </div>
+
           {/* FAQ: always visible, the same questions and answers as the FAQPage JSON-LD. */}
-          <section aria-labelledby="faq-heading" className="mt-20">
+          <section aria-labelledby="faq-heading" className="mt-8">
             <h2 id="faq-heading" className={H2}>
               {content.faqTitle}
             </h2>
@@ -185,6 +192,8 @@ export function DirectMarketPage({ contents }: { contents: Partial<Record<Lang, 
             </div>
           </section>
 
+          <GuideLinks className="mt-16" />
+
           {/* Closing */}
           <section aria-labelledby="closing-heading" className="mt-20 text-center">
             <h2 id="closing-heading" className={H2}>
@@ -192,8 +201,9 @@ export function DirectMarketPage({ contents }: { contents: Partial<Record<Lang, 
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-text-secondary leading-relaxed">{content.closingBody}</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+              <WhatsAppButton variant="primary" location={`direct-${content.market}-footer`} />
               <Button
-                variant="primary"
+                variant="secondary"
                 size="lg"
                 href="/contact"
                 umamiEvent="cta-start-project"

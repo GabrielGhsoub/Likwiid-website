@@ -15,7 +15,7 @@ const it: DirectMarketContent = {
   ],
   demo: 'atelier-likwiid',
   ctaDemo: 'Prova la demo più vicina',
-  ctaTalk: 'Parla con noi',
+  ctaTalk: 'Fai una domanda',
   demoNote:
     'Non esiste ancora una demo per il padel. La più vicina è Atelier Likwiid, uno studio di fantasia che prenota sessioni a orario, con i posti rimasti e la lista d\'attesa. Il pagamento è simulato e non viene addebitato nulla.',
   sections: [
@@ -71,7 +71,7 @@ const it: DirectMarketContent = {
     },
     {
       q: 'Possiamo tenere il nostro sito attuale?',
-      a: 'Sì. Likwiid Direct si inserisce nel sito che hai già con un tag script e un div, su WordPress, Wix o un sito su misura. Se ti serve anche un sito nuovo, lo realizziamo noi.',
+      a: 'Sì. La pagina di prenotazione va sul sito che hai già, e la installiamo noi per te. Se ti serve anche un sito nuovo, lo realizziamo noi.',
     },
     {
       q: 'I giocatori possono pagare al momento della prenotazione?',
@@ -82,8 +82,8 @@ const it: DirectMarketContent = {
       a: 'No. Likwiid Direct serve a prenotare i campi. I campionati e la ricerca di giocatori dello stesso livello sono ciò che abbiamo costruito nella piattaforma per il padel qui sopra, ed è un progetto a parte di cui parliamo volentieri.',
     },
     {
-      q: 'Prendete una commissione sulle prenotazioni?',
-      a: 'No. Non c\'è nessuna commissione su nessuna prenotazione. Raccontaci del tuo circolo e ti spieghiamo cosa comporta metterlo in funzione.',
+      q: 'Quanto costa, e prendete una commissione?',
+      a: 'Non c\'è nessuna commissione su nessuna prenotazione e nessun canone mensile a Likwiid. Una pagina di prenotazione sul sito che hai già costa da 300 a 600 €, una sola volta. Un sito nuovo e completo con la prenotazione costa da 900 a 1.700 €, una sola volta.',
     },
   ],
   closingTitle: 'Raccontaci come prenota oggi il tuo circolo',

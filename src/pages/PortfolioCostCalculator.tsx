@@ -245,6 +245,9 @@ export default function PortfolioCostCalculator() {
               {t('tools.portfolio.ctaTitle')}
             </h2>
             <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">{t('tools.portfolio.ctaBody')}</p>
+            <p className="mt-4 max-w-3xl font-medium text-text-primary leading-relaxed">
+              {t('price.band3Name')}: {t('price.band3Price')}.
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button variant="primary" size="lg" href="/frame" umamiEvent="tool-cta" umamiData={{ tool: 'portfolio-cost-calculator', target: 'frame' }}>
                 {t('tools.portfolio.ctaFrame')}

@@ -9,8 +9,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "menuLabel": "Navigation menu",
-    "beirutCity": "Beirut",
-    "beirutTime": "Current time in Beirut"
+    "guides": "Guides"
   },
   "theme": {
     "light": "Light mode",
@@ -25,16 +24,46 @@
   "footer": {
     "copyright": "© {{year}} Likwiid. Founded by Gabriel Ghoussoub.",
     "privacy": "Privacy Policy",
-    "tagline": "Beirut, Lebanon. Working worldwide. Replies within 24 hours."
+    "tagline": "Two people, based in Beirut and France. Replies within 24 hours.",
+    "byTrade": "By trade",
+    "calculators": "Calculators",
+    "otaCalculator": "Platform commission calculator",
+    "portfolioCalculator": "Portfolio cost calculator",
+    "otherSoftware": "Other software we have built",
+    "direct": "Likwiid Direct",
+    "work": "What we have built"
   },
   "home": {
-    "documentTitle": "Booking Websites and Apps for Independent Hotels | Likwiid"
+    "documentTitle": "Booking pages for small hotels, tours and schools | Likwiid",
+    "proofEyebrow": "A real client",
+    "proofTitle": "Built for a sailing school in Valencia",
+    "proofBody": "At Escuela Náutica de Valencia, students pick a course day and pay a seat deposit online, on the school's own domain and its own payment account. The page has taken real bookings since 15 October 2026, and the school runs its course days from it.",
+    "proofLive": "Open the live page",
+    "proofCase": "Read how it was done",
+    "proofImageAlt": "The booking page of Escuela Náutica de Valencia on a phone",
+    "changesTitle": "What changes for you",
+    "change1": "Guests see your real availability and prices.",
+    "change2": "You confirm each request yourself, or let guests pay a deposit by card.",
+    "change3": "The money goes to your account, and the guest list stays yours.",
+    "howTitle": "Three steps, two to four weeks",
+    "how1": "You send your website address.",
+    "how2": "We show you a working draft with your own rooms or activities.",
+    "how3": "If you like it, we put it live and show you how to run it.",
+    "howAfter": "After launch, you write to the same person who built it.",
+    "faqTitle": "Before you write",
+    "appsTitle": "We also build mobile apps",
+    "appsBody": "Three apps we designed and built. These are real screens from the iPhone versions.",
+    "appsParallelLine": "A ski app for Lebanon's six resorts, built for Parallel Inc. With Apple for review.",
+    "appsBasemileLine": "A free running coach for easy heart rate runs. On the App Store.",
+    "appsPlateclimbLine": "A free workout log that works without internet. On the App Store.",
+    "appsCase": "Read more",
+    "appsAll": "See the other software we have built"
   },
   "hero": {
-    "title": "Booking websites and apps for <em>independent</em> hotels and founders.",
-    "description": "Likwiid is run by Gabriel Ghoussoub from Beirut, works with clients worldwide, and replies within 24 hours.",
-    "ctaPrimary": "Start a project",
-    "ctaSecondary": "See the work"
+    "title": "A booking page on your <em>own</em> website. Guests book and pay you directly.",
+    "description": "For small hotels, guesthouses, rural houses, tour operators, schools and studios. No commission.",
+    "ctaPrimary": "See a live example",
+    "ctaWhatsapp": "Message on WhatsApp"
   },
   "whatWeBuild": {
     "title": "What we build",
@@ -62,72 +91,60 @@
   },
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, founder of Likwiid",
-    "role": "Founder and lead engineer",
-    "bio1": "Gabriel is a full-stack engineer with more than five years of shipping production software in fintech, insurtech, satellite monitoring and IoT.",
-    "bio2": "He holds a degree in Computer and Communications Engineering from Antonine University.",
-    "bio3": "He is based in Beirut and works with clients in the US, Europe and MENA.",
+    "role": "Founder. Builds everything.",
+    "bio1": "Gabriel is an engineer who has built software for more than five years. He builds every page himself and he is the one who answers you.",
+    "bio3": "He is based in Beirut.",
     "promise": "Every message is answered by Gabriel or Emile, not a sales team.",
-    "cta": "Talk to Gabriel",
+    "cta": "Write to Gabriel",
     "cofounderRole": "Cofounder",
     "cofounderPhotoAlt": "Emile Bechaalany, cofounder of Likwiid",
     "cofounderLine1": "Emile is Likwiid's cofounder and runs the client side of the studio: first conversations, proposals, and keeping every project on track from kickoff to launch.",
     "cofounderLine2": "He is based in France and works with clients across Europe and the Mediterranean, in English and French.",
-    "imageAlt": "The Beirut skyline at night, seen from the hills above the city, with the sea and the port in the distance",
-    "imageAltDay": "Beirut's Zaitunay Bay at dusk, with the marina and the waterfront towers lit up",
-    "imageCaption": "Beirut, where Likwiid is based."
+    "title": "Two people, no sales team",
+    "languages": "Write to us in English, Spanish, Portuguese, Italian or French. We answer in your language."
   },
   "contactBlock": {
-    "title": "Have a project in mind?",
-    "body": "Tell us what you are building, and Gabriel or Emile will reply within 24 hours with a clear next step.",
-    "cta": "Start a project",
+    "title": "Send your website address. We will tell you honestly if it is worth doing.",
+    "body": "One line is enough. Gabriel or Emile will reply within 24 hours.",
+    "cta": "Write to Gabriel",
     "whatsapp": "Message on WhatsApp",
-    "emailPrefix": "Or email"
+    "emailPrefix": "Or email",
+    "whatsappNote": "WhatsApp works from any country at no cost."
   },
   "contact": {
-    "documentTitle": "Contact Us About Your Booking Website or App | Likwiid",
-    "heading": "Contact",
-    "subheading": "Start a conversation about your next project.",
-    "introTitle": "Let's build something together.",
-    "introBody": "Tell us what you are building, what it should do, and when you need it. Gabriel and Emile read every message and reply personally within 24 hours.",
-    "locationNote": "Based in Beirut and France, working with clients across US, EU and MENA time zones.",
-    "founderNote": "You will hear back from Gabriel or Emile, the founders. No ticket queue, no sales team.",
+    "documentTitle": "Ask a question about your booking page or website | Likwiid",
+    "heading": "Ask us anything",
+    "subheading": "One line is enough.",
+    "introTitle": "You write to two people, not a company inbox.",
+    "introBody": "Tell us what you run and what you would like to change. Gabriel or Emile reads your message and answers within 24 hours.",
+    "locationNote": "Write in English, Spanish, Portuguese, Italian or French. We answer in your language.",
+    "founderNote": "Gabriel or Emile answers you. There is no ticket queue and no sales team.",
     "founderPhotoAlt": "Gabriel Ghoussoub, founder of Likwiid",
     "cofounderPhotoAlt": "Emile Bechaalany, cofounder of Likwiid",
     "stepsTitle": "After you press send",
-    "step1": "Your message lands with Gabriel and Emile, not in a ticket queue, and one of them replies within 24 hours.",
-    "step2": "If it is a fit, we book a short call. You do not need to prepare anything.",
-    "step3": "You get a written proposal with a fixed price. No obligation, no chasing.",
+    "step1": "Your message reaches Gabriel and Emile, and one of them answers within 24 hours.",
+    "step2": "We ask a few questions, by message or on a short call. You do not need to prepare anything.",
+    "step3": "You get a fixed price in writing. You are free to say no.",
     "fastestReply": "fastest reply",
     "successTitle": "Message received.",
     "successBody": "Gabriel or Emile will reply from a likwiid.com address within 24 hours.",
     "successHurry": "In a hurry? <whatsapp>Message us on WhatsApp</whatsapp>.",
-    "successBrowseWork": "Browse our work while you wait",
+    "successBrowseWork": "See what we have built while you wait",
     "sendAnother": "Send another message",
     "labelName": "Name",
     "placeholderName": "Your name",
     "labelEmail": "Email",
-    "placeholderEmail": "you@company.com",
-    "labelCompany": "Company",
-    "placeholderCompany": "Your company (optional)",
-    "labelProjectType": "Project type",
-    "labelBudget": "Budget range",
-    "budgetHint": "A rough range is fine. It helps us suggest the right approach.",
+    "placeholderEmail": "name@example.com",
+    "labelCompany": "Your website",
+    "placeholderCompany": "Your website address, if you have one",
+    "labelProjectType": "What is it about?",
     "labelMessage": "Message",
-    "placeholderMessage": "What are you building, what should it do, and when do you need it?",
+    "placeholderMessage": "For example: I run a 4-room guesthouse and take bookings by WhatsApp.",
     "selectPlaceholder": "Select...",
-    "projectTypeWebApp": "Web app",
-    "projectTypeMobileApp": "Mobile app",
-    "projectTypeBookingWebsite": "Booking website",
-    "projectTypeAiIntegration": "AI integration",
-    "projectTypeCodeAudit": "Code audit",
-    "projectTypePortfolio": "Portfolio (photographers)",
-    "projectTypeOther": "Other",
-    "budgetUnder1k": "Under EUR 1,000",
-    "budget1to5k": "EUR 1,000 to 5,000",
-    "budget5to15k": "EUR 5,000 to 15,000",
-    "budget15to50k": "EUR 15,000 to 50,000",
-    "budget50kPlus": "EUR 50,000+",
-    "budgetNotSure": "Not sure yet",
+    "projectTypeMobileApp": "An app",
+    "projectTypeBookingWebsite": "A booking page or a website",
+    "projectTypePortfolio": "A portfolio for a photographer",
+    "projectTypeOther": "Something else",
     "errorSubmit": "Something went wrong. Please try again.",
     "errorFallback": "Or email gabriel@likwiid.com directly.",
     "privacyNote": "Your details go to Gabriel and Emile and nowhere else.",
@@ -136,19 +153,39 @@
     "errorNameRequired": "Name is required",
     "errorEmailRequired": "Email is required",
     "errorEmailInvalid": "Invalid email address",
-    "errorMessageRequired": "Message is required"
+    "errorMessageRequired": "Message is required",
+    "callNote": "Prefer a call? Say when and we will ring you.",
+    "whatsappNote": "WhatsApp works from any country."
   },
   "services": {
-    "documentTitle": "Web, Mobile and Booking Software Services | Likwiid",
-    "title": "Services",
-    "subtitle": "Four kinds of work, each scoped, designed and built by the person you talk to.",
-    "bookingPrice": "Most booking websites take 2 to 4 weeks.",
-    "bookingLink": "See Likwiid Direct",
+    "documentTitle": "Booking pages and websites for small businesses | Likwiid",
+    "title": "What we do",
+    "subtitle": "Two kinds of work for small hotels, guesthouses, tour operators and schools. Each one is built by the person you talk to.",
+    "bookingLink": "See how the booking page works",
     "howTitle": "How we work",
     "step1": "You send a message, and Gabriel or Emile replies within 24 hours.",
-    "step2": "We have a short call to scope the work.",
-    "step3": "You get a fixed-price proposal within days.",
-    "founderLine": "Founder-led. Two to three projects at a time, so you always talk to the person building it."
+    "step2": "We have a short call, or we keep writing if you prefer.",
+    "step3": "You get a fixed price in writing within days.",
+    "founderLine": "Two people, no sales team. You always talk to the person building your page.",
+    "kind1Title": "A booking page on the website you already have",
+    "kind1Body": "Your website stays as it is. We add a page where guests pick their dates, see the price and book or send a request. We install it for you.",
+    "kind1Item1": "Guests book and pay a deposit by card, or send a request you confirm yourself",
+    "kind1Item2": "The money goes to a payment account in your own name",
+    "kind1Item3": "Your calendar on the booking platforms closes the same dates",
+    "kind2Title": "A complete new website with booking built in",
+    "kind2Body": "For a business with no website, or with one that no longer works well on a phone. We write it in the languages your guests speak and build the booking into it.",
+    "kind2Item1": "Your photos, your prices and your terms, easy to read on a phone",
+    "kind2Item2": "Booking with a card deposit, or by request",
+    "kind2Item3": "Your domain and your website stay in your name",
+    "kindTime": "Most jobs take 2 to 4 weeks.",
+    "exampleLink": "See the one that is live for a sailing school",
+    "afterTitle": "After launch",
+    "afterBody1": "The person who built your page keeps looking after it. You write to Gabriel by WhatsApp or email and get an answer within 24 hours.",
+    "afterBody2": "If something we built stops working, we fix it. If you want something new later, you get the price in writing before the work starts.",
+    "afterBody3": "The page, the bookings and the guest list are yours. If you stop working with us, they stay with you.",
+    "softwareTitle": "Apps and other software",
+    "softwareBody": "We also build mobile apps and other software. That work has its own page.",
+    "softwareLink": "Other software we have built"
   },
   "carousel": {
     "previous": "Previous screenshot",
@@ -173,29 +210,31 @@
   "products": {
     "docTitle": "Direct Booking Engine and Photographer Portfolios | Likwiid",
     "title": "Products",
-    "intro": "Two engines we built ourselves and set up for each client, both with live demos.",
+    "intro": "Two products we built ourselves and set up for each client. You can try both in a live demo.",
     "demoNote": "The demo brands are fictional and any payment step is simulated.",
-    "directDesc": "A commission-free direct booking engine for small stays and experiences.",
-    "directBody": "Likwiid Direct takes bookings on your own website: your domain, your payment account, your guest list. No commission, no middleman, no lock-in. Configured for each property, not a template.",
+    "directDesc": "A booking page for small stays and activities, with no commission.",
+    "directBody": "Likwiid Direct takes bookings on your own website: your domain, your payment account, your guest list. No commission and no middleman. We set it up for your property.",
     "directPoint1": "Lives inside the website you already have",
     "directPoint2": "Card deposits, options that change the price, and the guest's language done properly",
-    "directPoint3": "Calendar sync via iCal, so a direct booking closes the date everywhere else you list",
+    "directPoint3": "Your calendar on the booking platforms closes the same dates",
     "directPageLink": "See Likwiid Direct",
     "directDemoLink": "Launch the live demo",
     "directImageAlt": "Likwiid Direct demo booking page preview",
-    "frameDesc": "A premium portfolio engine for photographers who want a site they own.",
-    "frameBody": "Likwiid Frame turns one config folder plus your photo folders into a premium portfolio site with client proofing, a print shop and booking. You keep your own domain and own the finished site as files.",
-    "framePoint1": "Client proofing, a print shop, and an owner panel built in",
-    "framePoint2": "An image pipeline that respects your photos",
-    "framePoint3": "Pay once, no subscription: the finished site is yours as files",
+    "frameDesc": "A portfolio website for photographers who want a site they own.",
+    "frameBody": "You send us your photos, we deliver a finished portfolio you own. It can include private galleries where clients choose their photos, a print shop and booking. You keep your own domain.",
+    "framePoint1": "Private client galleries, a print shop and an owner panel",
+    "framePoint2": "Your photos stay sharp and load fast",
+    "framePoint3": "You pay once, with no subscription, and the finished site is yours",
     "framePageLink": "See Likwiid Frame",
     "frameDemoLink": "Launch the live demo",
-    "frameImageAlt": "Likwiid Frame demo portfolio preview"
+    "frameImageAlt": "Likwiid Frame demo portfolio preview",
+    "directPrice": "EUR 300 to 600 once on the website you already have. EUR 900 to 1,700 once for a complete new website with booking.",
+    "framePrice": "Around EUR 400 once, or around EUR 900 once with client galleries, print shop and booking."
   },
   "portfolio": {
-    "documentTitle": "Work: Booking Platforms and Apps We Built | Likwiid",
-    "title": "Work that turns messy operations into owned software",
-    "subtitle": "Apps and websites we designed, built and launched, for clients and for our own studio.",
+    "documentTitle": "What We Have Built: a Live Booking Page and Demos | Likwiid",
+    "title": "What we have built",
+    "subtitle": "Start with the booking page we built for a sailing school in Valencia. Then try two demos yourself.",
     "hospitalityBody": "Booking websites where guests book and pay you directly, with no commission. You own the site, the bookings and your guest list.",
     "previewAlt": "{{title}} project preview",
     "viewCaseStudyAria": "View {{title}} case study",
@@ -211,7 +250,12 @@
     "statusShipped": "Shipped",
     "statusInDevelopment": "In development",
     "filterAll": "All",
-    "filterLabel": "Filter projects"
+    "filterLabel": "Filter projects",
+    "demosTitle": "Two demos you can try",
+    "demoLabel": "Demo",
+    "otherTitle": "Other software we have built",
+    "otherBody": "Mobile apps for clients and for ourselves, and the engineering work behind them.",
+    "otherLink": "See the other software"
   },
   "direct": {
     "docTitle": "Likwiid Direct: Commission-Free Direct Booking Engine",
@@ -220,7 +264,7 @@
     "heroSubtitle": "Likwiid Direct is a commission-free direct booking engine for small stays and experiences. No middleman, no lock-in. You keep your domain, your payment account and your guest list.",
     "audience": "Built for small hotels, guesthouses, tour operators, salons and clinics.",
     "ctaDemo": "Try the live demo",
-    "ctaTalk": "Talk to us",
+    "ctaTalk": "Ask about your property",
     "demoTitle": "Try it yourself",
     "demoNote": "Quinta Likwiid and Atelier Likwiid are fictional. They exist so you can click through the exact engine we would build for you. The checkout is simulated and no payment is taken.",
     "feature1Title": "Options that change the price",
@@ -228,7 +272,7 @@
     "feature2Title": "A deposit, not the full amount",
     "feature2Desc": "Most small properties already ask for 20 or 30 percent by bank transfer. Likwiid Direct takes the same deposit by card, at the exact moment the guest decides, and the balance stays payable on arrival.",
     "feature3Title": "It lives inside the site you already have",
-    "feature3Desc": "One script tag and one div on any WordPress, Wix or hand-built site. No rebuild, no migration. Your website stays yours and the bookings come straight to you.",
+    "feature3Desc": "It goes on the website you already have, whether it is WordPress, Wix or hand-built, and we install it for you. No rebuild, no migration. Your website stays yours and the bookings come straight to you.",
     "feature4Title": "Your guest's language, done properly",
     "feature4Desc": "Every step, every label and every price in the language the guest picks. Nothing half translated and nothing leaking internal labels.",
     "feature5Title": "Places left, and a waitlist when a slot is full",
@@ -261,10 +305,11 @@
     ],
     "marketLinksTitle": "Pages for your kind of business",
     "marketLinks": {
+      "guesthouses": "Guesthouses and B&Bs",
       "padel-clubs": "Padel clubs",
       "dive-centres": "Dive centres"
     },
-    "scarcity": "This engine is not running anyone's bookings yet, so the first property gets a reference price in exchange for letting us show the finished work. If a platform already serves you well and the commission does not bother you, this product is not for you.",
+    "scarcity": "Our first live booking page is the one we built for Escuela Náutica de Valencia. Likwiid Direct is the same idea packaged for stays, and it has no paying property yet. So the first one gets the lower end of the price, in exchange for letting us show the result. If a platform already serves you well and the commission does not bother you, this product is not for you.",
     "demoLaunch": "Launch the full demo",
     "demoPreviewAlt": "Preview of the Likwiid Direct booking flow",
     "demoCard1Title": "A guesthouse stay",
@@ -300,15 +345,16 @@
     "ownerMockLegendBlocked": "Blocked",
     "ownerCaption": "An illustration of the owner view.",
     "siteTitle": "Need the whole website?",
-    "siteBody": "We also design and build the full website around it: design, build and launch, mobile-first, in 2 to 4 weeks.",
-    "siteItem1": "Design and build, mobile-first",
+    "siteBody": "We also design and build the full website around it, made to read well on a phone, in 2 to 4 weeks.",
+    "siteItem1": "Design and build that reads well on a phone",
     "siteItem2": "Online booking or ordering flow",
     "siteItem3": "WhatsApp click-to-chat built in",
     "siteItem4": "Hosting and domain setup",
     "siteItem5": "Training so your team can run it",
     "siteItem6": "A real person who replies within 24 hours",
-    "proofBody": "We have built this before: a court booking platform where players book and pay from their phone, and the owners run everything from one dashboard.",
-    "proofLink": "See the padel booking case study"
+    "proofBody": "Our first live booking page is the one we built for Escuela Náutica de Valencia, a sailing school. Students pick a course day and pay a seat deposit on the school's own domain.",
+    "proofLink": "See the sailing school case study",
+    "faqTitle": "Questions owners ask"
   },
   "frame": {
     "docTitle": "Likwiid Frame: Photographer Portfolio Website You Own",
@@ -316,7 +362,7 @@
     "heroTitle": "A portfolio you own, down to the files.",
     "heroSubtitle": "Likwiid Frame is a portfolio engine for photographers, with client proofing, a print shop and booking built in. You pay once, keep your own domain and own the site as files, with no subscription.",
     "ctaDemo": "Try the live demos",
-    "ctaTalk": "Talk to us",
+    "ctaTalk": "Ask a question",
     "demoTitle": "Try it yourself",
     "demoNote": "Ana Likwiid Photography and Studio Likwiid are fictional: one engine, two brands that look like different studios. Proofing and checkout are simulated and no payment is taken.",
     "demoLaunch": "Launch the full demo",
@@ -366,14 +412,18 @@
     "allGuides": "All guides",
     "ctaTitle": "Want a second opinion on your setup?",
     "ctaBody": "Tell us how you take bookings or clients today. We reply within 24 hours, and we will say so if what you already have works.",
-    "ctaButton": "Talk to us"
+    "ctaButton": "Ask a question",
+    "readMoreTitle": "Guides worth reading first"
   },
   "privacy": {
     "documentTitle": "Privacy Policy | Likwiid",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: {{date}}",
+    "emailTitle": "If you received an email from us",
+    "emailBody1": "We sometimes write to small tourism businesses about their website. We take the email address from the business's own public website or from a public business listing. We do not buy lists.",
+    "emailBody2": "We write because we think our work could be useful to the business. This is our legitimate interest under data protection law. To stop, reply with the word stop or write to gabriel@likwiid.com. We then remove your address and keep only a note not to write to you again.",
     "collectTitle": "Information we collect",
-    "collectBody": "When you use our contact form, we collect the information you provide: your name, email address, company name (if provided), and message content. We do not collect any information automatically beyond what is strictly necessary for the website to function.",
+    "collectBody": "When you use our contact form, we collect the information you provide: your name, email address, website address (if provided), and message content. We do not collect any information automatically beyond what is strictly necessary for the website to function.",
     "useTitle": "How we use your information",
     "useBody": "We use the information you submit through our contact form solely to respond to your inquiry and discuss potential projects. We will not send you marketing communications unless you have explicitly opted in to receive them.",
     "sharingTitle": "Data sharing",
@@ -419,7 +469,7 @@
       "fixErrors": "Check the highlighted field to see your figures.",
       "privacyNote": "The calculation runs in your browser. The numbers you type are not sent or saved anywhere.",
       "howTitle": "How it is calculated",
-      "ctaContact": "Talk to us"
+      "ctaContact": "Ask a question"
     },
     "ota": {
       "name": "OTA commission calculator",
@@ -520,14 +570,17 @@
     "techStack": "Tech stack",
     "underTheHood": "Under the hood",
     "notableEngineering": "Notable engineering",
-    "similarProject": "Have a similar project?",
-    "similarProjectBody": "Tell us what you need. We reply within 24 hours.",
-    "startProject": "Start a project",
+    "similarProject": "Want something like this?",
+    "similarProjectBody": "Tell us what you run. One line is enough, and we answer within 24 hours.",
+    "startProject": "Write to Gabriel",
     "whatsapp": "Message us on WhatsApp",
     "nextProject": "Next project",
     "openSourceLabel": "Open source",
     "openSourceBody": "{{name}} is free and open source, licensed under GPL-3.0 or later.",
-    "openSourceLink": "See {{name}} on the open source page"
+    "openSourceLink": "See {{name}} on the open source page",
+    "quoteTranslatedEs": "Translated from Spanish.",
+    "nextDirectLabel": "Next",
+    "nextDirect": "The same idea for stays: Likwiid Direct"
   },
   "openSource": {
     "docTitle": "Open Source Apps: BaseMile, PlateClimb and WOOP | Likwiid",
@@ -583,13 +636,13 @@
   },
   "seo": {
     "home": {
-      "description": "Booking websites, web apps and mobile apps for independent hotels, guesthouses and founders. A founder-led studio in Beirut that replies within 24 hours."
+      "description": "A booking page on your own website for small hotels, guesthouses, tour operators and schools. Guests book and pay you directly. From EUR 300 to 1,700, once."
     },
     "services": {
-      "description": "Web and mobile apps, booking websites for hospitality and appointments, AI integration and automation, cloud architecture and code rescue."
+      "description": "A booking page added to your website for EUR 300 to 600, or a complete website with booking for EUR 900 to 1,700. Paid once, with no commission."
     },
     "work": {
-      "description": "Case studies: a padel booking platform live on iOS and Android, a consulting website, and our own apps for voice, running, breathing and home energy."
+      "description": "The booking page we built for Escuela Náutica de Valencia, live with real payments, and two demos of Likwiid Direct you can click through."
     },
     "products": {
       "description": "Likwiid Direct, a commission-free booking engine for small stays and experiences, and Likwiid Frame, a portfolio photographers own. Both with live demos."
@@ -601,7 +654,7 @@
       "description": "Free calculator for photographers: compare a website builder subscription with a one-time portfolio build over the years and find the break-even point."
     },
     "contact": {
-      "description": "Tell us about your booking website or app. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours."
+      "description": "Ask a question about a booking page or a website. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We answer within 24 hours, in your language."
     },
     "direct": {
       "description": "A commission-free booking engine inside your own website, for guesthouses, small hotels and experiences. Deposits, options and waitlists. Try the live demo.",
@@ -617,6 +670,60 @@
     "breadcrumbHome": "Home",
     "openSource": {
       "description": "BaseMile, PlateClimb and WOOP: free, open source apps for Zone 2 runs, offline workouts and WOOP goal plans. No account, no tracking, data on your phone."
+    },
+    "software": {
+      "description": "Apps we built for clients and for ourselves: a ski app, a padel booking platform, running and workout apps. Plus web, mobile and AI engineering services."
     }
+  },
+  "founderLine": {
+    "text": "I'm Gabriel Ghoussoub. I build it and I answer you myself, within 24 hours.",
+    "photoAlt": "Gabriel Ghoussoub"
+  },
+  "sticky": {
+    "whatsapp": "WhatsApp Gabriel"
+  },
+  "price": {
+    "title": "What it costs",
+    "band1Name": "A booking page added to the website you already have",
+    "band1Price": "EUR 300 to 600, once",
+    "band2Name": "A complete new website with booking built in",
+    "band2Price": "EUR 900 to 1,700, once",
+    "band3Name": "A portfolio for photographers (Likwiid Frame)",
+    "band3Price": "around EUR 400, or around EUR 900 with client proofing, print shop and booking",
+    "noFee": "No commission on bookings and no monthly fee to Likwiid.",
+    "running": "You pay the usual costs of any website directly to the providers: your domain, your hosting, and card fees to your own payment account.",
+    "written": "You get the exact price in writing before anything starts.",
+    "terms": "You pay a share when we agree, and the balance only when your page is live. If it does not go live, you do not pay the balance.",
+    "firstProperty": "Likwiid Direct has no paying property yet. The first one gets the lower end of the price, in exchange for letting us show the result.",
+    "short": "A booking page on the website you already have costs EUR 300 to 600, once. A complete new website with booking costs EUR 900 to 1,700, once."
+  },
+  "faq": {
+    "costQ": "What does it cost?",
+    "costA": "A booking page added to the website you already have costs EUR 300 to 600, once. A complete new website with booking built in costs EUR 900 to 1,700, once. There is no commission and no monthly fee to Likwiid. You get the exact price in writing before anything starts.",
+    "siteQ": "Do I need a new website?",
+    "siteA": "No. The booking page goes on the website you already have, and we install it for you. If you have no website, or you want a new one, we build that too.",
+    "afterQ": "Who looks after it after launch?",
+    "afterA": "The same person who built it. You write to Gabriel by WhatsApp or email and get an answer within 24 hours. Any change you ask for later is priced in writing before the work starts.",
+    "payQ": "How and when do I pay?",
+    "payA": "You pay a share when we agree, and the balance only when your page is live. If it does not go live, you do not pay the balance.",
+    "platformQ": "A booking platform already works for me. Do I need this?",
+    "platformA": "If a platform already serves you well and the commission does not bother you, this is not for you. A booking page on your own website is for the guests who already look for you directly.",
+    "moneyQ": "How does the money reach my account?",
+    "moneyA": "Card payments go into a payment account opened in your own name, for example Stripe. The money goes from the guest to you. Likwiid never holds it.",
+    "stopQ": "What happens if I stop working with you?",
+    "stopA": "The page, the bookings and the guest list are yours and they stay with you. Your domain and your payment account are in your name from the first day.",
+    "termsQ": "Do guests see my cancellation terms before they book?",
+    "termsA": "Yes. Your cancellation and payment terms sit at the last step, and nobody can book or send a request without ticking that they have read them.",
+    "languageQ": "Does it work in my guests' language?",
+    "languageA": "Today the booking steps come in English, French, Spanish, Portuguese and Polish. Every step, every label and every price is shown in the language the guest picks, with nothing half translated. Need another language? Ask and we will tell you what it takes."
+  },
+  "software": {
+    "documentTitle": "Other Software We Have Built: Apps and Engineering | Likwiid",
+    "crumb": "Other software",
+    "title": "Other software we have built",
+    "subtitle": "Mobile and web apps for clients and for our own studio, and the engineering services behind them. If you run a hotel, a guesthouse or a school, start with the booking work.",
+    "backToWork": "See the booking work",
+    "servicesHeading": "Engineering services",
+    "cta": "Ask about a software project"
   }
 }

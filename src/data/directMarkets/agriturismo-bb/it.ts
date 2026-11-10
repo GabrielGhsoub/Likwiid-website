@@ -15,7 +15,7 @@ const it: DirectMarketContent = {
   ],
   demo: 'quinta-likwiid',
   ctaDemo: 'Prova la demo dal vivo',
-  ctaTalk: 'Parla con noi',
+  ctaTalk: 'Fai una domanda',
   demoNote:
     'Quinta Likwiid è una guesthouse di fantasia nella valle del Douro, con camere, degustazione di vini e cesto per la colazione come extra. La demo è in portoghese, inglese e spagnolo, il pagamento è simulato e non viene addebitato nulla.',
   sections: [
@@ -28,7 +28,7 @@ const it: DirectMarketContent = {
         { title: 'Camere e appartamenti', desc: 'Ogni camera o appartamento ha il suo calendario, il suo prezzo e il suo numero di posti, con prezzi stagionali per vendemmia, agosto o i ponti.' },
         { title: 'Le tue regole prima della prenotazione', desc: 'Soggiorno minimo per camera, il preavviso che ti serve, giorni liberi tra un soggiorno e l\'altro e i periodi di chiusura.' },
         { title: 'Caparra con carta, saldo all\'arrivo', desc: 'La stessa caparra che oggi chiedi con bonifico, incassata nel momento in cui l\'ospite decide.' },
-        { title: 'Calendario sincronizzato', desc: 'Importa le date occupate da qualsiasi portale che esporti un feed iCal ed esporta le tue. Non è istantaneo, e il calendario mostra l\'ultima sincronizzazione.' },
+        { title: 'Calendario sincronizzato', desc: 'Legge le date occupate sui portali dove sei presente e manda loro le tue, così il loro calendario chiude le stesse date. Non è istantaneo, e il calendario mostra l\'ultima sincronizzazione.' },
         { title: 'Modalità richiesta', desc: 'Per chi preferisce sentire prima ogni ospite: la richiesta arriva con date, persone ed extra, e tu confermi, proponi un\'altra data o rifiuti.' },
       ],
     },
@@ -54,6 +54,14 @@ const it: DirectMarketContent = {
       ],
       note: 'È una sintesi, non una consulenza legale. Le regole cambiano e variano da regione a regione e da comune a comune: verifica con il tuo comune e con la tua regione.',
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Una pagina di prenotazione che riceve già prenotazioni reali',
+      body: 'La prima pagina di prenotazione che abbiamo messo online è quella realizzata per la Escuela Náutica de Valencia, una scuola nautica. Gli studenti prenotano e pagano sul sito della scuola. Likwiid Direct è la stessa idea preparata per le strutture ricettive, e non ha ancora una struttura pagante.',
+      linkLabel: 'Leggi come funziona la pagina di prenotazione della scuola',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Le domande di agriturismi e B&B',
   faq: [
@@ -67,11 +75,11 @@ const it: DirectMarketContent = {
     },
     {
       q: 'Posso restare sui portali dove sono presente?',
-      a: 'Sì. Likwiid Direct importa via iCal le date occupate sui portali ed esporta le sue, così una prenotazione diretta chiude la data altrove. La sincronizzazione non è istantanea, quindi puoi lasciare giorni liberi di margine.',
+      a: 'Sì. Likwiid Direct legge le date occupate sui portali e manda loro le sue, così una prenotazione diretta chiude la data anche lì. La sincronizzazione non è istantanea, quindi puoi lasciare giorni liberi di margine.',
     },
     {
-      q: 'Prendete una commissione sulle prenotazioni?',
-      a: 'No. Nessuna commissione su nessuna prenotazione. Raccontaci della tua struttura e ti spieghiamo cosa comporta metterla in funzione.',
+      q: 'Quanto costa, e prendete una commissione?',
+      a: 'Non c\'è nessuna commissione su nessuna prenotazione e nessun canone mensile a Likwiid. Una pagina di prenotazione sul sito che hai già costa da 300 a 600 €, una sola volta. Un sito nuovo e completo con la prenotazione costa da 900 a 1.700 €, una sola volta.',
     },
   ],
   closingTitle: 'Raccontaci della tua struttura',

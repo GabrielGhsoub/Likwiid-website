@@ -774,4 +774,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://likwiid.com/software/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://likwiid.com/pt/software/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://likwiid.com/es/software/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://likwiid.com/it/software/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://likwiid.com/fr/software/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://likwiid.com/direct/guesthouses/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

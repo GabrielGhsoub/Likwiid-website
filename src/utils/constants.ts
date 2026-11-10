@@ -2,7 +2,7 @@ export const SITE = {
   name: 'Likwiid',
   title: 'Likwiid | Software Studio',
   description:
-    'Likwiid is a founder-led studio in Beirut that builds booking websites, web apps and mobile apps for independent hotels and founders worldwide.',
+    'Likwiid is a founder-led studio in Beirut that builds booking pages and websites for small hotels, guesthouses, tour operators and schools.',
   url: 'https://likwiid.com',
 } as const
 
@@ -18,6 +18,7 @@ export const NAV_LINKS = [
   { label: 'Work', path: '/work' },
   { label: 'Services', path: '/services' },
   { label: 'Products', path: '/products' },
+  { label: 'Guides', path: '/guides' },
   { label: 'Contact', path: '/contact' },
 ] as const
 

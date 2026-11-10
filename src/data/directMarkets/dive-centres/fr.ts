@@ -15,7 +15,7 @@ const fr: DirectMarketContent = {
   ],
   demo: 'escuela-likwiid',
   ctaDemo: 'Essayer la démo la plus proche',
-  ctaTalk: 'Parlons-en',
+  ctaTalk: 'Posez une question',
   demoNote:
     'Il n\'existe pas encore de démo plongée. La plus proche est Escuela Likwiid, une école nautique fictive, en espagnol et en anglais, avec des formations sur plusieurs jours, des places par session et une étape de documents. Les fichiers restent dans votre navigateur et le paiement est simulé.',
   sections: [
@@ -65,6 +65,14 @@ const fr: DirectMarketContent = {
         'Pour les plongées qui demandent plus d\'attention, passez en mode demande : le plongeur envoie sa réservation avec ses documents, vous les vérifiez, et vous confirmez seulement ensuite. La décision reste la vôtre et celle de vos moniteurs.',
       ],
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Déjà en service pour une école nautique',
+      body: 'La page de réservation que nous avons créée pour Escuela Náutica de Valencia fonctionne de la même façon : des cours avec un nombre de places, le numéro de pièce d\'identité vérifié avec la réservation, et le paiement sur le site de l\'école. Elle reçoit de vraies réservations depuis octobre 2026.',
+      linkLabel: 'Lire comment fonctionne la page de réservation de l\'école',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Les questions des centres de plongée',
   faq: [
@@ -85,8 +93,8 @@ const fr: DirectMarketContent = {
       a: 'C\'est vous qui fixez combien de jours après l\'activité ils sont supprimés, et l\'étape de dépôt l\'indique au plongeur avant qu\'il n\'envoie quoi que ce soit.',
     },
     {
-      q: 'Prenez-vous une commission sur les réservations ?',
-      a: 'Non. Aucune commission sur aucune plongée ni aucune formation. Parlez-nous de votre centre et nous vous expliquons ce que demande la mise en place.',
+      q: 'Combien ça coûte, et prenez-vous une commission ?',
+      a: 'Aucune commission sur aucune plongée ni aucune formation, et aucun abonnement mensuel à payer à Likwiid. Une page de réservation sur le site que vous avez déjà coûte de 300 à 600 €, une seule fois. Un nouveau site complet avec réservation coûte de 900 à 1 700 €, une seule fois.',
     },
   ],
   closingTitle: 'Racontez-nous comment votre centre réserve aujourd\'hui',

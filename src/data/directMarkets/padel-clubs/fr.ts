@@ -15,7 +15,7 @@ const fr: DirectMarketContent = {
   ],
   demo: 'atelier-likwiid',
   ctaDemo: 'Essayer la démo la plus proche',
-  ctaTalk: 'Parlons-en',
+  ctaTalk: 'Posez une question',
   demoNote:
     'Il n\'existe pas encore de démo padel. La plus proche est Atelier Likwiid, un atelier fictif qui réserve des séances par créneau, avec les places restantes et une liste d\'attente. Le paiement est simulé et aucun montant n\'est débité.',
   sections: [
@@ -71,7 +71,7 @@ const fr: DirectMarketContent = {
     },
     {
       q: 'Pouvons-nous garder notre site actuel ?',
-      a: 'Oui. Likwiid Direct s\'intègre au site que vous avez déjà avec une balise script et une div, sous WordPress, Wix ou codé à la main. S\'il vous faut aussi un nouveau site, nous le réalisons.',
+      a: 'Oui. La page de réservation se place sur le site que vous avez déjà, et nous l\'installons pour vous. S\'il vous faut aussi un nouveau site, nous le réalisons.',
     },
     {
       q: 'Les joueurs peuvent-ils payer en réservant ?',
@@ -82,8 +82,8 @@ const fr: DirectMarketContent = {
       a: 'Non. Likwiid Direct sert à réserver des terrains. Les ligues et la recherche de joueurs du même niveau, c\'est ce que nous avons construit dans la plateforme de padel ci-dessus : un projet à part, dont nous parlons volontiers.',
     },
     {
-      q: 'Prenez-vous une commission sur les réservations ?',
-      a: 'Non. Aucune commission sur aucune réservation. Parlez-nous de votre club et nous vous expliquons ce que demande la mise en place.',
+      q: 'Combien ça coûte, et prenez-vous une commission ?',
+      a: 'Aucune commission sur aucune réservation, et aucun abonnement mensuel à payer à Likwiid. Une page de réservation sur le site que vous avez déjà coûte de 300 à 600 €, une seule fois. Un nouveau site complet avec réservation coûte de 900 à 1 700 €, une seule fois.',
     },
   ],
   closingTitle: 'Racontez-nous comment votre club réserve aujourd\'hui',

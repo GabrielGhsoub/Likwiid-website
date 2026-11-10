@@ -15,7 +15,7 @@ const fr: DirectMarketContent = {
   ],
   demo: 'quinta-likwiid',
   ctaDemo: 'Essayer la démo en ligne',
-  ctaTalk: 'Parlons-en',
+  ctaTalk: 'Posez une question',
   demoNote:
     'Quinta Likwiid est une maison d\'hôtes fictive dans la vallée du Douro. Elle existe pour que vous puissiez parcourir le moteur exact que nous construirions pour vous. La démo est en portugais, anglais et espagnol, le paiement est simulé et aucun montant n\'est débité.',
   sections: [
@@ -39,7 +39,7 @@ const fr: DirectMarketContent = {
         { title: 'La table d\'hôtes en option', desc: 'Le dîner, le panier pique-nique ou un transfert depuis la gare, par personne, par nuit ou par séjour, avec le total qui se met à jour.' },
         { title: 'L\'acompte par carte', desc: 'Le même acompte que vous demandez aujourd\'hui par chèque ou virement, encaissé au moment où le client se décide. Le solde reste payable sur place.' },
         { title: 'Le mode demande', desc: 'Si vous préférez échanger avec chaque client avant d\'accepter : la demande arrive avec les dates, le nombre de personnes et les options, et vous acceptez, proposez une autre date ou refusez.' },
-        { title: 'Un calendrier synchronisé', desc: 'Il importe les dates occupées de toute plateforme qui exporte un flux iCal et exporte les siennes. Ce n\'est pas instantané, et le calendrier affiche sa dernière synchronisation.' },
+        { title: 'Un calendrier synchronisé', desc: 'Il reprend les dates occupées des plateformes où vous avez une annonce et leur envoie les siennes. Ce n\'est pas instantané, et le calendrier affiche sa dernière synchronisation.' },
         { title: 'Vos conditions, acceptées d\'abord', desc: 'Conditions d\'annulation, heure d\'arrivée, animaux : tout figure à la dernière étape, et personne ne réserve sans cocher qu\'il les a lues.' },
       ],
     },
@@ -65,12 +65,20 @@ const fr: DirectMarketContent = {
       ],
       note: 'Ceci est un résumé, pas un conseil juridique. Les règles changent et varient d\'une commune à l\'autre : vérifiez auprès de votre mairie.',
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Une page de réservation qui reçoit déjà de vraies réservations',
+      body: 'Notre première page de réservation en service est celle que nous avons créée pour Escuela Náutica de Valencia, une école nautique. Les élèves réservent et paient sur le site de l\'école. Likwiid Direct reprend la même idée pour les hébergements, et aucun établissement payant ne l\'utilise encore.',
+      linkLabel: 'Lire comment fonctionne la page de réservation de l\'école',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Les questions des propriétaires',
   faq: [
     {
       q: 'Puis-je garder mes annonces sur les plateformes ?',
-      a: 'Oui. Likwiid Direct importe en iCal les dates occupées sur les plateformes et exporte les siennes, pour qu\'une réservation directe ferme la date ailleurs. La synchronisation n\'est pas instantanée, vous pouvez donc laisser des jours libres de marge.',
+      a: 'Oui. Likwiid Direct reprend les dates occupées sur les plateformes et leur envoie les siennes, pour qu\'une réservation directe ferme la date ailleurs. La synchronisation n\'est pas instantanée, vous pouvez donc laisser des jours libres de marge.',
     },
     {
       q: 'Le gîte et les chambres peuvent-ils avoir des règles différentes ?',
@@ -81,8 +89,8 @@ const fr: DirectMarketContent = {
       a: 'Oui. Chaque étape, chaque libellé et chaque prix s\'affichent en français, et le client peut aussi réserver en anglais, en espagnol ou en portugais.',
     },
     {
-      q: 'Prenez-vous une commission sur les réservations ?',
-      a: 'Non. Aucune commission sur aucune réservation. Parlez-nous de votre maison et nous vous expliquons ce que demande la mise en place.',
+      q: 'Combien ça coûte, et prenez-vous une commission ?',
+      a: 'Aucune commission sur aucune réservation, et aucun abonnement mensuel à payer à Likwiid. Une page de réservation sur le site que vous avez déjà coûte de 300 à 600 €, une seule fois. Un nouveau site complet avec réservation coûte de 900 à 1 700 €, une seule fois.',
     },
   ],
   closingTitle: 'Parlez-nous de votre maison',

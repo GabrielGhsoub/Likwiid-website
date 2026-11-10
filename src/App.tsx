@@ -22,6 +22,7 @@ import { guidePage } from './content/guides/registry'
 const loadFeatures = () => import('./motionFeatures').then((mod) => mod.domMax)
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
+import { StickyWhatsApp } from './components/layout/StickyWhatsApp'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import { HydrationComplete } from './components/layout/HydrationComplete'
 import Home from './pages/Home'
@@ -39,6 +40,7 @@ import {
   NotFound,
   Guides,
   OpenSource,
+  Software,
   TOOL_ROUTES,
   DIRECT_MARKET_PAGES,
 } from './routes'
@@ -85,6 +87,8 @@ const LOCALIZED_ELEMENTS: Record<LocalizedPage, () => React.JSX.Element> = {
   products: () => <Products />,
   guides: () => <Guides />,
   'open-source': () => <OpenSource />,
+  software: () => <Software />,
+  privacy: () => <Privacy />,
 }
 
 // Locale-prefixed routes (/pt, /pt/work, /fr/contact, ...): the URL is the source of truth for
@@ -249,6 +253,7 @@ export default function App() {
                 <Route path="/frame" element={<Frame />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/open-source" element={<OpenSource />} />
+                <Route path="/software" element={<Software />} />
                 <Route path="/beit-toureef-walkthrough" element={<BeitToureefPoc />} />
                 <Route path="/beit-toureef-poc" element={<LegacyBeitToureefRedirect />} />
                 <Route path="*" element={<NotFound />} />
@@ -258,6 +263,7 @@ export default function App() {
           </ErrorBoundary>
         </main>
         <Footer />
+        <StickyWhatsApp />
       </MotionConfig>
     </LazyMotion>
   )

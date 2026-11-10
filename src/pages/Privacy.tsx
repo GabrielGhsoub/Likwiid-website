@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 
-const LAST_UPDATED_ISO = '2026-10-18'
+const LAST_UPDATED_ISO = '2026-11-10'
 
 export default function Privacy() {
   const { t, i18n } = useTranslation()
@@ -30,6 +30,18 @@ export default function Privacy() {
           </p>
 
           <div className="space-y-10">
+            <section id="email">
+              <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
+                {t('privacy.emailTitle')}
+              </h2>
+              <p className="text-text-secondary leading-relaxed">
+                {t('privacy.emailBody1')}
+              </p>
+              <p className="mt-3 text-text-secondary leading-relaxed">
+                {t('privacy.emailBody2')}
+              </p>
+            </section>
+
             <section>
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
                 {t('privacy.collectTitle')}

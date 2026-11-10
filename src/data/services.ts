@@ -30,7 +30,7 @@ export const services: Service[] = [
     icon: 'CalendarCheck',
     techStack: [],
     deliverables: [
-      'Mobile-first design and build',
+      'Designed for the phone first',
       'Online booking with card deposits',
       'Reminders by email or WhatsApp',
       'Calendar sync with the platforms you already use',

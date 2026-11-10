@@ -55,6 +55,12 @@ const REQUIRED_PAGES = {
   'work/parallel': 'en',
   // Open source apps page, in every language.
   ...Object.fromEntries(['en', 'pt', 'es', 'it', 'fr'].map((lang) => [lang === 'en' ? 'open-source' : `${lang}/open-source`, lang])),
+  // The apps and other software page, and the privacy policy, in every language.
+  ...Object.fromEntries(
+    ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>
+      ['software', 'privacy'].map((page) => [lang === 'en' ? page : `${lang}/${page}`, lang])
+    )
+  ),
   // Free calculators, in every language.
   ...Object.fromEntries(
     ['en', 'pt', 'es', 'it', 'fr'].flatMap((lang) =>
@@ -69,6 +75,7 @@ const REQUIRED_PAGES = {
   'es/direct/casa-rural': 'es',
   'it/direct/agriturismo-bb': 'it',
   'fr/direct/chambres-d-hotes': 'fr',
+  'direct/guesthouses': 'en',
   ...Object.fromEntries(
     ['padel-clubs', 'dive-centres'].flatMap((page) => [
       [`direct/${page}`, 'en'],

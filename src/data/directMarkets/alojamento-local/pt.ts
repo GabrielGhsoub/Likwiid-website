@@ -15,7 +15,7 @@ const pt: DirectMarketContent = {
   ],
   demo: 'quinta-likwiid',
   ctaDemo: 'Experimente a demo ao vivo',
-  ctaTalk: 'Fale connosco',
+  ctaTalk: 'Faça uma pergunta',
   demoNote:
     'A Quinta Likwiid é uma casa de hóspedes fictícia no Douro. Existe para que possa percorrer exatamente o motor que construiríamos para si. O pagamento é simulado e não é cobrado nenhum valor.',
   sections: [
@@ -46,7 +46,7 @@ const pt: DirectMarketContent = {
       id: 'handles',
       title: 'O que o Likwiid Direct trata por si',
       items: [
-        { title: 'Datas sincronizadas com as plataformas', desc: 'Importa as datas ocupadas de qualquer plataforma que exporte um feed iCal e exporta as suas. A sincronização não é instantânea, e o calendário mostra quando foi a última.' },
+        { title: 'Datas sincronizadas com as plataformas', desc: 'As datas ocupadas nas plataformas onde anuncia fecham aqui, e o calendário dessas plataformas fecha as mesmas datas quando recebe uma reserva direta. A sincronização não é instantânea, e o calendário mostra quando foi a última.' },
         { title: 'Estadia mínima e preços por época', desc: 'Um mínimo de noites por casa ou por quarto, um preço para agosto e outro para novembro, dias livres entre reservas e períodos de encerramento.' },
         { title: 'Sinal por cartão, restante à chegada', desc: 'O mesmo sinal que já pede por transferência, cobrado no momento em que o hóspede se decide.' },
         { title: 'Modo de pedido', desc: 'Para quem prefere confirmar cada reserva pessoalmente: o pedido chega com datas, pessoas e extras, e confirma, propõe outra data ou recusa.' },
@@ -65,12 +65,20 @@ const pt: DirectMarketContent = {
       ],
       note: 'Isto é um resumo, não aconselhamento jurídico. As regras mudam e variam de município para município: confirme com a sua câmara municipal e com o Turismo de Portugal.',
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Uma página de reservas que já recebe reservas reais',
+      body: 'A nossa primeira página de reservas em funcionamento é a que construímos para a Escuela Náutica de Valencia, uma escola náutica. Os alunos reservam e pagam no site da própria escola. O Likwiid Direct é a mesma ideia preparada para alojamentos, e ainda não tem nenhum alojamento a pagar.',
+      linkLabel: 'Veja como funciona a página de reservas da escola',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Perguntas de quem gere alojamento local',
   faq: [
     {
       q: 'Tenho de deixar as plataformas onde anuncio?',
-      a: 'Não. O Likwiid Direct convive com elas: importa as datas ocupadas por iCal e exporta as suas, para que uma reserva direta feche a data nos outros sítios. Como a sincronização não é instantânea, pode deixar dias livres entre reservas como margem.',
+      a: 'Não. O Likwiid Direct convive com elas: as datas ocupadas nas plataformas fecham aqui, e uma reserva direta fecha as mesmas datas no calendário das plataformas onde anuncia. Como a sincronização não é instantânea, pode deixar dias livres entre reservas como margem.',
     },
     {
       q: 'Como recebo o sinal?',
@@ -78,11 +86,11 @@ const pt: DirectMarketContent = {
     },
     {
       q: 'Posso manter o site que tenho?',
-      a: 'Sim. O motor entra no site atual com uma tag de script e uma div, em WordPress, Wix ou feito à mão. Se o site precisar de ser refeito, também o fazemos.',
+      a: 'Sim. A página de reservas fica no site que já tem, e somos nós que a instalamos. Se o site precisar de ser refeito, também o fazemos.',
     },
     {
-      q: 'Cobram comissão sobre as reservas?',
-      a: 'Não. Não há comissão sobre nenhuma reserva. Fale-nos do seu alojamento e explicamos o que implica pô-lo a funcionar.',
+      q: 'Quanto custa, e cobram comissão?',
+      a: 'Não há comissão sobre nenhuma reserva nem mensalidade paga à Likwiid. Uma página de reservas no site que já tem custa de 300 a 600 €, uma única vez. Um site novo completo com reservas custa de 900 a 1700 €, uma única vez.',
     },
   ],
   closingTitle: 'Conte-nos sobre o seu alojamento',

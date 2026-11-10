@@ -15,7 +15,7 @@ const en: DirectMarketContent = {
   ],
   demo: 'atelier-likwiid',
   ctaDemo: 'Try the closest demo',
-  ctaTalk: 'Talk to us',
+  ctaTalk: 'Ask a question',
   demoNote:
     'There is no padel demo yet. The closest one is Atelier Likwiid, a fictional studio that books sessions by time slot, with places left and a waitlist. The checkout is simulated and no payment is taken.',
   sections: [
@@ -71,7 +71,7 @@ const en: DirectMarketContent = {
     },
     {
       q: 'Can we keep our current website?',
-      a: 'Yes. Likwiid Direct goes into the site you already have with one script tag and one div, on WordPress, Wix or a hand-built site. If you need a new website as well, we can build that too.',
+      a: 'Yes. Likwiid Direct goes on the website you already have, and we install it for you. If you need a new website as well, we can build that too.',
     },
     {
       q: 'Can players pay when they book?',
@@ -82,8 +82,8 @@ const en: DirectMarketContent = {
       a: 'No. Likwiid Direct is for booking courts. Leagues and finding players at the same level are what we built in the custom padel platform above, and that is a separate project we are happy to talk about.',
     },
     {
-      q: 'Do you take a commission on bookings?',
-      a: 'No. There is no commission on any booking. Tell us about your club and we will explain what setting it up involves.',
+      q: 'What does it cost, and do you take a commission?',
+      a: 'There is no commission on any booking and no monthly fee to Likwiid. A booking page on the website you already have costs EUR 300 to 600, once. A complete new website with booking costs EUR 900 to 1,700, once.',
     },
   ],
   closingTitle: 'Tell us how your club books today',
