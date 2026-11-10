@@ -15,7 +15,7 @@ const it: DirectMarketContent = {
   ],
   demo: 'escuela-likwiid',
   ctaDemo: 'Prova la demo più vicina',
-  ctaTalk: 'Parla con noi',
+  ctaTalk: 'Fai una domanda',
   demoNote:
     'Non esiste ancora una demo per i diving. La più vicina è Escuela Likwiid, una scuola nautica di fantasia, in spagnolo e inglese, con corsi su più giorni, posti per sessione e un passaggio per i documenti. I file restano nel tuo browser e il pagamento è simulato.',
   sections: [
@@ -65,6 +65,14 @@ const it: DirectMarketContent = {
         'Per le immersioni che richiedono più attenzione usa la modalità richiesta: il subacqueo invia la prenotazione con i documenti, tu li controlli e solo allora confermi. La decisione resta a te e ai tuoi istruttori.',
       ],
     },
+    {
+      kind: 'proof',
+      id: 'proof',
+      title: 'Già online per una scuola nautica',
+      body: 'La pagina di prenotazione che abbiamo realizzato per la Escuela Náutica de Valencia funziona allo stesso modo: corsi con un numero di posti, il numero del documento verificato con la prenotazione e pagamento sul sito della scuola. Riceve prenotazioni reali da ottobre 2026.',
+      linkLabel: 'Leggi come funziona la pagina di prenotazione della scuola',
+      to: '/work/escuela-nautica-valencia',
+    },
   ],
   faqTitle: 'Le domande dei diving',
   faq: [
@@ -85,8 +93,8 @@ const it: DirectMarketContent = {
       a: 'Lo decidi tu: quanti giorni dopo l\'attività vengono cancellati. Il passaggio di caricamento lo dice al subacqueo prima che invii qualsiasi cosa.',
     },
     {
-      q: 'Prendete una commissione sulle prenotazioni?',
-      a: 'No. Nessuna commissione su nessuna immersione e su nessun corso. Raccontaci del tuo diving e ti spieghiamo cosa comporta metterlo in funzione.',
+      q: 'Quanto costa, e prendete una commissione?',
+      a: 'Non c\'è nessuna commissione su nessuna immersione e su nessun corso e nessun canone mensile a Likwiid. Una pagina di prenotazione sul sito che hai già costa da 300 a 600 €, una sola volta. Un sito nuovo e completo con la prenotazione costa da 900 a 1.700 €, una sola volta.',
     },
   ],
   closingTitle: 'Raccontaci come prenota oggi il tuo diving',
