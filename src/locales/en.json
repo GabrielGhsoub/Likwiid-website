@@ -636,7 +636,7 @@
   },
   "seo": {
     "home": {
-      "description": "A booking page on your own website for small hotels, guesthouses, tour operators and schools. Guests book and pay you directly. Prices from EUR 300 to 1,700, once."
+      "description": "A booking page on your own website for small hotels, guesthouses, tour operators and schools. Guests book and pay you directly. From EUR 300 to 1,700, once."
     },
     "services": {
       "description": "A booking page added to your website for EUR 300 to 600, or a complete website with booking for EUR 900 to 1,700. Paid once, with no commission."
@@ -715,7 +715,7 @@
     "termsQ": "Do guests see my cancellation terms before they book?",
     "termsA": "Yes. Your cancellation and payment terms sit at the last step, and nobody can book or send a request without ticking that they have read them.",
     "languageQ": "Does it work in my guests' language?",
-    "languageA": "Yes. Every step, every label and every price is shown in the language the guest picks, with nothing half translated."
+    "languageA": "Today the booking steps come in English, French, Spanish, Portuguese and Polish. Every step, every label and every price is shown in the language the guest picks, with nothing half translated. Need another language? Ask and we will tell you what it takes."
   },
   "software": {
     "documentTitle": "Other Software We Have Built: Apps and Engineering | Likwiid",

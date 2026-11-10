@@ -82,8 +82,8 @@ const en: DirectMarketContent = {
       a: 'No. Likwiid Direct is for booking courts. Leagues and finding players at the same level are what we built in the custom padel platform above, and that is a separate project we are happy to talk about.',
     },
     {
-      q: 'Do you take a commission on bookings?',
-      a: 'No. There is no commission on any booking and no monthly fee to Likwiid. A booking page on the website you already have costs EUR 300 to 600, once.',
+      q: 'What does it cost, and do you take a commission?',
+      a: 'There is no commission on any booking and no monthly fee to Likwiid. A booking page on the website you already have costs EUR 300 to 600, once. A complete new website with booking costs EUR 900 to 1,700, once.',
     },
   ],
   closingTitle: 'Tell us how your club books today',
