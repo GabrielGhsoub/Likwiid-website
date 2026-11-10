@@ -8,17 +8,19 @@ interface PriceBlockProps {
   // The first-property offer belongs next to Likwiid Direct only.
   showFirstProperty?: boolean
   id?: string
+  // Inside a page container that already has side padding.
+  flush?: boolean
 }
 
 const BANDS = ['band1', 'band2', 'band3'] as const
 const NOTES = ['noFee', 'running', 'written', 'terms'] as const
 
 // One price block for the whole site, so every page states the same figures.
-export function PriceBlock({ showFrame = true, showFirstProperty = true, id = 'price' }: PriceBlockProps) {
+export function PriceBlock({ showFrame = true, showFirstProperty = true, id = 'price', flush = false }: PriceBlockProps) {
   const { t } = useTranslation()
   const bands = showFrame ? BANDS : BANDS.slice(0, 2)
   return (
-    <section id={id} className="scroll-mt-24 px-6 py-12 md:py-16" aria-labelledby={`${id}-heading`}>
+    <section id={id} className={`scroll-mt-24 py-12 md:py-16${flush ? '' : ' px-6'}`} aria-labelledby={`${id}-heading`}>
       <Reveal className="mx-auto max-w-[1200px]">
         <h2
           id={`${id}-heading`}

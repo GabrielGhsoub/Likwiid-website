@@ -5,16 +5,21 @@ import {
   SlidersHorizontal,
   CreditCard,
   Code2,
-  Languages,
   Users,
   ListChecks,
-  ShieldCheck,
   LayoutDashboard,
   Check,
   ArrowRight,
 } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
-import { Button } from '../components/ui/Button'
+import { FounderLine } from '../components/ui/FounderLine'
+import { WhatsAppButton } from '../components/ui/WhatsAppButton'
+import { EscuelaProof } from '../components/sections/EscuelaProof'
+import { PriceBlock } from '../components/sections/PriceBlock'
+import { FaqList, type FaqKey } from '../components/sections/FaqList'
+import { GuideLinks } from '../components/sections/GuideLinks'
+import { ContactBlock } from '../components/sections/ContactBlock'
+import { DIRECT_DEMO_CARDS as DEMO_CARDS } from '../data/directDemos'
 import { DemoCard } from '../components/ui/DemoCard'
 import { BUTTON_LINK_PRIMARY_LG, BUTTON_LINK_SECONDARY_MD } from '../components/ui/buttonLink'
 import { directDemoHref } from '../utils/demoLinks'
@@ -23,35 +28,18 @@ import { umamiAttrs } from '../utils/analytics'
 import { useCurrentLanguage, useLocalizedPath } from '../i18n/useLocalizedPath'
 import { DIRECT_MARKET_SLUGS, directMarketLanguages, directMarketPath, withTrailingSlash } from '../i18n/localeRoutes'
 
-const DEMO_CARDS = [
-  {
-    slug: 'quinta-likwiid',
-    titleKey: 'demoCard1Title',
-    propertyKey: 'demoCard1Property',
-    image: '/direct-demo-preview.jpg',
-    imageWidth: 1280,
-    imageHeight: 900,
-  },
-  {
-    slug: 'atelier-likwiid',
-    titleKey: 'demoCard2Title',
-    propertyKey: 'demoCard2Property',
-    image: '/direct-demo-atelier-preview.jpg',
-    imageWidth: 1200,
-    imageHeight: 844,
-  },
-] as const
-
 // Static owner-panel illustration data (sample figures, not live bookings).
-const OWNER_MOCK_AMOUNTS = {
-  room: 'EUR 420.00',
-  extra1: 'EUR 70.00',
-  extra2: 'EUR 54.00',
-  total: 'EUR 544.00',
-  deposit: 'EUR 163.20',
-  balance: 'EUR 380.80',
-  guests: '2',
-} as const
+const OWNER_MOCK_AMOUNTS = { room: 420, extra1: 70, extra2: 54, total: 544, deposit: 163.2, balance: 380.8 } as const
+const OWNER_MOCK_GUESTS = '2'
+
+// English keeps the "EUR 420.00" form used across the site; the other languages use their own
+// money format (420,00 € in Spanish, Portuguese, Italian and French).
+function formatEur(lang: string, amount: number): string {
+  if (lang === 'en') return `EUR ${amount.toFixed(2)}`
+  return new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' }).format(amount)
+}
+
+const DIRECT_FAQ: readonly FaqKey[] = ['cost', 'site', 'after', 'money', 'pay', 'stop', 'terms', 'language']
 
 // August 2026 starts on a Saturday; Monday-first grid needs 5 leading blanks.
 const CAL_LEADING_BLANKS = 5
@@ -65,10 +53,8 @@ const FEATURES = [
   { icon: CreditCard, titleKey: 'feature2Title', descKey: 'feature2Desc' },
   { icon: Users, titleKey: 'feature5Title', descKey: 'feature5Desc' },
   { icon: ListChecks, titleKey: 'feature6Title', descKey: 'feature6Desc' },
-  { icon: ShieldCheck, titleKey: 'feature7Title', descKey: 'feature7Desc' },
   { icon: LayoutDashboard, titleKey: 'feature8Title', descKey: 'feature8Desc' },
   { icon: Code2, titleKey: 'feature3Title', descKey: 'feature3Desc' },
-  { icon: Languages, titleKey: 'feature4Title', descKey: 'feature4Desc' },
 ] as const
 
 const SITE_ITEM_KEYS = ['siteItem1', 'siteItem2', 'siteItem3', 'siteItem4', 'siteItem5', 'siteItem6'] as const
@@ -113,6 +99,7 @@ export default function Direct() {
               {t('direct.heroSubtitle')}
             </p>
             <p className="mt-4 text-text-primary">{t('direct.audience')}</p>
+            <FounderLine className="mt-6" />
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={directDemoHref(lang, BACK_PATH, 'quinta-likwiid', theme)}
@@ -121,15 +108,61 @@ export default function Direct() {
               >
                 {t('direct.ctaDemo')}
               </a>
-              <Button variant="secondary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'direct-hero' }}>
-                {t('direct.ctaTalk')}
-              </Button>
+              <WhatsAppButton location="direct-hero" />
             </div>
+            <Link
+              to={localize('/contact')}
+              className="mt-3 inline-flex min-h-11 items-center gap-1.5 font-medium text-text-primary no-underline hover:text-accent-gold"
+            >
+              {t('direct.ctaTalk')}
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
+
+          {/* Who it is for: the kinds of business each language's visitors search for. The
+              list length varies per language, so it comes from the locale as an array. */}
+          <section aria-labelledby="segments-heading" className="mt-14">
+            <h2 id="segments-heading" className={H2}>
+              {t('direct.segmentsTitle')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              {t('direct.segmentsIntro')}
+            </p>
+            <ul className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+              {segments.map((segment) => (
+                <li key={segment.title} className="flex items-start gap-3">
+                  <Check size={18} className="mt-1 shrink-0 text-text-tertiary" aria-hidden="true" />
+                  <div>
+                    <h3 className="font-semibold font-[family-name:var(--font-display)] text-text-primary">{segment.title}</h3>
+                    <p className="mt-1 text-text-secondary leading-relaxed">{segment.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            {marketLinks.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
+                  {t('direct.marketLinksTitle')}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-3">
+                  {marketLinks.map((market) => (
+                    <li key={market}>
+                      <Link to={withTrailingSlash(directMarketPath(market, readerLang))} className={BUTTON_LINK_SECONDARY_MD}>
+                        {t(`direct.marketLinks.${market}`)}
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+
+          <EscuelaProof flush />
 
           {/* Request mode leads: nothing confirms and nothing is charged until
               the owner says so. Instant booking with a deposit is the upgrade. */}
-          <section aria-labelledby="request-heading" className="mt-20">
+          <section aria-labelledby="request-heading" className="mt-8">
             <h2 id="request-heading" className={H2}>
               {t('direct.requestTitle')}
             </h2>
@@ -180,45 +213,6 @@ export default function Direct() {
               </div>
             ))}
           </div>
-
-          {/* Who it is for: the kinds of business each language's visitors search for. The
-              list length varies per language, so it comes from the locale as an array. */}
-          <section aria-labelledby="segments-heading" className="mt-20">
-            <h2 id="segments-heading" className={H2}>
-              {t('direct.segmentsTitle')}
-            </h2>
-            <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
-              {t('direct.segmentsIntro')}
-            </p>
-            <ul className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-              {segments.map((segment) => (
-                <li key={segment.title} className="flex items-start gap-3">
-                  <Check size={18} className="mt-1 shrink-0 text-text-tertiary" aria-hidden="true" />
-                  <div>
-                    <h3 className="font-semibold font-[family-name:var(--font-display)] text-text-primary">{segment.title}</h3>
-                    <p className="mt-1 text-text-secondary leading-relaxed">{segment.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            {marketLinks.length > 0 && (
-              <div className="mt-10">
-                <h3 className="text-sm font-medium uppercase tracking-wider text-text-tertiary font-[family-name:var(--font-mono)]">
-                  {t('direct.marketLinksTitle')}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-3">
-                  {marketLinks.map((market) => (
-                    <li key={market}>
-                      <Link to={withTrailingSlash(directMarketPath(market, readerLang))} className={BUTTON_LINK_SECONDARY_MD}>
-                        {t(`direct.marketLinks.${market}`)}
-                        <ArrowRight size={16} aria-hidden="true" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </section>
 
           {/* Calendar sync */}
           <section aria-labelledby="sync-heading" className="mt-20">
@@ -271,33 +265,33 @@ export default function Direct() {
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-text-tertiary">{t('direct.ownerMockGuestsLabel')}</span>
-                      <span className="text-text-primary">{OWNER_MOCK_AMOUNTS.guests}</span>
+                      <span className="text-text-primary">{OWNER_MOCK_GUESTS}</span>
                     </div>
                   </div>
                   <div className="space-y-2 border-t border-border px-5 py-4 text-sm">
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-text-secondary">{t('direct.ownerMockRoomLabel')}</span>
-                      <span className="text-text-primary">{OWNER_MOCK_AMOUNTS.room}</span>
+                      <span className="text-text-primary">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.room)}</span>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-text-secondary">{t('direct.ownerMockExtra1')}</span>
-                      <span className="text-text-primary">{OWNER_MOCK_AMOUNTS.extra1}</span>
+                      <span className="text-text-primary">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.extra1)}</span>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-text-secondary">{t('direct.ownerMockExtra2')}</span>
-                      <span className="text-text-primary">{OWNER_MOCK_AMOUNTS.extra2}</span>
+                      <span className="text-text-primary">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.extra2)}</span>
                     </div>
                     <div className="mt-2 flex items-baseline justify-between gap-4 border-t border-border pt-3">
                       <span className="font-semibold text-text-primary">{t('direct.ownerMockTotalLabel')}</span>
-                      <span className="font-semibold text-text-primary">{OWNER_MOCK_AMOUNTS.total}</span>
+                      <span className="font-semibold text-text-primary">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.total)}</span>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-accent-gold">{t('direct.ownerMockDepositLabel')}</span>
-                      <span className="text-accent-gold font-medium">{OWNER_MOCK_AMOUNTS.deposit}</span>
+                      <span className="text-accent-gold font-medium">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.deposit)}</span>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="text-text-secondary">{t('direct.ownerMockBalanceLabel')}</span>
-                      <span className="text-text-primary">{OWNER_MOCK_AMOUNTS.balance}</span>
+                      <span className="text-text-primary">{formatEur(readerLang, OWNER_MOCK_AMOUNTS.balance)}</span>
                     </div>
                   </div>
                 </div>
@@ -380,7 +374,7 @@ export default function Direct() {
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.siteBody')}</p>
                 <p className="mt-4 text-text-secondary leading-relaxed">{t('direct.proofBody')}</p>
                 <Link
-                  to={localize('/work/padel-booking')}
+                  to={localize('/work/escuela-nautica-valencia')}
                   className="mt-4 inline-block font-medium text-accent-gold no-underline hover:underline"
                 >
                   {t('direct.proofLink')}
@@ -407,19 +401,20 @@ export default function Direct() {
             <ArrowRight size={16} aria-hidden="true" className="ml-1.5 inline-block align-[-3px]" />
           </Link>
 
-          {/* Honest scarcity */}
-          <p className="mt-8 max-w-3xl text-text-secondary leading-relaxed">
+          <GuideLinks className="mt-10" />
+
+          <PriceBlock flush showFrame={false} showFirstProperty={false} />
+
+          {/* Honest scarcity, next to the price */}
+          <p className="-mt-4 max-w-3xl rounded-lg border border-border bg-bg-secondary/50 p-4 text-text-secondary leading-relaxed">
             {t('direct.scarcity')}
           </p>
 
-          {/* Final CTA */}
-          <div className="mt-16 text-center">
-            <Button variant="primary" size="lg" href="/contact" umamiEvent="cta-start-project" umamiData={{ location: 'direct-footer' }}>
-              {t('direct.ctaTalk')}
-            </Button>
-          </div>
+          <FaqList flush title={t('direct.faqTitle')} items={DIRECT_FAQ} />
         </div>
       </div>
+
+      <ContactBlock />
     </PageTransition>
   )
 }

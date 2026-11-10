@@ -13,14 +13,13 @@ const escuela = projects.find((p) => p.slug === ESCUELA_SLUG)
 export const ESCUELA_PHONE_IMAGE = '/images/projects/escuela-nautica/phone.webp'
 
 // The one named tourism client, shown as the lead proof on Home, Work and Direct.
-export function EscuelaProof({ headingLevel = 'h2' }: { headingLevel?: 'h2' | 'h3' }) {
+export function EscuelaProof({ flush = false }: { flush?: boolean }) {
   const { t } = useTranslation()
   const localize = useLocalizedPath()
-  const Heading = headingLevel
   if (!escuela) return null
 
   return (
-    <section className="px-6 py-12 md:py-16" aria-labelledby="escuela-proof-heading">
+    <section className={`py-12 md:py-16${flush ? '' : ' px-6'}`} aria-labelledby="escuela-proof-heading">
       <Reveal className="mx-auto grid max-w-[1200px] items-center gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:gap-14">
         <div className="mx-auto w-[200px] md:w-full">
           <PhoneFrame>
@@ -39,12 +38,12 @@ export function EscuelaProof({ headingLevel = 'h2' }: { headingLevel?: 'h2' | 'h
           <p className="m-0 text-sm font-medium uppercase tracking-wider text-accent-gold font-[family-name:var(--font-mono)]">
             {t('home.proofEyebrow')}
           </p>
-          <Heading
+          <h2
             id="escuela-proof-heading"
             className="mt-2 text-3xl font-bold tracking-tight text-text-primary font-[family-name:var(--font-display)] md:text-4xl"
           >
             {t('home.proofTitle')}
-          </Heading>
+          </h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-text-secondary">{t('home.proofBody')}</p>
           {escuela.quote && <ClientQuote quote={escuela.quote} className="mt-6" compact />}
           <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2">

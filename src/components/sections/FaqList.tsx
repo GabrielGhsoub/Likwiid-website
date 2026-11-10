@@ -2,20 +2,22 @@ import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
 import { Reveal } from '../ui/Reveal'
 
-export type FaqKey = 'cost' | 'site' | 'after' | 'pay' | 'platform' | 'money' | 'stop'
+export type FaqKey = 'cost' | 'site' | 'after' | 'pay' | 'platform' | 'money' | 'stop' | 'terms' | 'language'
 
 interface FaqListProps {
   title: string
   items: readonly FaqKey[]
   id?: string
+  // Inside a page container that already has side padding.
+  flush?: boolean
 }
 
 // Questions an owner asks before writing. Native <details>, so it works without JavaScript
 // and the answers are in the prerendered HTML.
-export function FaqList({ title, items, id = 'faq' }: FaqListProps) {
+export function FaqList({ title, items, id = 'faq', flush = false }: FaqListProps) {
   const { t } = useTranslation()
   return (
-    <section id={id} className="scroll-mt-24 px-6 py-12 md:py-16" aria-labelledby={`${id}-heading`}>
+    <section id={id} className={`scroll-mt-24 py-12 md:py-16${flush ? '' : ' px-6'}`} aria-labelledby={`${id}-heading`}>
       <Reveal className="mx-auto max-w-[1200px]">
         <h2
           id={`${id}-heading`}
