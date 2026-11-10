@@ -21,12 +21,12 @@ export default function Home() {
     <PageTransition>
       <Hero />
       <EscuelaProof />
+      <AppsSection />
       <WhatChanges />
       <PriceBlock />
       <HowItWorks />
       <Founder />
       <FaqList title={t('home.faqTitle')} items={HOME_FAQ} />
-      <AppsSection />
       <ContactBlock />
     </PageTransition>
   )
