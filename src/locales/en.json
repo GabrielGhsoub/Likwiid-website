@@ -305,6 +305,7 @@
     ],
     "marketLinksTitle": "Pages for your kind of business",
     "marketLinks": {
+      "guesthouses": "Guesthouses and B&Bs",
       "padel-clubs": "Padel clubs",
       "dive-centres": "Dive centres"
     },
@@ -418,8 +419,11 @@
     "documentTitle": "Privacy Policy | Likwiid",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: {{date}}",
+    "emailTitle": "If you received an email from us",
+    "emailBody1": "We sometimes write to small tourism businesses about their website. We take the email address from the business's own public website or from a public business listing. We do not buy lists.",
+    "emailBody2": "We write because we think our work could be useful to the business. This is our legitimate interest under data protection law. To stop, reply with the word stop or write to gabriel@likwiid.com. We then remove your address and keep only a note not to write to you again.",
     "collectTitle": "Information we collect",
-    "collectBody": "When you use our contact form, we collect the information you provide: your name, email address, company name (if provided), and message content. We do not collect any information automatically beyond what is strictly necessary for the website to function.",
+    "collectBody": "When you use our contact form, we collect the information you provide: your name, email address, website address (if provided), and message content. We do not collect any information automatically beyond what is strictly necessary for the website to function.",
     "useTitle": "How we use your information",
     "useBody": "We use the information you submit through our contact form solely to respond to your inquiry and discuss potential projects. We will not send you marketing communications unless you have explicitly opted in to receive them.",
     "sharingTitle": "Data sharing",
