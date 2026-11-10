@@ -117,7 +117,8 @@ export default function CaseStudy() {
   const lead = project.oneLiner ?? project.subtitle
   const metrics = (project.metrics ?? []).slice(0, 4)
   const images = project.images.slice(0, 5)
-  const heroTags = [...new Set(project.techStack.map(simplifyTech))].slice(0, 4)
+  // Pages written for business owners keep the tech names for the details section below.
+  const heroTags = project.forOwners ? [] : [...new Set(project.techStack.map(simplifyTech))].slice(0, 4)
   const keyFeatures = project.keyFeatures ?? []
   const architecture = project.architecture ?? []
   const highlights = project.highlights ?? []
@@ -337,6 +338,7 @@ export default function CaseStudy() {
           {isClientWork && project.quote && (
             <Reveal className="mt-16">
               <ClientQuote quote={project.quote} />
+              {project.secondQuote && <ClientQuote quote={project.secondQuote} compact className="mt-6" />}
             </Reveal>
           )}
 
@@ -455,7 +457,20 @@ export default function CaseStudy() {
           </Reveal>
 
           {/* ---------- Next project ---------- */}
-          {nextProject && nextProject.slug !== project.slug && (
+          {project.forOwners && (
+            <div className="mt-16 border-t border-border pt-8">
+              <Link to={localize('/direct')} className="group flex items-center justify-between no-underline">
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-text-tertiary">{t('caseStudy.nextDirectLabel')}</span>
+                  <h2 className="text-xl font-semibold text-text-primary transition-colors font-[family-name:var(--font-display)] group-hover:text-accent-gold">
+                    {t('caseStudy.nextDirect')}
+                  </h2>
+                </div>
+                <ArrowRight className="text-text-tertiary transition-colors group-hover:text-accent-gold" size={24} />
+              </Link>
+            </div>
+          )}
+          {!project.forOwners && nextProject && nextProject.slug !== project.slug && (
             <div className="mt-16 border-t border-border pt-8">
               <Link to={localize(`/work/${nextProject.slug}`)} className="group flex items-center justify-between no-underline">
                 <div>

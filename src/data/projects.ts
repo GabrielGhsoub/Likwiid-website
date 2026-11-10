@@ -101,9 +101,9 @@ const projectCatalog: Project[] = [
     challenge:
       'Each course day has five seats on the boat. The school wanted students to choose a day and secure a seat online, under its own domain and its own Stripe account, on the hosting it already had.',
     approach:
-      'We built a booking page in three steps: pick a day, enter your details, pay the deposit by card or Bizum. A seat is held for 30 minutes while the student pays and released if the payment does not go through. The main school website stays as it is.',
+      'We built a booking page in three steps: pick a day, enter your details, pay the deposit by card. Bizum is also enabled on the school\'s payment account. A seat is held for 30 minutes while the student pays and released if the payment does not go through. The main school website stays as it is.',
     results:
-      'The page is live in Spanish with an English toggle, five days after the first prototype. Each payment sends the student a receipt and the school a notice, and the school manages days and seats from its own panel.',
+      'The page went live with real payments on 15 October 2026, and the school has run its real course days in it since then. It is in Spanish with an English toggle. Each payment sends the student a receipt and the school a notice, students get a reminder email the day before, and the school manages days and seats from its own panel.',
     businessResult:
       'Escuela Náutica de Valencia now takes course bookings and seat deposits online, on its own domain and its own Stripe account.',
     techStack: ['React', 'Vite', 'PHP', 'SQLite', 'Stripe Checkout'],
@@ -117,7 +117,7 @@ const projectCatalog: Project[] = [
     companion: {
       title: 'The school panel',
       summary:
-        'Behind a password, the school sees the bookings for each day, exports them as a spreadsheet, cancels a booking and opens or closes days with their number of seats. The public calendar updates from the same data, and ID numbers are deleted 30 days after the course.',
+        "Behind a password, the school sees the bookings for each day and adds by hand the students who booked by phone, so the seats sold outside the web are counted too. It prints or exports one day's list, cancels a whole day and tells the students, and refunds a payment from the panel. The official licence form is filled in from the booking as a PDF. ID numbers are deleted 30 days after the course.",
       platform: 'web',
       images: ['/images/projects/escuela-nautica-panel/login.webp'],
     },
@@ -125,6 +125,19 @@ const projectCatalog: Project[] = [
     platform: 'web',
     liveUrl: 'https://reservas.escuelanauticadevalencia.es/',
     liveLabel: 'Live Site',
+    forOwners: true,
+    secondQuote: {
+      originalLang: 'es',
+      name: 'Dani',
+      role: 'Escuela Náutica de Valencia',
+      text: {
+        es: 'Solo tengo palabras de agradecimiento a tu trabajo, me gusta mucho y es muy facil trabajar contigo',
+        en: 'I only have words of thanks for your work. I like it a lot and it is very easy to work with you',
+        pt: 'Só tenho palavras de agradecimento pelo teu trabalho, gosto muito e é muito fácil trabalhar contigo',
+        it: 'Ho solo parole di ringraziamento per il tuo lavoro, mi piace molto ed è molto facile lavorare con te',
+        fr: "Je n'ai que des mots de remerciement pour ton travail, il me plaît beaucoup et c'est très facile de travailler avec toi",
+      },
+    },
     quote: {
       originalLang: 'es',
       name: 'Dani',
@@ -132,6 +145,9 @@ const projectCatalog: Project[] = [
       text: {
         es: 'les explicaría que me has diseñado una herramienta teniendo en cuenta todas las necesidades concretas que tengo haciéndome más fácil la gestión de mis alumnos y ahorrándome mucho tiempo delante del ordenador y no navegando que es de lo que se trata mi escuela. También le diría que has entendido perfectamente mis demandas y has sabido darles forma de una manera muy práctica.',
         en: 'I would tell them that you designed a tool for me around all the specific needs I have, which makes managing my students easier and saves me a lot of time in front of the computer instead of sailing, which is what my school is about. I would also say that you understood my requests perfectly and gave them shape in a very practical way.',
+        pt: 'explicar-lhes-ia que me desenhaste uma ferramenta tendo em conta todas as necessidades concretas que tenho, tornando-me mais fácil a gestão dos meus alunos e poupando-me muito tempo à frente do computador e não a navegar, que é do que trata a minha escola. Também lhes diria que entendeste perfeitamente os meus pedidos e soubeste dar-lhes forma de uma maneira muito prática.',
+        it: 'spiegherei loro che mi hai progettato uno strumento tenendo conto di tutte le esigenze concrete che ho, rendendomi più facile la gestione dei miei allievi e facendomi risparmiare molto tempo davanti al computer e non a navigare, che è ciò di cui si occupa la mia scuola. Direi anche che hai capito perfettamente le mie richieste e hai saputo dar loro forma in un modo molto pratico.',
+        fr: "je leur expliquerais que tu m'as conçu un outil en tenant compte de tous les besoins concrets que j'ai, ce qui me facilite la gestion de mes élèves et m'épargne beaucoup de temps devant l'ordinateur au lieu de naviguer, ce qui est la raison d'être de mon école. Je leur dirais aussi que tu as parfaitement compris mes demandes et que tu as su leur donner forme d'une manière très pratique.",
       },
     },
   },

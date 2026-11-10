@@ -61,6 +61,11 @@ export interface Project {
   // Client words for the case study. Only ever a real quote the client approved for
   // publication; leave it out until then and the section does not render.
   quote?: ProjectQuote
+  // A second, shorter quote from the same client, under the same rule.
+  secondQuote?: ProjectQuote
+  // Written for business owners: the case study leaves the tech tags out of its header and
+  // ends on the booking product instead of the next project.
+  forOwners?: boolean
 }
 
 /**

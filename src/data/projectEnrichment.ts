@@ -143,7 +143,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     metrics: [
       { value: '3', label: 'Steps to book a seat' },
       { value: '30 min', label: 'Seat hold while paying' },
-      { value: '0', label: 'Third party requests on the page' },
+      { value: '15 Oct 2026', label: 'Live with real payments since' },
     ],
     keyFeatures: [
       {
@@ -155,8 +155,8 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
         description: 'DNI, NIE and passport numbers are validated, so typos are caught before anyone pays.',
       },
       {
-        title: 'Deposit by card or Bizum',
-        description: 'Students pay the seat deposit through Stripe Checkout, with a card or with Bizum.',
+        title: 'Deposit by card',
+        description: "Students pay the seat deposit by card, into the school's own payment account. Bizum is enabled on the same account.",
       },
       {
         title: 'Seats held while paying',
@@ -164,7 +164,15 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         title: 'An email for both sides',
-        description: 'The student gets a receipt and the school gets a notice, both in Spanish.',
+        description: 'The student gets a receipt and the school gets a notice, both in Spanish. The student also gets a reminder the day before.',
+      },
+      {
+        title: 'Booking closes by itself',
+        description: 'An empty day closes 48 hours before. A day that already has students closes at 14:00 the day before.',
+      },
+      {
+        title: 'Phone bookings in the same list',
+        description: 'The school adds by hand the students who booked by phone, so every day shows all its seats in one place.',
       },
       {
         title: 'Only the data it needs',
@@ -174,7 +182,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     architecture: [
       {
         area: 'Front end',
-        detail: 'React and Vite single page app, Spanish with an English toggle, self hosted fonts and zero third party requests.',
+        detail: 'React and Vite single page app, Spanish with an English toggle, and self hosted fonts.',
       },
       {
         area: 'Backend',
@@ -182,11 +190,11 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         area: 'Payments',
-        detail: "Stripe Checkout (card and Bizum) on the school's own Stripe account; webhooks confirm paid bookings, unpaid holds expire after 30 minutes.",
+        detail: "Stripe Checkout (card, with Bizum enabled) on the school's own Stripe account; webhooks confirm paid bookings, unpaid holds expire after 30 minutes.",
       },
       {
         area: 'School panel',
-        detail: 'Password protected: bookings per day, CSV export, cancellations, and the open days and seats that drive the public calendar.',
+        detail: 'Password protected: bookings per day, manual entries for phone bookings, print and CSV export per day, whole day cancellation with a notice to students, refunds, a password reset, the official licence form as a filled PDF, and the open days and seats that drive the public calendar.',
       },
       {
         area: 'Security & privacy',

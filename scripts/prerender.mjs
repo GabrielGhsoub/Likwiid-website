@@ -53,7 +53,7 @@ const caseStudies = {
   },
   'escuela-nautica-valencia': {
     description:
-      'A booking page for a boat licence school in Valencia: students pick a course day, enter their details and pay a seat deposit by card or Bizum.',
+      'A booking page for a boat licence school in Valencia: students pick a course day, enter their details and pay a seat deposit by card. Live since October 2026.',
     heading: 'Boat Licence Course Booking',
   },
   'gcg-website': {

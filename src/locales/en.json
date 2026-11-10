@@ -362,7 +362,7 @@
     "heroTitle": "A portfolio you own, down to the files.",
     "heroSubtitle": "Likwiid Frame is a portfolio engine for photographers, with client proofing, a print shop and booking built in. You pay once, keep your own domain and own the site as files, with no subscription.",
     "ctaDemo": "Try the live demos",
-    "ctaTalk": "Talk to us",
+    "ctaTalk": "Ask a question",
     "demoTitle": "Try it yourself",
     "demoNote": "Ana Likwiid Photography and Studio Likwiid are fictional: one engine, two brands that look like different studios. Proofing and checkout are simulated and no payment is taken.",
     "demoLaunch": "Launch the full demo",
@@ -412,7 +412,7 @@
     "allGuides": "All guides",
     "ctaTitle": "Want a second opinion on your setup?",
     "ctaBody": "Tell us how you take bookings or clients today. We reply within 24 hours, and we will say so if what you already have works.",
-    "ctaButton": "Talk to us",
+    "ctaButton": "Ask a question",
     "readMoreTitle": "Guides worth reading first"
   },
   "privacy": {
@@ -469,7 +469,7 @@
       "fixErrors": "Check the highlighted field to see your figures.",
       "privacyNote": "The calculation runs in your browser. The numbers you type are not sent or saved anywhere.",
       "howTitle": "How it is calculated",
-      "ctaContact": "Talk to us"
+      "ctaContact": "Ask a question"
     },
     "ota": {
       "name": "OTA commission calculator",
@@ -570,15 +570,17 @@
     "techStack": "Tech stack",
     "underTheHood": "Under the hood",
     "notableEngineering": "Notable engineering",
-    "similarProject": "Have a similar project?",
-    "similarProjectBody": "Tell us what you need. We reply within 24 hours.",
-    "startProject": "Start a project",
+    "similarProject": "Want something like this?",
+    "similarProjectBody": "Tell us what you run. One line is enough, and we answer within 24 hours.",
+    "startProject": "Write to Gabriel",
     "whatsapp": "Message us on WhatsApp",
     "nextProject": "Next project",
     "openSourceLabel": "Open source",
     "openSourceBody": "{{name}} is free and open source, licensed under GPL-3.0 or later.",
     "openSourceLink": "See {{name}} on the open source page",
-    "quoteTranslatedEs": "Translated from Spanish."
+    "quoteTranslatedEs": "Translated from Spanish.",
+    "nextDirectLabel": "Next",
+    "nextDirect": "The same idea for stays: Likwiid Direct"
   },
   "openSource": {
     "docTitle": "Open Source Apps: BaseMile, PlateClimb and WOOP | Likwiid",
@@ -637,7 +639,7 @@
       "description": "A booking page on your own website for small hotels, guesthouses, tour operators and schools. Guests book and pay you directly. Prices from EUR 300 to 1,700, once."
     },
     "services": {
-      "description": "Web and mobile apps, booking websites for hospitality and appointments, AI integration and automation, cloud architecture and code rescue."
+      "description": "A booking page added to your website for EUR 300 to 600, or a complete website with booking for EUR 900 to 1,700. Paid once, with no commission."
     },
     "work": {
       "description": "The booking page we built for Escuela Náutica de Valencia, live with real payments, and two demos of Likwiid Direct you can click through."
@@ -652,7 +654,7 @@
       "description": "Free calculator for photographers: compare a website builder subscription with a one-time portfolio build over the years and find the break-even point."
     },
     "contact": {
-      "description": "Tell us about your booking website or app. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We reply within 24 hours."
+      "description": "Ask a question about a booking page or a website. WhatsApp +961 76 160 979 or gabriel@likwiid.com. We answer within 24 hours, in your language."
     },
     "direct": {
       "description": "A commission-free booking engine inside your own website, for guesthouses, small hotels and experiences. Deposits, options and waitlists. Try the live demo.",
