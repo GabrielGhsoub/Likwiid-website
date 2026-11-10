@@ -20,17 +20,21 @@ function resolveQuoteText(text: ProjectQuoteText, pageLang: string): ResolvedQuo
 interface ClientQuoteProps {
   quote: ProjectQuote
   className?: string
+  // Smaller type for use inside another section (the Escuela proof block).
+  compact?: boolean
 }
 
 // Pull quote for client case studies. Renders nothing unless the quote has text and a name.
-export function ClientQuote({ quote, className }: ClientQuoteProps) {
-  const { i18n } = useTranslation()
+export function ClientQuote({ quote, className, compact = false }: ClientQuoteProps) {
+  const { t, i18n } = useTranslation()
   const pageLang = (i18n.resolvedLanguage ?? i18n.language ?? DEFAULT_LANGUAGE).slice(0, 2)
   const resolved = resolveQuoteText(quote.text, pageLang)
   const name = quote.name.trim()
   if (!resolved || !name) return null
 
   const attribution = [quote.role.trim(), quote.company?.trim()].filter(Boolean).join(', ')
+  // Say so when the reader sees a translation of what the client wrote.
+  const translated = quote.originalLang !== undefined && resolved.lang !== quote.originalLang
 
   return (
     <figure
@@ -43,7 +47,11 @@ export function ClientQuote({ quote, className }: ClientQuoteProps) {
         &ldquo;
       </span>
       <blockquote lang={resolved.lang !== pageLang ? resolved.lang : undefined} className="mt-3">
-        <p className="max-w-2xl text-xl font-medium leading-snug text-text-primary font-[family-name:var(--font-display)] md:text-2xl">
+        <p
+          className={`max-w-2xl font-medium text-text-primary font-[family-name:var(--font-display)] ${
+            compact ? 'text-base leading-relaxed md:text-lg' : 'text-xl leading-snug md:text-2xl'
+          }`}
+        >
           {resolved.text}
         </p>
       </blockquote>
@@ -62,6 +70,7 @@ export function ClientQuote({ quote, className }: ClientQuoteProps) {
         <span className="flex min-w-0 flex-col">
           <span className="text-sm font-semibold text-text-primary">{name}</span>
           {attribution && <span className="text-sm text-text-tertiary">{attribution}</span>}
+          {translated && <span className="text-xs text-text-tertiary">{t('caseStudy.quoteTranslatedEs')}</span>}
         </span>
       </figcaption>
     </figure>

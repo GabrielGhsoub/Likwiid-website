@@ -22,6 +22,7 @@ import { guidePage } from './content/guides/registry'
 const loadFeatures = () => import('./motionFeatures').then((mod) => mod.domMax)
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
+import { StickyWhatsApp } from './components/layout/StickyWhatsApp'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
 import { HydrationComplete } from './components/layout/HydrationComplete'
 import Home from './pages/Home'
@@ -258,6 +259,7 @@ export default function App() {
           </ErrorBoundary>
         </main>
         <Footer />
+        <StickyWhatsApp />
       </MotionConfig>
     </LazyMotion>
   )

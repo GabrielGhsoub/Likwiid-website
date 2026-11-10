@@ -73,6 +73,8 @@ export interface Project {
  * - `role`: their job title or relationship to the project.
  * - `company`: optional organization, shown after the role.
  * - `photo`: optional path under /public to a small square headshot.
+ * - `originalLang`: the language the client wrote in. Other languages are shown with a
+ *   "translated" note.
  */
 export interface ProjectQuote {
   text: ProjectQuoteText
@@ -80,6 +82,7 @@ export interface ProjectQuote {
   role: string
   company?: string
   photo?: string
+  originalLang?: Lang
 }
 
 export type ProjectQuoteText = Partial<Record<Lang, string>>
