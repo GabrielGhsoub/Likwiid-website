@@ -36,7 +36,7 @@
   "home": {
     "documentTitle": "Booking pages for small hotels, tours and schools | Likwiid",
     "proofEyebrow": "A real client",
-    "proofTitle": "Built for a sailing school in Valencia",
+    "proofTitle": "Built for a boat licence school in Valencia",
     "proofBody": "At Escuela Náutica de Valencia, students pick a course day and pay a seat deposit online, on the school's own domain and its own payment account. The page has taken real bookings since 15 October 2026, and the school runs its course days from it.",
     "proofLive": "Open the live page",
     "proofCase": "Read how it was done",
@@ -92,7 +92,7 @@
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, founder of Likwiid",
     "role": "Founder. Builds everything.",
-    "bio1": "Gabriel is an engineer who has built software for more than five years. He builds every page himself and he is the one who answers you.",
+    "bio1": "Gabriel is an engineer who has built software for more than five years. He builds every page himself, and he or Emile answers every message.",
     "bio3": "He is based in Beirut.",
     "promise": "Every message is answered by Gabriel or Emile, not a sales team.",
     "cta": "Write to Gabriel",
@@ -166,7 +166,7 @@
     "step1": "You send a message, and Gabriel or Emile replies within 24 hours.",
     "step2": "We have a short call, or we keep writing if you prefer.",
     "step3": "You get a fixed price in writing within days.",
-    "founderLine": "Two people, no sales team. You always talk to the person building your page.",
+    "founderLine": "Two people, no sales team. You talk directly to the people who make your page.",
     "kind1Title": "A booking page on the website you already have",
     "kind1Body": "Your website stays as it is. We add a page where guests pick their dates, see the price and book or send a request. We install it for you.",
     "kind1Item1": "Guests book and pay a deposit by card, or send a request you confirm yourself",
@@ -178,7 +178,7 @@
     "kind2Item2": "Booking with a card deposit, or by request",
     "kind2Item3": "Your domain and your website stay in your name",
     "kindTime": "Most jobs take 2 to 4 weeks.",
-    "exampleLink": "See the one that is live for a sailing school",
+    "exampleLink": "See the one that is live for a boat licence school",
     "afterTitle": "After launch",
     "afterBody1": "The person who built your page keeps looking after it. You write to Gabriel by WhatsApp or email and get an answer within 24 hours.",
     "afterBody2": "If something we built stops working, we fix it. If you want something new later, you get the price in writing before the work starts.",
@@ -234,7 +234,7 @@
   "portfolio": {
     "documentTitle": "What We Have Built: a Live Booking Page and Demos | Likwiid",
     "title": "What we have built",
-    "subtitle": "Start with the booking page we built for a sailing school in Valencia. Then try two demos yourself.",
+    "subtitle": "Start with the booking page we built for a boat licence school in Valencia. Then try two demos yourself.",
     "hospitalityBody": "Booking websites where guests book and pay you directly, with no commission. You own the site, the bookings and your guest list.",
     "previewAlt": "{{title}} project preview",
     "viewCaseStudyAria": "View {{title}} case study",
@@ -352,8 +352,8 @@
     "siteItem4": "Hosting and domain setup",
     "siteItem5": "Training so your team can run it",
     "siteItem6": "A real person who replies within 24 hours",
-    "proofBody": "Our first live booking page is the one we built for Escuela Náutica de Valencia, a sailing school. Students pick a course day and pay a seat deposit on the school's own domain.",
-    "proofLink": "See the sailing school case study",
+    "proofBody": "Our first live booking page is the one we built for Escuela Náutica de Valencia, a boat licence school. Students pick a course day and pay a seat deposit on the school's own domain.",
+    "proofLink": "See the boat licence school case study",
     "faqTitle": "Questions owners ask"
   },
   "frame": {
@@ -432,11 +432,12 @@
     "cookiesBody": "We only use essential browser storage. We keep your theme preference, light or dark, and your language choice in localStorage, and during a single visit we keep any campaign tags from the link you followed in sessionStorage. We do not use any tracking cookies or third-party cookies.",
     "analyticsTitle": "Analytics",
     "analyticsBody": "We use privacy-friendly analytics, Umami, hosted on our own server, that do not use cookies and do not track personal data. We count page views and clicks on buttons such as the contact button or a demo launch, and we honour your browser's Do Not Track setting. If you arrive through a link with campaign tags, we keep those tags and the page you landed on in your browser's sessionStorage for the length of your visit, and send them with the contact form so we know how you found us. Nothing in this identifies you, and your browsing is not tracked across websites.",
-    "appsTitle": "Our apps: BaseMile and PlateClimb",
-    "appsBody": "Our free, open source apps BaseMile and PlateClimb have no account, no server, no analytics and no ads. Everything you record, such as workouts, sets, runs, heart rate, routes and settings, is stored only on your phone. We never receive it, and deleting the app deletes it. Android cloud backup is switched off for both apps, and neither app uses Apple Health.",
+    "appsTitle": "Our apps: BaseMile, PlateClimb and WOOP",
+    "appsBody": "Our free, open source apps BaseMile, PlateClimb and WOOP have no account, no server, no analytics and no ads. Everything you record, such as workouts, sets, runs, heart rate, routes, WOOPs, check-ins and settings, is stored only on your phone. We never receive it, and deleting the app deletes it. Android cloud backup is switched off for all three apps, and none of them uses Apple Health.",
     "appsBasemile": "BaseMile uses your location during a run to measure distance, pace and your route, Bluetooth to read your heart rate strap, and motion data to measure cadence. To show weather and elevation it sends the approximate location of your run to Open-Meteo, which you can switch off in Settings. Map tiles load from OpenFreeMap, which sees which map area is shown. If you export a run as a GPX file, it goes only where you choose to share it.",
     "appsPlateclimb": "PlateClimb loads exercise photos from GitHub, and the form video links open YouTube when you tap them. Like any website, these services see your IP address when the request is made. Nothing else leaves your phone.",
-    "appsSource": "The source code of both apps is public, so you can check all of this yourself:",
+    "appsWoop": "WOOP, for Android, has no internet permission, so it cannot send anything anywhere. It uses notifications and exact alarms only for the reminders and check-ins you set. If you use voice input, your phone's own speech recognition service turns what you say into text under that service's terms, and WOOP receives only the text.",
+    "appsSource": "The source code of all three apps is public, so you can check all of this yourself:",
     "retentionTitle": "Data retention",
     "retentionBody": "Contact form submissions are retained for legitimate business purposes, such as maintaining records of client communications and project discussions. We keep this data only as long as necessary for these purposes.",
     "rightsTitle": "Your rights",
@@ -676,7 +677,7 @@
     }
   },
   "founderLine": {
-    "text": "I'm Gabriel Ghoussoub. I build it and I answer you myself, within 24 hours.",
+    "text": "I'm Gabriel Ghoussoub. I build it, and Emile or I answer you within 24 hours.",
     "photoAlt": "Gabriel Ghoussoub"
   },
   "sticky": {

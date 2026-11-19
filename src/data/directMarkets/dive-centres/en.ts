@@ -68,7 +68,7 @@ const en: DirectMarketContent = {
     {
       kind: 'proof',
       id: 'proof',
-      title: 'Already live for a sailing school',
+      title: 'Already live for a boat licence school',
       body: 'The booking page we built for Escuela Náutica de Valencia works the same way: courses with a number of places, the ID number checked with the booking, and payment on the school\'s own website. It has taken real bookings since October 2026.',
       linkLabel: 'Read how the school\'s booking page works',
       to: '/work/escuela-nautica-valencia',

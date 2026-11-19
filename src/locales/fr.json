@@ -92,7 +92,7 @@
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, fondateur de Likwiid",
     "role": "Fondateur. Il réalise tout lui-même.",
-    "bio1": "Gabriel est ingénieur et crée des logiciels depuis plus de cinq ans. Il réalise chaque page lui-même, et c'est lui qui vous répond.",
+    "bio1": "Gabriel est ingénieur et crée des logiciels depuis plus de cinq ans. Il réalise chaque page lui-même, et c'est lui ou Emile qui répond à chaque message.",
     "bio3": "Il est basé à Beyrouth.",
     "promise": "Chaque message reçoit une réponse de Gabriel ou d'Emile, pas d'une équipe commerciale.",
     "cta": "Écrire à Gabriel",
@@ -166,7 +166,7 @@
     "step1": "Vous envoyez un message, et Gabriel ou Emile répond sous 24 heures.",
     "step2": "Nous échangeons lors d'un court appel, ou nous continuons par écrit si vous préférez.",
     "step3": "Vous recevez un prix fixe par écrit en quelques jours.",
-    "founderLine": "Deux personnes, pas d'équipe commerciale. Vous parlez toujours à la personne qui réalise votre page.",
+    "founderLine": "Deux personnes, pas d'équipe commerciale. Vous parlez directement à ceux qui réalisent votre page.",
     "kind1Title": "Une page de réservation sur le site que vous avez déjà",
     "kind1Body": "Votre site reste tel qu'il est. Nous ajoutons une page où vos clients choisissent leurs dates, voient le prix et réservent ou envoient une demande. Nous l'installons pour vous.",
     "kind1Item1": "Vos clients réservent et versent un acompte par carte, ou envoient une demande que vous confirmez vous-même",
@@ -429,11 +429,12 @@
     "cookiesBody": "Nous n'utilisons que le stockage essentiel du navigateur. Nous conservons votre préférence de thème, clair ou sombre, et votre choix de langue dans le localStorage et, le temps d'une visite, les éventuels tags de campagne du lien que vous avez suivi dans le sessionStorage. Nous n'utilisons aucun cookie de suivi ni cookie tiers.",
     "analyticsTitle": "Analyse d'audience",
     "analyticsBody": "Nous utilisons un outil d'analyse respectueux de la vie privée, Umami, hébergé sur notre propre serveur, qui n'emploie pas de cookies et ne suit aucune donnée personnelle. Nous comptons les pages vues et les clics sur des boutons comme le bouton de contact ou le lancement d'une démo, et nous respectons le réglage Do Not Track de votre navigateur. Si vous arrivez par un lien portant des tags de campagne, nous les conservons avec la page d'arrivée dans le sessionStorage de votre navigateur pendant votre visite, et nous les joignons au formulaire de contact pour savoir comment vous nous avez trouvés. Rien de tout cela ne permet de vous identifier, et votre navigation n'est pas suivie d'un site à l'autre.",
-    "appsTitle": "Nos applications : BaseMile et PlateClimb",
-    "appsBody": "Nos applications gratuites et open source BaseMile et PlateClimb n'ont ni compte, ni serveur, ni outil d'analyse, ni publicité. Tout ce que vous enregistrez, comme les séances, les séries, les courses, la fréquence cardiaque, les parcours et les réglages, reste uniquement sur votre téléphone. Nous ne le recevons jamais, et supprimer l'application le supprime. La sauvegarde cloud d'Android est désactivée pour les deux applications, et aucune n'utilise Apple Santé.",
+    "appsTitle": "Nos applications : BaseMile, PlateClimb et WOOP",
+    "appsBody": "Nos applications gratuites et open source BaseMile, PlateClimb et WOOP n'ont ni compte, ni serveur, ni outil d'analyse, ni publicité. Tout ce que vous enregistrez, comme les séances, les séries, les courses, la fréquence cardiaque, les parcours, les WOOP, les bilans et les réglages, reste uniquement sur votre téléphone. Nous ne le recevons jamais, et supprimer l'application le supprime. La sauvegarde cloud d'Android est désactivée pour les trois applications, et aucune n'utilise Apple Santé.",
     "appsBasemile": "BaseMile utilise votre position pendant une course pour mesurer la distance, l'allure et votre parcours, le Bluetooth pour lire votre ceinture cardio, et les capteurs de mouvement pour mesurer la cadence. Pour afficher la météo et le dénivelé, elle envoie la position approximative de votre course à Open-Meteo, ce que vous pouvez désactiver dans les réglages. Les fonds de carte viennent d'OpenFreeMap, qui voit quelle zone de la carte est affichée. Si vous exportez une course en fichier GPX, il va uniquement là où vous choisissez de le partager.",
     "appsPlateclimb": "PlateClimb charge les photos d'exercices depuis GitHub, et les liens vers les vidéos de technique ouvrent YouTube quand vous les touchez. Comme pour tout site web, ces services voient votre adresse IP au moment de la requête. Rien d'autre ne quitte votre téléphone.",
-    "appsSource": "Le code source des deux applications est public, vous pouvez donc tout vérifier vous-même :",
+    "appsWoop": "WOOP, pour Android, n'a pas l'autorisation d'accéder à internet : il ne peut rien envoyer nulle part. Il utilise les notifications et les alarmes exactes uniquement pour les rappels et bilans que vous programmez. Si vous utilisez la saisie vocale, le service de reconnaissance vocale de votre téléphone transforme vos paroles en texte selon ses propres conditions, et WOOP ne reçoit que le texte.",
+    "appsSource": "Le code source des trois applications est public, vous pouvez donc tout vérifier vous-même :",
     "retentionTitle": "Conservation des données",
     "retentionBody": "Les soumissions du formulaire de contact sont conservées à des fins professionnelles légitimes, comme la tenue d'un historique des échanges avec les clients et des discussions de projets. Nous ne conservons ces données que le temps nécessaire à ces finalités.",
     "rightsTitle": "Vos droits",
@@ -594,7 +595,7 @@
       "seoDescription": "Parallel, l'application de ski et de snowboard pour les six stations du Liban : enneigement, cartes 3D et carte d'équipe en direct, sur iOS et Android.",
       "challenge": "Une journée sur les pistes, c'est connaître la météo de cette montagne, retrouver ses amis dans la station et joindre un moniteur. L'application doit afficher des positions en direct sur une carte 3D avec des téléphones ordinaires, continuer à fonctionner avec un réseau mobile faible et laisser assez de batterie pour le retour.",
       "approach": "Nous avons créé une seule application pour iOS et Android, avec son serveur, son tableau de bord d'administration et son site public, pour qu'une modification les atteigne tous rapidement. La carte dessine les pistes, les remontées et chaque ami en skieur sur le relief. Le partage reste entre les mains du skieur : votre équipe vous voit seulement après votre arrivée signalée, seulement dans une station, et chaque signalement prend fin de lui-même après 8 heures.",
-      "results": "Parallel se prépare pour l'App Store et Google Play avant la saison de ski 2026 à 2027, et son site est en ligne. Sur un Galaxy S10+, l'application s'ouvre maintenant en 1,3 seconde au lieu de 2,4, et un téléphone au repos ne demande plus aucun GPS, alors qu'il le faisait tourner 19 minutes par heure.",
+      "results": "Parallel est en cours d'examen chez Apple et se prépare pour Google Play avant la saison de ski 2026 à 2027, et son site est en ligne. Sur un Galaxy S10+, l'application s'ouvre maintenant en 1,3 seconde au lieu de 2,4, et un téléphone au repos ne demande plus aucun GPS, alors qu'il le faisait tourner 19 minutes par heure.",
       "role": "Responsable technique, Gabriel Ghoussoub : architecture, application mobile, backend, infrastructure et publication sur les stores",
       "liveLabel": "parallel-leb.com",
       "metrics": [
@@ -1399,6 +1400,88 @@
         "Schémas Zod partagés entre backend et mobile, ce qui élimine les écarts entre client et serveur",
         "Vérifié de bout en bout sur des conteneurs TimescaleDB et Redis réels, sur environ 38 endpoints"
       ]
+    },
+    "rag-regulation": {
+      "title": "Q&R sur la réglementation UE",
+      "subtitle": "Des réponses sourcées à partir des textes officiels de cinq actes de l'UE, en anglais et en allemand",
+      "oneLiner": "Posez une question sur les règles européennes en assurance, finance ou données, et obtenez une réponse qui cite l'article et le paragraphe exacts.",
+      "description": "Un système de questions-réponses sur cinq actes de l'UE issus d'EUR-Lex : la directive sur la distribution d'assurances, Solvabilité II, le RGPD, DORA et le règlement sur l'IA, en anglais et en allemand. Chaque affirmation d'une réponse renvoie à l'article et au paragraphe d'où elle vient, et le système refuse de répondre quand les textes ne couvrent pas la question.",
+      "previewAlt": "EU Regulation Q&A répondant à une question sur le RGPD avec des citations de l'article 33",
+      "seoDescription": "Questions-réponses open source sur cinq actes de l'UE, en anglais et en allemand, avec citation de l'article et du paragraphe exacts. Java, Spring AI, pgvector.",
+      "challenge": "Les textes juridiques sont longs, pleins de renvois et rédigés dans plusieurs langues. Un chatbot généraliste répond avec assurance même quand il se trompe, et ne permet pas de vérifier d'où vient la réponse.",
+      "approach": "Nous avons découpé chaque acte en passages par article et par paragraphe, cherché ces passages de deux façons à la fois (par le sens et par les mots exacts), reclassé les meilleurs résultats avec un second modèle, puis laissé Claude répondre uniquement à partir de ces passages en citant chacun d'eux. Les embeddings et le reclassement tournent en local avec des modèles ouverts.",
+      "results": "Sur un jeu de 68 questions de test dans les deux langues, le bon article figurait parmi les cinq premiers résultats pour 98,3 % des questions qui avaient une réponse, les réponses ont obtenu 0,996 en fidélité à leurs sources, et les 8 questions hors des textes ont été refusées. Le code est open source sous licence MIT.",
+      "role": "Conception, développement et évaluation",
+      "liveLabel": "Code sur GitHub",
+      "metrics": [
+        {
+          "value": "98,3 %",
+          "label": "Bon article dans les 5 premiers",
+          "basis": "60 questions de test ayant une réponse"
+        },
+        {
+          "value": "0,996",
+          "label": "Fidélité aux sources",
+          "basis": "notée par un modèle distinct"
+        },
+        {
+          "value": "8 sur 8",
+          "label": "Questions hors périmètre refusées"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Des réponses vérifiables",
+          "description": "Chaque affirmation renvoie à l'acte, à l'article et au paragraphe sur lesquels elle s'appuie, avec le passage source à un clic."
+        },
+        {
+          "title": "Dit quand il ne sait pas",
+          "description": "Si les textes retrouvés ne couvrent pas la question, la réponse le dit au lieu de deviner."
+        },
+        {
+          "title": "Anglais et allemand",
+          "description": "Posez votre question dans l'une ou l'autre langue et recevez les sources dans la même langue, ou choisissez vous-même la langue des sources."
+        },
+        {
+          "title": "Deux recherches, puis une relecture",
+          "description": "La recherche par le sens et la recherche par mots exacts tournent ensemble, et un modèle de reclassement place les meilleurs passages en tête."
+        },
+        {
+          "title": "Mesuré, pas supposé",
+          "description": "Un jeu de 68 questions compare trois modes de recherche sur le taux de réussite, le classement, la fidélité et les refus."
+        },
+        {
+          "title": "Tourne sur une seule machine",
+          "description": "Docker Compose démarre la base de données et l'application. Les embeddings et le reclassement utilisent des modèles ouverts en local."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Corpus",
+          "detail": "Cinq actes d'EUR-Lex en anglais et en allemand, découpés en 4 771 passages par article et par paragraphe avec leurs références."
+        },
+        {
+          "area": "Recherche",
+          "detail": "PostgreSQL 17 avec pgvector (HNSW) pour les vecteurs et BM25 sur l'index plein texte, fusionnés par rang réciproque, puis un reclasseur cross encoder multilingue."
+        },
+        {
+          "area": "Embeddings",
+          "detail": "multilingual-e5-small via les transformers ONNX de Spring AI, dans la JVM : aucun texte ne quitte la machine pour le calcul des embeddings."
+        },
+        {
+          "area": "Génération",
+          "detail": "Claude via le SDK Java d'Anthropic avec une réponse structurée : un indicateur de réponse possible et la réponse avec un repère de source après chaque affirmation."
+        },
+        {
+          "area": "Front end et mise en service",
+          "detail": "React et Vite avec des citations cliquables, servis par Spring Boot ; Docker Compose pour l'application et la base de données."
+        }
+      ],
+      "highlights": [
+        "La recherche hybride avec reclassement a fait passer le bon article dans les 5 premiers de 95,0 % (vecteurs seuls) à 98,3 %, et le MRR de 0,866 à 0,947",
+        "Un premier classement par mots-clés rendait la recherche hybride moins bonne que les vecteurs seuls ; il a été remplacé par BM25, et le README le dit",
+        "Chaque chiffre de cette page vient des résultats d'évaluation publiés dans le dépôt"
+      ]
     }
   },
   "servicesData": {
@@ -1548,7 +1631,7 @@
     }
   },
   "founderLine": {
-    "text": "Je suis Gabriel Ghoussoub. Je réalise le travail et je vous réponds moi-même, sous 24 heures.",
+    "text": "Je suis Gabriel Ghoussoub. Je réalise le travail, et Emile ou moi vous répondons sous 24 heures.",
     "photoAlt": "Gabriel Ghoussoub"
   },
   "sticky": {

@@ -169,7 +169,7 @@ export default function Software() {
 
   const lang = useCurrentLanguage()
   // Case studies without a translation are left out of the translated lists, so a reader
-  // never lands on an English page from a Spanish one. The sailing school leads /work/.
+  // never lands on an English page from a Spanish one. The boat licence school leads /work/.
   const localizedProjects = useLocalizedProjects().filter(
     (p) => p.slug !== LEAD_TOURISM_SLUG && (lang === DEFAULT_LANGUAGE || isLocalizedCaseStudy(p.slug)),
   )

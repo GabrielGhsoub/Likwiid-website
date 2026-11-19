@@ -87,7 +87,7 @@ export default function Privacy() {
               </p>
             </section>
 
-            {/* BaseMile and PlateClimb: the App Store privacy policy URL points at #apps. */}
+            {/* BaseMile, PlateClimb and WOOP: the store privacy policy URLs point at #apps. */}
             <section id="apps" className="scroll-mt-28">
               <h2 className="text-xl font-semibold font-[family-name:var(--font-display)] text-text-primary mb-3">
                 {t('privacy.appsTitle')}
@@ -96,11 +96,14 @@ export default function Privacy() {
                 <p>{t('privacy.appsBody')}</p>
                 <p>{t('privacy.appsBasemile')}</p>
                 <p>{t('privacy.appsPlateclimb')}</p>
+                <p>{t('privacy.appsWoop')}</p>
                 <p>
                   {t('privacy.appsSource')}{' '}
                   <a href="https://github.com/likwiid/basemile" className="text-accent-gold hover:underline">BaseMile</a>
                   {', '}
-                  <a href="https://github.com/likwiid/plateclimb" className="text-accent-gold hover:underline">PlateClimb</a>.
+                  <a href="https://github.com/likwiid/plateclimb" className="text-accent-gold hover:underline">PlateClimb</a>
+                  {', '}
+                  <a href="https://github.com/likwiid/woop" className="text-accent-gold hover:underline">WOOP</a>.
                 </p>
               </div>
             </section>

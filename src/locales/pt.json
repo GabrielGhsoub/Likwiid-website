@@ -92,7 +92,7 @@
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, fundador da Likwiid",
     "role": "Fundador. Constrói tudo.",
-    "bio1": "Gabriel é engenheiro e constrói software há mais de cinco anos. Constrói cada página pessoalmente e é ele quem lhe responde.",
+    "bio1": "Gabriel é engenheiro e constrói software há mais de cinco anos. Constrói cada página pessoalmente, e é ele ou o Emile quem responde a cada mensagem.",
     "bio3": "Vive em Beirute.",
     "promise": "Todas as mensagens são respondidas pelo Gabriel ou pelo Emile, não por uma equipa comercial.",
     "cta": "Escrever ao Gabriel",
@@ -166,7 +166,7 @@
     "step1": "Envia uma mensagem e o Gabriel ou o Emile responde em 24 horas.",
     "step2": "Fazemos uma chamada curta, ou continuamos por escrito, se preferir.",
     "step3": "Recebe um preço fixo por escrito em poucos dias.",
-    "founderLine": "Duas pessoas, sem equipa comercial. Fala sempre com a pessoa que está a construir a sua página.",
+    "founderLine": "Duas pessoas, sem equipa comercial. Fala diretamente com quem constrói a sua página.",
     "kind1Title": "Uma página de reservas no site que já tem",
     "kind1Body": "O seu site fica como está. Acrescentamos uma página onde os hóspedes escolhem as datas, veem o preço e reservam ou enviam um pedido. Somos nós que a instalamos.",
     "kind1Item1": "Os hóspedes reservam e pagam um sinal com cartão, ou enviam um pedido que confirma pessoalmente",
@@ -433,11 +433,12 @@
     "cookiesBody": "Utilizamos apenas armazenamento essencial do navegador. Guardamos a sua preferência de tema, claro ou escuro, e a sua escolha de idioma no localStorage e, durante uma única visita, as etiquetas de campanha da ligação que seguiu no sessionStorage. Não utilizamos cookies de rastreio nem cookies de terceiros.",
     "analyticsTitle": "Estatísticas",
     "analyticsBody": "Utilizamos uma ferramenta de estatísticas que respeita a privacidade, o Umami, alojada no nosso próprio servidor, que não utiliza cookies e não rastreia dados pessoais. Contamos visualizações de página e cliques em botões como o de contacto ou o de abrir uma demo, e respeitamos a definição Do Not Track do seu navegador. Se chegar através de uma ligação com etiquetas de campanha, guardamos essas etiquetas e a página de chegada no sessionStorage do seu navegador durante a visita, e enviamo-las com o formulário de contacto para sabermos como nos encontrou. Nada disto o identifica, e a sua navegação não é seguida entre sites.",
-    "appsTitle": "As nossas apps: BaseMile e PlateClimb",
-    "appsBody": "As nossas apps gratuitas e de código aberto BaseMile e PlateClimb não têm conta, nem servidor, nem estatísticas, nem anúncios. Tudo o que regista, como treinos, séries, corridas, frequência cardíaca, percursos e definições, fica guardado apenas no seu telemóvel. Nunca o recebemos, e apagar a app apaga esses dados. A cópia de segurança na nuvem do Android está desligada nas duas apps, e nenhuma usa o Apple Saúde.",
+    "appsTitle": "As nossas apps: BaseMile, PlateClimb e WOOP",
+    "appsBody": "As nossas apps gratuitas e de código aberto BaseMile, PlateClimb e WOOP não têm conta, nem servidor, nem estatísticas, nem anúncios. Tudo o que regista, como treinos, séries, corridas, frequência cardíaca, percursos, WOOPs, revisões e definições, fica guardado apenas no seu telemóvel. Nunca o recebemos, e apagar a app apaga esses dados. A cópia de segurança na nuvem do Android está desligada nas três apps, e nenhuma usa o Apple Saúde.",
     "appsBasemile": "O BaseMile usa a sua localização durante uma corrida para medir a distância, o ritmo e o percurso, o Bluetooth para ler a sua cinta cardíaca e os sensores de movimento para medir a cadência. Para mostrar o tempo e a altitude, envia a localização aproximada da corrida para o Open-Meteo, o que pode desligar nas definições. Os mapas carregam do OpenFreeMap, que vê que zona do mapa é mostrada. Se exportar uma corrida como ficheiro GPX, esse ficheiro vai apenas para onde escolher partilhá-lo.",
     "appsPlateclimb": "O PlateClimb carrega as fotos dos exercícios a partir do GitHub, e os links para os vídeos de técnica abrem o YouTube quando lhes toca. Como qualquer site, estes serviços veem o seu endereço IP no momento do pedido. Nada mais sai do seu telemóvel.",
-    "appsSource": "O código-fonte das duas apps é público, por isso pode verificar tudo isto por si:",
+    "appsWoop": "O WOOP, para Android, não tem permissão de acesso à internet, por isso não consegue enviar nada para lado nenhum. Usa notificações e alarmes exatos apenas para os lembretes e revisões que definir. Se usar a introdução por voz, o serviço de reconhecimento de voz do seu próprio telemóvel converte o que diz em texto segundo as condições desse serviço, e o WOOP recebe apenas o texto.",
+    "appsSource": "O código-fonte das três apps é público, por isso pode verificar tudo isto por si:",
     "retentionTitle": "Conservação de dados",
     "retentionBody": "Os envios do formulário de contacto são conservados para fins comerciais legítimos, como manter registos das comunicações com clientes e das conversas sobre projetos. Guardamos estes dados apenas durante o tempo necessário para essas finalidades.",
     "rightsTitle": "Os seus direitos",
@@ -598,7 +599,7 @@
       "seoDescription": "O Parallel é uma app de esqui e snowboard para as seis estâncias do Líbano: previsão de neve, mapas 3D e mapa de grupo em direto, em iOS e Android.",
       "challenge": "Um dia na neve significa saber o tempo naquela montanha, encontrar os amigos na estância e contactar um instrutor. A app tem de mostrar posições em direto num mapa 3D em telemóveis comuns, continuar a funcionar com pouca rede e deixar bateria para a viagem de regresso.",
       "approach": "Criámos uma só app para iOS e Android, com o seu servidor, painel de administração e site público, para que uma alteração chegue rapidamente a todos. O mapa desenha as pistas, os teleféricos e cada amigo como um esquiador sobre o relevo. A partilha fica nas mãos do esquiador: o seu grupo só o vê depois de fazer check-in, apenas numa estância, e cada check-in termina sozinho ao fim de 8 horas.",
-      "results": "O Parallel está a preparar-se para a App Store e o Google Play antes da época de esqui 2026 a 2027, e o seu site já está no ar. Num Galaxy S10+, a app abre agora em 1,3 segundos em vez de 2,4, e um telemóvel em repouso não pede GPS nenhum, quando antes o usava 19 minutos por hora.",
+      "results": "O Parallel está em revisão na Apple e a preparar-se para o Google Play antes da época de esqui 2026 a 2027, e o seu site já está no ar. Num Galaxy S10+, a app abre agora em 1,3 segundos em vez de 2,4, e um telemóvel em repouso não pede GPS nenhum, quando antes o usava 19 minutos por hora.",
       "role": "Responsável técnico, Gabriel Ghoussoub: arquitetura, app móvel, backend, infraestrutura e publicação nas lojas",
       "liveLabel": "parallel-leb.com",
       "metrics": [
@@ -1403,6 +1404,88 @@
         "Esquemas Zod partilhados entre backend e aplicação móvel, o que elimina divergências entre cliente e servidor",
         "Verificado de ponta a ponta com contentores reais de TimescaleDB e Redis, em cerca de 38 endpoints"
       ]
+    },
+    "rag-regulation": {
+      "title": "Perguntas sobre normas da UE",
+      "subtitle": "Respostas com fontes a partir dos textos oficiais de cinco atos da UE, em inglês e alemão",
+      "oneLiner": "Faça uma pergunta sobre as regras europeias de seguros, finanças ou dados e receba uma resposta que cita o artigo e o número exatos.",
+      "description": "Um sistema de perguntas e respostas sobre cinco atos da UE retirados do EUR-Lex: a Diretiva de Distribuição de Seguros, Solvência II, o RGPD, o DORA e o Regulamento da IA, em inglês e alemão. Cada afirmação de uma resposta remete para o artigo e o número de onde vem, e o sistema recusa responder quando os textos não cobrem a pergunta.",
+      "previewAlt": "EU Regulation Q&A a responder a uma pergunta sobre o RGPD com citações do artigo 33",
+      "seoDescription": "Perguntas e respostas de código aberto sobre cinco atos da UE em inglês e alemão, com citação do artigo e do número exatos. Java, Spring AI, pgvector.",
+      "challenge": "O texto jurídico é longo, cheio de remissões e escrito em mais do que uma língua. Um chatbot genérico responde com confiança mesmo quando está errado, e não dá forma de verificar de onde vem a resposta.",
+      "approach": "Dividimos cada ato em passagens por artigo e número, pesquisámo-las de duas formas ao mesmo tempo (pelo sentido e pelas palavras exatas), reordenámos os melhores resultados com um segundo modelo e deixámos o Claude responder apenas a partir dessas passagens, citando cada uma. Os embeddings e a reordenação correm localmente com modelos abertos.",
+      "results": "Num conjunto de 68 perguntas de teste nas duas línguas, o artigo certo estava entre os cinco primeiros resultados em 98,3% das perguntas com resposta, as respostas obtiveram 0,996 de fidelidade às fontes e todas as 8 perguntas fora dos textos foram recusadas. O código é aberto, com licença MIT.",
+      "role": "Conceção, desenvolvimento e avaliação",
+      "liveLabel": "Código no GitHub",
+      "metrics": [
+        {
+          "value": "98,3%",
+          "label": "Artigo certo nos 5 primeiros",
+          "basis": "60 perguntas de teste com resposta"
+        },
+        {
+          "value": "0,996",
+          "label": "Fidelidade às fontes",
+          "basis": "avaliada por um modelo separado"
+        },
+        {
+          "value": "8 de 8",
+          "label": "Perguntas fora do âmbito recusadas"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Respostas que pode verificar",
+          "description": "Cada afirmação remete para o ato, o artigo e o número em que se baseia, com a passagem original a um clique."
+        },
+        {
+          "title": "Diz quando não sabe",
+          "description": "Se os textos encontrados não cobrem a pergunta, a resposta di-lo em vez de adivinhar."
+        },
+        {
+          "title": "Inglês e alemão",
+          "description": "Pergunte em qualquer das duas línguas e receba as fontes na mesma língua, ou escolha a língua das fontes."
+        },
+        {
+          "title": "Duas pesquisas e uma segunda leitura",
+          "description": "A pesquisa pelo sentido e a pesquisa por palavras exatas correm em conjunto, e um modelo de reordenação põe as melhores passagens primeiro."
+        },
+        {
+          "title": "Medido, não presumido",
+          "description": "Um conjunto de 68 perguntas compara três modos de pesquisa em taxa de acerto, ordenação, fidelidade e recusas."
+        },
+        {
+          "title": "Corre numa só máquina",
+          "description": "O Docker Compose arranca a base de dados e a app. Os embeddings e a reordenação usam modelos abertos localmente."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Corpus",
+          "detail": "Cinco atos do EUR-Lex em inglês e alemão, divididos em 4771 passagens por artigo e número com as respetivas citações."
+        },
+        {
+          "area": "Pesquisa",
+          "detail": "PostgreSQL 17 com pgvector (HNSW) para os vetores e BM25 sobre o índice de texto completo, combinados por posição recíproca, e depois um reordenador cross encoder multilingue."
+        },
+        {
+          "area": "Embeddings",
+          "detail": "multilingual-e5-small através dos transformers ONNX do Spring AI, dentro da JVM, por isso nenhum texto sai da máquina para os embeddings."
+        },
+        {
+          "area": "Geração",
+          "detail": "Claude através do SDK Java da Anthropic com uma resposta estruturada: um indicador de que a pergunta tem resposta e a resposta com uma marca de fonte depois de cada afirmação."
+        },
+        {
+          "area": "Front end e entrega",
+          "detail": "React e Vite com citações clicáveis, servidos pelo Spring Boot; Docker Compose para a app e a base de dados."
+        }
+      ],
+      "highlights": [
+        "A pesquisa híbrida com reordenação subiu o artigo certo nos 5 primeiros de 95,0% (só vetores) para 98,3%, e o MRR de 0,866 para 0,947",
+        "Uma primeira ordenação por palavras-chave tornou a pesquisa híbrida pior do que só vetores, por isso foi substituída por BM25, e o README explica-o",
+        "Cada número desta página vem dos resultados de avaliação publicados no repositório"
+      ]
     }
   },
   "servicesData": {
@@ -1552,7 +1635,7 @@
     }
   },
   "founderLine": {
-    "text": "Sou o Gabriel Ghoussoub. Sou eu que construo e sou eu que lhe respondo, em 24 horas.",
+    "text": "Sou o Gabriel Ghoussoub. Sou eu que construo, e eu ou o Emile respondemos-lhe em 24 horas.",
     "photoAlt": "Gabriel Ghoussoub"
   },
   "sticky": {
