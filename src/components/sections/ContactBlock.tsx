@@ -36,7 +36,7 @@ export function ContactBlock() {
             {t('contactBlock.whatsappNote')} {t('contactBlock.emailPrefix')}{' '}
             <a
               href={`mailto:${SOCIAL.email}`}
-              className="text-text-secondary underline-offset-4 hover:text-text-primary hover:underline"
+              className="text-text-secondary underline decoration-border-hover underline-offset-4 hover:text-text-primary hover:decoration-current"
               {...umamiAttrs('cta-email', { location: 'contact-block' })}
             >
               {SOCIAL.email}
