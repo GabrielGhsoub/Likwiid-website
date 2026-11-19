@@ -110,8 +110,8 @@ export default function Guide() {
         <B>Una web de pago único</B> tiene un coste inicial mayor y luego gastos pequeños: el hosting (muchas veces gratis o
         casi, para una web entregada como archivos) y la renovación anual del dominio. Sé justo al comparar: los cambios
         futuros también cuestan. Una sección nueva, una función o un rediseño suponen pagar a un desarrollador o dedicarle tu
-        tiempo. Cuantos más años mantengas la web sin grandes cambios, más suele compensar el pago único. En Likwiid estamos
-        preparando una calculadora sencilla para ayudarte con esta comparación.
+        tiempo. Cuantos más años mantengas la web sin grandes cambios, más suele compensar el pago único. En la web de Likwiid
+        tienes una calculadora gratuita de costes de portfolio que hace esta comparación año a año.
       </P>
 
       <H2>Selección de fotos, venta de copias y reservas</H2>

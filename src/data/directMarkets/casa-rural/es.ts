@@ -70,7 +70,7 @@ const es: DirectMarketContent = {
     },
     {
       q: '¿Puedo seguir en los portales donde me anuncio?',
-      a: 'Sí. Likwiid Direct recoge las fechas ocupadas en los portales y les envía las suyas, para que una reserva directa cierre la fecha en los demás. Como la sincronización no es instantánea, puedes dejar días libres de margen.',
+      a: 'Sí. Likwiid Direct recoge las fechas ocupadas en los portales y les envía las tuyas, para que una reserva directa cierre la fecha en los demás. Como la sincronización no es instantánea, puedes dejar días libres de margen.',
     },
     {
       q: '¿Cómo cobro la señal?',

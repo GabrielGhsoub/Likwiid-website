@@ -180,7 +180,7 @@
     "kindTime": "A maioria dos trabalhos demora de 2 a 4 semanas.",
     "exampleLink": "Veja a que está em funcionamento numa escola náutica",
     "afterTitle": "Depois do lançamento",
-    "afterBody1": "A pessoa que construiu a sua página continua a cuidar dela. Escreve ao Gabriel por WhatsApp ou email e recebe resposta em 24 horas.",
+    "afterBody1": "A pessoa que construiu a sua página continua a cuidar dela. Escreve ao Gabriel por WhatsApp ou e-mail e recebe resposta em 24 horas.",
     "afterBody2": "Se algo que construímos deixar de funcionar, nós corrigimos. Se mais tarde quiser algo novo, recebe o preço por escrito antes de o trabalho começar.",
     "afterBody3": "A página, as reservas e a lista de hóspedes são suas. Se deixar de trabalhar connosco, ficam consigo.",
     "softwareTitle": "Aplicações e outro software",
@@ -208,7 +208,7 @@
     "csLinkLabel": "Visitar o site"
   },
   "products": {
-    "docTitle": "Motor de reservas diretas e portfólios | Likwiid",
+    "docTitle": "Reservas diretas e portfólios para fotógrafos | Likwiid",
     "title": "Produtos",
     "intro": "Dois produtos que construímos nós próprios e configuramos para cada cliente. Pode experimentar ambos numa demo ao vivo.",
     "demoNote": "As marcas das demos são fictícias e qualquer passo de pagamento é simulado.",
@@ -399,7 +399,7 @@
     "tier2Name": "Versão completa",
     "tier2Price": "cerca de 900 €",
     "tier2Desc": "Tudo o que inclui o Portfólio, mais as provas para clientes, a loja de impressões e as reservas integradas.",
-    "scarcity": "Este motor ainda não gere o portfólio de nenhum fotógrafo, por isso o primeiro a sério recebe o valor mais baixo dessa faixa em troca de nos deixar mostrar o trabalho final. Se uma subscrição de plataforma já o serve bem, é uma ótima forma de gerir um estúdio, e este produto não é para si."
+    "scarcity": "Este motor ainda não gere o portfólio de nenhum fotógrafo, por isso o primeiro a sério recebe o valor mais baixo dessa faixa em troca de nos deixar mostrar o trabalho final. Se uma subscrição de plataforma já o serve bem, é uma boa forma de gerir um estúdio, e este produto não é para si."
   },
   "guides": {
     "docTitle": "Guias para alojamentos e fotógrafos | Likwiid",
@@ -433,11 +433,11 @@
     "cookiesBody": "Utilizamos apenas armazenamento essencial do navegador. Guardamos a sua preferência de tema, claro ou escuro, e a sua escolha de idioma no localStorage e, durante uma única visita, as etiquetas de campanha da ligação que seguiu no sessionStorage. Não utilizamos cookies de rastreio nem cookies de terceiros.",
     "analyticsTitle": "Estatísticas",
     "analyticsBody": "Utilizamos uma ferramenta de estatísticas que respeita a privacidade, o Umami, alojada no nosso próprio servidor, que não utiliza cookies e não rastreia dados pessoais. Contamos visualizações de página e cliques em botões como o de contacto ou o de abrir uma demo, e respeitamos a definição Do Not Track do seu navegador. Se chegar através de uma ligação com etiquetas de campanha, guardamos essas etiquetas e a página de chegada no sessionStorage do seu navegador durante a visita, e enviamo-las com o formulário de contacto para sabermos como nos encontrou. Nada disto o identifica, e a sua navegação não é seguida entre sites.",
-    "appsTitle": "Os nossos apps: BaseMile e PlateClimb",
-    "appsBody": "Os nossos apps gratuitos e de código aberto BaseMile e PlateClimb não têm conta, nem servidor, nem analytics, nem anúncios. Tudo o que regista, como treinos, séries, corridas, frequência cardíaca, percursos e definições, fica guardado apenas no seu telemóvel. Nunca o recebemos, e apagar o app apaga esses dados. A cópia de segurança na nuvem do Android está desligada nos dois apps, e nenhum usa o Apple Saúde.",
-    "appsBasemile": "O BaseMile usa a sua localização durante uma corrida para medir a distância, o ritmo e o percurso, o Bluetooth para ler a sua cinta cardíaca e os sensores de movimento para medir a cadência. Para mostrar o tempo e a altitude, envia a localização aproximada da corrida para o Open-Meteo, o que pode desligar nas definições. Os mapas carregam do OpenFreeMap, que vê que zona do mapa é mostrada. Se exportar uma corrida como ficheiro GPX, ele vai apenas para onde escolher partilhá-lo.",
+    "appsTitle": "As nossas apps: BaseMile e PlateClimb",
+    "appsBody": "As nossas apps gratuitas e de código aberto BaseMile e PlateClimb não têm conta, nem servidor, nem estatísticas, nem anúncios. Tudo o que regista, como treinos, séries, corridas, frequência cardíaca, percursos e definições, fica guardado apenas no seu telemóvel. Nunca o recebemos, e apagar a app apaga esses dados. A cópia de segurança na nuvem do Android está desligada nas duas apps, e nenhuma usa o Apple Saúde.",
+    "appsBasemile": "O BaseMile usa a sua localização durante uma corrida para medir a distância, o ritmo e o percurso, o Bluetooth para ler a sua cinta cardíaca e os sensores de movimento para medir a cadência. Para mostrar o tempo e a altitude, envia a localização aproximada da corrida para o Open-Meteo, o que pode desligar nas definições. Os mapas carregam do OpenFreeMap, que vê que zona do mapa é mostrada. Se exportar uma corrida como ficheiro GPX, esse ficheiro vai apenas para onde escolher partilhá-lo.",
     "appsPlateclimb": "O PlateClimb carrega as fotos dos exercícios a partir do GitHub, e os links para os vídeos de técnica abrem o YouTube quando lhes toca. Como qualquer site, estes serviços veem o seu endereço IP no momento do pedido. Nada mais sai do seu telemóvel.",
-    "appsSource": "O código-fonte dos dois apps é público, por isso pode verificar tudo isto por si:",
+    "appsSource": "O código-fonte das duas apps é público, por isso pode verificar tudo isto por si:",
     "retentionTitle": "Conservação de dados",
     "retentionBody": "Os envios do formulário de contacto são conservados para fins comerciais legítimos, como manter registos das comunicações com clientes e das conversas sobre projetos. Guardamos estes dados apenas durante o tempo necessário para essas finalidades.",
     "rightsTitle": "Os seus direitos",
@@ -770,7 +770,7 @@
       "seoDescription": "Página de reservas para uma escola náutica em Valência: o aluno escolhe o dia do curso, preenche os dados e paga o sinal do lugar com cartão.",
       "challenge": "Cada dia de curso tem cinco lugares no barco. A escola queria que os alunos pudessem escolher o dia e garantir o lugar online, com o seu próprio domínio e a sua própria conta Stripe, no alojamento que já tinha.",
       "approach": "Criámos uma página de reservas em três passos: escolher o dia, preencher os dados e pagar o sinal com cartão. O Bizum também está ativado na conta de pagamentos da escola. O lugar fica reservado durante 30 minutos enquanto o aluno paga e é libertado se o pagamento não for concluído. O site principal da escola fica como estava.",
-      "results": "A página entrou em funcionamento com pagamentos reais a 15 de outubro de 2026, e desde então a escola gere nela os seus dias de curso reais. Está em espanhol, com opção de inglês. Cada pagamento envia ao aluno um recibo e à escola um aviso, os alunos recebem um email de lembrete na véspera, e a escola gere dias e lugares a partir do seu próprio painel.",
+      "results": "A página entrou em funcionamento com pagamentos reais a 15 de outubro de 2026, e desde então a escola gere nela os seus dias de curso reais. Está em espanhol, com opção de inglês. Cada pagamento envia ao aluno um recibo e à escola um aviso, os alunos recebem um e-mail de lembrete na véspera, e a escola gere dias e lugares a partir do seu próprio painel.",
       "businessResult": "A Escuela Náutica de Valencia já aceita reservas e sinais de lugar online, no seu próprio domínio e com a sua própria conta Stripe.",
       "liveLabel": "Ver o site",
       "role": "Design, desenvolvimento e lançamento",
@@ -806,7 +806,7 @@
           "description": "O lugar fica reservado 30 minutos durante o pagamento e é libertado se não for pago."
         },
         {
-          "title": "Um email para cada lado",
+          "title": "Um e-mail para cada lado",
           "description": "O aluno recebe um recibo e a escola um aviso, ambos em espanhol. O aluno recebe também um lembrete na véspera."
         },
         {
@@ -1144,7 +1144,7 @@
         },
         {
           "title": "Registo rápido de séries",
-          "description": "Os seus últimos pesos já vêm preenchidos, com um temporizador de descanso entre séries. É você quem decide quando aumentar o peso."
+          "description": "Os seus últimos pesos já vêm preenchidos, com um temporizador de descanso entre séries. A decisão de aumentar o peso é sua."
         },
         {
           "title": "Alternativas e ajuda com a técnica",
@@ -1579,7 +1579,7 @@
     "siteQ": "Preciso de um site novo?",
     "siteA": "Não. A página de reservas fica no site que já tem, e somos nós que a instalamos. Se não tiver site, ou se quiser um novo, também o construímos.",
     "afterQ": "Quem cuida da página depois do lançamento?",
-    "afterA": "A mesma pessoa que a construiu. Escreve ao Gabriel por WhatsApp ou email e recebe resposta em 24 horas. Qualquer alteração que peça mais tarde tem um preço por escrito antes de o trabalho começar.",
+    "afterA": "A mesma pessoa que a construiu. Escreve ao Gabriel por WhatsApp ou e-mail e recebe resposta em 24 horas. Qualquer alteração que peça mais tarde tem um preço por escrito antes de o trabalho começar.",
     "payQ": "Como e quando pago?",
     "payA": "Paga uma parte quando chegamos a acordo, e o restante só quando a sua página estiver no ar. Se não chegar a ficar no ar, não paga o restante.",
     "platformQ": "Uma plataforma de reservas já funciona bem para mim. Preciso disto?",

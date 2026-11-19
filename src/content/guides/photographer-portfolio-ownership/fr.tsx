@@ -115,8 +115,8 @@ export default function Guide() {
         l'hébergement (souvent gratuit ou presque pour un site livré sous forme de fichiers) et le renouvellement annuel du nom
         de domaine. Soyez juste dans la comparaison : les évolutions futures ont aussi un coût. Une nouvelle rubrique, une
         fonction ou une refonte, c'est un développeur à payer ou du temps à y consacrer. Plus vous gardez le site longtemps
-        sans gros changements, plus le paiement unique tend à être rentable. Likwiid prépare un simulateur de coûts simple pour
-        vous aider à faire cette comparaison.
+        sans gros changements, plus le paiement unique tend à être rentable. Le calculateur gratuit du coût d'un
+        portfolio, sur le site de Likwiid, fait cette comparaison année par année.
       </P>
 
       <H2>Épreuvage client, vente de tirages et réservations</H2>

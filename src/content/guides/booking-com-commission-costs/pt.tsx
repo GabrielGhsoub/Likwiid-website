@@ -101,7 +101,8 @@ export default function Guide() {
         Com o <B>Payments by Booking.com</B>, é a plataforma que cobra ao hóspede e lhe transfere o valor. Quando trata de
         todos os pagamentos, desconta a comissão e as taxas de cada transferência. A adesão não tem custo inicial, mas se
         recebe por transferência bancária aplica-se uma taxa de serviço de pagamento, em percentagem de cada reserva
-        concluída, que depende da localização do alojamento. Em contrapartida, o Booking.com trata de estornos e reembolsos.
+        concluída, que depende da localização do alojamento. Se recebe por cartão de crédito virtual, é o seu banco ou
+        prestador de pagamentos que cobra a taxa de transação. Em contrapartida, o Booking.com trata de estornos e reembolsos.
         Confirme a taxa exata na página de ajuda financeira da extranet.
       </P>
 
@@ -179,7 +180,7 @@ export default function Guide() {
 
       <H2>Equilibrar os canais</H2>
       <P>
-        Sair do Booking.com raramente é a melhor decisão para um alojamento local. Ele traz hóspedes que sozinho não
+        Sair do Booking.com raramente é a melhor decisão para um alojamento local. A plataforma traz hóspedes que sozinho não
         alcançaria. O objetivo útil é deixar de pagar comissão por hóspedes que já o conhecem: quem regressa, quem vem por
         recomendação, quem o encontra no mapa e procura o seu site.
       </P>

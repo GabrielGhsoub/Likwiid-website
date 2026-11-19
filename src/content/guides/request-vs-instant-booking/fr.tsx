@@ -86,8 +86,8 @@ export default function Guide() {
 
       <H2>Quand la réservation instantanée s'impose</H2>
       <P>
-        Prenez maintenant un club de padel avec quatre terrains et des créneaux d'une heure et demie, ou un studio de
-        pilates avec douze places par cours. Chaque créneau est le même produit, la capacité est fixe et personne n'a besoin
+        Prenez maintenant un club de padel avec quatre terrains et des créneaux d'une heure, ou un studio de
+        yoga avec douze places par cours. Chaque créneau est le même produit, la capacité est fixe et personne n'a besoin
         d'être sélectionné pour jouer un match ou suivre un cours. Faire attendre une réponse à quelqu'un qui veut un terrain
         à 19 heures ne fait qu'ajouter des frictions, et le créneau risque de rester vide pendant que la demande dort dans un
         téléphone.

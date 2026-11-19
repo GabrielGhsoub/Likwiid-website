@@ -57,7 +57,7 @@ export default function Guide() {
         <B>La garantie par carte</B> signifie que le client laisse ses coordonnées bancaires et que rien n'est débité, sauf
         annulation tardive ou non-présentation. C'est l'option la plus confortable pour le client et la moins protectrice pour
         vous : une empreinte bancaire expire en quelques jours, et dans l'Union européenne les paiements électroniques à
-        distance exigent en principe une authentification forte du client. Un numéro de carte envoyé par email n'est donc pas
+        distance exigent en principe une authentification forte du client. Un numéro de carte envoyé par e-mail n'est donc pas
         une garantie fiable.
       </P>
       <Table

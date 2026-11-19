@@ -147,8 +147,8 @@ export default function Guide() {
       <P>
         Decidi le regole prima della prima cancellazione, perché decidere sotto pressione porta a risposte incoerenti. Le scelte
         più comuni sono il rimborso totale fuori dal periodo di cancellazione, nessun rimborso al suo interno e un credito per un
-        altro soggiorno come gesto di buona volontà. Il credito conserva l'incasso e il rapporto con l'ospite, ma indica per
-        quanto tempo è valido.
+        altro soggiorno come gesto di buona volontà. Il credito conserva l'incasso e il rapporto con l'ospite, ma scrivi per
+        quanto tempo resta valido.
       </P>
       <P>
         Se incassi sul tuo conto di pagamento, i rimborsi partono da quello stesso conto. Verifica con il tuo fornitore come

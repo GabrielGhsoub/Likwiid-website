@@ -18,7 +18,7 @@ export default function Guide() {
       <Summary>
         <Li>O pedido de reserva permite-lhe ver cada reserva antes de a confirmar. A reserva imediata confirma no momento.</Li>
         <Li>A reserva imediata pede menos ao hóspede. O pedido de reserva pede mais a si: tem de responder depressa, sempre.</Li>
-        <Li>Poucos quartos e receção pessoal costumam pedir pedidos. Horários fixos com lotação definida costumam pedir reserva imediata.</Li>
+        <Li>Poucos quartos e receção pessoal costumam combinar com pedidos. Horários fixos com lotação definida costumam combinar com a reserva imediata.</Li>
         <Li>Não tem de escolher de uma vez por todas: muitos proprietários combinam os dois por datas, antecedência ou tipo de reserva.</Li>
       </Summary>
 
@@ -31,7 +31,7 @@ export default function Guide() {
       <P>
         Na <B>reserva imediata</B>, o hóspede vê o que está livre, escolhe e a reserva fica logo confirmada, normalmente com
         um pagamento ou um sinal no mesmo momento. O proprietário só sabe depois. O trabalho deixa de ser decidir reserva a
-        reserva e passa a ser definir as regras com antecedência: que datas estão abertas, quanta antecedência precisa,
+        reserva e passa a ser definir as regras com antecedência: que datas estão abertas, de quanta antecedência precisa,
         quais são as condições.
       </P>
       <P>

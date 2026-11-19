@@ -131,12 +131,11 @@ export default function Guide() {
       <P>
         Se scegli le richieste, la velocità della risposta fa parte di ciò che vendi. Un ospite che riceve risposta entro
         un'ora si sente seguito; uno che non sa nulla fino al giorno dopo potrebbe aver già prenotato altrove. Come termine
-        di paragone, uno dei grandi portali di affitti brevi concede agli host{' '}
-        <Ext href={RESPOND_URL}>24 ore per accettare o rifiutare una richiesta</Ext>, dopodiché la richiesta scade, a
-        ottobre 2026. Sul tuo sito nessuno ti impone scadenze, quindi fissane una tu e scrivila sulla pagina.
+        di paragone, a ottobre 2026 uno dei grandi portali di affitti brevi concede agli host{' '}
+        <Ext href={RESPOND_URL}>24 ore per accettare o rifiutare una richiesta</Ext>, dopodiché la richiesta scade. Sul tuo sito nessuno ti impone scadenze, quindi fissane una tu e scrivila sulla pagina.
       </P>
       <P>
-        Rifiutare fa parte del mestiere. Dì di no presto, spiega il motivo in una frase quando puoi e offri un'alternativa
+        Rifiutare fa parte del mestiere. Di' di no presto, spiega il motivo in una frase quando puoi e offri un'alternativa
         se ce l'hai: altre date, un'altra camera, una struttura amica nei dintorni. Un no chiaro oggi è più gentile di un
         forse vago domani.
       </P>

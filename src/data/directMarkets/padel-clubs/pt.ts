@@ -37,7 +37,7 @@ const pt: DirectMarketContent = {
       items: [
         { title: 'Escolher o dia e a hora', desc: 'O jogador vê os horários livres do dia. Quando todos os campos estão ocupados, a hora aparece como esgotada.' },
         { title: 'Escolher o campo', desc: 'Interior ou exterior, campo central ou lateral: cada campo aparece à parte, com o seu próprio preço.' },
-        { title: 'Juntar o que precisa', desc: 'Aluguer de raquete ou um tubo de bolas, por jogador ou por reserva, adicionados com um clique.' },
+        { title: 'Juntar o que precisa', desc: 'Aluguer de raquete ou um tubo de bolas, com preço por jogador ou por reserva, adicionados com um clique.' },
         { title: 'Confirmar ou enviar um pedido', desc: 'Um sinal por cartão confirma o campo no momento. Em modo de pedido, a reserva fica à espera da sua aprovação.' },
       ],
     },

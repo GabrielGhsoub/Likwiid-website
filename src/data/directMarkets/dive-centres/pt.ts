@@ -10,7 +10,7 @@ const pt: DirectMarketContent = {
   eyebrow: 'Likwiid Direct para centros de mergulho',
   h1: 'Reservas de mergulhos e cursos, com a papelada tratada antes de o barco sair.',
   intro: [
-    'Uma reserva de mergulho nunca é só uma data. Precisa da certificação do mergulhador, do equipamento que vai alugar e, por vezes, de uma declaração médica, e normalmente recolhe tudo por email, uma pergunta de cada vez, ou ao balcão na manhã do mergulho.',
+    'Uma reserva de mergulho nunca é só uma data. Precisa da certificação do mergulhador, do equipamento que vai alugar e, por vezes, de uma declaração médica, e normalmente recolhe tudo por e-mail, uma pergunta de cada vez, ou ao balcão na manhã do mergulho.',
     'O Likwiid Direct recebe reservas de mergulhos, batismos e cursos no site do seu centro. Mantém um número de lugares por saída e por curso, pede os documentos que cada atividade exige e envia cada reserva diretamente para si, sem passar por uma plataforma que fica com uma parte.',
   ],
   demo: 'escuela-likwiid',
@@ -38,7 +38,7 @@ const pt: DirectMarketContent = {
       items: [
         { title: 'Escolher a atividade', desc: 'Um mergulho de lazer, um batismo ou um curso, cada um com as suas datas, horários e lugares.' },
         { title: 'Escolher a data', desc: 'Os mergulhos mostram as horas de saída. Os cursos mostram as sessões, com todos os dias do curso incluídos.' },
-        { title: 'Juntar o equipamento', desc: 'Equipamento completo, fato ou lanterna, por mergulhador ou por reserva, para saber o que preparar.' },
+        { title: 'Juntar o equipamento', desc: 'Equipamento completo, fato ou lanterna, com preço por mergulhador ou por reserva, para saber o que preparar.' },
         { title: 'Enviar os documentos', desc: 'A certificação ou a declaração médica que a atividade pede, com a indicação de durante quanto tempo são guardadas.' },
         { title: 'Sinal ou pedido', desc: 'Um sinal por cartão garante o lugar, ou a reserva fica como pedido até o centro a verificar e confirmar.' },
       ],

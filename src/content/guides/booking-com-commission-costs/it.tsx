@@ -109,7 +109,7 @@ export default function Guide() {
       <Ul>
         <Li><B>Programma Partner Preferiti:</B> più visibilità nei risultati e un badge, in cambio di quello che Booking.com chiama un piccolo aumento della commissione. Non pubblica una cifra unica, e richiede tra l'altro un punteggio delle recensioni di almeno 7 su 10.</Li>
         <Li><B>Visibility Booster:</B> una commissione più alta che scegli per date precise, per salire nel ranking in quelle notti. La documentazione tecnica di Booking.com lo descrive come una modifica della commissione data per data.</Li>
-        <Li><B>Genius:</B> nessuna commissione in più, ma uno sconto del 10 per cento sulla tipologia di camera più economica e più prenotata. Booking.com conferma che lo sconto Genius standard è finanziato dalla struttura.</Li>
+        <Li><B>Genius:</B> nessuna commissione in più, ma uno sconto di almeno il 10 per cento sulla tipologia di camera più economica e più prenotata. Booking.com conferma che lo sconto Genius standard è finanziato dalla struttura.</Li>
       </Ul>
       <P>
         Sono tutti facoltativi e puoi uscirne. Se il resoconto prenotazioni mostra una percentuale più alta di quella del

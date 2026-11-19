@@ -110,7 +110,7 @@ export default function Guide() {
       <Ul>
         <Li><B>Partenaire Préféré :</B> plus de visibilité dans les résultats et un badge, en échange de ce que Booking.com appelle une légère hausse de commission. Aucun chiffre unique n'est publié, et il faut notamment une note des commentaires d'au moins 7 sur 10.</Li>
         <Li><B>Accélérateur de visibilité (Visibility Booster) :</B> une commission plus élevée que vous choisissez pour des dates précises, afin de mieux ressortir ces nuits-là. La documentation technique de Booking.com le décrit comme un remplacement de la commission, date par date.</Li>
-        <Li><B>Genius :</B> pas de commission en plus, mais une remise de 10 pour cent sur votre type de chambre le moins cher et le plus réservé. Booking.com confirme que la remise Genius standard est financée par l'établissement.</Li>
+        <Li><B>Genius :</B> pas de commission en plus, mais une remise d'au moins 10 pour cent sur votre type de chambre le moins cher et le plus réservé. Booking.com confirme que la remise Genius standard est financée par l'établissement.</Li>
       </Ul>
       <P>
         Tous sont facultatifs et vous pouvez en sortir. Si votre relevé affiche un taux supérieur à celui du contrat,

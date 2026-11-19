@@ -111,8 +111,8 @@ export default function Guide() {
         <B>A one-time build</B> has a larger cost up front, then small running costs: hosting (often free or close to it for
         a site delivered as files) and the yearly domain renewal. Be fair in the comparison: future changes cost something
         too. A new section, a new feature or a redesign means paying a developer or spending your own time. The longer you
-        keep the site without big changes, the more a one-time build tends to pay off. Likwiid is preparing a simple cost
-        calculator to help with this comparison.
+        keep the site without big changes, the more a one-time build tends to pay off. The free portfolio cost calculator on
+        the Likwiid site lays out this comparison year by year.
       </P>
 
       <H2>Proofing, print sales and booking</H2>
