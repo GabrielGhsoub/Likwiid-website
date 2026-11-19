@@ -24,7 +24,7 @@ const projectCatalog: Project[] = [
     approach:
       'We built one app for iOS and Android, with its own server, admin dashboard and public website, so a change reaches all of them quickly. The map draws pistes, lifts and each friend as a skier over the terrain. Sharing stays in the rider\'s hands: your squad sees you only after you check in, only at a ski resort, and each check-in ends by itself after 8 hours.',
     results:
-      'Parallel is getting ready for the App Store and Google Play ahead of the 2026 to 2027 ski season, and its website is live. On a Galaxy S10+, opening the app now takes 1.3 seconds instead of 2.4, and a phone at rest asks for no GPS at all, where it used to run GPS for 19 minutes an hour.',
+      'Parallel is with Apple for review and getting ready for Google Play ahead of the 2026 to 2027 ski season, and its website is live. On a Galaxy S10+, opening the app now takes 1.3 seconds instead of 2.4, and a phone at rest asks for no GPS at all, where it used to run GPS for 19 minutes an hour.',
     techStack: ['React Native', 'Expo', 'TypeScript', 'NestJS', 'PostgreSQL', 'PostGIS', 'Redis', 'MapLibre', 'three.js', 'TanStack Query', 'Zustand', 'i18next'],
     images: [
       '/images/projects/parallel/home.webp',

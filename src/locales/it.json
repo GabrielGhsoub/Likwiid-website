@@ -92,7 +92,7 @@
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, fondatore di Likwiid",
     "role": "Fondatore. Realizza tutto lui.",
-    "bio1": "Gabriel è un ingegnere che realizza software da più di cinque anni. Costruisce ogni pagina di persona ed è lui a risponderti.",
+    "bio1": "Gabriel è un ingegnere che realizza software da più di cinque anni. Costruisce ogni pagina di persona, e a ogni messaggio rispondono lui o Emile.",
     "bio3": "Vive a Beirut.",
     "promise": "A ogni messaggio risponde Gabriel o Emile, non un team commerciale.",
     "cta": "Scrivi a Gabriel",
@@ -166,7 +166,7 @@
     "step1": "Ci mandi un messaggio e Gabriel o Emile risponde entro 24 ore.",
     "step2": "Facciamo una breve chiamata, oppure continuiamo per iscritto se preferisci.",
     "step3": "Ricevi un prezzo fisso per iscritto in pochi giorni.",
-    "founderLine": "Due persone, nessun reparto commerciale. Parli sempre con la persona che realizza la tua pagina.",
+    "founderLine": "Due persone, nessun reparto commerciale. Parli direttamente con chi realizza la tua pagina.",
     "kind1Title": "Una pagina di prenotazione sul sito che hai già",
     "kind1Body": "Il tuo sito resta com'è. Aggiungiamo una pagina dove gli ospiti scelgono le date, vedono il prezzo e prenotano o inviano una richiesta. La installiamo noi per te.",
     "kind1Item1": "Gli ospiti prenotano e pagano una caparra con carta, oppure inviano una richiesta che confermi tu",
@@ -598,7 +598,7 @@
       "seoDescription": "Parallel è un'app di sci e snowboard per le sei stazioni del Libano: previsioni sulla neve, mappe 3D e mappa di gruppo in diretta, su iOS e Android.",
       "challenge": "Una giornata sulle piste significa conoscere il meteo di quella montagna, ritrovare gli amici nella stazione e contattare un maestro. L'app deve mostrare posizioni in diretta su una mappa 3D con telefoni comuni, continuare a funzionare con poco segnale e lasciare abbastanza batteria per il ritorno.",
       "approach": "Abbiamo creato un'unica app per iOS e Android, con il suo server, il pannello di amministrazione e il sito pubblico, così una modifica li raggiunge tutti rapidamente. La mappa disegna le piste, gli impianti e ogni amico come uno sciatore sul terreno. La condivisione resta nelle mani di chi scia: il tuo gruppo ti vede solo dopo il check-in, solo in una stazione, e ogni check-in finisce da solo dopo 8 ore.",
-      "results": "Parallel si prepara per l'App Store e Google Play in vista della stagione sciistica 2026/2027, e il suo sito è già online. Su un Galaxy S10+, l'app ora si apre in 1,3 secondi invece di 2,4, e un telefono a riposo non chiede più il GPS, mentre prima lo teneva acceso 19 minuti l'ora.",
+      "results": "Parallel è all'esame di Apple e si prepara per Google Play in vista della stagione sciistica 2026/2027, e il suo sito è già online. Su un Galaxy S10+, l'app ora si apre in 1,3 secondi invece di 2,4, e un telefono a riposo non chiede più il GPS, mentre prima lo teneva acceso 19 minuti l'ora.",
       "role": "Responsabile tecnico, Gabriel Ghoussoub: architettura, app mobile, backend, infrastruttura e pubblicazione negli store",
       "liveLabel": "parallel-leb.com",
       "metrics": [
@@ -1552,7 +1552,7 @@
     }
   },
   "founderLine": {
-    "text": "Sono Gabriel Ghoussoub. Lo realizzo io e ti rispondo io, entro 24 ore.",
+    "text": "Sono Gabriel Ghoussoub. Lo realizzo io, e io o Emile ti rispondiamo entro 24 ore.",
     "photoAlt": "Gabriel Ghoussoub"
   },
   "sticky": {

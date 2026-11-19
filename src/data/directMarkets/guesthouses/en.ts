@@ -58,7 +58,7 @@ const en: DirectMarketContent = {
       kind: 'proof',
       id: 'proof',
       title: 'A booking page that is already taking real bookings',
-      body: 'Our first live booking page is the one we built for Escuela Náutica de Valencia, a sailing school. Students book and pay on the school\'s own website. Likwiid Direct is the same idea packaged for stays, and it has no paying property yet.',
+      body: 'Our first live booking page is the one we built for Escuela Náutica de Valencia, a boat licence school. Students book and pay on the school\'s own website. Likwiid Direct is the same idea packaged for stays, and it has no paying property yet.',
       linkLabel: 'Read how the school\'s booking page works',
       to: '/work/escuela-nautica-valencia',
     },

@@ -92,7 +92,7 @@
   "founder": {
     "photoAlt": "Gabriel Ghoussoub, fondateur de Likwiid",
     "role": "Fondateur. Il réalise tout lui-même.",
-    "bio1": "Gabriel est ingénieur et crée des logiciels depuis plus de cinq ans. Il réalise chaque page lui-même, et c'est lui qui vous répond.",
+    "bio1": "Gabriel est ingénieur et crée des logiciels depuis plus de cinq ans. Il réalise chaque page lui-même, et c'est lui ou Emile qui répond à chaque message.",
     "bio3": "Il est basé à Beyrouth.",
     "promise": "Chaque message reçoit une réponse de Gabriel ou d'Emile, pas d'une équipe commerciale.",
     "cta": "Écrire à Gabriel",
@@ -166,7 +166,7 @@
     "step1": "Vous envoyez un message, et Gabriel ou Emile répond sous 24 heures.",
     "step2": "Nous échangeons lors d'un court appel, ou nous continuons par écrit si vous préférez.",
     "step3": "Vous recevez un prix fixe par écrit en quelques jours.",
-    "founderLine": "Deux personnes, pas d'équipe commerciale. Vous parlez toujours à la personne qui réalise votre page.",
+    "founderLine": "Deux personnes, pas d'équipe commerciale. Vous parlez directement à ceux qui réalisent votre page.",
     "kind1Title": "Une page de réservation sur le site que vous avez déjà",
     "kind1Body": "Votre site reste tel qu'il est. Nous ajoutons une page où vos clients choisissent leurs dates, voient le prix et réservent ou envoient une demande. Nous l'installons pour vous.",
     "kind1Item1": "Vos clients réservent et versent un acompte par carte, ou envoient une demande que vous confirmez vous-même",
@@ -594,7 +594,7 @@
       "seoDescription": "Parallel, l'application de ski et de snowboard pour les six stations du Liban : enneigement, cartes 3D et carte d'équipe en direct, sur iOS et Android.",
       "challenge": "Une journée sur les pistes, c'est connaître la météo de cette montagne, retrouver ses amis dans la station et joindre un moniteur. L'application doit afficher des positions en direct sur une carte 3D avec des téléphones ordinaires, continuer à fonctionner avec un réseau mobile faible et laisser assez de batterie pour le retour.",
       "approach": "Nous avons créé une seule application pour iOS et Android, avec son serveur, son tableau de bord d'administration et son site public, pour qu'une modification les atteigne tous rapidement. La carte dessine les pistes, les remontées et chaque ami en skieur sur le relief. Le partage reste entre les mains du skieur : votre équipe vous voit seulement après votre arrivée signalée, seulement dans une station, et chaque signalement prend fin de lui-même après 8 heures.",
-      "results": "Parallel se prépare pour l'App Store et Google Play avant la saison de ski 2026 à 2027, et son site est en ligne. Sur un Galaxy S10+, l'application s'ouvre maintenant en 1,3 seconde au lieu de 2,4, et un téléphone au repos ne demande plus aucun GPS, alors qu'il le faisait tourner 19 minutes par heure.",
+      "results": "Parallel est en cours d'examen chez Apple et se prépare pour Google Play avant la saison de ski 2026 à 2027, et son site est en ligne. Sur un Galaxy S10+, l'application s'ouvre maintenant en 1,3 seconde au lieu de 2,4, et un téléphone au repos ne demande plus aucun GPS, alors qu'il le faisait tourner 19 minutes par heure.",
       "role": "Responsable technique, Gabriel Ghoussoub : architecture, application mobile, backend, infrastructure et publication sur les stores",
       "liveLabel": "parallel-leb.com",
       "metrics": [
@@ -1548,7 +1548,7 @@
     }
   },
   "founderLine": {
-    "text": "Je suis Gabriel Ghoussoub. Je réalise le travail et je vous réponds moi-même, sous 24 heures.",
+    "text": "Je suis Gabriel Ghoussoub. Je réalise le travail, et Emile ou moi vous répondons sous 24 heures.",
     "photoAlt": "Gabriel Ghoussoub"
   },
   "sticky": {
