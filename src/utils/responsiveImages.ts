@@ -1,3 +1,5 @@
+import { CARD_IMAGES } from '../data/cardImages'
+
 // WebP renditions of the demo preview screenshots. The original JPEGs stay in public/ as the
 // <img src> fallback and for anything that links to them directly; cards pick a WebP size
 // from srcset instead, so a phone no longer downloads the full 1280px JPEG for a small card.
@@ -24,4 +26,16 @@ export function demoPreviewSrcSet(src: string): string | undefined {
   const variants = DEMO_PREVIEWS[src]
   if (!variants) return undefined
   return `${variants.small} 640w, ${variants.large} ${variants.largeWidth}w`
+}
+
+// Project screenshots shown on cards: phone screens about 120px wide, web screens about 350px.
+// scripts/make-card-images.py writes a smaller copy of each; the browser picks it from srcset.
+export const PHONE_CARD_SIZES = '120px'
+export const WEB_CARD_SIZES = '(min-width: 768px) 350px, 90vw'
+
+/** srcset and sizes for a card screenshot, or nothing when it has no card-sized copy. */
+export function cardImageProps(src: string, sizes: string): { srcSet?: string; sizes?: string } {
+  const candidates = CARD_IMAGES[src]
+  if (!candidates) return {}
+  return { srcSet: candidates.map(([url, width]) => `${url} ${width}w`).join(', '), sizes }
 }
