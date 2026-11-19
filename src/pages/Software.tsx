@@ -46,7 +46,9 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
   return (
     <m.article
       {...reveal}
-      className="group overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 hover:border-border-hover"
+      // The whole card opens the case study (the title link stretches over it); the store and
+      // repository links sit above that layer and keep their own targets.
+      className="group relative overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 hover:border-border-hover"
     >
       <div className="flex flex-col md:flex-row">
         {/* Preview */}
@@ -72,8 +74,12 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
             <StatusPill status={project.status} t={t} />
           </div>
 
-          <Link to={caseStudyHref} className="block no-underline" {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-title' })}>
-            <h3 className="text-lg font-semibold leading-snug text-text-primary font-[family-name:var(--font-display)] md:text-xl">
+          <Link
+            to={caseStudyHref}
+            className="block no-underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:rounded-xl focus-visible:after:outline-2 focus-visible:after:outline-accent-gold"
+            {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-title' })}
+          >
+            <h3 className="text-lg font-semibold leading-snug text-text-primary transition-colors group-hover:text-accent-gold font-[family-name:var(--font-display)] md:text-xl">
               {project.title}
             </h3>
             <p className="mt-1.5 text-sm leading-snug text-text-secondary">{project.oneLiner ?? project.subtitle}</p>
@@ -86,7 +92,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
           </div>
 
           <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="relative z-10 flex flex-wrap items-center gap-2">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
@@ -123,7 +129,7 @@ function ProjectCard({ project, priority }: { project: Project; priority: boolea
             </div>
             <Link
               to={caseStudyHref}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
+              className="relative z-10 inline-flex items-center gap-1.5 text-sm font-medium text-accent-gold no-underline transition-colors hover:text-accent-gold-hover"
               {...umamiAttrs('case-study-open', { project: project.slug, location: 'work-link' })}
             >
               {t('portfolio.viewCaseStudy')}
