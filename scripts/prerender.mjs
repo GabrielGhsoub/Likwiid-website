@@ -193,6 +193,15 @@ for (const lang of LANGUAGES) {
 const LOCALIZED_CASE_STUDIES = ['parallel', 'padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb', 'woop']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
+// Open source case studies: their structured data says where the code lives and under which licence.
+const GPL = 'https://spdx.org/licenses/GPL-3.0-or-later.html'
+const SOURCE_CODE = {
+  'rag-regulation': { repo: 'https://github.com/likwiid/rag-regulation', license: 'https://spdx.org/licenses/MIT.html', languages: ['Java', 'TypeScript', 'SQL'] },
+  basemile: { repo: 'https://github.com/likwiid/basemile', license: GPL, languages: ['TypeScript'] },
+  plateclimb: { repo: 'https://github.com/likwiid/plateclimb', license: GPL, languages: ['TypeScript'] },
+  woop: { repo: 'https://github.com/likwiid/woop', license: GPL, languages: ['Kotlin'] },
+}
+
 function caseStudyRoute(lang, slug, { heading, description }) {
   const path = localizedRoute(lang, `work/${slug}`)
   return {
@@ -204,7 +213,7 @@ function caseStudyRoute(lang, slug, { heading, description }) {
       { name: locales[lang].nav.work, path: localizedRoute(lang, 'work') },
       { name: heading, path },
     ],
-    creativeWork: { heading, description },
+    creativeWork: { heading, description, sourceCode: SOURCE_CODE[slug] },
   }
 }
 
@@ -395,14 +404,16 @@ function jsonLdGraph(path, meta) {
     })
   }
   if (meta.creativeWork) {
+    const code = meta.creativeWork.sourceCode
     graph.push({
-      '@type': 'CreativeWork',
+      '@type': code ? 'SoftwareSourceCode' : 'CreativeWork',
       name: meta.creativeWork.heading,
       headline: meta.creativeWork.heading,
       description: meta.creativeWork.description,
       url: canonicalUrl(path),
       creator: { '@id': `${SITE_URL}/#organization` },
       inLanguage: lang,
+      ...(code && { codeRepository: code.repo, license: code.license, programmingLanguage: code.languages, sameAs: code.repo }),
     })
   }
   if (meta.faq?.length) {
@@ -443,6 +454,7 @@ const OG_IMAGES = {
   'work/basemile': 'og-basemile.png',
   'work/plateclimb': 'og-plateclimb.png',
   'work/woop': 'og-woop.png',
+  'work/rag-regulation': 'og-rag-regulation.png',
   'work/parallel': 'og-parallel.png',
 }
 const ogImageUrl = (path, meta) =>
