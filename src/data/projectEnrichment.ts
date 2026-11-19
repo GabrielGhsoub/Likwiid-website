@@ -272,6 +272,67 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       'Framer Motion 12 contact UX: floating labels, valid and invalid indicators, idle, loading and success states',
     ],
   },
+  'rag-regulation': {
+    role: 'Design, development and evaluation',
+    metrics: [
+      { value: '98.3%', label: 'Right article in the top 5', basis: '60 answerable test questions' },
+      { value: '0.996', label: 'Faithfulness to sources', basis: 'scored by a separate model' },
+      { value: '8 of 8', label: 'Out of scope questions declined' },
+    ],
+    keyFeatures: [
+      {
+        title: 'Answers you can check',
+        description: 'Every statement links to the act, article and paragraph it relies on, with the source passage one click away.',
+      },
+      {
+        title: 'Says when it does not know',
+        description: 'If the retrieved texts do not cover the question, the answer says so instead of guessing.',
+      },
+      {
+        title: 'English and German',
+        description: 'Ask in either language and get sources in the same language, or pick the language of the sources yourself.',
+      },
+      {
+        title: 'Two ways to search, then a second look',
+        description: 'Meaning based search and exact word search run together, and a reranking model puts the best passages first.',
+      },
+      {
+        title: 'Measured, not assumed',
+        description: 'A test set of 68 questions compares three retrieval modes on hit rate, ranking, faithfulness and declines.',
+      },
+      {
+        title: 'Runs on one machine',
+        description: 'Docker Compose starts the database and the app. Embeddings and reranking use local open models.',
+      },
+    ],
+    architecture: [
+      {
+        area: 'Corpus',
+        detail: 'Five acts from EUR-Lex in English and German, parsed into 4,771 article and paragraph passages with their citations.',
+      },
+      {
+        area: 'Retrieval',
+        detail: 'PostgreSQL 17 with pgvector (HNSW) for vectors and BM25 over the full text index, fused by reciprocal rank, then a multilingual cross encoder reranker.',
+      },
+      {
+        area: 'Embeddings',
+        detail: 'multilingual-e5-small through Spring AI ONNX transformers, in the JVM, so no text leaves the machine for embedding.',
+      },
+      {
+        area: 'Generation',
+        detail: 'Claude through the Anthropic Java SDK with a structured reply: an answerable flag and the answer with a source marker after each statement.',
+      },
+      {
+        area: 'Front end and delivery',
+        detail: 'React and Vite with clickable citations, served by Spring Boot; Docker Compose for the app and database.',
+      },
+    ],
+    highlights: [
+      'Hybrid plus rerank lifted the right article in the top 5 from 95.0% (vector only) to 98.3%, and MRR from 0.866 to 0.947',
+      'A first keyword ranking made hybrid search worse than vector only, so it was replaced with BM25 and the README says so',
+      'Every number on this page comes from the evaluation results committed in the repository',
+    ],
+  },
   voxflow: {
     role: 'Design, development and release',
     metrics: [

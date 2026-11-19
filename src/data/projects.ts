@@ -185,6 +185,33 @@ const projectCatalog: Project[] = [
     liveLabel: 'Live Site',
   },
   {
+    id: 'rag-regulation',
+    status: 'shipped',
+    slug: 'rag-regulation',
+    title: 'EU Regulation Q&A',
+    subtitle: 'Cited answers from the official texts of five EU acts, in English and German',
+    client: 'Likwiid',
+    category: 'AI',
+    year: '2026',
+    oneLiner: 'Ask a question about EU insurance, finance or data rules and get an answer that cites the exact article and paragraph.',
+    description:
+      'A question answering system over five EU acts from EUR-Lex: the Insurance Distribution Directive, Solvency II, the GDPR, DORA and the AI Act, in English and German. Every statement in an answer links to the article and paragraph it comes from, and the system declines when the texts do not cover the question.',
+    challenge:
+      'Legal text is long, cross referenced and written in more than one language. A general chatbot answers confidently even when it is wrong, and gives no way to check where an answer came from.',
+    approach:
+      'We split each act into article and paragraph passages, searched them two ways at once (meaning and exact words), reranked the best matches with a second model, and let Claude answer only from those passages, citing each one. Embeddings and reranking run locally with open models.',
+    results:
+      'On a set of 68 test questions in both languages, the right article was in the top five results for 98.3% of answerable questions, answers scored 0.996 for faithfulness to their sources, and all 8 questions outside the texts were declined. The code is open source under the MIT licence.',
+    techStack: ['Java', 'Spring Boot', 'Spring AI', 'PostgreSQL', 'pgvector', 'React', 'Docker'],
+    images: ['/images/projects/rag-regulation/answer.webp', '/images/projects/rag-regulation/german.webp'],
+    previewImage: '/images/projects/rag-regulation/answer.webp',
+    previewAlt: 'EU Regulation Q&A answering a GDPR question with citations to Article 33',
+    featured: false,
+    platform: 'web',
+    liveUrl: 'https://github.com/GabrielGhsoub/rag-regulation',
+    liveLabel: 'Source on GitHub',
+  },
+  {
     id: 'voxflow',
     status: 'shipped',
     slug: 'voxflow',
@@ -391,6 +418,7 @@ const leadProjectIds = [
   'padel-booking',
   'escuela-nautica-valencia',
   'gcg-website',
+  'rag-regulation',
   'voxflow',
   'basemile',
   'plateclimb',
