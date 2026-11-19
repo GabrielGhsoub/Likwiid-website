@@ -61,6 +61,11 @@ const caseStudies = {
       'Website for a science consulting firm, with a clear path for every audience: companies, research teams, students, families and investors.',
     heading: 'GCG Website',
   },
+  'rag-regulation': {
+    description:
+      'Open source question answering over five EU acts in English and German, with answers that cite the exact article and paragraph. Java, Spring AI, pgvector.',
+    heading: 'EU Regulation Q&A',
+  },
   voxflow: {
     description:
       'A private, offline app that guides people through 10 minutes of daily voice practice, with recordings that never leave the phone.',
