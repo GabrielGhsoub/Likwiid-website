@@ -1404,6 +1404,88 @@
         "Schemi Zod condivisi tra backend e mobile, eliminando le divergenze tra client e server",
         "Verificato end to end su container TimescaleDB e Redis reali, su circa 38 endpoint"
       ]
+    },
+    "rag-regulation": {
+      "title": "Domande e risposte sulle norme UE",
+      "subtitle": "Risposte con fonti dai testi ufficiali di cinque atti dell'UE, in inglese e in tedesco",
+      "oneLiner": "Fai una domanda sulle regole europee in materia di assicurazioni, finanza o dati e ricevi una risposta che cita l'articolo e il paragrafo esatti.",
+      "description": "Un sistema di domande e risposte su cinque atti dell'UE presi da EUR-Lex: la direttiva sulla distribuzione assicurativa, Solvency II, il GDPR, DORA e l'AI Act, in inglese e in tedesco. Ogni affermazione di una risposta rimanda all'articolo e al paragrafo da cui proviene, e il sistema non risponde quando i testi non coprono la domanda.",
+      "previewAlt": "EU Regulation Q&A che risponde a una domanda sul GDPR con citazioni dell'articolo 33",
+      "seoDescription": "Domande e risposte open source su cinque atti dell'UE in inglese e tedesco, con citazione dell'articolo e del paragrafo esatti. Java, Spring AI, pgvector.",
+      "challenge": "I testi giuridici sono lunghi, pieni di rimandi e scritti in più lingue. Un chatbot generico risponde con sicurezza anche quando sbaglia, e non dà modo di verificare da dove venga la risposta.",
+      "approach": "Abbiamo diviso ogni atto in passaggi per articolo e paragrafo, li abbiamo cercati in due modi insieme (per significato e per parole esatte), abbiamo riordinato i risultati migliori con un secondo modello e abbiamo lasciato che Claude rispondesse solo a partire da quei passaggi, citando ciascuno. Embedding e riordino girano in locale con modelli aperti.",
+      "results": "Su un insieme di 68 domande di prova nelle due lingue, l'articolo giusto era tra i primi cinque risultati per il 98,3% delle domande con risposta, le risposte hanno ottenuto 0,996 di fedeltà alle fonti e tutte le 8 domande estranee ai testi sono state rifiutate. Il codice è open source con licenza MIT.",
+      "role": "Progettazione, sviluppo e valutazione",
+      "liveLabel": "Codice su GitHub",
+      "metrics": [
+        {
+          "value": "98,3%",
+          "label": "Articolo giusto tra i primi 5",
+          "basis": "60 domande di prova con risposta"
+        },
+        {
+          "value": "0,996",
+          "label": "Fedeltà alle fonti",
+          "basis": "valutata da un modello separato"
+        },
+        {
+          "value": "8 su 8",
+          "label": "Domande fuori ambito rifiutate"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Risposte verificabili",
+          "description": "Ogni affermazione rimanda all'atto, all'articolo e al paragrafo su cui si basa, con il passaggio originale a un clic."
+        },
+        {
+          "title": "Dice quando non lo sa",
+          "description": "Se i testi recuperati non coprono la domanda, la risposta lo dice invece di tirare a indovinare."
+        },
+        {
+          "title": "Inglese e tedesco",
+          "description": "Fai la domanda in una delle due lingue e ricevi le fonti nella stessa lingua, oppure scegli tu la lingua delle fonti."
+        },
+        {
+          "title": "Due ricerche, poi un secondo controllo",
+          "description": "La ricerca per significato e quella per parole esatte lavorano insieme, e un modello di riordino mette in cima i passaggi migliori."
+        },
+        {
+          "title": "Misurato, non presunto",
+          "description": "Un insieme di 68 domande confronta tre modalità di ricerca su tasso di successo, ordinamento, fedeltà e rifiuti."
+        },
+        {
+          "title": "Gira su una sola macchina",
+          "description": "Docker Compose avvia il database e l'app. Embedding e riordino usano modelli aperti in locale."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Corpus",
+          "detail": "Cinque atti da EUR-Lex in inglese e tedesco, suddivisi in 4.771 passaggi per articolo e paragrafo con i relativi riferimenti."
+        },
+        {
+          "area": "Ricerca",
+          "detail": "PostgreSQL 17 con pgvector (HNSW) per i vettori e BM25 sull'indice full text, uniti per rango reciproco, poi un riordinatore cross encoder multilingue."
+        },
+        {
+          "area": "Embedding",
+          "detail": "multilingual-e5-small tramite i transformer ONNX di Spring AI, dentro la JVM, quindi nessun testo lascia la macchina per gli embedding."
+        },
+        {
+          "area": "Generazione",
+          "detail": "Claude tramite l'SDK Java di Anthropic con una risposta strutturata: un indicatore che dice se si può rispondere e la risposta con un riferimento alla fonte dopo ogni affermazione."
+        },
+        {
+          "area": "Front end e distribuzione",
+          "detail": "React e Vite con citazioni cliccabili, serviti da Spring Boot; Docker Compose per l'app e il database."
+        }
+      ],
+      "highlights": [
+        "La ricerca ibrida con riordino ha portato l'articolo giusto tra i primi 5 dal 95,0% (solo vettori) al 98,3%, e l'MRR da 0,866 a 0,947",
+        "Una prima classificazione per parole chiave rendeva la ricerca ibrida peggiore di quella solo vettoriale, quindi è stata sostituita con BM25, e il README lo spiega",
+        "Ogni numero di questa pagina viene dai risultati di valutazione pubblicati nel repository"
+      ]
     }
   },
   "servicesData": {

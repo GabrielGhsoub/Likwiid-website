@@ -1400,6 +1400,88 @@
         "Schémas Zod partagés entre backend et mobile, ce qui élimine les écarts entre client et serveur",
         "Vérifié de bout en bout sur des conteneurs TimescaleDB et Redis réels, sur environ 38 endpoints"
       ]
+    },
+    "rag-regulation": {
+      "title": "Q&R sur la réglementation UE",
+      "subtitle": "Des réponses sourcées à partir des textes officiels de cinq actes de l'UE, en anglais et en allemand",
+      "oneLiner": "Posez une question sur les règles européennes en assurance, finance ou données, et obtenez une réponse qui cite l'article et le paragraphe exacts.",
+      "description": "Un système de questions-réponses sur cinq actes de l'UE issus d'EUR-Lex : la directive sur la distribution d'assurances, Solvabilité II, le RGPD, DORA et le règlement sur l'IA, en anglais et en allemand. Chaque affirmation d'une réponse renvoie à l'article et au paragraphe d'où elle vient, et le système refuse de répondre quand les textes ne couvrent pas la question.",
+      "previewAlt": "EU Regulation Q&A répondant à une question sur le RGPD avec des citations de l'article 33",
+      "seoDescription": "Questions-réponses open source sur cinq actes de l'UE, en anglais et en allemand, avec citation de l'article et du paragraphe exacts. Java, Spring AI, pgvector.",
+      "challenge": "Les textes juridiques sont longs, pleins de renvois et rédigés dans plusieurs langues. Un chatbot généraliste répond avec assurance même quand il se trompe, et ne permet pas de vérifier d'où vient la réponse.",
+      "approach": "Nous avons découpé chaque acte en passages par article et par paragraphe, cherché ces passages de deux façons à la fois (par le sens et par les mots exacts), reclassé les meilleurs résultats avec un second modèle, puis laissé Claude répondre uniquement à partir de ces passages en citant chacun d'eux. Les embeddings et le reclassement tournent en local avec des modèles ouverts.",
+      "results": "Sur un jeu de 68 questions de test dans les deux langues, le bon article figurait parmi les cinq premiers résultats pour 98,3 % des questions qui avaient une réponse, les réponses ont obtenu 0,996 en fidélité à leurs sources, et les 8 questions hors des textes ont été refusées. Le code est open source sous licence MIT.",
+      "role": "Conception, développement et évaluation",
+      "liveLabel": "Code sur GitHub",
+      "metrics": [
+        {
+          "value": "98,3 %",
+          "label": "Bon article dans les 5 premiers",
+          "basis": "60 questions de test ayant une réponse"
+        },
+        {
+          "value": "0,996",
+          "label": "Fidélité aux sources",
+          "basis": "notée par un modèle distinct"
+        },
+        {
+          "value": "8 sur 8",
+          "label": "Questions hors périmètre refusées"
+        }
+      ],
+      "keyFeatures": [
+        {
+          "title": "Des réponses vérifiables",
+          "description": "Chaque affirmation renvoie à l'acte, à l'article et au paragraphe sur lesquels elle s'appuie, avec le passage source à un clic."
+        },
+        {
+          "title": "Dit quand il ne sait pas",
+          "description": "Si les textes retrouvés ne couvrent pas la question, la réponse le dit au lieu de deviner."
+        },
+        {
+          "title": "Anglais et allemand",
+          "description": "Posez votre question dans l'une ou l'autre langue et recevez les sources dans la même langue, ou choisissez vous-même la langue des sources."
+        },
+        {
+          "title": "Deux recherches, puis une relecture",
+          "description": "La recherche par le sens et la recherche par mots exacts tournent ensemble, et un modèle de reclassement place les meilleurs passages en tête."
+        },
+        {
+          "title": "Mesuré, pas supposé",
+          "description": "Un jeu de 68 questions compare trois modes de recherche sur le taux de réussite, le classement, la fidélité et les refus."
+        },
+        {
+          "title": "Tourne sur une seule machine",
+          "description": "Docker Compose démarre la base de données et l'application. Les embeddings et le reclassement utilisent des modèles ouverts en local."
+        }
+      ],
+      "architecture": [
+        {
+          "area": "Corpus",
+          "detail": "Cinq actes d'EUR-Lex en anglais et en allemand, découpés en 4 771 passages par article et par paragraphe avec leurs références."
+        },
+        {
+          "area": "Recherche",
+          "detail": "PostgreSQL 17 avec pgvector (HNSW) pour les vecteurs et BM25 sur l'index plein texte, fusionnés par rang réciproque, puis un reclasseur cross encoder multilingue."
+        },
+        {
+          "area": "Embeddings",
+          "detail": "multilingual-e5-small via les transformers ONNX de Spring AI, dans la JVM : aucun texte ne quitte la machine pour le calcul des embeddings."
+        },
+        {
+          "area": "Génération",
+          "detail": "Claude via le SDK Java d'Anthropic avec une réponse structurée : un indicateur de réponse possible et la réponse avec un repère de source après chaque affirmation."
+        },
+        {
+          "area": "Front end et mise en service",
+          "detail": "React et Vite avec des citations cliquables, servis par Spring Boot ; Docker Compose pour l'application et la base de données."
+        }
+      ],
+      "highlights": [
+        "La recherche hybride avec reclassement a fait passer le bon article dans les 5 premiers de 95,0 % (vecteurs seuls) à 98,3 %, et le MRR de 0,866 à 0,947",
+        "Un premier classement par mots-clés rendait la recherche hybride moins bonne que les vecteurs seuls ; il a été remplacé par BM25, et le README le dit",
+        "Chaque chiffre de cette page vient des résultats d'évaluation publiés dans le dépôt"
+      ]
     }
   },
   "servicesData": {
