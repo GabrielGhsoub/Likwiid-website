@@ -110,8 +110,8 @@ export default function Guide() {
         <B>Un sito pagato una tantum</B> ha un costo iniziale più alto e poi spese contenute: l'hosting (spesso gratuito o
         quasi, per un sito consegnato come file) e il rinnovo annuale del dominio. Sii onesto nel confronto: anche le modifiche
         future costano. Una nuova sezione, una funzione o un restyling vogliono dire pagare uno sviluppatore o metterci il tuo
-        tempo. Più a lungo tieni il sito senza grandi cambiamenti, più il pagamento una tantum tende a ripagarsi. Likwiid sta
-        preparando un semplice calcolatore dei costi per aiutarti in questo confronto.
+        tempo. Più a lungo tieni il sito senza grandi cambiamenti, più il pagamento una tantum tende a ripagarsi. Sul sito di Likwiid
+        trovi un calcolatore gratuito del costo del portfolio che fa questo confronto anno per anno.
       </P>
 
       <H2>Selezione delle foto, vendita di stampe e prenotazioni</H2>

@@ -7,6 +7,7 @@ import { ClientQuote } from './ClientQuote'
 import { projects } from '../../data/projects'
 import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 import { umamiAttrs } from '../../utils/analytics'
+import { cardImageProps } from '../../utils/responsiveImages'
 
 const ESCUELA_SLUG = 'escuela-nautica-valencia'
 const escuela = projects.find((p) => p.slug === ESCUELA_SLUG)
@@ -25,9 +26,10 @@ export function EscuelaProof({ flush = false }: { flush?: boolean }) {
           <PhoneFrame>
             <img
               src={ESCUELA_PHONE_IMAGE}
+              {...cardImageProps(ESCUELA_PHONE_IMAGE, '(min-width: 768px) 248px, 138px')}
               alt={t('home.proofImageAlt')}
-              width={390}
-              height={844}
+              width={600}
+              height={1299}
               loading="lazy"
               decoding="async"
               className="block h-auto w-full"

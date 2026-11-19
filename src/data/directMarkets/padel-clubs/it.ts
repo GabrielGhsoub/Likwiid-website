@@ -88,7 +88,7 @@ const it: DirectMarketContent = {
   ],
   closingTitle: 'Raccontaci come prenota oggi il tuo circolo',
   closingBody:
-    'Mandaci i tuoi campi, gli orari di apertura e come prenotano ora i giocatori. Ti rispondiamo entro 24 ore con come si inserirebbe Likwiid Direct, e con ciò che non farebbe.',
+    'Mandaci i tuoi campi, gli orari di apertura e come prenotano ora i giocatori. Ti rispondiamo entro 24 ore spiegandoti come si inserirebbe Likwiid Direct e cosa non farebbe.',
   directCrumb: 'Likwiid Direct',
   backToDirect: 'Tutto ciò che fa Likwiid Direct',
   breadcrumbLabel: 'Percorso di navigazione',

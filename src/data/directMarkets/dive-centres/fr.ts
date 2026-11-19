@@ -10,7 +10,7 @@ const fr: DirectMarketContent = {
   eyebrow: 'Likwiid Direct pour les centres de plongée',
   h1: 'Plongées et formations réservées, avec les papiers en ordre avant le départ du bateau.',
   intro: [
-    'Une réservation de plongée, ce n\'est jamais seulement une date. Il vous faut le niveau du plongeur, le matériel qu\'il veut louer et parfois un certificat médical, et vous les récupérez souvent par email, une question après l\'autre, ou au comptoir le matin de la sortie.',
+    'Une réservation de plongée, ce n\'est jamais seulement une date. Il vous faut le niveau du plongeur, le matériel qu\'il veut louer et parfois un certificat médical, et vous les récupérez souvent par e-mail, une question après l\'autre, ou au comptoir le matin de la sortie.',
     'Likwiid Direct prend les réservations de plongées, de baptêmes et de formations sur le site de votre centre. Il tient un nombre de places par sortie et par formation, demande les documents qu\'exige chaque activité et vous envoie chaque réservation directement, sans passer par une plateforme qui prélève sa part.',
   ],
   demo: 'escuela-likwiid',

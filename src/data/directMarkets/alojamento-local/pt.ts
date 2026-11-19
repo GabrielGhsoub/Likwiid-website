@@ -26,7 +26,7 @@ const pt: DirectMarketContent = {
       items: [
         'A comissão das plataformas sobre cada estadia, mesmo quando o hóspede já conhecia a casa.',
         'Hóspedes que voltam todos os anos e continuam a reservar através de um intermediário.',
-        'Pedidos por email e WhatsApp que precisam de três ou quatro mensagens só para saber datas, pessoas e extras.',
+        'Pedidos por e-mail e WhatsApp que precisam de três ou quatro mensagens só para saber datas, pessoas e extras.',
         'O receio de uma reserva duplicada quando a casa está anunciada em vários sítios ao mesmo tempo.',
       ],
     },

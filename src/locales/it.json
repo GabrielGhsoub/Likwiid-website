@@ -415,7 +415,7 @@
     "readGuide": "Leggi la guida",
     "allGuides": "Tutte le guide",
     "ctaTitle": "Vuoi un secondo parere sulla tua situazione?",
-    "ctaBody": "Raccontaci come ricevi oggi prenotazioni o clienti. Rispondiamo entro 24 ore e te lo diciamo con franchezza se quello che hai già funziona.",
+    "ctaBody": "Raccontaci come ricevi oggi prenotazioni o clienti. Rispondiamo entro 24 ore e ti diciamo con franchezza se quello che hai già funziona.",
     "ctaButton": "Fai una domanda",
     "readMoreTitle": "Guide da leggere prima"
   },
@@ -598,7 +598,7 @@
       "seoDescription": "Parallel è un'app di sci e snowboard per le sei stazioni del Libano: previsioni sulla neve, mappe 3D e mappa di gruppo in diretta, su iOS e Android.",
       "challenge": "Una giornata sulle piste significa conoscere il meteo di quella montagna, ritrovare gli amici nella stazione e contattare un maestro. L'app deve mostrare posizioni in diretta su una mappa 3D con telefoni comuni, continuare a funzionare con poco segnale e lasciare abbastanza batteria per il ritorno.",
       "approach": "Abbiamo creato un'unica app per iOS e Android, con il suo server, il pannello di amministrazione e il sito pubblico, così una modifica li raggiunge tutti rapidamente. La mappa disegna le piste, gli impianti e ogni amico come uno sciatore sul terreno. La condivisione resta nelle mani di chi scia: il tuo gruppo ti vede solo dopo il check-in, solo in una stazione, e ogni check-in finisce da solo dopo 8 ore.",
-      "results": "Parallel si prepara per l'App Store e Google Play in vista della stagione sciistica 2026 a 2027, e il suo sito è già online. Su un Galaxy S10+, l'app ora si apre in 1,3 secondi invece di 2,4, e un telefono a riposo non chiede più il GPS, che prima usava 19 minuti l'ora.",
+      "results": "Parallel si prepara per l'App Store e Google Play in vista della stagione sciistica 2026/2027, e il suo sito è già online. Su un Galaxy S10+, l'app ora si apre in 1,3 secondi invece di 2,4, e un telefono a riposo non chiede più il GPS, mentre prima lo teneva acceso 19 minuti l'ora.",
       "role": "Responsabile tecnico, Gabriel Ghoussoub: architettura, app mobile, backend, infrastruttura e pubblicazione negli store",
       "liveLabel": "parallel-leb.com",
       "metrics": [
@@ -685,7 +685,7 @@
       "metrics": [
         {
           "value": "2",
-          "label": "App store, pubblicata"
+          "label": "App store in cui è online"
         },
         {
           "value": "3",
@@ -940,7 +940,7 @@
     "voxflow": {
       "title": "VoxFlow",
       "subtitle": "Un'app per l'esercizio vocale quotidiano che funziona completamente offline",
-      "oneLiner": "Un'app privata e offline che guida 10 minuti al giorno di esercizio vocale.",
+      "oneLiner": "Un'app privata e offline che ti guida in 10 minuti di esercizio vocale al giorno.",
       "description": "VoxFlow riunisce timer, istruzioni, registratore e letture per il recupero della voce in una routine tranquilla di 10 minuti. Non richiede un account e conserva ogni registrazione sul telefono.",
       "challenge": "Chi fa esercizi per la voce doveva destreggiarsi tra timer, appunti, registratore e articoli. La maggior parte delle app aggiunge anche la pressione delle serie e gli account cloud, che questo pubblico non vuole.",
       "approach": "Abbiamo creato un'unica routine guidata che dice all'utente cosa fare in ogni momento. Le registrazioni restano private, e si può ascoltare una registrazione vecchia accanto a una recente per sentire i progressi.",
@@ -1023,7 +1023,7 @@
       "previewAlt": "La schermata di corsa dal vivo di BaseMile con la frequenza cardiaca in zona 2 e il coach attivo",
       "seoDescription": "BaseMile è un coach di corsa libero e open source che guida ogni uscita in base alla frequenza cardiaca. Nessun account né server, dati sul telefono.",
       "challenge": "La maggior parte delle app di fitness chiede un account, un abbonamento e il cloud. Un coach basato sulla frequenza cardiaca deve anche continuare a parlare con il telefono in tasca, lo schermo spento e senza campo.",
-      "approach": "Abbiamo creato tre tipi di uscita: Long, in zona 2 sotto un tetto MAF; Medium, tra il 75 e l'85 % della frequenza cardiaca massima; e Brief, con ripetute 30/60 o un 4x4. Tutto gira sul telefono, senza account, senza server, senza sincronizzazione e senza IA.",
+      "approach": "Abbiamo creato tre tipi di uscita: Long, in zona 2 sotto un tetto MAF; Medium, tra il 75 e l'85% della frequenza cardiaca massima; e Brief, con ripetute 30/60 o un 4x4. Tutto gira sul telefono, senza account, senza server, senza sincronizzazione e senza IA.",
       "results": "Pubblicato come open source il 18 ottobre 2026 con licenza GPL-3.0, con un APK Android firmato su GitHub. Dal 31 ottobre 2026 è disponibile gratis anche su App Store per iPhone.",
       "role": "Design, sviluppo e pubblicazione open source",
       "liveLabel": "Codice su GitHub",
@@ -1045,7 +1045,7 @@
       "keyFeatures": [
         {
           "title": "Tre tipi di uscita",
-          "description": "Long in zona 2 sotto un tetto MAF, Medium tra il 75 e l'85 % del massimo, e Brief con ripetute 30/60 o un 4x4."
+          "description": "Long in zona 2 sotto un tetto MAF, Medium tra il 75 e l'85% del massimo, e Brief con ripetute 30/60 o un 4x4."
         },
         {
           "title": "Frequenza cardiaca dal vivo da una fascia",
@@ -1097,7 +1097,7 @@
       "highlights": [
         "Completamente locale: niente account, server, sincronizzazione o IA, e backup cloud di Android disattivato per l'app",
         "Le uniche chiamate di rete sono Open-Meteo (meteo e altitudine, opzionali) e i tile di OpenFreeMap, senza chiave",
-        "Una sorgente simulata di frequenza cardiaca scrive nello stesso store della fascia, così la schermata di corsa si può provare senza",
+        "Una sorgente simulata di frequenza cardiaca scrive nello stesso store della fascia, così la schermata di corsa si può provare anche senza fascia",
         "Oltre 400 verifiche automatiche con Vitest, dal parser 0x2A37 alle indicazioni del coach",
         "GPL-3.0 o successiva, con intestazioni di licenza SPDX nei file sorgente"
       ]
@@ -1266,7 +1266,7 @@
       "description": "BreatheBreak sta nella barra dei menu del Mac e propone brevi esercizi di respirazione durante la giornata di lavoro. Resta in silenzio durante le chiamate, in modalità Full immersion e fuori dall'orario di lavoro.",
       "challenge": "Le app di respirazione aiutano solo se le usi nel mezzo di un'attività, ma aprirne una rompe la concentrazione. I promemoria dovevano esserci tutto il giorno senza essere d'intralcio.",
       "approach": "Abbiamo creato tre livelli di promemoria, da una piccola pulsazione dell'icona a un esercizio a schermo intero che compare solo ogni tanto. La frequenza si adatta a quante sessioni l'utente completa davvero.",
-      "results": "Un'app per Mac completa con conto alla rovescia, posticipo, esercizi di respirazione guidati e un semplice prova di apnea con un andamento su 7 giorni. Tutti i dati restano sul Mac.",
+      "results": "Un'app per Mac completa con conto alla rovescia, posticipo, esercizi di respirazione guidati e una semplice prova di apnea con un andamento su 7 giorni. Tutti i dati restano sul Mac.",
       "role": "Progettazione, sviluppo e rilascio",
       "metrics": [
         {
@@ -1487,7 +1487,7 @@
     },
     "plateclimb": {
       "pitch": "La settimana Foundational Fitness del libro Protocols di Huberman, in un'app di allenamento gratuita che funziona offline.",
-      "body": "PlateClimb segue un piano di 12 settimane basato sulla struttura settimanale che Andrew Huberman descrive in Protocols: giorni di gambe, busto, e spalle e braccia tra cardio lungo, medio e intenso. Registra le tue serie e prepara i carichi per la volta successiva. I tuoi allenamenti restano sul telefono.",
+      "body": "PlateClimb segue un piano di 12 settimane basato sulla struttura settimanale che Andrew Huberman descrive in Protocols: giorni di gambe, busto, e spalle e braccia tra cardio lungo, medio e intenso. Registra le tue serie e l'app ti prepara i carichi per la volta successiva. I tuoi allenamenti restano sul telefono.",
       "feature1": "Due blocchi di sei e cinque settimane, prima più carico poi più ripetizioni, seguiti da una settimana di pausa",
       "feature2": "Serie, ripetizioni, recupero e sforzo obiettivo per ogni esercizio, con alternative quando una macchina è occupata",
       "feature3": "Carichi ripresi dall'ultima sessione, con foto e link al video per ogni esercizio",

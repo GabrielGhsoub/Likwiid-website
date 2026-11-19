@@ -39,13 +39,21 @@ export function AppsSection() {
             const preview = project.previewImage ?? project.images[0]
             return (
               <Reveal key={slug} className="w-[78%] shrink-0 snap-start md:w-auto">
-                <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary">
+                {/* The whole card opens the app's page: the title link stretches over it. The App Store
+                    link sits above that layer, so it still goes straight to the store. */}
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 hover:border-border-hover">
                   <div className="relative aspect-[4/3] w-full border-b border-border bg-bg-tertiary">
                     {preview && <ProjectPreview src={preview} alt={project.previewAlt ?? project.title} platform="mobile" />}
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="text-lg font-semibold leading-snug text-text-primary font-[family-name:var(--font-display)]">
-                      {project.title}
+                      <Link
+                        to={localize(`/work/${slug}`)}
+                        className="no-underline transition-colors group-hover:text-accent-gold after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:rounded-xl focus-visible:after:outline-2 focus-visible:after:outline-accent-gold"
+                        {...umamiAttrs('case-study-open', { project: slug, location: 'home-apps' })}
+                      >
+                        {project.title}
+                      </Link>
                     </h3>
                     <p className="mt-1.5 flex-1 text-sm leading-snug text-text-secondary">{t(lineKey)}</p>
                     <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1">
@@ -54,19 +62,20 @@ export function AppsSection() {
                           href={project.iosUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex min-h-11 items-center text-sm font-medium text-accent-gold no-underline hover:underline"
+                          className="relative z-10 inline-flex min-h-11 items-center text-sm font-medium text-accent-gold no-underline hover:underline"
                           {...umamiAttrs('store-click', { app: slug, store: 'ios', location: 'home' })}
                         >
                           {t('portfolio.appStore')}
                         </a>
                       )}
-                      <Link
-                        to={localize(`/work/${slug}`)}
-                        className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-text-primary no-underline hover:text-accent-gold"
+                      {/* A cue only: the stretched title link already makes the card a link. */}
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-text-primary transition-colors group-hover:text-accent-gold"
                       >
                         {t('home.appsCase')}
-                        <ArrowRight size={14} aria-hidden="true" />
-                      </Link>
+                        <ArrowRight size={14} />
+                      </span>
                     </div>
                   </div>
                 </article>

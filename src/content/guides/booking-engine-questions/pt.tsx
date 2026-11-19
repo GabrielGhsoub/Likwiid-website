@@ -24,7 +24,7 @@ export default function Guide() {
       </Summary>
 
       <P>
-        Nas demonstrações, todos os motores de reservas parecem iguais. As diferenças aparecem depois: na primeira fatura,
+        Nas demonstrações, todos os motores de reservas parecem bons. As diferenças aparecem depois: na primeira fatura,
         no primeiro reembolso, na primeira reserva duplicada ou no dia em que quer mudar. Estas são as perguntas a fazer
         antes de assinar, com o que deve esperar ouvir, seja num alojamento local, num pequeno hotel ou numa empresa de
         aulas de surf.
@@ -89,7 +89,7 @@ export default function Guide() {
       <P>Pergunte, portanto:</P>
       <Ul>
         <Li>Existe um acordo de tratamento de dados, e posso lê-lo antes de assinar?</Li>
-        <Li>Podem enviar emails aos meus hóspedes, mostrar-lhes outros alojamentos ou usar os dados deles para fins próprios?</Li>
+        <Li>Podem enviar e-mails aos meus hóspedes, mostrar-lhes outros alojamentos ou usar os dados deles para fins próprios?</Li>
       </Ul>
       <P>
         A resposta certa é um acordo curto e legível e um não claro ao marketing junto dos seus hóspedes. Isto é informação
@@ -137,7 +137,7 @@ export default function Guide() {
 
       <H2>O que o hóspede vê e quem lhe responde</H2>
       <Ul>
-        <Li><B>Idiomas.</B> Todos os passos estão na língua do hóspede, incluindo as condições e o email de confirmação?</Li>
+        <Li><B>Idiomas.</B> Todos os passos estão na língua do hóspede, incluindo as condições e o e-mail de confirmação?</Li>
         <Li><B>Telemóvel.</B> Faça uma reserva de teste no seu próprio telemóvel, do início ao fim, antes de assinar.</Li>
         <Li><B>Acessibilidade.</B> É possível reservar só com o teclado e com um leitor de ecrã? Pergunte se testam segundo as diretrizes WCAG.</Li>
         <Li><B>Suporte.</B> Quem responde: uma pessoa, um robô, um revendedor? Em que língua, em que dias e com que rapidez na época alta?</Li>

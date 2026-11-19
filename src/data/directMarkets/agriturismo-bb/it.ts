@@ -84,7 +84,7 @@ const it: DirectMarketContent = {
   ],
   closingTitle: 'Raccontaci della tua struttura',
   closingBody:
-    'Quante camere hai, cosa offre l\'azienda oltre al soggiorno e dove sei presente oggi. Ti rispondiamo entro 24 ore con come si inserirebbe Likwiid Direct, e con ciò che non farebbe.',
+    'Quante camere hai, cosa offre l\'azienda oltre al soggiorno e dove sei presente oggi. Ti rispondiamo entro 24 ore spiegandoti come si inserirebbe Likwiid Direct e cosa non farebbe.',
   directCrumb: 'Likwiid Direct',
   backToDirect: 'Tutto ciò che fa Likwiid Direct',
   breadcrumbLabel: 'Percorso di navigazione',

@@ -113,8 +113,8 @@ export default function Guide() {
         <B>Um site pago uma vez</B> tem um custo inicial maior e depois custos pequenos: o alojamento (muitas vezes gratuito
         ou quase, para um site entregue em ficheiros) e a renovação anual do domínio. Seja justo na comparação: as alterações
         futuras também custam. Uma secção nova, uma funcionalidade ou um redesign significam pagar a um programador ou gastar
-        o seu tempo. Quanto mais tempo mantiver o site sem grandes mudanças, mais tende a compensar o pagamento único. A
-        Likwiid está a preparar uma calculadora simples para ajudar nesta comparação.
+        o seu tempo. Quanto mais tempo mantiver o site sem grandes mudanças, mais tende a compensar o pagamento único. No
+        site da Likwiid há uma calculadora gratuita de custos de portfólio que faz esta comparação ano a ano.
       </P>
 
       <H2>Provas para clientes, venda de impressões e marcações</H2>

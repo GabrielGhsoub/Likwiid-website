@@ -99,7 +99,7 @@ const it: DirectMarketContent = {
   ],
   closingTitle: 'Raccontaci come prenota oggi il tuo diving',
   closingBody:
-    'Mandaci le tue uscite, i tuoi corsi e cosa chiedi ai subacquei prima che arrivino. Ti rispondiamo entro 24 ore con come si inserirebbe Likwiid Direct, e con ciò che non farebbe.',
+    'Mandaci le tue uscite, i tuoi corsi e cosa chiedi ai subacquei prima che arrivino. Ti rispondiamo entro 24 ore spiegandoti come si inserirebbe Likwiid Direct e cosa non farebbe.',
   directCrumb: 'Likwiid Direct',
   backToDirect: 'Tutto ciò che fa Likwiid Direct',
   breadcrumbLabel: 'Percorso di navigazione',

@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn'
+import { cardImageProps, PHONE_CARD_SIZES, WEB_CARD_SIZES } from '../../utils/responsiveImages'
 
 // One screenshot treatment for the whole site: mobile screens sit in a plain rounded
 // phone frame, web screens in a minimal browser frame. Flat, theme-token colors only.
@@ -60,6 +61,7 @@ interface ProjectPreviewProps {
 export function ProjectPreview({ src, alt, platform, priority = false }: ProjectPreviewProps) {
   const imgProps = {
     src,
+    ...cardImageProps(src, platform === 'mobile' ? PHONE_CARD_SIZES : WEB_CARD_SIZES),
     alt,
     loading: priority ? ('eager' as const) : ('lazy' as const),
     decoding: 'async' as const,

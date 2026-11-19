@@ -22,7 +22,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         title: 'Sharing you control',
-        description: 'Your squad sees you only after you check in, only at a ski resort, and each check in ends by itself after 8 hours.',
+        description: 'Your squad sees you only after you check in, only at a ski resort, and each check-in ends by itself after 8 hours.',
       },
       {
         title: 'A forecast for each mountain',
@@ -390,7 +390,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
     ],
     highlights: [
       'Three A/B compare modes with run-token playback cancellation',
-      'Zero runtime network calls, every byte stays device-local',
+      'Zero runtime network calls: every byte stays on the device',
       'Waveforms rendered deterministically from the actual audio file bytes',
       'Ten milestone-gated articles with seven hand-drawn anatomy diagrams',
     ],

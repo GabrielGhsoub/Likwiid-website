@@ -17,7 +17,7 @@ const es: DirectMarketContent = {
   ctaDemo: 'Prueba la demo más parecida',
   ctaTalk: 'Haz una pregunta',
   demoNote:
-    'Todavía no hay una demo de buceo. La más parecida es Escuela Likwiid, una escuela náutica ficticia con cursos de varios días, plazas por sesión y un paso de documentos. Los archivos no salen de tu navegador y el pago es simulado.',
+    'Todavía no hay una demo de buceo. La más parecida es Escuela Likwiid, una escuela náutica ficticia en español e inglés, con cursos de varios días, plazas por sesión y un paso de documentos. Los archivos no salen de tu navegador y el pago es simulado.',
   sections: [
     {
       kind: 'points',
@@ -25,7 +25,7 @@ const es: DirectMarketContent = {
       title: 'Dónde fallan las reservas de buceo',
       items: [
         'Un buceador reserva una inmersión más profunda de lo que permite su titulación, y te enteras en el mostrador.',
-        'Lo que necesita de equipo llega la misma mañana de la inmersión, o no llega.',
+        'Lo que cada buceador necesita de equipo se sabe la misma mañana de la inmersión, o nunca.',
         'Un curso de tres días se reserva como una inmersión suelta, y las fechas se pierden entre mensajes.',
         'El viento cancela la salida en barco y hay que devolver el dinero o cambiar la fecha a cada buceador a mano.',
         'Las plataformas de reservas se quedan una comisión de cada inmersión y de cada curso.',

@@ -60,7 +60,7 @@ export default function Guide() {
         <B>A garantia de cartão</B> significa que o hóspede deixa os dados do cartão e nada é cobrado, a não ser que cancele
         tarde ou não apareça. É a opção mais confortável para o hóspede e a que menos o protege a si: uma retenção no cartão
         caduca em dias e, na União Europeia, os pagamentos eletrónicos à distância exigem, em regra, autenticação forte do
-        cliente. Um número de cartão enviado por email não é uma garantia em que possa confiar.
+        cliente. Um número de cartão enviado por e-mail não é uma garantia em que possa confiar.
       </P>
       <Table
         caption="O que cada opção significa para si e para o hóspede"
@@ -106,8 +106,8 @@ export default function Guide() {
       </P>
       <P>
         Pense por cada 100 de valor da reserva. Com um sinal de 30 por cento, o hóspede paga 30 ao reservar e 70 à chegada.
-        Se cancelar dentro do prazo de cancelamento tardio, fica com os 30, nos termos das suas condições. Se cancelar antes
-        desse prazo, devolve os 30 ou guarda-os como crédito para outra data, conforme o que as condições disserem.
+        Se o hóspede cancelar dentro do prazo de cancelamento tardio, fica com os 30, nos termos das suas condições. Se
+        cancelar antes desse prazo, devolve-lhe os 30 ou guarda-os como crédito para outra data, conforme o que as condições disserem.
       </P>
       <P>
         Mostre também o valor antes de o hóspede se comprometer: um sinal que só aparece no último passo faz perder reservas.
@@ -121,7 +121,7 @@ export default function Guide() {
       </P>
       <Note title="Exemplo de texto">
         <p>
-          No momento da reserva é pago, a título de sinal, 30 por cento do valor total. O restante é pago à chegada. Pode
+          No momento da reserva, paga 30 por cento do valor total a título de sinal. O restante é pago à chegada. Pode
           cancelar sem custos até 14 dias antes da data de chegada e devolvemos o sinal na totalidade. Se cancelar depois
           dessa data, ou se não comparecer, o sinal não é devolvido. Não cobramos nada para além do sinal.
         </p>
