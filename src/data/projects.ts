@@ -208,7 +208,7 @@ const projectCatalog: Project[] = [
     previewAlt: 'EU Regulation Q&A answering a GDPR question with citations to Article 33',
     featured: false,
     platform: 'web',
-    liveUrl: 'https://github.com/GabrielGhsoub/rag-regulation',
+    liveUrl: 'https://github.com/likwiid/rag-regulation',
     liveLabel: 'Source on GitHub',
   },
   {
