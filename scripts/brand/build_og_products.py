@@ -168,6 +168,13 @@ CARDS = {
         crop="1264x756+8+8",
         url_text="likwiid.com/frame",
     ),
+    "og-sems": dict(
+        product="SEMS",
+        lines=["Power per circuit,", "control that stays home."],
+        shot=os.path.join(PUB, "images", "projects", "sems", "wall-power.webp"),
+        crop="960x600+0+0",
+        url_text="likwiid.com/work/sems-energy-management",
+    ),
 }
 
 for name, spec in CARDS.items():
