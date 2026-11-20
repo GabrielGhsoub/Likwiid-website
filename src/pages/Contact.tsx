@@ -18,7 +18,7 @@ import { useMountedFromHtml } from '../hooks/useHydrated'
 const PROJECT_TYPES = [
   { value: 'Booking website', labelKey: 'contact.projectTypeBookingWebsite' },
   { value: 'Portfolio (photographers)', labelKey: 'contact.projectTypePortfolio' },
-  { value: 'Mobile app', labelKey: 'contact.projectTypeMobileApp' },
+  { value: 'Call request', labelKey: 'contact.projectTypeCall' },
   { value: 'Other', labelKey: 'contact.projectTypeOther' },
 ]
 
