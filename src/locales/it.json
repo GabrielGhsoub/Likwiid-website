@@ -1332,78 +1332,88 @@
       ]
     },
     "sems-energy-management": {
-      "title": "SEMS: gestione intelligente dell'energia",
-      "subtitle": "Un'unica vista su rete, generatore, solare e batteria per le case in Libano",
-      "oneLiner": "Un'app che mostra alle case libanesi da dove arriva la loro energia e quanto costa.",
-      "description": "Molte case libanesi passano dalla rete elettrica al generatore, ai pannelli solari e alle batterie nel corso della stessa giornata. SEMS mostra in un unico posto quale fonte è attiva, quanto consuma ogni dispositivo e quanto costa il tutto.",
-      "challenge": "Le app per l'energia presuppongono un'unica fornitura stabile, e non è così che funzionano le case libanesi. Dovevamo anche validare l'idea prima di acquistare qualsiasi contatore.",
-      "approach": "Abbiamo sviluppato l'app mobile e il suo server, più un simulatore realistico del ciclo energetico quotidiano di una casa libanese. Permette di mostrare blackout, uso del generatore e giornate di sole senza installare alcun hardware.",
-      "results": "La prima versione funzionante è completa: accesso, dashboard dal vivo, dispositivi per stanza, costo per fonte di energia e quattro scenari demo. Il prossimo passo è collegare contatori reali.",
-      "role": "Architettura, progettazione e sviluppo",
+      "title": "SEMS: gestione energetica smart",
+      "subtitle": "Consumi per circuito, controllo della casa e voce in locale per le case in Libano, su un piccolo hub",
+      "oneLiner": "Un piccolo hub domestico che mostra quanto consuma ogni circuito e tiene controllo e voce dentro casa.",
+      "description": "Le case libanesi passano ogni giorno dalla rete elettrica al generatore e ai blackout. SEMS è un piccolo hub che sta in casa, legge ogni circuito misurato e controlla tende, aria condizionata e TV da un'app sul telefono, da uno schermo a parete o a voce.",
+      "previewAlt": "Schermata iniziale dell'app SEMS sul telefono con consumi, temperatura e comandi delle tende",
+      "seoDescription": "SEMS è un hub domestico per il Libano: consumi per circuito, tende, aria condizionata e TV da app o schermo a parete, con voce che funziona in locale.",
+      "challenge": "In Libano la corrente va e viene, e spesso con lei se ne va anche internet. Qui controllo e voce devono continuare a funzionare offline, il sistema deve ripartire da solo dopo un blackout e i consumi vanno mostrati per circuito, non come un solo totale per tutta la casa.",
+      "approach": "Abbiamo costruito un hub su Raspberry Pi con Home Assistant alla base. Sopra abbiamo scritto un nostro server, un'app Android abbinata con un codice QR e uno schermo a parete touch da 7 pollici. Riconoscimento vocale, intenti e risposte parlate girano tutti sull'hub, e l'hub controlla da solo la propria temperatura e la rete e si ripara.",
+      "results": "SEMS funziona in un'installazione pilota: 7 circuiti misurati con storico giornaliero e settimanale, 3 tende motorizzate, il condizionatore, 2 TV box, sensori nelle stanze e comandi vocali con pressione prolungata dal telefono. Per ora le letture dei circuiti arrivano poche volte al giorno, quindi non sono in diretta. Previsto: misura di tutta la casa al secondo e riconoscimento della fonte di energia, così i carichi pesanti partono solo con la corrente di rete. Gli screenshot mostrano dati di esempio.",
+      "role": "Hardware, architettura, design e sviluppo",
       "metrics": [
         {
-          "value": "4",
-          "label": "Fonti di energia in un'unica vista"
+          "value": "7",
+          "label": "Circuiti misurati",
+          "basis": "watt, volt, ampere e kWh per ciascuno"
         },
         {
-          "value": "14",
-          "label": "Tipi di dispositivo"
+          "value": "3",
+          "label": "Modi per controllarlo",
+          "basis": "app sul telefono, schermo a parete e voce"
         },
         {
-          "value": "4",
-          "label": "Scenari demo"
+          "value": "0",
+          "label": "Servizi cloud per la voce",
+          "basis": "riconoscimento e risposte girano sull'hub"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Un'unica dashboard dal vivo",
-          "description": "Mostra la fonte attiva, il consumo attuale, il costo di oggi e i dispositivi che consumano di più."
+          "title": "Consumi per circuito",
+          "description": "Watt, volt, ampere e kWh per ogni circuito misurato, un totale della casa e grafici a 24 ore e 7 giorni con i kWh al giorno."
         },
         {
-          "title": "Costo per fonte di energia",
-          "description": "Calcola il prezzo di ogni unità con le tariffe reali della rete, le quote del generatore, il solare e la batteria."
+          "title": "Accensione sicura",
+          "description": "Ogni circuito si può accendere o spegnere dall'app o dalla parete, sempre con un passaggio di conferma prima."
         },
         {
-          "title": "Un simulatore domestico realistico",
-          "description": "Riproduce blackout, avvio del generatore, produzione solare e uso dell'aria condizionata."
+          "title": "Controllo della casa",
+          "description": "Tende motorizzate a 433 MHz, aria condizionata tramite la rete locale e TV box con tasti del telecomando e volume."
         },
         {
-          "title": "Demo pronte all'uso",
-          "description": "Quattro scenari mostrano blackout e cambi di fonte senza alcun hardware."
+          "title": "Voce in locale",
+          "description": "Premi e parla nell'app sul telefono. Riconoscimento vocale, intento e risposta parlata girano tutti sull'hub, senza cloud."
         },
         {
-          "title": "Dispositivi per stanza",
-          "description": "Aggiungi dispositivi alle stanze e scopri quanto costa far funzionare ciascuno."
+          "title": "Sensori nelle stanze",
+          "description": "Letture di temperatura, umidità, pressione, luce, gas e perdite d'acqua, con notifiche push quando qualcosa non va."
         },
         {
-          "title": "Storico e tendenze",
-          "description": "Dettaglio orario e giornaliero del costo e della fonte di energia."
+          "title": "Si prende cura di sé",
+          "description": "L'hub controlla la propria temperatura e la rete, riparte da solo dopo un'interruzione e manda un avviso quando succede."
         }
       ],
       "architecture": [
         {
-          "area": "Monorepo",
-          "detail": "Turborepo + pnpm: API NestJS 10 e app Expo SDK 54, un pacchetto condiviso Zod e costi come unica fonte di verità, e un pacchetto generatore di dati."
+          "area": "Hub",
+          "detail": "Raspberry Pi 4 con Home Assistant in Docker e, sopra, il nostro server TypeScript (Fastify e SQLite) con cui parlano l'app e lo schermo."
         },
         {
-          "area": "Livello dati",
-          "detail": "PostgreSQL 16 + TimescaleDB tramite Prisma 6; hypertable energy_readings con aggregati continui orari e giornalieri, compressione e retention."
+          "area": "Dispositivi",
+          "detail": "Schede ESP32 con ESPHome comandano le tende a 433 MHz e leggono i sensori nelle stanze. Gli interruttori Wi-Fi con misura, il condizionatore e i TV box si collegano tramite Home Assistant."
         },
         {
-          "area": "Tempo reale",
-          "detail": "Gateway Socket.io autenticato con JWT, con una room per casa e un adapter Redis 7; riconnessione automatica con banner offline."
+          "area": "App",
+          "detail": "Un'app Android in React Native ed Expo con 5 schede, abbinata con un codice QR o digitato, e uno schermo a parete touch servito dall'hub. Fuori casa l'app si collega tramite un relay."
         },
         {
-          "area": "Autenticazione",
-          "detail": "Passport JWT con bcrypt: access token da 15 minuti, refresh token a rotazione con hash e rilevamento dei furti per famiglia."
+          "area": "Voce",
+          "detail": "Speech to Phrase per il riconoscimento vocale, intenti di Home Assistant e Piper per le risposte parlate, tutto sul Pi."
         }
       ],
       "highlights": [
-        "Simulazione deterministica con seed (climatizzazione, solare, stato di carica della batteria) che genera 7.205 letture al giorno in meno di 0,1s",
-        "Costanti specifiche del Libano codificano fasce della rete, quote del generatore, soglie di tensione e ore di sole stagionali",
-        "Schemi Zod condivisi tra backend e mobile, eliminando le divergenze tra client e server",
-        "Verificato end to end su container TimescaleDB e Redis reali, su circa 38 endpoint"
-      ]
+        "L'app sul telefono e lo schermo a parete calcolano lo storico dei consumi con le stesse regole, tenute insieme da un test condiviso, quindi mostrano gli stessi numeri",
+        "Le letture dichiarano i propri limiti: gli interruttori comunicano tramite il loro fornitore solo poche volte al giorno, e gli schermi lo dicono invece di fingere dati in tempo reale",
+        "Ogni azione che toglie corrente o riavvia qualcosa richiede un secondo tocco, e il server accetta solo comandi da un elenco fisso",
+        "Previsto: misura di tutta la casa al secondo con un PZEM-004T su un ESP32 e riconoscimento di rete, generatore o blackout, così lo scaldabagno parte solo con la corrente di rete",
+        "Previsto: schede per generatore e tetto, livelli dei serbatoi d'acqua e carburante, sonde per lo scaldabagno solare e punti vocali in ogni stanza"
+      ],
+      "companion": {
+        "title": "Lo schermo a parete",
+        "summary": "Uno schermo touch da 7 pollici a parete mostra la stessa casa a colpo d'occhio: i consumi di ogni circuito, un totale della casa con grafici a 24 ore e 7 giorni, clima, TV e tende. Ogni interruttore che toglie corrente chiede prima un secondo tocco."
+      }
     },
     "rag-regulation": {
       "title": "Domande e risposte sulle norme UE",
