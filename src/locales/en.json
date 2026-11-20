@@ -23,6 +23,7 @@
   },
   "footer": {
     "copyright": "© {{year}} Likwiid. Founded by Gabriel Ghoussoub.",
+    "legal": "Likwiid is the trading name of Gabriel Ghoussoub, an independent software developer based in Lebanon.",
     "privacy": "Privacy Policy",
     "tagline": "Two people, based in Beirut and France. Replies within 24 hours.",
     "byTrade": "By trade",

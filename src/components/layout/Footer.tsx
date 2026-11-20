@@ -124,6 +124,11 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Who is legally behind the name. */}
+        <p className="m-0 text-text-tertiary text-xs text-center sm:text-left">
+          {t('footer.legal')}
+        </p>
       </div>
     </footer>
   )
