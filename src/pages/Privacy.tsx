@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { PageTransition } from '../components/layout/PageTransition'
 import { SectionHeading } from '../components/ui/SectionHeading'
 
-const LAST_UPDATED_ISO = '2026-11-10'
+const LAST_UPDATED_ISO = '2026-11-20'
 
 export default function Privacy() {
   const { t, i18n } = useTranslation()
@@ -39,6 +39,9 @@ export default function Privacy() {
               </p>
               <p className="mt-3 text-text-secondary leading-relaxed">
                 {t('privacy.emailBody2')}
+              </p>
+              <p className="mt-3 text-text-secondary leading-relaxed">
+                {t('privacy.emailBody3')}
               </p>
             </section>
 

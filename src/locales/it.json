@@ -450,7 +450,8 @@
     "contactBody": "Se hai domande su questa informativa o su come trattiamo i tuoi dati, scrivici a",
     "emailTitle": "Se hai ricevuto una nostra email",
     "emailBody1": "A volte scriviamo a piccole attività turistiche a proposito del loro sito. Prendiamo l'indirizzo email dal sito pubblico dell'attività o da un elenco pubblico di attività. Non compriamo liste.",
-    "emailBody2": "Scriviamo perché pensiamo che il nostro lavoro possa essere utile all'attività. Questo è il nostro legittimo interesse ai sensi della normativa sulla protezione dei dati. Per non ricevere più email, rispondi con la parola stop o scrivi a gabriel@likwiid.com. A quel punto cancelliamo il tuo indirizzo e conserviamo solo una nota per non scriverti più."
+    "emailBody2": "Scriviamo perché pensiamo che il nostro lavoro possa essere utile all'attività. Questo è il nostro legittimo interesse ai sensi della normativa sulla protezione dei dati. Per non ricevere più email, rispondi con la parola stop o scrivi a gabriel@likwiid.com. A quel punto cancelliamo il tuo indirizzo e conserviamo solo una nota per non scriverti più.",
+    "emailBody3": "Inviamo un solo messaggio sul tuo sito e al massimo un sollecito. Se ci chiedi di smettere, non ti scriviamo più. Non vendiamo né condividiamo mai il tuo indirizzo."
   },
   "notFound": {
     "documentTitle": "Pagina non trovata | Likwiid",

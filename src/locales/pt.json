@@ -450,7 +450,8 @@
     "contactBody": "Se tiver alguma dúvida sobre esta política de privacidade ou sobre a forma como tratamos os seus dados, contacte-nos através de",
     "emailTitle": "Se recebeu um e-mail nosso",
     "emailBody1": "Por vezes escrevemos a pequenos negócios de turismo sobre o seu site. Retiramos o endereço de e-mail do site público do próprio negócio ou de uma listagem pública de empresas. Não compramos listas.",
-    "emailBody2": "Escrevemos porque pensamos que o nosso trabalho pode ser útil ao negócio. É o nosso interesse legítimo ao abrigo da legislação de proteção de dados. Para deixar de receber mensagens, responda com a palavra stop ou escreva para gabriel@likwiid.com. Removemos então o seu endereço e guardamos apenas uma nota para não voltar a escrever-lhe."
+    "emailBody2": "Escrevemos porque pensamos que o nosso trabalho pode ser útil ao negócio. É o nosso interesse legítimo ao abrigo da legislação de proteção de dados. Para deixar de receber mensagens, responda com a palavra stop ou escreva para gabriel@likwiid.com. Removemos então o seu endereço e guardamos apenas uma nota para não voltar a escrever-lhe.",
+    "emailBody3": "Enviamos uma única mensagem sobre o seu próprio site e, no máximo, um lembrete. Se nos pedir para parar, não voltamos a escrever-lhe. Nunca vendemos nem partilhamos o seu endereço."
   },
   "notFound": {
     "documentTitle": "Página não encontrada | Likwiid",

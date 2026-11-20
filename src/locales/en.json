@@ -423,6 +423,7 @@
     "emailTitle": "If you received an email from us",
     "emailBody1": "We sometimes write to small tourism businesses about their website. We take the email address from the business's own public website or from a public business listing. We do not buy lists.",
     "emailBody2": "We write because we think our work could be useful to the business. This is our legitimate interest under data protection law. To stop, reply with the word stop or write to gabriel@likwiid.com. We then remove your address and keep only a note not to write to you again.",
+    "emailBody3": "We send one message about your own website, and at most one follow-up. Once you ask us to stop, we do not write again. We never sell or share your address.",
     "collectTitle": "Information we collect",
     "collectBody": "When you use our contact form, we collect the information you provide: your name, email address, website address (if provided), and message content. We do not collect any information automatically beyond what is strictly necessary for the website to function.",
     "useTitle": "How we use your information",

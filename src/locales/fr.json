@@ -446,7 +446,8 @@
     "contactBody": "Si vous avez des questions concernant cette politique de confidentialité ou la manière dont nous traitons vos données, écrivez-nous à l'adresse",
     "emailTitle": "Si vous avez reçu un e-mail de notre part",
     "emailBody1": "Nous écrivons parfois à de petites entreprises du tourisme au sujet de leur site. Nous prenons l'adresse e-mail sur le site public de l'entreprise ou dans un annuaire professionnel public. Nous n'achetons pas de listes.",
-    "emailBody2": "Nous écrivons parce que nous pensons que notre travail peut être utile à l'entreprise. C'est notre intérêt légitime au sens du droit de la protection des données. Pour ne plus recevoir nos messages, répondez avec le mot stop ou écrivez à gabriel@likwiid.com. Nous supprimons alors votre adresse et gardons seulement une note pour ne plus vous écrire."
+    "emailBody2": "Nous écrivons parce que nous pensons que notre travail peut être utile à l'entreprise. C'est notre intérêt légitime au sens du droit de la protection des données. Pour ne plus recevoir nos messages, répondez avec le mot stop ou écrivez à gabriel@likwiid.com. Nous supprimons alors votre adresse et gardons seulement une note pour ne plus vous écrire.",
+    "emailBody3": "Nous envoyons un seul message au sujet de votre propre site et, au plus, une relance. Si vous nous demandez d'arrêter, nous ne vous écrivons plus. Nous ne vendons ni ne partageons jamais votre adresse."
   },
   "notFound": {
     "documentTitle": "Page introuvable | Likwiid",
