@@ -14,7 +14,8 @@ export const CARD_IMAGES: Record<string, ReadonlyArray<readonly [string, number]
   '/images/projects/plateclimb/ios-day.webp': [['/images/projects/plateclimb/ios-day-card-sm.webp', 240], ['/images/projects/plateclimb/ios-day-card.webp', 360], ['/images/projects/plateclimb/ios-day.webp', 600]],
   '/images/projects/plateclimb/ios-week.webp': [['/images/projects/plateclimb/ios-week-card-sm.webp', 240], ['/images/projects/plateclimb/ios-week-card.webp', 360], ['/images/projects/plateclimb/ios-week.webp', 600]],
   '/images/projects/rag-regulation/answer.webp': [['/images/projects/rag-regulation/answer-card.webp', 720], ['/images/projects/rag-regulation/answer.webp', 1440]],
-  '/images/projects/sems/dashboard.webp': [['/images/projects/sems/dashboard-card-sm.webp', 240], ['/images/projects/sems/dashboard-card.webp', 360], ['/images/projects/sems/dashboard.webp', 390]],
+  '/images/projects/sems/phone-home.webp': [['/images/projects/sems/phone-home-card-sm.webp', 240], ['/images/projects/sems/phone-home-card.webp', 360], ['/images/projects/sems/phone-home.webp', 540]],
+  '/images/projects/sems/wall-power.webp': [['/images/projects/sems/wall-power-card.webp', 720], ['/images/projects/sems/wall-power.webp', 960]],
   '/images/projects/voxflow/practice.webp': [['/images/projects/voxflow/practice-card-sm.webp', 240], ['/images/projects/voxflow/practice-card.webp', 360], ['/images/projects/voxflow/practice.webp', 430]],
   '/images/projects/woop/today.webp': [['/images/projects/woop/today-card-sm.webp', 240], ['/images/projects/woop/today-card.webp', 360], ['/images/projects/woop/today.webp', 540]],
 }
