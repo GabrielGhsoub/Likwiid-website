@@ -770,7 +770,7 @@
       "previewAlt": "Pagina di prenotazione della Escuela Náutica de Valencia per il corso di Licencia de Navegación",
       "seoDescription": "Pagina di prenotazione per una scuola nautica di Valencia: lo studente sceglie il giorno, inserisce i dati e paga l'acconto del posto con carta.",
       "challenge": "Ogni giorno di corso ha cinque posti in barca. La scuola voleva che gli studenti potessero scegliere il giorno e assicurarsi il posto online, con il proprio dominio e il proprio account Stripe, sull'hosting che aveva già.",
-      "approach": "Abbiamo creato una pagina di prenotazione in tre passaggi: scegliere il giorno, inserire i dati e pagare l'acconto con carta. Sul conto per i pagamenti della scuola è attivato anche Bizum. Il posto resta bloccato per 30 minuti mentre lo studente paga e viene liberato se il pagamento non va a buon fine. Il sito principale della scuola resta com'era.",
+      "approach": "Abbiamo creato una pagina di prenotazione in tre passaggi: scegliere il giorno, inserire i dati e pagare l'acconto con carta. Il posto resta bloccato per 30 minuti mentre lo studente paga e viene liberato se il pagamento non va a buon fine. Il sito principale della scuola resta com'era.",
       "results": "La pagina è online con pagamenti reali dal 15 ottobre 2026, e da allora la scuola ci gestisce i suoi veri giorni di corso. È in spagnolo, con opzione in inglese. Ogni pagamento invia allo studente una ricevuta e alla scuola un avviso, gli studenti ricevono un'email di promemoria il giorno prima, e la scuola gestisce giorni e posti dal proprio pannello.",
       "businessResult": "La Escuela Náutica de Valencia ora accetta prenotazioni e acconti online, sul proprio dominio e con il proprio account Stripe.",
       "liveLabel": "Vedi il sito",
@@ -800,7 +800,7 @@
         },
         {
           "title": "Acconto con carta",
-          "description": "Lo studente paga l'acconto del posto con carta, sul conto per i pagamenti della scuola. Sullo stesso conto è attivato Bizum."
+          "description": "Lo studente paga l'acconto del posto con carta, sul conto per i pagamenti della scuola."
         },
         {
           "title": "Posto bloccato durante il pagamento",
@@ -834,7 +834,7 @@
         },
         {
           "area": "Pagamenti",
-          "detail": "Stripe Checkout (carta, con Bizum attivato) sull'account Stripe della scuola; i webhook confermano le prenotazioni pagate e i blocchi non pagati scadono dopo 30 minuti."
+          "detail": "Stripe Checkout (carta) sull'account Stripe della scuola; i webhook confermano le prenotazioni pagate e i blocchi non pagati scadono dopo 30 minuti."
         },
         {
           "area": "Pannello della scuola",

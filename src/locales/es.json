@@ -770,7 +770,7 @@
       "previewAlt": "Página de reservas de la Escuela Náutica de Valencia para el curso de Licencia de Navegación",
       "seoDescription": "Página de reservas para una escuela náutica de Valencia: el alumno elige el día del curso, rellena sus datos y paga la señal de su plaza con tarjeta.",
       "challenge": "Cada día de curso tiene cinco plazas en el barco. La escuela quería que los alumnos pudieran elegir día y asegurar su plaza online, con su propio dominio y su propia cuenta de Stripe, en el alojamiento que ya tenía.",
-      "approach": "Creamos una página de reservas en tres pasos: elegir el día, rellenar los datos y pagar la señal con tarjeta. Bizum también está activado en la cuenta de pagos de la escuela. La plaza queda retenida 30 minutos mientras el alumno paga y se libera si el pago no se completa. La web principal de la escuela sigue como estaba.",
+      "approach": "Creamos una página de reservas en tres pasos: elegir el día, rellenar los datos y pagar la señal con tarjeta. La plaza queda retenida 30 minutos mientras el alumno paga y se libera si el pago no se completa. La web principal de la escuela sigue como estaba.",
       "results": "La página se puso en marcha con pagos reales el 15 de octubre de 2026, y desde entonces la escuela lleva en ella sus días de curso reales. Está en español, con opción de inglés. Cada pago envía al alumno un justificante y a la escuela un aviso, los alumnos reciben un correo de recordatorio el día anterior, y la escuela gestiona días y plazas desde su propio panel.",
       "businessResult": "La Escuela Náutica de Valencia ya acepta reservas y señales de plaza online, en su propio dominio y con su propia cuenta de Stripe.",
       "liveLabel": "Ver la web",
@@ -800,7 +800,7 @@
         },
         {
           "title": "Señal con tarjeta",
-          "description": "El alumno paga la señal de su plaza con tarjeta, en la cuenta de pagos de la propia escuela. Bizum está activado en la misma cuenta."
+          "description": "El alumno paga la señal de su plaza con tarjeta, en la cuenta de pagos de la propia escuela."
         },
         {
           "title": "Plaza retenida durante el pago",
@@ -834,7 +834,7 @@
         },
         {
           "area": "Pagos",
-          "detail": "Stripe Checkout (tarjeta, con Bizum activado) en la cuenta de Stripe de la propia escuela; los webhooks confirman las reservas pagadas y las retenciones sin pagar caducan a los 30 minutos."
+          "detail": "Stripe Checkout (tarjeta) en la cuenta de Stripe de la propia escuela; los webhooks confirman las reservas pagadas y las retenciones sin pagar caducan a los 30 minutos."
         },
         {
           "area": "Panel de la escuela",

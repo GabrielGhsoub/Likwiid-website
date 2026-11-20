@@ -101,7 +101,7 @@ const projectCatalog: Project[] = [
     challenge:
       'Each course day has five seats on the boat. The school wanted students to choose a day and secure a seat online, under its own domain and its own Stripe account, on the hosting it already had.',
     approach:
-      'We built a booking page in three steps: pick a day, enter your details, pay the deposit by card. Bizum is also enabled on the school\'s payment account. A seat is held for 30 minutes while the student pays and released if the payment does not go through. The main school website stays as it is.',
+      'We built a booking page in three steps: pick a day, enter your details, pay the deposit by card. A seat is held for 30 minutes while the student pays and released if the payment does not go through. The main school website stays as it is.',
     results:
       'The page went live with real payments on 15 October 2026, and the school has run its real course days in it since then. It is in Spanish with an English toggle. Each payment sends the student a receipt and the school a notice, students get a reminder email the day before, and the school manages days and seats from its own panel.',
     businessResult:

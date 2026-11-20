@@ -770,7 +770,7 @@
       "previewAlt": "Página de reservas da Escuela Náutica de Valencia para o curso de Licencia de Navegación",
       "seoDescription": "Página de reservas para uma escola náutica em Valência: o aluno escolhe o dia do curso, preenche os dados e paga o sinal do lugar com cartão.",
       "challenge": "Cada dia de curso tem cinco lugares no barco. A escola queria que os alunos pudessem escolher o dia e garantir o lugar online, com o seu próprio domínio e a sua própria conta Stripe, no alojamento que já tinha.",
-      "approach": "Criámos uma página de reservas em três passos: escolher o dia, preencher os dados e pagar o sinal com cartão. O Bizum também está ativado na conta de pagamentos da escola. O lugar fica reservado durante 30 minutos enquanto o aluno paga e é libertado se o pagamento não for concluído. O site principal da escola fica como estava.",
+      "approach": "Criámos uma página de reservas em três passos: escolher o dia, preencher os dados e pagar o sinal com cartão. O lugar fica reservado durante 30 minutos enquanto o aluno paga e é libertado se o pagamento não for concluído. O site principal da escola fica como estava.",
       "results": "A página entrou em funcionamento com pagamentos reais a 15 de outubro de 2026, e desde então a escola gere nela os seus dias de curso reais. Está em espanhol, com opção de inglês. Cada pagamento envia ao aluno um recibo e à escola um aviso, os alunos recebem um e-mail de lembrete na véspera, e a escola gere dias e lugares a partir do seu próprio painel.",
       "businessResult": "A Escuela Náutica de Valencia já aceita reservas e sinais de lugar online, no seu próprio domínio e com a sua própria conta Stripe.",
       "liveLabel": "Ver o site",
@@ -800,7 +800,7 @@
         },
         {
           "title": "Sinal com cartão",
-          "description": "O aluno paga o sinal do lugar com cartão, para a conta de pagamentos da própria escola. O Bizum está ativado na mesma conta."
+          "description": "O aluno paga o sinal do lugar com cartão, para a conta de pagamentos da própria escola."
         },
         {
           "title": "Lugar reservado durante o pagamento",
@@ -834,7 +834,7 @@
         },
         {
           "area": "Pagamentos",
-          "detail": "Stripe Checkout (cartão, com Bizum ativado) na conta Stripe da própria escola; os webhooks confirmam as reservas pagas e as reservas por pagar expiram ao fim de 30 minutos."
+          "detail": "Stripe Checkout (cartão) na conta Stripe da própria escola; os webhooks confirmam as reservas pagas e as reservas por pagar expiram ao fim de 30 minutos."
         },
         {
           "area": "Painel da escola",

@@ -156,7 +156,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         title: 'Deposit by card',
-        description: "Students pay the seat deposit by card, into the school's own payment account. Bizum is enabled on the same account.",
+        description: "Students pay the seat deposit by card, into the school's own payment account.",
       },
       {
         title: 'Seats held while paying',
@@ -190,7 +190,7 @@ export const projectEnrichment: Record<string, ProjectEnrichment> = {
       },
       {
         area: 'Payments',
-        detail: "Stripe Checkout (card, with Bizum enabled) on the school's own Stripe account; webhooks confirm paid bookings, unpaid holds expire after 30 minutes.",
+        detail: "Stripe Checkout (card) on the school's own Stripe account; webhooks confirm paid bookings, unpaid holds expire after 30 minutes.",
       },
       {
         area: 'School panel',

@@ -766,7 +766,7 @@
       "previewAlt": "Page de réservation de la Escuela Náutica de Valencia pour le cours de Licencia de Navegación",
       "seoDescription": "Page de réservation pour une école nautique à Valence : l'élève choisit le jour, saisit ses informations et paie l'acompte de sa place par carte.",
       "challenge": "Chaque jour de cours compte cinq places sur le bateau. L'école voulait que les élèves puissent choisir un jour et garantir leur place en ligne, sous son propre domaine et avec son propre compte Stripe, sur l'hébergement qu'elle avait déjà.",
-      "approach": "Nous avons créé une page de réservation en trois étapes : choisir le jour, saisir ses informations, payer l'acompte par carte. Bizum est aussi activé sur le compte de paiement de l'école. La place est bloquée 30 minutes pendant que l'élève paie et libérée si le paiement n'aboutit pas. Le site principal de l'école reste inchangé.",
+      "approach": "Nous avons créé une page de réservation en trois étapes : choisir le jour, saisir ses informations, payer l'acompte par carte. La place est bloquée 30 minutes pendant que l'élève paie et libérée si le paiement n'aboutit pas. Le site principal de l'école reste inchangé.",
       "results": "La page a été mise en service avec de vrais paiements le 15 octobre 2026, et l'école y gère ses vrais jours de cours depuis cette date. Elle est en espagnol, avec une option en anglais. Chaque paiement envoie un reçu à l'élève et une notification à l'école, les élèves reçoivent un e-mail de rappel la veille, et l'école gère les jours et les places depuis son propre panneau.",
       "businessResult": "La Escuela Náutica de Valencia prend désormais les réservations et les acomptes en ligne, sous son propre domaine et avec son propre compte Stripe.",
       "liveLabel": "Voir le site",
@@ -796,7 +796,7 @@
         },
         {
           "title": "Acompte par carte",
-          "description": "L'élève paie l'acompte de sa place par carte, sur le compte de paiement de l'école. Bizum est activé sur le même compte."
+          "description": "L'élève paie l'acompte de sa place par carte, sur le compte de paiement de l'école."
         },
         {
           "title": "Place bloquée pendant le paiement",
@@ -830,7 +830,7 @@
         },
         {
           "area": "Paiements",
-          "detail": "Stripe Checkout (carte, avec Bizum activé) sur le compte Stripe de l'école ; les webhooks confirment les réservations payées et les blocages non payés expirent au bout de 30 minutes."
+          "detail": "Stripe Checkout (carte) sur le compte Stripe de l'école ; les webhooks confirment les réservations payées et les blocages non payés expirent au bout de 30 minutes."
         },
         {
           "area": "Panneau de l'école",
