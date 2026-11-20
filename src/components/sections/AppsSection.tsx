@@ -8,7 +8,6 @@ import { useLocalizedPath } from '../../i18n/useLocalizedPath'
 import { umamiAttrs } from '../../utils/analytics'
 
 const APPS = [
-  { slug: 'parallel', lineKey: 'home.appsParallelLine' },
   { slug: 'basemile', lineKey: 'home.appsBasemileLine' },
   { slug: 'plateclimb', lineKey: 'home.appsPlateclimbLine' },
 ] as const
@@ -31,7 +30,7 @@ export function AppsSection() {
           </h2>
           <p className="mt-3 text-lg text-text-secondary">{t('home.appsBody')}</p>
         </Reveal>
-        {/* One swipeable row on a phone, so three apps do not push the contact block three screens down. */}
+        {/* One swipeable row on a phone, so the apps do not push the contact block screens down. */}
         <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
           {APPS.map(({ slug, lineKey }) => {
             const project = projects.find((p) => p.slug === slug)
