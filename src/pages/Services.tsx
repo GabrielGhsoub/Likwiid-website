@@ -13,7 +13,7 @@ import { useLocalizedPath } from '../i18n/useLocalizedPath'
 const KINDS = ['kind1', 'kind2'] as const
 const ITEMS = [1, 2, 3] as const
 const STEPS = ['step1', 'step2', 'step3'] as const
-const AFTER = ['afterBody1', 'afterBody2', 'afterBody3'] as const
+const AFTER = ['afterBody1', 'afterBody2', 'afterBody3', 'afterBody4'] as const
 
 const H2 = 'text-2xl md:text-3xl font-bold tracking-tight font-[family-name:var(--font-display)] text-text-primary'
 const TEXT_LINK = 'inline-flex items-center gap-1.5 font-medium text-accent-gold no-underline hover:underline'

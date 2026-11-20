@@ -183,6 +183,7 @@
     "afterBody1": "La personne qui a créé votre page continue de s'en occuper. Vous écrivez à Gabriel par WhatsApp ou par e-mail et vous recevez une réponse sous 24 heures.",
     "afterBody2": "Si quelque chose que nous avons créé cesse de fonctionner, nous le réparons. Si vous voulez quelque chose de nouveau plus tard, vous recevez le prix par écrit avant le début du travail.",
     "afterBody3": "La page, les réservations et le fichier clients sont à vous. Si vous arrêtez de travailler avec nous, ils restent chez vous.",
+    "afterBody4": "Chaque année, vous ne payez rien à Likwiid pour la faire fonctionner. Ce que vous payez chaque année, c'est votre domaine et votre hébergement, directement aux prestataires.",
     "softwareTitle": "Applications et autres logiciels",
     "softwareBody": "Nous créons aussi des applications mobiles et d'autres logiciels. Ce travail a sa propre page.",
     "softwareLink": "Les autres logiciels que nous avons créés"
@@ -1669,7 +1670,7 @@
     "siteQ": "Ai-je besoin d'un nouveau site ?",
     "siteA": "Non. La page de réservation se place sur le site que vous avez déjà, et nous l'installons pour vous. Si vous n'avez pas de site, ou si vous en voulez un nouveau, nous le réalisons aussi.",
     "afterQ": "Qui s'en occupe après la mise en ligne ?",
-    "afterA": "La personne qui l'a créée. Vous écrivez à Gabriel par WhatsApp ou par e-mail et vous recevez une réponse sous 24 heures. Tout changement demandé plus tard reçoit un prix par écrit avant le début du travail.",
+    "afterA": "La personne qui l'a créée. Vous écrivez à Gabriel par WhatsApp ou par e-mail et vous recevez une réponse sous 24 heures. Tout changement demandé plus tard reçoit un prix par écrit avant le début du travail. Chaque année, vous ne payez rien à Likwiid pour la faire fonctionner. Ce que vous payez chaque année, c'est votre domaine et votre hébergement, directement aux prestataires.",
     "payQ": "Comment et quand est-ce que je paie ?",
     "payA": "Vous payez une partie quand nous nous mettons d'accord, et le solde seulement quand votre page est en ligne. Si elle n'est pas mise en ligne, vous ne payez pas le solde.",
     "platformQ": "Une plateforme de réservation fonctionne déjà bien pour moi. Ai-je besoin de cela ?",
