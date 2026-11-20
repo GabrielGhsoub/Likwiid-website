@@ -1332,78 +1332,88 @@
       ]
     },
     "sems-energy-management": {
-      "title": "SEMS: gestión inteligente de energía",
-      "subtitle": "Una sola vista de la red, el generador, la energía solar y la batería para hogares en el Líbano",
-      "oneLiner": "Una app que muestra a los hogares libaneses de dónde viene su electricidad y cuánto cuesta.",
-      "description": "Muchos hogares libaneses pasan de la red eléctrica a un generador, a paneles solares y a baterías en un mismo día. SEMS muestra en un solo lugar qué fuente está activa, cuánto consume cada aparato y cuánto cuesta todo.",
-      "challenge": "Las apps de energía dan por hecho un suministro único y estable, y así no funcionan los hogares libaneses. Además, necesitábamos validar la idea antes de comprar ningún medidor.",
-      "approach": "Construimos la app móvil y su servidor, además de un simulador realista del ciclo eléctrico diario de un hogar libanés. Permite mostrar cortes de luz, uso del generador y días soleados sin instalar ningún hardware.",
-      "results": "La primera versión funcional está terminada: inicio de sesión, panel en vivo, aparatos por habitación, coste por fuente de energía y cuatro escenarios de demostración. Conectar medidores reales es el siguiente paso.",
-      "role": "Arquitectura, diseño y desarrollo",
+      "title": "SEMS: energía del hogar",
+      "subtitle": "Consumo por circuito, control de la casa y voz local para hogares en Líbano, en un único hub pequeño",
+      "oneLiner": "Un pequeño hub doméstico que muestra lo que consume cada circuito y mantiene el control y la voz dentro de casa.",
+      "description": "Los hogares libaneses alternan cada día entre la red eléctrica, el generador y los cortes de luz. SEMS es un pequeño hub que se instala en casa, lee cada circuito con medidor y controla cortinas, aire acondicionado y televisores desde una app del móvil, una pantalla de pared o por voz.",
+      "previewAlt": "Pantalla de inicio de la app SEMS con controles de consumo, temperatura y cortinas",
+      "seoDescription": "SEMS es un hub doméstico para Líbano: consumo por circuito, cortinas, aire y TV desde una app o pantalla de pared, y voz que funciona en local.",
+      "challenge": "La red eléctrica en Líbano va y viene, y muchas veces se lleva consigo internet. Aquí el control y la voz tienen que seguir funcionando sin conexión, el sistema tiene que recuperarse solo tras un corte y el consumo debe mostrarse por circuito, no como un único total de la casa.",
+      "approach": "Construimos un hub sobre una Raspberry Pi con Home Assistant por debajo. Encima escribimos nuestro propio servidor, una app Android que se empareja con un código QR y una pantalla táctil de pared de 7 pulgadas. El reconocimiento de voz, las intenciones y las respuestas habladas se ejecutan en el hub, que además vigila su propia temperatura y su red y se repara solo.",
+      "results": "SEMS funciona en una instalación piloto: 7 circuitos con medidor y su historial diario y semanal, 3 cortinas motorizadas, el aire acondicionado, 2 cajas de TV, sensores de ambiente y voz con pulsar para hablar desde el móvil. Por ahora las lecturas de los circuitos llegan unas pocas veces al día, así que no son en directo. Previsto a continuación: medición de toda la casa cada segundo y detección de la fuente de energía, para que las cargas pesadas funcionen solo con la red eléctrica. Las capturas muestran datos de demostración.",
+      "role": "Hardware, arquitectura, diseño y desarrollo",
       "metrics": [
         {
-          "value": "4",
-          "label": "Fuentes de energía en una vista"
+          "value": "7",
+          "label": "Circuitos con medidor",
+          "basis": "vatios, voltios, amperios y kWh de cada uno"
         },
         {
-          "value": "14",
-          "label": "Tipos de aparato"
+          "value": "3",
+          "label": "Formas de controlarlo",
+          "basis": "app del móvil, pantalla de pared y voz"
         },
         {
-          "value": "4",
-          "label": "Escenarios de demostración"
+          "value": "0",
+          "label": "Servicios en la nube para la voz",
+          "basis": "el reconocimiento y las respuestas se ejecutan en el hub"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Un panel en vivo",
-          "description": "Muestra la fuente activa, el consumo actual, el coste del día y los aparatos que más consumen."
+          "title": "Consumo por circuito",
+          "description": "Vatios, voltios, amperios y kWh de cada circuito con medidor, un total de la casa y gráficas de 24 horas y 7 días con los kWh por día."
         },
         {
-          "title": "Coste por fuente de energía",
-          "description": "Calcula el precio de cada unidad con las tarifas reales de la red, las cuotas del generador, la energía solar y la batería."
+          "title": "Conmutación segura",
+          "description": "Cada circuito se puede encender o apagar desde la app o la pared, siempre con un paso de confirmación antes."
         },
         {
-          "title": "Un simulador de hogar realista",
-          "description": "Modela cortes de luz, arranque del generador, producción solar y uso del aire acondicionado."
+          "title": "Control del hogar",
+          "description": "Cortinas motorizadas por 433 MHz, el aire acondicionado por la red local y cajas de TV con teclas de mando y volumen."
         },
         {
-          "title": "Demos listas para usar",
-          "description": "Cuatro escenarios muestran cortes y cambios de fuente sin ningún hardware."
+          "title": "Voz local",
+          "description": "Pulsar para hablar en la app del móvil. El reconocimiento de voz, la intención y la respuesta hablada se ejecutan en el hub, sin nube."
         },
         {
-          "title": "Aparatos por habitación",
-          "description": "Añade aparatos a cada habitación y ve cuánto cuesta usar cada uno."
+          "title": "Sensores de ambiente",
+          "description": "Lecturas de temperatura, humedad, presión, luz, gas y fugas de agua, con alertas push cuando algo va mal."
         },
         {
-          "title": "Historial y tendencias",
-          "description": "Desglose por hora y por día del coste y de la fuente de energía."
+          "title": "Se cuida solo",
+          "description": "El hub vigila su propia temperatura y su red, se recupera solo tras una caída y envía una alerta cuando lo hace."
         }
       ],
       "architecture": [
         {
-          "area": "Monorepo",
-          "detail": "Turborepo + pnpm: API NestJS 10 y app Expo SDK 54, un paquete compartido de Zod y costes como única fuente de verdad, y un paquete generador de datos."
+          "area": "Hub",
+          "detail": "Una Raspberry Pi 4 con Home Assistant en Docker y, encima, nuestro propio servidor TypeScript (Fastify y SQLite) con el que hablan la app y la pantalla."
         },
         {
-          "area": "Capa de datos",
-          "detail": "PostgreSQL 16 + TimescaleDB con Prisma 6; hypertable energy_readings con agregados continuos por hora y por día, compresión y retención."
+          "area": "Dispositivos",
+          "detail": "Placas ESP32 con ESPHome mueven las cortinas por 433 MHz y leen los sensores de ambiente. Los magnetotérmicos con Wi-Fi y medidor, el aire acondicionado y las cajas de TV se integran a través de Home Assistant."
         },
         {
-          "area": "Tiempo real",
-          "detail": "Gateway de Socket.io autenticado con JWT, con una sala por hogar y un adaptador de Redis 7; reconexión automática con aviso de sin conexión."
+          "area": "Apps",
+          "detail": "Una app Android en React Native y Expo con 5 pestañas, que se empareja con un código QR o un código escrito, y una pantalla táctil de pared servida por el hub. Fuera de casa, la app se conecta a través de un relé."
         },
         {
-          "area": "Autenticación",
-          "detail": "Passport JWT con bcrypt: tokens de acceso de 15 minutos y refresh tokens rotativos con hash y detección de robo por familia."
+          "area": "Voz",
+          "detail": "Speech to Phrase para pasar la voz a texto, intenciones de Home Assistant y Piper para las respuestas habladas, todo en la Pi."
         }
       ],
       "highlights": [
-        "Simulación determinista con semilla (climatización, solar, estado de carga de la batería) que genera 7205 lecturas al día en menos de 0,1 s",
-        "Constantes propias del Líbano que codifican los tramos de la red, las cuotas del generador, los umbrales de tensión y las horas de sol según la estación",
-        "Esquemas Zod compartidos entre backend y móvil, eliminando las diferencias entre cliente y servidor",
-        "Verificado de principio a fin contra contenedores reales de TimescaleDB y Redis en unos 38 endpoints"
-      ]
+        "La app del móvil y la pantalla de pared calculan el historial de consumo con las mismas reglas, unidas por una prueba compartida, así que muestran los mismos números",
+        "Las lecturas son honestas con sus límites: los magnetotérmicos informan a través de su fabricante solo unas pocas veces al día, y las pantallas lo dicen en lugar de simular datos en directo",
+        "Toda acción que corta la corriente o reinicia algo necesita un segundo toque, y el servidor solo acepta órdenes de una lista cerrada",
+        "Previsto: medición de toda la casa cada segundo con un PZEM-004T en un ESP32, y detección de red, generador o corte para que el termo de agua funcione solo con la red eléctrica",
+        "Previsto: placas para el generador y el tejado, niveles de los depósitos de agua y combustible, sondas del calentador solar de agua y puntos de voz en cada habitación"
+      ],
+      "companion": {
+        "title": "La pantalla de pared",
+        "summary": "Una pantalla táctil de 7 pulgadas en la pared muestra la misma casa de un vistazo: el consumo de cada circuito, un total de la casa con gráficas de 24 horas y 7 días, clima, TV y cortinas. Cada interruptor que corta la corriente pide antes un segundo toque."
+      }
     },
     "rag-regulation": {
       "title": "Preguntas sobre normativa UE",

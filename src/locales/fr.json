@@ -1328,78 +1328,88 @@
       ]
     },
     "sems-energy-management": {
-      "title": "SEMS : gestion intelligente de l'énergie",
-      "subtitle": "Une vue unique du réseau, du générateur, du solaire et de la batterie pour les foyers libanais",
-      "oneLiner": "Une application qui montre aux foyers libanais d'où vient leur électricité et ce qu'elle coûte.",
-      "description": "Beaucoup de foyers libanais passent du réseau au générateur, aux panneaux solaires et aux batteries au cours d'une même journée. SEMS montre en un seul endroit quelle source fonctionne, ce que consomme chaque appareil et ce que tout cela coûte.",
-      "challenge": "Les applications d'énergie supposent une alimentation unique et stable, ce qui ne correspond pas aux foyers libanais. Nous devions aussi valider l'idée avant d'acheter le moindre compteur.",
-      "approach": "Nous avons construit l'application mobile et son serveur, ainsi qu'un simulateur réaliste du cycle électrique quotidien d'un foyer libanais. Il permet de montrer coupures, recours au générateur et journées ensoleillées sans aucun matériel installé.",
-      "results": "La première version fonctionnelle est terminée : connexion, tableau de bord en direct, appareils par pièce, coût par source d'énergie et quatre scénarios de démonstration. Le raccordement de vrais compteurs est la prochaine étape.",
-      "role": "Architecture, conception et développement",
+      "title": "SEMS : gestion de l'énergie",
+      "subtitle": "Consommation par circuit, pilotage de la maison et voix en local pour les foyers au Liban, sur un seul petit boîtier",
+      "oneLiner": "Un petit boîtier domestique qui montre ce que consomme chaque circuit et garde la commande et la voix à l'intérieur de la maison.",
+      "description": "Les foyers libanais passent chaque jour du réseau au groupe électrogène, puis aux coupures. SEMS est un petit boîtier installé dans la maison. Il lit chaque circuit mesuré et commande rideaux, climatisation et téléviseurs depuis une appli mobile, un écran mural ou la voix.",
+      "previewAlt": "Écran d'accueil de l'appli SEMS avec les commandes de consommation, de température et de rideaux",
+      "seoDescription": "SEMS est un boîtier domestique pour le Liban : consommation par circuit, rideaux, clim et TV depuis une appli ou un écran mural, voix en local.",
+      "challenge": "Au Liban, le courant du réseau va et vient, et internet part souvent avec lui. La commande et la voix doivent y fonctionner hors ligne, le système doit repartir seul après une coupure, et la consommation doit s'afficher par circuit, pas comme un seul total pour la maison.",
+      "approach": "Nous avons construit un boîtier sur Raspberry Pi, avec Home Assistant en dessous. Par-dessus, nous avons écrit notre propre serveur, une appli Android appairée par QR code et un écran mural tactile de 7 pouces. La reconnaissance vocale, les intentions et les réponses parlées tournent toutes sur le boîtier, qui surveille aussi sa température et son réseau et se répare seul.",
+      "results": "SEMS tourne dans une installation pilote : 7 circuits mesurés avec historique quotidien et hebdomadaire, 3 rideaux motorisés, la climatisation, 2 boîtiers TV, des capteurs de pièce et la voix en appui long depuis le téléphone. Pour l'instant, les mesures des circuits arrivent quelques fois par jour : elles ne sont pas en direct. Prévu ensuite : une mesure de toute la maison à la seconde et la détection de la source d'énergie, pour que les charges lourdes ne tournent que sur le réseau. Les captures d'écran montrent des données de démonstration.",
+      "role": "Matériel, architecture, conception et développement",
       "metrics": [
         {
-          "value": "4",
-          "label": "Sources d'énergie en une vue"
+          "value": "7",
+          "label": "Circuits mesurés",
+          "basis": "watts, volts, ampères et kWh pour chacun"
         },
         {
-          "value": "14",
-          "label": "Types d'appareils"
+          "value": "3",
+          "label": "Façons de le piloter",
+          "basis": "appli mobile, écran mural et voix"
         },
         {
-          "value": "4",
-          "label": "Scénarios de démonstration"
+          "value": "0",
+          "label": "Service cloud pour la voix",
+          "basis": "la reconnaissance et les réponses tournent sur le boîtier"
         }
       ],
       "keyFeatures": [
         {
-          "title": "Un tableau de bord en direct",
-          "description": "Affiche la source active, la consommation actuelle, le coût du jour et les plus gros consommateurs."
+          "title": "Consommation par circuit",
+          "description": "Watts, volts, ampères et kWh pour chaque circuit mesuré, un total pour la maison, et des graphiques sur 24 heures et 7 jours avec les kWh par jour."
         },
         {
-          "title": "Coût par source d'énergie",
-          "description": "Chaque unité est tarifée selon les vrais tarifs du réseau, les frais de générateur, le solaire et la batterie."
+          "title": "Commutation sécurisée",
+          "description": "Chaque circuit peut être allumé ou coupé depuis l'appli ou le mur, toujours avec une étape de confirmation avant."
         },
         {
-          "title": "Un simulateur de foyer réaliste",
-          "description": "Modélise les coupures, le démarrage du générateur, la production solaire et la climatisation."
+          "title": "Pilotage de la maison",
+          "description": "Rideaux motorisés en 433 MHz, climatisation via le réseau local, et boîtiers TV avec touches de télécommande et volume."
         },
         {
-          "title": "Des démos prêtes à l'emploi",
-          "description": "Quatre scénarios montrent coupures et changements de source sans aucun matériel."
+          "title": "Voix en local",
+          "description": "Appui long dans l'appli du téléphone. La reconnaissance vocale, l'intention et la réponse parlée tournent sur le boîtier, sans cloud."
         },
         {
-          "title": "Appareils par pièce",
-          "description": "Ajoutez des appareils dans chaque pièce et voyez ce que chacun coûte à faire fonctionner."
+          "title": "Capteurs de pièce",
+          "description": "Mesures de température, d'humidité, de pression, de lumière, de gaz et de fuite d'eau, avec des alertes push en cas de problème."
         },
         {
-          "title": "Historique et tendances",
-          "description": "Détail horaire et quotidien du coût et de la source d'énergie."
+          "title": "Se surveille lui-même",
+          "description": "Le boîtier surveille sa température et son réseau, repart seul après une panne et envoie une alerte quand cela arrive."
         }
       ],
       "architecture": [
         {
-          "area": "Monorepo",
-          "detail": "Turborepo + pnpm : API NestJS 10 et application Expo SDK 54, un package partagé Zod et calcul des coûts comme source unique de vérité, et un package générateur de données."
+          "area": "Boîtier",
+          "detail": "Un Raspberry Pi 4 qui fait tourner Home Assistant dans Docker, avec notre propre serveur TypeScript (Fastify et SQLite) par-dessus, auquel l'appli et l'écran se connectent."
         },
         {
-          "area": "Couche de données",
-          "detail": "PostgreSQL 16 + TimescaleDB via Prisma 6 ; hypertable energy_readings avec agrégats continus horaires et quotidiens, compression et rétention."
+          "area": "Appareils",
+          "detail": "Des cartes ESP32 sous ESPHome commandent les rideaux en 433 MHz et lisent les capteurs de pièce. Les disjoncteurs Wi-Fi mesurés, la climatisation et les boîtiers TV rejoignent le système via Home Assistant."
         },
         {
-          "area": "Temps réel",
-          "detail": "Passerelle Socket.io authentifiée par JWT avec une room par foyer et un adaptateur Redis 7 ; reconnexion automatique avec bandeau hors ligne."
+          "area": "Applis",
+          "detail": "Une appli Android en React Native et Expo avec 5 onglets, appairée par QR code ou par un code saisi, et un écran mural tactile servi par le boîtier. Hors de la maison, l'appli se connecte via un relais."
         },
         {
-          "area": "Authentification",
-          "detail": "Passport JWT avec bcrypt : jetons d'accès de 15 minutes, refresh tokens hachés et renouvelés avec détection de vol par famille."
+          "area": "Voix",
+          "detail": "Speech to Phrase pour la reconnaissance vocale, les intentions de Home Assistant et Piper pour les réponses parlées, le tout sur le Pi."
         }
       ],
       "highlights": [
-        "Simulation déterministe et paramétrable (climatisation, solaire, état de charge de la batterie) générant 7 205 relevés par jour en moins de 0,1s",
-        "Des constantes propres au Liban encodent les tranches du réseau, les frais de générateur, les seuils de tension et l'ensoleillement saisonnier",
-        "Schémas Zod partagés entre backend et mobile, ce qui élimine les écarts entre client et serveur",
-        "Vérifié de bout en bout sur des conteneurs TimescaleDB et Redis réels, sur environ 38 endpoints"
-      ]
+        "L'appli du téléphone et l'écran mural calculent l'historique de consommation avec les mêmes règles, garanties par un test partagé, si bien que les deux affichent les mêmes chiffres",
+        "Les mesures restent honnêtes sur leurs limites : les disjoncteurs ne remontent leurs données via leur fabricant que quelques fois par jour, et les écrans l'indiquent au lieu de simuler des données en direct",
+        "Toute action qui coupe le courant ou redémarre quelque chose demande un second appui, et le serveur n'accepte que les commandes d'une liste autorisée fixe",
+        "Prévu : une mesure de toute la maison à la seconde avec un PZEM-004T sur un ESP32, et la détection du réseau, du groupe électrogène ou d'une coupure pour que le chauffe-eau ne tourne que sur le réseau",
+        "Prévu : des cartes pour le groupe électrogène et le toit, les niveaux des réservoirs d'eau et de carburant, des sondes pour le chauffe-eau solaire et des points vocaux dans chaque pièce"
+      ],
+      "companion": {
+        "title": "L'écran mural",
+        "summary": "Un écran tactile de 7 pouces au mur montre la même maison d'un coup d'œil : consommation de chaque circuit, total de la maison avec graphiques sur 24 heures et 7 jours, climat, TV et rideaux. Chaque interrupteur qui coupe le courant demande d'abord un second appui."
+      }
     },
     "rag-regulation": {
       "title": "Q&R sur la réglementation UE",

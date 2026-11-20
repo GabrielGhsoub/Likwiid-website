@@ -41,6 +41,7 @@ const REQUIRED_PAGES = {
       [`${lang}/work/plateclimb`, lang],
       [`${lang}/work/woop`, lang],
       [`${lang}/work/rag-regulation`, lang],
+      [`${lang}/work/sems-energy-management`, lang],
       [`${lang}/work/parallel`, lang],
       [`${lang}/guides`, lang],
     ])
@@ -54,6 +55,7 @@ const REQUIRED_PAGES = {
   'work/plateclimb': 'en',
   'work/woop': 'en',
   'work/rag-regulation': 'en',
+  'work/sems-energy-management': 'en',
   'work/parallel': 'en',
   // Open source apps page, in every language.
   ...Object.fromEntries(['en', 'pt', 'es', 'it', 'fr'].map((lang) => [lang === 'en' ? 'open-source' : `${lang}/open-source`, lang])),

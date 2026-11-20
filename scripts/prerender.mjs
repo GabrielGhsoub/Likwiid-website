@@ -93,8 +93,8 @@ const caseStudies = {
   },
   'sems-energy-management': {
     description:
-      'An app showing Lebanese homes where their power comes from and what it costs: grid, generator, solar and batteries in one view.',
-    heading: 'SEMS: Smart Energy Management',
+      'SEMS is a home hub for Lebanon: power per circuit, curtains, AC and TVs from an app or wall screen, and voice that runs locally.',
+    heading: 'SEMS: Smart Energy Management System',
   },
 }
 
@@ -190,7 +190,7 @@ for (const lang of LANGUAGES) {
 // Case studies with a localized URL in every language (/pt/work/padel-booking/, ...); the rest
 // are English only. Their translated title and description come from projectsData.<slug>.
 // Keep in sync with LOCALIZED_CASE_STUDIES in src/i18n/localeRoutes.ts and public/sitemap.xml.
-const LOCALIZED_CASE_STUDIES = ['parallel', 'padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb', 'woop', 'rag-regulation']
+const LOCALIZED_CASE_STUDIES = ['parallel', 'padel-booking', 'escuela-nautica-valencia', 'basemile', 'plateclimb', 'woop', 'rag-regulation', 'sems-energy-management']
 const caseStudyTitle = (lang, heading) => locales[lang].caseStudy.docTitle.replace('{{title}}', heading)
 
 // Open source case studies: their structured data says where the code lives and under which licence.
@@ -455,6 +455,7 @@ const OG_IMAGES = {
   'work/plateclimb': 'og-plateclimb.png',
   'work/woop': 'og-woop.png',
   'work/rag-regulation': 'og-rag-regulation.png',
+  'work/sems-energy-management': 'og-sems.png',
   'work/parallel': 'og-parallel.png',
 }
 const ogImageUrl = (path, meta) =>
